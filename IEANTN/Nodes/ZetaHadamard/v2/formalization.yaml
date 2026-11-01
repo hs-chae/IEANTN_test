@@ -1,0 +1,64 @@
+version: v0.4
+project:
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+  name: QRH supplies nonvanishing to the existing ZetaHadamard identity
+  description: QRH supplies nonvanishing to the existing ZetaHadamard identity
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+automation:
+  methods:
+  - method: manual
+    role: Lean proofs, rational exponential bounds, exact challenge/solution comparison,
+      and downstream replay.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+node:
+  id: ZetaHadamard.v2
+  family: ZetaHadamard
+  version: v2
+  kind: pipeline
+  status: active
+conclusions:
+- id: halfplane_partial_fractions
+  declaration: ZetaHadamard.v2.halfplane_partial_fractions
+  challenge: ZetaHadamard.v2.challenge_halfplane_partial_fractions
+  imports:
+  - node: OpenAIQRH.v1
+    conclusion: zeta_seven_eighths
+  - node: ZetaHadamard.v1
+    conclusion: logDeriv_partial_fractions
+  imports_status: identified
+  justifications:
+  - id: core-bridge
+    kind: bridged
+    from:
+    - OpenAIQRH.v1.zeta_seven_eighths
+    - ZetaHadamard.v1.logDeriv_partial_fractions
+    bridge: IEANTN/Bridges/QRH/Identities.lean
+    note: Lean implication in the ordinary core build; exact input list remains explicit.
+  designated: core-bridge
+sources:
+- id: QRHExperiment
+  title: 'QRH maximum propagation: derived proof interfaces'
+  authors:
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: New derived implications from explicit existing node statements. No novelty
+    or optimality is claimed; paper inputs retain their original source boundary.
+limitations:
+- No official workflow receipt is claimed.
+- The underlying OpenAI QRH and original literature premises remain explicit network
+  inputs.

@@ -39,6 +39,14 @@ class TestSpinoffLayout(FixtureRepo):
         self.assertIn("namespace A.v1\n", (target / "Challenge.lean").read_text())
         self.assertIn("end A.v1\n", (target / "Challenge.lean").read_text())
 
+    def test_namespaces_exist_before_module_opens(self):
+        target = self.emit()
+        challenge = (target / "Challenge.lean").read_text()
+        # Empty namespaces make opens independent of constant-dependency order.
+        prelude = "namespace A.v1\nend A.v1\n"
+        self.assertIn(prelude, challenge)
+        self.assertLess(challenge.index(prelude), challenge.index("def main : Prop"))
+
     def test_fully_qualified_definition_does_not_emit_unmatched_end(self):
         target = self.emit(global_name=True)
         challenge = (target / "Challenge.lean").read_text()

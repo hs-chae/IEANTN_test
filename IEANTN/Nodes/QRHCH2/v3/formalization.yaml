@@ -1,0 +1,110 @@
+version: v0.4
+project:
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+  name: Verified QRH to PNT to short prime intervals
+  description: Proved numerical applications of CH2.v7, with a replay of the existing
+    PrimeInterval.v1 consumer.
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+automation:
+  methods:
+  - method: manual
+    role: Lean proofs, rational exponential bounds, exact challenge/solution comparison, and
+      downstream replay.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+node:
+  id: QRHCH2.v3
+  family: QRHCH2
+  version: v3
+  kind: pipeline
+  status: active
+conclusions:
+- id: psi_numerical_bound
+  declaration: QRHCH2.v3.psi_numerical_bound
+  challenge: QRHCH2.v3.challenge_psi_numerical_bound
+  imports:
+  - node: CH2.v7
+    conclusion: finite_transfer
+  - node: OpenAIQRH.v1
+    conclusion: zeta_seven_eighths
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Complete local Lean proof is supplied in Solutions/QRHCH2.v3/Solution.lean; official CI
+      Comparator receipt remains pending publication.
+  designated: solution
+  progress:
+    solution: Solutions/QRHCH2.v3/
+    state: in-progress
+    remaining_holes: 0
+- id: theta_numerical_bound
+  declaration: QRHCH2.v3.theta_numerical_bound
+  challenge: QRHCH2.v3.challenge_theta_numerical_bound
+  imports:
+  - node: QRHCH2.v3
+    conclusion: psi_numerical_bound
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Complete local Lean proof is supplied in Solutions/QRHCH2.v3/Solution.lean; official CI
+      Comparator receipt remains pending publication.
+  designated: solution
+  progress:
+    solution: Solutions/QRHCH2.v3/
+    state: in-progress
+    remaining_holes: 0
+- id: short_prime_interval
+  declaration: QRHCH2.v3.short_prime_interval
+  challenge: QRHCH2.v3.challenge_short_prime_interval
+  imports:
+  - node: QRHCH2.v3
+    conclusion: theta_numerical_bound
+  - node: PrimeInterval.v1
+    conclusion: eTheta_criterion
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Complete local Lean proof is supplied in Solutions/QRHCH2.v3/Solution.lean; official CI
+      Comparator receipt remains pending publication.
+  designated: solution
+  progress:
+    solution: Solutions/QRHCH2.v3/
+    state: in-progress
+    remaining_holes: 0
+sources:
+- id: VerifiedQRHCH2
+  title: Formalized free-height QRH–CH2 transfer and numerical downstream replay
+  authors:
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: CH2.v7 plus NumericEnvelope proves these constants without a numerical oracle or assumed
+    density transfer; novelty is not claimed.
+- id: CH2
+  title: Optimal bounds for sums of non-negative arithmetic functions
+  authors:
+  - Andrés Chirre
+  - Harald Andrés Helfgott
+  type: paper
+  relationship: background
+  url: https://arxiv.org/abs/2512.15709v1
+limitations:
+- The QRH source theorem is a named input; its OpenAI Lean project has not been locally replayed.
+- The older optimized densityFrontier is not certified by these results.
+- No upstream Comparator receipt or global optimality claim.

@@ -7,8 +7,10 @@ import IEANTN.Vocabulary.PrimeCounting
 import IEANTN.Vocabulary.ErrorTerms
 import IEANTN.Vocabulary.Goldbach
 import IEANTN.Vocabulary.Numerics
+import IEANTN.Vocabulary.PowerError
 import IEANTN.Vocabulary.PrimeGaps
 import IEANTN.Vocabulary.Zeta
+import IEANTN.Vocabulary.ZeroFreeHalfPlane
 
 /-!
 # IEANTN Vocabulary

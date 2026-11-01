@@ -1,0 +1,130 @@
+version: v0.4
+project:
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+  name: QRH through zero counts, analytic domains and verified-height descent
+  description: QRH through zero counts, analytic domains and verified-height descent
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+automation:
+  methods:
+  - method: manual
+    role: Lean proofs, rational exponential bounds, exact challenge/solution comparison,
+      and downstream replay.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+node:
+  id: QRHConsequences.v1
+  family: QRHConsequences
+  version: v1
+  kind: pipeline
+  status: active
+conclusions:
+- id: density_vanishes
+  declaration: QRHConsequences.v1.density_vanishes
+  challenge: QRHConsequences.v1.challenge_density_vanishes
+  imports:
+  - node: OpenAIQRH.v1
+    conclusion: zeta_seven_eighths
+  - node: ZeroFreeHalfPlane.v1
+    conclusion: density_vanishes
+  imports_status: identified
+  justifications:
+  - id: core-bridge
+    kind: bridged
+    from:
+    - OpenAIQRH.v1.zeta_seven_eighths
+    - ZeroFreeHalfPlane.v1.density_vanishes
+    bridge: IEANTN/Bridges/QRH/Consequences.lean
+    note: Lean implication in the ordinary core build; exact input list remains explicit.
+  designated: core-bridge
+- id: reciprocal_differentiable
+  declaration: QRHConsequences.v1.reciprocal_differentiable
+  challenge: QRHConsequences.v1.challenge_reciprocal_differentiable
+  imports:
+  - node: OpenAIQRH.v1
+    conclusion: zeta_seven_eighths
+  - node: ZeroFreeHalfPlane.v1
+    conclusion: reciprocal_differentiable
+  imports_status: identified
+  justifications:
+  - id: core-bridge
+    kind: bridged
+    from:
+    - OpenAIQRH.v1.zeta_seven_eighths
+    - ZeroFreeHalfPlane.v1.reciprocal_differentiable
+    bridge: IEANTN/Bridges/QRH/Consequences.lean
+    note: Lean implication in the ordinary core build; exact input list remains explicit.
+  designated: core-bridge
+- id: classical_region
+  declaration: QRHConsequences.v1.classical_region
+  challenge: QRHConsequences.v1.challenge_classical_region
+  imports:
+  - node: OpenAIQRH.v1
+    conclusion: zeta_seven_eighths
+  - node: ZeroFreeHalfPlane.v1
+    conclusion: classical_region
+  - node: ZeroFreeHeight.v1
+    conclusion: classical_region_descends
+  - node: PlattTrudgian.v1
+    conclusion: rh_up_to
+  imports_status: identified
+  justifications:
+  - id: core-bridge
+    kind: bridged
+    from:
+    - OpenAIQRH.v1.zeta_seven_eighths
+    - ZeroFreeHalfPlane.v1.classical_region
+    - ZeroFreeHeight.v1.classical_region_descends
+    - PlattTrudgian.v1.rh_up_to
+    bridge: IEANTN/Bridges/QRH/Consequences.lean
+    note: Lean implication in the ordinary core build; exact input list remains explicit.
+  designated: core-bridge
+- id: all_height_classical_region
+  declaration: QRHConsequences.v1.all_height_classical_region
+  challenge: QRHConsequences.v1.challenge_all_height_classical_region
+  imports:
+  - node: OpenAIQRH.v1
+    conclusion: zeta_seven_eighths
+  - node: ZeroFreeHalfPlane.v1
+    conclusion: classical_region
+  - node: ZeroFreeHeight.v1
+    conclusion: classical_region_descends
+  - node: PlattTrudgian.v1
+    conclusion: rh_up_to
+  imports_status: identified
+  justifications:
+  - id: core-bridge
+    kind: bridged
+    from:
+    - OpenAIQRH.v1.zeta_seven_eighths
+    - ZeroFreeHalfPlane.v1.classical_region
+    - ZeroFreeHeight.v1.classical_region_descends
+    - PlattTrudgian.v1.rh_up_to
+    bridge: IEANTN/Bridges/QRH/Consequences.lean
+    note: Lean implication in the ordinary core build; exact input list remains explicit.
+  designated: core-bridge
+sources:
+- id: QRHExperiment
+  title: 'QRH maximum propagation: derived proof interfaces'
+  authors:
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: New derived implications from explicit existing node statements. No novelty
+    or optimality is claimed; paper inputs retain their original source boundary.
+limitations:
+- No official workflow receipt is claimed.
+- The underlying OpenAI QRH and original literature premises remain explicit network
+  inputs.

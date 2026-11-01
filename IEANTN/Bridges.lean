@@ -3,6 +3,7 @@ Copyright (c) 2026 IEANTN contributors. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Terence Tao
 -/
+import IEANTN.Bridges.DudekPlatt.QRH
 import IEANTN.Bridges.DudekPlatt.V4ToV1
 import IEANTN.Bridges.DudekPlattNumerics.V4ToV3
 import IEANTN.Bridges.FKS.ClassicalToAllX
@@ -10,6 +11,12 @@ import IEANTN.Bridges.FKS.ThresholdTwo
 import IEANTN.Bridges.Lcm.V2ToV1
 import IEANTN.Bridges.Platt.P2017ToP2015
 import IEANTN.Bridges.Platt.P2017ToWedeniwski
+import IEANTN.Bridges.QRH.Consequences
+import IEANTN.Bridges.QRH.ExistingRegions
+import IEANTN.Bridges.QRH.Geometry
+import IEANTN.Bridges.QRH.Identities
+import IEANTN.Bridges.QRHCH2.Compose
+import IEANTN.Bridges.QRHCH2.Optimize
 import IEANTN.Bridges.RosserSchoenfeld.ToClassical
 
 /-!

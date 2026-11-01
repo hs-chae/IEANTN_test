@@ -4446,10 +4446,16 @@ def spinoff(key: str, out: str, compile_check: bool) -> bool:
         module for path in {module_path(m) for m in sources}
         for module in imports_of(path) if under(module, "Mathlib")})
 
-    blocks: list[str] = []
+    sliced = [(decl, *slice_source(sources[decl["module"]], decl, decl["name"]))
+              for decl in declarations]
+    # Constant dependencies order definitions, but not `open` directives. A target can open
+    # a vocabulary namespace whose first selected definition belongs to a later hypothesis.
+    # Introduce every inlined namespace before restoring the original per-module opens.
+    namespaces = sorted({namespace for _, _, namespace in sliced if namespace})
+    blocks: list[str] = [f"namespace {namespace}\nend {namespace}\n\n"
+                         for namespace in namespaces]
     current: tuple[str, str] | None = None
-    for decl in declarations:
-        body, namespace = slice_source(sources[decl["module"]], decl, decl["name"])
+    for decl, body, namespace in sliced:
         here = (decl["module"], namespace)
         if here != current:
             if current is not None and current[1]:

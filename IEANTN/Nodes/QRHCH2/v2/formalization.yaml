@@ -1,0 +1,102 @@
+version: v0.4
+project:
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+  name: 'QRH plus optimized CH2: paired bound and log-free frontier'
+  description: 'QRH plus optimized CH2: paired bound and log-free frontier'
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+automation:
+  methods:
+  - method: manual
+    role: Source research, written analytic derivation, numerical interval checks and conditional composition.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+node:
+  id: QRHCH2.v2
+  family: QRHCH2
+  version: v2
+  kind: pipeline
+  status: active
+conclusions:
+- id: psi_paired_bound
+  declaration: QRHCH2.v2.psi_paired_bound
+  challenge: QRHCH2.v2.challenge_psi_paired_bound
+  imports:
+  - node: OpenAIQRH.v1
+    conclusion: zeta_seven_eighths
+  - node: CH2.v6
+    conclusion: paired_transfer
+  imports_status: identified
+  justifications:
+  - id: composition
+    kind: bridged
+    from:
+    - CH2.v6.paired_transfer
+    bridge: IEANTN/Bridges/QRHCH2/Optimize.lean
+  designated: composition
+- id: psi_density_frontier
+  declaration: QRHCH2.v2.psi_density_frontier
+  challenge: QRHCH2.v2.challenge_psi_density_frontier
+  imports:
+  - node: OpenAIQRH.v1
+    conclusion: zeta_seven_eighths
+  - node: CH2.v6
+    conclusion: density_transfer
+  - node: FKS.v3
+    conclusion: density_0618
+  - node: PlattTrudgian.v1
+    conclusion: rh_up_to
+  imports_status: identified
+  justifications:
+  - id: composition
+    kind: bridged
+    from:
+    - CH2.v6.density_transfer
+    bridge: IEANTN/Bridges/QRHCH2/Optimize.lean
+  designated: composition
+- id: psi_density_hybrid
+  declaration: QRHCH2.v2.psi_density_hybrid
+  challenge: QRHCH2.v2.challenge_psi_density_hybrid
+  imports:
+  - node: QRHCH2.v2
+    conclusion: psi_density_frontier
+  - node: CH2.v1
+    conclusion: corollary_1_3_psi
+  imports_status: identified
+  justifications:
+  - id: composition
+    kind: bridged
+    from:
+    - QRHCH2.v2.psi_density_frontier
+    - CH2.v1.corollary_1_3_psi
+    bridge: IEANTN/Bridges/QRHCH2/Optimize.lean
+  designated: composition
+sources:
+- id: OptimizedCH2
+  title: Optimized QRH consequences of the CH2 finite formula
+  authors:
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: Original written derivation retained. Its paired and density transfers now have complete local
+    Lean proofs, including all twelve density rows. FKS/HPY source proofs remain literature-backed; no
+    novelty or optimality claim.
+limitations:
+- Complete local Lean composition with the proved original CH2.v6 transfers and actual pinned OpenAI QRH
+  replay. All original frontier and hybrid contracts are preserved.
+- The density branch retains FKS.v3 density and PlattTrudgian finite RH; the hybrid also retains the original
+  CH2.v1 psi bound. Original FKS/HPY proofs remain literature inputs.
+- Official IEANTN verification receipts and publication are separate and pending. No best-known or optimality
+  claim.

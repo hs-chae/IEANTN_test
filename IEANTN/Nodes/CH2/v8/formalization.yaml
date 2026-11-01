@@ -1,0 +1,100 @@
+version: v0.4
+project:
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+  name: Formalized paired fixed-half-plane CH2 transfer
+  description: The original one-over-384 paired contract, proved for its entire exp128 ray from the
+    actual CH2 ingredients.
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+automation:
+  methods:
+  - method: manual
+    role: Lean formalization reusing the CH2.v1 solution and elementary zero counts; parameterized
+      downstream reuse.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+node:
+  id: CH2.v8
+  family: CH2
+  version: v8
+  kind: pipeline
+  status: active
+conclusions:
+- id: paired_transfer
+  declaration: CH2.v8.paired_transfer
+  challenge: CH2.v8.challenge_paired_transfer
+  imports:
+  - node: CH2.v2
+    conclusion: proposition_2_4_upper
+  - node: CH2.v2
+    conclusion: proposition_2_4_lower
+  - node: ZeroCount.v1
+    conclusion: rvm_error_bound
+  - node: ZeroCount.v1
+    conclusion: rvm_error_small
+  - node: ZetaHadamard.v1
+    conclusion: logDeriv_partial_fractions
+  - node: ZetaLogDeriv.v1
+    conclusion: logDeriv_functional_equation
+  - node: ZetaLogDerivValues.v1
+    conclusion: logDeriv_two
+  - node: ZetaLogDerivValues.v1
+    conclusion: logDeriv_three_halves
+  - node: ZetaLogDerivValues.v1
+    conclusion: logDeriv_neg_one
+  - node: ZetaLogDerivValues.v1
+    conclusion: logDeriv_laurent_alternating
+  - node: GammaAsymptotics.v2
+    conclusion: digamma_sub_log_isBigO_strip
+  - node: CotangentSeries.v1
+    conclusion: cot_series_zeta_values
+  - node: LowZeroes.v1
+    conclusion: no_zeroes_below_first_ordinate
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Complete paired proof in Solutions/CH2.v8/Solution.lean; actual local Comparator, NanoDa
+      and default Lean kernel passed; official publication/CI receipt remains pending.
+  designated: solution
+  progress:
+    solution: Solutions/CH2.v8/
+    state: in-progress
+    remaining_holes: 0
+sources:
+- id: CH2
+  title: Optimal bounds for sums of non-negative arithmetic functions
+  authors:
+  - Andrés Chirre
+  - Harald Andrés Helfgott
+  type: paper
+  relationship: background
+  url: https://arxiv.org/abs/2512.15709v1
+  note: 'General finite formula: Theorem 1.1 and the Appendix B logarithmic-derivative/contour estimates.
+    Not the finite-height RH specialization in Corollary 1.3. The exported free-height/paired/refined
+    envelope is derived here rather than asserted to be the paper''s displayed statement.'
+- id: FixedHalfPlaneTransfer
+  title: Lean derivation of the free-height fixed-half-plane CH2 transfer
+  authors:
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: 'Solutions/CH2.v7: GeneralTitch, SeparatedHeight, GeneralHorizontal, ZeroWeights, ZeroCount, Spectral,
+    FiniteTransfer, PsiError; ZeroSymmetry, PairedSpectral, PairedTransfer, PairedError, PairedEnvelope,
+    PairedResult. No assumed new PNT transfer.'
+limitations:
+- Official upstream CI receipt remains pending.
+- The densityFrontier is a separate unformalized claim.
+- The global QRH statement is an explicit source input to the transfer.

@@ -1,0 +1,125 @@
+version: v0.4
+project:
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+  name: Refined paired QRH PNT and prime intervals
+  description: A formalized refined paired power bound and improved numerical prime-interval replay.
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+automation:
+  methods:
+  - method: manual
+    role: Lean proofs, rational exponential bounds, exact challenge/solution comparison, and
+      downstream replay.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+node:
+  id: QRHCH2.v5
+  family: QRHCH2
+  version: v5
+  kind: pipeline
+  status: active
+conclusions:
+- id: psi_refined_bound
+  declaration: QRHCH2.v5.psi_refined_bound
+  challenge: QRHCH2.v5.challenge_psi_refined_bound
+  imports:
+  - node: CH2.v9
+    conclusion: refined_transfer
+  - node: OpenAIQRH.v1
+    conclusion: zeta_seven_eighths
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Complete local Lean proof in Solutions/QRHCH2.v5/Solution.lean; actual local Comparator,
+      NanoDa and default Lean kernel passed; official CI receipt remains pending.
+  designated: solution
+  progress:
+    solution: Solutions/QRHCH2.v5/
+    state: in-progress
+    remaining_holes: 0
+- id: psi_numerical_bound
+  declaration: QRHCH2.v5.psi_numerical_bound
+  challenge: QRHCH2.v5.challenge_psi_numerical_bound
+  imports:
+  - node: QRHCH2.v5
+    conclusion: psi_refined_bound
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Complete local Lean proof in Solutions/QRHCH2.v5/Solution.lean; actual local Comparator,
+      NanoDa and default Lean kernel passed; official CI receipt remains pending.
+  designated: solution
+  progress:
+    solution: Solutions/QRHCH2.v5/
+    state: in-progress
+    remaining_holes: 0
+- id: theta_numerical_bound
+  declaration: QRHCH2.v5.theta_numerical_bound
+  challenge: QRHCH2.v5.challenge_theta_numerical_bound
+  imports:
+  - node: QRHCH2.v5
+    conclusion: psi_numerical_bound
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Complete local Lean proof in Solutions/QRHCH2.v5/Solution.lean; actual local Comparator,
+      NanoDa and default Lean kernel passed; official CI receipt remains pending.
+  designated: solution
+  progress:
+    solution: Solutions/QRHCH2.v5/
+    state: in-progress
+    remaining_holes: 0
+- id: short_prime_interval
+  declaration: QRHCH2.v5.short_prime_interval
+  challenge: QRHCH2.v5.challenge_short_prime_interval
+  imports:
+  - node: QRHCH2.v5
+    conclusion: theta_numerical_bound
+  - node: PrimeInterval.v1
+    conclusion: eTheta_criterion
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Complete local Lean proof in Solutions/QRHCH2.v5/Solution.lean; actual local Comparator,
+      NanoDa and default Lean kernel passed; official CI receipt remains pending.
+  designated: solution
+  progress:
+    solution: Solutions/QRHCH2.v5/
+    state: in-progress
+    remaining_holes: 0
+sources:
+- id: VerifiedQRHCH2
+  title: Formalized free-height QRH–CH2 transfer and numerical downstream replay
+  authors:
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: CH2.v9 plus Solutions/CH2.v7/RefinedEnvelope proves these constants without a numerical
+    oracle or assumed density transfer; novelty is not claimed.
+- id: CH2
+  title: Optimal bounds for sums of non-negative arithmetic functions
+  authors:
+  - Andrés Chirre
+  - Harald Andrés Helfgott
+  type: paper
+  relationship: background
+  url: https://arxiv.org/abs/2512.15709v1
+limitations:
+- Official publication/CI receipt remains pending.
+- The densityFrontier is separate from this proved paired bound.

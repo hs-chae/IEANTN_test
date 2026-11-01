@@ -1,0 +1,64 @@
+# New additive node; no existing statement or receipt is changed.
+version: v0.4
+project:
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+  name: 'OpenAI QRH: the zeta seven-eighths half-plane'
+  description: The zeta specialization of the September 30, 2026 Theorem 1.1. The half-plane is open
+    and the meromorphic pole is explicitly excluded.
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+automation:
+  methods:
+  - method: manual
+    role: Source transcription, pinned upstream Lean replay, and a same-predicate Lean bridge.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+node:
+  id: OpenAIQRH.v1
+  family: OpenAIQRH
+  version: v1
+  kind: paper
+  status: active
+conclusions:
+- id: zeta_seven_eighths
+  declaration: OpenAIQRH.v1.zeta_seven_eighths
+  challenge: OpenAIQRH.v1.challenge_zeta_seven_eighths
+  imports: []
+  imports_status: traced
+  justifications:
+  - id: written-proof
+    kind: literature
+    note: Accepted here as a cited unrefereed preprint. The pinned upstream Lean proof has been replayed locally with Lean 4.34.1 and its exact
+      published dependency patches; a bridge proves this exact predicate in that source environment. The original upstream
+      challenge also passed local Comparator, NanoDa and the default Lean kernel.
+      An official IEANTN verification-workflow receipt remains pending. Its metaplectic-theta inputs
+      are outside the current node graph.
+    source: OpenAIQRH20260930
+    locator: Theorem 1.1, PDF page 4
+  designated: written-proof
+sources:
+- id: OpenAIQRH20260930
+  title: 'The Quasi-Riemann Hypothesis: A Zero-Free Half-Plane Re(s)>7/8'
+  authors:
+  - OpenAI
+  type: paper
+  relationship: formalizes
+  url: https://github.com/openai/math/blob/7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/paper.pdf
+  note: September 30, 2026; Theorem 1.1, page 4. PDF SHA256 8fe93046f8cf5ef1ba5969c89addc02d76311adc4ee907509ff9cd96f7ec99e7.
+limitations:
+- Only the zeta claim is recorded. No Dirichlet, Hecke, or later-application claim is included.
+- This literature designation is not an IEANTN Comparator receipt or an independent audit of the 199-page
+  proof.
+- The local upstream replay uses Lean 4.34.1 and its own pinned mathlib; the main IEANTN checkout uses Lean 4.34.0-rc2. No cross-toolchain compiled proof import is claimed.
