@@ -1,0 +1,60 @@
+version: v0.4
+project:
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+  name: FKS2 application with QRH coefficient input
+  description: Same frozen FKS2 application at L=300; only the A literal changes.
+    Explicit reciprocal-A transport of the source-derived summation-stability error,
+    checked source execution and finite output transport certificate.
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+automation:
+  methods:
+  - method: manual
+    role: Lean proofs, rational exponential bounds, exact challenge/solution comparison,
+      and downstream replay.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+node:
+  id: FKS2Numerics.v4
+  family: FKS2Numerics
+  version: v4
+  kind: computation
+  status: active
+conclusions:
+- id: updated_bound
+  declaration: FKS2Numerics.v4.updated_bound
+  challenge: FKS2Numerics.v4.challenge_updated_bound
+  imports: []
+  imports_status: none
+  justifications:
+  - id: source-verified
+    kind: lean-noncompliant
+    note: Closed source execution plus explicit reciprocal-A target/output transport
+      of the source-derived FKS2 summation-stability error. Native facts are finite
+      rational/source certificates; no official Comparator receipt.
+  designated: source-verified
+sources:
+- id: FKS2Application
+  title: Conservative extension of the source-first FKS2 correction application
+  authors:
+  - hs-chae contributors
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: Original fixed application and symbolic summation integration from hs-chae/goldbach_pv
+    hs-chae/fp3b3205d; one canonical IEANTN namespace. No new generic numerical application.
+limitations:
+- Native finite facts require the disclosed nonstandard-axiom tier; no official Comparator
+  receipt.

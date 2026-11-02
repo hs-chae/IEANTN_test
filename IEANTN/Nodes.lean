@@ -52,9 +52,11 @@ import IEANTN.Nodes.FKS2.v1.Challenge
 import IEANTN.Nodes.FKS2.v2.Challenge
 import IEANTN.Nodes.FKS2.v3.Challenge
 import IEANTN.Nodes.FKS2.v4.Challenge
+import IEANTN.Nodes.FKS2.v5.Challenge
 import IEANTN.Nodes.FKS2Numerics.v1.Challenge
 import IEANTN.Nodes.FKS2Numerics.v2.Challenge
 import IEANTN.Nodes.FKS2Numerics.v3.Challenge
+import IEANTN.Nodes.FKS2Numerics.v4.Challenge
 import IEANTN.Nodes.GammaAsymptotics.v1.Challenge
 import IEANTN.Nodes.GammaAsymptotics.v2.Challenge
 import IEANTN.Nodes.Goldbach.v1.Challenge
@@ -92,6 +94,7 @@ import IEANTN.Nodes.QRHCH2.v6.Challenge
 import IEANTN.Nodes.QRHConsequences.v1.Challenge
 import IEANTN.Nodes.QRHPropagation.v1.Challenge
 import IEANTN.Nodes.QRHPropagation.v2.Challenge
+import IEANTN.Nodes.QRHPropagation.v3.Challenge
 import IEANTN.Nodes.RamareSaouter2003.v1.Challenge
 import IEANTN.Nodes.Richstein2001.v1.Challenge
 import IEANTN.Nodes.RosserSchoenfeld.v1.Challenge

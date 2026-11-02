@@ -1,0 +1,86 @@
+version: v0.4
+project:
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+  name: QRH update through the frozen FKS2 application
+  description: Same Proposition 13 and PrimeInterval consumer as the baseline; consumes
+    the new source-verified correction provider and QRH same-shape psi input.
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+automation:
+  methods:
+  - method: manual
+    role: Lean proofs, rational exponential bounds, exact challenge/solution comparison,
+      and downstream replay.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+node:
+  id: FKS2.v5
+  family: FKS2
+  version: v5
+  kind: pipeline
+  status: active
+conclusions:
+- id: updated_theta
+  declaration: FKS2.v5.updated_theta
+  challenge: FKS2.v5.challenge_updated_theta
+  imports: &id001
+  - node: QRHPropagation.v3
+    conclusion: psi_classical_bound
+  - node: BKLNW.v1
+    conclusion: corollary_5_1
+  - node: FKS2Numerics.v4
+    conclusion: updated_bound
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Exact conditional Lean solution; computed correction supplied in the end-to-end
+      replay. Official workflow receipt pending.
+  designated: solution
+- id: updated_intervals
+  declaration: FKS2.v5.updated_intervals
+  challenge: FKS2.v5.challenge_updated_intervals
+  imports: *id001
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Exact conditional Lean solution; computed correction supplied in the end-to-end
+      replay. Official workflow receipt pending.
+  designated: solution
+- id: strict_improvement
+  declaration: FKS2.v5.strict_improvement
+  challenge: FKS2.v5.challenge_strict_improvement
+  imports: []
+  imports_status: none
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Exact conditional Lean solution; computed correction supplied in the end-to-end
+      replay. Official workflow receipt pending.
+  designated: solution
+sources:
+- id: FKS2Application
+  title: Conservative extension of the source-first FKS2 correction application
+  authors:
+  - hs-chae contributors
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: Original fixed application and symbolic summation integration from hs-chae/goldbach_pv
+    hs-chae/fp3b3205d; one canonical IEANTN namespace. No new generic numerical application.
+limitations:
+- Native finite facts require the disclosed nonstandard-axiom tier; no official Comparator
+  receipt.
