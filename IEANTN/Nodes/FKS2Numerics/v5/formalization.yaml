@@ -1,0 +1,65 @@
+version: v0.4
+project:
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+  name: Source-verified FKS2 Table4-style theta-to-pi transport
+  description: New dedicated30-cell CPU binary64 application, bounded historical anchor,
+    QRH theta input, whole-ray transport, actual sum.c stability and suffix error.
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+automation:
+  methods:
+  - method: manual
+    role: Lean proofs, rational exponential bounds, exact challenge/solution comparison,
+      and downstream replay.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+node:
+  id: FKS2Numerics.v5
+  family: FKS2Numerics
+  version: v5
+  kind: computation
+  status: active
+conclusions:
+- id: numerical_pi
+  declaration: FKS2Numerics.v5.numerical_pi
+  challenge: FKS2Numerics.v5.challenge_numerical_pi
+  imports:
+  - node: QRHCH2.v5
+    conclusion: psi_refined_bound
+  - node: FKS2.v6
+    conclusion: table4_anchor_300
+  imports_status: identified
+  justifications:
+  - id: source-transport
+    kind: lean-noncompliant
+    note: Full source-model execution,30upward input certificates, actual source-facing
+      sum.c stability theorem, exact power-of-two scaling and explicit suffix-operation
+      error. Whole-ray bounded-anchor FKS2 transport consumes the resulting C upper
+      allowance. Finite native facts disclosed; no official Comparator receipt.
+  designated: source-transport
+sources:
+- id: FKS2Application
+  title: Conservative extension of the source-first FKS2 correction application
+  authors:
+  - hs-chae contributors
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: Original fixed application and symbolic summation integration from hs-chae/goldbach_pv
+    hs-chae/fp3b3205d; one canonical IEANTN namespace. No new generic numerical application.
+limitations:
+- Historical anchor and original CH2 source premises remain explicit. Native finite
+  certificates are in the disclosed source-level trust tier, not an official Comparator
+  receipt.

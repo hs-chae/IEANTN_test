@@ -53,10 +53,13 @@ import IEANTN.Nodes.FKS2.v2.Challenge
 import IEANTN.Nodes.FKS2.v3.Challenge
 import IEANTN.Nodes.FKS2.v4.Challenge
 import IEANTN.Nodes.FKS2.v5.Challenge
+import IEANTN.Nodes.FKS2.v6.Challenge
+import IEANTN.Nodes.FKS2.v7.Challenge
 import IEANTN.Nodes.FKS2Numerics.v1.Challenge
 import IEANTN.Nodes.FKS2Numerics.v2.Challenge
 import IEANTN.Nodes.FKS2Numerics.v3.Challenge
 import IEANTN.Nodes.FKS2Numerics.v4.Challenge
+import IEANTN.Nodes.FKS2Numerics.v5.Challenge
 import IEANTN.Nodes.GammaAsymptotics.v1.Challenge
 import IEANTN.Nodes.GammaAsymptotics.v2.Challenge
 import IEANTN.Nodes.Goldbach.v1.Challenge
