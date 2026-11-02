@@ -1,0 +1,82 @@
+version: v0.4
+project:
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+  name: Retain the paired zero-count polynomial
+  description: Retain the paired zero-count polynomial
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+automation:
+  methods:
+  - method: manual
+    role: Lean proofs, rational exponential bounds, exact challenge/solution comparison,
+      and downstream replay.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+node:
+  id: CH2.v10
+  family: CH2
+  version: v10
+  kind: pipeline
+  status: active
+conclusions:
+- id: polynomial_transfer
+  declaration: CH2.v10.polynomial_transfer
+  challenge: CH2.v10.challenge_polynomial_transfer
+  imports:
+  - node: CH2.v2
+    conclusion: proposition_2_4_upper
+  - node: CH2.v2
+    conclusion: proposition_2_4_lower
+  - node: ZeroCount.v1
+    conclusion: rvm_error_bound
+  - node: ZeroCount.v1
+    conclusion: rvm_error_small
+  - node: ZetaHadamard.v1
+    conclusion: logDeriv_partial_fractions
+  - node: ZetaLogDeriv.v1
+    conclusion: logDeriv_functional_equation
+  - node: ZetaLogDerivValues.v1
+    conclusion: logDeriv_two
+  - node: ZetaLogDerivValues.v1
+    conclusion: logDeriv_three_halves
+  - node: ZetaLogDerivValues.v1
+    conclusion: logDeriv_neg_one
+  - node: ZetaLogDerivValues.v1
+    conclusion: logDeriv_laurent_alternating
+  - node: GammaAsymptotics.v2
+    conclusion: digamma_sub_log_isBigO_strip
+  - node: CotangentSeries.v1
+    conclusion: cot_series_zeta_values
+  - node: LowZeroes.v1
+    conclusion: no_zeroes_below_first_ordinate
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Local exact-type Lean proof; official approved-workflow receipt pending.
+  designated: solution
+sources:
+- id: QRHPhase2
+  title: Targeted quantitative QRH propagation, Phase2
+  authors:
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: New derived statements, compared against frozen Phase1 contracts; no novelty
+    or optimality claim. Literature premises keep their prior evidence status.
+limitations:
+- No official workflow receipt is claimed.
+- The underlying OpenAI QRH and original literature premises remain explicit network
+  inputs.

@@ -1,0 +1,116 @@
+version: v0.4
+project:
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+  name: Rounded correction and global classical hybrids
+  description: Rounded correction and global classical hybrids
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+automation:
+  methods:
+  - method: manual
+    role: Lean proofs, rational exponential bounds, exact challenge/solution comparison,
+      and downstream replay.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+node:
+  id: FKS2.v3
+  family: FKS2
+  version: v3
+  kind: pipeline
+  status: active
+conclusions:
+- id: psi_hybrid
+  declaration: FKS2.v3.psi_hybrid
+  challenge: FKS2.v3.challenge_psi_hybrid
+  imports:
+  - node: QRHPropagation.v2
+    conclusion: classical_three
+  - node: FKS.v2
+    conclusion: psi_classical_bound
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Local exact-type Lean proof; official approved-workflow receipt pending.
+  designated: solution
+- id: theta_hybrid
+  declaration: FKS2.v3.theta_hybrid
+  challenge: FKS2.v3.challenge_theta_hybrid
+  imports:
+  - node: QRHPropagation.v2
+    conclusion: classical_three
+  - node: FKS2.v1
+    conclusion: corollary_14
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Local exact-type Lean proof; official approved-workflow receipt pending.
+  designated: solution
+- id: pi_hybrid_22
+  declaration: FKS2.v3.pi_hybrid_22
+  challenge: FKS2.v3.challenge_pi_hybrid_22
+  imports:
+  - node: QRHPropagation.v2
+    conclusion: classical_three
+  - node: FKS2.v1
+    conclusion: corollary_22
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Local exact-type Lean proof; official approved-workflow receipt pending.
+  designated: solution
+- id: pi_hybrid_23
+  declaration: FKS2.v3.pi_hybrid_23
+  challenge: FKS2.v3.challenge_pi_hybrid_23
+  imports:
+  - node: QRHPropagation.v2
+    conclusion: classical_three
+  - node: FKS2.v1
+    conclusion: corollary_23
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Local exact-type Lean proof; official approved-workflow receipt pending.
+  designated: solution
+- id: pi_fks2_rounded
+  declaration: FKS2.v3.pi_fks2_rounded
+  challenge: FKS2.v3.challenge_pi_fks2_rounded
+  imports:
+  - node: QRHCH2.v2
+    conclusion: psi_density_frontier
+  - node: FKS2.v2
+    conclusion: theorem_3
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Local exact-type Lean proof; official approved-workflow receipt pending.
+  designated: solution
+sources:
+- id: QRHPhase2
+  title: Targeted quantitative QRH propagation, Phase2
+  authors:
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: New derived statements, compared against frozen Phase1 contracts; no novelty
+    or optimality claim. Literature premises keep their prior evidence status.
+limitations:
+- No official workflow receipt is claimed.
+- The underlying OpenAI QRH and original literature premises remain explicit network
+  inputs.

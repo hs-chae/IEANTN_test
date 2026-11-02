@@ -1,0 +1,122 @@
+version: v0.4
+project:
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+  name: Sharper density transfers and prime intervals
+  description: Sharper density transfers and prime intervals
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+automation:
+  methods:
+  - method: manual
+    role: Lean proofs, rational exponential bounds, exact challenge/solution comparison,
+      and downstream replay.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+node:
+  id: QRHPropagation.v2
+  family: QRHPropagation
+  version: v2
+  kind: pipeline
+  status: active
+conclusions:
+- id: theta_frontier
+  declaration: QRHPropagation.v2.theta_frontier
+  challenge: QRHPropagation.v2.challenge_theta_frontier
+  imports:
+  - node: QRHCH2.v2
+    conclusion: psi_density_frontier
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Local exact-type Lean proof; official approved-workflow receipt pending.
+  designated: solution
+- id: pi_density_300
+  declaration: QRHPropagation.v2.pi_density_300
+  challenge: QRHPropagation.v2.challenge_pi_density_300
+  imports:
+  - node: QRHCH2.v2
+    conclusion: psi_density_frontier
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Local exact-type Lean proof; official approved-workflow receipt pending.
+  designated: solution
+- id: prime_intervals_192
+  declaration: QRHPropagation.v2.prime_intervals_192
+  challenge: QRHPropagation.v2.challenge_prime_intervals_192
+  imports:
+  - node: QRHCH2.v2
+    conclusion: psi_density_frontier
+  - node: PrimeInterval.v1
+    conclusion: eTheta_criterion
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Local exact-type Lean proof; official approved-workflow receipt pending.
+  designated: solution
+- id: prime_intervals_300
+  declaration: QRHPropagation.v2.prime_intervals_300
+  challenge: QRHPropagation.v2.challenge_prime_intervals_300
+  imports:
+  - node: QRHCH2.v2
+    conclusion: psi_density_frontier
+  - node: PrimeInterval.v1
+    conclusion: eTheta_criterion
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Local exact-type Lean proof; official approved-workflow receipt pending.
+  designated: solution
+- id: classical_three
+  declaration: QRHPropagation.v2.classical_three
+  challenge: QRHPropagation.v2.challenge_classical_three
+  imports:
+  - node: QRHCH2.v2
+    conclusion: psi_density_frontier
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Local exact-type Lean proof; official approved-workflow receipt pending.
+  designated: solution
+- id: mu_300
+  declaration: QRHPropagation.v2.mu_300
+  challenge: QRHPropagation.v2.challenge_mu_300
+  imports:
+  - node: QRHCH2.v2
+    conclusion: psi_density_frontier
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Local exact-type Lean proof; official approved-workflow receipt pending.
+  designated: solution
+sources:
+- id: QRHPhase2
+  title: Targeted quantitative QRH propagation, Phase2
+  authors:
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: New derived statements, compared against frozen Phase1 contracts; no novelty
+    or optimality claim. Literature premises keep their prior evidence status.
+limitations:
+- No official workflow receipt is claimed.
+- The underlying OpenAI QRH and original literature premises remain explicit network
+  inputs.
