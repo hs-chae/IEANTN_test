@@ -1,0 +1,75 @@
+version: v0.4
+project:
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+  name: Frozen FKS2 application baseline at exp 300
+  description: Actual corrected numerical provider consumed by Proposition 13 and
+    the existing PrimeInterval criterion, before QRH.
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+automation:
+  methods:
+  - method: manual
+    role: Lean proofs, rational exponential bounds, exact challenge/solution comparison,
+      and downstream replay.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+node:
+  id: FKS2.v4
+  family: FKS2
+  version: v4
+  kind: pipeline
+  status: active
+conclusions:
+- id: baseline_theta
+  declaration: FKS2.v4.baseline_theta
+  challenge: FKS2.v4.challenge_baseline_theta
+  imports: &id001
+  - node: FKS.v2
+    conclusion: psi_classical_bound
+  - node: BKLNW.v1
+    conclusion: corollary_5_1
+  - node: FKS2Numerics.v3
+    conclusion: baseline_bound
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Exact conditional Lean solution; the numerical provider itself is in the
+      disclosed finite-native tier. Official workflow receipt pending.
+  designated: solution
+- id: baseline_intervals
+  declaration: FKS2.v4.baseline_intervals
+  challenge: FKS2.v4.challenge_baseline_intervals
+  imports: *id001
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Exact conditional Lean solution; the numerical provider itself is in the
+      disclosed finite-native tier. Official workflow receipt pending.
+  designated: solution
+sources:
+- id: FKS2Application
+  title: Conservative extension of the source-first FKS2 correction application
+  authors:
+  - hs-chae contributors
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: Original fixed application and symbolic summation integration from hs-chae/goldbach_pv
+    hs-chae/fp3b3205d; one canonical IEANTN namespace. No new generic numerical application.
+limitations:
+- Native finite facts require the disclosed nonstandard-axiom tier; no official Comparator
+  receipt.
