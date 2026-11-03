@@ -1,0 +1,70 @@
+version: v0.4
+project:
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+  name: Source-verified QRH-free Table4 reconstruction
+  description: Actual old48/padded30-input C source, complete operational witness,
+    source-facing summation stability and all suffix errors feed the shared generic
+    whole-ray transport. Retrospective baseline independent of QRH.
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+automation:
+  methods:
+  - method: manual
+    role: Lean proofs, rational exponential bounds, exact challenge/solution comparison,
+      and downstream replay.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+node:
+  id: FKS2Numerics.v6
+  family: FKS2Numerics
+  version: v6
+  kind: computation
+  status: awaiting-verification
+conclusions:
+- id: old_pi
+  declaration: FKS2Numerics.v6.old_pi
+  challenge: FKS2Numerics.v6.challenge_old_pi
+  imports:
+  - node: FKS2.v8
+    conclusion: table3_theta_300
+  - node: FKS2.v8
+    conclusion: table3_theta_310
+  - node: FKS2.v8
+    conclusion: table3_theta_320
+  - node: FKS2.v8
+    conclusion: table3_theta_330
+  - node: FKS2.v6
+    conclusion: table4_anchor_300
+  imports_status: identified
+  justifications:
+  - id: source-model-old
+    kind: lean-noncompliant
+    note: Complete source/IEEE/kernel/suffix/error proof and shared bounded-anchor
+      transport. Finite native facts exceed Comparator three-standard-axiom policy;
+      no official receipt. Four Table3 facts and the historical anchor remain premises.
+  designated: source-model-old
+sources:
+- id: FKS2PairApplication
+  title: Retrospective source-verified FKS2 numerical transport pair
+  authors:
+  - hs-chae contributors
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: Bounded-anchor adaptation of FKS2 Theorem6, with donor restricted-C/RN64/sum.c
+    foundations at3b3205d.
+limitations:
+- Finite native checking and the compiler/runtime/hardware boundary are disclosed;
+  no unconditional analytic or official receipt claim.
