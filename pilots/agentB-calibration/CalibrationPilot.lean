@@ -5,3 +5,4 @@ Authors: Agent B (Claude), integration workstream
 -/
 import CalibrationPilot.OldChain
 import CalibrationPilot.NewChain
+import CalibrationPilot.KernelChain
