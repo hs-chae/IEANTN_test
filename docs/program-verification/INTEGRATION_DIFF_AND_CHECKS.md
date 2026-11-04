@@ -15,9 +15,10 @@
 | `pv-evidence/*.native-assisted.local.json` (new) | One local attestation per audited endpoint, plus `controls/CONTROLS.json`; `.work/` is git-ignored | Machine-readable, non-official evidence |
 | `docs/program-verification/` (new) | `NATIVE_ASSISTED_DESIGN.md`, `PROGRAM_VERIFICATION_INVENTORY.md` (generated), `PV_HUMAN_READABLE_GUIDE.md`, this file, `FINAL_RESTRUCTURING_REPORT.md` | Design, inventory, guide, report |
 | Non-frozen node metadata | See §3 | Records the method and the gate result where the attestation supports them |
+| `IEANTN/Nodes/FKS2Numerics/v3/Conclusions.lean`, `v4/Conclusions.lean` | Docstrings only (+23/−2): a mathematics-first explanation of `calibration_bound`, `baseline_bound` and `updated_bound`; the two `−` lines are docstring closings moved down | Readability of PoC 1. Statements unchanged (`fingerprint --check` 0) |
 
 Nothing else was modified. In particular:
-- no `Conclusions.lean` statement, no `Challenge.lean`, no `fingerprints.json`;
+- no `Conclusions.lean` statement (only the docstrings above), no `Challenge.lean`, no `fingerprints.json`;
 - no file in `receipts/`;
 - no frozen file (the forward and Table 4 manifests, 49 files, are re-hashed in §4);
 - no file under `Solutions/`;
@@ -62,7 +63,7 @@ Frozen nodes are not edited. Their pages show the gate rows from the sidecar.
 | `scripts/native_assisted/controls.py` | 10 of 10 as expected; repository tree hash unchanged |
 | `ieantn.py fingerprint --check` / `gen-challenges --check` | 0 / 0 (statements and challenges unchanged) |
 | `ieantn.py check` | Exit 1 **only** for the 49 inherited receipt-provenance diagnostics (`teorth/IEANTN` vs `hs-chae/IEANTN_test`), as before. The new `program-verification evidence` check passes |
-| Freeze manifests | forward 30/30, Table 4 19/19 byte-identical |
+| Freeze manifests | forward 30/30, Table 4 19/19 byte-identical (re-hashed at `a6c76d9`) |
 
 The controls:
 
