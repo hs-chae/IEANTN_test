@@ -5,6 +5,18 @@ Authors: OpenAI (Codex)
 -/
 import WinnerDensityA
 namespace WinnerDensityA
+/-- Strongest current endpoint; finite RH is also used in the final high/low
+kernel split. The numerical provider and original inputs are unchanged. -/
+theorem winner_program_v2_refined
+    (hchj : WinnerDirectKernel.OriginalCHJSource)
+    (hrvm : ZeroCount.v1.rvm_error_bound) (hrvmsmall : ZeroCount.v1.rvm_error_small)
+    (hlow : LowZeroes.v1.no_zeroes_below_first_ordinate)
+    (hs : WinnerNewHeightSource.PrimaryInputs (3681/10000) (3599/10000))
+    (hRH : IEANTN.RiemannHypothesisUpTo WinnerOriginalScalars.height)
+    (hqrh : IEANTN.ZetaZeroFreeHalfPlane (7/8)) :
+    IEANTN.HasPowerLogBound IEANTN.Eπ (473723/50000000) 0 (7/8) (Real.exp 300) :=
+  WinnerDensityA.HeightRHFinal.source_pi_00947446 hchj hrvm hrvmsmall hlow hs hRH hqrh
+#print axioms winner_program_v2_refined
 /-- Strongest current complete-ray endpoint. All newly constructed source-to-program
 and direct-prime bridges are proved; independent original analytic inputs remain explicit.
 The native-assisted status is local and does not issue an official IEANTN receipt. -/

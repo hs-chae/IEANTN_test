@@ -1,6 +1,6 @@
 # Four-height prime-error provider (Agent A v2)
 
-This isolated provider proves the actual normalized Eπ bound0.009484 x⁻¹⁄⁸ for every x≥exp300. Start with `Solutions/WinnerDensityA.v1/Solution.lean`, theorem `WinnerDensityA.winner_program_v2_height`, or the exact root `WinnerDensityA.HeightFinal.source_pi_009484`.
+This isolated provider proves the actual normalized Eπ bound0.00947446 x⁻¹⁄⁸ for every x≥exp300. Start with `Solutions/WinnerDensityA.v1/Solution.lean`, theorem `WinnerDensityA.winner_program_v2_refined`, or the exact root `WinnerDensityA.HeightRHFinal.source_pi_00947446`.
 
 The proof uses four independently certified height profiles and a direct prime-counting kernel. It derives source counts, endpoint extensions, an integrable step moment, actual finite-zero spectral bounds, generated program semantics and the final prime consumer. Original CHJ/zero-count/low-zero, the eight original analytic relations and finiteRH remain explicit; QRH is supplied only in the separate compatible actual-QRH replay. No chosen U/count/moment/spectral/prime conclusion is assumed.
 
@@ -13,3 +13,5 @@ For later integration, expose one useful mathematical endpoint, retain precise d
 The strict source theorem `WinnerStrongEnvelope.actual_prime_comparison` in `Solutions/WinnerComparisonA.v1/StrongActualComparison.lean` proves the actual new prime bound and its strict improvement over the named old allowance on exp300 through exp300.01. The coefficient margin is at least0.0000025. Its89 finite facts include the49 of the prime bound. Arbitrary-a2 oldC4 compression, the multiplicity-preserving half-window and exact sharp-Rosser normalization are proved providers; original density-family analytic relations remain source-backed. The comparison is one fixed competitive witness, not every adaptive parameter family or a global record.
 
 The genuine restrictedβ9/10 transfer is certified under its CH2-only package. Its strongest-rival comparison remains open: the suggested.001221594 CHJ rival is a diagnostic under an augmented source package, not a proved same-input whole-ray defeat.
+
+The final6-module refinement uses finite RH also in the direct-prime kernel: low ordinates contribute≤1e-12 and high-ordinate factor≤1+1e-9. No new input/native fact is introduced. The strongest fair comparison is `WinnerStrongEnvelope.refined_actual_prime_comparison` with coefficientmargin≥.000012; the old witness receives the same kernel. Previous.009484 bound and1.001kernel comparison are preserved controls.

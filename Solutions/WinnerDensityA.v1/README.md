@@ -4,12 +4,13 @@ Start with `Solution.lean`. This isolated source package proves actual IEANTN no
 
 | Endpoint | Critical-line source/configuration | Bound for all x >= exp(300) |
 |---|---|---|
+| `WinnerDensityA.HeightRHFinal.source_pi_00947446` | Same spectral program + finite-RH high/low kernel split | E_pi(x) <= .00947446 x^(-1/8) |
 | `WinnerDensityA.HeightFinal.source_pi_009484` | Four certified height profiles + direct pi kernel, Revers .611 | E_pi(x) <= .009484 x^(-1/8) |
 | `WinnerDensityA.source_pi300` | HPY .618, first Gaussian enclosure | E_pi(x) <= .009952 x^(-1/8) |
 | `WinnerDensityA.tight_source_pi300` | Same HPY input, tighter accepted enclosure | E_pi(x) <= .009898 x^(-1/8) |
 | `WinnerDensityA.revers_source_pi300` | Revers .611, recomputed amplitude/kernel/certificate | E_pi(x) <= .009830 x^(-1/8) |
 
-`E_pi(x)=abs(pi(x)-Li_2(x))/(x/log(x))`, with the offset logarithmic integral from 2. Thus the strongest bound means `abs(pi(x)-Li_2(x)) <= .009484*x^(7/8)/log(x)`. Start at `winner_program_v2_height` in `Solution.lean`; the older endpoints are preserved controls.
+`E_pi(x)=abs(pi(x)-Li_2(x))/(x/log(x))`, with the offset logarithmic integral from 2. Thus the strongest bound means `abs(pi(x)-Li_2(x)) <= .00947446*x^(7/8)/log(x)`. Start at `winner_program_v2_refined` in `Solution.lean`; the older endpoints are preserved controls.
 
 The proof derives the improved actual zero count from original mollifier/mean-square/smoothing/interpolation/Littlewood relations; it does not assume a new density or prime-error bound. `SourceContext.OriginalInputs` and `ReversContext.ReversInputs` list the eight upstream source leaves literally on actual zeta, finite Mobius mollifier and integral objects. Their Littlewood relation requires finite RH and holds outside a countable exceptional set. `ExceptionalDensity.zetaN_extend` proves the new continuous density majorant at every height. The original low-height error, all truncation terms, prime powers and partial summation are included.
 
@@ -24,3 +25,7 @@ The strongest endpoint takes the literal original signed CHJ explicit formula, t
 CLI source `HeightMain.lean` exposes `height300` with both actual interval rows and their domain flags. `Main.lean`, `TightMain.lean`, `ReversMain.lean` retain four/two/two active finite computation routes respectively; unknown or missing routes return2. No binary64 arithmetic is claimed. See the delivered evidence scripts for pinned cache-aware rebuilds and explicit runtime checks.
 
 The mathematical construction improves an explicit instantiation of an existing source family. It does not establish optimality or a global best-known envelope. The exact raw Minkowski family contains our finite enclosure; broader unresolved competitors must remain visible. Read `reports/WINNER_V2_RESULT.html` in the delivered bundle for the final comparison and gate status.
+
+The final refinement also uses the already supplied finite RH in the direct pi consumer. Actual zeros with ordinate at mostH have real part1/2, giving normalized kernel contribution at most1e-12. Higher ordinates have kernel factor at most1+1e-9. Thus the same executed spectral cap gives exact coefficient.009474458010474448, rounded upward to.00947446. All6 refinement modules are ordinary Lean proofs and add no native facts or analytic source assumptions. The actual compatible OpenAI replay supplies QRH for this stronger bound.
+
+`WinnerComparisonA.v1/RefinedActualComparison.lean` gives the oldC4 witness the SAME refined kernel and proves a coefficient gap of at least.000012 on logx[300,300.01]. Its joint proof has89 finite facts; the bound itself retains49. Original density-family/source supply remains literature-backed. Adaptive-parameter families and global records remain unclaimed.

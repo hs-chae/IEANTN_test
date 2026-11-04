@@ -1,13 +1,17 @@
 # Explicit QRH comparison experiment
 
-`StrongActualComparison` proves the actual normalized prime-counting bound
-`Eπ(x) ≤ 0.009484 x^(-1/8)` and strict comparison with the explicit old
+`RefinedActualComparison` proves the actual normalized prime-counting bound
+`Eπ(x) ≤ 0.00947446 x^(-1/8)` and strict comparison with the explicit old
 allowance functional for `exp(300) ≤ x ≤ exp(300.01)`.
 The new bound itself holds for every `x ≥ exp(300)` in
-`WinnerDensityA.HeightFinal.source_pi_009484`.
+`WinnerDensityA.HeightRHFinal.source_pi_00947446`.
+The old witness receives the same refined high/low kernel constants; the
+coefficient gap is at least 0.000012 on that comparison interval.
+`StrongActualComparison` preserves the earlier 0.009484 control result.
 
-This package preserves the exact frozen source bytes of 72 comparison modules
-and adds the separate `HalfWindow` and `HalfWindowRosser` legality providers. Flat module names are
+This package preserves the exact frozen source bytes of 72 comparison modules,
+adds the separate `HalfWindow` and `HalfWindowRosser` legality providers and
+adds the parent-authored `RefinedActualComparison` (75 flat modules total). Flat module names are
 intentional, so copied numerical certificates keep their precise declaration
 and dependency identities. Existing modules are supplied by the named sibling
 packages. `lake build WinnerComparisonA` builds the library with the canonical
@@ -24,6 +28,10 @@ factor of two with actual multiplicities under finite-height RH.
 `HalfWindowRosser.open_windowAllowance` then proves the exact old window
 allowance for the actual strict count, from literal `OriginalSharpRosser` and
 finite-height RH; the closed-count version is also proved.
+
+The refined finite-RH transport splits actual zeros at the already supplied
+height 3e12. Low zeros use the critical-line exponent; the high kernel factor
+is at most 1+1e-9. This adds no source hypothesis and no native fact.
 
 The final theorem still takes the original analytic source statements,
 verified finite-height RH and QRH as explicit inputs. The separate Lean 4.34.1
