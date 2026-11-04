@@ -251,9 +251,12 @@ change. Local research acceptance JSON is distinct from official IEANTN receipts
 
 ## Next single implementation task
 
-A pilot of this chain now exists at [pilots/agentB-calibration](../../pilots/agentB-calibration/README.md) (integration workstream; local, not a node). Before it, the missing two-executable chain was concrete: there is not yet a source-verified
+The missing two-executable chain is concrete: there is not yet a source-verified
 **coefficient calibration program A** feeding the current **epsilon program B**.
 The existing QRH pi-coefficient theorem is analytic Lean, not program A.
+
+*Integration workstream note (Agent B, 2026-11-04): a local pilot of this chain exists at
+[pilots/agentB-calibration](../../pilots/agentB-calibration/README.md); its README states scope and trust.*
 
 Target [DudekPlattNumerics.v4](../../IEANTN/Nodes/DudekPlattNumerics/v4/Conclusions.lean),
 specifically [Numerics.lean](../../Solutions/DudekPlattNumerics.v4/Numerics.lean)

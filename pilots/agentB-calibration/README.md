@@ -35,7 +35,7 @@ no node version. It shows a two-executable chain built from existing interfaces:
 
 ```bash
 cd pilots/agentB-calibration
-ln -s ../../.lake/packages .lake/packages   # or: lake update (same pins as the core)
+mkdir -p .lake && ln -s ../../../.lake/packages .lake/packages   # share the core's packages (or: lake update)
 lake build                                   # ~2 min of it is KernelA's kernel source match
 cat > /tmp/PilotAxioms.lean <<'LEAN'
 import CalibrationPilot
