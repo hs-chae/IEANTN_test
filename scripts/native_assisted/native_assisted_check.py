@@ -185,7 +185,9 @@ def evaluate(extract: dict, challenge: dict | None, cfg: dict, sem: dict,
     if challenge is not None:
         # alpha-equivalence: binder names are not part of a theorem's statement
         key = "endpoint_type_canonical" if "endpoint_type_canonical" in extract else "endpoint_type_all"
-        challenge_match = (challenge.get("endpoint") == extract.get("endpoint") and
+        # A second route to an existing conclusion names its own theorem; the generated challenge
+        # keeps the node's name, given as `challenge_endpoint`.
+        challenge_match = (challenge.get("endpoint") == cfg.get("challenge_endpoint", extract.get("endpoint")) and
                            challenge.get(key) is not None and challenge.get(key) == extract.get(key))
         if not challenge_match:
             reasons.append("solution theorem type differs from the generated challenge")
@@ -373,7 +375,8 @@ def check(conclusion: str, build: bool = True, out_dir: pathlib.Path = EVIDENCE)
     run_meta["extract_solution"] = ex_meta
     ch = None
     if cfg.get("challenge_module"):
-        ch, ch_meta = extract(ROOT, cfg["challenge_module"], cfg["endpoint"], work / "challenge.json")
+        ch, ch_meta = extract(ROOT, cfg["challenge_module"], cfg.get("challenge_endpoint", cfg["endpoint"]),
+                              work / "challenge.json")
         run_meta["extract_challenge"] = ch_meta
     if ex is None or (cfg.get("challenge_module") and ch is None):
         report.update(status="blocked", reasons=["extraction did not run; see run.extract_*"],
@@ -391,7 +394,9 @@ def check(conclusion: str, build: bool = True, out_dir: pathlib.Path = EVIDENCE)
         "method_checks": ev["method"], "proof_closure_fingerprint": ev["proof_closure_fingerprint"],
         "project_modules": ev["project_modules"], "closure_size": ex.get("closure_size"),
         "lean_version": ex.get("lean_version"), "lean_githash": ex.get("lean_githash"),
-        "official": official_status(conclusion) if cfg.get("is_node_conclusion", True) else None,
+        "official": (official_status(conclusion) if cfg.get("is_node_conclusion", True) else
+                     official_status(cfg["replays"]) if cfg.get("replays") else None),
+        "replays": cfg.get("replays"),
         "trust_boundary": sem["trust_boundary"],
         "promotion_rule": sem["promotion_rule"],
     })

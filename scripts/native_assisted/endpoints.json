@@ -1,21 +1,267 @@
 {
  "_comment": "Endpoints audited by the local native-assisted gate. `project` is a Lake project relative to the repository root; `root_module` is imported to find `endpoint`; `challenge_module` (core) supplies the generated challenge type. `sources` are the executed C files the evidence method must find embedded in the proof closure.",
  "endpoints": {
-  "RamanujanNumerics.v2.epsilon_budget": {"project": "Solutions/RamanujanNumerics.v2", "root_module": "Solution", "endpoint": "RamanujanNumerics.v2.challenge_epsilon_budget", "challenge_module": "IEANTN.Nodes.RamanujanNumerics.v2.Challenge", "sources": ["Solutions/RamanujanNumerics.v2/c/updated.c"], "family": "Ramanujan"},
-  "RamanujanNumerics.v1.epsilon_budget": {"project": "Solutions/RamanujanNumerics.v1", "root_module": "Solution", "endpoint": "RamanujanNumerics.v1.challenge_epsilon_budget", "challenge_module": "IEANTN.Nodes.RamanujanNumerics.v1.Challenge", "sources": ["Solutions/RamanujanNumerics.v1/c/baseline.c"], "family": "Ramanujan"},
-  "FKS2Numerics.v7.qrh_pi": {"project": "Solutions/FKS2Numerics.v7", "root_module": "Solution", "endpoint": "FKS2Numerics.v7.challenge_qrh_pi", "challenge_module": "IEANTN.Nodes.FKS2Numerics.v7.Challenge", "sources": ["Solutions/FKS2Numerics.v5/c/fks2_table4_transport.c"], "family": "Table4"},
-  "FKS2Numerics.v6.old_pi": {"project": "Solutions/FKS2Numerics.v6", "root_module": "Solution", "endpoint": "FKS2Numerics.v6.challenge_old_pi", "challenge_module": "IEANTN.Nodes.FKS2Numerics.v6.Challenge", "sources": ["Solutions/FKS2Numerics.v6/c/fks2_table4_transport_old.c"], "family": "Table4"},
-  "FKS2Numerics.v5.numerical_pi": {"project": "Solutions/FKS2Numerics.v5", "root_module": "Solution", "endpoint": "FKS2Numerics.v5.challenge_numerical_pi", "challenge_module": "IEANTN.Nodes.FKS2Numerics.v5.Challenge", "sources": ["Solutions/FKS2Numerics.v5/c/fks2_table4_transport.c"], "family": "Table4"},
-  "FKS2Numerics.v2.nu_asymp_e30_le": {"project": "Solutions/FKS2Numerics.v2", "root_module": "CalibrationSolution", "endpoint": "FKS2Numerics.v2.challenge_nu_asymp_e30_le", "challenge_module": "IEANTN.Nodes.FKS2Numerics.v2.Challenge", "sources": ["Solutions/FKS2Numerics.v2/applications/fks2_scalar_fp/fks2.c"], "family": "PoC1"},
-  "FKS2Numerics.v3.calibration_bound": {"project": "Solutions/FKS2Numerics.v3", "root_module": "Solution", "endpoint": "FKS2Numerics.v3.challenge_calibration_bound", "challenge_module": "IEANTN.Nodes.FKS2Numerics.v3.Challenge", "sources": ["Solutions/FKS2Numerics.v3/c/baseline.c"], "family": "PoC1"},
-  "FKS2Numerics.v3.baseline_bound": {"project": "Solutions/FKS2Numerics.v3", "root_module": "Solution", "endpoint": "FKS2Numerics.v3.challenge_baseline_bound", "challenge_module": "IEANTN.Nodes.FKS2Numerics.v3.Challenge", "sources": ["Solutions/FKS2Numerics.v3/c/baseline.c"], "family": "PoC1"},
-  "FKS2Numerics.v4.updated_bound": {"project": "Solutions/FKS2Numerics.v4", "root_module": "Solution", "endpoint": "FKS2Numerics.v4.challenge_updated_bound", "challenge_module": "IEANTN.Nodes.FKS2Numerics.v4.Challenge", "sources": ["Solutions/FKS2Numerics.v4/c/updated.c"], "family": "PoC1"},
-  "RamanujanGap.v2.loss_bound": {"project": "Solutions/RamanujanNumerics.v2", "root_module": "ForwardRamanujanUpdate.Consumer", "endpoint": "RamanujanGap.v2.challenge_loss_bound", "challenge_module": "IEANTN.Nodes.RamanujanGap.v2.Challenge", "sources": [], "method_claim": "none", "family": "Ramanujan"},
-  "FKS2.v9.qrh_absolute_pi": {"project": "Solutions/FKS2Numerics.v7", "root_module": "FKS2PairConsumers", "endpoint": "FKS2.v9.challenge_qrh_absolute_pi", "challenge_module": "IEANTN.Nodes.FKS2.v9.Challenge", "sources": [], "method_claim": "none", "family": "Table4"},
-  "FKS2.v5.updated_theta": {"project": "Solutions/FKS2.v5", "root_module": "Solution", "endpoint": "FKS2.v5.challenge_updated_theta", "challenge_module": "IEANTN.Nodes.FKS2.v5.Challenge", "sources": [], "method_claim": "none", "family": "PoC1"},
-  "@solution.ForwardRamanujan.forward": {"project": "Solutions/RamanujanNumerics.v2", "root_module": "ForwardRamanujanUpdate.Assembly", "endpoint": "ForwardRamanujan.forward", "sources": ["Solutions/RamanujanNumerics.v1/c/baseline.c", "Solutions/RamanujanNumerics.v2/c/updated.c"], "is_node_conclusion": false, "family": "Ramanujan"},
-  "@solution.FKS2Pair.assembled": {"project": "Solutions/FKS2Numerics.v7", "root_module": "FKS2PairReplay", "endpoint": "FKS2Pair.assembled", "sources": ["Solutions/FKS2Numerics.v6/c/fks2_table4_transport_old.c", "Solutions/FKS2Numerics.v5/c/fks2_table4_transport.c"], "is_node_conclusion": false, "family": "Table4"},
-  "@pilot.CalibrationPilot.NewChain.new_chain": {"project": "pilots/agentB-calibration", "root_module": "CalibrationPilot", "endpoint": "CalibrationPilot.NewChain.new_chain", "sources": ["pilots/agentB-calibration/c/calibration_new.c", "pilots/agentB-calibration/c/ramanujan_9401_new.c"], "is_node_conclusion": false, "family": "Pilot"},
-  "@pilot.CalibrationPilot.KernelChain.pi_calibrated_k": {"project": "pilots/agentB-calibration", "root_module": "CalibrationPilot", "endpoint": "CalibrationPilot.KernelChain.pi_calibrated_k", "sources": ["pilots/agentB-calibration/c/calibration_new.c"], "is_node_conclusion": false, "family": "Pilot"}
+  "RamanujanNumerics.v2.epsilon_budget": {
+   "project": "Solutions/RamanujanNumerics.v2",
+   "root_module": "Solution",
+   "endpoint": "RamanujanNumerics.v2.challenge_epsilon_budget",
+   "challenge_module": "IEANTN.Nodes.RamanujanNumerics.v2.Challenge",
+   "sources": [
+    "Solutions/RamanujanNumerics.v2/c/updated.c"
+   ],
+   "family": "Ramanujan"
+  },
+  "RamanujanNumerics.v1.epsilon_budget": {
+   "project": "Solutions/RamanujanNumerics.v1",
+   "root_module": "Solution",
+   "endpoint": "RamanujanNumerics.v1.challenge_epsilon_budget",
+   "challenge_module": "IEANTN.Nodes.RamanujanNumerics.v1.Challenge",
+   "sources": [
+    "Solutions/RamanujanNumerics.v1/c/baseline.c"
+   ],
+   "family": "Ramanujan"
+  },
+  "FKS2Numerics.v7.qrh_pi": {
+   "project": "Solutions/FKS2Numerics.v7",
+   "root_module": "Solution",
+   "endpoint": "FKS2Numerics.v7.challenge_qrh_pi",
+   "challenge_module": "IEANTN.Nodes.FKS2Numerics.v7.Challenge",
+   "sources": [
+    "Solutions/FKS2Numerics.v5/c/fks2_table4_transport.c"
+   ],
+   "family": "Table4"
+  },
+  "FKS2Numerics.v6.old_pi": {
+   "project": "Solutions/FKS2Numerics.v6",
+   "root_module": "Solution",
+   "endpoint": "FKS2Numerics.v6.challenge_old_pi",
+   "challenge_module": "IEANTN.Nodes.FKS2Numerics.v6.Challenge",
+   "sources": [
+    "Solutions/FKS2Numerics.v6/c/fks2_table4_transport_old.c"
+   ],
+   "family": "Table4"
+  },
+  "FKS2Numerics.v5.numerical_pi": {
+   "project": "Solutions/FKS2Numerics.v5",
+   "root_module": "Solution",
+   "endpoint": "FKS2Numerics.v5.challenge_numerical_pi",
+   "challenge_module": "IEANTN.Nodes.FKS2Numerics.v5.Challenge",
+   "sources": [
+    "Solutions/FKS2Numerics.v5/c/fks2_table4_transport.c"
+   ],
+   "family": "Table4"
+  },
+  "FKS2Numerics.v2.nu_asymp_e30_le": {
+   "project": "Solutions/FKS2Numerics.v2",
+   "root_module": "CalibrationSolution",
+   "endpoint": "FKS2Numerics.v2.challenge_nu_asymp_e30_le",
+   "challenge_module": "IEANTN.Nodes.FKS2Numerics.v2.Challenge",
+   "sources": [
+    "Solutions/FKS2Numerics.v2/applications/fks2_scalar_fp/fks2.c"
+   ],
+   "family": "PoC1"
+  },
+  "FKS2Numerics.v3.calibration_bound": {
+   "project": "Solutions/FKS2Numerics.v3",
+   "root_module": "Solution",
+   "endpoint": "FKS2Numerics.v3.challenge_calibration_bound",
+   "challenge_module": "IEANTN.Nodes.FKS2Numerics.v3.Challenge",
+   "sources": [
+    "Solutions/FKS2Numerics.v3/c/baseline.c"
+   ],
+   "family": "PoC1"
+  },
+  "FKS2Numerics.v3.baseline_bound": {
+   "project": "Solutions/FKS2Numerics.v3",
+   "root_module": "Solution",
+   "endpoint": "FKS2Numerics.v3.challenge_baseline_bound",
+   "challenge_module": "IEANTN.Nodes.FKS2Numerics.v3.Challenge",
+   "sources": [
+    "Solutions/FKS2Numerics.v3/c/baseline.c"
+   ],
+   "family": "PoC1"
+  },
+  "FKS2Numerics.v4.updated_bound": {
+   "project": "Solutions/FKS2Numerics.v4",
+   "root_module": "Solution",
+   "endpoint": "FKS2Numerics.v4.challenge_updated_bound",
+   "challenge_module": "IEANTN.Nodes.FKS2Numerics.v4.Challenge",
+   "sources": [
+    "Solutions/FKS2Numerics.v4/c/updated.c"
+   ],
+   "family": "PoC1"
+  },
+  "RamanujanGap.v2.loss_bound": {
+   "project": "Solutions/RamanujanNumerics.v2",
+   "root_module": "ForwardRamanujanUpdate.Consumer",
+   "endpoint": "RamanujanGap.v2.challenge_loss_bound",
+   "challenge_module": "IEANTN.Nodes.RamanujanGap.v2.Challenge",
+   "sources": [],
+   "method_claim": "none",
+   "family": "Ramanujan"
+  },
+  "FKS2.v9.qrh_absolute_pi": {
+   "project": "Solutions/FKS2Numerics.v7",
+   "root_module": "FKS2PairConsumers",
+   "endpoint": "FKS2.v9.challenge_qrh_absolute_pi",
+   "challenge_module": "IEANTN.Nodes.FKS2.v9.Challenge",
+   "sources": [],
+   "method_claim": "none",
+   "family": "Table4"
+  },
+  "FKS2.v5.updated_theta": {
+   "project": "Solutions/FKS2.v5",
+   "root_module": "Solution",
+   "endpoint": "FKS2.v5.challenge_updated_theta",
+   "challenge_module": "IEANTN.Nodes.FKS2.v5.Challenge",
+   "sources": [],
+   "method_claim": "none",
+   "family": "PoC1"
+  },
+  "@solution.ForwardRamanujan.forward": {
+   "project": "Solutions/RamanujanNumerics.v2",
+   "root_module": "ForwardRamanujanUpdate.Assembly",
+   "endpoint": "ForwardRamanujan.forward",
+   "sources": [
+    "Solutions/RamanujanNumerics.v1/c/baseline.c",
+    "Solutions/RamanujanNumerics.v2/c/updated.c"
+   ],
+   "is_node_conclusion": false,
+   "family": "Ramanujan"
+  },
+  "@solution.FKS2Pair.assembled": {
+   "project": "Solutions/FKS2Numerics.v7",
+   "root_module": "FKS2PairReplay",
+   "endpoint": "FKS2Pair.assembled",
+   "sources": [
+    "Solutions/FKS2Numerics.v6/c/fks2_table4_transport_old.c",
+    "Solutions/FKS2Numerics.v5/c/fks2_table4_transport.c"
+   ],
+   "is_node_conclusion": false,
+   "family": "Table4"
+  },
+  "@pilot.CalibrationPilot.NewChain.new_chain": {
+   "project": "pilots/agentB-calibration",
+   "root_module": "CalibrationPilot",
+   "endpoint": "CalibrationPilot.NewChain.new_chain",
+   "sources": [
+    "pilots/agentB-calibration/c/calibration_new.c",
+    "pilots/agentB-calibration/c/ramanujan_9401_new.c"
+   ],
+   "is_node_conclusion": false,
+   "family": "Pilot"
+  },
+  "@pilot.CalibrationPilot.KernelChain.pi_calibrated_k": {
+   "project": "pilots/agentB-calibration",
+   "root_module": "CalibrationPilot",
+   "endpoint": "CalibrationPilot.KernelChain.pi_calibrated_k",
+   "sources": [
+    "pilots/agentB-calibration/c/calibration_new.c"
+   ],
+   "is_node_conclusion": false,
+   "family": "Pilot"
+  },
+  "RamanujanNumerics.v3.epsilon_budget": {
+   "project": "Solutions/RamanujanNumerics.v3",
+   "root_module": "Solution",
+   "endpoint": "RamanujanNumerics.v3.challenge_epsilon_budget",
+   "challenge_module": "IEANTN.Nodes.RamanujanNumerics.v3.Challenge",
+   "sources": [
+    "Solutions/RamanujanNumerics.v3/c/budget.c"
+   ],
+   "family": "Ramanujan"
+  },
+  "RamanujanGap.v3.loss_bound": {
+   "project": "Solutions/RamanujanGap.v3",
+   "root_module": "Solution",
+   "endpoint": "RamanujanGap.v3.challenge_loss_bound",
+   "challenge_module": "IEANTN.Nodes.RamanujanGap.v3.Challenge",
+   "sources": [],
+   "family": "Ramanujan consumer",
+   "method_claim": "none"
+  },
+  "RamanujanGap.v3.gap_lower_bound": {
+   "project": "Solutions/RamanujanGap.v3",
+   "root_module": "Solution",
+   "endpoint": "RamanujanGap.v3.challenge_gap_lower_bound",
+   "challenge_module": "IEANTN.Nodes.RamanujanGap.v3.Challenge",
+   "sources": [],
+   "family": "Ramanujan consumer",
+   "method_claim": "none"
+  },
+  "RamanujanGap.v3.ramanujan": {
+   "project": "Solutions/RamanujanGap.v3",
+   "root_module": "Solution",
+   "endpoint": "RamanujanGap.v3.challenge_ramanujan",
+   "challenge_module": "IEANTN.Nodes.RamanujanGap.v3.Challenge",
+   "sources": [],
+   "family": "Ramanujan consumer",
+   "method_claim": "none"
+  },
+  "@pv.PVRamanujan.V1.epsilon_budget": {
+   "project": "Solutions/ProgramVerification",
+   "root_module": "PVRamanujan",
+   "endpoint": "PVRamanujan.V1.epsilon_budget",
+   "challenge_module": "IEANTN.Nodes.RamanujanNumerics.v1.Challenge",
+   "challenge_endpoint": "RamanujanNumerics.v1.challenge_epsilon_budget",
+   "sources": [
+    "Solutions/RamanujanNumerics.v1/c/baseline.c"
+   ],
+   "family": "shared-contract replay",
+   "is_node_conclusion": false,
+   "replays": "RamanujanNumerics.v1.epsilon_budget"
+  },
+  "@pv.PVRamanujan.V2.epsilon_budget": {
+   "project": "Solutions/ProgramVerification",
+   "root_module": "PVRamanujan",
+   "endpoint": "PVRamanujan.V2.epsilon_budget",
+   "challenge_module": "IEANTN.Nodes.RamanujanNumerics.v2.Challenge",
+   "challenge_endpoint": "RamanujanNumerics.v2.challenge_epsilon_budget",
+   "sources": [
+    "Solutions/RamanujanNumerics.v2/c/updated.c"
+   ],
+   "family": "shared-contract replay",
+   "is_node_conclusion": false,
+   "replays": "RamanujanNumerics.v2.epsilon_budget"
+  },
+  "@pv.PVRamanujan.OldGrouped.epsilon_budget": {
+   "project": "Solutions/ProgramVerification",
+   "root_module": "PVRamanujan",
+   "endpoint": "PVRamanujan.OldGrouped.epsilon_budget",
+   "challenge_module": "IEANTN.Nodes.RamanujanNumerics.v1.Challenge",
+   "challenge_endpoint": "RamanujanNumerics.v1.challenge_epsilon_budget",
+   "sources": [
+    "Solutions/RamanujanNumerics.v2/c/oldgrouped.c"
+   ],
+   "family": "shared-contract replay",
+   "is_node_conclusion": false,
+   "replays": "RamanujanNumerics.v1.epsilon_budget"
+  },
+  "@pv.PVTable4.QRH.qrh_pi": {
+   "project": "Solutions/ProgramVerification",
+   "root_module": "PVTable4",
+   "endpoint": "PVTable4.QRH.qrh_pi",
+   "challenge_module": "IEANTN.Nodes.FKS2Numerics.v7.Challenge",
+   "challenge_endpoint": "FKS2Numerics.v7.challenge_qrh_pi",
+   "sources": [
+    "Solutions/FKS2Numerics.v5/c/fks2_table4_transport.c"
+   ],
+   "family": "shared-contract replay",
+   "is_node_conclusion": false,
+   "replays": "FKS2Numerics.v7.qrh_pi"
+  },
+  "@pv.PVTable4.Old.old_pi": {
+   "project": "Solutions/ProgramVerification",
+   "root_module": "PVTable4",
+   "endpoint": "PVTable4.Old.old_pi",
+   "challenge_module": "IEANTN.Nodes.FKS2Numerics.v6.Challenge",
+   "challenge_endpoint": "FKS2Numerics.v6.challenge_old_pi",
+   "sources": [
+    "Solutions/FKS2Numerics.v6/c/fks2_table4_transport_old.c"
+   ],
+   "family": "shared-contract replay",
+   "is_node_conclusion": false,
+   "replays": "FKS2Numerics.v6.old_pi"
+  }
  }
 }

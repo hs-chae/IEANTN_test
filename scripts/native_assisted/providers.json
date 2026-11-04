@@ -1,0 +1,30 @@
+{
+ "_comment": "Registered program-verified numerical providers, for scripts/native_assisted/pv_update.py. An update is an entry with `updated_from` and only the changed fields. This is a local workflow registry, not trust metadata: official kinds live in formalization.yaml, local gate results in pv-evidence/.",
+ "providers": {
+  "RamanujanNumerics.v2.epsilon_budget": {
+   "family": "ramanujan-budget",
+   "parameters": {"m": "119", "M": "131", "A": "3914", "Y": "3915", "groups": 7},
+   "bound": "9101/1000",
+   "suffix_eps": "1/10000000000",
+   "project": "Solutions/RamanujanNumerics.v2",
+   "source": "Solutions/RamanujanNumerics.v2/c/updated.c",
+   "lean_lib": "ForwardRamanujanUpdate",
+   "lean_module": "ForwardRamanujanUpdate/Updated.lean",
+   "gate_endpoint": "RamanujanNumerics.v2.epsilon_budget",
+   "math_inputs": ["DudekPlattNumerics.v5.pi_two_sided_qrh: coefficients 119 and 131 for every x > exp 400"],
+   "note": "Existing provider, registered as it is; its designated proof and files are unchanged. The generator is not run on it."
+  },
+  "RamanujanNumerics.v3.epsilon_budget": {
+   "updated_from": "RamanujanNumerics.v2.epsilon_budget",
+   "change": "The range moves from x > exp 3915 to x > exp 401: A 3914 -> 400, Y 3915 -> 401. The coefficients 119/131 are unchanged; DudekPlattNumerics.v5 proves them for every x > exp 400, so the old range was a choice made for the controlled comparison, not a limit of the input.",
+   "parameters": {"A": "400", "Y": "401"},
+   "bound": "9988/1000",
+   "project": "Solutions/RamanujanNumerics.v3",
+   "source": "Solutions/RamanujanNumerics.v3/c/budget.c",
+   "lean_lib": "RamanujanBudget",
+   "lean_module": "RamanujanBudget/Provider.lean",
+   "allowance_def": "RamanujanNumerics.v3.allowance",
+   "gate_endpoint": "RamanujanNumerics.v3.epsilon_budget"
+  }
+ }
+}

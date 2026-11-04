@@ -2114,6 +2114,71 @@ def pv_attestation(conclusion_key: str) -> dict | None:
     return data if isinstance(data, dict) else None
 
 
+def pv_second_routes(conclusion_key: str) -> list[dict]:
+    """Local attestations of *other* proofs of this conclusion (`"replays": <key>`), e.g. the
+    shared-contract re-derivations in `Solutions/ProgramVerification`."""
+    out = []
+    if not PV_EVIDENCE.is_dir():
+        return out
+    for path in sorted(PV_EVIDENCE.glob("@*.native-assisted.local.json")):
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, UnicodeError, json.JSONDecodeError):
+            continue
+        if isinstance(data, dict) and data.get("replays") == conclusion_key:
+            out.append({**data, "_file": path.name})
+    return out
+
+
+def pv_provider_change(conclusion_key: str) -> dict | None:
+    """The registered update that produced this provider, from the workflow registry."""
+    registry = ROOT / "scripts" / "native_assisted" / "providers.json"
+    if not registry.is_file():
+        return None
+    try:
+        entry = (json.loads(registry.read_text(encoding="utf-8")).get("providers") or {}).get(
+            conclusion_key)
+    except (OSError, UnicodeError, json.JSONDecodeError):
+        return None
+    return entry if isinstance(entry, dict) and entry.get("updated_from") else None
+
+
+def pv_page_rows(conclusion_key: str, attestation: dict) -> list[str]:
+    """Reader rows for a program-verified conclusion: the program and backend, the trust in plain
+    words, other checked routes, and the registered change. Facts only from the attestation and
+    the workflow registry; nothing here is official."""
+    rows = []
+    checks = attestation.get("method_checks") or {}
+    sources = (checks.get("S_source_identity") or {}).get("sources") or []
+    if sources:
+        rows.append("| Program and backend | restricted C, IEEE binary64 round-to-nearest model; "
+                    + "; ".join(f"`{_quote(s.get('path'))}` (SHA256 `{str(s.get('sha256') or '')[:12]}`)"
+                                for s in sources) + " |")
+        names = ((checks.get("C_generic_correctness") or {}).get("theorems") or [])[:3]
+        if names:
+            rows.append("| Proved by | " + ", ".join(f"`{_quote(n)}`" for n in names)
+                        + " (shared theorems; the instance contributes data and its finite certificates) |")
+    natives = (attestation.get("axioms") or {}).get("native_fact_count")
+    if natives is not None:
+        rows.append("| Trust in plain words | "
+                    + ("The Lean kernel checks every step." if natives == 0 else
+                       f"The Lean kernel checks every step except {natives} finite computation(s), "
+                       "which Lean's compiler evaluates.")
+                    + " Not modelled: the C compiler, the operating system and the hardware. |")
+    for route in pv_second_routes(conclusion_key):
+        n = (route.get("axioms") or {}).get("native_fact_count")
+        rows.append(f"| Second checked route | `{_quote(route.get('endpoint'))}`: native-assisted "
+                    f"**{_quote(route.get('status'))}**, {n} finite native fact(s), "
+                    f"{_quote(route.get('evidence_method'))} "
+                    f"([attestation](../../pv-evidence/{route['_file']})) |")
+    change = pv_provider_change(conclusion_key)
+    if change:
+        old = change["updated_from"]
+        rows.append(f"| Changed from [`{old}`]({node_page_url(old.rsplit('.', 1)[0], old.rsplit('.', 1)[1])}) "
+                    f"| {_quote(change.get('change') or '')} |")
+    return rows
+
+
 def check_pv_evidence() -> bool:
     """Local program-verification attestations must not overstate anything. Fail closed.
 
@@ -3702,6 +3767,7 @@ def render_node_page(node_id: str, nodes: dict, index: dict, importers: dict) ->
                        + ("present" if receipt.is_file() else "absent") + " |")
             out.append(f"| Local attestation | [`{pv_attestation_path(key).name}`]"
                        f"(../../pv-evidence/{pv_attestation_path(key).name}) |")
+            out += pv_page_rows(key, attestation)
         # `drifted` on its own invites the reader to assume the worst -- a wrong proof rather than
         # a moved statement -- so the page says which statement moved and leaves them to judge.
         health = receipt_state(key, conclusion)

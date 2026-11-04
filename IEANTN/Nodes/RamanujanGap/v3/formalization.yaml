@@ -1,0 +1,93 @@
+version: v0.4
+node:
+  id: RamanujanGap.v3
+  family: RamanujanGap
+  version: v3
+  kind: pipeline
+  status: awaiting-solution
+project:
+  name: Ramanujan gap on the full range of the QRH pi input
+  description: The RamanujanGap.v2 consequences, including Ramanujan's inequality, for every x >
+    exp 401, from the QRH-derived pi expansion and the program-checked budget RamanujanNumerics.v3.
+  authors:
+  - Agent B (Claude)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+conclusions:
+- id: loss_bound
+  declaration: RamanujanGap.v3.loss_bound
+  challenge: RamanujanGap.v3.challenge_loss_bound
+  imports:
+  - node: DudekPlattNumerics.v5
+    conclusion: pi_two_sided_qrh
+  - node: RamanujanNumerics.v3
+    conclusion: epsilon_budget
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Standard-axiom consumer implication (no native facts). Proofs are in
+      Solutions/RamanujanGap.v3/Solution.lean; they apply ForwardRamanujan.loss_from_budget and
+      gap_from_budget at (m, M, A, Y) = (119, 131, 400, 401). No official receipt.
+  designated: solution
+- id: gap_lower_bound
+  declaration: RamanujanGap.v3.gap_lower_bound
+  challenge: RamanujanGap.v3.challenge_gap_lower_bound
+  imports:
+  - node: DudekPlattNumerics.v5
+    conclusion: pi_two_sided_qrh
+  - node: RamanujanNumerics.v3
+    conclusion: epsilon_budget
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Standard-axiom consumer implication (no native facts). Proofs are in
+      Solutions/RamanujanGap.v3/Solution.lean; they apply ForwardRamanujan.loss_from_budget and
+      gap_from_budget at (m, M, A, Y) = (119, 131, 400, 401). No official receipt.
+  designated: solution
+- id: ramanujan
+  declaration: RamanujanGap.v3.ramanujan
+  challenge: RamanujanGap.v3.challenge_ramanujan
+  imports:
+  - node: DudekPlattNumerics.v5
+    conclusion: pi_two_sided_qrh
+  - node: RamanujanNumerics.v3
+    conclusion: epsilon_budget
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Standard-axiom consumer implication (no native facts). Proofs are in
+      Solutions/RamanujanGap.v3/Solution.lean; they apply ForwardRamanujan.loss_from_budget and
+      gap_from_budget at (m, M, A, Y) = (119, 131, 400, 401). No official receipt.
+  designated: solution
+sources:
+- id: forward-replay
+  title: Preregistered controlled forward Ramanujan experiment
+  authors:
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: The consumer theorems ForwardRamanujan.loss_from_budget and gap_from_budget are reused
+    unchanged; only the parameters differ from RamanujanGap.v2.
+automation:
+  methods:
+  - method: manual
+    role: Instantiation of the existing consumer theorems at the new range.
+review:
+  status: self-assessed
+  reviewers:
+  - Agent B (Claude)
+limitations:
+- Conditional on DudekPlattNumerics.v5.pi_two_sided_qrh, which rests on the QRH-derived psi
+  bound and its CH2 premises. Not a claim about the best known range of Ramanujan's inequality.
+- The budget input has one disclosed native fact (RamanujanNumerics.v3).
