@@ -21,7 +21,7 @@
 | `pilots/pv-replay` | `lake build PVReplay` | OK |
 | **stopped** | `RamanujanGap.v3` replay importing `DDExpansionSolution` | The closure compiles CH2.v6 density certificates: about 120 parallel Lean jobs at about 10 GB each on a shared machine. Stopped and every process killed. The replay now keeps the π input as a premise. |
 
-## Repository checks
+## Repository checks (at `9b748db`)
 
 | Check | Result |
 |---|---|
@@ -60,34 +60,34 @@ range, the decided proposition, and the count of trusted library implementations
 
 ## Local gate
 
-All 25 attestations pass. The 9 new endpoints were re-run on a clean tree at `da75940`; the 16 earlier ones are from `d7dfcbe` and `20aabf4` and still hold (their code is unchanged). `RamanujanGap.v3.ramanujan` was attested and then removed with the conclusion (duplicate of `DudekPlatt.v5.ramanujan_401`).
+All 25 attestations pass, all on a clean tree. The 16 earlier endpoints were re-run in this task at `9b748db`, with the same methods and native-fact counts as before. The 9 new ones ran at `da75940`. `RamanujanGap.v3.ramanujan` was attested and then removed together with its conclusion, a duplicate of `DudekPlatt.v5.ramanujan_401`.
 
 | Endpoint | Status | Method | Native facts | Checked at (clean tree) |
 |---|---|---|---|---|
-| `@pilot.CalibrationPilot.KernelChain.pi_calibrated_k` | passed | lean-verified-program | 1 | `20aabf4` |
-| `@pilot.CalibrationPilot.NewChain.new_chain` | passed | lean-verified-program | 13 | `20aabf4` |
+| `@pilot.CalibrationPilot.KernelChain.pi_calibrated_k` | passed | lean-verified-program | 1 | `9b748db` |
+| `@pilot.CalibrationPilot.NewChain.new_chain` | passed | lean-verified-program | 13 | `9b748db` |
 | `@pv.PVPilot.Updated.gap_exceeds_leading` | passed | lean-verified-program | 2 | `da75940` |
 | `@pv.PVRamanujan.OldGrouped.epsilon_budget` | passed | lean-verified-program | 1 | `da75940` |
 | `@pv.PVRamanujan.V1.epsilon_budget` | passed | lean-verified-program | 1 | `da75940` |
 | `@pv.PVRamanujan.V2.epsilon_budget` | passed | lean-verified-program | 1 | `da75940` |
 | `@pv.PVTable4.Old.old_pi` | passed | lean-verified-program | 4 | `da75940` |
 | `@pv.PVTable4.QRH.qrh_pi` | passed | lean-verified-program | 4 | `da75940` |
-| `@solution.FKS2Pair.assembled` | passed | lean-verified-program | 16 | `20aabf4` |
-| `@solution.ForwardRamanujan.forward` | passed | lean-verified-program | 12 | `20aabf4` |
-| `FKS2.v5.updated_theta` | passed | not-program-verified | 0 | `d7dfcbe` |
-| `FKS2.v9.qrh_absolute_pi` | passed | not-program-verified | 0 | `d7dfcbe` |
-| `FKS2Numerics.v2.nu_asymp_e30_le` | passed | not-program-verified | 8 | `d7dfcbe` |
-| `FKS2Numerics.v3.baseline_bound` | passed | lean-verified-program | 8 | `d7dfcbe` |
-| `FKS2Numerics.v3.calibration_bound` | passed | not-program-verified | 8 | `d7dfcbe` |
-| `FKS2Numerics.v4.updated_bound` | passed | lean-verified-program | 12 | `d7dfcbe` |
-| `FKS2Numerics.v5.numerical_pi` | passed | lean-verified-program | 7 | `d7dfcbe` |
-| `FKS2Numerics.v6.old_pi` | passed | lean-verified-program | 8 | `d7dfcbe` |
-| `FKS2Numerics.v7.qrh_pi` | passed | lean-verified-program | 8 | `d7dfcbe` |
-| `RamanujanGap.v2.loss_bound` | passed | not-program-verified | 0 | `d7dfcbe` |
+| `@solution.FKS2Pair.assembled` | passed | lean-verified-program | 16 | `9b748db` |
+| `@solution.ForwardRamanujan.forward` | passed | lean-verified-program | 12 | `9b748db` |
+| `FKS2.v5.updated_theta` | passed | not-program-verified | 0 | `9b748db` |
+| `FKS2.v9.qrh_absolute_pi` | passed | not-program-verified | 0 | `9b748db` |
+| `FKS2Numerics.v2.nu_asymp_e30_le` | passed | not-program-verified | 8 | `9b748db` |
+| `FKS2Numerics.v3.baseline_bound` | passed | lean-verified-program | 8 | `9b748db` |
+| `FKS2Numerics.v3.calibration_bound` | passed | not-program-verified | 8 | `9b748db` |
+| `FKS2Numerics.v4.updated_bound` | passed | lean-verified-program | 12 | `9b748db` |
+| `FKS2Numerics.v5.numerical_pi` | passed | lean-verified-program | 7 | `9b748db` |
+| `FKS2Numerics.v6.old_pi` | passed | lean-verified-program | 8 | `9b748db` |
+| `FKS2Numerics.v7.qrh_pi` | passed | lean-verified-program | 8 | `9b748db` |
+| `RamanujanGap.v2.loss_bound` | passed | not-program-verified | 0 | `9b748db` |
 | `RamanujanGap.v3.gap_lower_bound` | passed | not-program-verified | 0 | `da75940` |
 | `RamanujanGap.v3.loss_bound` | passed | not-program-verified | 0 | `da75940` |
-| `RamanujanNumerics.v1.epsilon_budget` | passed | lean-verified-program | 6 | `d7dfcbe` |
-| `RamanujanNumerics.v2.epsilon_budget` | passed | lean-verified-program | 6 | `d7dfcbe` |
+| `RamanujanNumerics.v1.epsilon_budget` | passed | lean-verified-program | 6 | `9b748db` |
+| `RamanujanNumerics.v2.epsilon_budget` | passed | lean-verified-program | 6 | `9b748db` |
 | `RamanujanNumerics.v3.epsilon_budget` | passed | lean-verified-program | 1 | `da75940` |
 
 ## Controls (`scripts/native_assisted/controls_pv.py`, scratch copy; repository tree hash unchanged)

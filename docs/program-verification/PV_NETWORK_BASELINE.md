@@ -1,8 +1,10 @@
 # Program-verification baseline: where the network stood before the upgrade
 
 - **Base.** Branch `agentB/native-assisted` at `3388918`, which is `qrh-2pv@0945fe9` plus Agent B's
-  integration (`551f552`) and native-assisted (`3388918`) work. Reproduced: all 16 earlier
-  attestations still pass; check, fingerprints and freeze unchanged (`PV_TEST_AND_REPLAY_LOG.md`).
+  integration (`551f552`) and native-assisted (`3388918`) work.
+- **Reproduced in this task.** All 16 earlier endpoints were re-run through the gate at `9b748db`
+  and pass with the same methods and native-fact counts. Check, fingerprints and freeze are
+  unchanged (`PV_TEST_AND_REPLAY_LOG.md`).
 - **Measured by** `agentB/evidence/pv3/census.py` (declaration names per file) and
   `census_after.py` (code lines: non-blank, comments and docstrings excluded).
 

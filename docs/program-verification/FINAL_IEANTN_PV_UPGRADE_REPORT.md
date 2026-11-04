@@ -117,7 +117,9 @@ Details: `PV_TEST_AND_REPLAY_LOG.md`.
 - `3a4f63a` RamanujanGap.v3: drop the duplicate of DudekPlatt.v5.ramanujan_401
 - `4f94ea3` Re-attest the RamanujanGap.v3 consumers at the corrected commit
 - `da75940` Gate: its own outputs in pv-evidence/ do not make the tree dirty; page shows up to 5 proving theorems
-- the final commit adds this report, the test log and the regenerated derived documents
+- `e713b49` Final attestations on a clean tree (da75940); test log, final report, regenerated derived docs
+- `9b748db` Update workflow doc: 4 of 7 literals changed (measured)
+- the final commit re-runs the 16 earlier endpoints at `9b748db` and regenerates the test log and derived documents
 
 ---
 
