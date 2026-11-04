@@ -1,0 +1,35 @@
+name = "solution_ProgramVerification"
+version = "0.1.0"
+defaultTargets = ["PVCore"]
+
+# Shared, solution-facing program-verification contracts. Not a node and not in the core build:
+# node statements never import this package. Solution projects that verify a numerical program
+# require it by path, exactly as they already require `solution_FKS2Numerics_v2` for SumStability.
+[[require]]
+name = "IEANTN"
+path = "../.."
+
+[[require]]
+name = "solution_FKS2Numerics_v5"
+path = "../FKS2Numerics.v5"
+
+[[require]]
+name = "solution_FKS2Numerics_v6"
+path = "../FKS2Numerics.v6"
+
+[[require]]
+name = "solution_RamanujanNumerics_v1"
+path = "../RamanujanNumerics.v1"
+
+[[require]]
+name = "solution_RamanujanNumerics_v2"
+path = "../RamanujanNumerics.v2"
+
+[[lean_lib]]
+name = "PVCore"
+
+[[lean_lib]]
+name = "PVRamanujan"
+
+[[lean_lib]]
+name = "PVTable4"
