@@ -1,0 +1,11 @@
+# Four-height prime-error provider (Agent A v2)
+
+This isolated provider proves the actual normalized Eπ bound0.009484 x⁻¹⁄⁸ for every x≥exp300. Start with `Solutions/WinnerDensityA.v1/Solution.lean`, theorem `WinnerDensityA.winner_program_v2_height`, or the exact root `WinnerDensityA.HeightFinal.source_pi_009484`.
+
+The proof uses four independently certified height profiles and a direct prime-counting kernel. It derives source counts, endpoint extensions, an integrable step moment, actual finite-zero spectral bounds, generated program semantics and the final prime consumer. Original CHJ/zero-count/low-zero, the eight original analytic relations and finiteRH remain explicit; QRH is supplied only in the separate compatible actual-QRH replay. No chosen U/count/moment/spectral/prime conclusion is assumed.
+
+Four acyclic packages hold the implementation: WinnerSourcesA (original numeric/source helpers), WinnerBetaA (actual source objects and reusable transfers), WinnerHeightSourcesA (new four-height numerical providers), WinnerDensityA (moment/program/direct-prime consumers). The reused WinnerProgramA exact dyadic evaluator supplies a two-row8193cell accepted run. The final native-assisted root has49 individually disclosed finite computation facts plus standard3. It is Lean program verification, not C or binary64 verification.
+
+This is a provider/integration proposal, not an official registered node or receipt. Old mathematical contracts, evidence and generated pages are unchanged. The source/evidence bundle's `reports/WINNER_V2_RESULT.html`, `BUILD_STATUS.json`, `PV_PROVIDER_HANDOFF.json` and `REPRODUCING.md` record actual final status, source pins, conditional inputs, incumbent scope and replay commands. A valid bound alone is not proof of a global winner; the old C4 family has material larger-a2 and adaptive rivals. No global record or optimality claim is made.
+
+For later integration, expose one useful mathematical endpoint, retain precise dependency propositions, register legitimate source providers through the repository tooling, and ask the designated official verifier for its authentic receipt. Do not promote these local native-assisted sidecars into canonical trust schema or official receipt directories.
