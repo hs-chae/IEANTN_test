@@ -326,7 +326,9 @@ def pins(project: pathlib.Path) -> dict:
                 out["mathlib"] = p.get("rev")
     rc, log, _ = run(["git", "rev-parse", "HEAD"], ROOT, 30)
     out["repository_commit"] = log.strip() if rc == 0 else None
-    rc, log, _ = run(["git", "status", "--porcelain", "--untracked-files=no"], ROOT, 30)
+    # The gate's own outputs (pv-evidence/) are not inputs: a tree is clean if nothing else changed.
+    rc, log, _ = run(["git", "status", "--porcelain", "--untracked-files=no", "--", ".",
+                      ":(exclude)pv-evidence"], ROOT, 30)
     out["working_tree_clean"] = (rc == 0 and log.strip() == "")
     return out
 

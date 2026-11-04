@@ -2154,7 +2154,7 @@ def pv_page_rows(conclusion_key: str, attestation: dict) -> list[str]:
         rows.append("| Program and backend | restricted C, IEEE binary64 round-to-nearest model; "
                     + "; ".join(f"`{_quote(s.get('path'))}` (SHA256 `{str(s.get('sha256') or '')[:12]}`)"
                                 for s in sources) + " |")
-        names = ((checks.get("C_generic_correctness") or {}).get("theorems") or [])[:3]
+        names = ((checks.get("C_generic_correctness") or {}).get("theorems") or [])[:5]
         if names:
             rows.append("| Proved by | " + ", ".join(f"`{_quote(n)}`" for n in names)
                         + " (shared theorems; the instance contributes data and its finite certificates) |")
