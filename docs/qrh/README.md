@@ -13,6 +13,9 @@ to identify the actual checkout. The owner explicitly authorized this publicatio
 1. Read this handoff and [reproduction instructions](REPRODUCING.md).
 2. Open [RESULTS.html](RESULTS.html) for exact, statically rendered mathematics and
    trust comparisons. The [rendering-corrected full forward report](FORWARD_REPORT.html) is also included. Both work offline; GitHub may require downloading it first.
+   For the same mathematics in reading order, with the exact Lean declarations and trust lines,
+   see [RAMANUJAN_WALKTHROUGH.md](RAMANUJAN_WALKTHROUGH.md) and
+   [TABLE4_WALKTHROUGH.md](TABLE4_WALKTHROUGH.md). Both render on GitHub.
 3. Read [CLAUDE.md](../../CLAUDE.md), [CONTRIBUTING.md](../../CONTRIBUTING.md),
    [ARCHITECTURE.md](../ARCHITECTURE.md) and [NODES.md](../NODES.md).
 4. Follow the relevant proof path in the source map below. Inspect the actual
