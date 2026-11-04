@@ -22,8 +22,11 @@ which is ≈ 9.98763. So `C = 9.988` works.
 **Hypotheses.** None in the budget: it is pure arithmetic. The coefficients enter the consumer
 through the π bound `DudekPlattNumerics.v5.pi_two_sided_qrh`, valid for `x > e^400`.
 
-**Conclusion and next theorem.** `RamanujanGap.v3` turns the budget into Ramanujan's inequality
-`π(x)² < (e·x/log x)·π(x/e)` for every `x > e^401`.
+**Conclusion and next theorem.** `RamanujanGap.v3` turns the budget into the lower bound
+`(1 − 9.988/log x)·x²/(log x)⁶ < (e·x/log x)·π(x/e) − π(x)²` for every `x > e^401`. Ramanujan's
+inequality on this range was already in the network as `DudekPlatt.v5.ramanujan_401`, so check
+for an existing conclusion before adding one: the first version of this tutorial's example stated
+it again and had to drop it.
 
 ## 2. Why a program
 
@@ -97,7 +100,7 @@ No reviewer was approved, so I followed the steps above as written, after the ge
 **Still manual.**
 - Choosing the bound; `plan` prints the certified value.
 - `lake update` in a new solution project.
-- The consumer's new version: `RamanujanGap.v3`, 4 theorems that reuse `loss_from_budget` and
+- The consumer's new version: `RamanujanGap.v3`, 3 theorems that reuse `loss_from_budget` and
   `gap_from_budget`.
 - Adding the endpoint to `endpoints.json` for the gate.
 

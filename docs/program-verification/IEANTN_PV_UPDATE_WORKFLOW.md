@@ -51,7 +51,7 @@ consumers of the old conclusion: RamanujanGap.v2.loss_bound, RamanujanGap.v2.gap
 | Selected file | `c/updated.c`, 7 entries | `c/budget.c`, 7 entries, generated |
 | Literals that changed | — | 5 of 7. The terms `(2·131 + 132)/Y, …` depend on `Y`; the last two are floored at `2⁻⁴⁰`. |
 | Instance proof | 116 code lines, 18 theorems, 6 native facts | 26 code lines (7 are literals), 2 theorems, 1 native fact |
-| Consumer | `RamanujanGap.v2`, `x > e^3915` | `RamanujanGap.v3`, `x > e^401`, including Ramanujan's inequality `π(x)² < (e·x/log x)·π(x/e)` |
+| Consumer | `RamanujanGap.v2`, `x > e^3915` | `RamanujanGap.v3`: loss and gap bounds for `x > e^401`. Ramanujan's inequality itself on that range was already `DudekPlatt.v5.ramanujan_401` (bridged). |
 | Gate | passed, 6 native facts | passed, 1 native fact, `lean-verified-program` |
 
 **Which bound improved, and which did not.**

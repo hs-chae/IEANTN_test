@@ -1,7 +1,7 @@
 {
  "schema": "agentB.pv-application-handoff/1 (local sidecar; not an official IEANTN schema)",
  "notice": "Local research record. Not an IEANTN verification receipt.",
- "generated_at_commit": "5ccad03d24a1881cbe1e663344f123a123149ad5",
+ "generated_at_commit": "b36ca0e49df6f9a9c5214adf08f209a2913b4f01",
  "trust_boundary": [
   "Native evaluation (native_decide): the Lean compiler and runtime evaluate each listed finite fact; the kernel does not re-check it.",
   "Trusted library implementations reached by those evaluations (implemented_by/extern in Lean core, Std, Batteries, Mathlib) are counted per fact.",
@@ -11,9 +11,9 @@
  ],
  "applications": {
   "ramanujan-from-e401": {
-   "statement": "Ramanujan's inequality pi(x)^2 < (e x / log x) pi(x/e) for every x > exp 401, conditional on the QRH-derived pi expansion",
+   "statement": "(1 - 9.988/log x) x^2/log^6 x < gap(x) for every x > exp 401, conditional on the QRH-derived pi expansion. Ramanujan's inequality on this range is already DudekPlatt.v5.ramanujan_401 (bridged, standard axioms); the replay RamanujanGap.v3.ramanujan_401_second_route reaches it again through the program.",
    "replay": {
-    "theorem": "RamanujanGap.v3.ramanujan_from_pi",
+    "theorem": "RamanujanGap.v3.gap_from_pi",
     "project": "Solutions/RamanujanGap.v3",
     "axioms": "propext, Classical.choice, Quot.sound + 1 native fact (RamanujanNumerics.v3.Provider.certificate)"
    },
@@ -69,7 +69,7 @@
      }
     },
     {
-     "conclusion": "RamanujanGap.v3.ramanujan",
+     "conclusion": "RamanujanGap.v3.gap_lower_bound",
      "role": "consumer",
      "official": {
       "designated_kind": "none-yet",
@@ -85,9 +85,9 @@
       "evidence_method": "not-program-verified",
       "native_facts": 0,
       "native_fact_owners": [],
-      "checked_at": "2026-11-04T23:06:15+00:00",
+      "checked_at": "2026-11-04T23:05:58+00:00",
       "repository_commit": "5ccad03d24a1881cbe1e663344f123a123149ad5",
-      "attestation": "pv-evidence/RamanujanGap.v3.ramanujan.native-assisted.local.json"
+      "attestation": "pv-evidence/RamanujanGap.v3.gap_lower_bound.native-assisted.local.json"
      }
     }
    ]

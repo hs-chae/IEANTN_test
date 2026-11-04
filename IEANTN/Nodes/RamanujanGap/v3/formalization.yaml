@@ -7,8 +7,9 @@ node:
   status: awaiting-solution
 project:
   name: Ramanujan gap on the full range of the QRH pi input
-  description: The RamanujanGap.v2 consequences, including Ramanujan's inequality, for every x >
-    exp 401, from the QRH-derived pi expansion and the program-checked budget RamanujanNumerics.v3.
+  description: The quantitative RamanujanGap.v2 bounds (loss and gap) for every x > exp 401, from
+    the QRH-derived pi expansion and the program-checked budget RamanujanNumerics.v3. Ramanujan's
+    inequality itself on this range is DudekPlatt.v5.ramanujan_401 (bridged, kernel-only).
   authors:
   - Agent B (Claude)
   license: Apache-2.0
@@ -41,22 +42,6 @@ conclusions:
 - id: gap_lower_bound
   declaration: RamanujanGap.v3.gap_lower_bound
   challenge: RamanujanGap.v3.challenge_gap_lower_bound
-  imports:
-  - node: DudekPlattNumerics.v5
-    conclusion: pi_two_sided_qrh
-  - node: RamanujanNumerics.v3
-    conclusion: epsilon_budget
-  imports_status: identified
-  justifications:
-  - id: solution
-    kind: none-yet
-    note: Standard-axiom consumer implication (no native facts). Proofs are in
-      Solutions/RamanujanGap.v3/Solution.lean; they apply ForwardRamanujan.loss_from_budget and
-      gap_from_budget at (m, M, A, Y) = (119, 131, 400, 401). No official receipt.
-  designated: solution
-- id: ramanujan
-  declaration: RamanujanGap.v3.ramanujan
-  challenge: RamanujanGap.v3.challenge_ramanujan
   imports:
   - node: DudekPlattNumerics.v5
     conclusion: pi_two_sided_qrh

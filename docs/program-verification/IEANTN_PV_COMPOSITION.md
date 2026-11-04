@@ -6,7 +6,7 @@ Two compositions now run on the shared contract.
   joined by a data link (`pilots/pv-replay/PVReplay/Chain.lean`).
 - **π input → budget program → consumer (node graph).** The new nodes `RamanujanNumerics.v3` and
   `RamanujanGap.v3` compose through ordinary node imports. The replay
-  `RamanujanGap.v3.ramanujan_from_pi` discharges the budget premise with the actual provider.
+  `RamanujanGap.v3.gap_from_pi` discharges the budget premise with the actual provider.
 
 ## 1. A→B′: what is checked, and where
 
@@ -47,7 +47,7 @@ not elaborate; see `PV_TEST_AND_REPLAY_LOG.md`.
 
 ## 2. The node-graph composition
 
-`RamanujanGap.v3.ramanujan` imports two conclusions:
+`RamanujanGap.v3.gap_lower_bound` imports two conclusions:
 
 - `DudekPlattNumerics.v5.pi_two_sided_qrh`: analytic, QRH-derived;
 - `RamanujanNumerics.v3.epsilon_budget`: one executed program.
@@ -55,13 +55,20 @@ not elaborate; see `PV_TEST_AND_REPLAY_LOG.md`.
 Its solution uses standard axioms only. The replay
 
 ```lean
-theorem RamanujanGap.v3.ramanujan_from_pi (hp : DudekPlattNumerics.v5.pi_two_sided_qrh) :
-    RamanujanGap.v3.ramanujan :=
-  RamanujanGap.v3.challenge_ramanujan hp RamanujanNumerics.v3.Provider.epsilon_budget
+theorem RamanujanGap.v3.gap_from_pi (hp : DudekPlattNumerics.v5.pi_two_sided_qrh) :
+    RamanujanGap.v3.gap_lower_bound :=
+  RamanujanGap.v3.challenge_gap_lower_bound hp RamanujanNumerics.v3.Provider.epsilon_budget
 ```
 
 discharges the budget with the actual generated provider: 3 standard axioms plus 1 native fact. The
 π premise stays a premise, exactly as in the node graph.
+
+**Ramanujan's inequality on this range already exists.** `DudekPlatt.v5.ramanujan_401` states it,
+for every `x > e^401`, and its designated justification is a bridge in the core build with
+standard axioms only. The replay `RamanujanGap.v3.ramanujan_401_second_route` reaches that same
+statement through the program-checked budget. It is a second route with weaker trust: one native
+fact. It is not a new result, and `RamanujanGap.v3` therefore states only the quantitative loss
+and gap bounds.
 
 **Why the π premise is not discharged here.** Importing `DudekPlattNumerics.v5`'s own solution
 compiles the CH2.v6 density certificates, about 120 parallel Lean jobs at about 10 GB each. That

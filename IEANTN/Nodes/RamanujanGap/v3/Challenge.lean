@@ -29,9 +29,3 @@ theorem RamanujanGap.v3.challenge_gap_lower_bound
     (ramanujannumerics_v3_epsilon_budget : RamanujanNumerics.v3.epsilon_budget) :
     RamanujanGap.v3.gap_lower_bound := by
   sorry
-
-theorem RamanujanGap.v3.challenge_ramanujan
-    (dudekplattnumerics_v5_pi_two_sided_qrh : DudekPlattNumerics.v5.pi_two_sided_qrh)
-    (ramanujannumerics_v3_epsilon_budget : RamanujanNumerics.v3.epsilon_budget) :
-    RamanujanGap.v3.ramanujan := by
-  sorry

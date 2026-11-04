@@ -46,20 +46,3 @@ theorem RamanujanGap.v3.challenge_gap_lower_bound
     rw [log_exp] at h
     linarith
   convert hg using 1 <;> field_simp [hL.ne'] <;> ring
-
-theorem RamanujanGap.v3.challenge_ramanujan
-    (hp : DudekPlattNumerics.v5.pi_two_sided_qrh)
-    (hc : RamanujanNumerics.v3.epsilon_budget) : RamanujanGap.v3.ramanujan := by
-  intro x hx
-  have hg := gap_from_budget (by norm_num : (0:ℝ) < 400) (by norm_num : (400:ℝ) + 1 ≤ 401)
-    (RamanujanGap.v3.pi_input_400 hp) hx (hc x hx)
-  have hL : 401 < log x := by simpa using log_lt_log (exp_pos (401:ℝ)) hx
-  have hL0 : 0 < log x := by linarith
-  have hnum : 0 < log x - RamanujanNumerics.v3.allowance := by
-    norm_num [RamanujanNumerics.v3.allowance]
-    linarith
-  have hpos : (0:ℝ) < x ^ 2 * ((log x - RamanujanNumerics.v3.allowance) / log x ^ 7) := by
-    have hx0 : 0 < x := (exp_pos _).trans hx
-    positivity
-  unfold ForwardRamanujan.gap at hg
-  linarith
