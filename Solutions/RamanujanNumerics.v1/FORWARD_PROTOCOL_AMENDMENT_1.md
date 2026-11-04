@@ -1,0 +1,7 @@
+# Protocol amendment1 — source-domain alignment (2026-11-03T23:48:07.616401+00:00)
+
+Recorded before baseline freeze and before generating/accepting any M1 numerical source or output. Original preregistration52ab0869 and its protocol are preserved unchanged.
+
+The existing DudekPlattNumerics.v2 node packages both pi sides above exp3914. The exact primary PNT+ source at c39a751132c88b6e8080b74c74023fd95b3d8be0, Ramanujan.lean929/990/1747/2244/2248/2261, states the lower side for x>x_a=exp3914 and upper side for x>ex_a=e*x_a=exp3915. The current working file is byte-identical to that Git blob. Literal m>=-1194 and M<=1426 are stated there. The larger PNT+ proof closure is not replayed or asserted free of admissions.
+
+Use the source-correct weaker asymmetric old input, newly registered as DudekPlattNumerics.v7.pi_asymmetric_pnt; keep the old v2 node untouched and retain an explicit v2-to-asymmetric implication. This removes an unnecessary stronger assumption rather than weakening the downstream conclusion. The selected application only needs the upper side above exp3915, so comparison domain, seven terms, FP/source semantics, target3914.7, M1 visibility and all stopping/control rules are unchanged. Generic PiInput and old provider metadata now retain the actual asymmetry. The baseline remains conditional on the historical PNT+-backed analytic input. No material false-value counterexample to v2 is asserted from source absence, and no outside-source-domain use is needed by this experiment.

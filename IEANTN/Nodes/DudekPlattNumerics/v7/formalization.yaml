@@ -1,0 +1,60 @@
+version: v0.4
+project:
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+  name: Asymmetric historical PNT+ pi input
+  description: Literal historical bounds with the exact lower and upper source domains,
+    retained as an explicit unproved analytic premise.
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+automation:
+  methods:
+  - method: manual
+    role: Lean proofs, rational exponential bounds, exact challenge/solution comparison,
+      and downstream replay.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+node:
+  id: DudekPlattNumerics.v7
+  family: DudekPlattNumerics
+  version: v7
+  kind: computation
+  status: active
+conclusions:
+- id: pi_asymmetric_pnt
+  declaration: DudekPlattNumerics.v7.pi_asymmetric_pnt
+  challenge: DudekPlattNumerics.v7.challenge_pi_asymmetric_pnt
+  imports: []
+  imports_status: none
+  justifications:
+  - id: pnt-source
+    kind: numerical
+    note: Primary source declarations at c39a751 Ramanujan.lean929/990/1747/2244/2248/2261;
+      no fresh replay of original larger proof closure and no new executable pi calibration
+      claimed.
+  designated: pnt-source
+sources:
+- id: pnt-source
+  title: PrimeNumberTheoremAnd Ramanujan source
+  authors:
+  - PrimeNumberTheoremAnd contributors
+  type: other
+  relationship: adapts
+  url: https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/blob/c39a751132c88b6e8080b74c74023fd95b3d8be0/PrimeNumberTheoremAnd/IEANTN/Ramanujan/Ramanujan.lean
+  note: pi_lower_specific at2261, pi_upper_specific at1747, literals2244/2248, x_a929
+    and ex_a990. Source assertion retained, not an independently replayed theorem.
+limitations:
+- Historical analytic pi premise remains explicit; source proof closure not independently
+  checked by this numerical experiment.
+- No second numerical application is counted for introducing this input contract.

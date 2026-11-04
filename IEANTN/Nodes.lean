@@ -42,6 +42,7 @@ import IEANTN.Nodes.DudekPlattNumerics.v3.Challenge
 import IEANTN.Nodes.DudekPlattNumerics.v4.Challenge
 import IEANTN.Nodes.DudekPlattNumerics.v5.Challenge
 import IEANTN.Nodes.DudekPlattNumerics.v6.Challenge
+import IEANTN.Nodes.DudekPlattNumerics.v7.Challenge
 import IEANTN.Nodes.Dusart2018.v1.Challenge
 import IEANTN.Nodes.Erdos392.v1.Challenge
 import IEANTN.Nodes.FKBJ.v1.Challenge
@@ -102,6 +103,8 @@ import IEANTN.Nodes.QRHConsequences.v1.Challenge
 import IEANTN.Nodes.QRHPropagation.v1.Challenge
 import IEANTN.Nodes.QRHPropagation.v2.Challenge
 import IEANTN.Nodes.QRHPropagation.v3.Challenge
+import IEANTN.Nodes.RamanujanGap.v1.Challenge
+import IEANTN.Nodes.RamanujanNumerics.v1.Challenge
 import IEANTN.Nodes.RamareSaouter2003.v1.Challenge
 import IEANTN.Nodes.Richstein2001.v1.Challenge
 import IEANTN.Nodes.RosserSchoenfeld.v1.Challenge
