@@ -15,6 +15,16 @@ evidence may be a Lean proof checked by [Comparator](https://github.com/leanprov
 numerical computation, or a citation. The goal is not that everything is certain — it is that **for
 any result you can read off exactly what it rests on and how good that evidence is.**
 
+## QRH experiment branch: start here
+
+This `qrh-2pv` branch contains the QRH/CH2 propagation experiments, the paired
+Table 4 program verification, and a completed controlled forward Ramanujan pilot.
+**New agents should read [the branch handoff](docs/qrh/README.md) first**, then the
+repository guidance below. It distinguishes checked proofs, explicit assumptions,
+finite native facts, external replay artifacts and the next implementation task.
+[Reproduction](docs/qrh/REPRODUCING.md) and [offline rendered results](docs/qrh/RESULTS.html)
+are included. Core builds do not check the separate solution projects.
+
 ## The central idea
 
 Every node's challenge is a **conditional theorem**: *if* the results it imports hold, *then* its
