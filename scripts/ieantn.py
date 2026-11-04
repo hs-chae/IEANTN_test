@@ -68,6 +68,9 @@ VERIFY_SCRIPT = ROOT / "scripts" / "verify-comparator.sh"
 RECEIPTS = ROOT / "receipts"
 CHANGES = ROOT / "changes"
 SOLUTIONS = ROOT / "Solutions"
+#: Local, NON-official program-verification attestations written by
+#: scripts/native_assisted/native_assisted_check.py. Never receipts; never part of the trust graph.
+PV_EVIDENCE = ROOT / "pv-evidence"
 
 #: Where a spun-off Challenge says it came from.
 REPOSITORY_URL = "https://github.com/teorth/IEANTN"
@@ -143,6 +146,22 @@ JUSTIFICATION_KINDS = PRIMITIVE_KINDS | DERIVED_KINDS
 #: graph: something the network takes on faith, however reasonably.
 VERIFIED_KINDS = {"lean-comparator"}
 
+#: Program verification is described on two axes that are NOT justification kinds, so the trust
+#: graph and every existing view are unchanged by them:
+#:  * `verification_method` (optional, on a justification): HOW the proof was made. The only value
+#:    is `lean-verified-program`: a real source program associated with a formal program, its
+#:    modelled execution, and a Lean correctness theorem taking the output to the mathematical
+#:    statement. It is allowed only on a Lean justification and only when a local attestation
+#:    (below) found exactly that in the proof.
+#:  * the local `native-assisted` gate: HOW FAR the proof was admitted, recorded in
+#:    `pv-evidence/<Node>.<conclusion>.native-assisted.local.json`. That is a local research
+#:    attestation, never a receipt; it can say passed/failed/blocked/not-run and nothing more.
+#: Promotion to `lean-comparator` still needs an authentic Comparator receipt, as before.
+VERIFICATION_METHODS = {"lean-verified-program"}
+PV_METHOD_KINDS = {"lean-comparator", NONCOMPLIANT_KIND}
+PV_GATE_STATUSES = {"passed", "failed", "blocked", "not-run"}
+PV_NOTICE_MARK = "Not an IEANTN verification receipt"
+
 NODE_STATUSES = {
     "template",              # scaffolded, not yet filled in; refused by check-graph
     "stub",                  # conclusions stated, no solution intended yet
@@ -180,7 +199,7 @@ def _set_root(path: pathlib.Path) -> None:
     the tooling cannot be pointed somewhere unexpected by accident.
     """
     global ROOT, NODES_DIR, VOCAB_DIR, BRIDGES_DIR, FINGERPRINTS, STATE, GRAPH, PAGES, VERIFY_SCRIPT
-    global RECEIPTS, CHANGES, SOLUTIONS
+    global RECEIPTS, CHANGES, SOLUTIONS, PV_EVIDENCE
     ROOT = path
     NODES_DIR = ROOT / "IEANTN" / "Nodes"
     VOCAB_DIR = ROOT / "IEANTN" / "Vocabulary"
@@ -193,6 +212,7 @@ def _set_root(path: pathlib.Path) -> None:
     RECEIPTS = ROOT / "receipts"
     CHANGES = ROOT / "changes"
     SOLUTIONS = ROOT / "Solutions"
+    PV_EVIDENCE = ROOT / "pv-evidence"
 VERSION_RE = re.compile(r"^v(\d+)$")
 
 
@@ -1481,6 +1501,22 @@ def check_graph() -> bool:
                         f"conclusion `{cid}`, justification `{jid}`: kind `{kind}` is not one of "
                         + ", ".join(sorted(JUSTIFICATION_KINDS)),
                     )
+                method = justification.get("verification_method")
+                if method is not None:
+                    # Optional and fail-closed: a method label must be backed by a local
+                    # attestation that found exactly that method in the proof.
+                    if method not in VERIFICATION_METHODS:
+                        problems.add(where, f"conclusion `{cid}`, justification `{jid}`: "
+                                     f"verification_method `{method}` is not one of "
+                                     + ", ".join(sorted(VERIFICATION_METHODS)))
+                    if kind not in PV_METHOD_KINDS:
+                        problems.add(where, f"conclusion `{cid}`, justification `{jid}`: "
+                                     f"verification_method needs a Lean kind, not `{kind}`")
+                    attestation = pv_attestation(f"{node_id}.{cid}")
+                    if attestation is None or attestation.get("evidence_method") != method:
+                        problems.add(where, f"conclusion `{cid}`, justification `{jid}`: "
+                                     f"verification_method `{method}` has no matching attestation "
+                                     f"in {rel(pv_attestation_path(f'{node_id}.{cid}'))}")
                 if kind == "lean-comparator":
                     key = f"{node_id}.{cid}"
                     receipt = load_receipt(key)
@@ -2060,6 +2096,73 @@ def repository_commit() -> str | None:
 
 def receipt_path(conclusion_key: str) -> pathlib.Path:
     return RECEIPTS / f"{conclusion_key}.json"
+
+
+def pv_attestation_path(conclusion_key: str) -> pathlib.Path:
+    return PV_EVIDENCE / f"{conclusion_key}.native-assisted.local.json"
+
+
+def pv_attestation(conclusion_key: str) -> dict | None:
+    """The local native-assisted attestation for a conclusion, if one exists and parses."""
+    path = pv_attestation_path(conclusion_key)
+    if not path.is_file():
+        return None
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeError, json.JSONDecodeError):
+        return None
+    return data if isinstance(data, dict) else None
+
+
+def check_pv_evidence() -> bool:
+    """Local program-verification attestations must not overstate anything. Fail closed.
+
+    Each `pv-evidence/*.native-assisted.local.json` must parse, carry the non-official notice,
+    use a known gate status and method, agree with the conclusion's designated kind and with the
+    presence or absence of an official receipt, and record no rejected axiom if it says `passed`.
+    Endpoints that are not node conclusions (named `@...`) get the same checks minus the metadata
+    cross-checks.
+    """
+    problems = Problems()
+    if not PV_EVIDENCE.is_dir():
+        return problems.report("program-verification evidence (local, non-official)")
+    nodes = load_nodes()
+    for path in sorted(PV_EVIDENCE.glob("*.native-assisted.local.json")):
+        where = rel(path)
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, UnicodeError, json.JSONDecodeError) as error:
+            problems.add(where, f"does not parse: {error}")
+            continue
+        key = str(data.get("conclusion") or "")
+        if path.name != f"{key}.native-assisted.local.json":
+            problems.add(where, f"file name does not match its conclusion `{key}`")
+        if PV_NOTICE_MARK not in str(data.get("notice") or ""):
+            problems.add(where, "missing the non-official notice")
+        if data.get("gate") != "native-assisted" or data.get("status") not in PV_GATE_STATUSES:
+            problems.add(where, f"gate/status `{data.get('gate')}`/`{data.get('status')}` unknown")
+        method = data.get("evidence_method")
+        if data.get("status") in ("passed", "failed") and method not in (
+                VERIFICATION_METHODS | {"not-program-verified"}):
+            problems.add(where, f"evidence_method `{method}` unknown")
+        if data.get("status") == "passed" and (data.get("axioms") or {}).get("rejected"):
+            problems.add(where, "says passed but records rejected axioms")
+        if key.startswith("@"):
+            continue
+        node_id, _, cid = key.rpartition(".")
+        conclusion = next((c for c in conclusions_of(nodes.get(node_id) or {})
+                           if c.get("id") == cid), None)
+        if conclusion is None:
+            problems.add(where, f"`{key}` is not a conclusion of the network")
+            continue
+        official = data.get("official") or {}
+        if official.get("designated_kind") != designated_kind(conclusion):
+            problems.add(where, f"records designated kind `{official.get('designated_kind')}`, "
+                         f"but the node designates `{designated_kind(conclusion)}`")
+        has_receipt = receipt_path(key).is_file()
+        if official.get("official_comparator_receipt") != ("present" if has_receipt else "absent"):
+            problems.add(where, "official receipt status disagrees with receipts/")
+    return problems.report("program-verification evidence (local, non-official)")
 
 
 def load_receipt(conclusion_key: str) -> dict | None:
@@ -3583,6 +3686,22 @@ def render_node_page(node_id: str, nodes: dict, index: dict, importers: dict) ->
         shown = display_kind(key, conclusion)
         label, _, _ = EVIDENCE_STYLE.get(shown, (shown, "", ""))
         out.append(f"| Evidence | {label} (`{kind}`) |")
+        # Opt-in: only conclusions with a local program-verification attestation get these rows,
+        # so every other page renders exactly as before.
+        attestation = pv_attestation(key)
+        if attestation is not None:
+            run = attestation.get("run") or {}
+            when = str(run.get("checked_at_utc") or "")[:10]
+            natives = (attestation.get("axioms") or {}).get("native_fact_count")
+            out.append(f"| Evidence method | {_quote(attestation.get('evidence_method'))} |")
+            out.append(f"| Local gate | native-assisted: **{_quote(attestation.get('status'))}**"
+                       + (f" ({when}, {natives} finite native facts)" if natives is not None else "")
+                       + " -- a local research attestation, not a receipt |")
+            out.append(f"| Official IEANTN classification | `{kind}` (designated; unchanged) |")
+            out.append("| Official Comparator receipt | "
+                       + ("present" if receipt.is_file() else "absent") + " |")
+            out.append(f"| Local attestation | [`{pv_attestation_path(key).name}`]"
+                       f"(../../pv-evidence/{pv_attestation_path(key).name}) |")
         # `drifted` on its own invites the reader to assume the worst -- a wrong proof rather than
         # a moved statement -- so the page says which statement moved and leaves them to judge.
         health = receipt_state(key, conclusion)
@@ -5130,6 +5249,7 @@ def main() -> int:
         # reports a stale one and does not fail on it. See DERIVED_NOTE.
         return 0 if all(
             [check_closure(), check_graph(), check_pins(), check_receipts(online=False),
+             check_pv_evidence(),
              gen_challenges(True), state(True, advisory=True), graph(True, advisory=True),
              pages(True, advisory=True)]
         ) else 1

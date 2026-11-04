@@ -1,0 +1,32 @@
+{
+ "_comment": "Reviewed registry for the LOCAL native-assisted gate. Adding a name here is a review decision: it asserts that the constant is part of the existing verified source/execution/correctness machinery. Library roots are treated as the trusted Lean/Mathlib base.",
+ "library_roots": ["Init", "Std", "Lean", "Lake", "Mathlib", "Batteries", "Aesop", "Qq", "Plausible", "ProofWidgets", "ImportGraph", "LeanSearchClient", "Cli"],
+ "allowed_native_tactics": ["native_decide"],
+ "reviewed_project_implementations": [],
+ "association": [
+  "ForwardRamanujan.sourceMatches", "ForwardRamanujan.tokens",
+  "CalibrationPilot.sourceMatchesNamed",
+  "FKS2Pair.sourceMatches", "FKS2Table4.sourceChecked",
+  "FKS2Scalar.sourceChecked", "FKS2Scalar.tokens", "FKS2Scalar.functionTokens",
+  "SumStability.tokens"
+ ],
+ "execution": [
+  "ForwardRamanujan.Exec", "CalibrationPilot.ExecNamed",
+  "FKS2Table4.ExecTransport", "FKS2Pair.ExecTransportAt",
+  "FKS2Scalar.ExecC", "FKS2Scalar.evalBlock", "FKS2Scalar.execute",
+  "SumStability.ExecC"
+ ],
+ "correctness": [
+  "SumStability.c_sum_forward_error_real", "SumStability.c_sum_forward_error",
+  "ForwardRamanujan.source_linked_upper", "ForwardRamanujan.sum_upper",
+  "FKS2Table4.verified_fks2_transport", "FKS2Pair.source_linked_transport_upper", "FKS2Pair.sum_upper"
+ ],
+ "trust_boundary": [
+  "Native evaluation (native_decide): the Lean compiler and runtime evaluate each listed finite fact; the kernel does not re-check it.",
+  "Trusted library implementations reached by those evaluations (implemented_by/extern in Lean core, Std, Batteries, Mathlib) are counted per fact.",
+  "Restricted C / IEEE binary64 round-to-nearest model: the proof concerns the modelled execution of the token-matched source, not a compiled binary.",
+  "Compiler, host runtime, operating system and hardware are trusted; agreement with GCC output bits is a diagnostic only.",
+  "Explicit mathematical hypotheses of the endpoint (listed per attestation) are not proved by it."
+ ],
+ "promotion_rule": "No local attestation promotes anything. An endpoint's official kind may become `lean-comparator` only when the IEANTN verification workflow records an authentic Comparator receipt for that same conclusion (receipts/<Node>.<conclusion>.json), which requires a proof whose axiom closure is exactly propext, Classical.choice, Quot.sound (zero native facts). The evidence method `lean-verified-program` may then be retained as a description of the proof. A receipt-backed official subtype `lean-verified-program` would need an upstream schema/policy change and is not implemented."
+}
