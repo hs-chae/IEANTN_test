@@ -12,6 +12,8 @@ This checks named program-verification endpoints and writes **local research att
 | `semantics.json` | The **reviewed** registry: allowed native tactics, the source-association, execution and correctness constants that count for `lean-verified-program`, library roots, the trust boundary and the promotion rule. |
 | `endpoints.json` | The audited endpoints. Each has a Lake project, a root module, the endpoint theorem, the challenge module and the executed C files. |
 | `controls.py` | Lean-level controls. It copies the pilot to a scratch directory, adds fixture theorems and mutates sources, then checks that the gate gives the expected verdicts. The repository is hashed before and after. |
+| `inventory.py` | Regenerates `docs/program-verification/PROGRAM_VERIFICATION_INVENTORY.md` from the attestations, `formalization.yaml` and `receipts/`. |
+| `final_tables.py` | Prints the per-endpoint final tables, `docs/program-verification/PV_ENDPOINT_TABLES.md`. |
 
 ## Commands
 
@@ -22,6 +24,8 @@ lake exe cache get && lake build                                             # c
 python scripts/native_assisted/native_assisted_check.py check RamanujanNumerics.v2.epsilon_budget
 python scripts/native_assisted/native_assisted_check.py check-all
 python scripts/native_assisted/controls.py
+python scripts/native_assisted/inventory.py
+python scripts/native_assisted/final_tables.py > docs/program-verification/PV_ENDPOINT_TABLES.md
 python -m unittest tests.test_native_assisted tests.test_pv_metadata
 python scripts/ieantn.py check            # now also validates pv-evidence/ (fail-closed)
 ```

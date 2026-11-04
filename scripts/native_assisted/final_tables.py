@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-"""Emit the per-endpoint final tables (the 12 fields the restructuring prompt requires), as Markdown.
+"""Regenerate docs/program-verification/PV_ENDPOINT_TABLES.md: the per-endpoint final tables (the 12
+fields the restructuring prompt requires).
 
-    python scripts/native_assisted/final_tables.py > /tmp/final_tables.md
+    python scripts/native_assisted/final_tables.py > docs/program-verification/PV_ENDPOINT_TABLES.md
 
 Read-only: built from pv-evidence/*.native-assisted.local.json and endpoints.json.
 """
@@ -19,6 +20,11 @@ def cell(s) -> str:
     return str(s).replace("|", "\\|").replace("\n", " ")
 
 
+def short(s: str, n: int = 70) -> str:
+    s = " ".join(str(s).split())
+    return s if len(s) <= n else s[:n] + "…"
+
+
 def table(key: str, r: dict) -> str:
     off = r.get("official") or {}
     ax = r.get("axioms") or {}
@@ -26,12 +32,15 @@ def table(key: str, r: dict) -> str:
     natives = ax.get("native_facts", [])
     nat_txt = f"{len(natives)}: " + "; ".join(
         f"`{n['decl']}` ({n['source_file']}:{n['range']['start_line']}, token `{n['token']}`, "
-        f"decides `{(n.get('decided_proposition') or '')[:70]}`)" for n in natives) if natives else "0"
+        f"decides `{short(n.get('decided_proposition') or '')}`)" for n in natives) if natives else "0"
     rejected = ax.get("rejected") or []
     srcs = (m.get("S_source_identity") or {}).get("sources", [])
     src_txt = "; ".join(f"`{s['path']}` sha256 `{s['sha256']}` embedded by "
                         f"{', '.join('`'+e+'`' for e in s['embedded_by']) or 'NOTHING'}" for s in srcs) or "none configured"
-    proofs = "; ".join(f"{k.split('_',1)[1]}: " + ", ".join(f"`{t}`" for t in (m.get(k) or {}).get("theorems", [])[:3])
+    def thms(k):
+        ts = (m.get(k) or {}).get("theorems", [])
+        return ", ".join(f"`{t}`" for t in ts[:3]) + (f", … ({len(ts) - 3} more)" if len(ts) > 3 else "")
+    proofs = "; ".join(f"{k.split('_',1)[1]}: " + thms(k)
                        for k in ("A_source_association", "E_execution_witness", "C_generic_correctness"))
     hyps = "; ".join(f"`{h['type']}`" for h in r.get("remaining_hypotheses") or []) or "none (pure arithmetic or closed)"
     run = r.get("run") or {}
@@ -65,19 +74,33 @@ def table(key: str, r: dict) -> str:
                          f"{(run.get('build') or {}).get('rc')} in `{r.get('project')}`; "
                          f"`python scripts/native_assisted/native_assisted_check.py check {key}`"),
     ]
-    out = [f"#### `{key}`\n", "| Field | Value |", "|---|---|"]
+    out = [f"## `{key}`\n", "| Field | Value |", "|---|---|"]
     out += [f"| {a} | {cell(b)} |" for a, b in rows]
     return "\n".join(out) + "\n"
 
 
+HEAD = """# Per-endpoint final tables
+
+Generated from `pv-evidence/*.native-assisted.local.json` by
+`scripts/native_assisted/final_tables.py`. Do not edit by hand. There is one table per audited
+endpoint, with the twelve fields the restructuring task requires. Each attestation is a local
+research report, not an IEANTN verification receipt.
+
+Shortened entries end in "…". Every native fact has type `@Eq Bool e Bool.true` (the checker
+verifies this shape), and the "decides" text is the proposition `e` decides. Its full text is in the
+attestation under `axioms.native_facts[].decided_proposition`, and the full theorem lists are under
+`method_checks`.
+"""
+
+
 def main():
-    parts = []
+    parts = [HEAD]
     for key in ENDPOINTS:
         p = ROOT / "pv-evidence" / f"{key}.native-assisted.local.json"
         if p.is_file():
             parts.append(table(key, json.loads(p.read_text())))
         else:
-            parts.append(f"#### `{key}`\n\nnot-run\n")
+            parts.append(f"## `{key}`\n\nnot-run\n")
     print("\n".join(parts))
 
 

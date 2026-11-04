@@ -13,7 +13,7 @@
 | `tests/test_native_assisted.py` (new, 19 tests) | Gate policy on synthetic extracts | Pure Python; runs in the normal suite |
 | `tests/test_pv_metadata.py` (new, 16 tests) | Sidecar validation, the `verification_method` field, page rows | Uses the existing `FixtureRepo` |
 | `pv-evidence/*.native-assisted.local.json` (new) | One local attestation per audited endpoint, plus `controls/CONTROLS.json`; `.work/` is git-ignored | Machine-readable, non-official evidence |
-| `docs/program-verification/` (new) | `NATIVE_ASSISTED_DESIGN.md`, `PROGRAM_VERIFICATION_INVENTORY.md` (generated), `PV_HUMAN_READABLE_GUIDE.md`, this file, `FINAL_RESTRUCTURING_REPORT.md` | Design, inventory, guide, report |
+| `docs/program-verification/` (new) | `NATIVE_ASSISTED_DESIGN.md`, `PROGRAM_VERIFICATION_INVENTORY.md` (generated), `PV_ENDPOINT_TABLES.md` (generated), `PV_HUMAN_READABLE_GUIDE.md`, this file, `FINAL_RESTRUCTURING_REPORT.md` | Design, inventory, per-endpoint tables, guide, report |
 | Non-frozen node metadata | See §3 | Records the method and the gate result where the attestation supports them |
 | `IEANTN/Nodes/FKS2Numerics/v3/Conclusions.lean`, `v4/Conclusions.lean` | Docstrings only (+23/−2): a mathematics-first explanation of `calibration_bound`, `baseline_bound` and `updated_bound`; the two `−` lines are docstring closings moved down | Readability of PoC 1. Statements unchanged (`fingerprint --check` 0) |
 
