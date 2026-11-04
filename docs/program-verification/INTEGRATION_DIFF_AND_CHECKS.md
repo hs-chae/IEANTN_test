@@ -34,12 +34,19 @@ The authoritative per-endpoint rows are in
 | `RamanujanNumerics.v2.epsilon_budget` | `lean-noncompliant` / `source-model` | `lean-verified-program` | passed (6) |
 | `FKS2Numerics.v6.old_pi` (frozen) | `lean-noncompliant` / `source-model-old` | `lean-verified-program` | passed (8) |
 | `FKS2Numerics.v7.qrh_pi` | `lean-noncompliant` / `source-model-qrh` | `lean-verified-program` | passed (8) |
-| others | see the inventory | see the inventory | see the inventory |
+| `FKS2Numerics.v5.numerical_pi` | `lean-noncompliant` / `source-transport` | `lean-verified-program` | passed (7) |
+| `FKS2Numerics.v3.baseline_bound` | `lean-noncompliant` / `source-verified` | `lean-verified-program` | passed (8) |
+| `FKS2Numerics.v4.updated_bound` | `lean-noncompliant` / `source-verified` | `lean-verified-program` | passed (12) |
+| `FKS2Numerics.v3.calibration_bound` | `lean-noncompliant` / `source-verified` | **`not-program-verified`** (no C source in the proof) | passed (8) |
+| `FKS2Numerics.v2.nu_asymp_e30_le` | `lean-noncompliant` / `checked-source-stability` | **`not-program-verified`** (no C source in the proof) | passed (8) |
+| `RamanujanGap.v2.loss_bound`, `FKS2.v9.qrh_absolute_pi`, `FKS2.v5.updated_theta` | `none-yet` / `solution` | `not-program-verified` (consumer; takes the budget as a hypothesis) | passed (0: standard axioms only) |
+| `ForwardRamanujan.forward`, `FKS2Pair.assembled` (solution theorems) | not nodes | `lean-verified-program` | passed (12 / 16) |
+| `CalibrationPilot.NewChain.new_chain`, `KernelChain.pi_calibrated_k` (pilot) | not nodes | `lean-verified-program` | passed (13 / 1) |
 
 ## 3. Metadata edits on non-frozen nodes
 
-See the "applied" list produced by `evidence/apply_pv_metadata.py`, reproduced in
-FINAL_RESTRUCTURING_REPORT.md. Each edit does at most two things:
+Seven conclusions in six files changed, all by pure additions (+29 lines, no deletions).
+The list is reproduced in FINAL_RESTRUCTURING_REPORT.md. Each edit does at most two things:
 - adds `verification_method: lean-verified-program` to a designated `lean-noncompliant`
   justification, when its attestation says `passed` and `lean-verified-program`;
 - appends one sentence to its `note`.
@@ -51,7 +58,7 @@ Frozen nodes are not edited. Their pages show the gate rows from the sidecar.
 | Check | Result |
 |---|---|
 | `python -m unittest discover -s tests` | 346 tests OK (311 existing + 35 new) |
-| Pages, before (`551f552`) vs after, whole network | Only the pages of conclusions with an attestation differ; the other 110 of 113 pages are byte-identical |
+| Pages, before (`551f552`) vs after, whole network | 11 of 113 pages differ, each one an attested node (`evidence/page_diff.sh`); 102 are byte-identical |
 | `scripts/native_assisted/controls.py` | 10 of 10 as expected; repository tree hash unchanged |
 | `ieantn.py fingerprint --check` / `gen-challenges --check` | 0 / 0 (statements and challenges unchanged) |
 | `ieantn.py check` | Exit 1 **only** for the 49 inherited receipt-provenance diagnostics (`teorth/IEANTN` vs `hs-chae/IEANTN_test`), as before. The new `program-verification evidence` check passes |
