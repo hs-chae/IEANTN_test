@@ -82,6 +82,53 @@ class TestPages(PVRepo):
         self.assertNotIn("Verified (`lean-comparator`)", self.page())
 
 
+class TestReaderRows(PVRepo):
+    """The program/backend, trust, second-route and change rows (all opt-in, all from files)."""
+
+    def sources(self):
+        return {"S_source_identity": {"ok": True, "sources": [
+                    {"path": "Solutions/A.v1/c/p.c", "sha256": "ab" * 32}]},
+                "C_generic_correctness": {"ok": True, "theorems": ["PVCore.certified"]}}
+
+    def test_program_and_trust_rows(self):
+        self.node()
+        self.attest(method_checks=self.sources())
+        page = self.page()
+        self.assertIn("| Program and backend | restricted C, IEEE binary64", page)
+        self.assertIn("`Solutions/A.v1/c/p.c` (SHA256 `abababababab`)", page)
+        self.assertIn("| Proved by | `PVCore.certified`", page)
+        self.assertIn("except 6 finite computation(s)", page)
+        self.assertIn("Not modelled: the C compiler", page)
+
+    def test_consumer_without_sources_has_no_program_row(self):
+        self.node()
+        self.attest(axioms={"native_fact_count": 0, "rejected": []})
+        page = self.page()
+        self.assertNotIn("Program and backend", page)
+        self.assertIn("The Lean kernel checks every step.", page)
+
+    def test_second_route_row(self):
+        self.node()
+        self.attest()
+        d = self.root / "pv-evidence"
+        (d / "@pv.Other.main.native-assisted.local.json").write_text(json.dumps(
+            attestation("@pv.Other.main", endpoint="Other.main", replays="A.v1.main",
+                        axioms={"native_fact_count": 1, "rejected": []})), encoding="utf-8")
+        page = self.page()
+        self.assertIn("| Second checked route | `Other.main`: native-assisted **passed**, 1", page)
+
+    def test_change_row_from_registry(self):
+        self.node()
+        self.attest()
+        reg = self.root / "scripts" / "native_assisted"
+        reg.mkdir(parents=True, exist_ok=True)
+        (reg / "providers.json").write_text(json.dumps({"providers": {"A.v1.main": {
+            "updated_from": "A.v0.main", "change": "range moved"}}}), encoding="utf-8")
+        page = self.page()
+        self.assertIn("| Changed from [`A.v0.main`]", page)
+        self.assertIn("| range moved |", page)
+
+
 class TestEvidenceCheck(PVRepo):
     def test_valid_attestation_passes(self):
         self.node()

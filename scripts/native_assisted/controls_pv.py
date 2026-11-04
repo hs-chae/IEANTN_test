@@ -65,8 +65,8 @@ FIXTURES = {
                       "    native_decide\n"
                       "  have hv : ForwardRamanujan.upper 119 131 400 401 =\n"
                       "      (((PVRamanujan.termsQ 119 131 400 401).sum - 134 - max 0 119 : ℚ) : ℝ) := by\n"
-                      "    have := PVRamanujan.termsQ_sum_cast 119 131 400 401\n"
-                      "    push_cast at this ⊢\n    rw [ForwardRamanujan.upper, ← this]\n    norm_num\n"
+                      "    have h := PVRamanujan.termsQ_sum_cast 119 131 400 401\n"
+                      "    push_cast at h ⊢\n    rw [ForwardRamanujan.upper, ← h] <;> norm_num\n"
                       "  have hb : (((PVRamanujan.termsQ 119 131 400 401).sum - 134 - max 0 119 : ℚ) : ℝ) ≤\n"
                       "      RamanujanNumerics.v3.allowance := by\n"
                       "    have := (Rat.cast_le (K := ℝ)).2 hq\n"
@@ -142,7 +142,7 @@ def main(argv):
 
     results = {"scratch": str(work), "repository_v3_tree_sha256_before": before,
                "fixtures": {}, "mutations": {}}
-    rc, log, secs = sh(["lake", "build", "Controls", "Solution"], work, 7200)
+    rc, log, secs = sh(["lake", "build", "Controls", "RamanujanBudget", "Solution"], work, 7200)
     results["build"] = {"rc": rc, "seconds": secs, "first_error": first_error(log), "tail": log[-800:]}
     sem = NA.load_json(NA.SEMANTICS)
     src = str(work / "c" / "budget.c")
@@ -228,14 +228,21 @@ def main(argv):
     # G: coefficient 118 everywhere except the node statement
     def g_apply():
         c_path.write_text(orig_c.replace("(r - 119.0)", "(r - 118.0)"))
+        # a consistent program for m = 118 (its budget is 1 larger, so its bound is 10.988)
         mod_path.write_text(orig_mod.replace('"119.0"', '"118.0"').replace(
-            "budgetCheck source program 119 131", "budgetCheck source program 118 131"))
+            "budgetCheck source program 119 131", "budgetCheck source program 118 131").replace(
+            "(1 / 10000000000) (2497 / 250) = true", "(1 / 10000000000) (5494 / 500) = true"))
 
     def g_extra(rc, log):
-        cert_ok = "certificate" not in first_error(log)
-        stmt_fail = "epsilon_budget" in log and rc != 0
-        return {"certificate_passed": cert_ok, "statement_rejected": stmt_fail,
-                "extra_ok": cert_ok and stmt_fail}
+        # the first error must lie inside the statement's theorem, after the certificate
+        text = mod_path.read_text()
+        thm_line = next(i for i, l in enumerate(text.splitlines(), 1)
+                        if l.startswith("theorem epsilon_budget"))
+        m = re.search(r"Provider\.lean:(\d+):", first_error(log))
+        err_line = int(m.group(1)) if m else 0
+        cert_ok = rc != 0 and err_line >= thm_line
+        return {"first_error_line": err_line, "statement_theorem_line": thm_line,
+                "certificate_passed": cert_ok, "statement_rejected": cert_ok, "extra_ok": cert_ok}
     mutation("G_CoefficientChanged", g_apply, extra=g_extra)
 
     restore()

@@ -1,0 +1,145 @@
+{
+ "scratch": "/tmp/claude-1013/-ryu-hyunsik-playground-independence-alex/75718ac3-268c-412a-8046-11dd54eef723/scratchpad/pvctl/RamanujanNumerics.v3",
+ "repository_v3_tree_sha256_before": "b11795dbcf712ea14ae666d7e67c2fbcc4879f2b91a21f0a87c6cd166a312243",
+ "fixtures": {
+  "H_Sorry": {
+   "endpoint": "Controls.sorry_budget",
+   "expected": {
+    "status": "failed"
+   },
+   "observed": {
+    "status": "failed",
+    "method": "not-program-verified",
+    "reasons": [
+     "sorryAx: sorryAx (incomplete proof)"
+    ],
+    "native": 0
+   },
+   "ok": true
+  },
+  "I_NumericOnly": {
+   "endpoint": "Controls.numeric_only",
+   "expected": {
+    "status": "passed",
+    "method": "not-program-verified"
+   },
+   "observed": {
+    "status": "passed",
+    "method": "not-program-verified",
+    "reasons": [],
+    "native": 1
+   },
+   "ok": true
+  },
+  "J_DecideNative": {
+   "endpoint": "Controls.decide_native",
+   "expected": {
+    "status": "failed"
+   },
+   "observed": {
+    "status": "failed",
+    "method": "not-program-verified",
+    "reasons": [
+     "Controls.decide_native._native.decide.ax_1_1: native tactic 'decide' not allowed; declaration range does not point at a `native_decide` token (found 'decide +native')"
+    ],
+    "native": 0
+   },
+   "ok": true
+  },
+  "Genuine": {
+   "endpoint": "RamanujanNumerics.v3.Provider.epsilon_budget",
+   "expected": {
+    "status": "passed",
+    "method": "lean-verified-program"
+   },
+   "observed": {
+    "status": "passed",
+    "method": "lean-verified-program",
+    "reasons": [],
+    "native": 1
+   },
+   "ok": true
+  }
+ },
+ "mutations": {
+  "A_ChangedC_with_needs": {
+   "build_rc": 1,
+   "first_error": "error: RamanujanBudget/Provider.lean:45:2: Tactic `native_decide` evaluated that the proposition",
+   "seconds": 4.5,
+   "reran_source_input": false,
+   "build_rc_restored": 0,
+   "ok": true
+  },
+  "B_ChangedC_without_needs": {
+   "build_rc": 0,
+   "first_error": "",
+   "seconds": 2.3,
+   "reran_source_input": false,
+   "stale_build_replayed": true,
+   "gate_detects_stale_source": true,
+   "extra_ok": true,
+   "build_rc_restored": 0,
+   "ok": true
+  },
+  "C_ChangedLeanLiteral": {
+   "build_rc": 1,
+   "first_error": "error: RamanujanBudget/Provider.lean:45:2: Tactic `native_decide` evaluated that the proposition",
+   "seconds": 4.9,
+   "reran_source_input": false,
+   "build_rc_restored": 0,
+   "ok": true
+  },
+  "D_WrongScale": {
+   "build_rc": 1,
+   "first_error": "error: RamanujanBudget/Provider.lean:45:2: Tactic `native_decide` evaluated that the proposition",
+   "seconds": 4.4,
+   "reran_source_input": false,
+   "build_rc_restored": 0,
+   "ok": true
+  },
+  "E_DroppedEntry": {
+   "build_rc": 1,
+   "first_error": "error: RamanujanBudget/Provider.lean:44:2: Tactic `native_decide` evaluated that the proposition",
+   "seconds": 4.8,
+   "reran_source_input": false,
+   "build_rc_restored": 0,
+   "ok": true
+  },
+  "F_NegativeIntermediate": {
+   "build_rc": 1,
+   "first_error": "error: RamanujanBudget/Provider.lean:45:2: Tactic `native_decide` evaluated that the proposition",
+   "seconds": 5.4,
+   "reran_source_input": false,
+   "build_rc_restored": 0,
+   "ok": true
+  },
+  "G_CoefficientChanged": {
+   "build_rc": 1,
+   "first_error": "error: RamanujanBudget/Provider.lean:53:6: Tactic `rewrite` failed: Did not find an occurrence of the pattern",
+   "seconds": 4.6,
+   "reran_source_input": false,
+   "first_error_line": 53,
+   "statement_theorem_line": 48,
+   "certificate_passed": true,
+   "statement_rejected": true,
+   "extra_ok": true,
+   "build_rc_restored": 0,
+   "ok": true
+  },
+  "K_OfficialUnchanged": {
+   "local_gate": "passed",
+   "designated_kind": "lean-noncompliant",
+   "receipt_present": false,
+   "ok": true
+  }
+ },
+ "build": {
+  "rc": 0,
+  "seconds": 12.1,
+  "first_error": "",
+  "tail": " `if_neg` has been deprecated: Use `ite_eq_right` instead\n\u26a0 [3512/3521] Built Controls.H_Sorry (2.1s)\nwarning: Controls/H_Sorry.lean:8:8: declaration uses `sorry`\n\u2714 [3513/3521] Built RamanujanBudget.Provider (2.7s)\n\u26a0 [3514/3521] Built Controls.I_NumericOnly (3.2s)\nwarning: Controls/I_NumericOnly.lean:25:41: Unused tactic linter: `norm_num` does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\nwarning: Controls/I_NumericOnly.lean:25:41: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\n\u2714 [3515/3521] Built Solution (2.6s)\n\u2714 [3517/3521] Built Controls.J_DecideNative (2.7s)\n\u2714 [3518/3521] Built RamanujanBudget (2.9s)\n\u2714 [3520/3521] Built Controls (2.8s)\nBuild completed successfully (3521 jobs).\n"
+ },
+ "repository_v3_tree_sha256_after": "b11795dbcf712ea14ae666d7e67c2fbcc4879f2b91a21f0a87c6cd166a312243",
+ "repository_untouched": true,
+ "all_ok": true
+}

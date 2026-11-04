@@ -282,3 +282,173 @@ attestation under `axioms.native_facts[].decided_proposition`, and the full theo
 | Official Comparator receipt | n/a (not a node conclusion) |
 | Reproduction | Lean 4.34.0-rc2 (leanprover/lean4:v4.34.0-rc2), Mathlib `71a80585ee49`, repo `20aabf4fcbf5`; `lake build CalibrationPilot` rc 0 in `pilots/agentB-calibration`; `python scripts/native_assisted/native_assisted_check.py check @pilot.CalibrationPilot.KernelChain.pi_calibrated_k` |
 
+## `RamanujanNumerics.v3.epsilon_budget`
+
+| Field | Value |
+|---|---|
+| Claim / conclusion ID | `RamanujanNumerics.v3.epsilon_budget` → `RamanujanNumerics.v3.challenge_epsilon_budget` : `RamanujanNumerics.v3.epsilon_budget` |
+| Official designated `kind` | lean-noncompliant (`shared-contract`), unchanged |
+| Evidence method | lean-verified-program (S/A/E/C/M = ✓/✓/✓/✓/✓) |
+| Native-assisted gate | **passed** (2026-11-04T23:05:21+00:00) |
+| Standard axioms | Classical.choice, Quot.sound, propext |
+| Extra finite native facts | 1: `RamanujanNumerics.v3.Provider.certificate` (Solutions/RamanujanNumerics.v3/RamanujanBudget/Provider.lean:45, token `native_decide`, decides `PVRamanujan.budgetCheck RamanujanNumerics.v3.Provider.source Ramanujan…`) |
+| Other unwanted axioms / sorry | none |
+| Source / executable model | `Solutions/RamanujanNumerics.v3/c/budget.c` sha256 `dfbeabbd3113b24ee392de83311269d9ea858886878d70fa30759b56e885805b` embedded by `RamanujanNumerics.v3.Provider.source`. Proofs: source_association: `RamanujanNumerics.v3.Provider.certificate`, `RamanujanNumerics.v3.Provider.certificate._native.native_decide.ax_1_1`; execution_witness: `RamanujanNumerics.v3.Provider.certificate`, `RamanujanNumerics.v3.Provider.certificate._native.native_decide.ax_1_1`; generic_correctness: `PVCore.certified`, `PVCore.exact_le_out`, `PVCore.out_le_exact`, … (2 more). Closure fingerprint `0de54005fce4ec53`, 16 project modules hashed |
+| Mathematical hypotheses | none (pure arithmetic or closed) |
+| Real-world trust boundary | restricted C / binary64 RN model of the token-matched source; Lean compiler + runtime for the native facts and their library implementations; C compiler, OS and hardware not modelled |
+| Official Comparator receipt | absent |
+| Reproduction | Lean 4.34.0-rc2 (leanprover/lean4:v4.34.0-rc2), Mathlib `71a80585ee49`, repo `5ccad03d24a1`; `lake build Solution` rc 0 in `Solutions/RamanujanNumerics.v3`; `python scripts/native_assisted/native_assisted_check.py check RamanujanNumerics.v3.epsilon_budget` |
+
+## `RamanujanGap.v3.loss_bound`
+
+| Field | Value |
+|---|---|
+| Claim / conclusion ID | `RamanujanGap.v3.loss_bound` → `RamanujanGap.v3.challenge_loss_bound` : `DudekPlattNumerics.v5.pi_two_sided_qrh → RamanujanNumerics.v3.epsilon_budget → RamanujanGap.v3.loss_bound` |
+| Official designated `kind` | none-yet (`solution`), unchanged |
+| Evidence method | not-program-verified (S/A/E/C/M = ✗/✗/✗/✗/✓) |
+| Native-assisted gate | **passed** (2026-11-04T23:05:41+00:00) |
+| Standard axioms | Classical.choice, Quot.sound, propext |
+| Extra finite native facts | 0 |
+| Other unwanted axioms / sorry | none |
+| Source / executable model | none configured. Proofs: source_association: ; execution_witness: ; generic_correctness: . Closure fingerprint `e3fbdfcc78fd4a95`, 10 project modules hashed |
+| Mathematical hypotheses | `DudekPlattNumerics.v5.pi_two_sided_qrh`; `RamanujanNumerics.v3.epsilon_budget` |
+| Real-world trust boundary | restricted C / binary64 RN model of the token-matched source; Lean compiler + runtime for the native facts and their library implementations; C compiler, OS and hardware not modelled |
+| Official Comparator receipt | absent |
+| Reproduction | Lean 4.34.0-rc2 (leanprover/lean4:v4.34.0-rc2), Mathlib `71a80585ee49`, repo `5ccad03d24a1`; `lake build Solution` rc 0 in `Solutions/RamanujanGap.v3`; `python scripts/native_assisted/native_assisted_check.py check RamanujanGap.v3.loss_bound` |
+
+## `RamanujanGap.v3.gap_lower_bound`
+
+| Field | Value |
+|---|---|
+| Claim / conclusion ID | `RamanujanGap.v3.gap_lower_bound` → `RamanujanGap.v3.challenge_gap_lower_bound` : `DudekPlattNumerics.v5.pi_two_sided_qrh → RamanujanNumerics.v3.epsilon_budget → RamanujanGap.v3.gap_lower_bound` |
+| Official designated `kind` | none-yet (`solution`), unchanged |
+| Evidence method | not-program-verified (S/A/E/C/M = ✗/✗/✗/✗/✓) |
+| Native-assisted gate | **passed** (2026-11-04T23:05:58+00:00) |
+| Standard axioms | Classical.choice, Quot.sound, propext |
+| Extra finite native facts | 0 |
+| Other unwanted axioms / sorry | none |
+| Source / executable model | none configured. Proofs: source_association: ; execution_witness: ; generic_correctness: . Closure fingerprint `9f84392de76f653a`, 10 project modules hashed |
+| Mathematical hypotheses | `DudekPlattNumerics.v5.pi_two_sided_qrh`; `RamanujanNumerics.v3.epsilon_budget` |
+| Real-world trust boundary | restricted C / binary64 RN model of the token-matched source; Lean compiler + runtime for the native facts and their library implementations; C compiler, OS and hardware not modelled |
+| Official Comparator receipt | absent |
+| Reproduction | Lean 4.34.0-rc2 (leanprover/lean4:v4.34.0-rc2), Mathlib `71a80585ee49`, repo `5ccad03d24a1`; `lake build Solution` rc 0 in `Solutions/RamanujanGap.v3`; `python scripts/native_assisted/native_assisted_check.py check RamanujanGap.v3.gap_lower_bound` |
+
+## `RamanujanGap.v3.ramanujan`
+
+| Field | Value |
+|---|---|
+| Claim / conclusion ID | `RamanujanGap.v3.ramanujan` → `RamanujanGap.v3.challenge_ramanujan` : `DudekPlattNumerics.v5.pi_two_sided_qrh → RamanujanNumerics.v3.epsilon_budget → RamanujanGap.v3.ramanujan` |
+| Official designated `kind` | none-yet (`solution`), unchanged |
+| Evidence method | not-program-verified (S/A/E/C/M = ✗/✗/✗/✗/✓) |
+| Native-assisted gate | **passed** (2026-11-04T23:06:15+00:00) |
+| Standard axioms | Classical.choice, Quot.sound, propext |
+| Extra finite native facts | 0 |
+| Other unwanted axioms / sorry | none |
+| Source / executable model | none configured. Proofs: source_association: ; execution_witness: ; generic_correctness: . Closure fingerprint `d0ab6d4feefd6b6f`, 9 project modules hashed |
+| Mathematical hypotheses | `DudekPlattNumerics.v5.pi_two_sided_qrh`; `RamanujanNumerics.v3.epsilon_budget` |
+| Real-world trust boundary | restricted C / binary64 RN model of the token-matched source; Lean compiler + runtime for the native facts and their library implementations; C compiler, OS and hardware not modelled |
+| Official Comparator receipt | absent |
+| Reproduction | Lean 4.34.0-rc2 (leanprover/lean4:v4.34.0-rc2), Mathlib `71a80585ee49`, repo `5ccad03d24a1`; `lake build Solution` rc 0 in `Solutions/RamanujanGap.v3`; `python scripts/native_assisted/native_assisted_check.py check RamanujanGap.v3.ramanujan` |
+
+## `@pv.PVRamanujan.V1.epsilon_budget`
+
+| Field | Value |
+|---|---|
+| Claim / conclusion ID | `@pv.PVRamanujan.V1.epsilon_budget` → `PVRamanujan.V1.epsilon_budget` : `RamanujanNumerics.v1.epsilon_budget` |
+| Official designated `kind` | lean-noncompliant (`source-model`), unchanged |
+| Evidence method | lean-verified-program (S/A/E/C/M = ✓/✓/✓/✓/✓) |
+| Native-assisted gate | **passed** (2026-11-04T23:06:32+00:00) |
+| Standard axioms | Classical.choice, Quot.sound, propext |
+| Extra finite native facts | 1: `PVRamanujan.V1.certificate` (pilots/pv-replay/PVReplay/Ramanujan.lean:38, token `native_decide`, decides `PVRamanujan.budgetCheck PVRamanujan.V1.source PVRamanujan.V1.program (…`) |
+| Other unwanted axioms / sorry | none |
+| Source / executable model | `Solutions/RamanujanNumerics.v1/c/baseline.c` sha256 `4f468d7f31d5bdd678f8692337ff6c21b0747828c0248685671c2a69b82f9be2` embedded by `PVRamanujan.V1.source`. Proofs: source_association: `PVRamanujan.V1.certificate`, `PVRamanujan.V1.certificate._native.native_decide.ax_1_1`; execution_witness: `PVRamanujan.V1.certificate`, `PVRamanujan.V1.certificate._native.native_decide.ax_1_1`; generic_correctness: `PVCore.certified`, `PVCore.exact_le_out`, `PVCore.out_le_exact`, … (2 more). Closure fingerprint `7d8c8480e991d1cc`, 16 project modules hashed |
+| Mathematical hypotheses | none (pure arithmetic or closed) |
+| Real-world trust boundary | restricted C / binary64 RN model of the token-matched source; Lean compiler + runtime for the native facts and their library implementations; C compiler, OS and hardware not modelled |
+| Official Comparator receipt | absent |
+| Reproduction | Lean 4.34.0-rc2 (leanprover/lean4:v4.34.0-rc2), Mathlib `71a80585ee49`, repo `5ccad03d24a1`; `lake build PVReplay` rc 0 in `pilots/pv-replay`; `python scripts/native_assisted/native_assisted_check.py check @pv.PVRamanujan.V1.epsilon_budget` |
+
+## `@pv.PVRamanujan.V2.epsilon_budget`
+
+| Field | Value |
+|---|---|
+| Claim / conclusion ID | `@pv.PVRamanujan.V2.epsilon_budget` → `PVRamanujan.V2.epsilon_budget` : `RamanujanNumerics.v2.epsilon_budget` |
+| Official designated `kind` | lean-noncompliant (`source-model`), unchanged |
+| Evidence method | lean-verified-program (S/A/E/C/M = ✓/✓/✓/✓/✓) |
+| Native-assisted gate | **passed** (2026-11-04T23:07:01+00:00) |
+| Standard axioms | Classical.choice, Quot.sound, propext |
+| Extra finite native facts | 1: `PVRamanujan.V2.certificate` (pilots/pv-replay/PVReplay/Ramanujan.lean:58, token `native_decide`, decides `PVRamanujan.budgetCheck PVRamanujan.V2.source PVRamanujan.V2.program 1…`) |
+| Other unwanted axioms / sorry | none |
+| Source / executable model | `Solutions/RamanujanNumerics.v2/c/updated.c` sha256 `3de9c2d75ed984719aee22f05f0217a605e72f419a737134f269074b34c09f5c` embedded by `PVRamanujan.V2.source`. Proofs: source_association: `PVRamanujan.V2.certificate`, `PVRamanujan.V2.certificate._native.native_decide.ax_1_1`; execution_witness: `PVRamanujan.V2.certificate`, `PVRamanujan.V2.certificate._native.native_decide.ax_1_1`; generic_correctness: `PVCore.certified`, `PVCore.exact_le_out`, `PVCore.out_le_exact`, … (2 more). Closure fingerprint `ef8a553615490149`, 16 project modules hashed |
+| Mathematical hypotheses | none (pure arithmetic or closed) |
+| Real-world trust boundary | restricted C / binary64 RN model of the token-matched source; Lean compiler + runtime for the native facts and their library implementations; C compiler, OS and hardware not modelled |
+| Official Comparator receipt | absent |
+| Reproduction | Lean 4.34.0-rc2 (leanprover/lean4:v4.34.0-rc2), Mathlib `71a80585ee49`, repo `5ccad03d24a1`; `lake build PVReplay` rc 0 in `pilots/pv-replay`; `python scripts/native_assisted/native_assisted_check.py check @pv.PVRamanujan.V2.epsilon_budget` |
+
+## `@pv.PVRamanujan.OldGrouped.epsilon_budget`
+
+| Field | Value |
+|---|---|
+| Claim / conclusion ID | `@pv.PVRamanujan.OldGrouped.epsilon_budget` → `PVRamanujan.OldGrouped.epsilon_budget` : `RamanujanNumerics.v1.epsilon_budget` |
+| Official designated `kind` | lean-noncompliant (`source-model`), unchanged |
+| Evidence method | lean-verified-program (S/A/E/C/M = ✓/✓/✓/✓/✓) |
+| Native-assisted gate | **passed** (2026-11-04T23:07:31+00:00) |
+| Standard axioms | Classical.choice, Quot.sound, propext |
+| Extra finite native facts | 1: `PVRamanujan.OldGrouped.certificate` (pilots/pv-replay/PVReplay/Ramanujan.lean:76, token `native_decide`, decides `PVRamanujan.budgetCheck PVRamanujan.OldGrouped.source PVRamanujan.OldG…`) |
+| Other unwanted axioms / sorry | none |
+| Source / executable model | `Solutions/RamanujanNumerics.v2/c/oldgrouped.c` sha256 `8483747e8e1337fafb5357de243e0fc110fc9923f45b3d4b5afff10fae41a8d9` embedded by `PVRamanujan.OldGrouped.source`. Proofs: source_association: `PVRamanujan.OldGrouped.certificate`, `PVRamanujan.OldGrouped.certificate._native.native_decide.ax_1_1`; execution_witness: `PVRamanujan.OldGrouped.certificate`, `PVRamanujan.OldGrouped.certificate._native.native_decide.ax_1_1`; generic_correctness: `PVCore.certified`, `PVCore.exact_le_out`, `PVCore.out_le_exact`, … (2 more). Closure fingerprint `b83ee84f52134db4`, 16 project modules hashed |
+| Mathematical hypotheses | none (pure arithmetic or closed) |
+| Real-world trust boundary | restricted C / binary64 RN model of the token-matched source; Lean compiler + runtime for the native facts and their library implementations; C compiler, OS and hardware not modelled |
+| Official Comparator receipt | absent |
+| Reproduction | Lean 4.34.0-rc2 (leanprover/lean4:v4.34.0-rc2), Mathlib `71a80585ee49`, repo `5ccad03d24a1`; `lake build PVReplay` rc 0 in `pilots/pv-replay`; `python scripts/native_assisted/native_assisted_check.py check @pv.PVRamanujan.OldGrouped.epsilon_budget` |
+
+## `@pv.PVTable4.QRH.qrh_pi`
+
+| Field | Value |
+|---|---|
+| Claim / conclusion ID | `@pv.PVTable4.QRH.qrh_pi` → `PVTable4.QRH.qrh_pi` : `QRHCH2.v5.psi_refined_bound → FKS2.v6.table4_anchor_300 → FKS2Numerics.v7.qrh_pi` |
+| Official designated `kind` | lean-noncompliant (`source-model-qrh`), unchanged |
+| Evidence method | lean-verified-program (S/A/E/C/M = ✓/✓/✓/✓/✓) |
+| Native-assisted gate | **passed** (2026-11-04T23:08:01+00:00) |
+| Standard axioms | Classical.choice, Quot.sound, propext |
+| Extra finite native facts | 4: `FKS2Table4.analytic_checks` (Solutions/FKS2Numerics.v5/FKS2Table4/Certificates.lean:23, token `native_decide`, decides `FKS2Scalar.expCheck 1 (FKS2Scalar.expLo 1) (FKS2Scalar.expHi 1) = true…`); `FKS2Table4.input_certificate` (Solutions/FKS2Numerics.v5/FKS2Table4/Certificates.lean:31, token `native_decide`, decides `FKS2Table4.inputValues.length = 30 ∧ FKS2Table4.scale = 1 / 2 ^ 58 ∧ (…`); `FKS2Table4.scaled_cells_upper` (Solutions/FKS2Numerics.v5/FKS2Table4/Certificates.lean:100, token `native_decide`, decides `FKS2Table4.inputValues.sum = ∑ j ∈ Finset.range 30, FKS2Table4.inputVa…`); `PVTable4.QRH.certificate` (pilots/pv-replay/PVReplay/Table4.lean:46, token `native_decide`, decides `PVCore.upperCheck PVTable4.QRH.source PVTable4.QRH.program (1 / 10 ^ 3…`) |
+| Other unwanted axioms / sorry | none |
+| Source / executable model | `Solutions/FKS2Numerics.v5/c/fks2_table4_transport.c` sha256 `0685e913a08957ec941753e0e4ffd3de33756e828976c7ae2332545e378313e7` embedded by `PVTable4.QRH.source`. Proofs: source_association: `PVTable4.QRH.certificate`, `PVTable4.QRH.certificate._native.native_decide.ax_1_1`; execution_witness: `PVTable4.QRH.certificate`, `PVTable4.QRH.certificate._native.native_decide.ax_1_1`; generic_correctness: `PVCore.certified`, `PVCore.exact_le_out`, `PVCore.le_bound_of_check`, … (2 more). Closure fingerprint `25e028cc7890cb8c`, 30 project modules hashed |
+| Mathematical hypotheses | `QRHCH2.v5.psi_refined_bound`; `FKS2.v6.table4_anchor_300` |
+| Real-world trust boundary | restricted C / binary64 RN model of the token-matched source; Lean compiler + runtime for the native facts and their library implementations; C compiler, OS and hardware not modelled |
+| Official Comparator receipt | absent |
+| Reproduction | Lean 4.34.0-rc2 (leanprover/lean4:v4.34.0-rc2), Mathlib `71a80585ee49`, repo `5ccad03d24a1`; `lake build PVReplay` rc 0 in `pilots/pv-replay`; `python scripts/native_assisted/native_assisted_check.py check @pv.PVTable4.QRH.qrh_pi` |
+
+## `@pv.PVTable4.Old.old_pi`
+
+| Field | Value |
+|---|---|
+| Claim / conclusion ID | `@pv.PVTable4.Old.old_pi` → `PVTable4.Old.old_pi` : `FKS2.v8.table3_theta_300 →   FKS2.v8.table3_theta_310 →     FKS2.v8.table3_theta_320 → FKS2.v8.table3_theta_330 → FKS2.v6.table4_anchor_300 → FKS2Numerics.v6.old_pi` |
+| Official designated `kind` | lean-noncompliant (`source-model-old`), unchanged |
+| Evidence method | lean-verified-program (S/A/E/C/M = ✓/✓/✓/✓/✓) |
+| Native-assisted gate | **passed** (2026-11-04T23:08:45+00:00) |
+| Standard axioms | Classical.choice, Quot.sound, propext |
+| Extra finite native facts | 4: `FKS2Pair.Old.boundary_checks` (Solutions/FKS2Numerics.v6/FKS2Pair/OldResult.lean:21, token `native_decide`, decides `FKS2Pair.Old.scale = 1 / 2 ^ 48 ∧ FKS2Pair.Old.anchorHi ≤ FKS2Pair.Old…`); `FKS2Pair.Old.enclosure_checks` (Solutions/FKS2Numerics.v6/FKS2Pair/OldInputs.lean:29, token `native_decide`, decides `FKS2Pair.Old.data.length = 30 ∧ (∀ r ∈ FKS2Pair.Old.data, FKS2SumBridg…`); `FKS2Pair.Old.exp_checks` (Solutions/FKS2Numerics.v6/FKS2Pair/OldInputs.lean:22, token `native_decide`, decides `FKS2Scalar.expCheck 1 (FKS2Scalar.expLo 1) (FKS2Scalar.expHi 1) = true…`); `PVTable4.Old.certificate` (pilots/pv-replay/PVReplay/Table4.lean:84, token `native_decide`, decides `PVCore.upperCheck PVTable4.Old.source PVTable4.Old.program (4 / 10 ^ 2…`) |
+| Other unwanted axioms / sorry | none |
+| Source / executable model | `Solutions/FKS2Numerics.v6/c/fks2_table4_transport_old.c` sha256 `fcce411cc6c2a1c9bd64109f421dd94b8a4ed131eb02afd9d6da7c20e22cdc54` embedded by `PVTable4.Old.source`. Proofs: source_association: `PVTable4.Old.certificate`, `PVTable4.Old.certificate._native.native_decide.ax_1_1`; execution_witness: `PVTable4.Old.certificate`, `PVTable4.Old.certificate._native.native_decide.ax_1_1`; generic_correctness: `PVCore.certified`, `PVCore.exact_le_out`, `PVCore.le_bound_of_check`, … (2 more). Closure fingerprint `2a64a180ef7b3d02`, 27 project modules hashed |
+| Mathematical hypotheses | `FKS2.v8.table3_theta_300`; `FKS2.v8.table3_theta_310`; `FKS2.v8.table3_theta_320`; `FKS2.v8.table3_theta_330`; `FKS2.v6.table4_anchor_300` |
+| Real-world trust boundary | restricted C / binary64 RN model of the token-matched source; Lean compiler + runtime for the native facts and their library implementations; C compiler, OS and hardware not modelled |
+| Official Comparator receipt | absent |
+| Reproduction | Lean 4.34.0-rc2 (leanprover/lean4:v4.34.0-rc2), Mathlib `71a80585ee49`, repo `5ccad03d24a1`; `lake build PVReplay` rc 0 in `pilots/pv-replay`; `python scripts/native_assisted/native_assisted_check.py check @pv.PVTable4.Old.old_pi` |
+
+## `@pv.PVPilot.Updated.gap_exceeds_leading`
+
+| Field | Value |
+|---|---|
+| Claim / conclusion ID | `@pv.PVPilot.Updated.gap_exceeds_leading` → `PVPilot.Updated.gap_exceeds_leading` : `QRHCH2.v5.psi_refined_bound →   ∀ x > Real.exp 9401, (1 + 68431 / 5000 / Real.log x) * x ^ 2 / Real.log x ^ 6 < ForwardRamanujan.gap x` |
+| Official designated `kind` | n/a (not a node conclusion) (`-`), unchanged |
+| Evidence method | lean-verified-program (S/A/E/C/M = ✓/✓/✓/✓/✓) |
+| Native-assisted gate | **passed** (2026-11-04T23:09:27+00:00) |
+| Standard axioms | Classical.choice, Quot.sound, propext |
+| Extra finite native facts | 2: `PVPilot.Updated.certificateA` (pilots/pv-replay/PVReplay/Chain.lean:50, token `native_decide`, decides `PVCore.upperCheck PVPilot.Updated.sourceA PVPilot.Updated.programA (1 …`); `PVPilot.Updated.certificateB` (pilots/pv-replay/PVReplay/Chain.lean:68, token `native_decide`, decides `PVRamanujan.budgetCheck PVPilot.Updated.sourceB PVPilot.Updated.progra…`) |
+| Other unwanted axioms / sorry | none |
+| Source / executable model | `pilots/agentB-calibration/c/calibration_new.c` sha256 `f206bd817deab53b2fbaa38e4f7a84b5ad6958d5c5d625fc49eb407975be0568` embedded by `PVPilot.Updated.sourceA`; `pilots/agentB-calibration/c/ramanujan_9401_new.c` sha256 `86d204a5a7ba913a43e8e387990b7ea60dc146e4eac336b98f9bffa2f35d8895` embedded by `PVPilot.Updated.sourceB`. Proofs: source_association: `PVPilot.Updated.certificateA`, `PVPilot.Updated.certificateA._native.native_decide.ax_1_1`, `PVPilot.Updated.certificateB`, … (1 more); execution_witness: `PVPilot.Updated.certificateA`, `PVPilot.Updated.certificateA._native.native_decide.ax_1_1`, `PVPilot.Updated.certificateB`, … (1 more); generic_correctness: `PVCore.certified`, `PVCore.exact_le_out`, `PVCore.le_bound_of_check`, … (3 more). Closure fingerprint `11ca08c99968cf1a`, 32 project modules hashed |
+| Mathematical hypotheses | `QRHCH2.v5.psi_refined_bound`; `ℝ`; `x > Real.exp 9401` |
+| Real-world trust boundary | restricted C / binary64 RN model of the token-matched source; Lean compiler + runtime for the native facts and their library implementations; C compiler, OS and hardware not modelled |
+| Official Comparator receipt | n/a (not a node conclusion) |
+| Reproduction | Lean 4.34.0-rc2 (leanprover/lean4:v4.34.0-rc2), Mathlib `71a80585ee49`, repo `5ccad03d24a1`; `lake build PVReplay` rc 0 in `pilots/pv-replay`; `python scripts/native_assisted/native_assisted_check.py check @pv.PVPilot.Updated.gap_exceeds_leading` |
+
