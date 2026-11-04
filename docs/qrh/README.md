@@ -251,7 +251,7 @@ change. Local research acceptance JSON is distinct from official IEANTN receipts
 
 ## Next single implementation task
 
-The missing two-executable chain is concrete: there is not yet a source-verified
+A pilot of this chain now exists at [pilots/agentB-calibration](../../pilots/agentB-calibration/README.md) (integration workstream; local, not a node). Before it, the missing two-executable chain was concrete: there is not yet a source-verified
 **coefficient calibration program A** feeding the current **epsilon program B**.
 The existing QRH pi-coefficient theorem is analytic Lean, not program A.
 
