@@ -4,3 +4,4 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Agent B (Claude), integration workstream
 -/
 import CalibrationPilot.OldChain
+import CalibrationPilot.NewChain
