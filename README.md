@@ -106,3 +106,7 @@ lake build
 
 One `declaration uses 'sorry'` warning per node conclusion is expected. A challenge states; it does
 not prove.
+
+## Scoped QRH numerical-program demonstration
+
+See [the scoped Winner provider guide](docs/qrh/SCOPED_WINNER_AGENT_A.md) for the conditional prime-error bound with coefficient 0.00947147, frozen 39-identity comparison, source entrypoints and trust/reproduction limits. This is a native-assisted local research provider; no official receipt is implied.
