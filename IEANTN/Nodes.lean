@@ -104,7 +104,9 @@ import IEANTN.Nodes.QRHPropagation.v1.Challenge
 import IEANTN.Nodes.QRHPropagation.v2.Challenge
 import IEANTN.Nodes.QRHPropagation.v3.Challenge
 import IEANTN.Nodes.RamanujanGap.v1.Challenge
+import IEANTN.Nodes.RamanujanGap.v2.Challenge
 import IEANTN.Nodes.RamanujanNumerics.v1.Challenge
+import IEANTN.Nodes.RamanujanNumerics.v2.Challenge
 import IEANTN.Nodes.RamareSaouter2003.v1.Challenge
 import IEANTN.Nodes.Richstein2001.v1.Challenge
 import IEANTN.Nodes.RosserSchoenfeld.v1.Challenge
