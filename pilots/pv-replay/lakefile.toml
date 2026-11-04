@@ -1,0 +1,29 @@
+name = "agentB_pv_replay"
+version = "0.1.0"
+defaultTargets = ["PVReplay"]
+
+# Research replays (Agent B), NOT node solutions and not in the core build. They re-derive
+# existing endpoints and the A->B' pilot chain through the shared contract in
+# Solutions/ProgramVerification, to measure reuse. Designated proofs are untouched.
+[[require]]
+name = "IEANTN"
+path = "../.."
+
+[[require]]
+name = "solution_ProgramVerification"
+path = "../../Solutions/ProgramVerification"
+
+[[require]]
+name = "solution_FKS2Numerics_v6"
+path = "../../Solutions/FKS2Numerics.v6"
+
+[[require]]
+name = "solution_RamanujanNumerics_v2"
+path = "../../Solutions/RamanujanNumerics.v2"
+
+[[require]]
+name = "agentB_calibration_pilot"
+path = "../agentB-calibration"
+
+[[lean_lib]]
+name = "PVReplay"

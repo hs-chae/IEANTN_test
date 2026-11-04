@@ -42,7 +42,7 @@ open Real PVCore CalibrationPilot
 def programA : Program :=
   ⟨"calibration_deviation", NewA.literals, "4096.0", [(.minus, "0.0"), (.minus, "0.0")]⟩
 def sourceA : String :=
-  include_str ".." / ".." / ".." / "pilots" / "agentB-calibration" / "c" / "calibration_new.c"
+  include_str ".." / ".." / "agentB-calibration" / "c" / "calibration_new.c"
 
 theorem certificateA : upperCheck sourceA programA (1 / 10 ^ 10) NewA.bound = true ∧
     (valuesOf programA).ops = [(.minus, 0), (.minus, 0)] ∧
@@ -60,7 +60,7 @@ theorem stageA : ((NewA.targets.sum : ℚ) : ℝ) ≤ ((NewA.bound : ℚ) : ℝ)
 /-- Stage B′: the selected Ramanujan budget program at the linked parameters. -/
 def programB : Program := PVRamanujan.program NewB.literals "4096.0" "134.0" "0.0"
 def sourceB : String :=
-  include_str ".." / ".." / ".." / "pilots" / "agentB-calibration" / "c" / "ramanujan_9401_new.c"
+  include_str ".." / ".." / "agentB-calibration" / "c" / "ramanujan_9401_new.c"
 
 theorem certificateB :
     PVRamanujan.budgetCheck sourceB programB NewB.m NewB.M NewB.A NewB.Y (1 / 10 ^ 10) NewB.bound =

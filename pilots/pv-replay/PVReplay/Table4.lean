@@ -37,7 +37,7 @@ def program (p : FKS2Table4.TransportProgram) : Program :=
 namespace QRH
 
 def program : Program := PVTable4.program FKS2Table4.selected
-def source : String := include_str ".." / ".." / "FKS2Numerics.v5" / "c" / "fks2_table4_transport.c"
+def source : String := include_str ".." / ".." / ".." / "Solutions" / "FKS2Numerics.v5" / "c" / "fks2_table4_transport.c"
 
 theorem certificate : upperCheck source program (1 / 10 ^ 30) (5 / 10 ^ 16) = true ∧
     (valuesOf program).xs = FKS2Table4.inputValues ∧ (valuesOf program).scale = FKS2Table4.scale ∧
@@ -75,7 +75,7 @@ namespace Old
 
 def program : Program := PVTable4.program FKS2Pair.Old.oldProgram
 def source : String :=
-  include_str ".." / ".." / "FKS2Numerics.v6" / "c" / "fks2_table4_transport_old.c"
+  include_str ".." / ".." / ".." / "Solutions" / "FKS2Numerics.v6" / "c" / "fks2_table4_transport_old.c"
 
 theorem certificate : upperCheck source program (4 / 10 ^ 27) (169 / 10 ^ 14) = true ∧
     (valuesOf program).xs = FKS2Pair.Old.data ∧ (valuesOf program).scale = FKS2Pair.Old.scale ∧

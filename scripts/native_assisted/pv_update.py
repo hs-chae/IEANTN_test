@@ -276,6 +276,8 @@ def generate(conclusion: str) -> int:
     mod.parent.mkdir(parents=True, exist_ok=True)
     mod.write_text(lean_module(e, v["literals"], v["positive"]))
     (proj / "lakefile.toml").write_text(lakefile(e))
+    lib_root = proj / f"{e['lean_lib']}.lean"
+    lib_root.write_text(f"import {e['lean_module'][:-len('.lean')].replace('/', '.')}\n")
     lock = {"conclusion": conclusion, "family": e["family"], "parameters": e["parameters"],
             "bound": e["bound"], "source": e["source"],
             "source_sha256": hashlib.sha256(src.read_bytes()).hexdigest(),

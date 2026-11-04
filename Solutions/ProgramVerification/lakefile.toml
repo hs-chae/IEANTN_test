@@ -1,43 +1,28 @@
 name = "solution_ProgramVerification"
 version = "0.1.0"
-defaultTargets = ["PVCore"]
+defaultTargets = ["PVCore", "PVRamanujan"]
 
 # Shared, solution-facing program-verification contracts. Not a node and not in the core build:
-# node statements never import this package. Solution projects that verify a numerical program
-# require it by path, exactly as they already require `solution_FKS2Numerics_v2` for SumStability.
+# node statements never import this package. A solution that verifies a numerical program
+# requires it by path, as solutions already require `solution_FKS2Numerics_v2` for SumStability.
+# Its requirements are kept to the stable packages the contracts are built on, because every
+# requirement here becomes part of every provider's dependency closure and manifest.
 [[require]]
 name = "IEANTN"
 path = "../.."
 
+# SumStability, FKS2Scalar and FKS2SumBridge (through v2), and FKS2Table4.Rounding.
 [[require]]
 name = "solution_FKS2Numerics_v5"
 path = "../FKS2Numerics.v5"
 
-[[require]]
-name = "solution_FKS2Numerics_v6"
-path = "../FKS2Numerics.v6"
-
+# ForwardRamanujan.Math, for the Ramanujan-budget family adapter (frozen).
 [[require]]
 name = "solution_RamanujanNumerics_v1"
 path = "../RamanujanNumerics.v1"
-
-[[require]]
-name = "solution_RamanujanNumerics_v2"
-path = "../RamanujanNumerics.v2"
-
-# The A→B′ pilot (research area, outside Solutions/), for the composition stage of PVPilot.
-[[require]]
-name = "agentB_calibration_pilot"
-path = "../../pilots/agentB-calibration"
 
 [[lean_lib]]
 name = "PVCore"
 
 [[lean_lib]]
 name = "PVRamanujan"
-
-[[lean_lib]]
-name = "PVTable4"
-
-[[lean_lib]]
-name = "PVPilot"

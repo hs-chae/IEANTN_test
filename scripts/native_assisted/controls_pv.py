@@ -171,7 +171,8 @@ def main(argv):
         (work / "lakefile.toml").write_text(orig_lf)
 
     def build_provider():
-        return sh(["lake", "build", "RamanujanBudget"], work, 3600)
+        # the provider library, and the node's Solution that imports it
+        return sh(["lake", "build", "RamanujanBudget", "Solution"], work, 3600)
 
     def mutation(name, apply, expect_rc_nonzero=True, extra=None):
         restore()

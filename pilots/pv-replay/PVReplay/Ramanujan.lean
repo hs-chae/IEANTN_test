@@ -31,7 +31,7 @@ open Real PVCore
 namespace V1
 
 def program : Program := PVRamanujan.program ForwardRamanujan.Old.literals "4096.0" "134.0" "0.0"
-def source : String := include_str ".." / ".." / "RamanujanNumerics.v1" / "c" / "baseline.c"
+def source : String := include_str ".." / ".." / ".." / "Solutions" / "RamanujanNumerics.v1" / "c" / "baseline.c"
 
 theorem certificate :
     budgetCheck source program (-1194) 1426 3914 3915 (1 / 10 ^ 10) (39147 / 10) = true := by
@@ -51,7 +51,7 @@ namespace V2
 
 def program : Program :=
   PVRamanujan.program ForwardRamanujan.Updated.literals "4096.0" "134.0" "119.0"
-def source : String := include_str ".." / ".." / "RamanujanNumerics.v2" / "c" / "updated.c"
+def source : String := include_str ".." / ".." / ".." / "Solutions" / "RamanujanNumerics.v2" / "c" / "updated.c"
 
 theorem certificate :
     budgetCheck source program 119 131 3914 3915 (1 / 10 ^ 10) (9101 / 1000) = true := by
@@ -69,7 +69,7 @@ namespace OldGrouped
 
 def program : Program :=
   PVRamanujan.program ForwardRamanujan.OldGrouped.literals "4096.0" "134.0" "0.0"
-def source : String := include_str ".." / ".." / "RamanujanNumerics.v2" / "c" / "oldgrouped.c"
+def source : String := include_str ".." / ".." / ".." / "Solutions" / "RamanujanNumerics.v2" / "c" / "oldgrouped.c"
 
 theorem certificate :
     budgetCheck source program (-1194) 1426 3914 3915 (1 / 10 ^ 10) (39147 / 10) = true := by
@@ -89,7 +89,7 @@ namespace UpdatedGrouped
 
 def program : Program :=
   PVRamanujan.program ForwardRamanujan.UpdatedGrouped.literals "4096.0" "134.0" "119.0"
-def source : String := include_str ".." / ".." / "RamanujanNumerics.v2" / "c" / "updatedgrouped.c"
+def source : String := include_str ".." / ".." / ".." / "Solutions" / "RamanujanNumerics.v2" / "c" / "updatedgrouped.c"
 
 theorem certificate :
     budgetCheck source program 119 131 3914 3915 (1 / 10 ^ 10) (39147 / 10) = true := by

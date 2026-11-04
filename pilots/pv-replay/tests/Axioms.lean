@@ -1,5 +1,4 @@
-import PVRamanujan
-import PVTable4
+import PVReplay
 #print axioms PVRamanujan.V1.epsilon_budget
 #print axioms PVRamanujan.V2.epsilon_budget
 #print axioms PVRamanujan.OldGrouped.epsilon_budget
