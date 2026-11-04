@@ -306,15 +306,15 @@ attestation under `axioms.native_facts[].decided_proposition`, and the full theo
 | Claim / conclusion ID | `RamanujanGap.v3.loss_bound` → `RamanujanGap.v3.challenge_loss_bound` : `DudekPlattNumerics.v5.pi_two_sided_qrh → RamanujanNumerics.v3.epsilon_budget → RamanujanGap.v3.loss_bound` |
 | Official designated `kind` | none-yet (`solution`), unchanged |
 | Evidence method | not-program-verified (S/A/E/C/M = ✗/✗/✗/✗/✓) |
-| Native-assisted gate | **passed** (2026-11-04T23:05:41+00:00) |
+| Native-assisted gate | **passed** (2026-11-04T23:21:08+00:00) |
 | Standard axioms | Classical.choice, Quot.sound, propext |
 | Extra finite native facts | 0 |
 | Other unwanted axioms / sorry | none |
-| Source / executable model | none configured. Proofs: source_association: ; execution_witness: ; generic_correctness: . Closure fingerprint `e3fbdfcc78fd4a95`, 10 project modules hashed |
+| Source / executable model | none configured. Proofs: source_association: ; execution_witness: ; generic_correctness: . Closure fingerprint `8ac04cafd1e5cf0b`, 10 project modules hashed |
 | Mathematical hypotheses | `DudekPlattNumerics.v5.pi_two_sided_qrh`; `RamanujanNumerics.v3.epsilon_budget` |
 | Real-world trust boundary | restricted C / binary64 RN model of the token-matched source; Lean compiler + runtime for the native facts and their library implementations; C compiler, OS and hardware not modelled |
 | Official Comparator receipt | absent |
-| Reproduction | Lean 4.34.0-rc2 (leanprover/lean4:v4.34.0-rc2), Mathlib `71a80585ee49`, repo `5ccad03d24a1`; `lake build Solution` rc 0 in `Solutions/RamanujanGap.v3`; `python scripts/native_assisted/native_assisted_check.py check RamanujanGap.v3.loss_bound` |
+| Reproduction | Lean 4.34.0-rc2 (leanprover/lean4:v4.34.0-rc2), Mathlib `71a80585ee49`, repo `3a4f63a9ae20`; `lake build Solution` rc 0 in `Solutions/RamanujanGap.v3`; `python scripts/native_assisted/native_assisted_check.py check RamanujanGap.v3.loss_bound` |
 
 ## `RamanujanGap.v3.gap_lower_bound`
 
@@ -323,15 +323,15 @@ attestation under `axioms.native_facts[].decided_proposition`, and the full theo
 | Claim / conclusion ID | `RamanujanGap.v3.gap_lower_bound` → `RamanujanGap.v3.challenge_gap_lower_bound` : `DudekPlattNumerics.v5.pi_two_sided_qrh → RamanujanNumerics.v3.epsilon_budget → RamanujanGap.v3.gap_lower_bound` |
 | Official designated `kind` | none-yet (`solution`), unchanged |
 | Evidence method | not-program-verified (S/A/E/C/M = ✗/✗/✗/✗/✓) |
-| Native-assisted gate | **passed** (2026-11-04T23:05:58+00:00) |
+| Native-assisted gate | **passed** (2026-11-04T23:21:25+00:00) |
 | Standard axioms | Classical.choice, Quot.sound, propext |
 | Extra finite native facts | 0 |
 | Other unwanted axioms / sorry | none |
-| Source / executable model | none configured. Proofs: source_association: ; execution_witness: ; generic_correctness: . Closure fingerprint `9f84392de76f653a`, 10 project modules hashed |
+| Source / executable model | none configured. Proofs: source_association: ; execution_witness: ; generic_correctness: . Closure fingerprint `a557ca830c0ac765`, 10 project modules hashed |
 | Mathematical hypotheses | `DudekPlattNumerics.v5.pi_two_sided_qrh`; `RamanujanNumerics.v3.epsilon_budget` |
 | Real-world trust boundary | restricted C / binary64 RN model of the token-matched source; Lean compiler + runtime for the native facts and their library implementations; C compiler, OS and hardware not modelled |
 | Official Comparator receipt | absent |
-| Reproduction | Lean 4.34.0-rc2 (leanprover/lean4:v4.34.0-rc2), Mathlib `71a80585ee49`, repo `5ccad03d24a1`; `lake build Solution` rc 0 in `Solutions/RamanujanGap.v3`; `python scripts/native_assisted/native_assisted_check.py check RamanujanGap.v3.gap_lower_bound` |
+| Reproduction | Lean 4.34.0-rc2 (leanprover/lean4:v4.34.0-rc2), Mathlib `71a80585ee49`, repo `3a4f63a9ae20`; `lake build Solution` rc 0 in `Solutions/RamanujanGap.v3`; `python scripts/native_assisted/native_assisted_check.py check RamanujanGap.v3.gap_lower_bound` |
 
 ## `@pv.PVRamanujan.V1.epsilon_budget`
 
