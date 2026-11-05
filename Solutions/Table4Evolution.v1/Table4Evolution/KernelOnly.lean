@@ -41,6 +41,10 @@ theorem cells_k : cellsOK (1 / 8) 55 qrhM bs xsQ = true := by
 theorem const_k : constOK (1 / 8) (qrhM 300) (qrhM 330) anchorQ pointQ tailQ = true := by
   decide +kernel
 
+/-- The shared-contract certificate of the actual C file, assembled in the kernel. -/
+theorem certificate_k : upperCheck source program (1 / 10 ^ 30) (5 / 10 ^ 16) = true :=
+  (upperCheck_of_decode decode_k upper_k).1
+
 /-- `FKS2Numerics.v7.qrh_pi`, kernel only. -/
 theorem qrh_pi (hpsi : QRHCH2.v5.psi_refined_bound) (hAnchor : FKS2.v6.table4_anchor_300) :
     FKS2Numerics.v7.qrh_pi := by

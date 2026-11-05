@@ -9,3 +9,4 @@ import QRHGlobalIntervals
 #check @QRHGlobal.sixteenth_interval
 #print axioms QRHGlobal.sixteenth_interval
 #print axioms QRHGlobal.prime_gap_sixteenth
+#print axioms QRHGlobal.intervals_from_agentA_theta

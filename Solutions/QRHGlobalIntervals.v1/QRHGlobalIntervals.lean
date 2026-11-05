@@ -10,3 +10,4 @@ import QRHGlobalIntervals.Global
 import QRHGlobalIntervals.Powers
 import QRHGlobalIntervals.KadiriLumley
 import QRHGlobalIntervals.Sixteenth
+import QRHGlobalIntervals.AgentA
