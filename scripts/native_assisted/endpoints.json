@@ -464,6 +464,197 @@
    "is_node_conclusion": false,
    "endpoint": "QRHGlobal.intervals_from_agentA_theta",
    "family": "tertiary: prime in (x, x + 0.0196 x^{7/8}], x >= e^300, from Agent A's theta coefficient"
+  },
+  "@evo.Table4Evolution.OldTrunc.Kernel.old_pi": {
+   "project": "Solutions/Table4Evolution.v1",
+   "root_module": "Table4Evolution",
+   "is_node_conclusion": false,
+   "endpoint": "Table4Evolution.OldTrunc.Kernel.old_pi",
+   "sources": [
+    "Solutions/Table4Evolution.v1/c/old_trunc3.c"
+   ],
+   "family": "Table 4 evolution: QRH-free input, 3 cells, kernel only",
+   "challenge_module": "IEANTN.Nodes.FKS2Numerics.v6.Challenge",
+   "challenge_endpoint": "FKS2Numerics.v6.challenge_old_pi",
+   "replays": "FKS2Numerics.v6.old_pi"
+  },
+  "@evo.Table4Evolution.AgentATrunc.Kernel.pi_from_theta_power": {
+   "project": "Solutions/Table4Evolution.v1",
+   "root_module": "Table4Evolution",
+   "is_node_conclusion": false,
+   "endpoint": "Table4Evolution.AgentATrunc.Kernel.pi_from_theta_power",
+   "sources": [
+    "Solutions/Table4Evolution.v1/c/agentA_trunc4.c"
+   ],
+   "family": "Table 4 evolution: K = 0.009782 (Agent A), 4 cells, kernel only"
+  },
+  "@evo.Table4Evolution.AgentASource.Kernel.pi_from_theta_power_source": {
+   "project": "Solutions/Table4Evolution.v1",
+   "root_module": "Table4Evolution",
+   "is_node_conclusion": false,
+   "endpoint": "Table4Evolution.AgentASource.Kernel.pi_from_theta_power_source",
+   "sources": [
+    "Solutions/Table4Evolution.v1/c/agentA_source4.c"
+   ],
+   "family": "Table 4 evolution: K = 0.009904 (Agent A), 4 cells, kernel only"
+  },
+  "@evo.Table4Evolution.PowerNetwork.pi_power": {
+   "project": "Solutions/Table4Evolution.v1",
+   "root_module": "Table4Evolution",
+   "is_node_conclusion": false,
+   "endpoint": "Table4Evolution.PowerNetwork.pi_power",
+   "sources": [
+    "Solutions/Table4Evolution.v1/c/power_network.c"
+   ],
+   "family": "power-form transport (closed-form integral), network theta row (300, 0.01310), kernel only"
+  },
+  "@evo.Table4Evolution.PowerAgentA.pi_power": {
+   "project": "Solutions/Table4Evolution.v1",
+   "root_module": "Table4Evolution",
+   "is_node_conclusion": false,
+   "endpoint": "Table4Evolution.PowerAgentA.pi_power",
+   "sources": [
+    "Solutions/Table4Evolution.v1/c/power_agentA.c"
+   ],
+   "family": "power-form transport (closed-form integral), Agent A theta K = 0.009782, kernel only"
+  },
+  "@pv.PVRamanujan.KernelOnly.V1.epsilon_budget": {
+   "project": "pilots/pv-replay",
+   "root_module": "PVReplay",
+   "endpoint": "PVRamanujan.KernelOnly.V1.epsilon_budget",
+   "challenge_module": "IEANTN.Nodes.RamanujanNumerics.v1.Challenge",
+   "challenge_endpoint": "RamanujanNumerics.v1.challenge_epsilon_budget",
+   "sources": [
+    "Solutions/RamanujanNumerics.v1/c/baseline.c"
+   ],
+   "family": "shared-contract replay, kernel only",
+   "is_node_conclusion": false,
+   "replays": "RamanujanNumerics.v1.epsilon_budget"
+  },
+  "@pv.PVRamanujan.KernelOnly.V2.epsilon_budget": {
+   "project": "pilots/pv-replay",
+   "root_module": "PVReplay",
+   "endpoint": "PVRamanujan.KernelOnly.V2.epsilon_budget",
+   "challenge_module": "IEANTN.Nodes.RamanujanNumerics.v2.Challenge",
+   "challenge_endpoint": "RamanujanNumerics.v2.challenge_epsilon_budget",
+   "sources": [
+    "Solutions/RamanujanNumerics.v2/c/updated.c"
+   ],
+   "family": "shared-contract replay, kernel only",
+   "is_node_conclusion": false,
+   "replays": "RamanujanNumerics.v2.epsilon_budget"
+  },
+  "@pv.PVRamanujan.KernelOnly.OldGrouped.epsilon_budget": {
+   "project": "pilots/pv-replay",
+   "root_module": "PVReplay",
+   "endpoint": "PVRamanujan.KernelOnly.OldGrouped.epsilon_budget",
+   "challenge_module": "IEANTN.Nodes.RamanujanNumerics.v1.Challenge",
+   "challenge_endpoint": "RamanujanNumerics.v1.challenge_epsilon_budget",
+   "sources": [
+    "Solutions/RamanujanNumerics.v2/c/oldgrouped.c"
+   ],
+   "family": "shared-contract replay, kernel only",
+   "is_node_conclusion": false,
+   "replays": "RamanujanNumerics.v1.epsilon_budget"
+  },
+  "@pv.PVRamanujan.KernelOnly.UpdatedGrouped.epsilon_budget_fixed_target": {
+   "project": "pilots/pv-replay",
+   "root_module": "PVReplay",
+   "endpoint": "PVRamanujan.KernelOnly.UpdatedGrouped.epsilon_budget_fixed_target",
+   "sources": [
+    "Solutions/RamanujanNumerics.v2/c/updatedgrouped.c"
+   ],
+   "family": "shared-contract replay, kernel only (fixed target)",
+   "is_node_conclusion": false
+  },
+  "@twobackend.PVThreeChain.gap_exceeds_leading": {
+   "project": "pilots/pv-twobackend",
+   "root_module": "ThreeChain",
+   "endpoint": "PVThreeChain.gap_exceeds_leading",
+   "family": "three-program chain (Agent A dyadic theta -> C power transport -> C budget)",
+   "is_node_conclusion": false,
+   "backends": [
+    {
+     "backend": "lean-dyadic-expr",
+     "program_constants": [
+      "WinnerDensityA.ModelProgram.program"
+     ],
+     "program_sources": {
+      "Solutions/WinnerDensityA.v1/WinnerDensityA/ModelProgram.lean": "4d522ca55d35a5c5fea8f670944b68b390b5522f647470a664d67e1a197a1c8c",
+      "Solutions/WinnerProgramA.v1/WinnerProgramA/Program.lean": "6b80df7b5624627ea4a5fbcce27ffb95e480fb5280bac04c0bf05690fb2df38c"
+     }
+    },
+    {
+     "backend": "restricted-c-binary64",
+     "sources": [
+      "Solutions/Table4Evolution.v1/c/power_agentA.c",
+      "pilots/pv-twobackend/c/budget_331.c"
+     ]
+    }
+   ]
+  },
+  "@tertiary.QRHGlobal.twentyfourth_interval": {
+   "project": "Solutions/QRHGlobalIntervals.v1",
+   "root_module": "QRHGlobalIntervals",
+   "is_node_conclusion": false,
+   "endpoint": "QRHGlobal.twentyfourth_interval",
+   "family": "tertiary: prime in (x, x + x^{7/8}/24], x >= 1339, under QRH (+ BKLNW, Kadiri-Lumley)"
+  },
+  "@tertiary.QRHGlobal.sixteenth_interval_sharp": {
+   "project": "Solutions/QRHGlobalIntervals.v1",
+   "root_module": "QRHGlobalIntervals",
+   "is_node_conclusion": false,
+   "endpoint": "QRHGlobal.sixteenth_interval_sharp",
+   "family": "tertiary: prime in (x, x + x^{7/8}/16], x >= 1328, under QRH"
+  },
+  "@tertiary.QRHGlobal.count_300": {
+   "project": "Solutions/QRHGlobalIntervals.v1",
+   "root_module": "QRHGlobalIntervals",
+   "is_node_conclusion": false,
+   "endpoint": "QRHGlobal.count_300",
+   "family": "tertiary: between 0.9737 and 1.0263 times x^{7/8}/log primes in (x, x + x^{7/8}], x >= e^300, under QRH"
+  },
+  "@tertiary.QRHGlobal.count_from_agentA_pi": {
+   "project": "Solutions/QRHGlobalIntervals.v1",
+   "root_module": "QRHGlobalIntervals",
+   "is_node_conclusion": false,
+   "endpoint": "QRHGlobal.count_from_agentA_pi",
+   "family": "tertiary: between 0.98105 and 1.01895 times x^{7/8}/log primes, x >= e^300, from Agent A's pi bound"
+  },
+  "@tertiary.QRHGlobal.intervals_from_agentA_pi": {
+   "project": "Solutions/QRHGlobalIntervals.v1",
+   "root_module": "QRHGlobalIntervals",
+   "is_node_conclusion": false,
+   "endpoint": "QRHGlobal.intervals_from_agentA_pi",
+   "family": "tertiary: prime in (x, x + 0.019 x^{7/8}], x >= e^300, from Agent A's pi bound (pi route)"
+  },
+  "@tertiary.QRHGlobal.mills_qrh": {
+   "project": "Solutions/QRHGlobalIntervals.v1",
+   "root_module": "QRHGlobalIntervals",
+   "is_node_conclusion": false,
+   "endpoint": "QRHGlobal.mills_qrh",
+   "family": "tertiary: Mills constant A in [p0, p0+1) with floor(A^(k^n)) prime, every real k >= 8 and prime p0, under QRH"
+  },
+  "@tertiary.QRHGlobal.mills_eight": {
+   "project": "Solutions/QRHGlobalIntervals.v1",
+   "root_module": "QRHGlobalIntervals",
+   "is_node_conclusion": false,
+   "endpoint": "QRHGlobal.mills_eight",
+   "family": "tertiary: Mills constant A in [2, 3) with floor(A^(8^n)) prime, under QRH"
+  },
+  "@tertiary.QRHGlobal.oppermann_powers": {
+   "project": "Solutions/QRHGlobalIntervals.v1",
+   "root_module": "QRHGlobalIntervals",
+   "is_node_conclusion": false,
+   "endpoint": "QRHGlobal.oppermann_powers",
+   "family": "tertiary: primes in (n^k - n^{k-1}, n^k) and (n^k, n^k + n^{k-1}), k >= 8, n >= 2, under QRH"
+  },
+  "@tertiary.QRHGlobal.andrica_eighth_24": {
+   "project": "Solutions/QRHGlobalIntervals.v1",
+   "root_module": "QRHGlobalIntervals",
+   "is_node_conclusion": false,
+   "endpoint": "QRHGlobal.andrica_eighth_24",
+   "family": "tertiary: p'^{1/8} - p^{1/8} <= 1/192 for consecutive primes p >= 1339, under QRH"
   }
  }
 }
