@@ -11,3 +11,4 @@ import Table4Evolution.QRHTrunc
 import Table4Evolution.OldTrunc
 import Table4Evolution.QRHQuarter
 import Table4Evolution.AgentATrunc
+import Table4Evolution.KernelOnly

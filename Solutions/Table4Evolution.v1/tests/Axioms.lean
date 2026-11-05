@@ -8,3 +8,4 @@ import Table4Evolution
 #print axioms Table4Evolution.pi_bound
 #print axioms Table4Evolution.program_bound
 #print axioms Table4Evolution.chunked_bound
+#print axioms Table4Evolution.QRHTrunc.Kernel.qrh_pi

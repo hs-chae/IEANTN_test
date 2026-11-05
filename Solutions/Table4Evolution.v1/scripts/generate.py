@@ -239,6 +239,10 @@ def literals : List String := [
 
 /-- The scale `2^-{r["k"]}`, as printed in the C file. -/
 def scaleLiteral : String := "{r["scale"]}"
+
+/-- The exact binary64 values of the cell literals (what `PVCore.decode` returns), for the kernel
+route. -/
+def xsQ : List ℚ := [{", ".join(lean_rat(x) for x in r["xs"])}]
 {extra}
 end Table4Evolution.{r["ns"]}
 """
