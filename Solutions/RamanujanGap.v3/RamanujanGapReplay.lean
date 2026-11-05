@@ -6,6 +6,9 @@ Authors: Agent B (Claude)
 import RamanujanGapV3.Consumer
 import RamanujanBudget.Provider
 import IEANTN.Nodes.DudekPlatt.v5.Conclusions
+import IEANTN.Nodes.CH2.v9.Conclusions
+import IEANTN.Nodes.OpenAIQRH.v1.Conclusions
+import DDExpansionSolution
 
 /-!
 # Replays: the consumer applied to the actual program provider
@@ -17,8 +20,15 @@ import IEANTN.Nodes.DudekPlatt.v5.Conclusions
   route is a bridge in the core build with standard axioms only, so this second route is weaker; it
   only shows that the program route reaches the same statement.
 
-The π expansion `DudekPlattNumerics.v5.pi_two_sided_qrh` stays a premise, as in the node graph.
-Its own solution is not imported: its closure compiles the CH2.v6 density certificates.
+* `gap_from_psi`, `loss_from_psi`: both conclusions with the π premise discharged too, by its actual
+  solution `DudekPlattNumerics.v5.challenge_pi_two_sided_qrh`. What remains is the QRH-derived ψ
+  bound `QRHCH2.v5.psi_refined_bound`.
+* `gap_from_qrh`: one step further, as `QRHCH2.v5`'s own solution takes it: `CH2.v9.refined_transfer`
+  applied to the zero-free half-plane `OpenAIQRH.v1.zeta_seven_eighths`.
+
+The remaining premises are the leaves listed by `ieantn.py report` for this node (literature and
+numerical inputs, and the unreceipted `CH2.v9`/`CotangentSeries.v1` solutions); they stay premises,
+as in the node graph.
 -/
 
 open Real
@@ -43,3 +53,16 @@ theorem RamanujanGap.v3.ramanujan_401_second_route (hp : DudekPlattNumerics.v5.p
     positivity
   unfold ForwardRamanujan.gap at hg
   linarith
+
+theorem RamanujanGap.v3.gap_from_psi (hpsi : QRHCH2.v5.psi_refined_bound) :
+    RamanujanGap.v3.gap_lower_bound :=
+  RamanujanGap.v3.gap_from_pi (DudekPlattNumerics.v5.challenge_pi_two_sided_qrh hpsi)
+
+theorem RamanujanGap.v3.loss_from_psi (hpsi : QRHCH2.v5.psi_refined_bound) :
+    RamanujanGap.v3.loss_bound :=
+  RamanujanGap.v3.challenge_loss_bound (DudekPlattNumerics.v5.challenge_pi_two_sided_qrh hpsi)
+    RamanujanNumerics.v3.Provider.epsilon_budget
+
+theorem RamanujanGap.v3.gap_from_qrh (htr : CH2.v9.refined_transfer)
+    (hq : OpenAIQRH.v1.zeta_seven_eighths) : RamanujanGap.v3.gap_lower_bound :=
+  RamanujanGap.v3.gap_from_psi (htr hq)

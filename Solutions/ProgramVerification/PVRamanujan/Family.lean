@@ -85,4 +85,18 @@ theorem budget_of_check {src : String} {p : Program} {m M A Y eps bound : ℚ}
     _ = (((termsQ m M A Y).sum - 134 - max 0 m : ℚ) : ℝ) := hval
     _ ≤ (bound : ℝ) := by exact_mod_cast hq
 
+/-- **Exact shift.** A budget certified at `m = 0` gives the budget at any `m ≥ 0`, lowered by
+exactly `m`, because `εLower m = 206 + m + …` when `m ≥ 0`. A consumer whose true budget is
+negative uses this: the selected program runs at `m = 0`, where its intermediates stay positive
+normal values (all the shared rounding certificate covers), and `m` is subtracted here, exactly.
+(The same step as the calibration pilot's `epsilon_shift_nonneg`, kept here for every instance.) -/
+theorem budget_shift {m M xa x C : ℝ} (hm : 0 ≤ m)
+    (h : DudekPlatt.v3.εUpper M x - DudekPlatt.v3.εLower 0 xa x ≤ C) :
+    DudekPlatt.v3.εUpper M x - DudekPlatt.v3.εLower m xa x ≤ C - m := by
+  unfold DudekPlatt.v3.εLower at h ⊢
+  simp only [le_refl, ↓reduceIte] at h
+  simp only [hm, ↓reduceIte]
+  unfold DudekPlatt.v3.εPos at h ⊢
+  linarith
+
 end PVRamanujan

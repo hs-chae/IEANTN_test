@@ -17,12 +17,17 @@ name = "RamanujanGapV3"
 name = "Solution"
 roots = ["Solution"]
 
-# Replay, not compared by Comparator: the consumer applied to the actual program provider.
-# DudekPlattNumerics.v5's solution is deliberately not required: its closure compiles the CH2.v6
-# density certificates (~120 Lean jobs at ~10 GB each). Its conclusion stays a premise.
+# Replays, not compared by Comparator: the consumer applied to the actual program provider and to
+# the actual solution of its π premise. DudekPlattNumerics.v5's solution closure includes the
+# CH2.v6 density certificates: a cold build is ~120 Lean jobs at up to ~10 GB each, so build it
+# once before this library (see docs/program-verification/IEANTN_PV_COMPOSITION.md).
 [[require]]
 name = "solution_RamanujanNumerics_v3"
 path = "../RamanujanNumerics.v3"
+
+[[require]]
+name = "solution_DudekPlattNumerics_v5"
+path = "../DudekPlattNumerics.v5"
 
 [[lean_lib]]
 name = "RamanujanGapReplay"
