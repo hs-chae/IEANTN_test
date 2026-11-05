@@ -22,8 +22,10 @@ import ScopedWinnerA.Result
 Consumer: `ForwardRamanujan.gap_from_budget`, unchanged. Result: on `x > e^301`, the Ramanujan gap
 exceeds its leading term `x²/log⁶x` by the factor `1 + 7.72/log x`.
 
-**Scope.** This is conditional on Agent A's seven inputs, which are not node conclusions of the
-network (two of them are Agent A's own source packages). It is a demonstration of composing two
+**Scope.** This is conditional on Agent A's seven inputs. Four are node conclusions
+(`ZeroCount.v1` ×2, `LowZeroes.v1`, and `ZetaZeroFreeHalfPlane (7/8)` =
+`OpenAIQRH.v1.zeta_seven_eighths`); three are solution-level (`OriginalCHJSource`,
+`PrimaryInputs`, and the height constant of `RiemannHypothesisUpTo`), so the chain is not a node. It is a demonstration of composing two
 backends through explicit contracts, not a new network conclusion: Ramanujan's inequality itself
 is already a network conclusion above `e^145` (`DudekPlatt.v6.ramanujan_145`).
 -/

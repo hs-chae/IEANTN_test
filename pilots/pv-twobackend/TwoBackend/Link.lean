@@ -17,11 +17,13 @@ Agent A's provider bounds `π` against the offset logarithmic integral:
 `|π(x) − Li(x)| ≤ A · x^(7/8) / log x` for `x ≥ e^300`. The Ramanujan budget program takes `π` in
 the five-term shape `π(x) ∈ mainTerm(x) + [m, M] · x / log⁶ x` (`ForwardRamanujan.PiInput`).
 
-This file converts the first into the second, with `(m, M) = (119.99, 122.5)` on `x > e^300`:
+This file converts the first into the second, with `m = 119.99` on `x > e^300` and `M = 122.5` on
+`x > e^301` (the shape of `PiInput`). `Li(x) = ∫₂^x dt/log t` is IEANTN's offset logarithmic integral:
 
 * `Li = mainTerm − K₅ + 120·I₆` by five integrations by parts (`logIntegral_recurrence`);
 * `I₆ ≥ x/log⁶x − 2/log⁶2`, and `I₆ ≤ x/log⁶x (1 + 6/L + … ) + …` by five more and a split at `√x`;
-* at `log x ≥ 300` every lower-order term, and Agent A's error itself, is at most `10⁻³ · x/log⁶x`.
+* at `log x ≥ 300` the `I₆` tail costs up to `2.47 · x/log⁶x` (hence `M = 122.5`); the endpoint
+  constants, the `√x` term and Agent A's error are each at most `10⁻³ · x/log⁶x`.
 
 Nothing here is numerical evaluation of a program: it is analysis with explicit constants, checked by
 the kernel. The two executed programs of the chain are Agent A's dyadic evaluator (before this

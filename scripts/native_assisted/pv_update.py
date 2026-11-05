@@ -54,6 +54,11 @@ def registry() -> dict:
     return json.loads(REGISTRY.read_text())
 
 
+#: Where an entry's files are. An update must name its own: inheriting them from `updated_from`
+#: would make `generate` overwrite the old provider's selected file, module and lakefile.
+LOCATION_KEYS = ("project", "source", "lean_lib", "lean_module", "gate_endpoint")
+
+
 def entry(conclusion: str) -> dict:
     providers = registry()["providers"]
     if conclusion not in providers:
@@ -61,9 +66,20 @@ def entry(conclusion: str) -> dict:
     e = dict(providers[conclusion])
     base = e.get("updated_from")
     if base:
+        missing = [k for k in LOCATION_KEYS if k not in e]
+        if missing:
+            raise SystemExit(f"{conclusion}: an update must name its own {', '.join(missing)}; "
+                             f"inheriting them from {base} would overwrite its files")
+        shared = [k for k in ("project", "source") if e[k] == providers[base].get(k)]
+        if shared:
+            raise SystemExit(f"{conclusion}: {', '.join(shared)} equal {base}'s; an update writes "
+                             "a new provider, never over the old one")
         merged = dict(providers[base])
         merged["parameters"] = {**providers[base].get("parameters", {}), **e.get("parameters", {})}
         merged.update({k: v for k, v in e.items() if k != "parameters"})
+        for k in ("allowance_def", "note", "math_inputs"):
+            if k not in e:
+                merged.pop(k, None)
         e = merged
     e["conclusion"] = conclusion
     return e

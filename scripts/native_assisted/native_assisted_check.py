@@ -202,7 +202,11 @@ def evaluate(extract: dict, challenge: dict | None, cfg: dict, sem: dict,
                            challenge.get(key) is not None and challenge.get(key) == extract.get(key))
         if not challenge_match:
             reasons.append("solution theorem type differs from the generated challenge")
-        if extract.get("endpoint_module", "").endswith(".Challenge"):
+        # The generated challenge is the configured challenge module, `IEANTN.Nodes.<F>.<v>.Challenge`.
+        # A solution's own module may also end in `.Challenge`; that alone does not make it one.
+        em = extract.get("endpoint_module", "")
+        if em == cfg.get("challenge_module") or (em.startswith("IEANTN.Nodes.")
+                                                 and em.endswith(".Challenge")):
             reasons.append("endpoint resolved to the challenge itself, not a solution")
     elif cfg.get("challenge_decl"):
         blockers.append("challenge type not extracted")

@@ -1,7 +1,9 @@
 # Agent A's scoped-winner provider in Agent B's gate and contracts
 
 - **What was handed over.** Agent A's `poc/scoped-winner-a@e0c1ceb` (on `qrh-2pv` since ivy's
-  push) with `reports/PV_PROVIDER_HANDOFF.json`: "independently_agentB_gate_checked": false,
+  push) with a handoff file that is not in this repository: Agent A's
+  `codex/ivy/qrh-scoped-winner-20261104/reports/PV_PROVIDER_HANDOFF.json`. It says
+  "independently_agentB_gate_checked": false,
   prerequisites "review patch against B branch and jointly build", "lift original
   source-object/interface definitions to a Mathlib-only core vocabulary before node Conclusions
   can refer to them".
@@ -13,7 +15,7 @@
 
 | Item | Result |
 |---|---|
-| Merge `qrh-2pv@e0c1ceb` into `agentB/pv-structural` | no conflicts; pushed as `qrh-2pv@fa70b6a` (fast-forward) |
+| Merge `qrh-2pv@e0c1ceb` into `agentB/pv-structural` | no conflicts; pushed as `origin/qrh-2pv@fa70b6a` (fast-forward) |
 | `lake build Solution` in `Solutions/ScopedWinnerA.v1` | 9174 jobs, 16 min wall, peak 7.3 GB per process |
 | Heavy dependency | `CH2.v6` (408 density certificates) was already built in this worktree; `lake build --no-build` reported it up to date |
 | `#print axioms ScopedWinnerA.pi_00947147` | `propext`, `Classical.choice`, `Quot.sound` and 49 `native_decide` facts, as Agent A reports |
@@ -53,9 +55,12 @@ facts (49 + 1).
 
 ## 4. Not done: Agent A's result as a node
 
-- **First exact blocker.** Two of the seven inputs are Agent A's own source packages, defined in
-  `Solutions/`: `WinnerDirectKernel.OriginalCHJSource` and
-  `WinnerNewHeightSource.PrimaryInputs (3681/10000) (3599/10000)`. `PrimaryInputs` is a structure of
+- **First exact blocker.** Three of the seven inputs are solution-level, defined in `Solutions/`:
+  `WinnerDirectKernel.OriginalCHJSource`,
+  `WinnerNewHeightSource.PrimaryInputs (3681/10000) (3599/10000)`, and the height constant in
+  `RiemannHypothesisUpTo WinnerOriginalScalars.height`. The other four are node conclusions
+  (`ZeroCount.v1` ×2, `LowZeroes.v1`, and `ZetaZeroFreeHalfPlane (7/8)` =
+  `OpenAIQRH.v1.zeta_seven_eighths`). `PrimaryInputs` is a structure of
   eight propositions over at least 14 solution-level definitions (`mollifier`, `meanOne`,
   `meanTwo`, `sourceMoment`, `scaledCriticalF`, `rightVExact`, `rawRectangleBound`, `cSevenAt`,
   `sourceCEight`, `sourceFdiff`, `sourceOmega`, `shifted`, `rightLine`, `height`).

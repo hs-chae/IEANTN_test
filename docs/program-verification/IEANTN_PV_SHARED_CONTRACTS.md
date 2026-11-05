@@ -153,14 +153,15 @@ to the inequality is `ForwardRamanujan.epsilon_majorant`, reused unchanged.
 | **`RamanujanNumerics.v3` (new provider)** | same | 26, generated | — → 1 |
 | `FKS2Numerics.v7` replay (Table 4 QRH) | `certified`, `le_bound_of_check` | 27 | 8 → 4 (3 analytic facts kept) |
 | `FKS2Numerics.v6` replay (Table 4 old) | same | 25 | 8 → 4 (3 analytic facts kept) |
-| pilot chain, stage A and stage B′ | `le_bound_of_check`, `budget_of_check` | 64 for the whole chain, including its analytic glue | 13 → 2 |
+| pilot chain, stage A and stage B′ | `le_bound_of_check`, `budget_of_check` | 64 for the whole chain at the end of round 1, including its analytic glue (78 now that it is parametric in its certificates) | 13 → 2 |
 
 **What "reused" means here.** The same proved theorems are applied, not the same interface
 restated. The 116-line Ramanujan instance file carried 18 theorems; an instance now has 2, its
-certificate and its statement. The 382 shared code lines are written once:
+certificate and its statement. The shared code is written once: 382 code lines at the end of
+round 1 (PVCore 335, Ramanujan family 47), 702 after the second round:
 
-- PVCore: 335;
-- Ramanujan family: 47.
+- PVCore: 614 (Source, SumAffine and Bridge 335; Kernel 80; Chunked 199);
+- Ramanujan family: 88 (Family 55, with `budget_shift`; Kernel 33).
 
 **What did not get shorter.** Table 4's analytic enclosures, of the cells, the anchor, the point
 and the tail, are mathematics and stay with the application. They are reused as they are, with
@@ -193,7 +194,7 @@ theorem check_of_decode (hd : decode p = some (xs, scale, ops))
 ```
 
 `upperFrom`/`upperCheck_of_decode` and `budgetFrom`/`budgetCheck_of_decode` do the same for the
-upper-bound bridge and the Ramanujan family; the latter also return the decoded fields of
+upper-bound bridge and the Ramanujan family; the former also returns the decoded fields of
 `valuesOf p`. `certified` and the family theorems then apply unchanged. Measured on the A→B′
 chain: 2 native facts, both `decode … = some …`; 177 s and 22.7 GB to build the module.
 

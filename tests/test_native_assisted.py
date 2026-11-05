@@ -142,6 +142,22 @@ class TestAxiomPolicy(unittest.TestCase):
         self.assertFalse(r["challenge_type_match"])
 
 
+    def test_a_solution_module_named_challenge_is_not_the_challenge(self):
+        """A solution may name its own module `….Challenge`; only the generated one counts."""
+        ex = self.f.extract([self.f.native()])
+        ex["endpoint_module"] = "RamanujanBudget.Challenge"
+        ch = {"endpoint": ex["endpoint"], "endpoint_type_all": ex["endpoint_type_all"]}
+        r = NA.evaluate(ex, ch, {"challenge_module": "IEANTN.Nodes.Demo.v1.Challenge"}, SEM)
+        self.assertNotIn("endpoint resolved to the challenge itself, not a solution", r["reasons"])
+
+    def test_the_generated_challenge_itself_fails(self):
+        ex = self.f.extract([self.f.native()])
+        ex["endpoint_module"] = "IEANTN.Nodes.Demo.v1.Challenge"
+        ch = {"endpoint": ex["endpoint"], "endpoint_type_all": ex["endpoint_type_all"]}
+        r = NA.evaluate(ex, ch, {"challenge_module": "IEANTN.Nodes.Demo.v1.Challenge"}, SEM)
+        self.assertIn("endpoint resolved to the challenge itself, not a solution", r["reasons"])
+
+
 class TestEvidenceMethod(unittest.TestCase):
     def setUp(self):
         self.f = Fixture()

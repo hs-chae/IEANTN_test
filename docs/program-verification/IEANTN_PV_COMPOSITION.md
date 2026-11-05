@@ -37,14 +37,15 @@ The required checks, one by one:
 
 | Requirement | How it is met |
 |---|---|
-| A's output satisfies B's real input contract | B′'s literals are decimal strings in its own C file; they load as binary64 values (`loadLiteral`). B′'s certificate is checked at exactly the parameters `(m, M, A, Y) = (0, 120.0914, 9400, 9401)`. The link `M = 120 + Δ` is `CalibrationPilot.NewChain.M_eq`, an equality of rationals the kernel checks. The scale changes from A's 4096 to B′'s 4096 (8192 in the old chain); each stage's scale is its own literal, checked by its own certificate. |
+| A's output satisfies B's real input contract | B′'s literals are decimal strings in its own C file; they load as binary64 values (`loadLiteral`). B′'s certificate is checked at exactly the parameters `(m, M, A, Y) = (0, 120.0914, 9400, 9401)`. The link `M = 120 + Δ` is `CalibrationPilot.NewChain.M_eq`, an equality of rationals the kernel checks. Both stages use scale 4096 (the old stage B′ used 8192, `OldB.lean`); each stage's scale is its own literal, checked by its own certificate. |
 | Both programs have source identity and a concrete execution | Each certificate includes `sourceMatches` against its actual file. `PVCore.certified` gives `Exec` of that file with the evaluated output: a concrete witness, not a conditional. |
 | B's input cannot be replaced by a desired fact, and A's theorem is not an axiom | A enters only through `stageA`, a theorem from A's certificate. B′ enters only through `stageB`, a theorem from B′'s certificate. The only non-standard axioms of the chain theorem are the two certificate evaluations. |
 | The consumer depends on both programs | `#print axioms PVPilot.Updated.gap_exceeds_leading` gives `propext`, `Classical.choice`, `Quot.sound`, `certificateA…native…`, `certificateB…native…`. |
 
 **Before and after.** The chain theorem is the same as `CalibrationPilot.NewChain.gap_exceeds_leading`.
 It had 13 native facts (A 7, B′ 6) from two instance files of 90 and 116 code lines. It now has 2,
-from one 64-line file that also contains the analytic glue.
+from one file of 78 code lines that also contains the analytic glue and is parametric in the two
+stage certificates (`gap_of`).
 
 **Negative control for the link.** `pilots/pv-replay/tests/LinkMismatch.lean` tries to feed B′ the
 deviation `0.0913` instead of A's certified `0.0914`. The link equality is false and the file does
@@ -121,7 +122,15 @@ fine enough to feed the Ramanujan budget directly.
 
 ## 4. Two backends: Agent A's dyadic provider → data link → C budget program
 
-`pilots/pv-twobackend`. Chain theorem, under Agent A's seven inputs (explicit hypotheses):
+`pilots/pv-twobackend`. `Li(x) = ∫₂^x dt/log t` is IEANTN's offset logarithmic integral (not `li`).
+Chain theorem, under Agent A's seven inputs, which are explicit hypotheses:
+
+- node conclusions: `ZeroCount.v1.rvm_error_bound`, `ZeroCount.v1.rvm_error_small`,
+  `LowZeroes.v1.no_zeroes_below_first_ordinate`, and `ZetaZeroFreeHalfPlane (7/8)`, which is
+  `OpenAIQRH.v1.zeta_seven_eighths` by definition;
+- solution-level: `WinnerDirectKernel.OriginalCHJSource`,
+  `WinnerNewHeightSource.PrimaryInputs (3681/10000) (3599/10000)`, and
+  `RiemannHypothesisUpTo WinnerOriginalScalars.height` (its height constant is solution-level).
 
 > for every `x > e^301`, `(1 + 7.72/log x) · x²/log⁶x < gap(x)`, where
 > `gap(x) = (e·x/log x)·π(x/e) − π(x)²`.
@@ -129,7 +138,7 @@ fine enough to feed the Ramanujan budget directly.
 | Stage | What it is | Trust |
 |---|---|---|
 | A | `ScopedWinnerA.pi_00947147` (Agent A, unchanged): exact dyadic interval evaluation of a generated Lean expression over 16,385 cells, then Agent A's analytic transfer. Output contract `HasPowerLogBound Eπ 0.00947147 0 (7/8) (e^300)`, i.e. `|π(x) − Li(x)| ≤ 0.00947147·x^(7/8)/log x` | 49 native facts |
-| link | `pi_input_of_powerLog`: `Li = mainTerm − K₅ + 120·I₆` (five integrations by parts from 2), `I₆` bounded both ways (five more, and a split at `√x`), and at `log x ≥ 300` every lower-order term and Agent A's error are at most `10⁻³·x/log⁶x`. Result: `π(x) ∈ mainTerm(x) + [119.99, 122.5]·x/log⁶x` on `x > e^300` | standard axioms |
+| link | `pi_input_of_powerLog`: `Li = mainTerm − K₅ + 120·I₆` (five integrations by parts from 2), `I₆` bounded both ways (five more, and a split at `√x`). At `log x ≥ 300` the `I₆` tail costs up to `2.47·x/log⁶x`, which is why `M = 122.5`; the endpoint constants, the `√x` term and Agent A's error are each at most `10⁻³·x/log⁶x`. Result: `π(x) > mainTerm(x) + 119.99·x/log⁶x` on `x > e^300` and `π(x) < mainTerm(x) + 122.5·x/log⁶x` on `x > e^301` (the shape of `ForwardRamanujan.PiInput`) | standard axioms |
 | B | the shared-contract budget program regenerated at `(m, M, A, Y) = (0, 122.5, 300, 301)` (`c/budget_301.c`; certified output upper value 112.2612, stated bound 112.27), then `PVRamanujan.budget_shift` to `m = 119.99` | 1 native fact |
 | consumer | `ForwardRamanujan.gap_from_budget`, unchanged; allowance `112.27 − 119.99 = −7.72` | standard axioms |
 
@@ -139,9 +148,10 @@ fine enough to feed the Ramanujan budget directly.
 - **Gate.** Both backends pass: `lean-dyadic-expr` for stage A (pinned program sources,
   `program_semantics`, `Certificate.checked`, `source_linked_upper`) and `restricted-c-binary64`
   for stage B. 50 native facts, none rejected.
-- **Scope.** The seven inputs are not node conclusions (two are Agent A's own source packages;
-  `AGENT_A_PROVIDER_INTEGRATION.md` §4). Ramanujan's inequality itself is already a network
-  conclusion above `e^145` (`DudekPlatt.v6.ramanujan_145`, under `QRHCH2.v2`'s density frontier).
+- **Scope.** Three of the seven inputs are solution-level, so the chain cannot be a node
+  (`AGENT_A_PROVIDER_INTEGRATION.md` §4). Ramanujan's inequality itself is already a network
+  conclusion above `e^145` (`DudekPlatt.v6.ramanujan_145`: a local proof, no receipt, from
+  `QRHCH2.v2`'s density frontier).
   What is new is the composition, and a quantitative gap bound with a negative allowance on
   `x > e^301`; `RamanujanGap.v3` has `+9.988` on `x > e^401` under a different premise. No
   best-bound claim is made.

@@ -39,8 +39,9 @@ pilots/agentB-calibration  NamedSource + 4         pilots/pv-replay  (research)
 | Steps for a changed provider | copy a file, regenerate data, rename, re-prove | register the change, `pv_update.py generate`, build, gate (`IEANTN_PV_UPDATE_WORKFLOW.md`) |
 | Program evidence on the node page | method, gate, kind, receipt | plus the selected file and its hash, the proving theorems, trust in plain words, other checked routes, and the registered change |
 
-The shared code is 382 lines, written once: PVCore 335 and the Ramanujan family 47 (code lines,
-`census_after.json`).
+The shared code was 382 lines at the end of round 1, written once: PVCore 335 and the Ramanujan
+family 47; after the second round it is 702 (PVCore 614, family 88). Code lines; round 1 from
+`census_after.json`, round 2 counted the same way.
 
 **Unit of measurement.** All line counts are code lines: blank lines, comments and docstrings
 excluded.
