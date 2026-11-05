@@ -1,0 +1,10 @@
+import Table4Evolution
+#print axioms Table4Evolution.whole_ray
+#print axioms Table4Evolution.cellsOK_sound
+#print axioms Table4Evolution.QRHTrunc.qrh_pi
+#print axioms Table4Evolution.OldTrunc.old_pi
+#print axioms Table4Evolution.QRHQuarter.qrh_pi_refined
+#print axioms Table4Evolution.AgentATrunc.pi_from_theta_power
+#print axioms Table4Evolution.pi_bound
+#print axioms Table4Evolution.program_bound
+#print axioms Table4Evolution.chunked_bound

@@ -1,0 +1,47 @@
+name = "solution_Table4Evolution_v1"
+defaultTargets = ["Table4Evolution"]
+
+[leanOptions]
+autoImplicit = false
+
+# Table 4 theta -> pi transport over arbitrary partitions of [300, 330] (QRH-driven program
+# evolution, Agent B round 3). Reuses the existing mathematics (FKS2Pair, FKS2Table4) and the shared
+# program contract (PVCore); nothing here changes those packages.
+[[require]]
+name = "IEANTN"
+path = "../.."
+
+[[require]]
+name = "solution_ProgramVerification"
+path = "../ProgramVerification"
+
+[[require]]
+name = "solution_FKS2Numerics_v6"
+path = "../FKS2Numerics.v6"
+
+
+# The selected C files are read by `include_str`; declaring them as inputs that the library needs
+# makes Lake rebuild the certificates when a file changes (a stale .olean would otherwise replay).
+[[input_file]]
+name = "qrh_trunc2_c"
+path = "c/qrh_trunc2.c"
+text = true
+
+[[input_file]]
+name = "old_trunc3_c"
+path = "c/old_trunc3.c"
+text = true
+
+[[input_file]]
+name = "qrh_quarter120_c"
+path = "c/qrh_quarter120.c"
+text = true
+
+[[input_file]]
+name = "agentA_trunc4_c"
+path = "c/agentA_trunc4.c"
+text = true
+
+[[lean_lib]]
+name = "Table4Evolution"
+needs = ["qrh_trunc2_c", "old_trunc3_c", "qrh_quarter120_c", "agentA_trunc4_c"]
