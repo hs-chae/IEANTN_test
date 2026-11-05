@@ -195,7 +195,7 @@
  "pins": {
   "lean_toolchain": "leanprover/lean4:v4.34.0-rc2",
   "mathlib": "71a80585ee495fc24472fd0eaffc89d94e4fd8d6",
-  "repository_commit": "da759404092d791dae33fdf794f35d69e3dc0318",
+  "repository_commit": "b985e415e0f7b846906b68cd11101d3720ce769d",
   "working_tree_clean": true
  },
  "project": "pilots/pv-replay",
@@ -252,7 +252,7 @@
   },
   {
    "module": "PVRamanujan.Family",
-   "sha256": "ed721c4836e94097fb5ce5e01823e29d780850bc89ba97056e1f8ec07111ddba",
+   "sha256": "7a33aec7d0e9ee8743d602eed8ffc9df0cc8fda443cdecf589ca1660cf93fbf4",
    "source": "Solutions/ProgramVerification/PVRamanujan/Family.lean"
   },
   {
@@ -282,7 +282,7 @@
   }
  ],
  "promotion_rule": "No local attestation promotes anything. An endpoint's official kind may become `lean-comparator` only when the IEANTN verification workflow records an authentic Comparator receipt for that same conclusion (receipts/<Node>.<conclusion>.json), which requires a proof whose axiom closure is exactly propext, Classical.choice, Quot.sound (zero native facts). The evidence method `lean-verified-program` may then be retained as a description of the proof. A receipt-backed official subtype `lean-verified-program` would need an upstream schema/policy change and is not implemented.",
- "proof_closure_fingerprint": "b83ee84f52134db4773ca5480dd7bf147baf2468e3c9715845102e44e381da4c",
+ "proof_closure_fingerprint": "0812d7578d1e4ccba62b8701328b1542d2b741ab45f4592b9a450150d06d43e5",
  "reasons": [],
  "remaining_hypotheses": [],
  "replays": "RamanujanNumerics.v1.epsilon_budget",
@@ -290,18 +290,18 @@
   "build": {
    "command": "lake build PVReplay",
    "rc": 0,
-   "replayed_or_built_tail": "ote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nwarning: PVReplay/Table4.lean:93:53: This simp argument is unused:\n  Rat.cast_zero\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [FKS2Pair.Bsafe, opsConst, Rat.cast_add, add_zero]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nBuild completed successfully (9077 jobs).\n",
-   "seconds": 4.3
+   "replayed_or_built_tail": "ote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nwarning: PVReplay/Table4.lean:93:53: This simp argument is unused:\n  Rat.cast_zero\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [FKS2Pair.Bsafe, opsConst, Rat.cast_add, add_zero]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nBuild completed successfully (9086 jobs).\n",
+   "seconds": 4.8
   },
-  "checked_at_utc": "2026-11-04T23:24:48+00:00",
-  "checker_sha256": "197edc66a2654d474b9bfb1b76cb3b72da40e46f72af0c4d4ba295901d5b5ef1",
+  "checked_at_utc": "2026-11-05T03:47:56+00:00",
+  "checker_sha256": "411b9fc34717f02d34dd104a5519401af5c16f604fe655e067623dae3ee79e4a",
   "extract_challenge": {
    "command": "lake env lean --run /ryu/hyunsik/playground/independence/ieantn_qrh/agentB/network/scripts/native_assisted/Extract.lean IEANTN.Nodes.RamanujanNumerics.v1.Challenge RamanujanNumerics.v1.challenge_epsilon_budget /ryu/hyunsik/playground/independence/ieantn_qrh/agentB/network/pv-evidence/.work/@pv.PVRamanujan.OldGrouped.epsilon_budget/challenge.json /ryu/hyunsik/playground/independence/ieantn_qrh/agentB/network/.lake/build/lib/lean",
    "cwd": ".",
    "log_tail": "",
    "rc": 0,
    "root_olean": "/ryu/hyunsik/playground/independence/ieantn_qrh/agentB/network/.lake/build/lib/lean/IEANTN/Nodes/RamanujanNumerics/v1/Challenge.olean",
-   "seconds": 7.2
+   "seconds": 8.1
   },
   "extract_solution": {
    "command": "lake env lean --run /ryu/hyunsik/playground/independence/ieantn_qrh/agentB/network/scripts/native_assisted/Extract.lean PVReplay PVRamanujan.OldGrouped.epsilon_budget /ryu/hyunsik/playground/independence/ieantn_qrh/agentB/network/pv-evidence/.work/@pv.PVRamanujan.OldGrouped.epsilon_budget/solution.json /ryu/hyunsik/playground/independence/ieantn_qrh/agentB/network/pilots/pv-replay/.lake/build/lib/lean",
@@ -309,7 +309,7 @@
    "log_tail": "",
    "rc": 0,
    "root_olean": "/ryu/hyunsik/playground/independence/ieantn_qrh/agentB/network/pilots/pv-replay/.lake/build/lib/lean/PVReplay.olean",
-   "seconds": 17.6
+   "seconds": 17.8
   },
   "extractor_sha256": "a8fc56af4fa9bd0bd98ee83bb90f939a4bbadbc5666ad65625d693bc5f8b97fd"
  },
@@ -322,6 +322,7 @@
   "Trusted library implementations reached by those evaluations (implemented_by/extern in Lean core, Std, Batteries, Mathlib) are counted per fact.",
   "Restricted C / IEEE binary64 round-to-nearest model: the proof concerns the modelled execution of the token-matched source, not a compiled binary.",
   "Compiler, host runtime, operating system and hardware are trusted; agreement with GCC output bits is a diagnostic only.",
-  "Explicit mathematical hypotheses of the endpoint (listed per attestation) are not proved by it."
+  "Explicit mathematical hypotheses of the endpoint (listed per attestation) are not proved by it.",
+  "Lean exact-dyadic interval backend (lean-dyadic-expr): the proof concerns the evaluation of a generated Lean expression by the vendored LeanCert interval evaluator, not a C program; native evaluation of that evaluator trusts the Lean compiler and runtime."
  ]
 }
