@@ -200,6 +200,75 @@ class TestEvidenceMethod(unittest.TestCase):
         self.assertEqual(m["result"], "not-program-verified")
 
 
+class TestDyadicBackend(unittest.TestCase):
+    """A generated Lean expression under a dyadic interval evaluator: no C file, pinned Lean sources."""
+
+    SEM2 = {**SEM, "backends": {"lean-dyadic-expr": {"association": ["Demo.value"],
+                                                     "execution": ["Demo.run"],
+                                                     "correctness": ["Demo.sound"]}}}
+
+    def setUp(self):
+        self.f = Fixture()
+        self.sha = hashlib.sha256(self.f.src.read_bytes()).hexdigest()
+
+    def tearDown(self):
+        self.f.close()
+
+    def consts(self):
+        return [
+            {"name": "Demo.prog", "module": "Demo.Cert", "kind": "def", "type_mentions": [],
+             "value_mentions": ["Demo.gen"]},
+            {"name": "Demo.gen", "module": "Demo.Cert", "kind": "def", "type_mentions": [],
+             "value_mentions": []},
+            {"name": "Demo.gen_semantics", "module": "Demo.Cert", "kind": "theorem",
+             "type_mentions": ["Demo.value", "Demo.gen"]},
+            {"name": "Demo.checked", "module": "Demo.Cert", "kind": "theorem",
+             "type_mentions": ["Demo.run", "Demo.prog"]},
+            {"name": "Demo.sound", "module": "Demo.Cert", "kind": "theorem", "type_mentions": []},
+        ]
+
+    def spec(self, **over):
+        d = {"backend": "lean-dyadic-expr", "program_constants": ["Demo.prog"],
+             "program_sources": {str(self.f.src): self.sha}}
+        d.update(over)
+        return d
+
+    def method(self, consts, backends, etype="Demo.claim", literals=None):
+        return NA.method_checks(self.f.extract([], consts=consts, literals=literals or [],
+                                               etype=etype), {"backends": backends}, self.SEM2)
+
+    def test_pinned_program_with_association_execution_and_soundness(self):
+        m = self.method(self.consts(), [self.spec()])
+        self.assertEqual(m["result"], "lean-verified-program", m)
+
+    def test_changed_program_source_fails_identity(self):
+        self.f.src.write_text(self.f.src.read_text() + "-- edited\n")
+        m = self.method(self.consts(), [self.spec()])
+        self.assertFalse(m["S_source_identity"]["ok"])
+        self.assertEqual(m["result"], "not-program-verified")
+
+    def test_program_outside_the_proof_closure_fails(self):
+        consts = [c for c in self.consts() if c["name"] != "Demo.prog"]
+        m = self.method(consts, [self.spec()])
+        self.assertEqual(m["result"], "not-program-verified")
+
+    def test_unreviewed_backend_fails(self):
+        m = self.method(self.consts(), [self.spec(backend="gpu-kernel")])
+        self.assertEqual(m["result"], "not-program-verified")
+
+    def test_every_backend_must_pass(self):
+        lit = self.f.pkg / "lit.txt"
+        good_c = {"backend": "restricted-c-binary64", "sources": [str(self.f.csrc)]}
+        consts = self.consts() + program_consts()
+        m = self.method(consts, [self.spec(), good_c],
+                        literals=[{"name": "Demo.src", "file": str(lit)}])
+        self.assertEqual(m["result"], "lean-verified-program", m)
+        self.f.csrc.write_text("double f(void) { return 2.0; }\n")
+        m = self.method(consts, [self.spec(), good_c],
+                        literals=[{"name": "Demo.src", "file": str(lit)}])
+        self.assertEqual(m["result"], "not-program-verified")
+
+
 class TestNoticeAndPaths(unittest.TestCase):
     def test_attestations_never_go_to_receipts(self):
         self.assertNotEqual(NA.EVIDENCE.resolve(), NA.RECEIPTS.resolve())

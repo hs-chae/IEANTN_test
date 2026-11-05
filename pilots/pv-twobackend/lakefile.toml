@@ -1,0 +1,32 @@
+name = "agentB_pv_twobackend"
+version = "0.1.0"
+defaultTargets = ["TwoBackend"]
+
+# Research composition (Agent B), NOT a node solution and not in the core build: Agent A's dyadic
+# provider (Solutions/ScopedWinnerA.v1) composed with the shared-contract Ramanujan budget program
+# (Solutions/ProgramVerification) through a kernel-checked data link.
+[[require]]
+name = "IEANTN"
+path = "../.."
+
+[[require]]
+name = "solution_ProgramVerification"
+path = "../../Solutions/ProgramVerification"
+
+[[require]]
+name = "solution_DudekPlattNumerics_v4"
+path = "../../Solutions/DudekPlattNumerics.v4"
+
+[[require]]
+name = "scoped_winner_a_v1"
+path = "../../Solutions/ScopedWinnerA.v1"
+
+# The selected C file is embedded by `include_str`; declaring it makes a changed file rebuild.
+[[input_file]]
+name = "selected_source"
+path = "c/budget_301.c"
+text = true
+
+[[lean_lib]]
+name = "TwoBackend"
+needs = ["selected_source"]

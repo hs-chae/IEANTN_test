@@ -64,8 +64,30 @@
   "Trusted library implementations reached by those evaluations (implemented_by/extern in Lean core, Std, Batteries, Mathlib) are counted per fact.",
   "Restricted C / IEEE binary64 round-to-nearest model: the proof concerns the modelled execution of the token-matched source, not a compiled binary.",
   "Compiler, host runtime, operating system and hardware are trusted; agreement with GCC output bits is a diagnostic only.",
-  "Explicit mathematical hypotheses of the endpoint (listed per attestation) are not proved by it."
+  "Explicit mathematical hypotheses of the endpoint (listed per attestation) are not proved by it.",
+  "Lean exact-dyadic interval backend (lean-dyadic-expr): the proof concerns the evaluation of a generated Lean expression by the vendored LeanCert interval evaluator, not a C program; native evaluation of that evaluator trusts the Lean compiler and runtime."
  ],
  "promotion_rule": "No local attestation promotes anything. An endpoint's official kind may become `lean-comparator` only when the IEANTN verification workflow records an authentic Comparator receipt for that same conclusion (receipts/<Node>.<conclusion>.json), which requires a proof whose axiom closure is exactly propext, Classical.choice, Quot.sound (zero native facts). The evidence method `lean-verified-program` may then be retained as a description of the proof. A receipt-backed official subtype `lean-verified-program` would need an upstream schema/policy change and is not implemented.",
- "_comment_pvcore": "PVCore (Solutions/ProgramVerification) was reviewed for this registry on 2026-11-04 by Agent B: PVCore.check counts as an execution witness only together with PVCore.certified, which derives PVCore.Exec of the actual file from check = true by a kernel-checked proof; both must be in the closure (the correctness list requires the latter)."
+ "_comment_pvcore": "PVCore (Solutions/ProgramVerification) was reviewed for this registry on 2026-11-04 by Agent B: PVCore.check counts as an execution witness only together with PVCore.certified, which derives PVCore.Exec of the actual file from check = true by a kernel-checked proof; both must be in the closure (the correctness list requires the latter).",
+ "backends": {
+  "lean-dyadic-expr": {
+   "association": [
+    "WinnerDensityA.HeightProgram.program_semantics",
+    "WinnerProgramA.value",
+    "WinnerProgramA.rowValue"
+   ],
+   "execution": [
+    "WinnerProgramA.Exec",
+    "WinnerProgramA.run",
+    "WinnerProgramA.runRow",
+    "WinnerProgramA.acceptUpper",
+    "WinnerProgramA.acceptLower"
+   ],
+   "correctness": [
+    "WinnerProgramA.source_linked_upper",
+    "WinnerProgramA.source_linked_lower"
+   ]
+  }
+ },
+ "_comment_backends": "Reviewed per-backend names (Agent B, 2026-11-05). lean-dyadic-expr is Agent A's generated-expression backend (Solutions/WinnerProgramA.v1, WinnerDensityA.v1): WinnerProgramA.Exec p out is `out = run p`, the exact dyadic interval evaluation (LeanCert, vendored in CH2.v6) with no accuracy premise; source_linked_upper/lower are its kernel-checked generic soundness theorems (acceptance of the executed enclosure bounds the real denotation WinnerProgramA.value); HeightProgram.program_semantics identifies the denotation of the generated syntax with the mathematical row coefficient. The restricted-c-binary64 lists are the top-level association/execution/correctness keys."
 }

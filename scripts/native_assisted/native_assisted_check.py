@@ -24,6 +24,17 @@ contains all of the following:
 * (C) a reviewed generic correctness theorem;
 * (M) an endpoint that is a mathematical statement, not a statement about the program.
 
+That is the `restricted-c-binary64` backend, the default. An endpoint may instead list
+`backends`, each checked on its own terms, and the method is recorded only if every one passes:
+* `restricted-c-binary64`: as above, for its `sources`;
+* `lean-dyadic-expr`: a generated Lean expression evaluated by an exact dyadic interval evaluator.
+  (S) each `program_constants` entry is in the proof closure and is defined in a source file
+  listed in `program_sources` whose SHA256 equals the pinned value (there is no C file and no
+  `include_str`; the pinned Lean files are the source); (A) a proved association of the program's
+  syntax with its real-valued denotation; (E) an execution witness of the program under the
+  backend's reviewed evaluator; (C) the backend's reviewed generic interval soundness theorem.
+  The reviewed names per backend are in `semantics.json` under `backends`.
+
 Output is a local research attestation in pv-evidence/. It is never a receipt, never written to
 receipts/, and never sets `lean-comparator`.
 """
@@ -225,22 +236,7 @@ def evaluate(extract: dict, challenge: dict | None, cfg: dict, sem: dict,
 
 def method_checks(extract: dict, cfg: dict, sem: dict) -> dict:
     consts = {c["name"]: c for c in extract.get("project_constants", [])}
-    sources = []
-    lit_by_hash = {}
-    for lit in extract.get("string_literals", []):
-        try:
-            h = sha256_bytes(pathlib.Path(lit["file"]).read_bytes())
-        except OSError:
-            continue
-        lit_by_hash.setdefault(h, []).append(lit["name"])
-    for rel in cfg.get("sources", []):
-        p = ROOT / rel
-        h = sha256_file(p) if p.is_file() else None
-        sources.append({"path": rel, "sha256": h, "embedded_by": lit_by_hash.get(h, []) if h else []})
-    literals = sorted({n for s in sources for n in s["embedded_by"]})
-    assoc_fns = set(sem["association"])
-    exec_rels = set(sem["execution"])
-    correct = set(sem["correctness"])
+    mod_olean = {m["module"]: m["olean"] for m in extract.get("project_modules", [])}
 
     def reach(names, depth: int = 6) -> set:
         """Names plus everything their *definitions* mention, transitively (project only)."""
@@ -268,24 +264,114 @@ def method_checks(extract: dict, cfg: dict, sem: dict) -> dict:
                 out.append(c["name"])
         return sorted(out)
 
-    lit_set = set(literals)
-    s_ok = bool(literals) and all(s["embedded_by"] for s in sources)
-    a_thms = theorems_mentioning(lit_set, assoc_fns) if lit_set else []
-    e_thms = theorems_mentioning(lit_set, exec_rels) if lit_set else []
-    c_hits = sorted(correct & set(consts))
+    def c_backend(sources_cfg: list[str], names: dict) -> tuple[dict, set]:
+        lit_by_hash = {}
+        for lit in extract.get("string_literals", []):
+            try:
+                h = sha256_bytes(pathlib.Path(lit["file"]).read_bytes())
+            except OSError:
+                continue
+            lit_by_hash.setdefault(h, []).append(lit["name"])
+        sources = []
+        for rel in sources_cfg:
+            p = ROOT / rel
+            h = sha256_file(p) if p.is_file() else None
+            sources.append({"path": rel, "sha256": h,
+                            "embedded_by": lit_by_hash.get(h, []) if h else []})
+        literals = sorted({n for x in sources for n in x["embedded_by"]})
+        lit_set = set(literals)
+        assoc, execs, correct = (set(names["association"]), set(names["execution"]),
+                                 set(names["correctness"]))
+        s_ok = bool(literals) and all(x["embedded_by"] for x in sources)
+        a_thms = theorems_mentioning(lit_set, assoc) if lit_set else []
+        e_thms = theorems_mentioning(lit_set, execs) if lit_set else []
+        c_hits = sorted(correct & set(consts))
+        return ({"backend": "restricted-c-binary64",
+                 "S_source_identity": {"ok": s_ok, "sources": sources, "embedded_literals": literals},
+                 "A_source_association": {"ok": bool(a_thms), "theorems": a_thms},
+                 "E_execution_witness": {"ok": bool(e_thms), "theorems": e_thms},
+                 "C_generic_correctness": {"ok": bool(c_hits), "theorems": c_hits}},
+                lit_set | assoc | execs)
+
+    def dyadic_backend(spec: dict, names: dict) -> tuple[dict, set]:
+        pinned = spec.get("program_sources") or {}
+        files = []
+        for rel, want in sorted(pinned.items()):
+            p = ROOT / rel
+            got = sha256_file(p) if p.is_file() else None
+            files.append({"path": rel, "sha256": got, "pinned_sha256": want, "match": got == want})
+        pinned_paths = {(ROOT / rel).resolve() for rel in pinned}
+        programs = []
+        for name in spec.get("program_constants") or []:
+            c = consts.get(name)
+            src = resolve_source(c["module"], mod_olean.get(c["module"], "")) if c else None
+            programs.append({"name": name, "in_closure": c is not None,
+                             "module": c.get("module") if c else None,
+                             "source": (str(src.relative_to(ROOT)) if src and src.is_relative_to(ROOT)
+                                        else (str(src) if src else None)),
+                             "defined_in_pinned_source": bool(src and src.resolve() in pinned_paths)})
+        prog_set = {x["name"] for x in programs if x["in_closure"]}
+        assoc, execs, correct = (set(names["association"]), set(names["execution"]),
+                                 set(names["correctness"]))
+        s_ok = (bool(programs) and bool(files) and all(f["match"] for f in files)
+                and all(x["in_closure"] and x["defined_in_pinned_source"] for x in programs))
+        # A program constant is an instance of a generator (`program 300 100 16384`); association
+        # theorems are stated about the generator, so the group is the instance and everything its
+        # definition reaches.
+        prog_reach = reach(prog_set)
+        a_thms = theorems_mentioning(prog_reach, assoc) if prog_set else []
+        e_thms = theorems_mentioning(prog_set, execs) if prog_set else []
+        c_hits = sorted(correct & set(consts))
+        return ({"backend": "lean-dyadic-expr",
+                 "S_source_identity": {"ok": s_ok, "program_sources": files, "programs": programs},
+                 "A_source_association": {"ok": bool(a_thms), "theorems": a_thms},
+                 "E_execution_witness": {"ok": bool(e_thms), "theorems": e_thms},
+                 "C_generic_correctness": {"ok": bool(c_hits), "theorems": c_hits}},
+                prog_reach | assoc | execs)
+
+    default_names = {k: sem[k] for k in ("association", "execution", "correctness")}
+    specs = cfg.get("backends")
+    results, program_level_names = [], set()
+    if specs is None:
+        r, names = c_backend(cfg.get("sources", []), default_names)
+        results.append(r)
+        program_level_names |= names
+    else:
+        for spec in specs:
+            kind = spec.get("backend")
+            names = (default_names if kind == "restricted-c-binary64"
+                     else (sem.get("backends") or {}).get(kind))
+            if names is None:
+                results.append({"backend": kind, "S_source_identity": {"ok": False,
+                                "why": "no reviewed names for this backend in semantics.json"},
+                                "A_source_association": {"ok": False, "theorems": []},
+                                "E_execution_witness": {"ok": False, "theorems": []},
+                                "C_generic_correctness": {"ok": False, "theorems": []}})
+                continue
+            r, pl = (c_backend(spec.get("sources", []), names) if kind == "restricted-c-binary64"
+                     else dyadic_backend(spec, names))
+            results.append(r)
+            program_level_names |= pl
+
     etype = extract.get("endpoint_type_all", "")
-    program_level = sorted(n for n in (lit_set | exec_rels | assoc_fns) if n and n in etype)
+    program_level = sorted(n for n in program_level_names if n and n in etype)
     m_ok = not program_level
-    verified = bool(s_ok and a_thms and e_thms and c_hits and m_ok)
-    return {
+    keys = ("S_source_identity", "A_source_association", "E_execution_witness",
+            "C_generic_correctness")
+    verified = bool(results) and m_ok and all(r[k]["ok"] for r in results for k in keys)
+    out = {
         "claimed": cfg.get("method_claim", "lean-verified-program"),
         "result": "lean-verified-program" if verified else "not-program-verified",
-        "S_source_identity": {"ok": s_ok, "sources": sources, "embedded_literals": literals},
-        "A_source_association": {"ok": bool(a_thms), "theorems": a_thms},
-        "E_execution_witness": {"ok": bool(e_thms), "theorems": e_thms},
-        "C_generic_correctness": {"ok": bool(c_hits), "theorems": c_hits},
         "M_mathematical_endpoint": {"ok": m_ok, "program_level_constants_in_statement": program_level},
     }
+    if specs is None:
+        # one C backend: the original flat record, unchanged
+        out.update({k: v for k, v in results[0].items() if k != "backend"})
+    else:
+        out["backends"] = results
+        for k in keys:
+            out[k] = {"ok": all(r[k]["ok"] for r in results)}
+    return out
 
 
 # ---------------------------------------------------------------- running Lean

@@ -264,6 +264,64 @@
    ],
    "family": "shared-contract composition (A -> B')",
    "is_node_conclusion": false
+  },
+  "@scoped.ScopedWinnerA.pi_00947147": {
+   "project": "Solutions/ScopedWinnerA.v1",
+   "root_module": "ScopedWinnerA",
+   "endpoint": "ScopedWinnerA.pi_00947147",
+   "family": "Agent A scoped winner (lean-dyadic-expr)",
+   "is_node_conclusion": false,
+   "backends": [
+    {
+     "backend": "lean-dyadic-expr",
+     "program_constants": [
+      "ScopedWinnerA.Certificate.program",
+      "WinnerDensityA.HeightProgram.program"
+     ],
+     "program_sources": {
+      "Solutions/ScopedWinnerA.v1/ScopedWinnerA/Certificate.lean": "742eb0fce0c13d4260c8d801aebd5a770d6bdbd9b5c4ca09d8a0bfb09908ad35",
+      "Solutions/WinnerDensityA.v1/WinnerDensityA/HeightProgram.lean": "2646b10e03133da54a0d9d4cce7d6fc16aad2154a0ca65cda28c4c2118c5eec2",
+      "Solutions/WinnerProgramA.v1/WinnerProgramA/Program.lean": "6b80df7b5624627ea4a5fbcce27ffb95e480fb5280bac04c0bf05690fb2df38c"
+     }
+    }
+   ]
+  },
+  "@twobackend.PVTwoBackend.gap_exceeds_leading": {
+   "project": "pilots/pv-twobackend",
+   "root_module": "TwoBackend",
+   "endpoint": "PVTwoBackend.gap_exceeds_leading",
+   "family": "two-backend chain (Agent A dyadic -> data link -> C budget)",
+   "is_node_conclusion": false,
+   "backends": [
+    {
+     "backend": "lean-dyadic-expr",
+     "program_constants": [
+      "ScopedWinnerA.Certificate.program",
+      "WinnerDensityA.HeightProgram.program"
+     ],
+     "program_sources": {
+      "Solutions/ScopedWinnerA.v1/ScopedWinnerA/Certificate.lean": "742eb0fce0c13d4260c8d801aebd5a770d6bdbd9b5c4ca09d8a0bfb09908ad35",
+      "Solutions/WinnerDensityA.v1/WinnerDensityA/HeightProgram.lean": "2646b10e03133da54a0d9d4cce7d6fc16aad2154a0ca65cda28c4c2118c5eec2",
+      "Solutions/WinnerProgramA.v1/WinnerProgramA/Program.lean": "6b80df7b5624627ea4a5fbcce27ffb95e480fb5280bac04c0bf05690fb2df38c"
+     }
+    },
+    {
+     "backend": "restricted-c-binary64",
+     "sources": [
+      "pilots/pv-twobackend/c/budget_301.c"
+     ]
+    }
+   ]
+  },
+  "@replay.RamanujanGap.v3.gap_from_psi": {
+   "project": "Solutions/RamanujanGap.v3",
+   "root_module": "RamanujanGapReplay",
+   "endpoint": "RamanujanGap.v3.gap_from_psi",
+   "family": "replay: pi premise discharged by DudekPlattNumerics.v5's solution",
+   "is_node_conclusion": false,
+   "sources": [
+    "Solutions/RamanujanNumerics.v3/c/budget.c"
+   ]
   }
  }
 }
