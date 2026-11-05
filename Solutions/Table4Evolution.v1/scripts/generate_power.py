@@ -31,6 +31,8 @@ CONFIGS = [
     dict(name="power_network", ns="PowerNetwork", K=F("0.01310") + F(1, 10 ** 5)),
     # Agent A: WinnerDensityA.revers_source_theta300, Eθ ≤ (0.009782 + 1e-12)·x^{-1/8}
     dict(name="power_agentA", ns="PowerAgentA", K=F("0.009782") + F(1, 10 ** 12)),
+    # changed-input replay: Agent A's other evaluation, WinnerDensityA.source_theta300 (original inputs)
+    dict(name="power_agentA_source", ns="PowerAgentASource", K=F("0.009904") + F(1, 10 ** 12)),
 ]
 
 

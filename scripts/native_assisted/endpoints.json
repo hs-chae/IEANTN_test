@@ -662,6 +662,42 @@
    "is_node_conclusion": false,
    "endpoint": "QRHGlobal.mills_explicit",
    "family": "tertiary: explicit Mills constant A = 2.00097489763307733758... (k = 8), floors 2, 257, 19031147999601100901, under QRH; Lucas certificates by the kernel"
+  },
+  "@evo.Table4Evolution.PowerAgentASource.pi_power": {
+   "project": "Solutions/Table4Evolution.v1",
+   "root_module": "Table4Evolution",
+   "is_node_conclusion": false,
+   "endpoint": "Table4Evolution.PowerAgentASource.pi_power",
+   "sources": [
+    "Solutions/Table4Evolution.v1/c/power_agentA_source.c"
+   ],
+   "family": "power-form transport, changed input: Agent A theta K = 0.009904 (original inputs), kernel only"
+  },
+  "@twobackend.PVThreeChain.gap_exceeds_leading_source": {
+   "project": "pilots/pv-twobackend",
+   "root_module": "ThreeChain",
+   "endpoint": "PVThreeChain.gap_exceeds_leading_source",
+   "family": "three-program chain, changed first input (Agent A original-input theta -> C power transport -> C budget)",
+   "is_node_conclusion": false,
+   "backends": [
+    {
+     "backend": "lean-dyadic-expr",
+     "program_constants": [
+      "WinnerDensityA.ModelProgram.program"
+     ],
+     "program_sources": {
+      "Solutions/WinnerDensityA.v1/WinnerDensityA/ModelProgram.lean": "4d522ca55d35a5c5fea8f670944b68b390b5522f647470a664d67e1a197a1c8c",
+      "Solutions/WinnerProgramA.v1/WinnerProgramA/Program.lean": "6b80df7b5624627ea4a5fbcce27ffb95e480fb5280bac04c0bf05690fb2df38c"
+     }
+    },
+    {
+     "backend": "restricted-c-binary64",
+     "sources": [
+      "Solutions/Table4Evolution.v1/c/power_agentA_source.c",
+      "pilots/pv-twobackend/c/budget_331.c"
+     ]
+    }
+   ]
   }
  }
 }

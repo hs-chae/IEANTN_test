@@ -18,3 +18,4 @@ import Table4Evolution
 #print axioms Table4Evolution.PowerAgentA.pi_power
 #check @Table4Evolution.PowerNetwork.pi_power
 #check @Table4Evolution.PowerAgentA.pi_power
+#print axioms Table4Evolution.PowerAgentASource.pi_power

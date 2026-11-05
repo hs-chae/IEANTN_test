@@ -1,6 +1,6 @@
 name = "solution_Table4Evolution_v1"
 defaultTargets = ["Table4Evolution", "T4QRHTrunc", "T4OldTrunc", "T4QRHQuarter", "T4AgentATrunc",
-  "T4AgentASource", "T4PowerNetwork", "T4PowerAgentA"]
+  "T4AgentASource", "T4PowerNetwork", "T4PowerAgentA", "T4PowerAgentASource", "Table4EvolutionAll"]
 
 [leanOptions]
 autoImplicit = false
@@ -101,13 +101,26 @@ name = "T4PowerAgentA"
 roots = ["Table4Evolution.PowerAgentA"]
 needs = ["power_agentA_c"]
 
+[[input_file]]
+name = "power_agentA_source_c"
+path = "c/power_agentA_source.c"
+text = true
+
+[[lean_lib]]
+name = "T4PowerAgentASource"
+roots = ["Table4Evolution.PowerAgentASource"]
+needs = ["power_agentA_source_c"]
+
 # The umbrella module, for tests. Measured (agentB/evidence/pv5/rebuild_scope.log): a module built
 # through another library's import is traced without the `needs` of its own library, so after a C
 # edit `lake build Table4EvolutionAll` replayed the stale certificate while `lake build T4AgentATrunc`
 # rebuilt it. Hence the default targets above are the configuration libraries themselves, and the
-# umbrella lists every C file (coarse, but never stale).
+# umbrella lists every C file (coarse, but never stale). The umbrella is a default target too (last):
+# `tests/Axioms.lean` and the local gate import the module `Table4Evolution`, and `lake build
+# Table4Evolution` names the core library above, so without it a plain `lake build` left the umbrella
+# `.olean` stale (round-3 extension).
 [[lean_lib]]
 name = "Table4EvolutionAll"
 roots = ["Table4Evolution"]
 needs = ["qrh_trunc2_c", "old_trunc3_c", "qrh_quarter120_c", "agentA_trunc4_c", "agentA_source4_c",
-  "power_network_c", "power_agentA_c"]
+  "power_network_c", "power_agentA_c", "power_agentA_source_c"]
