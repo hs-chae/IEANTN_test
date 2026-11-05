@@ -1100,6 +1100,8 @@ class TestSolutionHoles(FixtureRepo):
         def fake_run(args: list[str], **_kwargs):
             if args == ["lake", "build"]:
                 return ieantn.subprocess.CompletedProcess(args, 0, "", "")
+            if args == ["lake", "env", "printenv", "LEAN_PATH"]:
+                return ieantn.subprocess.CompletedProcess(args, 0, "/dep/lib\n", "")
             if args[-1] == "lakefile.lean":
                 return ieantn.subprocess.CompletedProcess(
                     args, 1, "lakefile.lean:1:0: error: Lake command unavailable\n", "")
@@ -1115,6 +1117,32 @@ class TestSolutionHoles(FixtureRepo):
         with unittest.mock.patch.object(ieantn.subprocess, "run", fake_run):
             result = ieantn.solution_holes("A.v1")
         self.assertEqual(result, (True, ["Aux.lean:3"], {name: False}))
+
+    def test_the_probe_resolves_the_solutions_own_modules_first(self) -> None:
+        """Lake puts the root package last on LEAN_PATH, so a dependency's `Solution` module
+        shadowed the solution's own and the probe reported its theorems as unknown constants."""
+        name = "A.v1.challenge_main"
+        own = str((self.directory / ".lake" / "build" / "lib" / "lean").resolve())
+        seen: list[list[str]] = []
+
+        def fake_run(args: list[str], **_kwargs):
+            seen.append(args)
+            if args == ["lake", "build"]:
+                return ieantn.subprocess.CompletedProcess(args, 0, "", "")
+            if args == ["lake", "env", "printenv", "LEAN_PATH"]:
+                return ieantn.subprocess.CompletedProcess(args, 0, "/dep/lib:" + own + "\n", "")
+            if args[-1] == "lakefile.lean":
+                return ieantn.subprocess.CompletedProcess(args, 1, "error\n", "")
+            if args[-1].startswith("_ieantn_axioms"):
+                return ieantn.subprocess.CompletedProcess(
+                    args, 0, f"'{name}' depends on axioms: [propext]\n", "")
+            return ieantn.subprocess.CompletedProcess(args, 0, "", "")
+
+        with unittest.mock.patch.object(ieantn.subprocess, "run", fake_run):
+            ieantn.solution_holes("A.v1")
+        probe = next(a for a in seen if a[-1].startswith("_ieantn_axioms"))
+        self.assertEqual(probe[:3], ["lake", "env", "env"])
+        self.assertEqual(probe[3], "LEAN_PATH=" + own + ieantn.os.pathsep + "/dep/lib")
 
     def test_failed_lake_build_still_blocks_the_progress_probe(self) -> None:
         failed = ieantn.subprocess.CompletedProcess(["lake", "build"], 1, "", "bad config")

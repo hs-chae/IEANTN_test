@@ -945,6 +945,27 @@ def verify(node: str, branch: str, dispatch: bool, precheck: bool = True,
 PROGRESS_STATES = {"in-progress", "stalled", "abandoned"}
 
 
+def own_modules_first(directory: pathlib.Path) -> list[str]:
+    """`lake env` prefix that resolves a solution's OWN modules before its dependencies'.
+
+    Lake puts the root package's build directory LAST on `LEAN_PATH`. A solution that requires
+    other solution projects therefore sees their `Solution` modules first, and `import Solution`
+    in a probe silently loads someone else's file: on this fork every QRH solution that requires
+    another resolved `Solution` to `Solutions/CH2.v1`, and the probe then reported the solution's
+    own theorems as unknown constants. Reordering the path for the probe fixes the probe. (Comparator
+    resolves modules the same way; there the fix is a uniquely named `solution_module` in
+    `comparator.json`.)
+    """
+    printed = subprocess.run(["lake", "env", "printenv", "LEAN_PATH"], cwd=directory,
+                             capture_output=True, text=True, encoding="utf-8", errors="replace")
+    paths = [x for x in (printed.stdout or "").strip().split(os.pathsep) if x]
+    own = str((directory / ".lake" / "build" / "lib" / "lean").resolve())
+    if printed.returncode != 0 or not paths:
+        return ["lake", "env"]
+    ordered = [own] + [x for x in paths if str(pathlib.Path(x).resolve()) != own]
+    return ["lake", "env", "env", "LEAN_PATH=" + os.pathsep.join(ordered)]
+
+
 def solution_holes(node: str) -> tuple[bool, list[str], dict[str, bool]] | None:
     """Build `Solutions/<node>` and report where it is incomplete.
 
@@ -981,8 +1002,11 @@ def solution_holes(node: str) -> tuple[bool, list[str], dict[str, bool]] | None:
         return (False, [], {})
 
     config = directory / "comparator.json"
-    settings = json.loads(config.read_text(encoding="utf-8"))
+    # A solution may not have a Comparator configuration yet; then there is nothing to probe, but
+    # its holes can still be counted.
+    settings = json.loads(config.read_text(encoding="utf-8")) if config.is_file() else {}
     names = settings.get("theorem_names") or []
+    lean = own_modules_first(directory) + ["lean"]
 
     # The holes are counted by re-elaborating, NOT from the `lake build` above. Lean emits
     # `declaration uses 'sorry'` only when it actually compiles a file, so on an up-to-date build
@@ -998,7 +1022,7 @@ def solution_holes(node: str) -> tuple[bool, list[str], dict[str, bool]] | None:
         # Its DSL commands are not available to an ordinary `lake env lean` proof probe.
         if source.name == "lakefile.lean":
             continue
-        fresh = subprocess.run(["lake", "env", "lean", source.name], cwd=directory,
+        fresh = subprocess.run(lean + [source.name], cwd=directory,
                                capture_output=True, text=True, encoding="utf-8", errors="replace")
         seen_output = (fresh.stdout or "") + (fresh.stderr or "")
         # An elaboration that FAILED emits no `declaration uses` warnings, so scanning only for
@@ -1032,7 +1056,7 @@ def solution_holes(node: str) -> tuple[bool, list[str], dict[str, bool]] | None:
         probe.write_text(f"import {module}\n"
                          + "".join(f"#print axioms {name}\n" for name in names),
                          encoding="utf-8", newline="\n")
-        checked = subprocess.run(["lake", "env", "lean", probe.name], cwd=directory,
+        checked = subprocess.run(lean + [probe.name], cwd=directory,
                                  capture_output=True, text=True, encoding="utf-8",
                                  errors="replace")
     finally:
