@@ -106,3 +106,42 @@ No reviewer was approved, so I followed the steps above as written, after the ge
 
 **Not covered.** An instance of a different shape, such as a weighted sum with per-entry scales,
 needs a new family adapter; only the Ramanujan family has one.
+
+## 7. Three variations
+
+**Fewer trusted computations (kernel route).** Keep the instance; prove its certificate in two
+parts. The decoding of the literals is the one native fact; the kernel checks the rest.
+
+```lean
+theorem decode_native : PVCore.decode program = some (xs, 4096, [(.minus, 134), (.minus, 0)]) := by
+  native_decide                                            -- decimal strings → rationals, only
+theorem budget_k : PVRamanujan.budgetFrom source program m M A Y eps bound xs 4096 ops = true := by
+  decide +kernel                                           -- everything else, by the kernel
+theorem certificate : PVRamanujan.budgetCheck source program m M A Y eps bound = true :=
+  PVRamanujan.budgetCheck_of_decode decode_native budget_k
+```
+
+`xs` is the list of decoded literals, written out once (the generator's literals are exact
+binary64 values, so `Fraction(literal)` is the rational). Cost: for two 7-entry stages, 177 s and
+22.7 GB instead of seconds. Example: `pilots/pv-replay/PVReplay/KernelChain.lean`.
+
+**More than 64 entries (chunked).** One call of the frozen `sum` is proved for 1–64 entries. Write
+the sum as chunks: `PVCore.ChunkedProgram`, rendered as `s = sum(inputs0, n0); s = (s +
+sum(inputs1, n1)); …`. `scripts/native_assisted/pv_chunked.py` writes such a file;
+`upperCheckChunked` and `le_bound_of_checkChunked` replace `upperCheck` and `le_bound_of_check`.
+Examples: Table 4 in two chunks of 15, and a 100-entry sum (`PVReplay/Chunked.lean`).
+
+**A provider that is not a C program.** A generated Lean expression evaluated by an exact
+interval evaluator (Agent A's backend) is registered with a `backends` entry in
+`scripts/native_assisted/endpoints.json`:
+
+```json
+"backends": [{"backend": "lean-dyadic-expr",
+              "program_constants": ["ScopedWinnerA.Certificate.program"],
+              "program_sources": {"Solutions/ScopedWinnerA.v1/ScopedWinnerA/Certificate.lean": "<sha256>"}}]
+```
+
+The gate checks that the program constants are in the proof and defined in the pinned files,
+and finds the backend's association, execution and soundness theorems (`semantics.json`,
+`backends`). An endpoint that composes several programs lists one entry per backend; all must
+pass. Example: `@twobackend.PVTwoBackend.gap_exceeds_leading`.

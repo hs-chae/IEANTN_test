@@ -61,6 +61,26 @@ excluded.
 - **One family adapter, Ramanujan.** Table 4 uses the generic bridge, because its numerical
   obligation is a single inequality that its analytic enclosures already prove.
 - **Not done.**
-  - A generalized loop error bound: still 1–64 entries in `[2⁻⁴⁰, 1]`.
-  - A weighted sum with per-entry scales.
-  - The dyadic backend (P2).
+  - A weighted sum with per-entry scales: no current application uses one.
+  - Inputs outside `[2⁻⁴⁰, 1]` per entry: the generator scales them in; the loop bound is
+    unchanged.
+
+## 5. Second round (2026-11-05): what was added after the first report
+
+| Item | Where | Result |
+|---|---|---|
+| Sums of more than 64 entries | `PVCore.Chunked` | one frozen `sum` call per chunk of ≤ 64, wrapper additions certified; Table 4 in 2 chunks and a 100-entry test |
+| Fewer trusted computations | `PVCore.Kernel`, `PVRamanujan.Kernel` | native fact = literal decoding only; the A→B′ chain on 2 decoding facts (KernelB) |
+| A second backend | gate `backends`, `lean-dyadic-expr` | Agent A's generated-expression provider passes the gate (49 native facts) |
+| Two-backend composition | `pilots/pv-twobackend` | Agent A's π bound → kernel-checked link → C budget program; 50 native facts |
+| π premise of `RamanujanGap.v3` | replay | discharged by `DudekPlattNumerics.v5`'s solution; std + 1 native |
+| Freshness on published providers | lakefiles of `RamanujanNumerics.v2`, `FKS2Numerics.v5` (covers `v7`) | `input_file` + `needs`; controls in `PV_TEST_AND_REPLAY_LOG.md` |
+| Page generator | `scripts/ieantn.py` | node README link; "Local proof" row; `IEANTN_REPOSITORY_URL`/`_BRANCH` |
+
+```
+AFTER, second round (additions)
+Solutions/ProgramVerification   + PVCore.Kernel, PVCore.Chunked, PVRamanujan.Kernel, budget_shift
+pilots/pv-replay                + KernelChain (KernelB), Chunked (Table 4 in chunks, 100 entries)
+pilots/pv-twobackend            (new) Agent A's dyadic provider → data link → C budget program
+scripts/native_assisted         gate: per-endpoint backends (restricted-c-binary64, lean-dyadic-expr)
+```

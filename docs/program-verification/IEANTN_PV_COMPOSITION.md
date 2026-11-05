@@ -1,12 +1,17 @@
 # Composition of verified computations
 
-Two compositions now run on the shared contract.
+Three compositions now run on the shared contract.
 
-- **A→B′ (two executed programs).** The pilot chain is rewritten as two shared-contract stages
-  joined by a data link (`pilots/pv-replay/PVReplay/Chain.lean`).
+- **A→B′ (two executed programs, one backend).** The pilot chain is rewritten as two
+  shared-contract stages joined by a data link (`pilots/pv-replay/PVReplay/Chain.lean`). It is
+  parametric in its two stage certificates; the kernel route proves both with literal decoding as
+  the only native computation (`PVReplay/KernelChain.lean`, §1).
 - **π input → budget program → consumer (node graph).** The new nodes `RamanujanNumerics.v3` and
-  `RamanujanGap.v3` compose through ordinary node imports. The replay
-  `RamanujanGap.v3.gap_from_pi` discharges the budget premise with the actual provider.
+  `RamanujanGap.v3` compose through ordinary node imports. The replays discharge the budget
+  premise with the actual provider and the π premise with its actual solution (§2).
+- **Two backends (§4).** Agent A's dyadic π provider, a kernel-checked data link, and the
+  shared-contract C budget program: a three-stage chain with two executed programs of different
+  kinds (`pilots/pv-twobackend`).
 
 ## 1. A→B′: what is checked, and where
 
@@ -45,6 +50,15 @@ from one 64-line file that also contains the analytic glue.
 deviation `0.0913` instead of A's certified `0.0914`. The link equality is false and the file does
 not elaborate; see `PV_TEST_AND_REPLAY_LOG.md`.
 
+**Kernel route (KernelB).** The chain theorem is `gap_of (hA : CertA) (hB : CertB) hpsi`, for any
+proofs of the two stage certificates. `PVPilot.Updated.gap_exceeds_leading` passes the native
+certificates (2 native facts, each a whole shared check). `PVPilot.Kernel.gap_exceeds_leading`
+passes kernel-route certificates: per stage, one native fact `PVCore.decode program = some (…)`
+(decimal literals to rationals) and `decide +kernel` for everything else — source tokens, the
+binary64 summation chain, the suffix rounding, the enclosure, the budget. Axioms: the three
+standard ones plus `decodeA`, `decodeB`. Cost: the module takes 177 s and 22.7 GB peak; the native
+route takes seconds. Gate: passed, `lean-verified-program`, 2 native facts.
+
 ## 2. The node-graph composition
 
 `RamanujanGap.v3.gap_lower_bound` imports two conclusions:
@@ -70,30 +84,64 @@ statement through the program-checked budget. It is a second route with weaker t
 fact. It is not a new result, and `RamanujanGap.v3` therefore states only the quantitative loss
 and gap bounds.
 
-**Why the π premise is not discharged here.** Importing `DudekPlattNumerics.v5`'s own solution
-compiles the CH2.v6 density certificates, about 120 parallel Lean jobs at about 10 GB each. That
-build was stopped. This is a build-cost blocker, not a mathematical one.
+**The π premise, discharged.** `DudekPlattNumerics.v5`'s solution closure includes the CH2.v6
+density certificates. A first build fanned out to about 120 Lean jobs at up to 10 GB each and was
+stopped, but its heavy part had already finished: `lake build --no-build` later reported the whole
+closure up to date. The replays now import it:
+
+```lean
+theorem RamanujanGap.v3.gap_from_psi (hpsi : QRHCH2.v5.psi_refined_bound) :
+    RamanujanGap.v3.gap_lower_bound :=
+  RamanujanGap.v3.gap_from_pi (DudekPlattNumerics.v5.challenge_pi_two_sided_qrh hpsi)
+theorem RamanujanGap.v3.gap_from_qrh (htr : CH2.v9.refined_transfer)
+    (hq : OpenAIQRH.v1.zeta_seven_eighths) : RamanujanGap.v3.gap_lower_bound
+```
+
+and `loss_from_psi` for the loss bound. Axioms: the three standard ones plus the v3 provider's
+one native fact. Building the replay took 17 s. The remaining premises are the leaves
+`ieantn.py report` lists for the node: literature and numerical inputs (`OpenAIQRH.v1`,
+`ZeroCount.v1`, `ZetaHadamard.v1`, `LowZeroes.v1`, `ZetaLogDerivValues.v1`) and the unreceipted
+`CH2.v9`/`CotangentSeries.v1` steps; they stay premises, as in the node graph.
 
 **How the graph shows it.** The node graph records only mathematical dependencies. The program
 evidence is recorded per conclusion, in `pv-evidence/` and on the node page; no new nodes were
 made for programs.
 
-## 3. A second composition of two executed programs: not completed
+## 3. A second composition of two executed programs: done with Agent A's provider (§4)
 
-**First exact blocker.** No other pair of executed providers in the network has a data dependency.
+Among Agent B's C providers, no other pair has a data dependency; this is still true:
 
 - **Table 4 → Ramanujan.** Table 4's output is an `Eπ` allowance `≤ 5·10⁻¹⁶` above `e^330`. The
   Ramanujan budget needs π in the form `S₅(x) + c·x/log⁶x` near `e^9400`. Converting the first
   into the second costs a factor `log⁵x`: `5·10⁻¹⁶·9400⁵ ≈ 3.7·10⁴ ≫ 120`.
 - **PoC 1.** Its programs feed analytic theorems, not other programs.
 
-A genuine second executed chain needs a new numerical obligation downstream of Table 4. That is
-new mathematics, not integration.
+Agent A's scoped-winner provider supplies the missing link: a bound on `π` against `Li` that is
+fine enough to feed the Ramanujan budget directly.
 
-**What exists instead.** Two independent compositions of different kinds:
+## 4. Two backends: Agent A's dyadic provider → data link → C budget program
 
-- A→B′: two programs and a data link;
-- the v3 nodes: an analytic provider, a program and a consumer.
+`pilots/pv-twobackend`. Chain theorem, under Agent A's seven inputs (explicit hypotheses):
 
-The A→B′ interface (output contract, data link, input contract) is three named theorems that a
-third stage can reuse.
+> for every `x > e^301`, `(1 + 7.72/log x) · x²/log⁶x < gap(x)`, where
+> `gap(x) = (e·x/log x)·π(x/e) − π(x)²`.
+
+| Stage | What it is | Trust |
+|---|---|---|
+| A | `ScopedWinnerA.pi_00947147` (Agent A, unchanged): exact dyadic interval evaluation of a generated Lean expression over 16,385 cells, then Agent A's analytic transfer. Output contract `HasPowerLogBound Eπ 0.00947147 0 (7/8) (e^300)`, i.e. `|π(x) − Li(x)| ≤ 0.00947147·x^(7/8)/log x` | 49 native facts |
+| link | `pi_input_of_powerLog`: `Li = mainTerm − K₅ + 120·I₆` (five integrations by parts from 2), `I₆` bounded both ways (five more, and a split at `√x`), and at `log x ≥ 300` every lower-order term and Agent A's error are at most `10⁻³·x/log⁶x`. Result: `π(x) ∈ mainTerm(x) + [119.99, 122.5]·x/log⁶x` on `x > e^300` | standard axioms |
+| B | the shared-contract budget program regenerated at `(m, M, A, Y) = (0, 122.5, 300, 301)` (`c/budget_301.c`; certified output upper value 112.2612, stated bound 112.27), then `PVRamanujan.budget_shift` to `m = 119.99` | 1 native fact |
+| consumer | `ForwardRamanujan.gap_from_budget`, unchanged; allowance `112.27 − 119.99 = −7.72` | standard axioms |
+
+- **Why `m = 0` in the program.** At `m = 119.99` the budget is negative (−7.72); the shared
+  rounding certificate covers positive normal intermediates only. The program runs at `m = 0`
+  (output 112.26) and `m` is subtracted exactly in the proof, as the calibration pilot did.
+- **Gate.** Both backends pass: `lean-dyadic-expr` for stage A (pinned program sources,
+  `program_semantics`, `Certificate.checked`, `source_linked_upper`) and `restricted-c-binary64`
+  for stage B. 50 native facts, none rejected.
+- **Scope.** The seven inputs are not node conclusions (two are Agent A's own source packages;
+  `AGENT_A_PROVIDER_INTEGRATION.md` §4). Ramanujan's inequality itself is already a network
+  conclusion above `e^145` (`DudekPlatt.v6.ramanujan_145`, under `QRHCH2.v2`'s density frontier).
+  What is new is the composition, and a quantitative gap bound with a negative allowance on
+  `x > e^301`; `RamanujanGap.v3` has `+9.988` on `x > e^401` under a different premise. No
+  best-bound claim is made.

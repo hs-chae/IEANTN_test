@@ -15,7 +15,10 @@ pilot here made `RamanujanNumerics.v3`'s manifest stale.
 | `PVCore.Source` | the program shape, its renderer, the token scanner, `sourceMatches` | — |
 | `PVCore.SumAffine` | operational `Exec`, the error theorems, the certificate `check` and its soundness `certified` | 3 standard |
 | `PVCore.Bridge` | application bridges `le_bound_of_check`, `bound_le_of_check` | 3 standard |
-| `PVRamanujan.Family` | the Ramanujan-budget family certificate and theorem | 3 standard |
+| `PVRamanujan.Family` | the Ramanujan-budget family certificate and theorem, and the exact shift `budget_shift` | 3 standard |
+| `PVCore.Kernel` | the kernel route: `decode`, `checkFrom`/`upperFrom`, `check_of_decode`, `upperCheck_of_decode` | 3 standard |
+| `PVRamanujan.Kernel` | the kernel route for the family: `budgetFrom`, `budgetCheck_of_decode` | 3 standard |
+| `PVCore.Chunked` | sums of more than 64 entries: `ChunkedProgram`, `ExecChunked`, `checkChunked`, `certifiedChunked`, `le_bound_of_checkChunked` | 3 standard |
 
 ## 1. The selected program
 
@@ -162,3 +165,57 @@ certificate and its statement. The 382 shared code lines are written once:
 **What did not get shorter.** Table 4's analytic enclosures, of the cells, the anchor, the point
 and the tail, are mathematics and stay with the application. They are reused as they are, with
 their 3 native facts.
+
+## 8. Exact shift, for negative budgets
+
+```lean
+theorem budget_shift (hm : 0 ≤ m) (h : εUpper M x − εLower 0 xa x ≤ C) :
+    εUpper M x − εLower m xa x ≤ C − m
+```
+
+`εLower m = 206 + m + …` for `m ≥ 0`. When the true budget is negative, the program's last
+intermediate would be negative, and the shared rounding certificate covers positive normal values
+only. The program runs at `m = 0` and the proof subtracts `m` exactly. Used by the two-backend
+chain (budget `−7.72`).
+
+## 9. Kernel route: one native fact, for decoding
+
+`check` is one Boolean computation; an instance proves it with one `native_decide`, so the
+compiled evaluator runs all of it. The kernel can reduce almost all of it itself. Only decoding
+the decimal literals cannot be reduced: `FKS2Scalar.decimal` uses `String.splitOn` and
+`String.toNat?`.
+
+```lean
+def decode (p : Program) : Option (List ℚ × ℚ × List (Sign × ℚ))       -- parsing only
+def checkFrom (src p eps xs scale ops) : Bool                           -- check, on given rationals
+theorem check_of_decode (hd : decode p = some (xs, scale, ops))
+    (hk : checkFrom src p eps xs scale ops = true) : check src p eps = true
+```
+
+`upperFrom`/`upperCheck_of_decode` and `budgetFrom`/`budgetCheck_of_decode` do the same for the
+upper-bound bridge and the Ramanujan family; the latter also return the decoded fields of
+`valuesOf p`. `certified` and the family theorems then apply unchanged. Measured on the A→B′
+chain: 2 native facts, both `decode … = some …`; 177 s and 22.7 GB to build the module.
+
+## 10. Chunked sums: more than 64 entries
+
+The proved loop bound covers one call of the frozen `sum` over 1–64 entries. A longer sum is
+written as several calls whose results the wrapper adds:
+
+```c
+double s = sum(inputs0, n0); s = (s + sum(inputs1, n1)); …; double r = (s * scale); r = (r ± c); …
+```
+
+- **Semantics.** `ExecChunked`: each chunk is an execution of the frozen loop on its own array
+  (`ChunkRun`, with `SumStability.ExecC`), each wrapper addition one binary64 rounding
+  (`CombineIEEE`), then the usual suffix.
+- **Error bound.** No new analysis: the exact total is at most `Σⱼ sⱼ/(1 − γ_{nⱼ−1})` and at least
+  `Σⱼ sⱼ/(1 + γ_{nⱼ−1})` (the per-chunk loop theorem, summed), and the wrapper's roundings enter
+  through the computed total itself, because every value is concrete.
+- **Certificate.** `checkChunked`: token match of the actual file, each chunk's length and input
+  domain and rounding chain, each wrapper addition, the suffix, and `|out − exact(total)| ≤ eps`.
+  `certifiedChunked` gives `ExecChunked` and both bounds; `le_bound_of_checkChunked` is the
+  application bridge.
+- **Used by** Table 4 QRH in two chunks of 15 (same statement `FKS2Numerics.v7.qrh_pi`) and a
+  100-entry contract test (`pilots/pv-replay/PVReplay/Chunked.lean`).
+

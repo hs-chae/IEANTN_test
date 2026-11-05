@@ -90,8 +90,17 @@ needs = ["selected_source"]
   - Scratch project (`agentB/evidence/pv3`): with `needs`, a changed file reruns `selected_source`
     and recompiles; without it, Lake replays the stale result.
   - On the real provider: `controls_pv.py`, controls A and B.
-- **Older providers keep the hash check.** Their lakefiles were not changed: they are frozen or
-  published. The gate's S check still catches a stale build there.
+- **Retrofitted on the published, non-frozen providers (second round).**
+  - `RamanujanNumerics.v2`: its three selected files (`updated.c`, `oldgrouped.c`,
+    `updatedgrouped.c`) are input files that `ForwardRamanujanUpdate` needs.
+  - `FKS2Numerics.v5`: `fks2_table4_transport.c` is an input file that `FKS2Table4` needs. This
+    covers `FKS2Numerics.v7` too, which reads the same file through that library.
+  - Checked both ways on scratch copies (`scripts/native_assisted/controls_freshness.py`,
+    `pv-evidence/controls/CONTROLS_FRESHNESS.json`).
+  - Cost, once: the libraries' modules that a build needs are rebuilt after the change, because
+    their traces now include the file's hash.
+- **Frozen providers keep the hash check.** `RamanujanNumerics.v1` and `FKS2Numerics.v6` have
+  frozen lakefiles. The gate's S check still catches a stale build there.
 
 ## What stays manual, and why
 
