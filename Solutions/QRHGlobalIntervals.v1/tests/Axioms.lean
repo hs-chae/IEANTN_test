@@ -30,3 +30,6 @@ import QRHGlobalIntervals
 #print axioms QRHGlobal.oppermann_powers
 #print axioms QRHGlobal.andrica_eighth
 #print axioms QRHGlobal.andrica_eighth_24
+#print axioms QRHGlobal.prime_p2
+#print axioms QRHGlobal.mills_explicit
+#check @QRHGlobal.mills_explicit
