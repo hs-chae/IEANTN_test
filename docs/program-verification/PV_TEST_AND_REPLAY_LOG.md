@@ -118,3 +118,127 @@ All 12 behave as expected (`pv-evidence/controls/CONTROLS_PV.json`). The earlier
   fingerprints and challenges.
 - **Inherited errors.** The 49 receipt-provenance diagnostics are inherited from the fork and
   unchanged. They were not "fixed" by editing receipts.
+
+---
+
+## Second round (2026-11-05)
+
+### Builds
+
+| Project | Command | Result |
+|---|---|---|
+| merged tree (`fa70b6a`) | core `lake build` | OK, 4129 jobs |
+| `Solutions/ScopedWinnerA.v1` (Agent A) | `lake build Solution` | OK, 9174 jobs, 16 min, peak 7.3 GB per process |
+| `Solutions/RamanujanGap.v3` | `lake build Solution RamanujanGapReplay` (now requiring `DudekPlattNumerics.v5`) | OK, 17 s: the closure was already built (`lake build --no-build`: up to date, 9000 jobs) |
+| `pilots/pv-twobackend` | `lake build TwoBackend` | OK |
+| `pilots/pv-replay` | `lake build PVReplay` (now with `KernelChain`, `Chunked`) | OK; `KernelChain` 177 s, 22.7 GB peak; `Chunked` 5.2 s |
+| `Solutions/ProgramVerification` | `lake build PVCore PVRamanujan` + `PVCore.Kernel`, `PVCore.Chunked`, `PVRamanujan.Kernel` | OK |
+
+### Axiom closures (`#print axioms`)
+
+| Theorem | Axioms beyond the three standard ones |
+|---|---|
+| `PVCore.check_of_decode`, `upperCheck_of_decode`, `certifiedChunked`, `le_bound_of_checkChunked`, `PVRamanujan.budgetCheck_of_decode`, `budget_shift` | none |
+| `PVTwoBackend.pi_input_of_powerLog` (the data link) | none |
+| `PVTwoBackend.StageB.budget` | `StageB.certificate` (1) |
+| `ScopedWinnerA.pi_00947147` (Agent A) | 49 `native_decide` facts |
+| `PVTwoBackend.gap_exceeds_leading` | 50: Agent A's 49 + `StageB.certificate` |
+| `PVPilot.Kernel.gap_exceeds_leading` | `decodeA`, `decodeB` (literal decoding only) |
+| `PVPilot.Updated.gap_exceeds_leading` (now `gap_of` with the native certificates) | `certificateA`, `certificateB` (unchanged) |
+| `PVChunked.Table4QRH.qrh_pi` | 3 existing analytic facts + the chunked certificate (4, as the single-call replay) |
+| `PVChunked.InverseSquares.sum_le` | its certificate (1) |
+| `RamanujanGap.v3.gap_from_psi`, `loss_from_psi`, `gap_from_qrh` | `RamanujanNumerics.v3.Provider.certificate` (1) |
+| `DudekPlattNumerics.v5.challenge_pi_two_sided_qrh` | none |
+
+### Freshness controls on the retrofitted providers (`controls_freshness.py`, scratch copies)
+
+| Provider | A: changed literal, with `needs` | B: same change, `needs` removed | Repository tree |
+|---|---|---|---|
+| `RamanujanNumerics.v2` (`updated.c`) | rebuilt; `native_decide` evaluates the certificate to false (rc 1); restored build rc 0 | stale build replayed, rc 0 | unchanged |
+| `FKS2Numerics.v5` (`fks2_table4_transport.c`) | rebuilt; certificate false (rc 1); restored rc 0 | stale build replayed, rc 0 | unchanged |
+
+### Progress probe and solution modules
+
+| Check | Before | After |
+|---|---|---|
+| `ieantn.py progress RamanujanGap.v3` | "does NOT typecheck": the probe's `import Solution` loaded `Solutions/CH2.v1/Solution` | typechecks, 0 holes, both challenge theorems proved |
+| `ieantn.py progress RamanujanGap.v2` | crashed: `comparator.json` missing | typechecks, 0 holes |
+| `ieantn.py progress RamanujanNumerics.v3` | same shadowing | typechecks, 0 holes, challenge proved |
+| first `Solution.olean` on `LEAN_PATH` in `FKS2Numerics.v5`, `v7`, `RamanujanNumerics.v3` | `Solutions/CH2.v1` | unchanged for v5/v7 (owner decision); v3 uses `RamanujanBudget.NodeTheorem` |
+
+### Local gate
+
+All 31 attestations pass, all at `b985e41` on a clean tree: the 25 of the first round and 6 new
+ones, marked "(new)". One `check-all` run, 17 min 12 s wall, peak 9.5 GB. The attestations are
+committed in `79a22e0`; the log is `agentB/evidence/pv4/gate_all_b985e41.log` (outside the
+repository). Methods and native-fact counts of the 25 earlier endpoints are unchanged.
+
+| Endpoint | Status | Method | Backends | Native facts |
+|---|---|---|---|---|
+| `RamanujanNumerics.v2.epsilon_budget` | passed | lean-verified-program | restricted-c-binary64 | 6 |
+| `RamanujanNumerics.v1.epsilon_budget` | passed | lean-verified-program | restricted-c-binary64 | 6 |
+| `FKS2Numerics.v7.qrh_pi` | passed | lean-verified-program | restricted-c-binary64 | 8 |
+| `FKS2Numerics.v6.old_pi` | passed | lean-verified-program | restricted-c-binary64 | 8 |
+| `FKS2Numerics.v5.numerical_pi` | passed | lean-verified-program | restricted-c-binary64 | 7 |
+| `FKS2Numerics.v2.nu_asymp_e30_le` | passed | not-program-verified | - | 8 |
+| `FKS2Numerics.v3.calibration_bound` | passed | not-program-verified | - | 8 |
+| `FKS2Numerics.v3.baseline_bound` | passed | lean-verified-program | restricted-c-binary64 | 8 |
+| `FKS2Numerics.v4.updated_bound` | passed | lean-verified-program | restricted-c-binary64 | 12 |
+| `RamanujanGap.v2.loss_bound` | passed | not-program-verified | - | 0 |
+| `FKS2.v9.qrh_absolute_pi` | passed | not-program-verified | - | 0 |
+| `FKS2.v5.updated_theta` | passed | not-program-verified | - | 0 |
+| `@solution.ForwardRamanujan.forward` | passed | lean-verified-program | restricted-c-binary64 | 12 |
+| `@solution.FKS2Pair.assembled` | passed | lean-verified-program | restricted-c-binary64 | 16 |
+| `@pilot.CalibrationPilot.NewChain.new_chain` | passed | lean-verified-program | restricted-c-binary64 | 13 |
+| `@pilot.CalibrationPilot.KernelChain.pi_calibrated_k` | passed | lean-verified-program | restricted-c-binary64 | 1 |
+| `RamanujanNumerics.v3.epsilon_budget` | passed | lean-verified-program | restricted-c-binary64 | 1 |
+| `RamanujanGap.v3.loss_bound` | passed | not-program-verified | - | 0 |
+| `RamanujanGap.v3.gap_lower_bound` | passed | not-program-verified | - | 0 |
+| `@pv.PVRamanujan.V1.epsilon_budget` | passed | lean-verified-program | restricted-c-binary64 | 1 |
+| `@pv.PVRamanujan.V2.epsilon_budget` | passed | lean-verified-program | restricted-c-binary64 | 1 |
+| `@pv.PVRamanujan.OldGrouped.epsilon_budget` | passed | lean-verified-program | restricted-c-binary64 | 1 |
+| `@pv.PVTable4.QRH.qrh_pi` | passed | lean-verified-program | restricted-c-binary64 | 4 |
+| `@pv.PVTable4.Old.old_pi` | passed | lean-verified-program | restricted-c-binary64 | 4 |
+| `@pv.PVPilot.Updated.gap_exceeds_leading` | passed | lean-verified-program | restricted-c-binary64 | 2 |
+| `@scoped.ScopedWinnerA.pi_00947147` (new) | passed | lean-verified-program | lean-dyadic-expr | 49 |
+| `@twobackend.PVTwoBackend.gap_exceeds_leading` (new) | passed | lean-verified-program | lean-dyadic-expr, restricted-c-binary64 | 50 |
+| `@replay.RamanujanGap.v3.gap_from_psi` (new) | passed | lean-verified-program | restricted-c-binary64 | 1 |
+| `@pv.PVPilot.Kernel.gap_exceeds_leading` (new) | passed | lean-verified-program | restricted-c-binary64 | 2 |
+| `@pv.PVChunked.Table4QRH.qrh_pi` (new) | passed | lean-verified-program | restricted-c-binary64 | 4 |
+| `@pv.PVChunked.InverseSquares.sum_le` (new) | passed | lean-verified-program | restricted-c-binary64 | 1 |
+
+### Repository checks (at `65a0851`)
+
+| Check | Result |
+|---|---|
+| `ieantn.py fingerprint --check` | 0: no statement fingerprint moved |
+| `ieantn.py gen-challenges --check` | 0 |
+| `ieantn.py check` | Exit 1 only for the 49 inherited receipt-provenance items, as before. The local evidence check passes. One new warning: `RamanujanGap.v2` is `awaiting-solution` although every unjustified conclusion has a complete local proof (the owner's decision). |
+| `python -m unittest discover -s tests` | 374 OK: 350 before, plus 13 page-proposal tests, 1 progress path-order test, 5 dyadic-backend and 2 challenge-module tests, 3 update-entry tests |
+| Freeze manifests | forward 30/30, Table 4 19/19 byte-identical |
+| Node pages, `649959d` (end of the first round) → now | 20 of 115 pages differ, each explained, no new page, index identical. 6 gain "Local proof" rows (`CH2` v7–v9, `QRHCH2` v3–v5: self-assessed nodes whose solutions record 0 holes). 1 gains the README link (`DudekPlattNumerics.v3`). 11 change only the re-attested gate rows (`FKS2Numerics` v2–v7, `FKS2` v5 and v9, `RamanujanNumerics` v1–v3). `RamanujanGap.v2` and `v3` gain both, from their new progress blocks; `v3`'s status reads `awaiting-verification`. |
+
+### Independent reader
+
+One Fable 5.1 subagent, launched 2026-11-05 on hschae's "try everything" (it was the open request
+from the first round). Read-only: no builds, no edits, no paid APIs (it confirmed "no"). Its
+report is in `agentB/evidence/pv4/REVIEW.md` (outside the repository).
+
+| Finding | Kind | Fixed in |
+|---|---|---|
+| Tutorial put the statement before `plan`, which computes the bound it needs | blocker | tutorial §3 |
+| Registry example hid five location keys; an update without them inherited the old provider's and `generate` would overwrite its files | blocker, a real hazard | `pv_update.py` now refuses such entries (3 tests); tutorial lists the keys |
+| Tutorial still said the challenge theorem goes in `Solution.lean` | blocker (stale) | tutorial §3, §4 |
+| No `endpoints.json` step before the gate | blocker | tutorial §3 |
+| Kernel-route snippet used `m = 0` constants with the `m = 119` example | minor | tutorial §7 |
+| "every lower-order term ≤ 10⁻³·x/log⁶x": false for the `I₆` tail (2.47·u, the reason `M = 122.5`) | wrong sentence | composition §4, `Link.lean` docstring |
+| "the seven inputs are not node conclusions": four are | wrong sentence | composition §4, `Chain.lean`, Agent A doc, report |
+| "the latter also return the decoded fields": reversed | wrong sentence | shared contracts §9 |
+| 64-line chain file and 382 shared lines: stale | stale count | now 78 and 702 |
+| Agent A's handoff file quoted as if in this repository | unclear | Agent A doc |
+| `PiInput`'s upper half holds on `x > e^301`, not `e^300` | precision | composition §4, `Link.lean` |
+| 177 s / 22.7 GB not in this log | missing | this section |
+
+**Checked and confirmed by the reader.** Every native-fact count (50 = 49 + 1, 49 = 1 + 32 + 8 + 7 +
+1, 2, 13, 4 = 3 + 1, 1, 0), the theorem statements quoted in the docs, and the mathematics of the
+data link: no off-by-one in exponents, strictness or the offset of `Li` at 2.

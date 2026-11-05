@@ -1,7 +1,9 @@
 # Final report: reusable, composable program verification in IEANTN
 
-- **Branch.** Local `agentB/pv-structural` on `hs-chae/IEANTN_test`, from `3388918`. Nothing
-  pushed, no PR, no receipt.
+- **Branch.** `agentB/pv-structural` on `hs-chae/IEANTN_test`, from `3388918`. Pushed to
+  `qrh-2pv` on 2026-11-05 on hschae's instruction (fast-forward, no force). No PR, no receipt.
+- **Second round.** [SECOND_ROUND_REPORT.md](SECOND_ROUND_REPORT.md). The counts below are as of
+  the first round; the shared code is now 702 lines.
 - **Attestations.** Local research reports, not IEANTN verification receipts.
 
 ## What someone can now do that was cumbersome before
@@ -125,7 +127,7 @@ Details: `PV_TEST_AND_REPLAY_LOG.md`.
 
 ## 한국어 요약 (Korean executive summary)
 
-**결론.** IEANTN에 공유 program-verification 계약(`Solutions/ProgramVerification`)과 provider update workflow를 넣었다. 공식 trust semantics는 바꾸지 않았다. Push, PR, receipt 생성은 하지 않았다.
+**결론.** IEANTN에 공유 program-verification 계약(`Solutions/ProgramVerification`)과 provider update workflow를 넣었다. 공식 trust semantics는 바꾸지 않았다. 2026-11-05 hschae의 지시로 `qrh-2pv`에 push했다(fast-forward). PR과 receipt 생성은 하지 않았다. 두 번째 라운드는 `SECOND_ROUND_REPORT.md`에 있다.
 
 - **Provider 갱신이 쉬워졌다.** `providers.json`에 변경을 등록하고 `pv_update.py`를 실행하면 C 파일, 데이터 모듈, lakefile이 생성되고 build와 gate까지 실행된다. 실제로 `RamanujanNumerics.v2 → v3`를 만들었다. 범위는 `x > e^3915`에서 `x > e^401`로 바뀌었고, allowance는 9.101에서 9.988이 되었다. 인스턴스 코드는 116줄에서 26줄로, native fact는 6개에서 1개로 줄었다.
 - **증명을 재사용한다.** 실행, loop 오차, suffix rounding, certificate soundness를 한 번만 증명했다. 표준 axiom만 쓴다. Ramanujan 인스턴스 4개는 6개에서 1개로, Table 4 두 개는 8개에서 4개로 native fact가 줄었다.

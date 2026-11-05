@@ -26,9 +26,12 @@
 **Measured.**
 - **Builds.** Agent A's provider, 9174 jobs in 16 min, peak 7.3 GB per process; the kernel-route
   chain module, 177 s and 22.7 GB; the π-premise replay, 17 s; the chunked instances, 5.2 s.
-- **Shared code.** `PVCore.Kernel`, `PVRamanujan.Kernel` and `PVCore.Chunked`, standard axioms
-  only.
-- **Gate.** All endpoints re-run at one clean commit: see `PV_TEST_AND_REPLAY_LOG.md`.
+- **Shared code.** 702 lines (`PVCore` 614, the Ramanujan family 88), with the new
+  `PVCore.Kernel`, `PVRamanujan.Kernel` and `PVCore.Chunked`; standard axioms only.
+- **Gate.** All 31 endpoints pass at one commit (`b985e41`) on a clean tree: 25 earlier, 6 new.
+  17 min, peak 9.5 GB. Table in `PV_TEST_AND_REPLAY_LOG.md`.
+- **Repository checks.** 374 unit tests pass. No statement fingerprint, generated challenge or
+  frozen file changed. `ieantn.py check` fails only on the 49 inherited provenance items.
 
 ## 2. Not done
 
@@ -98,4 +101,5 @@ Agent A documents against the code. Findings and what was changed: `PV_TEST_AND_
 - **Chunked sum.** 64개를 넘는 합도 같은 frozen loop로 증명한다. Table 4를 15개씩 두 덩어리로 나눠 같은 정리를 다시 증명했고, 100개짜리 test도 gate를 통과했다.
 - **Freshness.** `RamanujanNumerics.v2`와 `FKS2Numerics.v5`(v7 포함)에 `input_file` + `needs`를 적용했다. Control은 두 방향 모두 통과했다.
 - **새로 찾은 결함.** 다른 solution을 require하는 solution에서 `import Solution`이 남의 `Solution` module(`CH2.v1`)을 읽는다. Lake가 자기 package를 `LEAN_PATH` 맨 뒤에 두기 때문이다. Comparator도 그렇게 될 가능성이 높다(직접 실행하지는 않았다). `progress` 도구와 v3 node들은 고쳤고, 다른 QRH solution은 결정 사항으로 남겼다.
+- **검증.** 31개 endpoint가 모두 한 commit(`b985e41`)의 clean tree에서 gate를 통과했다(17분). Unit test 374개 통과, fingerprint·challenge·frozen file 변화 없음.
 - **남은 것.** Agent A 결과의 node화(입력 7개 중 3개가 Solutions 정의라 core vocabulary로 옮겨야 한다), Table 4 수치 node(같은 blocker), `RamanujanGap.v2` status(소유자 결정).
