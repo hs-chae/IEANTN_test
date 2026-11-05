@@ -6,3 +6,6 @@ import QRHGlobalIntervals
 #print axioms QRHGlobal.prime_between_powers
 #print axioms QRHGlobal.prime_gap_le
 #print axioms QRHGlobal.ladder1_ok
+#check @QRHGlobal.sixteenth_interval
+#print axioms QRHGlobal.sixteenth_interval
+#print axioms QRHGlobal.prime_gap_sixteenth

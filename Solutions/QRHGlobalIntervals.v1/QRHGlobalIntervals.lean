@@ -8,3 +8,5 @@ import QRHGlobalIntervals.Ladder
 import QRHGlobalIntervals.Dusart
 import QRHGlobalIntervals.Global
 import QRHGlobalIntervals.Powers
+import QRHGlobalIntervals.KadiriLumley
+import QRHGlobalIntervals.Sixteenth
