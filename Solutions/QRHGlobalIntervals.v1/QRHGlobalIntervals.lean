@@ -11,3 +11,8 @@ import QRHGlobalIntervals.Powers
 import QRHGlobalIntervals.KadiriLumley
 import QRHGlobalIntervals.Sixteenth
 import QRHGlobalIntervals.AgentA
+import QRHGlobalIntervals.TwentyFourth
+import QRHGlobalIntervals.Counting
+import QRHGlobalIntervals.Counts
+import QRHGlobalIntervals.Mills
+import QRHGlobalIntervals.Corollaries
