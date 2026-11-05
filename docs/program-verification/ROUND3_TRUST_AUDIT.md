@@ -120,9 +120,12 @@ for p in Solutions/QRHGlobalIntervals.v1 Solutions/Table4Evolution.v1; do
   mkdir -p $p/.lake && ln -sfn "$PWD/.lake/packages" $p/.lake/packages; done
 # Tertiary (about 10 s after the core is built)
 (cd Solutions/QRHGlobalIntervals.v1 && lake build && lake env lean tests/Axioms.lean)
-# Table 4 evolution: all configurations, the 2-cell kernel route included (about 3 min, 28 GB peak)
+# Table 4 evolution: all configurations, the 2-cell kernel route included (about 3 min, 28 GB peak).
+# Corrected in the round-3 extension: at this round's commit the umbrella module `Table4Evolution`,
+# which tests/Axioms.lean imports, was not a default target, so `lake build Table4EvolutionAll` is
+# needed before the axiom check (from the extension on it is a default target).
 (cd Solutions/Table4Evolution.v1 && python3 scripts/generate.py --check && lake build \
-   && lake env lean tests/Axioms.lean)
+   && lake build Table4EvolutionAll && lake env lean tests/Axioms.lean)
 # Kernel-only A->B' chain (the round-2 KernelChain module is about 3 min, 23 GB)
 (cd pilots/pv-replay && lake build PVReplay.KernelOnly && lake env lean tests/AxiomsKernelOnly.lean)
 # Local gate on the new endpoints (about 1 min each)

@@ -99,8 +99,10 @@ by the kernel:
 > `(x, x + x^{7/8}]`. Consequently there is a prime between `n^k` and `(n+1)^k` for every `k ≥ 8`
 > and `n ≥ 1`.
 
-With Kadiri–Lumley's table added: a prime in `(x, x + x^{7/8}/16]` for every `x ≥ 1361`, and 1361
-cannot be lowered for that constant (no prime in `(1327, 1360.7]`). No native computation is used.
+With Kadiri–Lumley's table added: a prime in `(x, x + x^{7/8}/16]` for every `x ≥ 1361`. No native
+computation is used. (Corrected in the round-3 extension: this round said 1361 cannot be lowered; in
+fact `1328` works and is sharp, `sixteenth_interval_sharp`, since there is no prime in
+`(1327, 1360.76]`.)
 
 > **노트.** 3차 추정의 예: QRH 아래에서 모든 x ≥ 1에 대해 (x, x + x^{7/8}]에 소수가 있고, 따라서 k ≥ 8이면 연속한 k제곱수 사이에 소수가 있다. native 계산 없이 커널이 확인한다.
 

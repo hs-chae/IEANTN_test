@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tertiary estimates under QRH, verified</title>
+<style>
+:root{--bg:#ffffff;--fg:#1d2228;--muted:#5b6570;--line:#d8dee4;--panel:#f5f7f9;--accent:#1f5f8b;
+--ok:#1e7b34;--warn:#9a6700;--bad:#b42318;--code:#f2f4f6}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14181c;--fg:#e4e8ec;--muted:#9aa4ae;
+--line:#2c343c;--panel:#1b2127;--accent:#6cb2e0;--ok:#5cc177;--warn:#e0b450;--bad:#f07167;--code:#20272e}}
+:root[data-theme="dark"]{--bg:#14181c;--fg:#e4e8ec;--muted:#9aa4ae;--line:#2c343c;--panel:#1b2127;
+--accent:#6cb2e0;--ok:#5cc177;--warn:#e0b450;--bad:#f07167;--code:#20272e}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.55 "IBM Plex Sans","Noto Sans KR",
+-apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
+main{max-width:920px;margin:0 auto;padding:28px 16px 48px}
+h1{font-size:25px;line-height:1.25;margin:0 0 6px}
+.sub{color:var(--muted);margin:0 0 18px;font-size:14px}
+h2{font-size:18px;margin:30px 0 10px;padding-top:6px;border-top:1px solid var(--line)}
+h3{font-size:15.5px;margin:18px 0 6px}
+p{margin:8px 0}
+code,kbd{font-family:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;
+background:var(--code);padding:1px 4px;border-radius:4px;overflow-wrap:anywhere}
+pre{background:var(--code);padding:10px 12px;border-radius:6px;overflow-x:auto;font-size:12.5px;line-height:1.45}
+pre code{background:none;padding:0}
+table{border-collapse:collapse;width:100%;margin:10px 0;font-size:13px}
+th,td{border:1px solid var(--line);padding:6px 8px;vertical-align:top;text-align:left}
+th{background:var(--panel)}
+.tw{overflow-x:auto}
+.katex-display{overflow-x:auto;overflow-y:hidden;padding:2px 0}
+.verdict{background:var(--panel);border-left:4px solid var(--accent);padding:10px 14px;border-radius:6px;margin:14px 0}
+.verdict ul{margin:4px 0;padding-left:20px}
+.tag{display:inline-block;font-size:11.5px;font-weight:600;padding:1px 7px;border-radius:10px;border:1px solid}
+.ok{color:var(--ok);border-color:var(--ok)}.warn{color:var(--warn);border-color:var(--warn)}
+.bad{color:var(--bad);border-color:var(--bad)}.muted{color:var(--muted)}
+.flow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:12px 0}
+.box{border:1px solid var(--line);background:var(--panel);border-radius:6px;padding:6px 9px;font-size:12.5px}
+.arrow{color:var(--muted)}
+footer{margin-top:30px;color:var(--muted);font-size:12.5px;border-top:1px solid var(--line);padding-top:10px}
+@page{size:A4;margin:14mm}
+@media print{body{font-size:12.5px}main{padding:0;max-width:none}h2{break-after:avoid}
+table,pre,.verdict{break-inside:avoid}.tw{overflow:visible}}
+</style></head>
+<body><main>
+<h1>Tertiary estimates under QRH, verified</h1>
+<p class="sub">Agent B · IEANTN round 3, extended · 2026-11-05</p>
+<style>table{page-break-inside:auto} tr{page-break-inside:avoid} blockquote{font-size:0.92em}</style>
+<p>For a reader who knows analytic number theory and not program verification. QRH is the hypothesis
+that <code>ζ(s)</code> has no zeros with <code>Re s &gt; 7/8</code>. Every statement below is a Lean theorem that was compiled
+and whose axioms were printed; QRH and the network's literature inputs enter as hypotheses, and no
+step trusts native code unless stated.</p>
+<blockquote>
+<p><strong>노트 (한국어).</strong> QRH(제타 함수의 영점이 Re s &gt; 7/8 영역에 없다는 가정) 아래에서 얻은 3차 추정 결과를 정리했다. 모든 정리는 Lean으로 컴파일했고 공리를 확인했다. QRH와 문헌 입력은 가정으로 들어간다.</p>
+</blockquote>
+<h2>1. A Mills constant with explicit digits</h2>
+<p>Mills (1947) showed that there is <code>A</code> with <code>⌊A^{3^n}⌋</code> prime for every <code>n</code>. His construction needs a
+prime between consecutive cubes, which is known unconditionally only for all sufficiently large cubes
+(explicit versions start astronomically far out), so the start of the sequence, and with it the
+digits of <code>A</code>, are not explicit; the usual value <code>1.30637788…</code> assumes RH.</p>
+<p>Under QRH every interval <code>(x, x + x^{7/8}]</code> with <code>x ≥ 1</code> contains a prime, which puts a prime between
+<code>q^8</code> and <code>(q+1)^8 − 1</code> for <strong>every</strong> <code>q ≥ 1</code>. So the construction runs from <code>p₀ = 2</code>:</p>
+<blockquote>
+<p><strong>Theorem</strong> (<code>QRHGlobal.mills_explicit</code>). Under QRH there is <code>A</code> with <code>⌊A^{8^n}⌋</code> prime for every <code>n ≥ 0</code>,
+<code>⌊A⌋ = 2</code>, <code>⌊A^8⌋ = 257</code>, <code>⌊A^{64}⌋ = 19031147999601100901 = 257^8 + 100</code>, and</p>
+<p><code>A = 2.00097489763307733758…</code> (precisely <code>2.000974897633077337586 ≤ A &lt; 2.000974897633077337588</code>).</p>
+</blockquote>
+<p>The same holds for every real exponent <code>k ≥ 8</code> and from every starting prime (<code>mills_qrh</code>). The
+20-digit prime is certified inside Lean by a Lucas certificate (<code>2</code> generates; <code>p − 1 = 2²·5²·222799·854184623791</code>),
+with the modular powers computed by Lean's kernel.</p>
+<blockquote>
+<p><strong>노트.</strong> 밀스 상수: ⌊A^{8^n}⌋이 모든 n에 대해 소수가 되는 A를 QRH 아래에서 구체적으로 구했다. A = 2.00097489763307733758… 처음 세 항은 2, 257, 19031147999601100901이다. 고전적인 밀스 정리(지수 3)는 시작점이 명시적이지 않지만, QRH에서는 지수 8 이상이면 어떤 소수에서든 시작할 수 있다.</p>
+</blockquote>
+<h2>2. How many primes are in <code>(x, x + x^{7/8}]</code></h2>
+<p>The prime number theorem predicts about <code>x^{7/8}/log x</code> primes there.</p>
+<blockquote>
+<p><strong>Theorem</strong> (<code>QRHGlobal.count_300</code>). Under QRH, for every <code>x ≥ e^{300}</code>, with <code>N = π(x + x^{7/8}) − π(x)</code>:</p>
+<p><code>0.9737·x^{7/8} ≤ N·log(x + x^{7/8})</code> and <code>N·log x ≤ 1.0263·x^{7/8}</code>.</p>
+</blockquote>
+<p>So every such interval holds the expected number of primes up to 2.6%. With Agent A's bound on <code>π</code>
+(a separate, program-verified input) the window is <code>[0.98105, 1.01895]</code>. Two general theorems produce
+these from any power bound on <code>Eθ</code> or on <code>Eπ</code> (<code>count_of_theta_power</code>, <code>count_of_pi_power</code>).</p>
+<blockquote>
+<p><strong>노트.</strong> 짧은 구간 (x, x + x^{7/8}]에 있는 소수의 개수를 위아래로 잡았다. x ≥ e^300이면 예상 개수의 97.4%에서 102.6% 사이다.</p>
+</blockquote>
+<h2>3. Short intervals, and how short</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>From</th>
+<th>Interval</th>
+<th>Sharp?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>every <code>x ≥ 1</code></td>
+<td><code>(x, x + x^{7/8}]</code></td>
+<td>(round 3)</td>
+</tr>
+<tr>
+<td>every <code>x ≥ 1328</code></td>
+<td><code>(x, x + x^{7/8}/16]</code></td>
+<td>yes: <code>1327</code> fails</td>
+</tr>
+<tr>
+<td>every <code>x ≥ 1339</code></td>
+<td><code>(x, x + x^{7/8}/24]</code></td>
+<td>yes: <code>1338</code> fails, no prime in <code>(1338, 1360.67]</code></td>
+</tr>
+<tr>
+<td>every <code>x ≥ e^{300}</code></td>
+<td><code>(x, x + 0.019·x^{7/8}]</code></td>
+<td>(from Agent A's <code>π</code> bound)</td>
+</tr>
+</tbody>
+</table></div>
+<p><code>1/24</code> is as far as the network's present tables go: at <code>x ≈ e^{160}</code> the QRH coefficient of <code>θ</code>
+forces the constant above <code>0.0414</code>.</p>
+<p>Analogues of two classical conjectures follow, with squares replaced by <code>k</code>-th powers (<code>k ≥ 8</code>) and
+square roots by eighth roots: primes in <code>(n^k − n^{k−1}, n^k)</code> and <code>(n^k, n^k + n^{k−1})</code>
+(Oppermann-type), and <code>p'^{1/8} − p^{1/8} ≤ 1/8</code> for consecutive primes, <code>≤ 1/192</code> once <code>p ≥ 1339</code>
+(Andrica-type).</p>
+<blockquote>
+<p><strong>노트.</strong> 구간 상수를 1/24까지 줄였고, 시작점 1339는 더 낮출 수 없다(1338에서 실패한다는 것도 증명). 오퍼만, 안드리카 추측의 7/8 버전도 얻었다.</p>
+</blockquote>
+<h2>4. How the numerical program evolved</h2>
+<p>The Table 4 computation turns a bound on <code>θ</code> into a bound on <code>π</code> by partial summation. Its program
+has had three versions:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>cells</th>
+<th>output</th>
+<th>proof</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FKS2 (round 1)</td>
+<td>30</td>
+<td>a constant: <code>Eπ ≤ 4.7·10⁻¹⁶</code> for all <code>x ≥ e^{330}</code></td>
+<td>4 native facts</td>
+</tr>
+<tr>
+<td>round 3</td>
+<td>2</td>
+<td>a constant: <code>Eπ ≤ 4.9·10⁻¹⁶</code></td>
+<td>kernel only</td>
+</tr>
+<tr>
+<td><strong>now</strong></td>
+<td><strong>0</strong></td>
+<td><strong>a decaying bound</strong>: <code>Eπ ≤ 0.013156·x^{-1/8}</code> for all <code>x ≥ e^{330}</code></td>
+<td>kernel only</td>
+</tr>
+</tbody>
+</table></div>
+<p>With a power-law input <code>Eθ ≤ K·t^{-1/8}</code> the integral has a closed-form majorant (<code>κ·t^{7/8}/log² t</code>,
+<code>κ = 600/521</code>), so the cells disappear: the program adds two numbers and one constant. Its output now
+decays, and a decaying <code>π</code> bound can feed the Ramanujan budget, which a constant cannot. That made a
+three-program chain possible: Agent A's <code>θ</code> program → this transport → the budget program, proving
+<code>(1 + 7.84/log x)·x²/log⁶x &lt; (e x/log x)π(x/e) − π(x)²</code> for <code>x &gt; e^{331}</code>.</p>
+<blockquote>
+<p><strong>노트.</strong> 프로그램 진화: 셀 30개 → 2개 → 0개. 입력이 거듭제곱 꼴이면 적분을 닫힌 형태로 잡을 수 있어 셀이 필요 없다. 출력이 상수에서 감소하는 상계로 바뀌어 세 프로그램 연쇄(θ → π → 라마누잔)가 가능해졌다.</p>
+</blockquote>
+<h2>5. Less trust in native code</h2>
+<p>Twelve program results now need no native evaluation at all: the decimal literals of the C files are
+decoded by the kernel, and every certificate is checked by the kernel (45 s to 264 s, up to 37 GB).
+Among them are three registered network statements (<code>FKS2Numerics.v6.old_pi</code>,
+<code>RamanujanNumerics.v1/v2.epsilon_budget</code>). In round 3 there were two.</p>
+<blockquote>
+<p><strong>노트.</strong> native 계산 없이 커널만으로 확인한 프로그램 결과가 2개에서 12개로 늘었다. 그중 3개는 네트워크에 등록된 명제다.</p>
+</blockquote>
+<h2>6. Limitations, stated plainly</h2>
+<ul>
+<li>QRH and the analytic inputs of the network's QRH chain are <strong>assumed</strong>, not proved.</li>
+<li>Mills' theorem itself is classical; the gain is explicitness under QRH, not existence.</li>
+<li>The Table 4 π bounds are second routes: Agent A's own π bound is better by 3.6% at <code>e^{330}</code>.</li>
+<li>The three-program chain re-proves Ramanujan's inequality on a range the network already covers
+    (from <code>e^{145}</code>); it demonstrates composition.</li>
+<li>These are local attestations; no official Comparator receipt was produced. No independent reviewer
+    read this round.</li>
+</ul>
+<blockquote>
+<p><strong>노트.</strong> 한계: QRH는 가정이다. 밀스 정리 자체는 고전적이고, 새로운 점은 명시성이다. 세 프로그램 연쇄는 이미 알려진 범위의 라마누잔 부등식을 다시 증명한 것으로, 합성의 시연이다. 공식 receipt는 없고 독립 리뷰어도 없었다.</p>
+</blockquote>
+<footer>Agent B (Claude) · hs-chae/IEANTN_test qrh-2pv_B · round 3 extended, 2026-11-05</footer>
+</main></body></html>

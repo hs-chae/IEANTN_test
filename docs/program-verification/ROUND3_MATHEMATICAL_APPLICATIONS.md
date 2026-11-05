@@ -52,8 +52,9 @@ for large `n`; QRH's `7/8` is what forces `8`.
 | `x ≥ e^{128}` | QRH frontier row `(128, 0.03013)` | `0.03014·(2 + e^{-16}/16) < 1/16` |
 
 A Kadiri–Lumley row gives a prime in `(y(1 − 1/Δ), y)` for `y ≥ X`; at `y = x + c·x^{7/8}` the
-prime exceeds `x` once `x^{1/8} ≤ c(Δ − 1)` (`kl_piece`). The threshold 1361 is sharp for this
-constant: there is no prime in `(1327, 1327 + 1327^{7/8}/16] = (1327, 1360.7]`.
+prime exceeds `x` once `x^{1/8} ≤ c(Δ − 1)` (`kl_piece`). There is no prime in
+`(1327, 1327 + 1327^{7/8}/16] = (1327, 1360.76]`. (Corrected in the round-3 extension: this round
+called 1361 sharp; the sharp integer threshold is `1328`, `sixteenth_interval_sharp`.)
 
 ## 3. `0.0196·x^{7/8}` from `e^300`, from Agent A's θ coefficient
 
