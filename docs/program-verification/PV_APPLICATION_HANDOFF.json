@@ -1,13 +1,14 @@
 {
  "schema": "agentB.pv-application-handoff/1 (local sidecar; not an official IEANTN schema)",
  "notice": "Local research record. Not an IEANTN verification receipt.",
- "generated_at_commit": "9b748dbcd8622e7a2a03d944966b37072ff6043b",
+ "generated_at_commit": "79a22e0e8186b12b84e6373645ab607d4be6a273",
  "trust_boundary": [
   "Native evaluation (native_decide): the Lean compiler and runtime evaluate each listed finite fact; the kernel does not re-check it.",
   "Trusted library implementations reached by those evaluations (implemented_by/extern in Lean core, Std, Batteries, Mathlib) are counted per fact.",
   "Restricted C / IEEE binary64 round-to-nearest model: the proof concerns the modelled execution of the token-matched source, not a compiled binary.",
   "Compiler, host runtime, operating system and hardware are trusted; agreement with GCC output bits is a diagnostic only.",
-  "Explicit mathematical hypotheses of the endpoint (listed per attestation) are not proved by it."
+  "Explicit mathematical hypotheses of the endpoint (listed per attestation) are not proved by it.",
+  "Lean exact-dyadic interval backend (lean-dyadic-expr): the proof concerns the evaluation of a generated Lean expression by the vendored LeanCert interval evaluator, not a C program; native evaluation of that evaluator trusts the Lean compiler and runtime."
  ],
  "applications": {
   "ramanujan-from-e401": {
@@ -47,16 +48,19 @@
       "native_fact_owners": [
        "RamanujanNumerics.v3.Provider.certificate"
       ],
-      "checked_at": "2026-11-04T23:22:56+00:00",
-      "repository_commit": "da759404092d791dae33fdf794f35d69e3dc0318",
+      "checked_at": "2026-11-05T03:45:58+00:00",
+      "repository_commit": "b985e415e0f7b846906b68cd11101d3720ce769d",
       "attestation": "pv-evidence/RamanujanNumerics.v3.epsilon_budget.native-assisted.local.json"
      },
      "program": {
-      "backend": "restricted C, IEEE binary64 round-to-nearest (PVCore.Program)",
+      "backends": [
+       "restricted C, IEEE binary64 round-to-nearest (PVCore)"
+      ],
       "sources": [
        {
         "path": "Solutions/RamanujanNumerics.v3/c/budget.c",
-        "sha256": "dfbeabbd3113b24ee392de83311269d9ea858886878d70fa30759b56e885805b"
+        "sha256": "dfbeabbd3113b24ee392de83311269d9ea858886878d70fa30759b56e885805b",
+        "backend": "restricted-c-binary64"
        }
       ],
       "proved_by": [
@@ -85,8 +89,8 @@
       "evidence_method": "not-program-verified",
       "native_facts": 0,
       "native_fact_owners": [],
-      "checked_at": "2026-11-04T23:23:33+00:00",
-      "repository_commit": "da759404092d791dae33fdf794f35d69e3dc0318",
+      "checked_at": "2026-11-05T03:46:36+00:00",
+      "repository_commit": "b985e415e0f7b846906b68cd11101d3720ce769d",
       "attestation": "pv-evidence/RamanujanGap.v3.gap_lower_bound.native-assisted.local.json"
      }
     }
@@ -108,26 +112,285 @@
        "PVPilot.Updated.certificateA",
        "PVPilot.Updated.certificateB"
       ],
-      "checked_at": "2026-11-04T23:26:46+00:00",
-      "repository_commit": "da759404092d791dae33fdf794f35d69e3dc0318",
+      "checked_at": "2026-11-05T03:49:58+00:00",
+      "repository_commit": "b985e415e0f7b846906b68cd11101d3720ce769d",
       "attestation": "pv-evidence/@pv.PVPilot.Updated.gap_exceeds_leading.native-assisted.local.json"
      },
      "program": {
-      "backend": "restricted C, IEEE binary64 round-to-nearest (PVCore.Program)",
+      "backends": [
+       "restricted C, IEEE binary64 round-to-nearest (PVCore)"
+      ],
       "sources": [
        {
         "path": "pilots/agentB-calibration/c/calibration_new.c",
-        "sha256": "f206bd817deab53b2fbaa38e4f7a84b5ad6958d5c5d625fc49eb407975be0568"
+        "sha256": "f206bd817deab53b2fbaa38e4f7a84b5ad6958d5c5d625fc49eb407975be0568",
+        "backend": "restricted-c-binary64"
        },
        {
         "path": "pilots/agentB-calibration/c/ramanujan_9401_new.c",
-        "sha256": "86d204a5a7ba913a43e8e387990b7ea60dc146e4eac336b98f9bffa2f35d8895"
+        "sha256": "86d204a5a7ba913a43e8e387990b7ea60dc146e4eac336b98f9bffa2f35d8895",
+        "backend": "restricted-c-binary64"
        }
       ],
       "proved_by": [
        "PVCore.certified",
        "PVCore.exact_le_out",
        "PVCore.le_bound_of_check",
+       "PVCore.out_le_exact",
+       "PVRamanujan.budget_of_check",
+       "SumStability.c_sum_forward_error"
+      ]
+     }
+    }
+   ]
+  },
+  "pilot-A-to-Bprime-kernel": {
+   "statement": "the pilot-A-to-Bprime statement again, with both certificates on the kernel route: its only native facts decode the two literal tables (PVPilot.Kernel.decodeA, decodeB)",
+   "data_link": "PVPilot.Updated.link (unchanged)",
+   "links": [
+    {
+     "conclusion": "@pv.PVPilot.Kernel.gap_exceeds_leading",
+     "role": "two kernel-checked stages joined by the same data link",
+     "official": null,
+     "local_gate": {
+      "status": "passed",
+      "evidence_method": "lean-verified-program",
+      "native_facts": 2,
+      "native_fact_owners": [
+       "PVPilot.Kernel.decodeA",
+       "PVPilot.Kernel.decodeB"
+      ],
+      "checked_at": "2026-11-05T03:52:52+00:00",
+      "repository_commit": "b985e415e0f7b846906b68cd11101d3720ce769d",
+      "attestation": "pv-evidence/@pv.PVPilot.Kernel.gap_exceeds_leading.native-assisted.local.json"
+     },
+     "program": {
+      "backends": [
+       "restricted C, IEEE binary64 round-to-nearest (PVCore)"
+      ],
+      "sources": [
+       {
+        "path": "pilots/agentB-calibration/c/calibration_new.c",
+        "sha256": "f206bd817deab53b2fbaa38e4f7a84b5ad6958d5c5d625fc49eb407975be0568",
+        "backend": "restricted-c-binary64"
+       },
+       {
+        "path": "pilots/agentB-calibration/c/ramanujan_9401_new.c",
+        "sha256": "86d204a5a7ba913a43e8e387990b7ea60dc146e4eac336b98f9bffa2f35d8895",
+        "backend": "restricted-c-binary64"
+       }
+      ],
+      "proved_by": [
+       "PVCore.certified",
+       "PVCore.exact_le_out",
+       "PVCore.le_bound_of_check",
+       "PVCore.out_le_exact",
+       "PVRamanujan.budget_of_check",
+       "SumStability.c_sum_forward_error"
+      ]
+     }
+    }
+   ]
+  },
+  "ramanujan-from-e401-psi": {
+   "statement": "RamanujanGap.v3.gap_lower_bound with the pi premise discharged by its solution DudekPlattNumerics.v5.challenge_pi_two_sided_qrh; what remains is QRHCH2.v5.psi_refined_bound. RamanujanGap.v3.gap_from_qrh goes one step further: CH2.v9.refined_transfer applied to OpenAIQRH.v1.zeta_seven_eighths.",
+   "replay": {
+    "theorem": "RamanujanGap.v3.gap_from_psi",
+    "project": "Solutions/RamanujanGap.v3",
+    "axioms": "propext, Classical.choice, Quot.sound + 1 native fact (RamanujanNumerics.v3.Provider.certificate)"
+   },
+   "links": [
+    {
+     "conclusion": "QRHCH2.v5.psi_refined_bound",
+     "role": "analytic premise (node import)",
+     "official": {
+      "designated_kind": "none-yet",
+      "verification_method": null,
+      "imports": [
+       "CH2.v9.refined_transfer",
+       "OpenAIQRH.v1.zeta_seven_eighths"
+      ],
+      "receipt": false
+     },
+     "local_gate": "not-run"
+    },
+    {
+     "conclusion": "@replay.RamanujanGap.v3.gap_from_psi",
+     "role": "pi solution, generated provider and consumer",
+     "official": null,
+     "local_gate": {
+      "status": "passed",
+      "evidence_method": "lean-verified-program",
+      "native_facts": 1,
+      "native_fact_owners": [
+       "RamanujanNumerics.v3.Provider.certificate"
+      ],
+      "checked_at": "2026-11-05T03:52:19+00:00",
+      "repository_commit": "b985e415e0f7b846906b68cd11101d3720ce769d",
+      "attestation": "pv-evidence/@replay.RamanujanGap.v3.gap_from_psi.native-assisted.local.json"
+     },
+     "program": {
+      "backends": [
+       "restricted C, IEEE binary64 round-to-nearest (PVCore)"
+      ],
+      "sources": [
+       {
+        "path": "Solutions/RamanujanNumerics.v3/c/budget.c",
+        "sha256": "dfbeabbd3113b24ee392de83311269d9ea858886878d70fa30759b56e885805b",
+        "backend": "restricted-c-binary64"
+       }
+      ],
+      "proved_by": [
+       "PVCore.certified",
+       "PVCore.exact_le_out",
+       "PVCore.out_le_exact",
+       "PVRamanujan.budget_of_check",
+       "SumStability.c_sum_forward_error"
+      ]
+     }
+    }
+   ]
+  },
+  "two-backend-from-e301": {
+   "statement": "(1 + 7.72/log x) x^2/log^6 x < gap(x) for every x > exp 301, under Agent A's seven inputs. Not new as Ramanujan's inequality (DudekPlatt.v6.ramanujan_145 starts at exp 145, local proof, no receipt); it shows two program backends composing.",
+   "data_link": "PVTwoBackend.pi_input_of_powerLog : HasPowerLogBound E\u03c0 (947147/10^8) 0 (7/8) (exp 300) \u2192 ForwardRamanujan.PiInput (11999/100) (245/2) 300 (kernel-checked, no native facts)",
+   "links": [
+    {
+     "conclusion": "@scoped.ScopedWinnerA.pi_00947147",
+     "role": "Agent A's provider (lean-dyadic-expr backend)",
+     "official": null,
+     "local_gate": {
+      "status": "passed",
+      "evidence_method": "lean-verified-program",
+      "native_facts": 49,
+      "native_fact_owners": [
+       "ScopedWinnerA.Certificate.checked",
+       "WinnerEulerGamma.upper_check",
+       "WinnerHeightKernel0.negative_check",
+       "WinnerHeightKernel0.positive_check",
+       "WinnerHeightKernel1.negative_check",
+       "WinnerHeightKernel1.positive_check",
+       "WinnerHeightKernel2.negative_check",
+       "WinnerHeightKernel2.positive_check",
+       "WinnerHeightKernel3.negative_check",
+       "WinnerHeightKernel3.positive_check",
+       "WinnerHeightProfiles.coefficient_upper",
+       "WinnerHeightProfiles.log_lower",
+       "WinnerHeightProfiles.mean_one_upper",
+       "WinnerHeightProfiles.mean_two_upper",
+       "WinnerHeightProfiles.ratio_one_upper",
+       "WinnerHeightProfiles.ratio_zero_upper",
+       "WinnerHeightProfiles.right_v_upper",
+       "WinnerHeightProfiles.slope_lower",
+       "WinnerOriginalScalars.Revers.amplitude_floor_check",
+       "WinnerOriginalScalars.cSeven_upper",
+       "WinnerOriginalScalars.ceight_simple_upper",
+       "WinnerOriginalScalars.eta_bsix_upper",
+       "WinnerOriginalScalars.height_log_lower",
+       "WinnerOriginalScalars.mu_bsix_upper",
+       "WinnerOriginalScalars.omega_upper"
+      ],
+      "checked_at": "2026-11-05T03:50:32+00:00",
+      "repository_commit": "b985e415e0f7b846906b68cd11101d3720ce769d",
+      "attestation": "pv-evidence/@scoped.ScopedWinnerA.pi_00947147.native-assisted.local.json"
+     },
+     "program": {
+      "backends": [
+       "generated Lean expression, exact dyadic interval evaluator"
+      ],
+      "sources": [
+       {
+        "path": "Solutions/ScopedWinnerA.v1/ScopedWinnerA/Certificate.lean",
+        "sha256": "742eb0fce0c13d4260c8d801aebd5a770d6bdbd9b5c4ca09d8a0bfb09908ad35",
+        "backend": "lean-dyadic-expr"
+       },
+       {
+        "path": "Solutions/WinnerDensityA.v1/WinnerDensityA/HeightProgram.lean",
+        "sha256": "2646b10e03133da54a0d9d4cce7d6fc16aad2154a0ca65cda28c4c2118c5eec2",
+        "backend": "lean-dyadic-expr"
+       },
+       {
+        "path": "Solutions/WinnerProgramA.v1/WinnerProgramA/Program.lean",
+        "sha256": "6b80df7b5624627ea4a5fbcce27ffb95e480fb5280bac04c0bf05690fb2df38c",
+        "backend": "lean-dyadic-expr"
+       }
+      ],
+      "proved_by": [
+       "WinnerProgramA.source_linked_upper"
+      ]
+     }
+    },
+    {
+     "conclusion": "@twobackend.PVTwoBackend.gap_exceeds_leading",
+     "role": "data link and Agent B's budget program (restricted C backend)",
+     "official": null,
+     "local_gate": {
+      "status": "passed",
+      "evidence_method": "lean-verified-program",
+      "native_facts": 50,
+      "native_fact_owners": [
+       "PVTwoBackend.StageB.certificate",
+       "ScopedWinnerA.Certificate.checked",
+       "WinnerEulerGamma.upper_check",
+       "WinnerHeightKernel0.negative_check",
+       "WinnerHeightKernel0.positive_check",
+       "WinnerHeightKernel1.negative_check",
+       "WinnerHeightKernel1.positive_check",
+       "WinnerHeightKernel2.negative_check",
+       "WinnerHeightKernel2.positive_check",
+       "WinnerHeightKernel3.negative_check",
+       "WinnerHeightKernel3.positive_check",
+       "WinnerHeightProfiles.coefficient_upper",
+       "WinnerHeightProfiles.log_lower",
+       "WinnerHeightProfiles.mean_one_upper",
+       "WinnerHeightProfiles.mean_two_upper",
+       "WinnerHeightProfiles.ratio_one_upper",
+       "WinnerHeightProfiles.ratio_zero_upper",
+       "WinnerHeightProfiles.right_v_upper",
+       "WinnerHeightProfiles.slope_lower",
+       "WinnerOriginalScalars.Revers.amplitude_floor_check",
+       "WinnerOriginalScalars.cSeven_upper",
+       "WinnerOriginalScalars.ceight_simple_upper",
+       "WinnerOriginalScalars.eta_bsix_upper",
+       "WinnerOriginalScalars.height_log_lower",
+       "WinnerOriginalScalars.mu_bsix_upper",
+       "WinnerOriginalScalars.omega_upper"
+      ],
+      "checked_at": "2026-11-05T03:51:24+00:00",
+      "repository_commit": "b985e415e0f7b846906b68cd11101d3720ce769d",
+      "attestation": "pv-evidence/@twobackend.PVTwoBackend.gap_exceeds_leading.native-assisted.local.json"
+     },
+     "program": {
+      "backends": [
+       "generated Lean expression, exact dyadic interval evaluator",
+       "restricted C, IEEE binary64 round-to-nearest (PVCore)"
+      ],
+      "sources": [
+       {
+        "path": "Solutions/ScopedWinnerA.v1/ScopedWinnerA/Certificate.lean",
+        "sha256": "742eb0fce0c13d4260c8d801aebd5a770d6bdbd9b5c4ca09d8a0bfb09908ad35",
+        "backend": "lean-dyadic-expr"
+       },
+       {
+        "path": "Solutions/WinnerDensityA.v1/WinnerDensityA/HeightProgram.lean",
+        "sha256": "2646b10e03133da54a0d9d4cce7d6fc16aad2154a0ca65cda28c4c2118c5eec2",
+        "backend": "lean-dyadic-expr"
+       },
+       {
+        "path": "Solutions/WinnerProgramA.v1/WinnerProgramA/Program.lean",
+        "sha256": "6b80df7b5624627ea4a5fbcce27ffb95e480fb5280bac04c0bf05690fb2df38c",
+        "backend": "lean-dyadic-expr"
+       },
+       {
+        "path": "pilots/pv-twobackend/c/budget_301.c",
+        "sha256": "c485fda926a17c06040fdd3d57083a252143c46201b92589758d91c5a2e029a9",
+        "backend": "restricted-c-binary64"
+       }
+      ],
+      "proved_by": [
+       "WinnerProgramA.source_linked_upper",
+       "PVCore.certified",
+       "PVCore.exact_le_out",
        "PVCore.out_le_exact",
        "PVRamanujan.budget_of_check",
        "SumStability.c_sum_forward_error"

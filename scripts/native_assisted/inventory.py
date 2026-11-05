@@ -34,6 +34,34 @@ FAMILY_TITLE = {"PoC1": "PoC 1: FKS2 scalar ν correction", "Table4": "FKS2 Tabl
                 "Ramanujan": "Forward Ramanujan quantitative gap",
                 "Pilot": "A→B calibration pilot (not a node)"}
 
+def all_sources(m: dict) -> list[dict]:
+    """Every executed source of an attestation: its C files, or each backend's sources."""
+    out = []
+    backends = m.get("backends")
+    if backends is None:
+        for s in (m.get("S_source_identity") or {}).get("sources", []):
+            out.append({"path": s["path"], "sha256": s.get("sha256"), "backend": "restricted-c-binary64",
+                        "embedded_by": s.get("embedded_by", [])})
+        return out
+    for b in backends:
+        S = b.get("S_source_identity") or {}
+        for s in S.get("sources", []):
+            out.append({"path": s["path"], "sha256": s.get("sha256"), "backend": b.get("backend"),
+                        "embedded_by": s.get("embedded_by", [])})
+        for s in S.get("program_sources", []):
+            out.append({"path": s["path"], "sha256": s.get("sha256"), "backend": b.get("backend"),
+                        "embedded_by": [p["name"] for p in S.get("programs", [])
+                                        if p.get("source") == s["path"]]})
+    return out
+
+
+def method_theorems(m: dict, k: str) -> list[str]:
+    """The A/E/C theorems of an attestation, from every backend when there are several."""
+    if m.get("backends") is None:
+        return (m.get(k) or {}).get("theorems", [])
+    return [t for b in m["backends"] for t in (b.get(k) or {}).get("theorems", [])]
+
+
 
 def fmt_hyps(r):
     hs = r.get("remaining_hypotheses") or []
@@ -48,7 +76,7 @@ def row(key, r):
                      ("S_source_identity", "A_source_association", "E_execution_witness",
                       "C_generic_correctness", "M_mathematical_endpoint"))
     srcs = ", ".join(f"`{s['path']}` (`{(s['sha256'] or '')[:12]}`)"
-                     for s in (m.get("S_source_identity") or {}).get("sources", [])) or "none"
+                     for s in all_sources(m)) or "none"
     natives = ", ".join(f"`{n['decl'].split('.')[-1]}`" for n in ax.get("native_facts", []))
     return (f"| `{key}` | `{r.get('endpoint')}` | {off.get('designated_kind', 'n/a (not a node)')}"
             f" / `{off.get('designated_id', '-')}` | {r.get('evidence_method')} ({checks}) | "
@@ -93,9 +121,9 @@ def main():
         mods = [m for m in r.get("project_modules", []) if m.get("source")]
         m = r.get("method_checks") or {}
         lines.append(f"- `{k}` → `{r.get('endpoint')}`: association "
-                     f"{', '.join('`'+t+'`' for t in (m.get('A_source_association') or {}).get('theorems', [])[:3]) or '-'}; "
-                     f"execution {', '.join('`'+t+'`' for t in (m.get('E_execution_witness') or {}).get('theorems', [])[:3]) or '-'}; "
-                     f"correctness {', '.join('`'+t+'`' for t in (m.get('C_generic_correctness') or {}).get('theorems', [])[:3]) or '-'}; "
+                     f"{', '.join('`'+t+'`' for t in method_theorems(m, 'A_source_association')[:3]) or '-'}; "
+                     f"execution {', '.join('`'+t+'`' for t in method_theorems(m, 'E_execution_witness')[:3]) or '-'}; "
+                     f"correctness {', '.join('`'+t+'`' for t in method_theorems(m, 'C_generic_correctness')[:3]) or '-'}; "
                      f"{len(mods)} project modules hashed; closure fingerprint `{(r.get('proof_closure_fingerprint') or '')[:16]}`.")
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text("\n".join(lines) + "\n")

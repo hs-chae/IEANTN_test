@@ -41,7 +41,69 @@ CHAINS = {
         ],
         "data_link": "PVPilot.Updated.link : B'.M = 120 + A's certified bound (kernel-checked rational equality)",
     },
+    "pilot-A-to-Bprime-kernel": {
+        "statement": "the pilot-A-to-Bprime statement again, with both certificates on the kernel route: "
+                     "its only native facts decode the two literal tables (PVPilot.Kernel.decodeA, decodeB)",
+        "links": [
+            ("@pv.PVPilot.Kernel.gap_exceeds_leading", "two kernel-checked stages joined by the same data link"),
+        ],
+        "data_link": "PVPilot.Updated.link (unchanged)",
+    },
+    "ramanujan-from-e401-psi": {
+        "statement": "RamanujanGap.v3.gap_lower_bound with the pi premise discharged by its solution "
+                     "DudekPlattNumerics.v5.challenge_pi_two_sided_qrh; what remains is "
+                     "QRHCH2.v5.psi_refined_bound. RamanujanGap.v3.gap_from_qrh goes one step further: "
+                     "CH2.v9.refined_transfer applied to OpenAIQRH.v1.zeta_seven_eighths.",
+        "links": [
+            ("QRHCH2.v5.psi_refined_bound", "analytic premise (node import)"),
+            ("@replay.RamanujanGap.v3.gap_from_psi", "pi solution, generated provider and consumer"),
+        ],
+        "replay": {"theorem": "RamanujanGap.v3.gap_from_psi",
+                   "project": "Solutions/RamanujanGap.v3",
+                   "axioms": "propext, Classical.choice, Quot.sound + 1 native fact "
+                             "(RamanujanNumerics.v3.Provider.certificate)"},
+    },
+    "two-backend-from-e301": {
+        "statement": "(1 + 7.72/log x) x^2/log^6 x < gap(x) for every x > exp 301, under Agent A's seven "
+                     "inputs. Not new as Ramanujan's inequality (DudekPlatt.v6.ramanujan_145 starts at "
+                     "exp 145, local proof, no receipt); it shows two program backends composing.",
+        "links": [
+            ("@scoped.ScopedWinnerA.pi_00947147", "Agent A's provider (lean-dyadic-expr backend)"),
+            ("@twobackend.PVTwoBackend.gap_exceeds_leading",
+             "data link and Agent B's budget program (restricted C backend)"),
+        ],
+        "data_link": "PVTwoBackend.pi_input_of_powerLog : HasPowerLogBound Eπ (947147/10^8) 0 (7/8) (exp 300) "
+                     "→ ForwardRamanujan.PiInput (11999/100) (245/2) 300 (kernel-checked, no native facts)",
+    },
 }
+
+def all_sources(m: dict) -> list[dict]:
+    """Every executed source of an attestation: its C files, or each backend's sources."""
+    out = []
+    backends = m.get("backends")
+    if backends is None:
+        for s in (m.get("S_source_identity") or {}).get("sources", []):
+            out.append({"path": s["path"], "sha256": s.get("sha256"), "backend": "restricted-c-binary64",
+                        "embedded_by": s.get("embedded_by", [])})
+        return out
+    for b in backends:
+        S = b.get("S_source_identity") or {}
+        for s in S.get("sources", []):
+            out.append({"path": s["path"], "sha256": s.get("sha256"), "backend": b.get("backend"),
+                        "embedded_by": s.get("embedded_by", [])})
+        for s in S.get("program_sources", []):
+            out.append({"path": s["path"], "sha256": s.get("sha256"), "backend": b.get("backend"),
+                        "embedded_by": [p["name"] for p in S.get("programs", [])
+                                        if p.get("source") == s["path"]]})
+    return out
+
+
+def method_theorems(m: dict, k: str) -> list[str]:
+    """The A/E/C theorems of an attestation, from every backend when there are several."""
+    if m.get("backends") is None:
+        return (m.get(k) or {}).get("theorems", [])
+    return [t for b in m["backends"] for t in (b.get(k) or {}).get("theorems", [])]
+
 
 
 def attestation(key: str) -> dict | None:
@@ -77,11 +139,14 @@ def link(key: str, role: str) -> dict:
                          "checked_at": (a.get("run") or {}).get("checked_at_utc"),
                          "repository_commit": (a.get("pins") or {}).get("repository_commit"),
                          "attestation": f"pv-evidence/{key}.native-assisted.local.json"}
-    srcs = (checks.get("S_source_identity") or {}).get("sources") or []
+    srcs = all_sources(checks)
     if srcs:
-        out["program"] = {"backend": "restricted C, IEEE binary64 round-to-nearest (PVCore.Program)",
-                          "sources": [{"path": s["path"], "sha256": s["sha256"]} for s in srcs],
-                          "proved_by": (checks.get("C_generic_correctness") or {}).get("theorems")}
+        names = {"restricted-c-binary64": "restricted C, IEEE binary64 round-to-nearest (PVCore)",
+                 "lean-dyadic-expr": "generated Lean expression, exact dyadic interval evaluator"}
+        out["program"] = {"backends": sorted({names.get(s["backend"], s["backend"]) for s in srcs}),
+                          "sources": [{"path": s["path"], "sha256": s["sha256"], "backend": s["backend"]}
+                                      for s in srcs],
+                          "proved_by": method_theorems(checks, "C_generic_correctness")}
     return out
 
 
