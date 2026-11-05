@@ -1,6 +1,6 @@
 name = "solution_Table4Evolution_v1"
 defaultTargets = ["Table4Evolution", "T4QRHTrunc", "T4OldTrunc", "T4QRHQuarter", "T4AgentATrunc",
-  "T4AgentASource"]
+  "T4AgentASource", "T4PowerNetwork", "T4PowerAgentA"]
 
 [leanOptions]
 autoImplicit = false
@@ -25,7 +25,7 @@ path = "../FKS2Numerics.v6"
 [[lean_lib]]
 name = "Table4Evolution"
 roots = ["Table4Evolution.Partition", "Table4Evolution.Bounds", "Table4Evolution.Instance",
-  "Table4Evolution.Profiles"]
+  "Table4Evolution.Profiles", "Table4Evolution.PowerTransport"]
 
 # One library per configuration, each needing only its own C file (read by `include_str`). A changed
 # file rebuilds exactly the modules of its configuration; a library-wide `needs` list would rebuild
@@ -47,7 +47,7 @@ text = true
 
 [[lean_lib]]
 name = "T4OldTrunc"
-roots = ["Table4Evolution.OldTrunc"]
+roots = ["Table4Evolution.OldTrunc", "Table4Evolution.OldTruncKernel"]
 needs = ["old_trunc3_c"]
 
 [[input_file]]
@@ -67,7 +67,7 @@ text = true
 
 [[lean_lib]]
 name = "T4AgentATrunc"
-roots = ["Table4Evolution.AgentATrunc"]
+roots = ["Table4Evolution.AgentATrunc", "Table4Evolution.AgentATruncKernel"]
 needs = ["agentA_trunc4_c"]
 
 [[input_file]]
@@ -77,8 +77,29 @@ text = true
 
 [[lean_lib]]
 name = "T4AgentASource"
-roots = ["Table4Evolution.AgentASource"]
+roots = ["Table4Evolution.AgentASource", "Table4Evolution.AgentASourceKernel"]
 needs = ["agentA_source4_c"]
+
+# Power-form transport (closed-form integral, two inputs and one constant), kernel-only routes.
+[[input_file]]
+name = "power_network_c"
+path = "c/power_network.c"
+text = true
+
+[[lean_lib]]
+name = "T4PowerNetwork"
+roots = ["Table4Evolution.PowerNetwork"]
+needs = ["power_network_c"]
+
+[[input_file]]
+name = "power_agentA_c"
+path = "c/power_agentA.c"
+text = true
+
+[[lean_lib]]
+name = "T4PowerAgentA"
+roots = ["Table4Evolution.PowerAgentA"]
+needs = ["power_agentA_c"]
 
 # The umbrella module, for tests. Measured (agentB/evidence/pv5/rebuild_scope.log): a module built
 # through another library's import is traced without the `needs` of its own library, so after a C
@@ -88,4 +109,5 @@ needs = ["agentA_source4_c"]
 [[lean_lib]]
 name = "Table4EvolutionAll"
 roots = ["Table4Evolution"]
-needs = ["qrh_trunc2_c", "old_trunc3_c", "qrh_quarter120_c", "agentA_trunc4_c", "agentA_source4_c"]
+needs = ["qrh_trunc2_c", "old_trunc3_c", "qrh_quarter120_c", "agentA_trunc4_c", "agentA_source4_c",
+  "power_network_c", "power_agentA_c"]

@@ -13,3 +13,9 @@ import Table4Evolution.QRHQuarter
 import Table4Evolution.AgentATrunc
 import Table4Evolution.AgentASource
 import Table4Evolution.KernelOnly
+import Table4Evolution.OldTruncKernel
+import Table4Evolution.AgentATruncKernel
+import Table4Evolution.AgentASourceKernel
+import Table4Evolution.PowerTransport
+import Table4Evolution.PowerNetwork
+import Table4Evolution.PowerAgentA

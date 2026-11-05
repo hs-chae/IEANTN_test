@@ -4,3 +4,4 @@ import PVReplay.Chain
 import PVReplay.KernelChain
 import PVReplay.KernelOnly
 import PVReplay.Chunked
+import PVReplay.RamanujanKernel
