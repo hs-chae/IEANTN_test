@@ -12,10 +12,10 @@
  },
  "blockers": [],
  "challenge_type_match": true,
- "closure_size": 45391,
+ "closure_size": 45392,
  "conclusion": "@evo.Table4Evolution.QRHTrunc.Kernel.qrh_pi",
  "endpoint": "Table4Evolution.QRHTrunc.Kernel.qrh_pi",
- "evidence_method": "not-program-verified",
+ "evidence_method": "lean-verified-program",
  "gate": "native-assisted",
  "lean_githash": "6a10ac8c22beadecabdbb0919c2b50214762f91d",
  "lean_version": "4.34.0-rc2",
@@ -23,6 +23,7 @@
   "A_source_association": {
    "ok": true,
    "theorems": [
+    "Table4Evolution.QRHTrunc.Kernel.certificate_k",
     "Table4Evolution.QRHTrunc.Kernel.upper_k",
     "Table4Evolution.QRHTrunc.Kernel.upper_k._proof_1_1"
    ]
@@ -38,8 +39,10 @@
    ]
   },
   "E_execution_witness": {
-   "ok": false,
-   "theorems": []
+   "ok": true,
+   "theorems": [
+    "Table4Evolution.QRHTrunc.Kernel.certificate_k"
+   ]
   },
   "M_mathematical_endpoint": {
    "ok": true,
@@ -61,7 +64,7 @@
    ]
   },
   "claimed": "lean-verified-program",
-  "result": "not-program-verified"
+  "result": "lean-verified-program"
  },
  "notice": "LOCAL RESEARCH ATTESTATION (native-assisted gate). Not an IEANTN verification receipt, not issued by Comparator, not an official justification. Native evaluation extends the trusted base; restricted-C/RN64 semantics, compiler, runtime and hardware are trusted.",
  "official": {
@@ -76,7 +79,7 @@
  "pins": {
   "lean_toolchain": "leanprover/lean4:v4.34.0-rc2",
   "mathlib": "71a80585ee495fc24472fd0eaffc89d94e4fd8d6",
-  "repository_commit": "a45338ce66b52752ba7bafe2ebe937133d6eb304",
+  "repository_commit": "cb81845329a51a725e28f3188890065870e7c8ad",
   "working_tree_clean": true
  },
  "project": "Solutions/Table4Evolution.v1",
@@ -233,7 +236,7 @@
   },
   {
    "module": "Table4Evolution.KernelOnly",
-   "sha256": "510125fe797d5cf980d02fa39cd9a45a07a45097853bcc6272db31985f36bd7f",
+   "sha256": "c67f42f2a90351e50f304dd047ed67aaf38fb1f71f70d1d60882b28f8997e2dc",
    "source": "Solutions/Table4Evolution.v1/Table4Evolution/KernelOnly.lean"
   },
   {
@@ -258,7 +261,7 @@
   }
  ],
  "promotion_rule": "No local attestation promotes anything. An endpoint's official kind may become `lean-comparator` only when the IEANTN verification workflow records an authentic Comparator receipt for that same conclusion (receipts/<Node>.<conclusion>.json), which requires a proof whose axiom closure is exactly propext, Classical.choice, Quot.sound (zero native facts). The evidence method `lean-verified-program` may then be retained as a description of the proof. A receipt-backed official subtype `lean-verified-program` would need an upstream schema/policy change and is not implemented.",
- "proof_closure_fingerprint": "a22a5f1954e8271cd0d9b6c92381c7714a744df16afe75e9e7beed172acaf39a",
+ "proof_closure_fingerprint": "d65884c0e623ce5f21d5a0a408e387a716155429d5721b514ba31f808ef07f70",
  "reasons": [],
  "remaining_hypotheses": [
   {
@@ -275,10 +278,10 @@
   "build": {
    "command": "lake build Table4Evolution",
    "rc": 0,
-   "replayed_or_built_tail": "ath.lean:127:10: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\n⚠ [9033/9041] Replayed FKS2Table4.Transport\nwarning: FKS2Table4/Transport.lean:51:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\nBuild completed successfully (9041 jobs).\n",
-   "seconds": 4.6
+   "replayed_or_built_tail": "an:51:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n✔ [9037/9041] Built Table4Evolution.Partition (6.4s)\n✔ [9038/9041] Built Table4Evolution.Bounds (5.8s)\n✔ [9039/9041] Built Table4Evolution.Instance (5.2s)\n✔ [9040/9041] Built Table4Evolution.Profiles (5.1s)\nBuild completed successfully (9041 jobs).\n",
+   "seconds": 27.7
   },
-  "checked_at_utc": "2026-11-05T09:09:11+00:00",
+  "checked_at_utc": "2026-11-05T09:16:31+00:00",
   "checker_sha256": "411b9fc34717f02d34dd104a5519401af5c16f604fe655e067623dae3ee79e4a",
   "extract_challenge": {
    "command": "lake env lean --run /ryu/hyunsik/playground/independence/ieantn_qrh/agentB/network/scripts/native_assisted/Extract.lean IEANTN.Nodes.FKS2Numerics.v7.Challenge FKS2Numerics.v7.challenge_qrh_pi /ryu/hyunsik/playground/independence/ieantn_qrh/agentB/network/pv-evidence/.work/@evo.Table4Evolution.QRHTrunc.Kernel.qrh_pi/challenge.json /ryu/hyunsik/playground/independence/ieantn_qrh/agentB/network/.lake/build/lib/lean",
@@ -286,7 +289,7 @@
    "log_tail": "",
    "rc": 0,
    "root_olean": "/ryu/hyunsik/playground/independence/ieantn_qrh/agentB/network/.lake/build/lib/lean/IEANTN/Nodes/FKS2Numerics/v7/Challenge.olean",
-   "seconds": 10.9
+   "seconds": 11.1
   },
   "extract_solution": {
    "command": "lake env lean --run /ryu/hyunsik/playground/independence/ieantn_qrh/agentB/network/scripts/native_assisted/Extract.lean Table4Evolution Table4Evolution.QRHTrunc.Kernel.qrh_pi /ryu/hyunsik/playground/independence/ieantn_qrh/agentB/network/pv-evidence/.work/@evo.Table4Evolution.QRHTrunc.Kernel.qrh_pi/solution.json /ryu/hyunsik/playground/independence/ieantn_qrh/agentB/network/Solutions/Table4Evolution.v1/.lake/build/lib/lean",
@@ -294,7 +297,7 @@
    "log_tail": "",
    "rc": 0,
    "root_olean": "/ryu/hyunsik/playground/independence/ieantn_qrh/agentB/network/Solutions/Table4Evolution.v1/.lake/build/lib/lean/Table4Evolution.olean",
-   "seconds": 27.9
+   "seconds": 28.2
   },
   "extractor_sha256": "a8fc56af4fa9bd0bd98ee83bb90f939a4bbadbc5666ad65625d693bc5f8b97fd"
  },
