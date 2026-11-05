@@ -16,7 +16,7 @@ The proof core is unchanged; the partition data, four cell literals and three co
 Four cells: `[300, 327]` and three unit cells.
 
 Result: `Eπ ≤ 1.2078·10⁻²⁰` on `x ≥ e^330`. A second route, not a new bound: Agent A's own π
-theorem `ScopedWinnerA.pi_00947147` gives `0.00947147·e^{-41.25} ≈ 1.157·10⁻²⁰` there directly.
+theorem `ScopedWinnerA.pi_00947147` gives `0.00947147·e^{-41.25} ≈ 1.153·10⁻²⁰` there directly.
 One native fact: `certificate`.
 -/
 

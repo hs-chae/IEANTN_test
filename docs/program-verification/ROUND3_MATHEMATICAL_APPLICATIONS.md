@@ -67,7 +67,7 @@ facts; the criterion is the same as in §1.
 
 Statements, inputs and the ablation are in `ROUND3_NUMERICAL_EVOLUTION.md`. As π bounds on
 `[e^330, ∞)` they are not the network's best: `QRHPropagation.v2.pi_density_300` gives
-`≈ 1.6·10⁻²⁰` there and Agent A's π theorem `1.157·10⁻²⁰`. What they add is a registered statement
+`≈ 1.6·10⁻²⁰` there and Agent A's π theorem `1.153·10⁻²⁰`. What they add is a registered statement
 (`FKS2Numerics.v7.qrh_pi`) with a native-fact-free proof.
 
 ## 5. The Ramanujan A→B′ chain, kernel only

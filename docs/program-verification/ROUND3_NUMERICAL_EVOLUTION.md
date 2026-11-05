@@ -102,7 +102,7 @@ the registered target, from the exact allowances:
    `[300, 330]` can move the point term `U(330)`.
 5. **A later profile, unchanged proof core**: Agent A's θ coefficient through 4 cells gives
    `1.2078·10⁻²⁰`, four orders of magnitude below the registered QRH target, a second route to a
-   bound Agent A already has (`1.157·10⁻²⁰`).
+   bound Agent A already has (`1.153·10⁻²⁰`).
 
 ## 4. The consumer
 

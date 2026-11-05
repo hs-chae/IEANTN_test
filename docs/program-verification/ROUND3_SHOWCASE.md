@@ -108,7 +108,7 @@ cannot be lowered for that constant (no prime in `(1327, 1360.7]`). No native co
 
 - QRH and the analytic inputs of the network's QRH chain are **assumed**, not proved.
 - The Table 4 π bounds are **not** the network's best at `e^330` (`≈ 1.6·10⁻²⁰` by partial
-  summation; `1.157·10⁻²⁰` from Agent A's program).
+  summation; `1.153·10⁻²⁰` from Agent A's program).
 - These are local attestations; no official Comparator receipt was produced.
 - The C compiler, operating system and hardware are trusted, not verified.
 - No independent reviewer read this round.

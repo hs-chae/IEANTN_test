@@ -37,7 +37,7 @@ QRH enters every QRH result as a hypothesis through a node conclusion whose own 
 
 - **New (tertiary).** The network had QRH short intervals only for large `x`: `0.0345·x^{7/8}` from `e^192` and `0.0264·x^{7/8}` from `e^300` (`QRHPropagation.v2`). It had no statement valid for all `x`, and no consecutive-powers statement. Under RH, primes between consecutive cubes are classical; QRH with exponent `7/8` gives `k ≥ 8`, and the method cannot give `k = 7` (the gap `7x^{6/7}` is eventually below `x^{7/8}`). For large `x` the network's constants are better than `1/16`.
 - **New (trust).** The two C→C programs of the A→B′ chain and the evolved Table 4 program now need no native evaluation at all. The bottleneck was decoding decimal literals: `String.splitOn` and `String.toNat?` do not reduce in the kernel in Lean 4.34. `PVCore.Decimal` proves, for every string, that a kernel-reducible decoder gives the same values.
-- **Not new.** The Table 4 bounds are not the network's best π bounds at `e^330`: `QRHPropagation.v2.pi_density_300` gives `0.01323·e^{-41.25} ≈ 1.6·10⁻²⁰` there by partial summation, and Agent A's `ScopedWinnerA.pi_00947147` gives `1.157·10⁻²⁰`. The registered QRH Table 4 target (`5·10⁻¹⁶`) comes from the weaker profile `Q(L) = L²/283·e^{-L/8}`. The Agent A profile run (`1.2078·10⁻²⁰`) is a second route, weaker than Agent A's own π bound.
+- **Not new.** The Table 4 bounds are not the network's best π bounds at `e^330`: `QRHPropagation.v2.pi_density_300` gives `0.01323·e^{-41.25} ≈ 1.6·10⁻²⁰` there by partial summation, and Agent A's `ScopedWinnerA.pi_00947147` gives `1.153·10⁻²⁰`. The registered QRH Table 4 target (`5·10⁻¹⁶`) comes from the weaker profile `Q(L) = L²/283·e^{-L/8}`. The Agent A profile run (`1.2078·10⁻²⁰`) is a second route, weaker than Agent A's own π bound.
 
 ## Four-stage comparison ledger (for discussion, not a ranking)
 
@@ -50,7 +50,7 @@ The stages are nested sets of allowable results, so the best envelope cannot get
 | 0. before QRH | `1.6855·10⁻¹²` (FKS2 Table 4, printed); `1.69·10⁻¹²` reconstructed | `FKS2.v6.table4_330`; `FKS2Numerics.v6.old_pi` | literature; native-assisted program |
 | 1. QRH, no source-linked PV | `≈ 1.6·10⁻²⁰` | `QRHPropagation.v2.pi_density_300` (`0.01323·x^{-1/8}`) | Lean proof, no native facts; frontier constants from a numerical certificate outside Lean |
 | 2. + PV of non-evolved programs | `≈ 1.6·10⁻²⁰` (inherited); the PV'd 30-cell QRH Table 4 gives only `4.715·10⁻¹⁶` | `FKS2Numerics.v7.qrh_pi` | native-assisted |
-| 3. + evolved verified programs | `1.157·10⁻²⁰` | Agent A, `ScopedWinnerA.pi_00947147` (49 native facts, seven named inputs) | native-assisted |
+| 3. + evolved verified programs | `1.153·10⁻²⁰` | Agent A, `ScopedWinnerA.pi_00947147` (49 native facts, seven named inputs) | native-assisted |
 
 This round's contribution to quantity 1 is trust, not value: the 2-cell program proves the stage-2 registered target with no native fact.
 
@@ -69,7 +69,7 @@ Stage 2 adds nothing to quantity 2: no PV'd non-evolved program bounds `Eθ` wit
 - **A three-program chain (θ density → Table 4 transport → Ramanujan budget).** The transport's output is a constant on a ray, `Eπ ≤ ε` for all `x ≥ e^330`. The Ramanujan budget needs `|π − mainTerm − 120·x/log⁶x| ≤ δ·x/log⁶x` for all `x` in the range, i.e. `ε·log⁵x ≤ δ`, which fails as `x → ∞`. A constant π bound on an infinite ray cannot feed it; a decaying (power) bound can, and that is the round-2 two-backend chain.
 - **The 30-cell Table 4 program in the kernel.** Not run: it needs about 8 times the exponential certificates of the 2-cell program, whose kernel check already peaks at 28 GB.
 - **Smaller constants than `1/16`.** About `0.042` is reachable with the BKLNW Table 8 ψ bounds and a ψ→θ correction; not implemented.
-- **Agent A's newer package.** `Solutions/PVEvolutionA.v1` (staged, not committed, in Agent A's worktree at 06:09 UTC) was read, not used.
+- **Agent A's newer package.** `Solutions/PVEvolutionA.v1` was staged in Agent A's worktree when this round started and was committed there at `00128be` (07:54 UTC, branch `poc/maximal-pv-evolution-a`, not pushed). Read, not used: this round pins Agent A's pushed `e0c1ceb`.
 - **Independent reviewer.** Not launched without authorization.
 
 ## Corrections to earlier rounds
