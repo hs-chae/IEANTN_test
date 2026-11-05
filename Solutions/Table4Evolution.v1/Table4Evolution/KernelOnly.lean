@@ -48,8 +48,8 @@ theorem certificate_k : upperCheck source program (1 / 10 ^ 30) (5 / 10 ^ 16) = 
 /-- `FKS2Numerics.v7.qrh_pi`, kernel only. -/
 theorem qrh_pi (hpsi : QRHCH2.v5.psi_refined_bound) (hAnchor : FKS2.v6.table4_anchor_300) :
     FKS2Numerics.v7.qrh_pi := by
-  obtain ⟨hu, hx, hs, ho⟩ := upperCheck_of_decode decode_k upper_k
-  have hb := program_bound hu hs ho
+  obtain ⟨-, hx, hs, ho⟩ := upperCheck_of_decode decode_k upper_k
+  have hb := program_bound certificate_k hs ho
   rw [hx] at hb
   have h := pi_bound (rest := [329, 330]) (profile_qrh hpsi) hAnchor cells_k (by decide) const_k hb
   show HasNumericalBound Eπ ((5 : ℝ) / 10 ^ 16) (exp 330)
