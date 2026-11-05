@@ -88,11 +88,14 @@ def m_step(lo: F) -> F:
     return F("1.6795e-12")
 
 
+# Agent A's two committed theta coefficients on x >= e^300 (Solutions/WinnerDensityA.v1):
+# `source_theta300` (original inputs) and `revers_source_theta300` (Revers inputs).
+K_AGENT_A_SOURCE = F("0.009904") + F(1, 10 ** 12)
 K_AGENT_A = F("0.009782") + F(1, 10 ** 12)
 
 
-def m_agent_a(lo: F) -> F:
-    return K_AGENT_A
+def m_const(k: F):
+    return lambda lo: k
 
 
 # ---- the constant literals of the existing programs (anchor, point, tail; scale) ---------------
@@ -110,12 +113,12 @@ OLD_CONST = {  # FKS2Pair.Old.oldProgram (FKS2Numerics.v6)
 }
 
 
-def agent_a_const() -> dict:
-    """Upper bounds of the anchor, point and tail for the profile `K·e^{-L/8}` (see `AgentA.lean`)."""
+def power_const(K: F) -> dict:
+    """Upper bounds of the anchor, point and tail for the profile `K·e^{-L/8}` (`constOK`)."""
     k = 75
-    point = K_AGENT_A * exp_hi(F(-330, 32)) ** 4            # K·e^{-330/8}
+    point = K * exp_hi(F(-330, 32)) ** 4                    # K·e^{-330/8}
     tail = point / 328
-    u0 = K_AGENT_A * exp_hi(F(-300, 32)) ** 4               # K·e^{-300/8}
+    u0 = K * exp_hi(F(-300, 32)) ** 4                       # K·e^{-300/8}
     anchor = F(330, 300) * exp_hi(F(-15)) ** 2 * (F("1.6997e-12") + u0)
     lit = lambda q: G.literal(G.upward(q))
     return {"k": k, "scale": G.literal(F(1, 2 ** k)), "anchor": lit(anchor), "point": lit(point),
@@ -138,8 +141,11 @@ CONFIGS = [
          k=48, const=OLD_CONST, target=F(169, 10 ** 14)),
     dict(name="qrh_quarter120", ns="QRHQuarter", s=F(1, 8), m=m_qrh,
          bs=frange(F(300), F(330), F(1, 4)), k=60, const=QRH_CONST, target=None),
-    dict(name="agentA_trunc4", ns="AgentATrunc", s=F(1, 8), m=m_agent_a,
-         bs=[F(300), F(327), F(328), F(329), F(330)], k=75, const=None, target=None),
+    dict(name="agentA_trunc4", ns="AgentATrunc", s=F(1, 8), m=m_const(K_AGENT_A),
+         bs=[F(300), F(327), F(328), F(329), F(330)], k=75, const=None, K=K_AGENT_A, target=None),
+    dict(name="agentA_source4", ns="AgentASource", s=F(1, 8), m=m_const(K_AGENT_A_SOURCE),
+         bs=[F(300), F(327), F(328), F(329), F(330)], k=75, const=None, K=K_AGENT_A_SOURCE,
+         target=None),
 ]
 
 
@@ -182,7 +188,7 @@ def scale_exponent(his: list[F]) -> int:
 
 def build(cfg: dict) -> dict:
     s, m, bs = cfg["s"], cfg["m"], cfg["bs"]
-    const = cfg["const"] or agent_a_const()
+    const = cfg["const"] or power_const(cfg["K"])
     his = [cell_hi(s, m(lo), lo, hi) for lo, hi in zip(bs, bs[1:])]
     k = scale_exponent(his)
     xs = [G.upward(F(2) ** k * h) for h in his]

@@ -1,5 +1,5 @@
 name = "solution_Table4Evolution_v1"
-defaultTargets = ["Table4Evolution"]
+defaultTargets = ["Table4EvolutionAll"]
 
 [leanOptions]
 autoImplicit = false
@@ -19,23 +19,45 @@ path = "../ProgramVerification"
 name = "solution_FKS2Numerics_v6"
 path = "../FKS2Numerics.v6"
 
+# Core: the generic transport, the cell and constant certificates, the profiles, the generated
+# data. No C file is read here.
+[[lean_lib]]
+name = "Table4Evolution"
+roots = ["Table4Evolution.Partition", "Table4Evolution.Bounds", "Table4Evolution.Instance",
+  "Table4Evolution.Profiles"]
 
-# The selected C files are read by `include_str`; declaring them as inputs that the library needs
-# makes Lake rebuild the certificates when a file changes (a stale .olean would otherwise replay).
+# One library per configuration, each needing only its own C file (read by `include_str`). A changed
+# file rebuilds exactly the modules of its configuration; a library-wide `needs` list would rebuild
+# every configuration (measured: adding one file to a shared list rebuilt all eleven modules).
 [[input_file]]
 name = "qrh_trunc2_c"
 path = "c/qrh_trunc2.c"
 text = true
+
+[[lean_lib]]
+name = "T4QRHTrunc"
+roots = ["Table4Evolution.QRHTrunc", "Table4Evolution.KernelOnly"]
+needs = ["qrh_trunc2_c"]
 
 [[input_file]]
 name = "old_trunc3_c"
 path = "c/old_trunc3.c"
 text = true
 
+[[lean_lib]]
+name = "T4OldTrunc"
+roots = ["Table4Evolution.OldTrunc"]
+needs = ["old_trunc3_c"]
+
 [[input_file]]
 name = "qrh_quarter120_c"
 path = "c/qrh_quarter120.c"
 text = true
+
+[[lean_lib]]
+name = "T4QRHQuarter"
+roots = ["Table4Evolution.QRHQuarter"]
+needs = ["qrh_quarter120_c"]
 
 [[input_file]]
 name = "agentA_trunc4_c"
@@ -43,5 +65,21 @@ path = "c/agentA_trunc4.c"
 text = true
 
 [[lean_lib]]
-name = "Table4Evolution"
-needs = ["qrh_trunc2_c", "old_trunc3_c", "qrh_quarter120_c", "agentA_trunc4_c"]
+name = "T4AgentATrunc"
+roots = ["Table4Evolution.AgentATrunc"]
+needs = ["agentA_trunc4_c"]
+
+[[input_file]]
+name = "agentA_source4_c"
+path = "c/agentA_source4.c"
+text = true
+
+[[lean_lib]]
+name = "T4AgentASource"
+roots = ["Table4Evolution.AgentASource"]
+needs = ["agentA_source4_c"]
+
+# Everything, for `lake build`.
+[[lean_lib]]
+name = "Table4EvolutionAll"
+roots = ["Table4Evolution"]

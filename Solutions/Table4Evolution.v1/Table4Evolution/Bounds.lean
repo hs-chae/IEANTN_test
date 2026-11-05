@@ -181,7 +181,7 @@ theorem exp_le_expUp {y : ℚ} (h : expUpOK y = true) : exp (4 * (y : ℝ)) ≤ 
   by_cases hy : y = 0
   · simp [hy]
   · simp only [hy, decide_false, Bool.false_or] at h
-    simp only [hy, if_false]
+    simp only [hy, ite_false]
     exact exp4_le h
 
 def anchorHi (s m0 : ℚ) : ℚ := (330 / 300) * expHi (-15) ^ 2 * (1.6997e-12 + m0 * expUp (y0 s))
@@ -217,7 +217,6 @@ theorem constOK_sound {s m0 m330 a p t : ℚ} (h : constOK s m0 m330 a p t = tru
     mul_le_mul_of_nonneg_left e0 hm0'
   have hpt : (m330 : ℝ) * exp (-((s : ℝ) * 330)) ≤ (pointHi s m330 : ℝ) := by
     unfold pointHi; push_cast
-    push_cast at e330
     exact mul_le_mul_of_nonneg_left e330 hm330'
   have hanc : (330 / 300) * exp (-30) * (1.6997e-12 + (m0 : ℝ) * exp (-((s : ℝ) * 300))) ≤
       (anchorHi s m0 : ℝ) := by
