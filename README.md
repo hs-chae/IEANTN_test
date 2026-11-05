@@ -15,6 +15,10 @@ evidence may be a Lean proof checked by [Comparator](https://github.com/leanprov
 numerical computation, or a citation. The goal is not that everything is certain — it is that **for
 any result you can read off exactly what it rests on and how good that evidence is.**
 
+## Local maximal PV evolution experiment
+
+The new isolated Agent A work is described in [the provider handoff](docs/qrh/PV_EVOLUTION_AGENT_A.md). It preserves the frozen Scoped inputs and comparisons, distinguishes numerical execution from analytic gains, and identifies the subsequent Agent B vocabulary/node integration. See the accompanying reviewed source/evidence bundle for actual acceptance; no official status or publication is implied.
+
 ## QRH experiment branch: start here
 
 This `qrh-2pv` branch contains the QRH/CH2 propagation experiments, the paired

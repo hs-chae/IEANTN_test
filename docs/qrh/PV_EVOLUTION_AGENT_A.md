@@ -1,0 +1,25 @@
+# Agent A: maximal verified numerical evolution
+
+Start with [the new isolated Solution](../../Solutions/PVEvolutionA.v1/README.md), then inspect its actual `Result`, `Pointwise`, `Comparison`, `Ablation` and numerical-leaf sources. This extends the published Scoped work; it does not replace its frozen evidence or official node statements. The independent Agent B structural upgrade is a subsequent task.
+
+The experiment starts at owner e0c1cebf and freezes comparison snapshot69b75060a13d63ef87a41ee781d255f491ea16fe, descended from0945fe9b17de279b468a30d64a5cc776b7e32564. The comparison population is75node versions/169registered conclusions and39eligible old output identities. These are37numerical slots plus two explicit aliases, not39independent accepted programs or an optimum. The primary domain is every real x with330≤log(x)≤331; whole-ray validity is separate.
+
+The target is actual absolute prime-counting error divided by x/log(x), using the logarithmic integral from2. Inputs are exactly signed CHJ; large/small Riemann–von Mangoldt errors; first-low-zero exclusion; the original eight-field PrimaryInputs(.3681,.3599); finite RH through3e12; and QRH7/8. The original13non-QRH assertions remain explicit. The compatible OpenAI source may discharge only QRH. Changing d,delta,alpha,mu or eta inside those source contracts without deriving replacements would change the experiment.
+
+The canonical4.34.0-rc2 and compatible4.34.1 environments have checked the complete stronger theorem: coefficients0.009468286 from exp300,0.009150521 from exp330,0.009145878 from exp330.5, and their minimum with the exact pointwise finite majorant. The compatible wrapper supplies actual QRH, while the canonical theorem retains QRH as an input; the thirteen other assertions remain. Audits count49native facts per ray,51for the combined bound and57for the joint comparison. All selected sources, full numerical certificates and typed proof audits passed in both environments; final artifact gates are recorded separately.
+
+The provider has65536cubic sigma cells plus one base cell, four source-derived slopes, separated density/count heights, and a100-bit/depth32 exact-dyadic execution. A generic soundness theorem, AST-to-real denotation theorem, all-real spectral reduction and direct-prime consumer connect the accepted finite execution to the target. The numerical constants depend on the actual accepted runs; an exact pointwise analytic function is also retained without claiming irrational AST execution. Matched common-slope old/tight consumers isolate grid and analytic gains. Verification itself adds evidence, not numerical superiority over an equally correct no-PV calculation.
+
+The owner receives a standalone English static-MathML report and source/evidence bundle with the nine requested PV_EVOLUTION records, actual compiler/run logs, typed axiom/finite-proposition exports, strict five-mode gate controls, failed/cancelled epochs, source hashes and independent reviews. Those artifacts distinguish accepted numerical leaves and final prime roots from proposals. The repository source alone is not a replacement for those receipts. The no-PV companion/result is unavailable; direct comparison and numeric cumulative maxima remain pending.
+
+For structural integration, use this object sequence:
+
+1. A node version exposes named mathematical propositions through Conclusions and declares its input statements in metadata.
+2. A Mathlib-only vocabulary layer defines public source objects and elementary coefficient/bound functions. It must not import Solutions, executable ASTs or LeanCert.
+3. An isolated Solution proves a numerical provider contract from the actual generator/configuration, generic evaluator soundness, accepted finite execution and semantic equality. Evidence pins these exact sources and native facts.
+4. A downstream Solution consumes that public coefficient proposition together with original source statements to prove the prime-error conclusion. Imports connect statements, not proof implementations.
+5. The repository generates and checks Challenge/import/fingerprint records and supported evidence status. A source change does not automatically re-prove consumers or upgrade trust metadata.
+
+The immediate Agent B work is to lift the existing private analytic objects and pure finite-expression definitions into public vocabulary with equality adapters, register additive provider/consumer conclusions, and replay affected consumers. Keep original statements/receipts frozen. No official Comparator receipt, supported official verification dispatch, structural-integration acceptance, push or PR was created by this Agent A task. Native-assisted proof must not be relabelled official lean-comparator or kernel-only.
+
+Core builds omit separate Solutions. The repository-wide check additionally retains49upstream-versus-owner-fork receipt provenance failures and149warnings; rewriting those inherited receipts is outside this change. New selected proof compiles and local gate results are separate evidence.
