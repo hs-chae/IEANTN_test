@@ -72,8 +72,29 @@ SOLUTIONS = ROOT / "Solutions"
 #: scripts/native_assisted/native_assisted_check.py. Never receipts; never part of the trust graph.
 PV_EVIDENCE = ROOT / "pv-evidence"
 
-#: Where a spun-off Challenge says it came from.
-REPOSITORY_URL = "https://github.com/teorth/IEANTN"
+def _repository_setting(name: str, default: str, pattern: str) -> str:
+    """An environment override for where generated links point, or `default`.
+
+    Read from the environment, never from `git remote`: the same tree must render the same pages
+    in every clone, or the pages' freshness check would depend on who ran it. The value goes
+    verbatim into Markdown links, so anything outside `pattern` is refused rather than escaped.
+    """
+    value = os.environ.get(name, "").strip()
+    if not value:
+        return default
+    if not re.fullmatch(pattern, value):
+        raise SystemExit(f"{name}={value!r} is not a plain URL/branch this tool will put in links")
+    return value.rstrip("/")
+
+
+#: Where a spun-off Challenge says it came from, and where page links to solutions, receipts and
+#: declarations point. Upstream by default. A fork whose solutions are not on upstream `main` sets
+#: `IEANTN_REPOSITORY_URL` (and `IEANTN_REPOSITORY_BRANCH`) so its pages link to its own files;
+#: without them every Solution link on the fork pointed at a tree that does not contain it.
+REPOSITORY_URL = _repository_setting(
+    "IEANTN_REPOSITORY_URL", "https://github.com/teorth/IEANTN", r"https://[A-Za-z0-9._~/-]+")
+REPOSITORY_BRANCH = _repository_setting(
+    "IEANTN_REPOSITORY_BRANCH", "main", r"[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*")
 
 #: The four-line header every Lean file in this repository carries.
 LICENCE_HEADER = (
@@ -1446,6 +1467,15 @@ def check_graph() -> bool:
                 problems.add(where, "a deprecated node must name `node.superseded_by`")
             elif replacement not in nodes:
                 problems.add(where, f"node.superseded_by `{replacement}` does not exist")
+        unjustified = [c for c in conclusions_of(node) if designated_kind(c) in (None, "none-yet")]
+        if (status == "awaiting-solution" and unjustified
+                and all(local_proof(node_id, c) is not None for c in unjustified)):
+            problems.warn(
+                where,
+                "node.status is `awaiting-solution`, but every unjustified conclusion has a "
+                "complete local proof (`remaining_holes: 0`). What is outstanding is verification: "
+                "`awaiting-verification` says so; the page otherwise reads as if no proof exists.",
+            )
 
         seen: set[str] = set()
         for conclusion in conclusions_of(node):
@@ -2541,6 +2571,23 @@ _RECEIPT_DISPLAY = {
 }
 
 
+def local_proof(node_id: str, conclusion: dict) -> str | None:
+    """The solution directory of a complete local proof that has no receipt, or None.
+
+    Complete means a recorded `progress.remaining_holes: 0` (written by `progress --write`, not by
+    hand) and a `Solution.lean` in the recorded solution directory. That is a statement about the
+    files, not a verification: the traffic light still counts the conclusion as unjustified.
+    """
+    marker = conclusion.get("progress")
+    if not isinstance(marker, dict) or marker.get("remaining_holes") != 0:
+        return None
+    recorded = str(marker.get("solution") or f"Solutions/{node_id}").strip().rstrip("/")
+    # It goes into a link: one solution directory, nothing else.
+    if not re.fullmatch(r"Solutions/[A-Za-z0-9_.-]+", recorded) or ".." in recorded:
+        return None
+    return recorded if (ROOT / recorded / "Solution.lean").is_file() else None
+
+
 def display_kind(conclusion_key: str, conclusion: dict) -> str:
     """The evidence kind a reader of the views is actually being offered.
 
@@ -3267,7 +3314,7 @@ def declaration_url(key: str) -> str | None:
         stripped = line.lstrip()
         for prefix in ("def ", "noncomputable def ", "abbrev "):
             if stripped.startswith(prefix) and stripped[len(prefix):].split()[:1] == [cid]:
-                return f"{REPOSITORY_URL}/blob/main/{relative}#L{number}"
+                return f"{REPOSITORY_URL}/blob/{REPOSITORY_BRANCH}/{relative}#L{number}"
     return None
 
 
@@ -3660,7 +3707,8 @@ def node_page_url(node_id: str, anchor: str = "", from_root: bool = False,
     """
     fragment = f"#{anchor}" if anchor else ""
     if absolute:
-        return f"{REPOSITORY_URL}/blob/main/docs/nodes/{node_id.replace('.', '-')}.md{fragment}"
+        page = f"docs/nodes/{node_id.replace('.', '-')}.md{fragment}"
+        return f"{REPOSITORY_URL}/blob/{REPOSITORY_BRANCH}/{page}"
     prefix = "docs/nodes/" if from_root else ""
     return f"{prefix}{node_id.replace('.', '-')}.md{fragment}"
 
@@ -3698,6 +3746,13 @@ def render_node_page(node_id: str, nodes: dict, index: dict, importers: dict) ->
         f"| Review | {_quote((node.get('review') or {}).get('status'))} |",
         "",
     ]
+    # A node README is where a walkthrough lives (definition, small example, hypotheses,
+    # conclusion), but the page never mentioned one, so nobody reading the page found it. The link
+    # is relative: unlike a diagram click it renders in the repository's own context, and it then
+    # points at the README of whatever branch the reader is on.
+    readme = NODES_DIR / node_id.replace(".", "/") / "README.md"
+    if readme.is_file():
+        out.insert(-1, f"| Walkthrough | [`README.md`](../../{readme.relative_to(ROOT).as_posix()}) |")
 
     sources = node.get("sources") or []
     if sources:
@@ -3742,15 +3797,22 @@ def render_node_page(node_id: str, nodes: dict, index: dict, importers: dict) ->
         solution = SOLUTIONS / node_id
         if (solution / "Solution.lean").is_file():
             out.append(f"| Solution | [`Solutions/{node_id}`]"
-                       f"({REPOSITORY_URL}/tree/main/Solutions/{node_id}) |")
+                       f"({REPOSITORY_URL}/tree/{REPOSITORY_BRANCH}/Solutions/{node_id}) |")
         receipt = RECEIPTS / f"{key}.json"
         if receipt.is_file():
             out.append(f"| Receipt | [`{receipt.name}`]"
-                       f"({REPOSITORY_URL}/blob/main/receipts/{receipt.name}) |")
+                       f"({REPOSITORY_URL}/blob/{REPOSITORY_BRANCH}/receipts/{receipt.name}) |")
         kind = designated_kind(conclusion) or "none-yet"
         shown = display_kind(key, conclusion)
         label, _, _ = EVIDENCE_STYLE.get(shown, (shown, "", ""))
         out.append(f"| Evidence | {label} (`{kind}`) |")
+        # "Unjustified" alone read as "no proof" even where a complete local proof exists and only
+        # the network's verification is missing. The light is unchanged -- only a receipt changes
+        # it -- but the page now says which of the two situations the reader is in.
+        local = local_proof(node_id, conclusion) if kind == "none-yet" else None
+        if local is not None:
+            out.append(f"| Local proof | complete in [`{local}`](../../{local}), 0 remaining holes; "
+                       "no verification receipt, so the network still counts it as unjustified |")
         # Opt-in: only conclusions with a local program-verification attestation get these rows,
         # so every other page renders exactly as before.
         attestation = pv_attestation(key)
