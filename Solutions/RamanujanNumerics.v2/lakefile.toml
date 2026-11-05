@@ -10,7 +10,26 @@ path = "../RamanujanNumerics.v1"
 [[require]]
 name = "solution_DudekPlattNumerics_v5"
 path = "../DudekPlattNumerics.v5"
+# The selected C files are embedded by `include_str`, which Lake does not track. Declaring them as
+# input files that the provider library needs makes a changed file rebuild the provider instead of
+# replaying a build that embeds the old text. (Retrofitted from the RamanujanNumerics.v3 generator.)
+[[input_file]]
+name = "updated_source"
+path = "c/updated.c"
+text = true
+
+[[input_file]]
+name = "oldgrouped_source"
+path = "c/oldgrouped.c"
+text = true
+
+[[input_file]]
+name = "updatedgrouped_source"
+path = "c/updatedgrouped.c"
+text = true
+
 [[lean_lib]]
 name = "ForwardRamanujanUpdate"
+needs = ["updated_source", "oldgrouped_source", "updatedgrouped_source"]
 [[lean_lib]]
 name = "Solution"

@@ -9,8 +9,18 @@ path = "../QRHPropagation.v1"
 [[require]]
 name = "solution_FKS2Numerics_v2"
 path = "../FKS2Numerics.v2"
+# The selected C file is embedded by `include_str`, which Lake does not track. Declaring it as an
+# input file that the provider library needs makes a changed file rebuild the provider instead of
+# replaying a build that embeds the old text. FKS2Numerics.v7 reads the same file through this
+# library, so it is covered too. (Retrofitted from the RamanujanNumerics.v3 generator.)
+[[input_file]]
+name = "selected_source"
+path = "c/fks2_table4_transport.c"
+text = true
+
 [[lean_lib]]
 name = "FKS2Table4"
+needs = ["selected_source"]
 
 [[lean_lib]]
 name="Solution"
