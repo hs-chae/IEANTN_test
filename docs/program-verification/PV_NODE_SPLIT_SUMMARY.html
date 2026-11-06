@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Programs as nodes?</title>
+<style>
+:root{--bg:#ffffff;--fg:#1d2228;--muted:#5b6570;--line:#d8dee4;--panel:#f5f7f9;--accent:#1f5f8b;--ok:#1e7b34;--bad:#b42318;--code:#eef1f4}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14181c;--fg:#e4e8ec;--muted:#9aa4ae;--line:#2c343c;--panel:#1b2127;--accent:#6cb2e0;--ok:#5cc177;--bad:#f07167;--code:#20272e}}
+:root[data-theme="dark"]{--bg:#14181c;--fg:#e4e8ec;--muted:#9aa4ae;--line:#2c343c;--panel:#1b2127;--accent:#6cb2e0;--ok:#5cc177;--bad:#f07167;--code:#20272e}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:860px;margin:0 auto;padding:28px 16px 48px}
+h1{font-size:1.6em;margin:0 0 4px}
+h2{font-size:1.15em;margin:28px 0 8px;border-bottom:1px solid var(--line);padding-bottom:4px}
+p.sub{color:var(--muted);margin:0 0 18px;font-size:.92em}
+code{background:var(--code);padding:1px 4px;border-radius:3px;font:.88em ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.verdict{background:var(--panel);border-left:4px solid var(--accent);padding:12px 16px;margin:16px 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:640px){.grid{grid-template-columns:1fr}}
+.card{border:1px solid var(--line);border-radius:6px;padding:12px 14px;background:var(--panel)}
+.card h3{margin:0 0 6px;font-size:1em}
+.card ul{margin:6px 0 0;padding-left:18px}
+.tw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.92em}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{background:var(--panel)}
+pre{background:var(--code);padding:10px 12px;border-radius:6px;overflow-x:auto;font:.84em/1.45 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.yes{color:var(--ok);font-weight:600}.no{color:var(--bad);font-weight:600}
+footer{margin-top:32px;color:var(--muted);font-size:.85em;border-top:1px solid var(--line);padding-top:10px}
+</style>
+</head>
+<body>
+<main>
+<h1>Should verified programs be IEANTN nodes?</h1>
+<p class="sub">Decision brief · Agent B · 2026-11-06 · upstream <code>teorth/IEANTN@466b41b</code>, PoC <code>hs-chae/IEANTN_test@qrh-2pv_B 3280a3c</code></p>
+
+<div class="verdict">
+<strong>No, not as a rule.</strong> A verified program is evidence for a mathematical conclusion, and IEANTN
+already keeps evidence apart from claims. Keep programs, sources, certificates and native facts with the
+conclusion they prove (<em>evidence only</em>). Give a numerical <em>result</em> its own node only when a
+rule says so (below), and state it as mathematics, never as a program.
+</div>
+
+<h2>A theorem and a verification artifact are different objects</h2>
+<div class="grid">
+<div class="card">
+<h3>Mathematical conclusion (a node)</h3>
+<ul>
+<li>A Lean <code>Prop</code> in <code>Conclusions.lean</code>, e.g. <code>HasNumericalBound Eπ (5/10^16) (exp 330)</code></li>
+<li>Imports other nodes' <em>statements</em>, never their proofs</li>
+<li>Fingerprinted; changing it means a new version</li>
+<li>Anyone can use it without knowing how it was checked</li>
+</ul>
+</div>
+<div class="card">
+<h3>Verification artifact (evidence)</h3>
+<ul>
+<li>C source, decoded literals, certificate, soundness proof, native facts, source hash</li>
+<li>Lives in a solution project and in the justification metadata</li>
+<li>Can change (new program, fewer native facts) while the statement stays fixed</li>
+<li>Its trust tier is a property of the evidence, not of the claim</li>
+</ul>
+</div>
+</div>
+<pre>
+QRH + analytic premises ──┐
+FKS2 Table 4 anchor ──────┼──► [ Eπ(x) ≤ 5·10⁻¹⁶ for x ≥ e³³⁰ ]   ◄── node: the claim
+                          │
+                          └─ evidence: 30-cell C program (8 native facts)
+                                       2-cell C program (0 native facts, kernel only)
+                                       … more routes; the claim does not change
+</pre>
+
+<h2>When a numerical result earns its own node</h2>
+<div class="tw"><table>
+<tr><th>Rule</th><th>Meaning</th><th>Repository example</th></tr>
+<tr><td>R1 reuse</td><td>two or more consumer <em>families</em> need the same statement</td><td><code>PlattTrudgian.v1</code> (RH to 3·10¹²): 6 families</td></tr>
+<tr><td>R2 evidence separation</td><td>its evidence is weaker than the consumer's Lean step, so keeping it inside would push the consumer below Comparator eligibility</td><td><code>FKS2Numerics.v1</code> → <code>FKS2.v1</code> (Lean-checked analysis, cited numerics)</td></tr>
+<tr><td>R3 statement of record</td><td>an externally meaningful computation: finite RH, zero counts, a published table's bound</td><td><code>LowZeroes.v1</code>, <code>ZetaLogDerivValues.v1</code></td></tr>
+<tr><td>R4 budget</td><td>together they would exceed the one-hour verification budget or a runner's memory</td><td>Table 4: its kernel route needs 28 GB</td></tr>
+</table></div>
+<p><span class="no">Never</span> for: a new proof route of an existing statement, fewer native facts, a source or data change under a fixed statement, or one node per program stage.</p>
+
+<h2>What the repository shows</h2>
+<div class="tw"><table>
+<tr><th>Finding</th><th>Number</th></tr>
+<tr><td>Computation nodes already exist</td><td>17 upstream, 27 on the PoC branch</td></tr>
+<tr><td>Of the 27, reused by two or more consumer families</td><td>1</td></tr>
+<tr><td>Of the 27, explained by R2 or R3</td><td>25</td></tr>
+<tr><td>A proof route turned into a duplicate node: <code>FKS2Numerics.v7.qrh_pi</code> = <code>v5.numerical_pi</code></td><td>same fingerprint, same imports; 3 duplicate statements downstream</td></tr>
+<tr><td>Duplicate-statement groups</td><td>14 on the PoC branch, 5 upstream</td></tr>
+<tr><td>Routes per conclusion in the local registry, with no extra node</td><td>up to 5</td></tr>
+</table></div>
+
+<h2>The experiment</h2>
+<p>In a disposable worktree a C-program-verified bound was registered as its own node: 5 files and 128
+lines, a 15.6 s core rebuild, and no existing fingerprint moved. Its one-line solution matches the challenge
+exactly with only the three standard axioms, so it is Comparator-eligible in shape (no Comparator was run,
+no receipt exists). Changing bytes in the C file never moved the statement's fingerprint and always
+rebuilt the certificate, but the repository's drift check could not see the change from the node's own
+project. Separately, upstream's bridge rule, which the PoC branch predates, rejects four PoC
+re-designations that made unconditional results rest on QRH: changing the designated proof route also
+needs that guard.</p>
+
+<h2>Decisions for the owner</h2>
+<p>Ten questions, each with a default, are in <code>PV_NODE_SPLIT_MAINTAINER_QUESTIONS.md</code>. The full argument is
+in <code>PV_NODE_SPLIT_DECISION_REPORT.md</code>, the cases in <code>PV_NODE_SPLIT_WORKED_EXAMPLES.md</code>, and the
+per-example provenance in <code>PV_NODE_SPLIT_PROVENANCE_MATRIX.csv</code>.</p>
+
+<footer>Agent B (Claude). Research study; nothing in IEANTN's core, schema or metadata was changed, nothing was pushed, and no receipt was produced.</footer>
+</main>
+</body>
+</html>
