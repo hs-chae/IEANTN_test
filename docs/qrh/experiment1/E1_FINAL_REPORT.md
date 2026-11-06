@@ -1,0 +1,65 @@
+# Experiment 1 — final report
+
+## Result
+
+The experiment has a mixed outcome. Conditional, source-linked verified program evolution improves the actual psi error, weighted von Mangoldt sum error and normalized prime-counting error against the strongest completed frozen-evidence baseline after two adversarial passes. A strict margin greater than0.000002*x^(-1/8) is proved for EVERY real x in the CLOSED interval [exp330,exp331], against the full baseline minimum/piecewise/infimum functions. Validity holds on full rays, not just this comparison interval.
+
+The evolved coefficient is0.009134615265 for psi and the weighted sum and0.009134616 for pi, for all real x≥exp330. The cumulative treatment retains the improved Nplus bounds on the whole exp300 ray. E1Comparison.Cumulative contains the genuine consumers and strict-comparison theorems; those sources are not toy predicates or desired conclusions assumed as inputs.
+
+The prime-interval experiment yields a negative treatment result: the frozen-evidence arm proves width0.86*x^0.79 above exp330, improving E's0.88*x^0.79. New exact analytic integration, not a fresh numerical certificate, erases that program-evolution win. The old C variants already both prove their prime-existence Boolean; Nplus now also proves it. The fixed-program V phase gives zero new mathematical strength: the verified outputs were already present in F.
+
+These are scoped results inside a declared evidence rule, not optimality, a global best-known result, nondeducibility from all analytic mathematics or a claim that PV inherently outperforms conventional computation.
+
+## What was frozen and what was actually searched
+
+The isolated branch experiment/e1-frozen-evidence starts at00128bef2f361e9f56795ddd4bb0cf0753643b81 (2026-11-04T23:54:05-08:00). It is a pre-NoPV historical replay, not a claim to be the current owner/default branch. Setup checked publicmain466b41b28ecc224398cf53a99c5fe9618131398b and ownerqrh-2pvce126117e98efa8708ea60f80a3737507ec5575e. Later091288df is an explicitly post-snapshot reference. This is a retrospective, informed, sequential one-researcher study, with no blinded or time-matched causal claim.
+
+The starting source census has114 versions,58 families,240 actual conclusions plus3 empty stubs=243 rows. The frozen CSV lists23,122 declaration/table candidates. It is a mechanically broad inventory, NOT a checked primary-source claim universe and not23,122 verified numerical theorems. Every inherited numerical fact remains admissible regardless of its native/literature/unverified evidence status. The separate15,444-row program/table/native candidate predicate is a conservative boundary aid, not owner-requested source-audit coverage. Source-family paths and enclosing attributions remain provenance candidates. The experiment is not a completed audit of all external attributions in IEANTN.
+
+All2080 original tracked source/metadata files are preserved. No mathematical checkout was overwritten. New mathematics stays in solution directories; research records, contexts and fixtures stay outside publishable mathematical source. No core/schema/node-kind/evidence-policy changes, official designations, receipts, dispatches, push or PR were made. Original checkpoint archives remain immutable.
+
+## Exact quantities and common assumptions
+
+Epsi(x)=|psi(x)-x|/x. The weighted quantity is |sum_(n≤x) Lambda(n)/n - (log(x)-EulerGamma)|. Epi(x)=|pi(x)-Li_2(x)|/(x/log(x)); Li_2 is the offset integral from2, not principal-value li. Intervals are (x,x+h], open left and closed right.
+
+Absolute psi/weighted transfer uses the explicit CH2 package: functional equation, strip digamma asymptotic, both Proposition2.4 inequalities, Laurent alternating and values at-1,2,3/2, RVM large and small bounds, first-zero fact and Hadamard partial fractions. The cotangent-series input is supplied by a pure Lean proof equally available to both arms, so twelve source inputs remain in the matched package. These are explicit record projections, not an unnamed assumption that asserts the final estimate.
+
+Both arms share all eight PrimaryInputs(.3681,.3599) contracts: low-line zeta, Revers zeta estimate, mollifier mean square, smoothing, right-line moment, rectangle, unsmoothing and interpolation. Finite RH is only up to3e12, never silently to the much larger truncation height. The pi route additionally uses CHJ-I. The direct prime route uses CHJ-II Theorem1.3/Table1 row40 and RVM, not the full CH2 package. Any FKS uniform source used by C is available on both arms. No extra source premise is purchased only for E.
+
+The actual OpenAI QRH theorem is OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re at openai/math7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a. It proves zeta nonvanishing for Re(s)>7/8 with the pole excluded; it is not full RH, a boundary-line result or a Dirichlet theorem. Its actual proof uses only propext, Classical.choice and Quot.sound. The mathematical estimates remain conditional on the displayed analytic literature/source contracts, which were not all proved from Mathlib in this experiment.
+
+CHJ-I is arXiv2111.10001v5 Theorem1.2, Eq1.5/Table4 row M=6.431. Its introduction also advertises5.03; we do not call the weaker available row a mismatch. CHJ-II is arXiv2402.04272v3 Theorem1.3/Table1, log(x)≥40,alpha1/2,omega0,lambda.43,M2.894. Its common T-star controls the actual increment; the exact predicate is E1FrozenN.Interval.CHJII_Theorem1_3_Row40 and DirectIntervalA.Source. The CH2 RVM contract is closed-top and names CH2 AppendixB LemmaB.1. See the source predicates and phase reports for their displayed complete formulas; source pinpoints are not replaced by a title-only citation.
+
+## N, V, E, Nplus
+
+N was sealed after two substantive self-adversarial passes. It already supplied a direct weighted/psi transfer, improved analytic remainder, real pointwise spectral functions, minima of inherited caps and original exact pi envelope. Its convenient paired cap was0.009150520021+10^(-28) above exp330; the comparison always retained its stronger unrounded functions.
+
+V kept source, algorithm, numerical input, output and contract fixed. The65536-cell spectral result was already verified in F, so no mathematical gain is credited. A duplicate expensive native proof was stopped after356.824seconds after discovering the original6571-second run. Exact source/object reuse and fresh consumer replays are distinguished. The small unchanged Ramanujan C/Lean program was freshly run; its9.101 allowance did not change. Fresh unchanged method-gate controls:180 spectral and110 forward actual CLI executions, each including all five Python optimization modes. Native leaves are honestly declared.
+
+E contains several real instance changes under the existing numerical backend, not six invented algorithms. Raw512 and factored64 C programs both have actual consumers. D expands4 density/4 Gaussian profiles to128 density/18 Gaussian profiles,8192 cells in8 chunks with mixed Taylor16/20. Actual psi, weighted-sum and pi consumers use the evolved program outputs. The strongest selected pi theorem is the MixedProof0.009134616 result. Actual QRH wrappers for these D roots have21 native leaves each, not the earlier draft10.
+
+A newly constructed HighAnchorIntervalB gives width0.88*x^0.79, with18 modules freshly compiled in each compatible environment. Its actual finite moment output(A).hi is passed to the weighted high-integral program(B); the raw output endpoint is used, not merely a separately asserted cap. Scalar calibration transports certified literal bounds; that distinction is documented. Each actual B root has14 native leaves. Revert tests are construction-specific: restoring selected old truncation or clipping parameters breaks those budgets, but does not prove universal necessity. The old-profile .86 analytic attack was unproved when E was sealed and was then executed successfully in Nplus.
+
+Fresh E method controls:190 for all six B routes/all14 native owners, plus50 for the existing two-route floor comparison. A numerical evidence admission requires status passed AND evidence_method lean-verified-program; a source/AST mutation may still receive broad native-assisted passed while losing the required method. Stale native-owner mutations also fail the broader check. All five optimization modes were tested, with explicit checks rather than assert. Historical C/D155 main+15 pure controls=170 were reused and are not mislabeled fresh. The experiment therefore has530 fresh method CLI controls across V/E, plus170 explicitly historical controls. The expensive floor box proof was reused, not a new successful run; a duplicate stopped at300seconds is preserved as a failure.
+
+Nplus then completed the successful0.86 prime attack and expanded the absolute baseline to ALL positive symbolic grid resolutions, exact pointwise real parameters and improved remainder infima. It also supplied the old Ramanujan consumer's refined-psi premise. A continuous antitone minorant generalized the E-side floor comparison to every grid; the resulting strict comparisons are against the full final functions, not a rounded weak stand-in. The detailed definitions, two passes, open competitors and genuine roots are in E1_PHASE4_ADVERSARIAL_NOPV.md and E1_COMPARISON.csv.
+
+## IEANTN mechanism and limits of the integration
+
+Vocabulary gives the mathematical objects and error normalizations. A versioned node's Conclusions file defines its proposition; a challenge states how named dependency propositions imply that conclusion. Solutions supply proofs. A numerical solution additionally has an expression/program, fixed input/configuration, evaluator output, execution equation and soundness theorem. An actual mathematical consumer turns that bound into a Chebyshev, weighted-sum, prime-counting or prime-interval proposition. The existing method gate associates written source/model/AST and output with the exact native proof leaves consumed by that theorem.
+
+Propagation here is typed Lean composition: replace an input coefficient or proved source predicate, replay the analytic consumer, retain previous stronger bounds by min, and compare the final functions on a common real domain. The A-output→B-input chain demonstrates reuse of computed information. The Nplus prime result demonstrates that better analytic mathematics can bypass a new computation. Program artifacts remain solution-local; no new global semantics or artificial per-stage node kinds were introduced.
+
+This is a research solution-layer integration using existing mathematical predicates. We did NOT run official registration/dispatch or claim that the official published graph automatically updated. A separate owner-authorized integration may designate the completed solution under existing IEANTN rules. No agent completion message is treated as proof or patch evidence.
+
+## Reproduction and trust
+
+Canonical Lean4.34.0-rc2/Mathlib71a80585ee495fc24472fd0eaffc89d94e4fd8d6 and actual OpenAI Lean4.34.1/Mathlibd13f23b723b8a846827a245b89c10fc7d3f11612 are separate. Actual final consumers supply the original OAI theorem, not an assumed QRH placeholder. New scalar/integral/comparison abstractions can be standard-axiom-only while full consumers remain native-assisted through explicit inherited/evolved numerical leaves. This is not a kernel-only certificate.
+
+REPRODUCING_EXPERIMENT1.md explains the commands, exact source/object reuse and portable setup limits. JSON receipts include source hashes, pins, command, exit status and measured timings. Immutable N/V/E archives and the final Nplus archive bind chronology. FAIL stages and stopped jobs are retained; no stale successful object is exported after a failed source build. Source identity and validator identity are recorded separately. All source-linked program gates remain unchanged.
+
+This study does not finish unrelated older4096-profile global bridges, the original general-beta formalization or full literature proof recovery. It proves the validity of the stated new bounds and the explicit scoped comparisons; broader analytic competitors remain open and are not needed as hypotheses. No optimality or best-known claim is made.
+
+Final exact-root checks:20 canonical and23 actual audit roots pass; matched common-premise consumers have67 native facts, cumulative bound consumers64, strict comparisons3. The source/object association covers all26 new Nplus/comparison modules and2080 unchanged original files. Independent final reading and publication-byte checks are separate from these mathematical proof checks.
+
+Independent final-reading corrections: the C increment row now names the actual64/512 theorem roots and explicitly includes FKS.v3.density_0618 in its common union. The immutable Nplus archive retains its earlier CSV, with the correction recorded in NPLUS_REPORT_ERRATUM.json. A fresh original actual prime-wrapper replay supplies the previously omitted explicit object SHA in ACTUAL_PRIME_WRAPPER_SUPPLEMENT.json. No bound, mathematical source, numerical output or comparison changed.
