@@ -1,0 +1,59 @@
+diff --git a/scripts/ieantn.py b/scripts/ieantn.py
+index 4496d74..0ba3a3c 100644
+--- a/scripts/ieantn.py
++++ b/scripts/ieantn.py
+@@ -2375,7 +2375,7 @@ def solution_drift(receipt: dict) -> str | None:
+     if known.returncode != 0:
+         return None
+     changed = subprocess.run(
+-        ["git", "diff", "--name-only", commit, "--", project],
++        ["git", "diff", "--name-only", commit, "--", *solution_paths(project)],
+         cwd=ROOT, capture_output=True, text=True, encoding="utf-8")
+     if changed.returncode != 0:
+         return None
+@@ -2385,6 +2385,29 @@ def solution_drift(receipt: dict) -> str | None:
+     return drift_note(project, commit, files)
+ 
+ 
++def solution_paths(project: str) -> list[str]:
++    """The solution project and every in-repository solution it requires by path.
++
++    A solution can read a program from another project in `Solutions/` (`include_str` through a path
++    dependency), and that file is then part of what Comparator accepted. The list comes from the
++    project's committed `lake-manifest.json`. The core (`../..`) is left out: a change there moves
++    fingerprints, which `assess` already reports.
++    """
++    paths = {project}
++    root = ROOT.resolve()
++    try:
++        packages = json.loads((ROOT / project / "lake-manifest.json").read_text(encoding="utf-8"))
++    except (OSError, ValueError):
++        return sorted(paths)
++    for package in packages.get("packages") or []:
++        if package.get("type") != "path" or not package.get("dir"):
++            continue
++        target = (ROOT / project / package["dir"]).resolve()
++        if target != root and root in target.parents:
++            paths.add(target.relative_to(root).as_posix())
++    return sorted(paths)
++
++
+ def drift_note(project: str, commit: str, files: list[str]) -> str:
+     """Phrase the drift, naming the files and saying whether any of them is Lean.
+ 
+@@ -2405,7 +2428,14 @@ def drift_note(project: str, commit: str, files: list[str]) -> str:
+     if len(names) > 4:
+         shown += f", and {len(names) - 4} more"
+     lean = [name for name in names if name.endswith(".lean")]
+-    kind = "no Lean source among them" if not lean else f"{len(lean)} of them Lean source"
++    configuration = {"lake-manifest.json", "lakefile.toml", "lakefile.lean", "lean-toolchain"}
++    other = [name for name in names if not name.endswith(".lean") and name not in configuration]
++    if lean:
++        kind = f"{len(lean)} of them Lean source"
++    elif other:
++        kind = f"no Lean source among them, but {len(other)} other file(s) a proof can read"
++    else:
++        kind = "no Lean source among them"
+     return (f"{project} has changed since the verification at {commit[:12]} "
+             f"({shown}; {kind}); the receipt attests to that commit, not to what is there now")
+ 

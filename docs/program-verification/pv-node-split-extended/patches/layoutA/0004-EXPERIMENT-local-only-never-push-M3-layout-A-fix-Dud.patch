@@ -1,0 +1,106 @@
+From 4b5b867b015a2236058f739e4d9e727ed9bcfd67 Mon Sep 17 00:00:00 2001
+From: "Agent B (Claude)" <noreply@anthropic.com>
+Date: Thu, 5 Nov 2026 22:44:50 -0800
+Subject: [PATCH 4/4] EXPERIMENT (local only, never push): M3 layout A fix
+ (DudekPlatt.v5's bridge also needs DudekPlatt.v3.criterion) and fingerprints
+
+Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>
+---
+ IEANTN/Nodes/PVMatchRamA/v1/fingerprints.json  | 3 +++
+ IEANTN/Nodes/PVMatchShrD/v1/Challenge.lean     | 4 +++-
+ IEANTN/Nodes/PVMatchShrD/v1/fingerprints.json  | 3 +++
+ IEANTN/Nodes/PVMatchShrD/v1/formalization.yaml | 2 ++
+ IEANTN/Nodes/PVMatchShrR/v1/fingerprints.json  | 3 +++
+ Solutions/PVMatchShrD.v1/Solution.lean         | 5 ++++-
+ 6 files changed, 18 insertions(+), 2 deletions(-)
+ create mode 100644 IEANTN/Nodes/PVMatchRamA/v1/fingerprints.json
+ create mode 100644 IEANTN/Nodes/PVMatchShrD/v1/fingerprints.json
+ create mode 100644 IEANTN/Nodes/PVMatchShrR/v1/fingerprints.json
+
+diff --git a/IEANTN/Nodes/PVMatchRamA/v1/fingerprints.json b/IEANTN/Nodes/PVMatchRamA/v1/fingerprints.json
+new file mode 100644
+index 0000000..6963502
+--- /dev/null
++++ b/IEANTN/Nodes/PVMatchRamA/v1/fingerprints.json
+@@ -0,0 +1,3 @@
++{
++  "PVMatchRamA.v1.gap_9401": "465753f033e770de721f6dfef314acd67aecdef68158920bbae34059cc1f64c8"
++}
+diff --git a/IEANTN/Nodes/PVMatchShrD/v1/Challenge.lean b/IEANTN/Nodes/PVMatchShrD/v1/Challenge.lean
+index f341296..8040e1b 100644
+--- a/IEANTN/Nodes/PVMatchShrD/v1/Challenge.lean
++++ b/IEANTN/Nodes/PVMatchShrD/v1/Challenge.lean
+@@ -3,6 +3,7 @@ Copyright (c) 2026 IEANTN contributors. All rights reserved.
+ Released under Apache 2.0 license as described in the file LICENSE.
+ Authors: Agent B (Claude)
+ -/
++import IEANTN.Nodes.DudekPlatt.v3.Conclusions
+ import IEANTN.Nodes.PVMatchShrD.v1.Conclusions
+ import IEANTN.Nodes.QRHCH2.v5.Conclusions
+ 
+@@ -18,6 +19,7 @@ How each conclusion is justified is recorded in `formalization.yaml`, not here.
+ -/
+ 
+ theorem PVMatchShrD.v1.challenge_ramanujan_401
+-    (qrhch2_v5_psi_refined_bound : QRHCH2.v5.psi_refined_bound) :
++    (qrhch2_v5_psi_refined_bound : QRHCH2.v5.psi_refined_bound)
++    (dudekplatt_v3_criterion : DudekPlatt.v3.criterion) :
+     PVMatchShrD.v1.ramanujan_401 := by
+   sorry
+diff --git a/IEANTN/Nodes/PVMatchShrD/v1/fingerprints.json b/IEANTN/Nodes/PVMatchShrD/v1/fingerprints.json
+new file mode 100644
+index 0000000..1a91ac6
+--- /dev/null
++++ b/IEANTN/Nodes/PVMatchShrD/v1/fingerprints.json
+@@ -0,0 +1,3 @@
++{
++  "PVMatchShrD.v1.ramanujan_401": "93e077b2d2985360e49dd29dd47d7678ffa78d51be3ccf0605024cfdbec35c6d"
++}
+diff --git a/IEANTN/Nodes/PVMatchShrD/v1/formalization.yaml b/IEANTN/Nodes/PVMatchShrD/v1/formalization.yaml
+index b0c785d..dab3be6 100644
+--- a/IEANTN/Nodes/PVMatchShrD/v1/formalization.yaml
++++ b/IEANTN/Nodes/PVMatchShrD/v1/formalization.yaml
+@@ -31,6 +31,8 @@ conclusions:
+     imports:
+       - node: QRHCH2.v5
+         conclusion: psi_refined_bound
++      - node: DudekPlatt.v3
++        conclusion: criterion
+     imports_status: identified
+     justifications:
+       - id: solution
+diff --git a/IEANTN/Nodes/PVMatchShrR/v1/fingerprints.json b/IEANTN/Nodes/PVMatchShrR/v1/fingerprints.json
+new file mode 100644
+index 0000000..0d20859
+--- /dev/null
++++ b/IEANTN/Nodes/PVMatchShrR/v1/fingerprints.json
+@@ -0,0 +1,3 @@
++{
++  "PVMatchShrR.v1.gap_lower_bound": "c4906bec8e1f5d132befb99fdfdf5a5a522913059d403913a080b0c42862592a"
++}
+diff --git a/Solutions/PVMatchShrD.v1/Solution.lean b/Solutions/PVMatchShrD.v1/Solution.lean
+index cc184d1..d76adab 100644
+--- a/Solutions/PVMatchShrD.v1/Solution.lean
++++ b/Solutions/PVMatchShrD.v1/Solution.lean
+@@ -5,6 +5,7 @@ Authors: Agent B (Claude)
+ -/
+ import IEANTN.Nodes.QRHCH2.v5.Conclusions
+ import IEANTN.Nodes.PVMatchShrD.v1.Conclusions
++import IEANTN.Nodes.DudekPlatt.v3.Conclusions
+ import IEANTN.Bridges.DudekPlatt.QRH
+ import DDExpansionSolution
+ 
+@@ -13,7 +14,9 @@ open Real IEANTN
+ /-- The challenge: `DudekPlattNumerics.v5`'s solution theorem composed with the core bridge
+ `DudekPlattQRH.ramanujan_401` that justifies `DudekPlatt.v5.ramanujan_401` in layout B. -/
+ theorem PVMatchShrD.v1.challenge_ramanujan_401
+-    (qrhch2_v5_psi_refined_bound : QRHCH2.v5.psi_refined_bound) :
++    (qrhch2_v5_psi_refined_bound : QRHCH2.v5.psi_refined_bound)
++    (dudekplatt_v3_criterion : DudekPlatt.v3.criterion) :
+     PVMatchShrD.v1.ramanujan_401 :=
+   DudekPlattQRH.ramanujan_401
+     (DudekPlattNumerics.v5.challenge_pi_two_sided_qrh qrhch2_v5_psi_refined_bound)
++    dudekplatt_v3_criterion
+-- 
+2.34.1
+

@@ -1,0 +1,111 @@
+{
+ "mutation": "MT9_A_output_A",
+ "worktree": "/ryu/hyunsik/playground/independence/ieantn_qrh/agentB/pv8_wtA",
+ "head": "4b5b867b015a2236058f739e4d9e727ed9bcfd67",
+ "file": "pilots/agentB-calibration/CalibrationPilot/NewA.lean",
+ "edit": {
+  "op": "replace",
+  "old": "def bound : ℚ := (457/5000)",
+  "new": "def bound : ℚ := (458/5000)"
+ },
+ "expect": "program A's certified output weakens (Δ 0.0914 -> 0.0916): the exact data link M = 120 + Δ fails, so B′ must be re-run; in B the provider's contract (Δ ≤ 457/5000) fails; whether the B consumer survives depends on whether its solution imports A's modules",
+ "started": "2026-11-06T07:08:08Z",
+ "sha256_before": "1bbd2c77ec12a063b4d50fbe5df4a54480dd88a59801599c3e0934623092a7fc",
+ "pin_before": null,
+ "sha256_after_edit": "c8ae59e22b15c1f70928c5a0e965c0a0793567e2527ddf114173c3683dd0c60a",
+ "diff": "pilots/agentB-calibration/CalibrationPilot/NewA.lean | 2 +-\n 1 file changed, 1 insertion(+), 1 deletion(-)",
+ "pin_after_edit": null,
+ "builds_after_edit": [
+  {
+   "project": "Solutions/PVMatchRamA.v1",
+   "rc": 1,
+   "wall_s": 15.1,
+   "max_single_rss_gb": 6,
+   "built": [
+    "CalibrationPilot.NewA"
+   ],
+   "built_count": 1,
+   "failed_modules": [
+    "CalibrationPilot.NewChain"
+   ],
+   "first_errors": [
+    "error: CalibrationPilot/NewChain.lean:52:37: unsolved goals",
+    "error: CalibrationPilot/NewChain.lean:56:64: unsolved goals",
+    "error: build failed"
+   ],
+   "log": "evidence/mutations/MT9_A_output_A_pv8_wtA/edit_Solutions_PVMatchRamA.v1.log"
+  }
+ ],
+ "drift_after_edit": [
+  [
+   "Solutions/PVMatchRamA.v1",
+   null
+  ],
+  [
+   "pilots/pv-replay",
+   null
+  ],
+  [
+   "pilots/agentB-calibration",
+   "pilots/agentB-calibration has changed since the verification at 4b5b867b015a (NewA.lean; 1 of them Lean source); the receipt attests to that commit, not to what is there now"
+  ],
+  [
+   "patched:Solutions/PVMatchRamA.v1",
+   "Solutions/PVMatchRamA.v1 has changed since the verification at 4b5b867b015a (NewA.lean; 1 of them Lean source); the receipt attests to that commit, not to what is there now"
+  ],
+  [
+   "patched:pilots/pv-replay",
+   "pilots/pv-replay has changed since the verification at 4b5b867b015a (NewA.lean; 1 of them Lean source); the receipt attests to that commit, not to what is there now"
+  ],
+  [
+   "patched:pilots/agentB-calibration",
+   "pilots/agentB-calibration has changed since the verification at 4b5b867b015a (NewA.lean; 1 of them Lean source); the receipt attests to that commit, not to what is there now"
+  ]
+ ],
+ "sha256_restored": "1bbd2c77ec12a063b4d50fbe5df4a54480dd88a59801599c3e0934623092a7fc",
+ "restored_identical": true,
+ "status_after_restore": "clean",
+ "builds_after_restore": [
+  {
+   "project": "Solutions/PVMatchRamA.v1",
+   "rc": 0,
+   "wall_s": 15.1,
+   "max_single_rss_gb": 6,
+   "built": [
+    "CalibrationPilot.NewA",
+    "CalibrationPilot.NewChain"
+   ],
+   "built_count": 2,
+   "failed_modules": [],
+   "first_errors": [],
+   "log": "evidence/mutations/MT9_A_output_A_pv8_wtA/restore_Solutions_PVMatchRamA.v1.log"
+  }
+ ],
+ "drift_after_restore": [
+  [
+   "Solutions/PVMatchRamA.v1",
+   null
+  ],
+  [
+   "pilots/pv-replay",
+   null
+  ],
+  [
+   "pilots/agentB-calibration",
+   null
+  ],
+  [
+   "patched:Solutions/PVMatchRamA.v1",
+   null
+  ],
+  [
+   "patched:pilots/pv-replay",
+   null
+  ],
+  [
+   "patched:pilots/agentB-calibration",
+   null
+  ]
+ ],
+ "finished": "2026-11-06T07:08:38Z"
+}

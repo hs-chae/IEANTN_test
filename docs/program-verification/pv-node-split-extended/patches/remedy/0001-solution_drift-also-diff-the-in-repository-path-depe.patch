@@ -1,0 +1,165 @@
+From 1acc32e25f1125142cf7956db1123cb6b5ab5cdf Mon Sep 17 00:00:00 2001
+From: "Agent B (Claude)" <noreply@anthropic.com>
+Date: Thu, 5 Nov 2026 22:51:41 -0800
+Subject: [PATCH] solution_drift: also diff the in-repository path dependencies
+ a solution requires (DISPOSABLE PATCH, local only)
+
+A solution can read a program from another project in Solutions/ through a Lake path
+dependency (include_str). solution_drift diffed only the receipt's own project, so an edit
+to that program after verification went unreported. The project's committed
+lake-manifest.json lists those dependencies; the core (../..) is left out because its
+changes move fingerprints. drift_note no longer files a non-Lean source under the phrase
+meant for configuration-only drift.
+
+Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>
+---
+ scripts/ieantn.py                      | 34 +++++++++++-
+ tests/test_solution_drift_path_deps.py | 77 ++++++++++++++++++++++++++
+ 2 files changed, 109 insertions(+), 2 deletions(-)
+ create mode 100644 tests/test_solution_drift_path_deps.py
+
+diff --git a/scripts/ieantn.py b/scripts/ieantn.py
+index 4496d74..0ba3a3c 100644
+--- a/scripts/ieantn.py
++++ b/scripts/ieantn.py
+@@ -2375,7 +2375,7 @@ def solution_drift(receipt: dict) -> str | None:
+     if known.returncode != 0:
+         return None
+     changed = subprocess.run(
+-        ["git", "diff", "--name-only", commit, "--", project],
++        ["git", "diff", "--name-only", commit, "--", *solution_paths(project)],
+         cwd=ROOT, capture_output=True, text=True, encoding="utf-8")
+     if changed.returncode != 0:
+         return None
+@@ -2385,6 +2385,29 @@ def solution_drift(receipt: dict) -> str | None:
+     return drift_note(project, commit, files)
+ 
+ 
++def solution_paths(project: str) -> list[str]:
++    """The solution project and every in-repository solution it requires by path.
++
++    A solution can read a program from another project in `Solutions/` (`include_str` through a path
++    dependency), and that file is then part of what Comparator accepted. The list comes from the
++    project's committed `lake-manifest.json`. The core (`../..`) is left out: a change there moves
++    fingerprints, which `assess` already reports.
++    """
++    paths = {project}
++    root = ROOT.resolve()
++    try:
++        packages = json.loads((ROOT / project / "lake-manifest.json").read_text(encoding="utf-8"))
++    except (OSError, ValueError):
++        return sorted(paths)
++    for package in packages.get("packages") or []:
++        if package.get("type") != "path" or not package.get("dir"):
++            continue
++        target = (ROOT / project / package["dir"]).resolve()
++        if target != root and root in target.parents:
++            paths.add(target.relative_to(root).as_posix())
++    return sorted(paths)
++
++
+ def drift_note(project: str, commit: str, files: list[str]) -> str:
+     """Phrase the drift, naming the files and saying whether any of them is Lean.
+ 
+@@ -2405,7 +2428,14 @@ def drift_note(project: str, commit: str, files: list[str]) -> str:
+     if len(names) > 4:
+         shown += f", and {len(names) - 4} more"
+     lean = [name for name in names if name.endswith(".lean")]
+-    kind = "no Lean source among them" if not lean else f"{len(lean)} of them Lean source"
++    configuration = {"lake-manifest.json", "lakefile.toml", "lakefile.lean", "lean-toolchain"}
++    other = [name for name in names if not name.endswith(".lean") and name not in configuration]
++    if lean:
++        kind = f"{len(lean)} of them Lean source"
++    elif other:
++        kind = f"no Lean source among them, but {len(other)} other file(s) a proof can read"
++    else:
++        kind = "no Lean source among them"
+     return (f"{project} has changed since the verification at {commit[:12]} "
+             f"({shown}; {kind}); the receipt attests to that commit, not to what is there now")
+ 
+diff --git a/tests/test_solution_drift_path_deps.py b/tests/test_solution_drift_path_deps.py
+new file mode 100644
+index 0000000..6c572c7
+--- /dev/null
++++ b/tests/test_solution_drift_path_deps.py
+@@ -0,0 +1,77 @@
++"""Regression tests for one gap in `solution_drift`: files a solution reads from another solution project.
++
++A solution may require another project in `Solutions/` by path and read a program from it (`include_str`), as
++the program-verification experiments do. `solution_drift` diffs only the receipt's own project, so an edit to
++that program after verification went unreported. These tests pin the fix: the in-repository path dependencies
++listed in the solution's `lake-manifest.json` are diffed as well, the core (`../..`) is not, and a non-Lean
++source file is not described as if only configuration had moved.
++"""
++from __future__ import annotations
++
++import json
++import pathlib
++import subprocess
++import sys
++import unittest
++
++sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
++from test_ieantn import FixtureRepo, ieantn  # noqa: E402  (the module object FixtureRepo re-roots)
++
++
++class TestSolutionDriftAcrossProjects(FixtureRepo):
++    def _git(self, *args: str) -> str:
++        return subprocess.run(["git", *args], cwd=self.root, check=True, capture_output=True,
++                              text=True).stdout.strip()
++
++    def _commit(self) -> str:
++        shared = self.root / "Solutions" / "Shared.v1"
++        solution = self.root / "Solutions" / "A.v1"
++        (shared / "c").mkdir(parents=True)
++        solution.mkdir(parents=True)
++        (shared / "c" / "prog.c").write_text("double f(void) { return 1.0; }\n", encoding="utf-8")
++        (shared / "Shared.lean").write_text('def source : String := include_str "c" / "prog.c"\n',
++                                            encoding="utf-8")
++        (solution / "Solution.lean").write_text("import Shared\n", encoding="utf-8")
++        (solution / "lake-manifest.json").write_text(json.dumps({"version": "1.1.0", "packages": [
++            {"type": "path", "name": "IEANTN", "dir": "../..", "inherited": False},
++            {"type": "path", "name": "solution_Shared_v1", "dir": "../Shared.v1", "inherited": False},
++            {"type": "git", "name": "mathlib", "rev": "a" * 40,
++             "url": "https://github.com/leanprover-community/mathlib4", "inherited": True},
++        ]}), encoding="utf-8")
++        self._git("init", "-q")
++        self._git("add", "-A")
++        self._git("-c", "user.name=t", "-c", "user.email=t@example.invalid", "commit", "-q", "-m", "base")
++        return self._git("rev-parse", "HEAD")
++
++    def _receipt(self, commit: str) -> dict:
++        return {"schema": 2, "repository": {"commit": commit}, "solution": {"project": "Solutions/A.v1"}}
++
++    def test_a_program_edited_in_a_path_dependency_is_reported(self) -> None:
++        commit = self._commit()
++        (self.root / "Solutions" / "Shared.v1" / "c" / "prog.c").write_text(
++            "double f(void) { return 2.0; }\n", encoding="utf-8")
++        note = ieantn.solution_drift(self._receipt(commit))
++        self.assertIsNotNone(note)
++        self.assertIn("prog.c", note)
++
++    def test_an_untouched_dependency_reports_nothing(self) -> None:
++        self.assertIsNone(ieantn.solution_drift(self._receipt(self._commit())))
++
++    def test_the_core_is_not_treated_as_a_solution_dependency(self) -> None:
++        """`IEANTN` (`../..`) is the core; a change there is the fingerprints' business, not drift."""
++        commit = self._commit()
++        (self.root / "IEANTN" / "Nodes.lean").write_text("-- edited\n", encoding="utf-8")
++        self.assertIsNone(ieantn.solution_drift(self._receipt(commit)))
++
++    def test_a_program_file_is_not_reported_as_configuration_only(self) -> None:
++        note = ieantn.drift_note("Solutions/A.v1", "abcdef123456", ["Solutions/Shared.v1/c/prog.c"])
++        self.assertIn("prog.c", note)
++        self.assertNotIn("no Lean source among them)", note)
++
++    def test_a_manifest_only_drift_keeps_its_wording(self) -> None:
++        note = ieantn.drift_note("Solutions/A.v1", "abcdef123456", ["Solutions/A.v1/lake-manifest.json"])
++        self.assertIn("no Lean source among them", note)
++
++
++if __name__ == "__main__":
++    unittest.main()
+-- 
+2.34.1
+

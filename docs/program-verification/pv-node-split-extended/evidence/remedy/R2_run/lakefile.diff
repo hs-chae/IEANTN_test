@@ -1,0 +1,23 @@
+diff --git a/pilots/pv-replay/lakefile.toml b/pilots/pv-replay/lakefile.toml
+index 149b224..29baefc 100644
+--- a/pilots/pv-replay/lakefile.toml
++++ b/pilots/pv-replay/lakefile.toml
+@@ -27,3 +27,18 @@ path = "../agentB-calibration"
+ 
+ [[lean_lib]]
+ name = "PVReplay"
++
++[[input_file]]
++name = "calibration_new_c"
++path = "../agentB-calibration/c/calibration_new.c"
++text = true
++
++[[input_file]]
++name = "ramanujan_9401_new_c"
++path = "../agentB-calibration/c/ramanujan_9401_new.c"
++text = true
++
++[[lean_lib]]
++name = "PVReplayChainSources"
++roots = ["PVReplay.Chain"]
++needs = ["calibration_new_c", "ramanujan_9401_new_c"]

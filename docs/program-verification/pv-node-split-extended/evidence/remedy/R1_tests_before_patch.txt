@@ -1,0 +1,27 @@
+test_a_manifest_only_drift_keeps_its_wording (tests.test_solution_drift_path_deps.TestSolutionDriftAcrossProjects) ... ok
+test_a_program_edited_in_a_path_dependency_is_reported (tests.test_solution_drift_path_deps.TestSolutionDriftAcrossProjects) ... FAIL
+test_a_program_file_is_not_reported_as_configuration_only (tests.test_solution_drift_path_deps.TestSolutionDriftAcrossProjects) ... FAIL
+test_an_untouched_dependency_reports_nothing (tests.test_solution_drift_path_deps.TestSolutionDriftAcrossProjects) ... ok
+test_the_core_is_not_treated_as_a_solution_dependency (tests.test_solution_drift_path_deps.TestSolutionDriftAcrossProjects)
+`IEANTN` (`../..`) is the core; a change there is the fingerprints' business, not drift. ... ok
+
+======================================================================
+FAIL: test_a_program_edited_in_a_path_dependency_is_reported (tests.test_solution_drift_path_deps.TestSolutionDriftAcrossProjects)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/ryu/hyunsik/playground/independence/ieantn_qrh/agentB/pv8_wtU/tests/test_solution_drift_path_deps.py", line 54, in test_a_program_edited_in_a_path_dependency_is_reported
+    self.assertIsNotNone(note)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_a_program_file_is_not_reported_as_configuration_only (tests.test_solution_drift_path_deps.TestSolutionDriftAcrossProjects)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/ryu/hyunsik/playground/independence/ieantn_qrh/agentB/pv8_wtU/tests/test_solution_drift_path_deps.py", line 69, in test_a_program_file_is_not_reported_as_configuration_only
+    self.assertNotIn("no Lean source among them)", note)
+AssertionError: 'no Lean source among them)' unexpectedly found in 'Solutions/A.v1 has changed since the verification at abcdef123456 (prog.c; no Lean source among them); the receipt attests to that commit, not to what is there now'
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.089s
+
+FAILED (failures=2)

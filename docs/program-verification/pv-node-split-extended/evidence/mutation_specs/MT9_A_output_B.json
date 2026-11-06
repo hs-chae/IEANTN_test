@@ -1,0 +1,19 @@
+{
+ "file": "pilots/agentB-calibration/CalibrationPilot/NewA.lean",
+ "edit": {
+  "op": "replace",
+  "old": "def bound : ℚ := (457/5000)",
+  "new": "def bound : ℚ := (458/5000)"
+ },
+ "expect": "program A's certified output weakens (Δ 0.0914 -> 0.0916): the exact data link M = 120 + Δ fails, so B′ must be re-run; in B the provider's contract (Δ ≤ 457/5000) fails; whether the B consumer survives depends on whether its solution imports A's modules",
+ "projects": [
+  "Solutions/PVMatchRamP.v1",
+  "Solutions/PVMatchRamC.v1"
+ ],
+ "drift_projects": [
+  "Solutions/PVMatchRamP.v1",
+  "Solutions/PVMatchRamC.v1",
+  "pilots/pv-replay",
+  "pilots/agentB-calibration"
+ ]
+}

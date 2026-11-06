@@ -1,5 +1,9 @@
 # Should verified numerical programs be separate IEANTN nodes?
 
+> Partly superseded by the extended study, [`pv-node-split-extended/`](pv-node-split-extended/INDEX.md).
+> [`OLD_CLAIMS.md`](pv-node-split-extended/evidence/OLD_CLAIMS.md) lists which claims below were reproduced,
+> corrected or qualified. Committed to `qrh-2pv_B` at the owner's request on 2026-11-06.
+
 Research decision for the owner. No core, schema or metadata change was made. Nothing was pushed. The
 only code written is a hypothetical node in a disposable local worktree (§7).
 

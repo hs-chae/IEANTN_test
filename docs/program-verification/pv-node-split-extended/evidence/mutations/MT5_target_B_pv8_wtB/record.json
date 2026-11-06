@@ -1,0 +1,178 @@
+{
+ "mutation": "MT5_target_B",
+ "worktree": "/ryu/hyunsik/playground/independence/ieantn_qrh/agentB/pv8_wtB",
+ "head": "26bc2c55b8f61033e8de8b0dcc72fe14e575969d",
+ "file": "IEANTN/Nodes/PVMatchT4P/v1/Conclusions.lean",
+ "edit": {
+  "op": "replace",
+  "old": "HasNumericalBound Eπ ((5:ℝ)/10^16) (exp 330)",
+  "new": "HasNumericalBound Eπ ((495:ℝ)/10^18) (exp 330)"
+ },
+ "expect": "a stronger target (4.95e-16, still above the program's 4.930e-16): the edited statement's fingerprint moves; the existing route proves 5e-16 only, so the solution fails until re-certified; in B the consumer's fingerprint does not move but its proof (exact type) must be adapted",
+ "started": "2026-11-06T07:12:49Z",
+ "sha256_before": "1867553a1787eb01f15d51b558dca16e259c3bac32413e923020eff71d0cbf76",
+ "pin_before": null,
+ "sha256_after_edit": "a84221586ed664b1414993d55c1625c490be0ee757439e294f05100000d696a7",
+ "diff": "IEANTN/Nodes/PVMatchT4P/v1/Conclusions.lean | 2 +-\n 1 file changed, 1 insertion(+), 1 deletion(-)",
+ "pin_after_edit": null,
+ "core_after_edit": {
+  "core_build": "2026-11-06T07:13:00Z rc=0 wall=11.0s max_single_rss=3GB peak_lean_procs=2 peak_sum_lean_rss=5GB min_MemAvailable=1076GB ",
+  "fingerprint_check": {
+   "rc": 1,
+   "tail": [
+    "FAIL statement fingerprints",
+    "  - PVMatchT4P.v1.qrh_pi: statement changed: recorded 2af9dadbe3f5ab60, now 5ec51daa066e04ea. If this was intended, run `ieantn.py fingerprint`; if the conclusion has dependants, make a new version instead."
+   ]
+  },
+  "gen_challenges_check": {
+   "rc": 0,
+   "tail": [
+    "ok  generated challenges"
+   ]
+  }
+ },
+ "assess_after_edit": {
+  "PVMatchT4P.v1.qrh_pi": [
+   "BROKEN",
+   "its own statement changed since verification"
+  ],
+  "PVMatchT4C.v1.qrh_absolute_pi": [
+   "BROKEN",
+   "`PVMatchT4P.v1.qrh_pi` changed since verification"
+  ]
+ },
+ "builds_after_edit": [
+  {
+   "project": "Solutions/PVMatchT4P.v1",
+   "rc": 1,
+   "wall_s": 11.0,
+   "max_single_rss_gb": 6,
+   "built": [],
+   "built_count": 0,
+   "failed_modules": [
+    "Solution"
+   ],
+   "first_errors": [
+    "error: Solution.lean:18:2: Type mismatch",
+    "error: Solution.lean:25:2: Type mismatch",
+    "error: build failed"
+   ],
+   "log": "evidence/mutations/MT5_target_B_pv8_wtB/edit_Solutions_PVMatchT4P.v1.log"
+  },
+  {
+   "project": "Solutions/PVMatchT4C.v1",
+   "rc": 1,
+   "wall_s": 4.7,
+   "max_single_rss_gb": 2,
+   "built": [],
+   "built_count": 0,
+   "failed_modules": [
+    "Solution"
+   ],
+   "first_errors": [
+    "error: Solution.lean:29:37: Application type mismatch: The argument",
+    "error: build failed"
+   ],
+   "log": "evidence/mutations/MT5_target_B_pv8_wtB/edit_Solutions_PVMatchT4C.v1.log"
+  }
+ ],
+ "drift_after_edit": [
+  [
+   "Solutions/PVMatchT4P.v1",
+   null
+  ],
+  [
+   "Solutions/PVMatchT4C.v1",
+   null
+  ],
+  [
+   "Solutions/Table4Evolution.v1",
+   null
+  ],
+  [
+   "patched:Solutions/PVMatchT4P.v1",
+   null
+  ],
+  [
+   "patched:Solutions/PVMatchT4C.v1",
+   null
+  ],
+  [
+   "patched:Solutions/Table4Evolution.v1",
+   null
+  ]
+ ],
+ "sha256_restored": "1867553a1787eb01f15d51b558dca16e259c3bac32413e923020eff71d0cbf76",
+ "restored_identical": true,
+ "status_after_restore": "clean",
+ "core_after_restore": {
+  "core_build": "2026-11-06T07:13:44Z rc=0 wall=11.0s max_single_rss=3GB peak_lean_procs=2 peak_sum_lean_rss=5GB min_MemAvailable=1076GB ",
+  "fingerprint_check": {
+   "rc": 0,
+   "tail": [
+    "ok  statement fingerprints"
+   ]
+  },
+  "gen_challenges_check": {
+   "rc": 0,
+   "tail": [
+    "ok  generated challenges"
+   ]
+  }
+ },
+ "builds_after_restore": [
+  {
+   "project": "Solutions/PVMatchT4P.v1",
+   "rc": 0,
+   "wall_s": 8.9,
+   "max_single_rss_gb": 6,
+   "built": [
+    "Solution"
+   ],
+   "built_count": 1,
+   "failed_modules": [],
+   "first_errors": [],
+   "log": "evidence/mutations/MT5_target_B_pv8_wtB/restore_Solutions_PVMatchT4P.v1.log"
+  },
+  {
+   "project": "Solutions/PVMatchT4C.v1",
+   "rc": 0,
+   "wall_s": 4.7,
+   "max_single_rss_gb": 3,
+   "built": [
+    "Solution"
+   ],
+   "built_count": 1,
+   "failed_modules": [],
+   "first_errors": [],
+   "log": "evidence/mutations/MT5_target_B_pv8_wtB/restore_Solutions_PVMatchT4C.v1.log"
+  }
+ ],
+ "drift_after_restore": [
+  [
+   "Solutions/PVMatchT4P.v1",
+   null
+  ],
+  [
+   "Solutions/PVMatchT4C.v1",
+   null
+  ],
+  [
+   "Solutions/Table4Evolution.v1",
+   null
+  ],
+  [
+   "patched:Solutions/PVMatchT4P.v1",
+   null
+  ],
+  [
+   "patched:Solutions/PVMatchT4C.v1",
+   null
+  ],
+  [
+   "patched:Solutions/Table4Evolution.v1",
+   null
+  ]
+ ],
+ "finished": "2026-11-06T07:14:07Z"
+}

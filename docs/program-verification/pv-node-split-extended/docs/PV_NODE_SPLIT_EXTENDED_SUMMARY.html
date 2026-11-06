@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Program verification and nodes</title>
+<style>
+:root{--bg:#ffffff;--fg:#1d2228;--muted:#5b6570;--line:#d8dee4;--panel:#f5f7f9;--accent:#1f5f8b;--ok:#1e7b34;--bad:#b42318;--code:#eef1f4}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14181c;--fg:#e4e8ec;--muted:#9aa4ae;--line:#2c343c;--panel:#1b2127;--accent:#6cb2e0;--ok:#5cc177;--bad:#f07167;--code:#20272e}}
+:root[data-theme="dark"]{--bg:#14181c;--fg:#e4e8ec;--muted:#9aa4ae;--line:#2c343c;--panel:#1b2127;--accent:#6cb2e0;--ok:#5cc177;--bad:#f07167;--code:#20272e}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15.5px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:880px;margin:0 auto;padding:28px 16px 48px}
+h1{font-size:1.55em;margin:0 0 4px}
+h2{font-size:1.12em;margin:26px 0 8px;border-bottom:1px solid var(--line);padding-bottom:4px}
+p.sub{color:var(--muted);margin:0 0 16px;font-size:.9em}
+code{background:var(--code);padding:1px 4px;border-radius:3px;font:.86em ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;overflow-wrap:anywhere}
+.verdict{background:var(--panel);border-left:4px solid var(--accent);padding:12px 16px;margin:14px 0}
+.tw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.9em}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{background:var(--panel)}
+ul{padding-left:20px}
+li{margin:3px 0}
+.no{color:var(--bad);font-weight:600}.yes{color:var(--ok);font-weight:600}
+footer{margin-top:30px;color:var(--muted);font-size:.84em;border-top:1px solid var(--line);padding-top:10px}
+</style>
+</head>
+<body>
+<main>
+<h1>Should verified programs be IEANTN nodes? Extended study</h1>
+<p class="sub">Agent B · 2026-11-06 · upstream <code>teorth/IEANTN@466b41b</code>, PoC <code>hs-chae/IEANTN_test@qrh-2pv_B 3280a3c</code>, Agent A <code>091288d</code> (read only)</p>
+
+<div class="verdict">
+<strong>No architectural change.</strong> Programs, certificates and native facts stay evidence inside solutions.
+A numerical result gets its own node only when its evidence is a citation, when two consumer families import
+it, or when it keeps a native proof out of a consumer that would otherwise pass Comparator. The existing graph
+already follows that rule. The gaps that matter are source freshness and drift, and they do not depend on the
+layout.
+</div>
+
+<h2>What was actually run</h2>
+<div class="tw"><table>
+<tr><th>Work</th><th>Size</th></tr>
+<tr><td>Graph census</td><td>7 snapshots; all 29 numerical providers audited against the rule</td></tr>
+<tr><td>Consumer axioms checked with <code>#print axioms</code></td><td>17 theorems; all three standard axioms</td></tr>
+<tr><td>Matched A/B builds</td><td>3 applications × 2 layouts in disposable worktrees; 7 challenge theorems previewed (type identical, 3 axioms)</td></tr>
+<tr><td>Controlled mutations</td><td>22 runs (11 kinds × 2 layouts), each restored byte-for-byte and verified</td></tr>
+<tr><td>Other tests</td><td>leaf-set guard at 6 graph states; compiler flags on 5 programs × 7 settings; a drift patch with 5 new tests</td></tr>
+<tr><td>Not available</td><td class="no">Comparator (no binary on the host): no result here is Comparator-verified</td></tr>
+</table></div>
+
+<h2>The three matched experiments</h2>
+<div class="tw"><table>
+<tr><th></th><th>Table 4 (one program)</th><th>Ramanujan A→B′ (two programs)</th><th>Shared π expansion (two consumer families)</th></tr>
+<tr><td>Unproved leaves of the consumer</td><td colspan="3">B = A's leaves + the provider, in all three. B removes nothing.</td></tr>
+<tr><td>Build time, peak memory</td><td>638 s vs 657 s; 26 GB in both</td><td>251 s vs 243 s; 21 GB in both</td><td>proof checked once (B) vs once per consumer (A)</td></tr>
+<tr><td>Consumer, verified alone</td><td>5 modules in B (134 in A)</td><td>145 modules in B (144 in A): both programs share one module</td><td>11 modules + a core bridge in B; 121 and 116 in A</td></tr>
+<tr><td>Native route</td><td>B keeps the consumer native-free</td><td>consumer keeps 1 native fact either way</td><td>no native fact anywhere</td></tr>
+<tr><td>Extra cost of B</td><td>+1 node, +1 edge, +9 files, a third copy of an existing statement</td><td>+1 node, +1 edge, +9 files</td><td>none (B is the repository)</td></tr>
+<tr><td>Better layout</td><td>A</td><td>A</td><td class="yes">B</td></tr>
+</table></div>
+
+<h2>What broke under change</h2>
+<ul>
+<li><strong>Stale certificate.</strong> Editing one literal of program B′'s C file rebuilt nothing and the build passed, in both layouts. Declaring the two files to Lake (15 lines) makes the same edit fail, so the passing build was stale. 7 of the 12 PoC projects that read C files declare none of them (20 files).</li>
+<li><strong>Invisible drift.</strong> <code>solution_drift</code> reported nothing for the node's own project in every cross-project edit. A 32-line patch reports them; its tests fail before and pass after; upstream's 357 tests pass.</li>
+<li><strong>Source edits Lake can see</strong> (Table 4, declared input file): a newline rebuilt and passed; a comment or one changed digit failed at the certificate. No fingerprint moved. B's consumer was never rebuilt.</li>
+<li><strong>Program A's output weakened</strong>: the data link failed. In B the consumer failed too: its solution imports program A's module.</li>
+<li><strong>Imported statement changed</strong> (ψ profile constant): one fingerprint moved; in-memory receipts went BROKEN for A's consumer and B's provider, while B's consumer stayed green.</li>
+<li><strong>Route swapped</strong> (kernel → native, same statement): one module rebuilt, no fingerprint moved, no node or version involved.</li>
+<li><strong>Compiler flags</strong>: one program's result is 1 ulp lower under x87; nothing tracks flags, correctly, since no proof uses a binary.</li>
+</ul>
+
+<h2>Corrections to the first study</h2>
+<ul>
+<li>The leaf-set finding is one re-designation (Rosser–Schoenfeld zero-free region, <code>6af2f7a</code>), not four. Four conclusions are flagged. Re-designating the paper proof (one line) passes upstream's check.</li>
+<li>"Only PlattTrudgian is shared" holds only for direct consumers of computation-kind nodes. <code>DudekPlattNumerics.v5</code> has two consumer families.</li>
+<li>The old R3 test only said "the evidence is a citation"; the budget criterion R4 does not hold (a split moves the memory peak, it does not lower it).</li>
+</ul>
+
+<h2>Decisions for the owner</h2>
+<div class="tw"><table>
+<tr><th>#</th><th>Decision</th><th>Recommendation</th></tr>
+<tr><td>1</td><td>Proof routes are justifications, never node versions (a paragraph in NODES.md)</td><td>adopt</td></tr>
+<tr><td>2</td><td>Re-designate the paper proof of <code>RosserSchoenfeld.v1.zero_free_region</code> on the PoC</td><td>adopt before upstreaming</td></tr>
+<tr><td>3</td><td>Declare the 20 C sources as Lake input files on the PoC</td><td>adopt</td></tr>
+<tr><td>4</td><td>The <code>solution_drift</code> patch</td><td>hold until the first program-verified solution goes upstream</td></tr>
+</table></div>
+
+<footer>Research study. No core, schema, Vocabulary, receipt or official designation was changed; experiments ran in disposable local worktrees; nothing was pushed. Self-assessed: no independent reviewer was authorized. Full documents: <code>PV_NODE_SPLIT_EXTENDED_STUDY.md</code>, casebook, matched experiments, mutation tests, rule stress test, reproducibility, maintainer decisions, provenance matrix.</footer>
+</main>
+</body>
+</html>
