@@ -211,7 +211,7 @@ What each design does and does not change:
 Never promote for a new proof route, a reduction of native facts, a source or data change under a fixed
 statement, or a program stage whose statement needs program semantics.
 
-**Tested against the repository.** On the PoC's 27 computation nodes (script `split/rule.py`): R1 holds
+**Tested against the repository.** On the PoC's 27 computation nodes (script `agentB/evidence/pv7/rule.py`, in the author's workspace next to the checkout, not in the repository, like the logs cited in §7). R2 and R3 are evaluated mechanically: R2 when the provider's designated kind is a leaf kind (`numerical`, `literature`, `asserted`, `lean-noncompliant`) and some consumer conclusion designates `lean-comparator` or its node has its own `Solutions/<id>/Solution.lean`; R3 when the provider designates `literature` or `numerical`. R1 holds
 for 1 (`PlattTrudgian.v1`), R2 for 18, R3 for 17; 25 meet at least one. The two that meet none are a
 formalized statement of record with no consumer yet (`DudekPlattNumerics.v4`, `lean-comparator`) and an
 asserted computation (`Wedeniwski.v1`). The candidate rule in the prompt (reuse, ownership, external
@@ -232,8 +232,10 @@ overstates reuse four-fold here (4 node-level cases against 1 family-level).
 
 ## 7. The smallest convincing experiment
 
-Disposable worktree `split/wt`, local branch `agentB/pv-node-split-exp` off `qrh-2pv_B`, upstream unset,
-never pushed.
+Disposable worktree, local branch `agentB/pv-node-split-exp` off `qrh-2pv_B` (commits `a5f24d5`, `16cddb6`),
+upstream unset, never pushed, worktree removed afterwards. Scripts and logs: `agentB/evidence/pv7/`
+(`e2.sh`, `e2b.sh`, `E1_*.log`, `E2.log`, `E2b.log`, `E3_upstream_diff.log`, `E4_blocker_build.log`), in the
+author's workspace, not in the repository.
 
 **Two layouts for one application** (real files; layout A drafted, not built). The application is
 `FKS2.v9.qrh_absolute_pi`: under QRH and the Table 4 anchor, `|π(x) − Li(x)| ≤ 5·10⁻¹⁶·x/log x` for
