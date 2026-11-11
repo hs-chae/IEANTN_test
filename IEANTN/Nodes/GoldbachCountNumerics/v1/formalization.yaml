@@ -1,0 +1,89 @@
+version: v0.4
+node:
+  id: GoldbachCountNumerics.v1
+  family: GoldbachCountNumerics
+  version: v1
+  kind: computation
+  status: active
+project:
+  name: Verified finite Goldbach multiplicity from an evolved CUDA counter
+  description: A source-level proved counter replaces first-witness search and establishes
+    at least128 distinct unordered prime pairs for every even integer in the closed
+    window1e6..2e9, smaller prime at most65535. Complete actual main, independently
+    constructed all-prefix source safety, physical CUDA refinement, executed full
+    target scan,596-source cold rebuild and bounded nonwriter review have passed at
+    the explicit source/native runtime tier.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11P32
+conclusions:
+- id: count_128_on_window
+  declaration: GoldbachCountNumerics.v1.count_128_on_window
+  challenge: GoldbachCountNumerics.v1.challenge_count_128_on_window
+  imports: []
+  imports_status: none
+  justifications:
+  - id: source-native-full-run
+    kind: numerical
+    source: count128-source-20261111
+    locator: GoldbachDirect.MainComplete.main_accepted; count128-full-2b-v3; proof-cold-v2/PASS_RECEIPT.json
+    note: 999500001 actual even targets accepted using exact v3 source/binary. Full
+      source-level implication and all-prefix safety use only standard axioms; four
+      separate approved native restricted C-source-checker leaves bind source to syntax.
+      The recorded execution is interpreted under the explicitly retained pinned compiler/runtime/OS/CUDA
+      contracts. Empty-application-cache596-source replay passed; independent bounded18-source
+      review passed. This is numerical/source-PV justification, NOT a closed kernel-only
+      execution proof and NOT an official Comparator receipt.
+  designated: source-native-full-run
+sources:
+- id: count128-source-20261111
+  title: 'Computation-led analytic number theory: exact count128 source and full proof
+    bundle'
+  authors:
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: independently-proves
+  note: Research branch research/computation-led-ant-20261111. Source v3 kernel SHA2566c5de75e1e2d4014b57d207057d3e84266d0c42cd5b89f300b008a9f8499b6ee.
+    Mathematical source contract GoldbachDirect.MainComplete.main_accepted; actual
+    accepted v3 full-run binary470ebbd006c940f85a962f0896925ab747453a8d60c043b648a84c83f482a4b2.
+    Four approved native restricted source-checker roles accompany standard-axiom
+    application proofs. Actual compiler/runtime/OS/CUDA contracts remain trusted.
+- id: ohp2014-background
+  title: Empirical verification of the even Goldbach conjecture and computation of
+    prime gaps up to4e18
+  authors:
+  - Tomas Oliveira e Silva
+  - Siegfried Herzog
+  - Silvio Pardi
+  type: paper
+  relationship: background
+  doi: 10.1090/S0025-5718-2013-02787-1
+  note: Table4 gives the stronger old one-pair smaller-prime bound1861 below2e9. Algorithms1.3/1.4
+    return the first partition; Section2.1 L(p,x) counts across targets, not128 pairs
+    for each target. This new computation preserves those older facts and does not
+    claim a larger existence frontier.
+automation:
+  methods:
+  - method: manual
+    role: Exact restricted source acceptance, general actual-source/physical correctness,
+      executed full target scan, independent source-cold replay and reproducible source/build/run
+      hashes.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+limitations:
+- The full596-source cold replay, complete accepted GPU run and all active child-route
+  readbacks passed. This remains the explicit numerical/source-native tier, not an
+  official Comparator receipt or kernel replay of the physical execution.
+- The nonwriter review checked18 material written sources and source/receipt hashes;
+  it was not an independentGPU rerun or an exhaustive rereading of all596sources.

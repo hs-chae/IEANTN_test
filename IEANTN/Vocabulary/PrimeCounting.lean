@@ -51,7 +51,7 @@ noncomputable def li (x : ℝ) : ℝ :=
 
 Unlike `li` this has no singularity in its range of integration, so it is an honest interval
 integral and carries no junk-value hazard for `x ≥ 2`.  The two differ by the constant `li 2`
-(the Ramanujan–Soldner constant, `1.0451…`). -/
+(the fixed value `1.0451…`). -/
 noncomputable def Li (x : ℝ) : ℝ := ∫ t in (2 : ℝ)..x, 1 / Real.log t
 
 end IEANTN
