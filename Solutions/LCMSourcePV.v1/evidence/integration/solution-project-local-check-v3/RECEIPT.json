@@ -1,0 +1,44 @@
+{
+  "status": "PASS_ACTUAL_LAKE_TOML_LOADER_AND_EXISTING_LCM_CHALLENGE_KERNEL_WRAPPER",
+  "lake_source_modules": 1160,
+  "core_sources_reused_from_actual_network": [
+    "IEANTN.Nodes.Dusart2018.v1.Conclusions",
+    "IEANTN.Nodes.Lcm.v1.Conclusions",
+    "IEANTN.Nodes.Lcm.v2.Conclusions",
+    "IEANTN.Vocabulary.PrimeGaps"
+  ],
+  "lake_toml_sha256": "c0d0d43431a9104652418aee7d7ad311929f39799a092b640d449fc28e1d2048",
+  "solution_sha256": "600acc03c9be15556c51399a473f04fc8e43367cfab0eb576275a8f14609c104",
+  "rows": [
+    {
+      "stage": "LakeTomlLoad",
+      "command": [
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-exposure-maximal-20261109/evolution/work/environment-cold-v1/lean-4.34.0-rc2-linux/bin/lake",
+        "-d",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-lcm-source-pv-20261112/network/Solutions/LCMSourcePV.v1",
+        "translate-config",
+        "lean",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-lcm-source-pv-20261112/integration/solution-project-local-check-v3/lakefile.generated.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 0.39577356167137623,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "SolutionKernel",
+      "command": [
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-exposure-maximal-20261109/evolution/work/environment-cold-v1/lean-4.34.0-rc2-linux/bin/lean",
+        "-j1",
+        "-R",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-lcm-source-pv-20261112/network/Solutions/LCMSourcePV.v1",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-lcm-source-pv-20261112/network/Solutions/LCMSourcePV.v1/Solution.lean",
+        "-o",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-lcm-source-pv-20261112/integration/solution-project-local-check-v3/Solution.olean"
+      ],
+      "exit_code": 0,
+      "seconds": 4.581136358901858,
+      "log_sha256": "716a24b66cdf9395dc39a3f88e9d7e3fc43608180f4d8a2f51025f99879d2f3b"
+    }
+  ],
+  "qualification": "Actual pinned Lake loadPackage/translate-config parses library configuration without dependencies/network or source mutation; actual Solution compiled against current-study source-built objects. Not a full Lake build or officialComparator receipt.1164fullcold closure and actual existing conditionalGoal separately accepted."
+}
