@@ -1,8 +1,4 @@
-/-
-Copyright (c) 2026 IEANTN contributors. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: OpenAI (Codex)
--/
+/- Partial research components; full E_pi source-first PV remains open. -/
 import ScopedC.SourceBundle.Whole
 import ScopedC.HelperCodeAdapters
 import SynergyAnalytic.HornerRange
@@ -11,7 +7,39 @@ import SynergyAnalytic.PrimeRich
 import SynergyBasis.BoxRealArithmetic
 import SynergyBasis.BoxRealInverse
 import SynergyBasis.BoxRealLattice
-
 import SynergyBasis.PositiveModel
-
--- Partial source and mathematical checkpoints only; no migrated E_pi provider.
+import SynergyBasis.PositiveLog
+import SynergyBasis.PositiveDivision
+import SynergyBasis.CubeSearch
+import SynergyC.AddBody
+import SynergyC.MulBody
+import SynergyC.ZeroBody
+import SynergyC.Initialization
+import ScopedC.PositiveCasts
+import ScopedC.RecordCasts
+import ScopedC.IntervalCasts
+import ScopedC.SignedNegBody
+import ScopedC.RationalNegBody
+import ScopedC.RationalAbsBody
+import ScopedC.RationalPointBody
+import ScopedC.NumericRepresentation
+import ScopedC.NumericNegationRefinement
+import ScopedC.RationalUnsignedCall
+import ScopedC.NumericUnsignedRefinement
+import ScopedC.RationalInputs
+import ScopedC.RationalIntervalNegBody
+import ScopedC.NumericIntervalNegRefinement
+import ScopedC.DyadicCasts
+import ScopedC.DyadicRepresentation
+import ScopedC.DyadicIntervalNegBody
+import ScopedC.NumericDyadicNegRefinement
+import ScopedC.DyadicValueEquivalence
+import ScopedC.DyadicZeroBody
+import ScopedC.NumericDyadicZeroRefinement
+import ScopedC.SignedPairFrames
+import ScopedC.SignedMultiplyBody
+import ScopedC.NumericSignedMultiplyRefinement
+import ScopedC.SignedNormalization
+import ScopedC.SignedAddShape
+import ScopedC.SignedAddBody
+import ScopedC.NumericSignedAddRefinement

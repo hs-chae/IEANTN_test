@@ -43,7 +43,7 @@ def main():
    for suffix in ['bin/clang','include/lean/lean.h','include/lean/config.h','lib/lean/libleanshared.so']:
     expected=[v for k,v in pins.items()if k.endswith('/'+suffix)];need(len(expected)==1,'ambiguous runtime pin '+suffix);need(sha(t/suffix)==expected[0],'wrong pinned runtime/compiler '+suffix)
    compiler=str(t/'bin/clang');includes=['-isystem','/usr/include/c++/11','-isystem','/usr/include/x86_64-linux-gnu/c++/11','-isystem','/usr/lib/gcc/x86_64-linux-gnu/11/include']
-   binary=out/'scoped_all';steps.append(run([compiler,'-std=c++17','-O2','-I'+str(t/'include'),*includes,str(ROOT/'c/include-bundle/scoped_all_bundle.cpp'),'-L'+str(t/'lib/lean'),'-lleanshared','-Wl,-rpath,'+str(t/'lib/lean'),'-o',str(binary)],out,'build-scoped'))
+   binary=out/'scoped_all';steps.append(run([compiler,'-std=c++17','-O2','-I'+str(t/'include'),*includes,str(ROOT/'source/scoped_all_bundle.cpp'),'-L'+str(t/'lib/lean'),'-lleanshared','-Wl,-rpath,'+str(t/'lib/lean'),'-o',str(binary)],out,'build-scoped'))
    steps.append(run([str(binary)],out,'run-scoped'))
    records=read_json(ROOT/'evidence/ALL50_INPUT_SERIALIZATION_V1.json')['records'];lines=(out/'run-scoped.stdout').read_text().splitlines();need(len(records)==52 and len(lines)==52,'exact52 rows required');checks=[]
    for line,record in zip(lines,records):

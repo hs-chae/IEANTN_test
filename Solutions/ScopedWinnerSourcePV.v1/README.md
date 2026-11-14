@@ -1,10 +1,12 @@
 # Scoped Winner source-first PV: partial research checkpoint
 
 **IN PROGRESS. This checkpoint does not complete the requested migration.**
-The existing Scoped Winner final theorem still has its original 49 native
-execution dependencies; the joint before/after comparison consumes 50 in their
-union. The comparison-only theorem has zero. No official network evidence or
-mathematical assumptions are changed here.
+The preserved original Scoped Winner final theorem has 49 native execution
+dependencies; its joint before/after comparison consumes 50. A separate
+intermediate overlay has recompiled all 106 consumers with 40 scalar facts
+proved by the ordinary kernel: its actual remaining counts are 9 and 10. The
+comparison-only theorem has zero in both versions. This kernel-only overlay
+is **not source-first PV**. No official network evidence or assumptions change.
 
 The immutable target is the original 39 comparator identities, 8,192 versus
 16,384 integration cells, coefficients 0.009474458010474448 and
@@ -22,7 +24,9 @@ Completed partial work in this checkpoint:
   preprocessor remain explicitly trusted generic tools.
 * The operational model includes checked C integers, records, pointers, arrays,
   explicit initialization and logical ownership. Source-body proofs currently
-  cover comparisons and pool registration/clearing, including retained values.
+  cover 27 of the 68 original bodies, including comparisons, Nat wrappers,
+  constructors, pool ownership and selected signed/rational/interval operations.
+  The index names the exact contracts and remaining bodies; this is partial.
 * Separate mathematical support proves Taylor/logarithm and
   prime-rich interval lemmas. The new fixed-point `basis_fp128.cpp` reproduces
   useful candidate quadratures; it is **not yet source verified**. The proved
@@ -31,8 +35,11 @@ Completed partial work in this checkpoint:
 Still required: the remaining rational/interval/Taylor/DAG/quadrature C bodies;
 complete numerical kernel certificates for the ten grid facts; unchanged Lean
 consumer integration; separate final/comparison dependency audits; and a final
-isolated source-cold verification. The analytic candidate near 0.00845 and
-prospective exposure study are unfinished. Do not cite them as verified results.
+isolated source-cold verification. The analytic candidate near 0.00845 is not yet a completed numerical/source-PV
+instance. Eight isolated exploratory exposure sessions have run: four original
+pilot failures and four uniformly enlarged-budget followup successes. All four
+followups were independently rebuilt. This is calibration evidence, not a
+confirmatory or causal exposure claim.
 
 `src/Checkpoint.lean` imports the accepted partial checkpoints. Its development
 build and selected root axiom audits passed with only propext, Classical.choice
@@ -69,3 +76,61 @@ source, overflow, buffer and whole-loop obligations.
 
 The baseline source is commit 9f108629f0039584250b5e5d781f5313bb3d0ea8.
 This is supplemental research, not a revision of locked historical outcomes.
+
+The source include directory is `source/`, matching the exact `include_str`
+paths in the Lean modules. A self-contained, actually replayed 142-module
+source checkpoint is also supplied in `source-checkpoint-v2.tar.xz`; its README
+describes generic dependency setup and the checked replay command. This remains
+source-binding and raw-execution evidence, with application-body proofs pending.
+
+## Supplemental checkpoint, 14 November
+
+The exhaustive census covers 41 created declarations, both CLI routes and the
+39 recorded comparator identities. Their required created/CLI native union is
+51 (the selected joint union of 50 plus one sensitivity fact). The inherited
+39-comparator proof union contains 78 native facts; 84 occur among all imported
+native primitives. These populations are different; none is silently relabeled
+as migrated. Exact written identities and use paths are preserved in the audit.
+
+An additive C variant checks putchar/printf return values and flushes stdout
+before success. It appends the four original sensitivity inputs to the original
+52 rows. Lean has checked its 142-piece source AST, 728 unchanged copied-file
+identities, and the four actual source-array-to-original-expression bindings.
+Its full 56-row numerical replay passed in 1,320.80 seconds, with byte-identical original outputs and real /dev/full rejection. Whole arithmetic,
+loop, initialization, stream-effect and theorem-provider proofs remain open.
+
+The new 512-bit basis backend has actual source-body proofs for addU, mulU and
+zero, including the multiplication guard and zero short circuit. Its source
+initialization is proved from the actual bound global declarations. The complete
+19-function backend remains unfinished. Positive exp/log/interval models are
+mathematical support and do not substitute for its source-body proofs.
+
+The standalone source-binding capsule was actually replayed from 142 fresh
+application source modules with public generic dependencies and all 52 actual
+C rows; it reused no old application objects. This was a host source-cold run,
+not a namespace-isolated final migration run. The additive runtime guard was
+tested separately and is not mislabeled as a second complete replay.
+
+The offline [analytic research progress report](ANALYTIC_RESEARCH_PROGRESS.html)
+records 20 mechanisms, mathematical partial proofs, numerical scouts and serious
+challengers. It is a checkpoint, not the final project report or a claim that
+the remaining numerical/source-PV instances are complete.
+
+`c56-and-rational-source-checkpoint-v1.tar.xz` preserves the additive C56
+source, its actual AST/input proofs, accepted rational helper sources (including
+qm), scripts, receipts and source hashes. Its numerical runner accepts explicit
+source/toolchain/reference-output paths. The combined clean source-cold replay
+was not completed before the usage stop; no full source-PV claim is made.
+
+The final saved mathematical result is unconditional:
+`SynergyAnalytic.tangent256_universal_basis_caps` proves the three true
+Gaussian basis caps (1.865, 0.6365, 0.516) using genuine 272-cell ordinary-kernel
+execution, real soundness and analytic tails, with only standard Lean axioms.
+`J_CAPS_SOURCE_CHECKPOINT_V1.zip` preserves its 96-source dependency closure,
+receipts and README. This is kernel-only verification, not C-source PV. The
+new height/PNT numerical instance remains unfinished.
+
+`SCOPED_16_BODY_SOURCE_COLD_COMPONENT_V1.zip` contains the independently
+replayed 16-body/46-source component and reproducible scripts (302.90 seconds).
+It is host source-cold, not final namespace isolation. The later merged28-body
+and C56 source-cold replay remains pending.

@@ -1,0 +1,304 @@
+{
+  "schema": "SCOPED_ACTUAL_SOURCE_HELPER_SUPPORT_V4",
+  "created_utc": "2026-11-14T16:12:30.050128+00:00",
+  "status": "PASS_HOST_DEVELOPMENT_STD3",
+  "qualification": "Actual parsed function-body SourceCall proofs and typed cast support under represented-input/pool applicability conditions. Development environment objects reused. This is not source-cold, namespace isolation, full 68-function producer closure or closed numerical-leaf acceptance. Mathematical representation bridges additionally decode actual returned records into the existing Signed/Rational/IntervalRat models.",
+  "concrete_functions": {
+    "sn": {
+      "rank": 5,
+      "theorem": "ScopedC.SignedNegCalls.sn_closed",
+      "poststate": "binaryResult(...,0)"
+    },
+    "qn": {
+      "rank": 6,
+      "theorem": "ScopedC.RationalNegCalls.qn_closed",
+      "poststate": "binaryResult(...,0)"
+    },
+    "qabs": {
+      "rank": 5,
+      "theorem": "ScopedC.RationalAbsCalls.qabs_closed",
+      "poststate": "binaryResult(...,0)"
+    },
+    "point": {
+      "rank": 1,
+      "theorem": "ScopedC.RationalPointCalls.point_closed",
+      "poststate": "caller unchanged"
+    },
+    "qi": {
+      "rank": 6,
+      "theorem": "ScopedC.RationalUnsignedCalls.qi_closed",
+      "poststate": "qiResult:3Nat allocations and3keep effects"
+    },
+    "rneg": {
+      "rank": 7,
+      "theorem": "ScopedC.RationalIntervalNegCalls.rneg_closed",
+      "poststate": "rnegResult:2Nat-zero allocations and2keep effects"
+    },
+    "ineg": {
+      "rank": 6,
+      "theorem": "ScopedC.DyadicIntervalNegCalls.ineg_closed",
+      "poststate": "inegResult:2Nat-zero allocations and2keep effects"
+    },
+    "izero": {
+      "rank": 6,
+      "theorem": "ScopedC.DyadicZeroCalls.izero_closed",
+      "poststate": "izeroResult:4Nat-zero allocations and4keep effects, allmagnitudesconstructed"
+    },
+    "sm": {
+      "rank": 5,
+      "theorem": "ScopedC.SignedMultiplyCalls.sm_closed",
+      "poststate": "smResult:actualnm product allocation+smake zero allocation, two keeps"
+    },
+    "sa": {
+      "rank": 5,
+      "theorem": "ScopedC.SignedAddCalls.sa_closed",
+      "poststate": "saResult:actualsame-sign/nle selected na/ns allocation+smake zero allocation, two keeps"
+    }
+  },
+  "application_premises": "Installed literal source bodies; live represented Nat tokens and unsigned sign range; functions allocating/keeping require owned valid pool and capacity. Lower application execution and actual input/return casts are discharged by these concrete theorems. Generic pinned compiler/core runtime arithmetic contracts remain the disclosed external boundary.",
+  "files": [
+    {
+      "module": "ScopedC.PositiveCasts",
+      "source": "scoped/frontend/lean/ScopedC/PositiveCasts.lean",
+      "source_sha256": "effdd451eb4fd03765c14b0433de54414fad8dea977b793752d25fd990c1206d",
+      "receipt": "scoped/frontend/proof/positive-casts-v1/RECEIPT.json",
+      "receipt_sha256": "a88e60fc1ec16bdab9fea9a7d2e0526544cbea73f8e51c21d3f9e25a610c894c",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RecordCasts",
+      "source": "scoped/frontend/lean/ScopedC/RecordCasts.lean",
+      "source_sha256": "1165f794a0c61d9132b020f28dde6e37d53bbfbd1130502d1a51f8ad17fef29b",
+      "receipt": "scoped/frontend/proof/record-casts-v1/RECEIPT.json",
+      "receipt_sha256": "d59cda2417492ff15ea72f598b8f8277059c87d81ad0bc70d991e6f4f837c158",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.IntervalCasts",
+      "source": "scoped/frontend/lean/ScopedC/IntervalCasts.lean",
+      "source_sha256": "b5a456c6b1eb7f1fc2367c78d6654a0edeead3b7fc1175682be6af38a8948dd9",
+      "receipt": "scoped/frontend/proof/interval-casts-v1/RECEIPT.json",
+      "receipt_sha256": "52492340ece176c14db1a97690a355648329d198b7f7e7bd239bf04d1839dcd7",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.SignedNegBody",
+      "source": "scoped/frontend/lean/ScopedC/SignedNegBody.lean",
+      "source_sha256": "a0de78d18358749d342fd459826fdf3b973a29c7584d6591b9c8f351223a41b5",
+      "receipt": "scoped/frontend/proof/signed-neg-body-v4/RECEIPT.json",
+      "receipt_sha256": "0ba9a9e97a9efd7608f5cf1689bb6533d7043f5aed04c975a99ae2462cd96b3c",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalNegBody",
+      "source": "scoped/frontend/lean/ScopedC/RationalNegBody.lean",
+      "source_sha256": "58e9ad13bc9638703cbfdd69a13834cbdab5501bd8b624a43840f9e53af78aa3",
+      "receipt": "scoped/frontend/proof/rational-neg-body-v2/RECEIPT.json",
+      "receipt_sha256": "442e0a1c2557c345a7162e4cb06e35510ac6944438615559b1423308ec9eb7eb",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalAbsBody",
+      "source": "scoped/frontend/lean/ScopedC/RationalAbsBody.lean",
+      "source_sha256": "151aecde6d7e2441b38a72569a5a3a13f6f27f8a145763aeec155dc4adcaff4d",
+      "receipt": "scoped/frontend/proof/rational-abs-body-v1/RECEIPT.json",
+      "receipt_sha256": "b19d37b6286bc3c5ffe56c0513019c9a92853cc0b3a12d0cca39d4919e655970",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalPointBody",
+      "source": "scoped/frontend/lean/ScopedC/RationalPointBody.lean",
+      "source_sha256": "e0d9c9947f31483e50d2d23c92f2ab588dd1329ee79946bcb67e6e239a373dcf",
+      "receipt": "scoped/frontend/proof/rational-point-body-v2/RECEIPT.json",
+      "receipt_sha256": "1d09ea9bc64b24f45c92f2003806425e538605cd45b46ffeffb8891225c93e3a",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.NumericRepresentation",
+      "source": "scoped/frontend/lean/ScopedC/NumericRepresentation.lean",
+      "source_sha256": "93b307f3126a0a01c29d3629d377fc1f4e1960989df5d63b42bb20c81fdda469",
+      "receipt": "scoped/frontend/proof/numeric-representation-v3/RECEIPT.json",
+      "receipt_sha256": "66e605efd6336bbc30a9f4ec859f6431340ee918af2f90c78fbb35ddf29ee08a",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.NumericNegationRefinement",
+      "source": "scoped/frontend/lean/ScopedC/NumericNegationRefinement.lean",
+      "source_sha256": "8cf9f98003bcb2cd3b03ad40b59363b645e45fea29933743134449d4fec73cbe",
+      "receipt": "scoped/frontend/proof/numeric-negation-refinement-v1/RECEIPT.json",
+      "receipt_sha256": "6df36e3281fd901706ab02855549e5b4eef9e0482a0952bff56c6ced5ef39237",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalUnsignedCall",
+      "source": "scoped/frontend/lean/ScopedC/RationalUnsignedCall.lean",
+      "source_sha256": "e5b71e5abafa392cd58c5e0070e595742b66788b22b067b8761de06d29e5ca9b",
+      "receipt": "scoped/frontend/proof/rational-unsigned-call-v3/RECEIPT.json",
+      "receipt_sha256": "beb6e8c7183105d022f7c869ed0adb3a55bd412c3d0e6762be4414cc57cdc566",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.NumericUnsignedRefinement",
+      "source": "scoped/frontend/lean/ScopedC/NumericUnsignedRefinement.lean",
+      "source_sha256": "966dafcd583d72d3582aface95c5080865a1dfe65ff7fe808e0aefa816d3ba5c",
+      "receipt": "scoped/frontend/proof/numeric-unsigned-refinement-v1/RECEIPT.json",
+      "receipt_sha256": "c9ad0ebc206bd58b96675ce7c6f871cb442b5238c04556703da3e68608109b7b",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalInputs",
+      "source": "scoped/frontend/lean/ScopedC/RationalInputs.lean",
+      "source_sha256": "bd862aa2cea81a2624fc24ee67150330dd01f6b14d6a3714f6a2419664e54442",
+      "receipt": "scoped/frontend/proof/rational-inputs-v1/RECEIPT.json",
+      "receipt_sha256": "ddb42b69a344e9ccf51f4475e57822db187427c0ca4cefa0af72c10e020fce21",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalIntervalNegBody",
+      "source": "scoped/frontend/lean/ScopedC/RationalIntervalNegBody.lean",
+      "source_sha256": "eb4c832b7bf80facad6e43897a9bbaade96c9b7e18934558faa2ce94bbe903fd",
+      "receipt": "scoped/frontend/proof/rational-interval-neg-body-v2/RECEIPT.json",
+      "receipt_sha256": "c1682c9092b2ac796fbda54200cd7cb545ab188449ed46822aa8ebf4979da422",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.NumericIntervalNegRefinement",
+      "source": "scoped/frontend/lean/ScopedC/NumericIntervalNegRefinement.lean",
+      "source_sha256": "2a3d483e42264d8ba242a2bce7adaed61d3a0d5dd10d8b05653eac1605d3b175",
+      "receipt": "scoped/frontend/proof/numeric-interval-neg-refinement-v1/RECEIPT.json",
+      "receipt_sha256": "2dce75d7ab26d430011525725d70ced1996d2d4cfd1401ddd0e669dc81e45392",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.DyadicCasts",
+      "source": "scoped/frontend/lean/ScopedC/DyadicCasts.lean",
+      "source_sha256": "04990649a0a11d3bbf5fbc2f95311cacb736c802ddf8d006057b0f40cd546778",
+      "receipt": "scoped/frontend/proof/dyadic-casts-v1/RECEIPT.json",
+      "receipt_sha256": "ef89b55cfbf0d236d8a193d5e505bd18d80e4f2c5333bc5cfe9cbc9dd13b0745",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.DyadicRepresentation",
+      "source": "scoped/frontend/lean/ScopedC/DyadicRepresentation.lean",
+      "source_sha256": "48a91bcbef00f56899402ec4686dc47179af3673e2cce982af703022e7dc907a",
+      "receipt": "scoped/frontend/proof/dyadic-representation-v2/RECEIPT.json",
+      "receipt_sha256": "dcf16eb5d62e932c8097c28f5e9ae6ee459e2bc96ea56f488ec5854e496dad42",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.DyadicIntervalNegBody",
+      "source": "scoped/frontend/lean/ScopedC/DyadicIntervalNegBody.lean",
+      "source_sha256": "63b785be3664747f93282976b0a5a8e50b0d27cc49bc05d7d1484302a1880378",
+      "receipt": "scoped/frontend/proof/dyadic-interval-neg-body-v1/RECEIPT.json",
+      "receipt_sha256": "54925908ff4fb7229bb38dafa1ae54ab1ed4105196a8b48d6ae871ab526b2805",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.NumericDyadicNegRefinement",
+      "source": "scoped/frontend/lean/ScopedC/NumericDyadicNegRefinement.lean",
+      "source_sha256": "e9fad80ed0ae746e71e3c0626b971da093b058e8f8eae50786824bea0688dc8c",
+      "receipt": "scoped/frontend/proof/numeric-dyadic-neg-refinement-v1/RECEIPT.json",
+      "receipt_sha256": "98e25dd1a28657503ebcbb67d067a0bb24d67e4be5ed4533899a206e328de14a",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.DyadicValueEquivalence",
+      "source": "scoped/frontend/lean/ScopedC/DyadicValueEquivalence.lean",
+      "source_sha256": "fe845a5b11696a8d2a98d32c22613b044f3fafa0f9d56b4ff6e4f7c98eeff175",
+      "receipt": "scoped/frontend/proof/dyadic-value-equivalence-v2/RECEIPT.json",
+      "receipt_sha256": "57ad309716f9dc4a9a3dfe6126fdc1d5e69e048e6bdcaebe147d4acbdb2b8132",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.DyadicZeroBody",
+      "source": "scoped/frontend/lean/ScopedC/DyadicZeroBody.lean",
+      "source_sha256": "794cd20ef4e67ebc74e3073bfdf3fee9fc33aa12b2687cc75085e746f9bdaa01",
+      "receipt": "scoped/frontend/proof/dyadic-zero-body-v2/RECEIPT.json",
+      "receipt_sha256": "69ab0c2cbf6b4f866efaa34acaf79767e5c6f1cf1d7bc80d725582678025f51c",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.NumericDyadicZeroRefinement",
+      "source": "scoped/frontend/lean/ScopedC/NumericDyadicZeroRefinement.lean",
+      "source_sha256": "09a2aee31bffcc18814c99fa46c56a1e02b3535aaa1abfb3dc05d8d2665e7008",
+      "receipt": "scoped/frontend/proof/numeric-dyadic-zero-refinement-v3/RECEIPT.json",
+      "receipt_sha256": "4f335fcd227a5e364727784ccf51a177489c7447f28ffee0348d2e0903e1762b",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.SignedPairFrames",
+      "source": "scoped/frontend/lean/ScopedC/SignedPairFrames.lean",
+      "source_sha256": "f283de1b89829bac35566b436e1d61cd8ef837983235b5560a8a36c0e6ae013a",
+      "receipt": "scoped/frontend/proof/signed-pair-frames-v1/RECEIPT.json",
+      "receipt_sha256": "192c3d8be232438df8408e6bb34267dec63d1976c06448ef02c1edcbe8426a5f",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.SignedMultiplyBody",
+      "source": "scoped/frontend/lean/ScopedC/SignedMultiplyBody.lean",
+      "source_sha256": "75dbd649777270c0e68f237bed71583259b8dcd97b7c7fc10da94c4da0199a7b",
+      "receipt": "scoped/frontend/proof/signed-multiply-body-v3/RECEIPT.json",
+      "receipt_sha256": "61da2389fd4158bf333c23c946709395cb36295a411e78f1ced4af35b68083dc",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.NumericSignedMultiplyRefinement",
+      "source": "scoped/frontend/lean/ScopedC/NumericSignedMultiplyRefinement.lean",
+      "source_sha256": "1c09b6ddff4029ea2533a9cdde911d112b15d339df0f2bc250c1266b5f936cf5",
+      "receipt": "scoped/frontend/proof/numeric-signed-multiply-refinement-v1/RECEIPT.json",
+      "receipt_sha256": "ee390eb0ebd51523ff91c5f809eb5b6bbd151c5ed180bcf65ba0739a225c4bb5",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.SignedNormalization",
+      "source": "scoped/frontend/lean/ScopedC/SignedNormalization.lean",
+      "source_sha256": "700f9bfe6609d65e9a3368096da8b6c79b40ff708138b7c4dacd47e986694a83",
+      "receipt": "scoped/frontend/proof/signed-normalization-v1/RECEIPT.json",
+      "receipt_sha256": "2bfc50a918e458d2f352d9599957bfe96ac8a6ab835bb3962d94ca68aadbc4f4",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.SignedAddShape",
+      "source": "scoped/frontend/lean/ScopedC/SignedAddShape.lean",
+      "source_sha256": "28d2c60d71c003e3cb3fd0e745519a45a9fbb919a7ce7ffc328e9a6d5437086e",
+      "receipt": "scoped/frontend/proof/signed-add-shape-v3/RECEIPT.json",
+      "receipt_sha256": "def2a071b489bfaed1854c9bdb667daf11b01e1eada6ef5842d83499de8205ab",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.SignedAddBody",
+      "source": "scoped/frontend/lean/ScopedC/SignedAddBody.lean",
+      "source_sha256": "36ba83aca54bc9e75030f8cb0c4e9d24c7d4596b7ee49a9c50395edf0dd9afc1",
+      "receipt": "scoped/frontend/proof/signed-add-body-v2/RECEIPT.json",
+      "receipt_sha256": "08cf0b81c9f63dd74cb4a62a449f59afe262d7ad6b35b1e23481ef0460f1d7f6",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.NumericSignedAddRefinement",
+      "source": "scoped/frontend/lean/ScopedC/NumericSignedAddRefinement.lean",
+      "source_sha256": "13150b5c41a2545ed3624265ae0c0f58dd3092b768f4c0a85b80a231f664e78b",
+      "receipt": "scoped/frontend/proof/numeric-signed-add-refinement-v1/RECEIPT.json",
+      "receipt_sha256": "c23ba641827461c3aa484e12c5c558ab7aee12615f9cc3cfff2a507e8d2f5f74",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    }
+  ],
+  "previous_index": {
+    "path": "scoped/frontend/proof/SOURCE_HELPER_SUPPORT_INDEX_V3.json",
+    "sha256": "40db55d246afc7b5fa90349b19414dcd35a652b46ad5bc14c9360098c7bf2bb5"
+  },
+  "mathematical_bridges": [
+    "ScopedC.NumericNegationRefinement.sn_math",
+    "ScopedC.NumericNegationRefinement.qn_math",
+    "ScopedC.NumericNegationRefinement.qabs_math",
+    "ScopedC.NumericNegationRefinement.point_math",
+    "ScopedC.NumericUnsignedRefinement.qi_math",
+    "ScopedC.NumericIntervalNegRefinement.rneg_math",
+    "ScopedC.NumericDyadicNegRefinement.ineg_math",
+    "ScopedC.DyadicValueEquivalence.source_neg_rep",
+    "ScopedC.NumericDyadicZeroRefinement.izero_math",
+    "ScopedC.NumericSignedMultiplyRefinement.sm_math",
+    "ScopedC.NumericSignedAddRefinement.sa_math"
+  ],
+  "dyadic_representation_qualification": "The C I record uses implicit exponent -100. The executable decoder validates sign/domain bits and order. Canonical inputs match exact old negation; arbitrary old coarser representations use SameValues endpoint-rational equality. Zero represents original finSumZero by endpoint values; field equality is not claimed.",
+  "comparison_domain_note": "Signed decoder validates bit flags but accepts raw negative zero. Add/mul/negation mathematics remains valid on raw Signed values. Actual sc/qc sign-first comparison must additionally require ZeroNormalized(mag=0 implies neg=false), established by every smake constructor output; not a mismatch in proof-bearing normalized use. SignedNormalization proves make/add/mul/negated normalization; sa_math includes its normalized output."
+}
