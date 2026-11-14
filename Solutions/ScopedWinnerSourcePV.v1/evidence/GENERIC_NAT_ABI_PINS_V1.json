@@ -1,0 +1,309 @@
+{
+  "schema": "SCOPED_PINNED_GENERIC_NAT_ABI_V1",
+  "status": "PINNED_DISCLOSED_GENERIC_BOUNDARY_APPLICATION_APPLICABILITY_PENDING",
+  "created_utc": "2026-11-14T11:34:34.318947+00:00",
+  "lean_version": "4.34.0-rc2",
+  "lean_compiler_sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+  "clang_path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-exposure-maximal-20261109/evolution/work/environment-cold-v1/lean-4.34.0-rc2-linux/bin/clang",
+  "clang_sha256": "9fcd5fc4baeea9c449bcc9ca4b9db7714465107669498b0056a853f22f5f4def",
+  "header": {
+    "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-exposure-maximal-20261109/evolution/work/environment-cold-v1/lean-4.34.0-rc2-linux/include/lean/lean.h",
+    "sha256": "982c731a1fbacc7688006f44f9f7af9d9e3e0247d310a728827f49e7f1466c13",
+    "snapshot": "scoped/audit/runtime/lean.h"
+  },
+  "runtime": {
+    "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-exposure-maximal-20261109/evolution/work/environment-cold-v1/lean-4.34.0-rc2-linux/lib/lean/libleanshared.so",
+    "bytes": 233648184,
+    "sha256": "cddf08bd2b9239f8ce2e2aba8630c47e37b6b341b47705d9d0ba910ad6db13b5"
+  },
+  "source_observed": {
+    "path": "scoped/numerical/source/scoped_eval.cpp",
+    "sha256": "5a5918adb8c283749bc5955dafeb45d6da9c24f8b4360288cea139f60e4e3adc"
+  },
+  "symbols": [
+    {
+      "symbol": "lean_dec",
+      "header_lines": [
+        676,
+        788,
+        809,
+        813,
+        981,
+        1060,
+        1088,
+        1428,
+        1760,
+        1762,
+        2016,
+        2054,
+        2091,
+        2129,
+        2175,
+        3031,
+        3044
+      ],
+      "application_lines": [
+        39,
+        312,
+        326
+      ],
+      "contract": "Consumes one live owned reference token. Application must prove all retained/borrowed uses remain live across clearTo; generic RC/allocator implementation trusted.",
+      "status": "EXPLICIT_TRUSTED_PINNED_GENERIC_RUNTIME_CONTRACT_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "symbol": "lean_inc",
+      "header_lines": [
+        674,
+        999,
+        1028,
+        1043,
+        1402,
+        1427,
+        1979,
+        3043
+      ],
+      "application_lines": [
+        304,
+        311
+      ],
+      "contract": "Requires live borrowed reference; establishes one additional owned logical token. Boxed scalars may alias and require no physical increment; no physical pointer uniqueness assumption.",
+      "status": "EXPLICIT_TRUSTED_PINNED_GENERIC_RUNTIME_CONTRACT_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "symbol": "lean_initialize_runtime_module",
+      "header_lines": [],
+      "application_lines": [
+        7,
+        321
+      ],
+      "contract": "Generic runtime initialization; actual application main must execute it before constructing Nat objects. Does not establish any application array/output representation.",
+      "status": "EXPLICIT_TRUSTED_PINNED_GENERIC_RUNTIME_CONTRACT_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "symbol": "lean_nat_add",
+      "header_lines": [
+        1519
+      ],
+      "application_lines": [
+        42
+      ],
+      "contract": "Borrow a,b; owned Nat result a+b.",
+      "status": "EXPLICIT_TRUSTED_PINNED_GENERIC_RUNTIME_CONTRACT_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "symbol": "lean_nat_dec_eq",
+      "header_lines": [
+        1605
+      ],
+      "application_lines": [
+        49
+      ],
+      "contract": "Borrow a,b; uint8 result 1 iff a=b, else0; no application state or ownership change.",
+      "status": "EXPLICIT_TRUSTED_PINNED_GENERIC_RUNTIME_CONTRACT_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "symbol": "lean_nat_dec_le",
+      "header_lines": [
+        1623
+      ],
+      "application_lines": [
+        50
+      ],
+      "contract": "Borrow a,b; uint8 result 1 iff a<=b, else0; no application state or ownership change.",
+      "status": "EXPLICIT_TRUSTED_PINNED_GENERIC_RUNTIME_CONTRACT_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "symbol": "lean_nat_dec_lt",
+      "header_lines": [
+        1637
+      ],
+      "application_lines": [
+        51
+      ],
+      "contract": "Borrow a,b; uint8 result 1 iff a<b, else0; no application state or ownership change.",
+      "status": "EXPLICIT_TRUSTED_PINNED_GENERIC_RUNTIME_CONTRACT_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "symbol": "lean_nat_div",
+      "header_lines": [
+        1555
+      ],
+      "application_lines": [
+        45
+      ],
+      "contract": "Borrow a,b; owned Nat result a/b; application proves b>0 on used rational/interval paths. Runtime totalized zero convention is outside used source domain.",
+      "status": "EXPLICIT_TRUSTED_PINNED_GENERIC_RUNTIME_CONTRACT_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "symbol": "lean_nat_gcd",
+      "header_lines": [
+        1668
+      ],
+      "application_lines": [
+        47
+      ],
+      "contract": "Borrow a,b; owned Nat result Nat.gcd a b.",
+      "status": "EXPLICIT_TRUSTED_PINNED_GENERIC_RUNTIME_CONTRACT_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "symbol": "lean_nat_log2",
+      "header_lines": [
+        1669
+      ],
+      "application_lines": [
+        171,
+        192,
+        193
+      ],
+      "contract": "Borrow n; owned Nat result Nat.log2 n (floor binary logarithm, total Nat convention at zero). Explicitly included generic primitive.",
+      "status": "EXPLICIT_TRUSTED_PINNED_GENERIC_RUNTIME_CONTRACT_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "symbol": "lean_nat_mod",
+      "header_lines": [
+        1582
+      ],
+      "application_lines": [
+        46
+      ],
+      "contract": "Borrow a,b; owned Nat result a%b; application proves b>0 on used paths.",
+      "status": "EXPLICIT_TRUSTED_PINNED_GENERIC_RUNTIME_CONTRACT_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "symbol": "lean_nat_mul",
+      "header_lines": [
+        1539
+      ],
+      "application_lines": [
+        44
+      ],
+      "contract": "Borrow a,b; owned Nat result a*b.",
+      "status": "EXPLICIT_TRUSTED_PINNED_GENERIC_RUNTIME_CONTRACT_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "symbol": "lean_nat_shiftl",
+      "header_lines": [
+        1665
+      ],
+      "application_lines": [
+        48
+      ],
+      "contract": "Borrow a,b; owned Nat result a*2^b.",
+      "status": "EXPLICIT_TRUSTED_PINNED_GENERIC_RUNTIME_CONTRACT_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "symbol": "lean_nat_sub",
+      "header_lines": [
+        1526,
+        3350
+      ],
+      "application_lines": [
+        43
+      ],
+      "contract": "Borrow a,b; owned Nat result max(a-b,0).",
+      "status": "EXPLICIT_TRUSTED_PINNED_GENERIC_RUNTIME_CONTRACT_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "symbol": "lean_unbox",
+      "header_lines": [
+        336,
+        691,
+        995,
+        1008,
+        1012,
+        1019,
+        1034,
+        1066,
+        1073,
+        1102,
+        1107,
+        1108,
+        1173,
+        1185,
+        1193,
+        1211,
+        1221,
+        1232,
+        1248,
+        1253,
+        1273,
+        1280,
+        1326,
+        1333,
+        1344,
+        1353,
+        1414,
+        1419,
+        1422,
+        1514,
+        1521,
+        1528,
+        1529,
+        1541,
+        1544,
+        1557,
+        1558,
+        1571,
+        1572,
+        1584,
+        1585,
+        1659,
+        1675,
+        1676,
+        1726,
+        1734,
+        1741,
+        2014,
+        2052,
+        2089,
+        2127,
+        2173,
+        2246,
+        2387,
+        2527,
+        2667,
+        2809,
+        2973,
+        3279,
+        3283
+      ],
+      "application_lines": [
+        55
+      ],
+      "contract": "Only on a live boxed-small Nat n<2^63 in pinned64bitABI: returns raw size_t n. Application small() additionally checks n<=2^32-1 before converting to unsigned32.",
+      "status": "EXPLICIT_TRUSTED_PINNED_GENERIC_RUNTIME_CONTRACT_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "symbol": "lean_unsigned_to_nat",
+      "header_lines": [
+        1502
+      ],
+      "application_lines": [
+        41
+      ],
+      "contract": "Input unsigned32 n; returns one owned generic Nat value n. Application keep registers that token.",
+      "status": "EXPLICIT_TRUSTED_PINNED_GENERIC_RUNTIME_CONTRACT_NOT_IMPLEMENTATION_PROOF"
+    }
+  ],
+  "pointer_width": 64,
+  "unsigned_width": 32,
+  "small_nat_rule": "lean.h1476 LEAN_MAX_SMALL_NAT=(SIZE_MAX>>1); scalar tagging lean.h334-336.",
+  "ownership_rule": "Header185 b_lean_obj_arg is borrowed,187 lean_obj_res is standard owned result. Physical scalar/result aliasing permitted. Application pool owns one token perregisteredresult; retained accumulator references must survive poolclear.",
+  "source_implementation_claim": "Actualheaderprovidesprototypes/inlinewrappersandownershipannotations, and actualsharedruntimebinaryis hashpinned. No Nat runtimeimplementationcorrectness proof is claimed; runtime source nat.cpp is not in this binary distribution and is not required by ownerapproved generic boundary.",
+  "not_generic": [
+    "application Expr DAG input representation",
+    "Rat normalization or arithmetic",
+    "Taylor or logarithm interval kernels",
+    "row/integration loops",
+    "accepted numeric output",
+    "successful wholeapplication execution"
+  ],
+  "remaining_application_obligations": [
+    "Source-bound own initializers/inputs and parsed actual function bodies",
+    "Correct runtime call arguments, nonzero divisors and scalar-unboxing range",
+    "Borrowed/reference-token lifetime and clear/retain applicability for pool and accumulators",
+    "Closed concrete numerical result justified without native_decide or assumed application output",
+    "Actual mathematical consumer of exactlythat output"
+  ],
+  "qualification": "A pin/contract inventory, not a completed source-first or native-free numerical proof. Exact standard compiler/runtime/API/hardware boundary is explicit; no new app-output or whole-run success premise allowed."
+}
