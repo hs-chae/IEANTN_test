@@ -134,3 +134,21 @@ new height/PNT numerical instance remains unfinished.
 replayed 16-body/46-source component and reproducible scripts (302.90 seconds).
 It is host source-cold, not final namespace isolation. The later merged28-body
 and C56 source-cold replay remains pending.
+
+## Continued source proofs and fresh replays
+
+Two additive source-cold components are available:
+
+* `SCOPED28_C56_SOURCE_COLD_COMPONENT_V3.zip`:343fresh application sources,885exact include payloads,60Std3root audits,28actual old-C body contracts and the checkedC56 source/auxiliary bindings,1571.56seconds.
+* `POSITIVE6_STDIO_SOURCE_COLD_V1.zip`:52fresh application sources,53payloads,24Std3root audits,238.34seconds. Covers six actual C512 arithmetic bodies and the additive StdIO model/actual checked-flush statement. The later seventh body, positiveSub, and its mathematical join are explicitly a host-only supplement.
+
+Both runs start with empty application object directories and use only pinned public generic dependencies. Both are HOST runs, not namespace isolation or repeat numerical C executions. Each archive includes clean setup/reproduction scripts, source hashes, accepted receipts and actual root-audit logs. Source-first verification of the complete numerical applications and final ANT providers remains unfinished.
+
+The StdIO model allows failures and partial writes, and proves delivery from a zero fflush return. Its actual source-branch theorem is conditional in an arbitrary failure policy; it does not assert all application writes succeed or that the emitted mathematics is correct. Printing, buffers/lifetimes, complete main correctness and theorem consumption remain mandatory.
+
+`BODY32_SOURCE_SUPPLEMENT_V1.zip` records32 actual original C body contracts
+with the corresponding mathematical joins, including signed/rational
+comparison and rational min/max. Its119-source/47-root clean-replay recipe is
+preserved, but this combined32-body cold replay has not been executed; its
+proof receipts are source-associated host builds. The earlier28-body cold
+replay remains separate accepted evidence.
