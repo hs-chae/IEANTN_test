@@ -1,0 +1,9 @@
+Item FiniteData. Role: input. Requires: []. Statement: "Any finite n, w_i>=0,77<=D_i<=163; F(L)=sum_{i<n}w_i*P(D_i,L), F330<=8433850764/10^12.".
+
+Item PairedFactor. Role: definition. Requires: []. Statement: "P(D,L)=L/(L-D)-[D/(L-D)]*exp(-(L-D)/8) for L>D.".
+
+Item WholeFunction. Role: obligation. Requires: ["FiniteData", "PairedFactor"]. Statement: "Prove a useful nonconstant full future-ray envelope; backward300..330 transfer is a separate finite-factor goal, not an extension of the supplied PNT consumer.".
+
+Item PNTConsumer. Role: input. Requires: ["FiniteData"]. Statement: "For all L>=330: Epi(expL)*exp(L/8)<=(1+10^-9)*[F(L)+4*10^-6*L/(L-160)+2*10^-8+10^-12*L/(L-880/3)+2*10^-12]+10^-12+10^-8.".
+
+Item Output. Role: goal. Requires: ["WholeFunction", "PNTConsumer"]. Statement: "A whole-function actual Epi bound and valid explicit future checkpoints; known-target reconstruction, no original discovery or upstream-source proof claim.".

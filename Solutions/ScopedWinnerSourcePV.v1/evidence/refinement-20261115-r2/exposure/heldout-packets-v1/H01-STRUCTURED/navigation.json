@@ -1,0 +1,40 @@
+[
+  {
+    "id": "PNT",
+    "role": "input",
+    "requires": [],
+    "statement": "For every real t>=exp300: Epi(t)<=C*t^(-1/8), C=9354674/10^9; Epi uses actual pi and offset Li2."
+  },
+  {
+    "id": "DiscreteSum",
+    "role": "definition",
+    "requires": [],
+    "statement": "H(x) is the finite sum1/p over actual primes p<=x, including every prime at the endpoint."
+  },
+  {
+    "id": "WeightedIdentity",
+    "role": "obligation",
+    "requires": [
+      "DiscreteSum",
+      "PNT"
+    ],
+    "statement": "Derive the actual prime partial-summation identity with correct lower-endpoint terms; it is not an additional premise."
+  },
+  {
+    "id": "ConvergentTail",
+    "role": "obligation",
+    "requires": [
+      "WeightedIdentity",
+      "PNT"
+    ],
+    "statement": "Prove existence of B, convergence at infinity and an explicit whole-ray tail bound; sampled values do not establish this."
+  },
+  {
+    "id": "FinalConsumer",
+    "role": "goal",
+    "requires": [
+      "ConvergentTail"
+    ],
+    "statement": "A statement about actual prime reciprocals, preserving the only analytic input and exposing any incomplete Lean proof."
+  }
+]

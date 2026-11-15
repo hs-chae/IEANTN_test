@@ -1,0 +1,9 @@
+Item PNT. Role: input. Requires: []. Statement: "For every real t>=exp300: Epi(t)<=C*t^(-1/8), C=9354674/10^9; Epi uses actual pi and offset Li2.".
+
+Item DiscreteSum. Role: definition. Requires: []. Statement: "H(x) is the finite sum1/p over actual primes p<=x, including every prime at the endpoint.".
+
+Item WeightedIdentity. Role: obligation. Requires: ["DiscreteSum", "PNT"]. Statement: "Derive the actual prime partial-summation identity with correct lower-endpoint terms; it is not an additional premise.".
+
+Item ConvergentTail. Role: obligation. Requires: ["WeightedIdentity", "PNT"]. Statement: "Prove existence of B, convergence at infinity and an explicit whole-ray tail bound; sampled values do not establish this.".
+
+Item FinalConsumer. Role: goal. Requires: ["ConvergentTail"]. Statement: "A statement about actual prime reciprocals, preserving the only analytic input and exposing any incomplete Lean proof.".

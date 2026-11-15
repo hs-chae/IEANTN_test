@@ -1,0 +1,39 @@
+[
+  {
+    "id": "PsiInput",
+    "role": "input",
+    "requires": [],
+    "statement": "For every real t>=exp300: |Chebyshev.psi(t)-t|/t<=C*t^(-1/8), C=9354674/10^9; no lower-height analytic input."
+  },
+  {
+    "id": "ArithmeticObjects",
+    "role": "definition",
+    "requires": [],
+    "statement": "Use the actual Mathlib Chebyshev.psi and theta, not arbitrary proxy functions."
+  },
+  {
+    "id": "PrimePowers",
+    "role": "obligation",
+    "requires": [
+      "ArithmeticObjects"
+    ],
+    "statement": "Derive a finite exact prime-power decomposition with justified real endpoints and cutoff; this is not an assumed theorem parameter."
+  },
+  {
+    "id": "Remainder",
+    "role": "obligation",
+    "requires": [
+      "PrimePowers"
+    ],
+    "statement": "Control all higher-power terms using proved elementary facts at small arguments, without applying the psi input outside its range."
+  },
+  {
+    "id": "ThetaConsumer",
+    "role": "goal",
+    "requires": [
+      "PsiInput",
+      "Remainder"
+    ],
+    "statement": "Prove an actual whole-ray theta bound, aiming for (C+10^-9)*x^(-1/8) above exp300, and state precise proof status."
+  }
+]

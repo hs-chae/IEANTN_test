@@ -1,0 +1,136 @@
+version: v0.4
+project:
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+  name: 'Optimized CH2 transfer: paired and density bounds'
+  description: 'Optimized CH2 transfer: paired and density bounds'
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+automation:
+  methods:
+  - method: manual
+    role: Source research, complete Lean analytic transfers, strict-kernel numerical certificates and
+      exact conditional composition.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+node:
+  id: CH2.v6
+  family: CH2
+  version: v6
+  kind: pipeline
+  status: active
+conclusions:
+- id: paired_transfer
+  declaration: CH2.v6.paired_transfer
+  challenge: CH2.v6.challenge_paired_transfer
+  imports: &id001
+  - node: CH2.v2
+    conclusion: proposition_2_4_upper
+  - node: CH2.v2
+    conclusion: proposition_2_4_lower
+  - node: CH2.v3
+    conclusion: extremal_majorant
+  - node: CH2.v3
+    conclusion: extremal_minorant
+  - node: ZeroCount.v1
+    conclusion: rvm_error_bound
+  - node: ZeroCount.v1
+    conclusion: rvm_error_small
+  - node: ZetaHadamard.v1
+    conclusion: logDeriv_partial_fractions
+  - node: ZetaLogDeriv.v1
+    conclusion: logDeriv_functional_equation
+  - node: ZetaLogDerivValues.v1
+    conclusion: logDeriv_two
+  - node: ZetaLogDerivValues.v1
+    conclusion: logDeriv_three_halves
+  - node: ZetaLogDerivValues.v1
+    conclusion: logDeriv_neg_one
+  - node: ZetaLogDerivValues.v1
+    conclusion: logDeriv_laurent_alternating
+  - node: GammaAsymptotics.v2
+    conclusion: digamma_sub_log_isBigO_strip
+  - node: CotangentSeries.v1
+    conclusion: cot_series_zeta_values
+  - node: LowZeroes.v1
+    conclusion: no_zeroes_below_first_ordinate
+  imports_status: identified
+  justifications:
+  - id: written-proof
+    kind: literature
+    source: OptimizedCH2
+    locator: Derivation.html and NumericalCertificate.json
+    note: Original written derivation retained. The exact original fifteen-input challenge now has a complete
+      local Lean solution in Solutions/CH2.v6. Public coefficients, thresholds and source-input contracts
+      are unchanged. Official IEANTN workflow receipt remains pending.
+  - id: lean-paired-solution
+    kind: none-yet
+    note: Complete exact fifteen-input paired solution in Solutions/CH2.v6/PairedSolution.lean. The repository
+      toolchain, exact-type and standard-axiom checks pass; all original inputs are retained. The official
+      workflow receipt remains pending.
+  designated: written-proof
+  progress:
+    solution: Solutions/CH2.v6/
+    state: in-progress
+    remaining_holes: 0
+- id: density_transfer
+  declaration: CH2.v6.density_transfer
+  challenge: CH2.v6.challenge_density_transfer
+  imports: *id001
+  imports_status: identified
+  justifications:
+  - id: written-proof
+    kind: literature
+    source: OptimizedCH2
+    locator: Derivation.html and NumericalCertificate.json
+    note: Original written derivation retained. The exact original fifteen-input challenge now has a complete
+      local Lean solution in Solutions/CH2.v6. Public coefficients, thresholds and source-input contracts
+      are unchanged. Official IEANTN workflow receipt remains pending.
+  - id: lean-density-solution
+    kind: none-yet
+    note: Complete exact fifteen-input density solution in Solutions/CH2.v6/DensitySolution.lean. All
+      396 certificate files, 408 closed numerical inequalities, twelve frontier rows, the outer integral,
+      actual contour height and full-range continuation pass the repository Lean4.34.0-rc2 kernel with
+      only propext, Classical.choice and Quot.sound. The needed pinned LeanCert source is vendored; no
+      external proof package is fetched. Repository progress reports zero holes. FKS and finite-RH statements
+      remain explicit source inputs. The official workflow receipt remains pending maintainer verification.
+  designated: written-proof
+  progress:
+    solution: Solutions/CH2.v6/
+    state: in-progress
+    remaining_holes: 0
+sources:
+- id: OptimizedCH2
+  title: Optimized QRH consequences of the CH2 finite formula
+  authors:
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: Original written derivation retained. Complete Lean proofs now accompany both exact contracts,
+    including all numerical density rows; no mathematical novelty or optimality claim.
+- id: CH2
+  title: Optimal bounds for sums of non-negative arithmetic functions
+  authors:
+  - Andrés Chirre
+  - Harald Andrés Helfgott
+  type: paper
+  relationship: background
+  url: https://arxiv.org/abs/2512.15709v1
+limitations:
+- FKS.v3 density and PlattTrudgian finite-RH remain explicit named source inputs. Their original source
+  proofs are not supplied by this transfer.
+- Both exact original challenges are locally Lean checked. Official IEANTN verification-workflow receipts
+  and independent review remain pending.
+- Validity is proved with the unchanged constants and thresholds; optimality and best-known status are
+  not claimed.
