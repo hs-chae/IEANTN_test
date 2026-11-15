@@ -1,0 +1,2469 @@
+{
+  "schema": "SCOPED_ACTUAL_SOURCE_HELPER_SUPPORT_V5",
+  "created_utc": "2026-11-15T12:27:47.757834+00:00",
+  "status": "PASS_HOST_DEVELOPMENT_STD3",
+  "qualification": "Actual parsed function-body SourceCall proofs and typed cast support under represented-input/pool applicability conditions. Development environment objects reused. This is not source-cold, namespace isolation, full 68-function producer closure or closed numerical-leaf acceptance. Mathematical representation bridges additionally decode actual returned records into the existing Signed/Rational/IntervalRat models.",
+  "concrete_functions": {
+    "sn": {
+      "rank": 5,
+      "theorem": "ScopedC.SignedNegCalls.sn_closed",
+      "poststate": "binaryResult(...,0)"
+    },
+    "qn": {
+      "rank": 6,
+      "theorem": "ScopedC.RationalNegCalls.qn_closed",
+      "poststate": "binaryResult(...,0)"
+    },
+    "qabs": {
+      "rank": 5,
+      "theorem": "ScopedC.RationalAbsCalls.qabs_closed",
+      "poststate": "binaryResult(...,0)"
+    },
+    "point": {
+      "rank": 1,
+      "theorem": "ScopedC.RationalPointCalls.point_closed",
+      "poststate": "caller unchanged"
+    },
+    "qi": {
+      "rank": 6,
+      "theorem": "ScopedC.RationalUnsignedCalls.qi_closed",
+      "poststate": "qiResult:3Nat allocations and3keep effects"
+    },
+    "rneg": {
+      "rank": 7,
+      "theorem": "ScopedC.RationalIntervalNegCalls.rneg_closed",
+      "poststate": "rnegResult:2Nat-zero allocations and2keep effects"
+    },
+    "ineg": {
+      "rank": 6,
+      "theorem": "ScopedC.DyadicIntervalNegCalls.ineg_closed",
+      "poststate": "inegResult:2Nat-zero allocations and2keep effects"
+    },
+    "izero": {
+      "rank": 6,
+      "theorem": "ScopedC.DyadicZeroCalls.izero_closed",
+      "poststate": "izeroResult:4Nat-zero allocations and4keep effects, allmagnitudesconstructed"
+    },
+    "sm": {
+      "rank": 5,
+      "theorem": "ScopedC.SignedMultiplyCalls.sm_closed",
+      "poststate": "smResult:actualnm product allocation+smake zero allocation, two keeps"
+    },
+    "sa": {
+      "rank": 5,
+      "theorem": "ScopedC.SignedAddCalls.sa_closed",
+      "poststate": "saResult:actualsame-sign/nle selected na/ns allocation+smake zero allocation, two keeps"
+    },
+    "qm": {
+      "rank": 5,
+      "theorem": "ScopedC.RationalMakeCalls.qm_closed",
+      "poststate": "c5: actual nz/ng/nd/smake/nd source calls,5allocations, localg/Qdeclaration/return/scopes;positiveinputdenominator"
+    },
+    "sc": {
+      "rank": 2,
+      "theorem": "ScopedC.SignedCompareCalls.sc_closed",
+      "poststate": "caller state unchanged; read-only Nat comparison leaves"
+    },
+    "qc": {
+      "rank": 6,
+      "theorem": "ScopedC.RationalCompareCalls.qc_closed",
+      "poststate": "six exact Nat allocation/keep effects; typedQargument frames removed; pool state preserved explicitly"
+    },
+    "qmin": {
+      "rank": 7,
+      "theorem": "ScopedC.RationalSelectCalls.qmin_closed",
+      "poststate": "exactsixqc allocation/keep effects; typedQinputsselected usingactual<=condition withsourcebranchorder"
+    },
+    "qmax": {
+      "rank": 7,
+      "theorem": "ScopedC.RationalSelectCalls.qmax_closed",
+      "poststate": "exactsixqc allocation/keep effects; typedQinputsselected usingactual<=condition withsourcebranchorder"
+    },
+    "qa": {
+      "rank": 6,
+      "theorem": "ScopedC.RationalAddCalls.qa_closed",
+      "poststate": "c14: actual four signed cross-product calls, two local S declarations, signed add, denominator product, qm normalization;14 actual Nat allocation/keep effects"
+    },
+    "qt": {
+      "rank": 6,
+      "theorem": "ScopedC.RationalMultiplyCalls.qt_closed",
+      "poststate": "c11: actualtwoNgcd/fourNdiv/twoSmake/Sm/Nm source calls,11Nat allocations/keeps; typedg,h,top,r locals andscopecleanup"
+    },
+    "qs": {
+      "rank": 7,
+      "theorem": "ScopedC.RationalSubCalls.qs_closed",
+      "poststate": "actualqnthenqa returnedstate withonlyqsstackpopped;15Natallocations/keeps, actualpoolcontextpreservedfromphysicalobjectbounds"
+    },
+    "qv": {
+      "rank": 7,
+      "theorem": "ScopedC.RationalDivideCalls.qv_closed",
+      "poststate": "actual nz; zero branch qi(0), nonzero smake/inverse declaration/qt; exact output and pool under explicit applicability; zero denominator convention preserved"
+    },
+    "radd": {
+      "rank": 7,
+      "theorem": "ScopedC.RationalIntervalAddCalls.radd_closed",
+      "poststate": "actual two qa body executions, exact28 Nat allocations/keeps, physical RI parameter/initializer/typed return/local and caller scope effects; preserves pool validity"
+    },
+    "iadd": {
+      "rank": 6,
+      "theorem": "ScopedC.DyadicAddCalls.iadd_closed",
+      "poststate": "actual2sa calls,4Nat allocations, typed I declaration/return, original flag conjunction and caller scope restoration"
+    },
+    "rhull": {
+      "rank": 8,
+      "theorem": "ScopedC.RationalIntervalHullCalls.rhull_closed",
+      "poststate": "actual qmin/qmax source bodies,12Nat allocations, typed RI initialization/return and original caller scopes"
+    },
+    "rmul": {
+      "rank": 8,
+      "theorem": "ScopedC.RationalIntervalMultiplyCalls.rmul_closed",
+      "poststate": "actual4qt+6qmin/qmax sourcecalls,80Nat allocations,fourtypedQlocals,RIinitializer/return,bothcallerstackscopes"
+    },
+    "qpow": {
+      "rank": 7,
+      "theorem": "ScopedC.RationalPowerCalls.qpow_closed",
+      "poststate": "Actual source qi(1), uint32 binary-power loop, conditional qt calls, typed result assignment/return and both scope pops; at most707 allocations; output supplied existentially by actual source execution."
+    },
+    "rpow": {
+      "rank": 9,
+      "theorem": "ScopedC.IntervalPowerCalls.rpow_closed",
+      "poststate": "Actual first highest-bit while and second left-to-right square/conditional-multiply/halve loop; real scalar casts/declarations/stores, qi1\u2192point zero early return, typed RI return and both scopes. Output decoded exactly as original IntervalRat.pow; \u22645120allocations proof bound."
+    },
+    "taylor": {
+      "rank": 9,
+      "theorem": "ScopedC.TaylorCalls.taylor_closed",
+      "poststate": "Actual const-Q-pointer/RI parameter casts, actual qi0\u2192point0 initialization, original global depth+1 read, complete decrement/load/point/rmul/radd Horner while, typed RI return and both scopes; output decoder exactly original IntervalRat.evalTaylorSeries of actual coefficient values. \u22643+108*(d+1) allocations."
+    },
+    "atanhPoint": {
+      "rank": 10,
+      "theorem": "ScopedC.AtanhCalls.atanhPoint_closed",
+      "poststate": "actual source guard, qpow/qi/qs/qv, local declarations, physical atanh coefficient Taylor/radd, typed RI return and frame pops; both branches"
+    },
+    "expRemainder": {
+      "rank": 10,
+      "theorem": "ScopedC.ExpRemainderCalls.expRemainder_closed",
+      "poststate": "Entire actual original maxabs/ceil/small/guard/factorial/powers/error/out/return source and exact IntervalRat.expRemainderBoundComputable decoder."
+    }
+  },
+  "application_premises": "Installed literal source bodies; live represented Nat tokens and unsigned sign range; functions allocating/keeping require owned valid pool and capacity. Lower application execution and actual input/return casts are discharged by these concrete theorems. Generic pinned compiler/core runtime arithmetic contracts remain the disclosed external boundary.",
+  "files": [
+    {
+      "module": "ScopedC.PositiveCasts",
+      "source": "scoped/frontend/lean/ScopedC/PositiveCasts.lean",
+      "source_sha256": "effdd451eb4fd03765c14b0433de54414fad8dea977b793752d25fd990c1206d",
+      "receipt": "scoped/frontend/proof/positive-casts-v1/RECEIPT.json",
+      "receipt_sha256": "a88e60fc1ec16bdab9fea9a7d2e0526544cbea73f8e51c21d3f9e25a610c894c",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RecordCasts",
+      "source": "scoped/frontend/lean/ScopedC/RecordCasts.lean",
+      "source_sha256": "1165f794a0c61d9132b020f28dde6e37d53bbfbd1130502d1a51f8ad17fef29b",
+      "receipt": "scoped/frontend/proof/record-casts-v1/RECEIPT.json",
+      "receipt_sha256": "d59cda2417492ff15ea72f598b8f8277059c87d81ad0bc70d991e6f4f837c158",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.IntervalCasts",
+      "source": "scoped/frontend/lean/ScopedC/IntervalCasts.lean",
+      "source_sha256": "b5a456c6b1eb7f1fc2367c78d6654a0edeead3b7fc1175682be6af38a8948dd9",
+      "receipt": "scoped/frontend/proof/interval-casts-v1/RECEIPT.json",
+      "receipt_sha256": "52492340ece176c14db1a97690a355648329d198b7f7e7bd239bf04d1839dcd7",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.SignedNegBody",
+      "source": "scoped/frontend/lean/ScopedC/SignedNegBody.lean",
+      "source_sha256": "a0de78d18358749d342fd459826fdf3b973a29c7584d6591b9c8f351223a41b5",
+      "receipt": "scoped/frontend/proof/signed-neg-body-v4/RECEIPT.json",
+      "receipt_sha256": "0ba9a9e97a9efd7608f5cf1689bb6533d7043f5aed04c975a99ae2462cd96b3c",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalNegBody",
+      "source": "scoped/frontend/lean/ScopedC/RationalNegBody.lean",
+      "source_sha256": "58e9ad13bc9638703cbfdd69a13834cbdab5501bd8b624a43840f9e53af78aa3",
+      "receipt": "scoped/frontend/proof/rational-neg-body-v2/RECEIPT.json",
+      "receipt_sha256": "442e0a1c2557c345a7162e4cb06e35510ac6944438615559b1423308ec9eb7eb",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalAbsBody",
+      "source": "scoped/frontend/lean/ScopedC/RationalAbsBody.lean",
+      "source_sha256": "151aecde6d7e2441b38a72569a5a3a13f6f27f8a145763aeec155dc4adcaff4d",
+      "receipt": "scoped/frontend/proof/rational-abs-body-v1/RECEIPT.json",
+      "receipt_sha256": "b19d37b6286bc3c5ffe56c0513019c9a92853cc0b3a12d0cca39d4919e655970",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalPointBody",
+      "source": "scoped/frontend/lean/ScopedC/RationalPointBody.lean",
+      "source_sha256": "e0d9c9947f31483e50d2d23c92f2ab588dd1329ee79946bcb67e6e239a373dcf",
+      "receipt": "scoped/frontend/proof/rational-point-body-v2/RECEIPT.json",
+      "receipt_sha256": "1d09ea9bc64b24f45c92f2003806425e538605cd45b46ffeffb8891225c93e3a",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.NumericRepresentation",
+      "source": "scoped/frontend/lean/ScopedC/NumericRepresentation.lean",
+      "source_sha256": "93b307f3126a0a01c29d3629d377fc1f4e1960989df5d63b42bb20c81fdda469",
+      "receipt": "scoped/frontend/proof/numeric-representation-v3/RECEIPT.json",
+      "receipt_sha256": "66e605efd6336bbc30a9f4ec859f6431340ee918af2f90c78fbb35ddf29ee08a",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.NumericNegationRefinement",
+      "source": "scoped/frontend/lean/ScopedC/NumericNegationRefinement.lean",
+      "source_sha256": "8cf9f98003bcb2cd3b03ad40b59363b645e45fea29933743134449d4fec73cbe",
+      "receipt": "scoped/frontend/proof/numeric-negation-refinement-v1/RECEIPT.json",
+      "receipt_sha256": "6df36e3281fd901706ab02855549e5b4eef9e0482a0952bff56c6ced5ef39237",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalUnsignedCall",
+      "source": "scoped/frontend/lean/ScopedC/RationalUnsignedCall.lean",
+      "source_sha256": "e5b71e5abafa392cd58c5e0070e595742b66788b22b067b8761de06d29e5ca9b",
+      "receipt": "scoped/frontend/proof/rational-unsigned-call-v3/RECEIPT.json",
+      "receipt_sha256": "beb6e8c7183105d022f7c869ed0adb3a55bd412c3d0e6762be4414cc57cdc566",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.NumericUnsignedRefinement",
+      "source": "scoped/frontend/lean/ScopedC/NumericUnsignedRefinement.lean",
+      "source_sha256": "966dafcd583d72d3582aface95c5080865a1dfe65ff7fe808e0aefa816d3ba5c",
+      "receipt": "scoped/frontend/proof/numeric-unsigned-refinement-v1/RECEIPT.json",
+      "receipt_sha256": "c9ad0ebc206bd58b96675ce7c6f871cb442b5238c04556703da3e68608109b7b",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalInputs",
+      "source": "scoped/frontend/lean/ScopedC/RationalInputs.lean",
+      "source_sha256": "bd862aa2cea81a2624fc24ee67150330dd01f6b14d6a3714f6a2419664e54442",
+      "receipt": "scoped/frontend/proof/rational-inputs-v1/RECEIPT.json",
+      "receipt_sha256": "ddb42b69a344e9ccf51f4475e57822db187427c0ca4cefa0af72c10e020fce21",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalIntervalNegBody",
+      "source": "scoped/frontend/lean/ScopedC/RationalIntervalNegBody.lean",
+      "source_sha256": "eb4c832b7bf80facad6e43897a9bbaade96c9b7e18934558faa2ce94bbe903fd",
+      "receipt": "scoped/frontend/proof/rational-interval-neg-body-v2/RECEIPT.json",
+      "receipt_sha256": "c1682c9092b2ac796fbda54200cd7cb545ab188449ed46822aa8ebf4979da422",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.NumericIntervalNegRefinement",
+      "source": "scoped/frontend/lean/ScopedC/NumericIntervalNegRefinement.lean",
+      "source_sha256": "2a3d483e42264d8ba242a2bce7adaed61d3a0d5dd10d8b05653eac1605d3b175",
+      "receipt": "scoped/frontend/proof/numeric-interval-neg-refinement-v1/RECEIPT.json",
+      "receipt_sha256": "2dce75d7ab26d430011525725d70ced1996d2d4cfd1401ddd0e669dc81e45392",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.DyadicCasts",
+      "source": "scoped/frontend/lean/ScopedC/DyadicCasts.lean",
+      "source_sha256": "04990649a0a11d3bbf5fbc2f95311cacb736c802ddf8d006057b0f40cd546778",
+      "receipt": "scoped/frontend/proof/dyadic-casts-v1/RECEIPT.json",
+      "receipt_sha256": "ef89b55cfbf0d236d8a193d5e505bd18d80e4f2c5333bc5cfe9cbc9dd13b0745",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.DyadicRepresentation",
+      "source": "scoped/frontend/lean/ScopedC/DyadicRepresentation.lean",
+      "source_sha256": "48a91bcbef00f56899402ec4686dc47179af3673e2cce982af703022e7dc907a",
+      "receipt": "scoped/frontend/proof/dyadic-representation-v2/RECEIPT.json",
+      "receipt_sha256": "dcf16eb5d62e932c8097c28f5e9ae6ee459e2bc96ea56f488ec5854e496dad42",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.DyadicIntervalNegBody",
+      "source": "scoped/frontend/lean/ScopedC/DyadicIntervalNegBody.lean",
+      "source_sha256": "63b785be3664747f93282976b0a5a8e50b0d27cc49bc05d7d1484302a1880378",
+      "receipt": "scoped/frontend/proof/dyadic-interval-neg-body-v1/RECEIPT.json",
+      "receipt_sha256": "54925908ff4fb7229bb38dafa1ae54ab1ed4105196a8b48d6ae871ab526b2805",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.NumericDyadicNegRefinement",
+      "source": "scoped/frontend/lean/ScopedC/NumericDyadicNegRefinement.lean",
+      "source_sha256": "e9fad80ed0ae746e71e3c0626b971da093b058e8f8eae50786824bea0688dc8c",
+      "receipt": "scoped/frontend/proof/numeric-dyadic-neg-refinement-v1/RECEIPT.json",
+      "receipt_sha256": "98e25dd1a28657503ebcbb67d067a0bb24d67e4be5ed4533899a206e328de14a",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.DyadicValueEquivalence",
+      "source": "scoped/frontend/lean/ScopedC/DyadicValueEquivalence.lean",
+      "source_sha256": "fe845a5b11696a8d2a98d32c22613b044f3fafa0f9d56b4ff6e4f7c98eeff175",
+      "receipt": "scoped/frontend/proof/dyadic-value-equivalence-v2/RECEIPT.json",
+      "receipt_sha256": "57ad309716f9dc4a9a3dfe6126fdc1d5e69e048e6bdcaebe147d4acbdb2b8132",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.DyadicZeroBody",
+      "source": "scoped/frontend/lean/ScopedC/DyadicZeroBody.lean",
+      "source_sha256": "794cd20ef4e67ebc74e3073bfdf3fee9fc33aa12b2687cc75085e746f9bdaa01",
+      "receipt": "scoped/frontend/proof/dyadic-zero-body-v2/RECEIPT.json",
+      "receipt_sha256": "69ab0c2cbf6b4f866efaa34acaf79767e5c6f1cf1d7bc80d725582678025f51c",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.NumericDyadicZeroRefinement",
+      "source": "scoped/frontend/lean/ScopedC/NumericDyadicZeroRefinement.lean",
+      "source_sha256": "09a2aee31bffcc18814c99fa46c56a1e02b3535aaa1abfb3dc05d8d2665e7008",
+      "receipt": "scoped/frontend/proof/numeric-dyadic-zero-refinement-v3/RECEIPT.json",
+      "receipt_sha256": "4f335fcd227a5e364727784ccf51a177489c7447f28ffee0348d2e0903e1762b",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.SignedPairFrames",
+      "source": "scoped/frontend/lean/ScopedC/SignedPairFrames.lean",
+      "source_sha256": "f283de1b89829bac35566b436e1d61cd8ef837983235b5560a8a36c0e6ae013a",
+      "receipt": "scoped/frontend/proof/signed-pair-frames-v1/RECEIPT.json",
+      "receipt_sha256": "192c3d8be232438df8408e6bb34267dec63d1976c06448ef02c1edcbe8426a5f",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.SignedMultiplyBody",
+      "source": "scoped/frontend/lean/ScopedC/SignedMultiplyBody.lean",
+      "source_sha256": "75dbd649777270c0e68f237bed71583259b8dcd97b7c7fc10da94c4da0199a7b",
+      "receipt": "scoped/frontend/proof/signed-multiply-body-v3/RECEIPT.json",
+      "receipt_sha256": "61da2389fd4158bf333c23c946709395cb36295a411e78f1ced4af35b68083dc",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.NumericSignedMultiplyRefinement",
+      "source": "scoped/frontend/lean/ScopedC/NumericSignedMultiplyRefinement.lean",
+      "source_sha256": "1c09b6ddff4029ea2533a9cdde911d112b15d339df0f2bc250c1266b5f936cf5",
+      "receipt": "scoped/frontend/proof/numeric-signed-multiply-refinement-v1/RECEIPT.json",
+      "receipt_sha256": "ee390eb0ebd51523ff91c5f809eb5b6bbd151c5ed180bcf65ba0739a225c4bb5",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.SignedNormalization",
+      "source": "scoped/frontend/lean/ScopedC/SignedNormalization.lean",
+      "source_sha256": "700f9bfe6609d65e9a3368096da8b6c79b40ff708138b7c4dacd47e986694a83",
+      "receipt": "scoped/frontend/proof/signed-normalization-v1/RECEIPT.json",
+      "receipt_sha256": "2bfc50a918e458d2f352d9599957bfe96ac8a6ab835bb3962d94ca68aadbc4f4",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.SignedAddShape",
+      "source": "scoped/frontend/lean/ScopedC/SignedAddShape.lean",
+      "source_sha256": "28d2c60d71c003e3cb3fd0e745519a45a9fbb919a7ce7ffc328e9a6d5437086e",
+      "receipt": "scoped/frontend/proof/signed-add-shape-v3/RECEIPT.json",
+      "receipt_sha256": "def2a071b489bfaed1854c9bdb667daf11b01e1eada6ef5842d83499de8205ab",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.SignedAddBody",
+      "source": "scoped/frontend/lean/ScopedC/SignedAddBody.lean",
+      "source_sha256": "36ba83aca54bc9e75030f8cb0c4e9d24c7d4596b7ee49a9c50395edf0dd9afc1",
+      "receipt": "scoped/frontend/proof/signed-add-body-v2/RECEIPT.json",
+      "receipt_sha256": "08cf0b81c9f63dd74cb4a62a449f59afe262d7ad6b35b1e23481ef0460f1d7f6",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.NumericSignedAddRefinement",
+      "source": "scoped/frontend/lean/ScopedC/NumericSignedAddRefinement.lean",
+      "source_sha256": "13150b5c41a2545ed3624265ae0c0f58dd3092b768f4c0a85b80a231f664e78b",
+      "receipt": "scoped/frontend/proof/numeric-signed-add-refinement-v1/RECEIPT.json",
+      "receipt_sha256": "c23ba641827461c3aa484e12c5c558ab7aee12615f9cc3cfff2a507e8d2f5f74",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.PoolCursor",
+      "source": "scoped/frontend/lean/ScopedC/PoolCursor.lean",
+      "source_sha256": "8ab558cbcf100e690a7a25eca813aacb9ab5b214d824e79f65cf5d5a6236bab3",
+      "receipt": "scoped/frontend/proof/pool-cursor-v1/RECEIPT.json",
+      "receipt_sha256": "e84396c4979b5a757d840a6bc20c8b3a021f0d837325bcf4f86cc060300554c7",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.AllocatedFrames",
+      "source": "scoped/frontend/lean/ScopedC/AllocatedFrames.lean",
+      "source_sha256": "4221b13e55e3b6c56eec80e590faa841ae7f1d348f0f7977131b1923bf8dfd12",
+      "receipt": "scoped/frontend/proof/allocated-frames-v1/RECEIPT.json",
+      "receipt_sha256": "76f89b6cc157b3c0157bfd06dfd2d97d47ef8cd2a4f390afcbc68ecb6c930859",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalMakeFrames",
+      "source": "scoped/frontend/lean/ScopedC/RationalMakeFrames.lean",
+      "source_sha256": "6d5ea2901ba44d3728e5ae2a859f3f6c7b27426f71b26b696b08444112c1c900",
+      "receipt": "scoped/frontend/proof/rational-make-frames-v2/RECEIPT.json",
+      "receipt_sha256": "b677483a9ab93b7b979c3780b5781a77906b788b99eb6787c0c968bd1f16445f",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalMakeData",
+      "source": "scoped/frontend/lean/ScopedC/RationalMakeData.lean",
+      "source_sha256": "c427e4e84b229f8ee3f3406ce3175fc1b7410af5f07fca7a92808b30dca4e06e",
+      "receipt": "scoped/frontend/proof/rational-make-data-v2/RECEIPT.json",
+      "receipt_sha256": "2a45572dbe95cc34e97e98435a599cedfd0af59c19e8024b7f36a8e4a1027387",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalMakeCalls",
+      "source": "scoped/frontend/lean/ScopedC/RationalMakeCalls.lean",
+      "source_sha256": "325e3fbff3820abc5f85a4351385f1719da2acdfa6caead0038aac7f40604c35",
+      "receipt": "scoped/frontend/proof/rational-make-calls-v2/RECEIPT.json",
+      "receipt_sha256": "8fb4f89f5c2085109af8a5753ac981b1988fa0ec7b60c7fe6a84187375c4b98b",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalMakeBody",
+      "source": "scoped/frontend/lean/ScopedC/RationalMakeBody.lean",
+      "source_sha256": "a5003b1963b7dd16397d456b299cb8e95566f00ac3abf9684d3288b5f8e84884",
+      "receipt": "scoped/frontend/proof/rational-make-body-v3/RECEIPT.json",
+      "receipt_sha256": "b9a236e04bbb24848225f9a720928ae8ce3d86c84947eb4edd78735115ad336f",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.NumericRationalMakeRefinement",
+      "source": "scoped/frontend/lean/ScopedC/NumericRationalMakeRefinement.lean",
+      "source_sha256": "656bd64c1d8d703a786cbc9a3295896f8f650284653a6a2d721e6622b933bfb8",
+      "receipt": "scoped/frontend/proof/numeric-rational-make-refinement-v1/RECEIPT.json",
+      "receipt_sha256": "51f9e4fb433b35fd07983f12cf132f09fb0976dc8d65af60d5bd2aff5ba01768",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.SignedCompareBody",
+      "source": "scoped/frontend/lean/ScopedC/SignedCompareBody.lean",
+      "source_sha256": "236dc7f1cdb8ac5defe16c56d1e4ae84b8dda085f454fecce6a5c15f79f89580",
+      "receipt": "scoped/frontend/proof/signed-compare-body-v3/RECEIPT.json",
+      "receipt_sha256": "a5d9cc7bd328aa68fb2b2c654fa8e2caddcb982ff45a47bc9de5fa20b7e265b0",
+      "status": "PASS_HOST_DEVELOPMENT_STD3"
+    },
+    {
+      "module": "ScopedC.NumericSignedCompareRefinement",
+      "source": "scoped/frontend/lean/ScopedC/NumericSignedCompareRefinement.lean",
+      "source_sha256": "95c88c56bbe4120c0737f9da2b0fc6a408dc2acd83d26f6424aa8402e9a38d56",
+      "receipt": "scoped/frontend/proof/numeric-signed-compare-v5/RECEIPT.json",
+      "receipt_sha256": "9a13750e44c314b06ceb2a4d97c4a296ed5619135c74e0f5b77cfcc4a5e404f1",
+      "status": "PASS_HOST_DEVELOPMENT_STD3"
+    },
+    {
+      "module": "ScopedC.RationalPairFrames",
+      "source": "scoped/frontend/lean/ScopedC/RationalPairFrames.lean",
+      "source_sha256": "0b9cd93c75686dddfa22e04e8f9fde52e3997de3cd9d5271d288b20fe2d1e181",
+      "receipt": "scoped/frontend/proof/rational-pair-frames-v3/RECEIPT.json",
+      "receipt_sha256": "a117bd3ed1cd5ce0f6fafe3df95b3a2f70adaf8556bd9288aaa29b3cc14be765",
+      "status": "PASS_HOST_DEVELOPMENT_STD3"
+    },
+    {
+      "module": "ScopedC.RationalCrossData",
+      "source": "scoped/frontend/lean/ScopedC/RationalCrossData.lean",
+      "source_sha256": "d924dd7851d1ae3d622d5825d77d9a71d2a56dac8a6b07370b5ab33969205c98",
+      "receipt": "scoped/frontend/proof/rational-cross-data-v1/RECEIPT.json",
+      "receipt_sha256": "a519e058bf0c0c426393c59e91ac86c5322a0b1bb833beb245b052cec99e2c6c",
+      "status": "PASS_HOST_DEVELOPMENT_STD3"
+    },
+    {
+      "module": "ScopedC.RationalCrossCalls",
+      "source": "scoped/frontend/lean/ScopedC/RationalCrossCalls.lean",
+      "source_sha256": "9b1abb80551246b19a7a264b8dec700b884a51b66ca03e2a5a74ddbe661486f1",
+      "receipt": "scoped/frontend/proof/rational-cross-calls-v3/RECEIPT.json",
+      "receipt_sha256": "8170020be657374e3f1987095e55de42bd5d451b6adbc69900fd87e64e001642",
+      "status": "PASS_HOST_DEVELOPMENT_STD3"
+    },
+    {
+      "module": "ScopedC.CallEventDistinct",
+      "source": "scoped/frontend/lean/ScopedC/CallEventDistinct.lean",
+      "source_sha256": "f0e27527a7aedfa8bfc8fd649c272089a7094210e5c1d4beffb273830ed01065",
+      "receipt": "scoped/frontend/proof/call-event-distinct-v1/RECEIPT.json",
+      "receipt_sha256": "be5299ec285a831b3e6409763f24fa679fb0687e99f732042534fac072cdfccd",
+      "status": "PASS_HOST_DEVELOPMENT_STD3"
+    },
+    {
+      "module": "ScopedC.RationalCompareData",
+      "source": "scoped/frontend/lean/ScopedC/RationalCompareData.lean",
+      "source_sha256": "414a4b7f0032e556c40863be1d88fee18333de483686b691693ca6dbcaa26cc8",
+      "receipt": "scoped/frontend/proof/rational-compare-data-v2/RECEIPT.json",
+      "receipt_sha256": "31737e1967bbd37dd2e4600c4229b6abea377e93b193d266dc4849e55a8508f0",
+      "status": "PASS_HOST_DEVELOPMENT_STD3"
+    },
+    {
+      "module": "ScopedC.RationalCompareBody",
+      "source": "scoped/frontend/lean/ScopedC/RationalCompareBody.lean",
+      "source_sha256": "12b0806369b30b8f693e8620f532a361d2adf6caddc7b018405083bff48be7d3",
+      "receipt": "scoped/frontend/proof/rational-compare-body-v3/RECEIPT.json",
+      "receipt_sha256": "ba623211c4a03390ac6fc3a0ca621964e1fc39abc14b52429fca48a81e0731ff",
+      "status": "PASS_HOST_DEVELOPMENT_STD3"
+    },
+    {
+      "module": "ScopedC.NumericRationalCompareRefinement",
+      "source": "scoped/frontend/lean/ScopedC/NumericRationalCompareRefinement.lean",
+      "source_sha256": "aa0166ce55c4fe5201656541dfcf95e6b9198d3a15125264b7c54ba1a179ea46",
+      "receipt": "scoped/frontend/proof/numeric-rational-compare-v3/RECEIPT.json",
+      "receipt_sha256": "48d539d096f5cafcb95b21bb72ea5c2efc9abd4cb9624e3bdb6d5d5caeecd5ea",
+      "status": "PASS_HOST_DEVELOPMENT_STD3"
+    },
+    {
+      "module": "ScopedC.CursorFrames",
+      "source": "scoped/frontend/lean/ScopedC/CursorFrames.lean",
+      "source_sha256": "65860c1c6da3762a26dd500d1425968ba59a6c42b88b238c7536f10da986c8e1",
+      "receipt": "scoped/frontend/proof/cursor-frames-v4/RECEIPT.json",
+      "receipt_sha256": "5826b886f84e2bbd9c119a3d85a285e89dd6eb0156688b9b1db61509f897c3d8",
+      "status": "PASS_HOST_DEVELOPMENT_STD3"
+    },
+    {
+      "module": "ScopedC.RationalCompareFraming",
+      "source": "scoped/frontend/lean/ScopedC/RationalCompareFraming.lean",
+      "source_sha256": "9b23e1865320ab6ddb494fc1ffbb84ebd1a5868d68f37fe13cd50c6243bc2c3d",
+      "receipt": "scoped/frontend/proof/rational-compare-framing-v1/RECEIPT.json",
+      "receipt_sha256": "f0cd845d79ff0184ee648fb41c9ebe103c5f5a6f8be9206d10e595c093c7daca",
+      "status": "PASS_HOST_DEVELOPMENT_STD3"
+    },
+    {
+      "module": "ScopedC.RationalSelectBody",
+      "source": "scoped/frontend/lean/ScopedC/RationalSelectBody.lean",
+      "source_sha256": "c9c41638ad98e7b5d8ba6d6bc2edd28d0bb71d635dae6be564b32caae48982b4",
+      "receipt": "scoped/frontend/proof/rational-select-body-v3/RECEIPT.json",
+      "receipt_sha256": "3da0e5f05a72a84f2a3844de8d85346c9bd290766837a0bb84932d537537121f",
+      "status": "PASS_HOST_DEVELOPMENT_STD3"
+    },
+    {
+      "module": "ScopedC.NumericRationalSelectRefinement",
+      "source": "scoped/frontend/lean/ScopedC/NumericRationalSelectRefinement.lean",
+      "source_sha256": "e676a23334fcfc0aa5bcc2ceaf7a71c46e088d07e538446899a877ab5b916944",
+      "receipt": "scoped/frontend/proof/numeric-rational-select-v5/RECEIPT.json",
+      "receipt_sha256": "d6ca41213936cc0e8434ed3945a089b6f5186aa7ead014a6dc7a9b948223023b",
+      "status": "PASS_HOST_DEVELOPMENT_STD3"
+    },
+    {
+      "module": "ScopedC.CursorLocals",
+      "source": "scoped/frontend/lean/ScopedC/CursorLocals.lean",
+      "source_sha256": "09a0b1bf0a74eab47e221e6bd97b6da88567cce54e699badbde43ca2a3f2d6a4",
+      "receipt": "scoped/frontend/proof/cursor-locals-v2/RECEIPT.json",
+      "receipt_sha256": "291a2c5142cfcf2aade043e01a618a40101b79c82399db33ae71bfee81c8c05b",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalCrossCursor",
+      "source": "scoped/frontend/lean/ScopedC/RationalCrossCursor.lean",
+      "source_sha256": "5f53d13195e1c3a46398e6bb6263ae635748d7c17e4346d3e0517663899a9546",
+      "receipt": "scoped/frontend/proof/rational-cross-cursor-v2/RECEIPT.json",
+      "receipt_sha256": "ca32778baf771e3b221c0fde572bc77798ff2fb6dd8db78c3a8282e7caf8771b",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalLocalFrames",
+      "source": "scoped/frontend/lean/ScopedC/RationalLocalFrames.lean",
+      "source_sha256": "016868cac78fb9a9cef51b0d3d57cb3776aa066fe555a4a0fa25c759b8ae3754",
+      "receipt": "scoped/frontend/proof/rational-local-frames-v1/RECEIPT.json",
+      "receipt_sha256": "e0761e41fc72b8396e7c2397b56432cc74999f11a5adcb8ee3b79b96b2561f9c",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalAddData",
+      "source": "scoped/frontend/lean/ScopedC/RationalAddData.lean",
+      "source_sha256": "f449c562f877bc76abae25991a87323e934d2e148bf26cc1073e2068d8371f66",
+      "receipt": "scoped/frontend/proof/rational-add-data-v3/RECEIPT.json",
+      "receipt_sha256": "b4a135ea4e6946d306a562a339d8b979af33796863dca5e5005a196fa176a0c8",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalAddFrames",
+      "source": "scoped/frontend/lean/ScopedC/RationalAddFrames.lean",
+      "source_sha256": "ed3ac89b2fa126bbd2cc63b39b08418733de50f25c62ce8a0842e0cb202e7fd2",
+      "receipt": "scoped/frontend/proof/rational-add-frames-v1/RECEIPT.json",
+      "receipt_sha256": "c4e6399b34ead0098b4b146181b82ea8fa811c612099de3cbfb576d070ccc1ac",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.SignedAddCursor",
+      "source": "scoped/frontend/lean/ScopedC/SignedAddCursor.lean",
+      "source_sha256": "97fb1db815a88e2b566f3579c3483ed45fd3542216685778c5668dbbd0acd656",
+      "receipt": "scoped/frontend/proof/signed-add-cursor-v1/RECEIPT.json",
+      "receipt_sha256": "a6c89e2ef24c5ce445b555c5a4da6d1f6f6cfddf4704ef7f34e5564ad4a56339",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalAddCursor",
+      "source": "scoped/frontend/lean/ScopedC/RationalAddCursor.lean",
+      "source_sha256": "95bc0c85322dc6646ef0de21a97cdfd039f33b84f1fb8d3df3bb2be47674b450",
+      "receipt": "scoped/frontend/proof/rational-add-cursor-v1/RECEIPT.json",
+      "receipt_sha256": "8fd9795993de987ddee1201ed79f986991345f0750d4d97aa04dcbbacff7c1eb",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalAddTail",
+      "source": "scoped/frontend/lean/ScopedC/RationalAddTail.lean",
+      "source_sha256": "1cd56bc7d879e105e30f1ab9b8fec1ce8de010fb8f6ec50e6390485b9ffdaab3",
+      "receipt": "scoped/frontend/proof/rational-add-tail-v7/RECEIPT.json",
+      "receipt_sha256": "2c709fb1a4703104240a62d868845a1c2cf78e94b2da21005838f2e2d3964ab3",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalAddPrefix",
+      "source": "scoped/frontend/lean/ScopedC/RationalAddPrefix.lean",
+      "source_sha256": "b580c0c5182951668d4fba21b30378bf62126bfb1c42d010597178e006fb0371",
+      "receipt": "scoped/frontend/proof/rational-add-prefix-v1/RECEIPT.json",
+      "receipt_sha256": "3685dca40e6cb71e0c629d157b4b4134e223b8397fd0326f31b781fc08e6360a",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.CursorEffects",
+      "source": "scoped/frontend/lean/ScopedC/CursorEffects.lean",
+      "source_sha256": "ae2186abfd6e8f612aa1ab6058ecb58e84d780aed9f26cd4df6a2b4fb9a64144",
+      "receipt": "scoped/frontend/proof/cursor-effects-v1/RECEIPT.json",
+      "receipt_sha256": "4e67371891b9afcaa2f6768a2c8809c306046ec8f1432d3ae329f89ae4d72771",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalMakeEffects",
+      "source": "scoped/frontend/lean/ScopedC/RationalMakeEffects.lean",
+      "source_sha256": "9bde6cbab8552e818969079da121c2563247aa4083cc5bfc649df1d180d1beff",
+      "receipt": "scoped/frontend/proof/rational-make-effects-v1/RECEIPT.json",
+      "receipt_sha256": "8be2402cd4b43ad678e016158ed37e500b9f6bd1f1bda1fe2c3227fe62d82cdf",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalAddShape",
+      "source": "scoped/frontend/lean/ScopedC/RationalAddShape.lean",
+      "source_sha256": "f0b29a27e05894083d88fb17d4e665e9d11a2f4886385838a9ce4222d0dc7831",
+      "receipt": "scoped/frontend/proof/rational-add-shape-v2/RECEIPT.json",
+      "receipt_sha256": "38aaa8b1b57aa4499122ee42bb0808073742763b79550a50d6fe9f92d781237b",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalAddBody",
+      "source": "scoped/frontend/lean/ScopedC/RationalAddBody.lean",
+      "source_sha256": "de683cd573edf7f8d2e8b42e94e97dae34f52db2788480abc24b746d417f4dfd",
+      "receipt": "scoped/frontend/proof/rational-add-body-v3/RECEIPT.json",
+      "receipt_sha256": "0e59b31a8063d29265940f1e69b0d6c9cf370cf630e263804d12c9495473d0eb",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.NumericRationalAddRefinement",
+      "source": "scoped/frontend/lean/ScopedC/NumericRationalAddRefinement.lean",
+      "source_sha256": "1fd658016d8a6dd82e8a99babf9543d509886d2c00302411c32016b7ab165492",
+      "receipt": "scoped/frontend/proof/numeric-rational-add-v1/RECEIPT.json",
+      "receipt_sha256": "1f8751008ead6e4f791a092c0a7df32b8abb7090c1d3973aee8806092a647b05",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.CursorBorrow",
+      "source": "scoped/frontend/lean/ScopedC/CursorBorrow.lean",
+      "source_sha256": "486658832e164c24ef19a115ff42c03aeaebd6790e355e8fb7a61225e2cd227d",
+      "receipt": "scoped/frontend/proof/cursor-borrow-v1/RECEIPT.json",
+      "receipt_sha256": "4faee0ebf1af2d19fa08c4d856bad035323fcfd3f194f02c79b55b720d260a6b",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalMultiplyData",
+      "source": "scoped/frontend/lean/ScopedC/RationalMultiplyData.lean",
+      "source_sha256": "f15ff0c17ae528552c0936085b9791b938ac31947225e796f7696fa9310efcef",
+      "receipt": "scoped/frontend/proof/rational-multiply-data-v3/RECEIPT.json",
+      "receipt_sha256": "87a411f57b43d941be8df7f713cc3a0d2e02d7effa6ad739fda1ca73aca6c8fe",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalMultiplyMath",
+      "source": "scoped/frontend/lean/ScopedC/RationalMultiplyMath.lean",
+      "source_sha256": "37a7b0db89f9c49442fdd27bd2826c0065948db0416490e844db5bd3555d01d7",
+      "receipt": "scoped/frontend/proof/rational-multiply-math-v2/RECEIPT.json",
+      "receipt_sha256": "a1eca9aa419931471f53e5b148805c30b686de893dfa9e0360158458f46a6c20",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.ArithmeticCursorCalls",
+      "source": "scoped/frontend/lean/ScopedC/ArithmeticCursorCalls.lean",
+      "source_sha256": "3d26e1291c62fbc8b51b0915d9977957cae8be9128b70ea0736d4ce5f22bf991",
+      "receipt": "scoped/frontend/proof/arithmetic-cursor-calls-v2/RECEIPT.json",
+      "receipt_sha256": "15ac52692a69e52141933fb514ffbd4ed79fe61be4e56ac607fc973d67f59cde",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalMultiplyFrames",
+      "source": "scoped/frontend/lean/ScopedC/RationalMultiplyFrames.lean",
+      "source_sha256": "e859e2060da31529ef182ecb2532af334f2db807bab277b1b4551405775f30e8",
+      "receipt": "scoped/frontend/proof/rational-multiply-frames-v3/RECEIPT.json",
+      "receipt_sha256": "6ebd9762a1ce8136bee858488c8f77841959c72cd2b372fcfbf9532150eabe54",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalMultiplyInvariants",
+      "source": "scoped/frontend/lean/ScopedC/RationalMultiplyInvariants.lean",
+      "source_sha256": "c2c2ef4ae6a0713b32b4abf235445285ea8c6ffca824dacf59af2d3b9baaa8af",
+      "receipt": "scoped/frontend/proof/rational-multiply-invariants-v1/RECEIPT.json",
+      "receipt_sha256": "a1de591cdc3bc89e746c279740287854a2e5b808332dd6772ae2e72d862c3460",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalMultiplyFramesExtra",
+      "source": "scoped/frontend/lean/ScopedC/RationalMultiplyFramesExtra.lean",
+      "source_sha256": "e197c8a355b244d6649b6624c8f18b23ae8187540f61117144cdcd361128c01d",
+      "receipt": "scoped/frontend/proof/rational-multiply-frames-extra-v1/RECEIPT.json",
+      "receipt_sha256": "50cbdadb1c04458946e66fc0f72d5bc1ef34b94eef6c99587d8b57cb4e52fd41",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalMultiplyFrameCalls",
+      "source": "scoped/frontend/lean/ScopedC/RationalMultiplyFrameCalls.lean",
+      "source_sha256": "53df71e1bc9ea4adc439294efebbee100a0436e6fc29c5f63ba6870bc90d00ef",
+      "receipt": "scoped/frontend/proof/rational-multiply-frame-calls-v1/RECEIPT.json",
+      "receipt_sha256": "00f7cee10ed8a99c0c3db86947a6237a64cfc4c4550283aedf3523942699b4e6",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalMultiplyLower",
+      "source": "scoped/frontend/lean/ScopedC/RationalMultiplyLower.lean",
+      "source_sha256": "04f2b351fdabcc865da7c70d99db27c3ea135f536768221ea1679815cdae40d0",
+      "receipt": "scoped/frontend/proof/rational-multiply-lower-v1/RECEIPT.json",
+      "receipt_sha256": "137944fa03715043c00e1c0c5bf37804e8425bae552867d7f4e5ee85831072db",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalMultiplyShape",
+      "source": "scoped/frontend/lean/ScopedC/RationalMultiplyShape.lean",
+      "source_sha256": "62765e4781121bcbd64100f229c8fa28a33b769b8b657c15264d72efbc2f4e8b",
+      "receipt": "scoped/frontend/proof/rational-multiply-shape-v2/RECEIPT.json",
+      "receipt_sha256": "044c13f5a9df38ef7bcf04ad8cbc2dceded042b071748d2c98565ba9fd0f1e59",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalMultiplyEvents",
+      "source": "scoped/frontend/lean/ScopedC/RationalMultiplyEvents.lean",
+      "source_sha256": "1c47ae1381d5777d866a42dbfadd743ca33ea532986d84dcb650362d021f384b",
+      "receipt": "scoped/frontend/proof/rational-multiply-events-v1/RECEIPT.json",
+      "receipt_sha256": "53e2eda4716fe9f9113c32b16999fd0c4f3eca0ab2628a8fb29c676587a867b2",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalMultiplyCasts",
+      "source": "scoped/frontend/lean/ScopedC/RationalMultiplyCasts.lean",
+      "source_sha256": "2475e50e67a5534fd26d48fea09a3ca58220cfbe9a10c8df4afe1b1832b8bf76",
+      "receipt": "scoped/frontend/proof/rational-multiply-casts-v1/RECEIPT.json",
+      "receipt_sha256": "eecdac9bce98b02ef621e2f2fdac453d2b7359ec35f0641b01e8b51e69c2af22",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalMultiplyBody",
+      "source": "scoped/frontend/lean/ScopedC/RationalMultiplyBody.lean",
+      "source_sha256": "7aad834d26d89b40e726b4b0621e61335ebe0bc93b8034efc24e7e62947157da",
+      "receipt": "scoped/frontend/proof/rational-multiply-body-v5/RECEIPT.json",
+      "receipt_sha256": "eaf474194dc1cfe812b6bafcafa2640e3443b1e6defe220befe01c748e9867c2",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalCanonical",
+      "source": "scoped/frontend/lean/ScopedC/RationalCanonical.lean",
+      "source_sha256": "9eba7d899e5e4d707805a2682ef3a08a9de93eee857aa68412383d6d7f2185f1",
+      "receipt": "scoped/frontend/proof/rational-canonical-v2/RECEIPT.json",
+      "receipt_sha256": "6df2a511ce378e908f5008407ee93de2c41b23b3370062698cd4caa24fe55996",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalMultiplyCanonical",
+      "source": "scoped/frontend/lean/ScopedC/RationalMultiplyCanonical.lean",
+      "source_sha256": "31bcb1030e9f05cfd97cd70cc85795581221f43e0511e5c84b0364e05ae9d2a3",
+      "receipt": "scoped/frontend/proof/rational-multiply-canonical-v1/RECEIPT.json",
+      "receipt_sha256": "ccb4aa8dabc51106d1f94bac39b17cb56c7bab410377094c6ab078ed23678fd8",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.NumericRationalMultiplyRefinement",
+      "source": "scoped/frontend/lean/ScopedC/NumericRationalMultiplyRefinement.lean",
+      "source_sha256": "f01fcdbe9adfed7c5bb7d9add621f736e814ec73aba142052f9353888043c3a6",
+      "receipt": "scoped/frontend/proof/numeric-rational-multiply-v2/RECEIPT.json",
+      "receipt_sha256": "caa51552169f4d46e36882af911a17d21427ffd6c75b9550a5612b358d685cc4",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.PoolContextPop",
+      "source": "scoped/frontend/lean/ScopedC/PoolContextPop.lean",
+      "source_sha256": "2fda2aec194402b76d4ccb1521e7a318ef36d4a1cc94ed298f4494386b9cf1ad",
+      "receipt": "scoped/frontend/proof/evaluate-support-batch-v1/PoolContextPop/RECEIPT.json",
+      "receipt_sha256": "7d6a7b64b9c3e1fd6267e519a4748af376805fda724cba22e534ff477000987e",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.NumericNatsExtensionality",
+      "source": "scoped/frontend/lean/ScopedC/NumericNatsExtensionality.lean",
+      "source_sha256": "b7f2c4441bc23add8bfba603dcd517bf88b0f43f84d2761a08b2e274fac7ad68",
+      "receipt": "scoped/frontend/proof/evaluate-support-batch-v1/NumericNatsExtensionality/RECEIPT.json",
+      "receipt_sha256": "a64f7b77230d8134935808fca9e12eb07246e86a56c2842e0260611a15cd1800",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalMakeRawCast",
+      "source": "scoped/frontend/lean/ScopedC/RationalMakeRawCast.lean",
+      "source_sha256": "25c03387a0f480ac4b101a903100bac47a662fffa608b8e3d53609492d9d5248",
+      "receipt": "scoped/frontend/proof/rational-make-raw-cast-v1/RECEIPT.json",
+      "receipt_sha256": "29675a179d2095337e3b99d7600667110c960584d314ee2436af85f7442a383a",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalSubData",
+      "source": "scoped/frontend/lean/ScopedC/RationalSubData.lean",
+      "source_sha256": "a905e9e777847d94f5e59f5e9c58c08526d23fdc15e63dbf55a3e3e5748678f0",
+      "receipt": "scoped/frontend/proof/rational-sub-data-v2/RECEIPT.json",
+      "receipt_sha256": "0bd3be4415801c1b77906fa0962883cec435fbc776a957f036d718c16844abce",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalSubBody",
+      "source": "scoped/frontend/lean/ScopedC/RationalSubBody.lean",
+      "source_sha256": "c851ebdfa8e005d97b0e36f5e05ecc67320ea0c9510bd0ee942da84d49e59431",
+      "receipt": "scoped/frontend/proof/rational-sub-body-v3/RECEIPT.json",
+      "receipt_sha256": "5a372a87b3b02aef59ee4e0145f82fc373a6a5cc14b6dd237c194e8cdba879e7",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.NumericRationalSubRefinement",
+      "source": "scoped/frontend/lean/ScopedC/NumericRationalSubRefinement.lean",
+      "source_sha256": "47c4dd3e8872c967e7918609b78af5f9be9f734a047526cfea71c746ca12a207",
+      "receipt": "scoped/frontend/proof/numeric-rational-sub-v2/RECEIPT.json",
+      "receipt_sha256": "e3e55b846bb10fac8211b4601d754abe2fa0f4a3d63467ae82c3a1aebdb50afd",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalDivideData",
+      "source": "scoped/frontend/lean/ScopedC/RationalDivideData.lean",
+      "source_sha256": "de0c3cf411860cf5b09028225a2c51fc4c731923e5808f2eb8ee319dd02cb8ba",
+      "receipt": "scoped/frontend/proof/rational-divide-data-v2/RECEIPT.json",
+      "receipt_sha256": "adeed267e93eedb5eb8833805a177b62b3d8f987bb1e91932f6ddb41ff03a871",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalDivideLower",
+      "source": "scoped/frontend/lean/ScopedC/RationalDivideLower.lean",
+      "source_sha256": "84cecd0f81c9d0a3385798fd69fac7ae0811b5052bc16b28edf498947d98d5de",
+      "receipt": "scoped/frontend/proof/rational-divide-lower-v2/RECEIPT.json",
+      "receipt_sha256": "311ca03cfd4f4aae1fc206e87e0db5b9dca6fdc9e34bae4fcacdc1277f0eea3d",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalDivideFrames",
+      "source": "scoped/frontend/lean/ScopedC/RationalDivideFrames.lean",
+      "source_sha256": "738543fa6b8de9a800b5311e17b13473c7d5423f5204176d0fa784865026e1a9",
+      "receipt": "scoped/frontend/proof/rational-divide-frames-v1/RECEIPT.json",
+      "receipt_sha256": "aba3efd8ef847a818fc4bba1dd2ba0684991df23f617ebe8c3f4d795040439f2",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalDivideBody",
+      "source": "scoped/frontend/lean/ScopedC/RationalDivideBody.lean",
+      "source_sha256": "751bc2fc0e604a2b095185361112ef42bc482380d98cf8b8a3e52fafcc33d7c5",
+      "receipt": "scoped/frontend/proof/rational-divide-body-v1/RECEIPT.json",
+      "receipt_sha256": "31de341ad276d938d8a6244a87829e0c45baa47891ae2c5057bd36017f454b27",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.NumericRationalDivideRefinement",
+      "source": "scoped/frontend/lean/ScopedC/NumericRationalDivideRefinement.lean",
+      "source_sha256": "3946f8c17705ba231ffc71ca9a5906ac962063a970ddb8693ba58ef52018467f",
+      "receipt": "scoped/frontend/proof/numeric-rational-divide-v2/RECEIPT.json",
+      "receipt_sha256": "d5b6f78d673d1cd7baeb9f613b88ccaf7d1f15290bb9437478e8c7fc5e693c15",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalMultiplyPreservation",
+      "source": "scoped/frontend/lean/ScopedC/RationalMultiplyPreservation.lean",
+      "source_sha256": "34b57e1c7f0e4ba3d32a34d0b7b39a179891d848391bb9d84043be6654d6f61e",
+      "receipt": "scoped/frontend/proof/rational-multiply-preservation-v2/RECEIPT.json",
+      "receipt_sha256": "514d3cb67be02aba6f460bc867379a86a1350665d85c1128f752ddd608423ed4",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.NumericInputCompleteness",
+      "source": "scoped/frontend/lean/ScopedC/NumericInputCompleteness.lean",
+      "source_sha256": "3820196b361fd2303a2636c6a35f71d5969f4096674109db9e0e5c503addb49a",
+      "receipt": "scoped/frontend/proof/numeric-input-complete-v2/RECEIPT.json",
+      "receipt_sha256": "25f4a5a0ecd93c7ff0b11c96401a8797a4d108630629839a4f2a5a9942edc785",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.NumericRationalCompleteness",
+      "source": "scoped/frontend/lean/ScopedC/NumericRationalCompleteness.lean",
+      "source_sha256": "1e3b467a0cb2261152db312198f158b0c6b7db11f8ed73d2c4d4e1ae603d9ac1",
+      "receipt": "scoped/frontend/proof/numeric-rational-complete-v1/RECEIPT.json",
+      "receipt_sha256": "9b664e570234bd9b156f0650291736e7a9bcad9986bd7312b0f038350419abe8",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalAddEffects",
+      "source": "scoped/frontend/lean/ScopedC/RationalAddEffects.lean",
+      "source_sha256": "43148c47200c04c6e5f600b17ebe0f2f19962cbe9c16acb22f23846a0f82de68",
+      "receipt": "scoped/frontend/proof/rational-add-effects-v1/RECEIPT.json",
+      "receipt_sha256": "c271a962b31c37f6c338d62268c6d239517fcb4a2f86aea63f27d700d9c6f257",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalIntervalFrames",
+      "source": "scoped/frontend/lean/ScopedC/RationalIntervalFrames.lean",
+      "source_sha256": "187b61c43ab52a3c5ce9cbcdb9cdf410f8c8c7f85705e294ce036ac1abbbe479",
+      "receipt": "scoped/frontend/proof/rational-interval-frames-v4/RECEIPT.json",
+      "receipt_sha256": "e7fb0bc686cc96c981d05c5cb814722a7134aa3f3f0838a133adc0ed7446730c",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalIntervalAddData",
+      "source": "scoped/frontend/lean/ScopedC/RationalIntervalAddData.lean",
+      "source_sha256": "095bc3435fbfdda55bdd53fe32334608c2ae62fdfcd8a1644b8c897db12a60cb",
+      "receipt": "scoped/frontend/proof/rational-interval-add-data-v2/RECEIPT.json",
+      "receipt_sha256": "e7e2db9aa188c87c6f62e1841fd469fdba2777ab6a268dd37054e3c43b845f9f",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.CallEventPairs",
+      "source": "scoped/frontend/lean/ScopedC/CallEventPairs.lean",
+      "source_sha256": "9d892a71cb0770ca935968e637468c9b6aeaf744f00d8cd52629935f928ddb1b",
+      "receipt": "scoped/frontend/proof/call-event-pairs-v2/RECEIPT.json",
+      "receipt_sha256": "d5fbc9eb2a5d81bef6f3fe2724f7367cd439b615beb49894e76814e112bb47d1",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalIntervalAddBody",
+      "source": "scoped/frontend/lean/ScopedC/RationalIntervalAddBody.lean",
+      "source_sha256": "189f1b8cf757a44ac3ada307c2a12aaa47a765db66c0689df1437f21fcbe4983",
+      "receipt": "scoped/frontend/proof/rational-interval-add-body-v8/RECEIPT.json",
+      "receipt_sha256": "159dd787851450fcd5bb509fd970a185c02f8fa1ec7502177008094bd33a9be8",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.NumericRationalIntervalAddRefinement",
+      "source": "scoped/frontend/lean/ScopedC/NumericRationalIntervalAddRefinement.lean",
+      "source_sha256": "55127a0071bad3e226511cb0aa3ce0995e48d1dff61f804445994fb1af52bc82",
+      "receipt": "scoped/frontend/proof/numeric-rational-interval-add-v1/RECEIPT.json",
+      "receipt_sha256": "5630a3aabd927c31b41154eddee6a591f1fd4be3aa8f0f6bff816a2869242009",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.DyadicPairFrames",
+      "source": "scoped/frontend/lean/ScopedC/DyadicPairFrames.lean",
+      "source_sha256": "302b4d5111fabf898576ad1adae02198739864fd150e6ff4716119ba20cb1194",
+      "receipt": "scoped/frontend/proof/dyadic-pair-frames-v1/RECEIPT.json",
+      "receipt_sha256": "710a49796e33028e2caf7b06feb1824165044de074cb6e77af464943ce986428",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.DyadicAddData",
+      "source": "scoped/frontend/lean/ScopedC/DyadicAddData.lean",
+      "source_sha256": "c98a9b4c8c3301634d6ba08462098116d44d81a795ce0a4866d4e71fb93cf6db",
+      "receipt": "scoped/frontend/proof/dyadic-add-data-v1/RECEIPT.json",
+      "receipt_sha256": "9bc264d4a07ad9691d7f57d2ad29006e282dc87d12e24fe6d27aaa40184fd01a",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.DyadicAddBody",
+      "source": "scoped/frontend/lean/ScopedC/DyadicAddBody.lean",
+      "source_sha256": "a802f5bcb596c6fdcfbafaf27c443dbc0cbe758093917e313d85d0fdae29fac3",
+      "receipt": "scoped/frontend/proof/dyadic-add-body-v1/RECEIPT.json",
+      "receipt_sha256": "d5507c4ba52388e976683b85188d87ae9fd2dab9cabd59d8b3951d59123e6f40",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.NumericDyadicAddRefinement",
+      "source": "scoped/frontend/lean/ScopedC/NumericDyadicAddRefinement.lean",
+      "source_sha256": "0d310897ace71c9a8c13866d96f141e36f301097ef1137098f36f5f00b5aeb59",
+      "receipt": "scoped/frontend/proof/numeric-dyadic-add-v4/RECEIPT.json",
+      "receipt_sha256": "a42022197384413fb8812943d528172448b55d0a15ad259c181970e52d1328dd",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.DyadicAddValueEquivalence",
+      "source": "scoped/frontend/lean/ScopedC/DyadicAddValueEquivalence.lean",
+      "source_sha256": "559c82fb8807e4be883046cda181d73b6fe45ee46a7c995c350f361903022d11",
+      "receipt": "scoped/frontend/proof/dyadic-add-value-equivalence-v1/RECEIPT.json",
+      "receipt_sha256": "a0deb4f1e34af27c23f62ff147be60e211c158135475399254454c7a74adf1cb",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalIntervalHullData",
+      "source": "scoped/frontend/lean/ScopedC/RationalIntervalHullData.lean",
+      "source_sha256": "49e4f04c472e82481e4e9ef893b5f8556febc9014b8dface87173424703d73eb",
+      "receipt": "scoped/frontend/proof/rational-interval-hull-data-v2/RECEIPT.json",
+      "receipt_sha256": "1e302fbf1bc233e0193bdb6a040db64e1d6c1e54c21ec02fe7142dd83e1f6337",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalIntervalHullBody",
+      "source": "scoped/frontend/lean/ScopedC/RationalIntervalHullBody.lean",
+      "source_sha256": "a6f751d83fd84f20c5425530eda8408851f4d9073ff2c9a0e44f77eb26436a28",
+      "receipt": "scoped/frontend/proof/rational-interval-hull-body-v1/RECEIPT.json",
+      "receipt_sha256": "356884f1cd9c7354567b3ff0cb4fc29b322b059d432486bb8357bb366c2dc34f",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.NumericRationalIntervalHullRefinement",
+      "source": "scoped/frontend/lean/ScopedC/NumericRationalIntervalHullRefinement.lean",
+      "source_sha256": "6de988499ef6b48d5b4d445a7f1cbff0be93c1e541f974c0797093be36062c31",
+      "receipt": "scoped/frontend/proof/numeric-rational-interval-hull-v2/RECEIPT.json",
+      "receipt_sha256": "cfd7dec01e0e6eb6e9c6d93cebc99210ef7331eb9953573937df9c8d217af40d",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.CallEventTimeline",
+      "source": "scoped/frontend/lean/ScopedC/CallEventTimeline.lean",
+      "source_sha256": "4039ee7e55b1549cd32206e3395ae547db7a170ee6baff412dd37bbf3d3c6360",
+      "receipt": "scoped/frontend/proof/call-event-timeline-v1/RECEIPT.json",
+      "receipt_sha256": "dd78a7136f6417aadbcfe59de0c06c16d2eb7b9eedef4e20586d253c873248d1",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalProductApplicability",
+      "source": "scoped/frontend/lean/ScopedC/RationalProductApplicability.lean",
+      "source_sha256": "7037e32d96ef2f3a3768070f22c24e2ad6df60315590099bef03a8675cbb8669",
+      "receipt": "scoped/frontend/proof/rational-product-applicability-v3/RECEIPT.json",
+      "receipt_sha256": "ab6ab8fe1d0b8f206fef2c7f4b40e304c58430ad62209fd327e2b362087a950e",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalIntervalMultiplyData",
+      "source": "scoped/frontend/lean/ScopedC/RationalIntervalMultiplyData.lean",
+      "source_sha256": "7d6ca12c9adb7e0f3b8cf5b10d349d8077f370da872371173789dc7bf46e5b84",
+      "receipt": "scoped/frontend/proof/rational-interval-multiply-data-v3/RECEIPT.json",
+      "receipt_sha256": "aa18ee552d7223a1ce2e8ba26789c495a2401ddfb43c894097bc4aba6e79a68f",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalIntervalMultiplyBindings",
+      "source": "scoped/frontend/lean/ScopedC/RationalIntervalMultiplyBindings.lean",
+      "source_sha256": "bf33baa17c1265f947f014e51380f3ffe9c68ad8e73e2b11d4a9a4ba5b0f3806",
+      "receipt": "scoped/frontend/proof/rational-interval-multiply-bindings-v3/RECEIPT.json",
+      "receipt_sha256": "9d8b51ed0187bf21c7ecac00c91cf8a4ac0419dc540ee9623b8fc43336e2d2ee",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalIntervalMultiplyProducts",
+      "source": "scoped/frontend/lean/ScopedC/RationalIntervalMultiplyProducts.lean",
+      "source_sha256": "e8dbee04c7d1888c7934c2fa5a7ed538872c0fb17633dfec7f892e9389b71d48",
+      "receipt": "scoped/frontend/proof/rational-interval-multiply-products-v1/RECEIPT.json",
+      "receipt_sha256": "7cae4c405eea69330807dce96c43963ae820a0f3acc057c6f38b4de3e9771488",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalSelectionTree",
+      "source": "scoped/frontend/lean/ScopedC/RationalSelectionTree.lean",
+      "source_sha256": "2d65c2d88becdee58ca8c80dc5b7b696690c6ebe86f41f6cd91f72d225a04bb0",
+      "receipt": "scoped/frontend/proof/rational-selection-tree-v2/RECEIPT.json",
+      "receipt_sha256": "ea6e288bb3728614e0205cf2f9242c9de0bc206818c11d9cb5ffbe09b6635bb5",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalSelectionTreeEffects",
+      "source": "scoped/frontend/lean/ScopedC/RationalSelectionTreeEffects.lean",
+      "source_sha256": "91fbc82093646355e4cb5ff1673c208ac4893744b28ded80e509418faeaa62cd",
+      "receipt": "scoped/frontend/proof/rational-selection-tree-effects-v1/RECEIPT.json",
+      "receipt_sha256": "bf09dbf838840e76f34eb04343652a35c881a13e757df641695bfc83e130b3f2",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalSelectionTreeMath",
+      "source": "scoped/frontend/lean/ScopedC/RationalSelectionTreeMath.lean",
+      "source_sha256": "721b5f2c0a959d787079e95ef73bcd67bde779f2dbbc7c7d6c6834796dbfed23",
+      "receipt": "scoped/frontend/proof/rational-selection-tree-math-v1/RECEIPT.json",
+      "receipt_sha256": "8b78afee6f00c9d8b7b104c56b287d1ed2bff748a4aeaf77f688480c206ee6cc",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalSelectionTreeExpression",
+      "source": "scoped/frontend/lean/ScopedC/RationalSelectionTreeExpression.lean",
+      "source_sha256": "d03ffe69ac98e2d52e48739d4abe6932788cdfe0bf1b99ef49bb01d720d88248",
+      "receipt": "scoped/frontend/proof/rational-selection-tree-expression-v1/RECEIPT.json",
+      "receipt_sha256": "d66524b51780e384af3e6e1e127c30f4ab9f761ad48d7f9583e498b5fffcc71b",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalIntervalMultiplySelection",
+      "source": "scoped/frontend/lean/ScopedC/RationalIntervalMultiplySelection.lean",
+      "source_sha256": "7811a4123c823163a07a9b9250e9e8dd6d20102952301e957b640f7b6e2ada03",
+      "receipt": "scoped/frontend/proof/rational-interval-multiply-selection-v1/RECEIPT.json",
+      "receipt_sha256": "f0da9c728a98d997121f9e7a8e41de12930f76b9ca0f2092493f3da811153d8c",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalIntervalMultiplyEvents",
+      "source": "scoped/frontend/lean/ScopedC/RationalIntervalMultiplyEvents.lean",
+      "source_sha256": "ec952d735546c30978c0c63feac252dc5872f0b81a0af2528fcd6b693e8120b3",
+      "receipt": "scoped/frontend/proof/rational-interval-multiply-events-v2/RECEIPT.json",
+      "receipt_sha256": "6fa6431afc7de55f2897494d35ee1f2c29eee9aa2c59899c633f137b0e607a0d",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalIntervalMultiplyStorage",
+      "source": "scoped/frontend/lean/ScopedC/RationalIntervalMultiplyStorage.lean",
+      "source_sha256": "f3c64772afca836019d02c58b1eb782f25a4093103eb8f3246d26275664febd5",
+      "receipt": "scoped/frontend/proof/rational-interval-multiply-storage-v2/RECEIPT.json",
+      "receipt_sha256": "420596d0138d658405aff02cd2ca05de562546b55f3e029e4f2f808cc63ebd28",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalIntervalMultiplyBody",
+      "source": "scoped/frontend/lean/ScopedC/RationalIntervalMultiplyBody.lean",
+      "source_sha256": "9129dc9fd52bbc0c43bcde15ccff3ea6235d1e4689d14428983e310528adc900",
+      "receipt": "scoped/frontend/proof/rational-interval-multiply-body-v4/RECEIPT.json",
+      "receipt_sha256": "a6902830683a6d47ecd33d5c702b4a5b449baf1516508f4f3127194b34420555",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.NumericRationalIntervalMultiplyRefinement",
+      "source": "scoped/frontend/lean/ScopedC/NumericRationalIntervalMultiplyRefinement.lean",
+      "source_sha256": "2ae2fed6468554bead17e09a14de311e7bc817ef96fc44904e432d3995eceaf6",
+      "receipt": "scoped/frontend/proof/numeric-rational-interval-multiply-v1/RECEIPT.json",
+      "receipt_sha256": "f55900b8873d1a8bc79ffdc859f27e5a0a53ff9ea78b6792f1bdde746a4a0e8f",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalIntervalMultiplyEffects",
+      "source": "scoped/frontend/lean/ScopedC/RationalIntervalMultiplyEffects.lean",
+      "source_sha256": "6792a1afead76d0fafea0f777efb657e34a3e789031318c851227eb27e33c4e6",
+      "receipt": "scoped/frontend/proof/rational-interval-multiply-effects-v2/RECEIPT.json",
+      "receipt_sha256": "ca2ccb9984861bf5bfea971ea3c28beb796d3ec52bf79141139eedff9a27e4c4",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.LocalAssignment",
+      "source": "scoped/frontend/lean/ScopedC/LocalAssignment.lean",
+      "source_sha256": "05c5eb7003e23c842d486b669a2aef17493b52324ddafac51236ed810e6c5c23",
+      "receipt": "scoped/frontend/proof/local-assignment-v2/RECEIPT.json",
+      "receipt_sha256": "52ab6165e05120310113002820d7ec8805cdbad3e6e1dab899bef897d099d553",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.LocalStorageSeparation",
+      "source": "scoped/frontend/lean/ScopedC/LocalStorageSeparation.lean",
+      "source_sha256": "d70401a677335ff327333df40f7efbcdb2945a8ab3271761e4c2a12d7136ad1f",
+      "receipt": "scoped/frontend/proof/local-storage-separation-v2/RECEIPT.json",
+      "receipt_sha256": "a64b9ac1c5682e01db5b18aea9cd4b39f1151677795701ab7d6ebaaae311bf51",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalPowerCounter",
+      "source": "scoped/frontend/lean/ScopedC/RationalPowerCounter.lean",
+      "source_sha256": "756bea519109373879851ede5c4eb1b3a742d4a3134de5d4b2a6e404d80549b2",
+      "receipt": "scoped/frontend/proof/rational-power-counter-v3/RECEIPT.json",
+      "receipt_sha256": "ba05068c96c5979abd0a0eeb4fb1f9468c79b4678d5688c04eb22533c4446a2c",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalPowerInvariant",
+      "source": "scoped/frontend/lean/ScopedC/RationalPowerInvariant.lean",
+      "source_sha256": "2afa5e3a90b19f11cac7031470bc47b243491bf3b762d1d641da1a53e8312db3",
+      "receipt": "scoped/frontend/proof/rational-power-invariant-v1/RECEIPT.json",
+      "receipt_sha256": "00a74eb15797462ecb83f55fef762705998f657d76bebdd0f13bd359685c5041",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalPowerGuard",
+      "source": "scoped/frontend/lean/ScopedC/RationalPowerGuard.lean",
+      "source_sha256": "b9b1623f13035fdd7ccf7bb3d63001bf22864d35ee71f7019b89ed436c079acf",
+      "receipt": "scoped/frontend/proof/rational-power-guard-v1/RECEIPT.json",
+      "receipt_sha256": "44b0ee9046af663b6201fe3c5cfddce140ca3ddcb6f5799a6a811bf93e089cfd",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalPowerFrame",
+      "source": "scoped/frontend/lean/ScopedC/RationalPowerFrame.lean",
+      "source_sha256": "10f51c0898f119c972b902e7442dcf38ec5c49bbc508d88db4df6c322d40550e",
+      "receipt": "scoped/frontend/proof/rational-power-frame-v2/RECEIPT.json",
+      "receipt_sha256": "2cd9d3d23b76d078dd177b337055f249020f4cdc797ad61079c7196203b8f711",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalPowerInitialization",
+      "source": "scoped/frontend/lean/ScopedC/RationalPowerInitialization.lean",
+      "source_sha256": "a05b6cf2a5313f3fe9a70c67e203ab1769e7d37b0097e5cb70845b03bdc86b13",
+      "receipt": "scoped/frontend/proof/rational-power-initialization-v2/RECEIPT.json",
+      "receipt_sha256": "9beccd279642f60c7224218f6c295b4e7d28f5a8f855198503943720cf003fee",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalPowerHalving",
+      "source": "scoped/frontend/lean/ScopedC/RationalPowerHalving.lean",
+      "source_sha256": "ada3ecbf03e7a4b915cfb24a12dbd77216180f7186ba86d03c905fef21442dc9",
+      "receipt": "scoped/frontend/proof/rational-power-halving-v1/RECEIPT.json",
+      "receipt_sha256": "aed64b8d149adcb2bac35d564ead59ed5825fac7361b5440d1334fb4efcc2d19",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalPowerAccumulate",
+      "source": "scoped/frontend/lean/ScopedC/RationalPowerAccumulate.lean",
+      "source_sha256": "a041620d1edacd8d6d9695a654ec3ed9f8e492605cf15e42f85aab435b5d61e0",
+      "receipt": "scoped/frontend/proof/rational-power-accumulate-v7/RECEIPT.json",
+      "receipt_sha256": "a7769b638af1c377a20d989e36134902b2a585a3de6cfd945d4d364af53bf1f5",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalPowerSquare",
+      "source": "scoped/frontend/lean/ScopedC/RationalPowerSquare.lean",
+      "source_sha256": "bbde0bc137abdafc94c354d22cfd425a6b62725d10d3c3e8b53d0c500a3b7cc9",
+      "receipt": "scoped/frontend/proof/rational-power-square-v1/RECEIPT.json",
+      "receipt_sha256": "418c76ac3735b0943f8af7a04c147cfbeb777ad55aabf74de944f7a118346100",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalPowerEffects",
+      "source": "scoped/frontend/lean/ScopedC/RationalPowerEffects.lean",
+      "source_sha256": "6e56113f3aff0bba0fc17ac60298117453b2cabf4a1698820b1183e6c14333ae",
+      "receipt": "scoped/frontend/proof/rational-power-effects-v1/RECEIPT.json",
+      "receipt_sha256": "9d9670e2aee70f080e98fefc9ef243f28ed4f612ce008107f20e99c2b7f3b7ad",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalPowerCondition",
+      "source": "scoped/frontend/lean/ScopedC/RationalPowerCondition.lean",
+      "source_sha256": "1f4f31591bcef528d45816981b379e6d0d35c6262e7c2ec47ced61280a51a4b6",
+      "receipt": "scoped/frontend/proof/rational-power-condition-v1/RECEIPT.json",
+      "receipt_sha256": "4f1adbc0c195e173dd369caccc4403661e2e12e31bb3fa8de1a0ccb1247530f3",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalPowerIterationData",
+      "source": "scoped/frontend/lean/ScopedC/RationalPowerIterationData.lean",
+      "source_sha256": "a6b3747fa2cfa7aef395479e0fc3f210ddb30601a0ba30d492485aa462fde0c2",
+      "receipt": "scoped/frontend/proof/rational-power-iteration-data-v1/RECEIPT.json",
+      "receipt_sha256": "0ff5f307bd561970f59ed27ffe49abf87addda7081be6cca6a93d5ca090e0660",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalPowerIterationBody",
+      "source": "scoped/frontend/lean/ScopedC/RationalPowerIterationBody.lean",
+      "source_sha256": "053b309f38f07eb1695266c2a7784883d33268dd1560f5d74e283feb79b98be2",
+      "receipt": "scoped/frontend/proof/rational-power-iteration-body-v1/RECEIPT.json",
+      "receipt_sha256": "2726468ab12a21dec22c203de7c73bf29a2e0b11a039a3a716fdf519da5fefaf",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalPowerIterationEvents",
+      "source": "scoped/frontend/lean/ScopedC/RationalPowerIterationEvents.lean",
+      "source_sha256": "a577f8712d624e3b7eb76379206515096c52100ee7041fdc640bb85a0a80be87",
+      "receipt": "scoped/frontend/proof/rational-power-iteration-events-v5/RECEIPT.json",
+      "receipt_sha256": "b2ab105fa1d4ce61a54da46e099f9091deb4efe5654b3b371bac2f8e268de4f4",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalPowerLoop",
+      "source": "scoped/frontend/lean/ScopedC/RationalPowerLoop.lean",
+      "source_sha256": "675ebeecf96fe952199afd092d32992dd6cee8a607645592457157ec7a3e0231",
+      "receipt": "scoped/frontend/proof/rational-power-loop-v2/RECEIPT.json",
+      "receipt_sha256": "a16ecb2fb1ac8fbaa7ae2a1a90b53df2a8278baea2cb9a6725b3a147ee08b562",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalPowerBody",
+      "source": "scoped/frontend/lean/ScopedC/RationalPowerBody.lean",
+      "source_sha256": "16585e35973360ed0b2cfd04c6046b88f91211a9319239d79cdd8c2e91c547a3",
+      "receipt": "scoped/frontend/proof/rational-power-body-v2/RECEIPT.json",
+      "receipt_sha256": "a7cad436f528b84f19c9bac714c0c4a44a765292599d5681bc250cc10833e6d5",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.NumericRationalPowerRefinement",
+      "source": "scoped/frontend/lean/ScopedC/NumericRationalPowerRefinement.lean",
+      "source_sha256": "1c406185dd67efcbd0c00e634e37f4c3d86fb033a54ddcaecebe37fb6c6f2167",
+      "receipt": "scoped/frontend/proof/numeric-rational-power-v1/RECEIPT.json",
+      "receipt_sha256": "7176adeb009d8f449bbcede3f5e63a92c0d13c22cb5370bb5653b6916dfb1bc1",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.IntervalPowerCounter",
+      "source": "scoped/frontend/lean/ScopedC/IntervalPowerCounter.lean",
+      "source_sha256": "5051921038bf916ffa77be4b062a4b88baafec92ab1214cb0f5822ef828c872e",
+      "receipt": "scoped/frontend/proof/interval-power-counter-v1/RECEIPT.json",
+      "receipt_sha256": "61ac96a39bd6b52905b0dc7ae6322de28edbbb651336b15ac903bf5a23f8d07a",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.IntervalPowerBitFrame",
+      "source": "scoped/frontend/lean/ScopedC/IntervalPowerBitFrame.lean",
+      "source_sha256": "97e94a5b23681f2cbf7fc7e93e6be8b7d071c6c94e2b356008ddbf20179e0732",
+      "receipt": "scoped/frontend/proof/interval-power-bit-frame-v1/RECEIPT.json",
+      "receipt_sha256": "aa3a57bd719fc4f817264b41cc7337e81ea73270f5fe9c9c79aefca34122ff27",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.IntervalPowerHighestBit",
+      "source": "scoped/frontend/lean/ScopedC/IntervalPowerHighestBit.lean",
+      "source_sha256": "2e14bf5680dfe5ebf52010daa31ecf775d663f42f1e97dedb48553c394f7e19b",
+      "receipt": "scoped/frontend/proof/interval-power-highest-bit-v2/RECEIPT.json",
+      "receipt_sha256": "f2bcfbd41fd50b7b05bd1c564f9538d89adc72069cd272d465d5e20cc6e1f4ad",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.IntervalPowerMathematics",
+      "source": "scoped/frontend/lean/ScopedC/IntervalPowerMathematics.lean",
+      "source_sha256": "d71e5bde0d0e567b4466e9def3d98d55260eb938afc9f4665c96369cf26d4c10",
+      "receipt": "scoped/frontend/proof/interval-power-mathematics-v2/RECEIPT.json",
+      "receipt_sha256": "183c1c4f2e6a82979f03152dd64b31f80e0e29382e6e45d325289215acc8ca00",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.IntervalProductApplicability",
+      "source": "scoped/frontend/lean/ScopedC/IntervalProductApplicability.lean",
+      "source_sha256": "078a9be0b55375774124563f50e7a3a06fc40e0a33b76eb2f64f96a3f07b63aa",
+      "receipt": "scoped/frontend/proof/interval-product-applicability-v1/RECEIPT.json",
+      "receipt_sha256": "6f1f4473fd2622f54cd34fd957a60f85a4df21447570dfab0b2d523d832e7390",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.IntervalPowerScanFrame",
+      "source": "scoped/frontend/lean/ScopedC/IntervalPowerScanFrame.lean",
+      "source_sha256": "13f22a37ca526adf18f9f6fe3af8972303ea72f349894f393d501e6fc443d00e",
+      "receipt": "scoped/frontend/proof/interval-power-scan-frame-v1/RECEIPT.json",
+      "receipt_sha256": "821fda62a05ea408ac3aa24a2e98361785da89f3c31c164b1e7a7fdb933b6cf8",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.IntervalPowerScanMultiply",
+      "source": "scoped/frontend/lean/ScopedC/IntervalPowerScanMultiply.lean",
+      "source_sha256": "05c183ae693e2687197158ffbbddd7d59fe3d258ed8fdbe0eb3bf91021371bc3",
+      "receipt": "scoped/frontend/proof/interval-power-scan-multiply-v2/RECEIPT.json",
+      "receipt_sha256": "95a690a8861fcd8e49bd44091955e4894b30101fcf7b07490b17a21decbf0bab",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.UnsignedVariableArithmetic",
+      "source": "scoped/frontend/lean/ScopedC/UnsignedVariableArithmetic.lean",
+      "source_sha256": "355a0196697bfbeb3eda5608a2002a12aae502b1e62a8a16a1a920afd10cf4d7",
+      "receipt": "scoped/frontend/proof/unsigned-variable-arithmetic-v1/RECEIPT.json",
+      "receipt_sha256": "97ed0a6dba839ad206699b69ee21e1048b6bb90bad65648a06cf5f290101b611",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.IntervalPowerScanControl",
+      "source": "scoped/frontend/lean/ScopedC/IntervalPowerScanControl.lean",
+      "source_sha256": "7596971846dc2864e593be05df381ec5396fda0df2917a64853cd160fd8d05a3",
+      "receipt": "scoped/frontend/proof/interval-power-scan-control-v1/RECEIPT.json",
+      "receipt_sha256": "5254394705b0c9933ce5fbc25e7572d878d8793e6c21ba4c17fc6381dab1cf58",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.IntervalPowerScanStep",
+      "source": "scoped/frontend/lean/ScopedC/IntervalPowerScanStep.lean",
+      "source_sha256": "f62496b6e8ae542597d456cc437d8e42cd08af67b46cbab6800114fc96c164f2",
+      "receipt": "scoped/frontend/proof/interval-power-scan-step-v3/RECEIPT.json",
+      "receipt_sha256": "9fa226aca8c19381a88b71a35fd8cf5b642ddf164cd6cc794d062ef8d53fb488",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.IntervalPowerScanEvents",
+      "source": "scoped/frontend/lean/ScopedC/IntervalPowerScanEvents.lean",
+      "source_sha256": "6a6c55eb973f1902a9716255be2dac12a4cccc1985ace6bc76addaeb8eb4defc",
+      "receipt": "scoped/frontend/proof/interval-power-scan-events-v2/RECEIPT.json",
+      "receipt_sha256": "5c9558858a6682202ef221dbe92ea449d2d1d1e902e0e7dcddd8d88016533658",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.IntervalPowerScanLoop",
+      "source": "scoped/frontend/lean/ScopedC/IntervalPowerScanLoop.lean",
+      "source_sha256": "45cdab541b122ac8a4a5f6d2f32aaa90994a8d39122e7125bed8d4b251b5fcf4",
+      "receipt": "scoped/frontend/proof/interval-power-scan-loop-v2/RECEIPT.json",
+      "receipt_sha256": "2c98583f2757f1c1b61265c7a40d89d8d1170a6ce2f2966de2399e156e5cdc3b",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.IntervalPowerInitialization",
+      "source": "scoped/frontend/lean/ScopedC/IntervalPowerInitialization.lean",
+      "source_sha256": "45bcce0a1b1964d8fac3858075074c1d5d02a8d83c3aa38d71b0f0865dc5fe1a",
+      "receipt": "scoped/frontend/proof/interval-power-initialization-v2/RECEIPT.json",
+      "receipt_sha256": "6a50872dc4c023057fe25e4ca3c593ef8a5ad1c63d39b95c4260e594d18d4758",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.IntervalPowerResultFrame",
+      "source": "scoped/frontend/lean/ScopedC/IntervalPowerResultFrame.lean",
+      "source_sha256": "3a914877fdb6132844a9008b9f24dbf64c13964cdb59f03e13ccc0ae8aed9552",
+      "receipt": "scoped/frontend/proof/interval-power-result-frame-v1/RECEIPT.json",
+      "receipt_sha256": "c9b4ce8846cd2121394b481ded8bf68fbef80462bc303bda4c17398bb661496a",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.IntervalPowerReady",
+      "source": "scoped/frontend/lean/ScopedC/IntervalPowerReady.lean",
+      "source_sha256": "eb01668fc27ba0cbe983495f12258cacb8f4ed924940f44258780aeffe7c0f3d",
+      "receipt": "scoped/frontend/proof/interval-power-ready-v2/RECEIPT.json",
+      "receipt_sha256": "b66d496ff23892a7921683168e6ab5c3aa07995447439a87877c59b5cbdac523",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.IntervalPowerPositiveBody",
+      "source": "scoped/frontend/lean/ScopedC/IntervalPowerPositiveBody.lean",
+      "source_sha256": "9256c8411a2c98c211d50b5352728ad2bd284c13dc2591bee037984aed53d078",
+      "receipt": "scoped/frontend/proof/interval-power-positive-body-v3/RECEIPT.json",
+      "receipt_sha256": "152a9e597d0e049fb8b77eadbacb725e728cbc5894aff473f497014106c4cd4e",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.IntervalPowerZeroBody",
+      "source": "scoped/frontend/lean/ScopedC/IntervalPowerZeroBody.lean",
+      "source_sha256": "9794ea36e5595afdfdeed4757f7a1b2a41559cdabe6b9d58f47df33e13506bf6",
+      "receipt": "scoped/frontend/proof/interval-power-zero-body-v3/RECEIPT.json",
+      "receipt_sha256": "b1dc86347546f7f71b4170374d4b48c0a681bf5324b0f91c8db35239cbfbd8f9",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.IntervalPowerBody",
+      "source": "scoped/frontend/lean/ScopedC/IntervalPowerBody.lean",
+      "source_sha256": "5b983ad0bfb8f52e58d1e57f35737ede4d873641b5057da94ee2b617c7a4d6cd",
+      "receipt": "scoped/frontend/proof/interval-power-body-v1/RECEIPT.json",
+      "receipt_sha256": "1456dc70bfe0d53cae2437b19ef6eaab255adb78d1a0b48c9c7fff26b61ffc37",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalIntervalAddFraming",
+      "source": "scoped/frontend/lean/ScopedC/RationalIntervalAddFraming.lean",
+      "source_sha256": "442771990e1d8fc51273ea7c8d3009914e803bd6c69e0bccb89541225bf3c2be",
+      "receipt": "scoped/frontend/proof/rational-interval-add-framing-v2/RECEIPT.json",
+      "receipt_sha256": "0b6e55ff76108575e1fa20e6b6b9d38fc622d5a1242f8ec0ca43a54cc562f8a3",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.IntervalAddApplicability",
+      "source": "scoped/frontend/lean/ScopedC/IntervalAddApplicability.lean",
+      "source_sha256": "4cb095a92f2b14abe37592a5a6a7e908951b10ac6dc9bb406e0bf9b437d9fedd",
+      "receipt": "scoped/frontend/proof/interval-add-applicability-v1/RECEIPT.json",
+      "receipt_sha256": "d64e27542838939762dc5cb85a3318e39c6c9868b9d89629bf59ee49cb7ab403",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.CoefficientTableRead",
+      "source": "scoped/frontend/lean/ScopedC/CoefficientTableRead.lean",
+      "source_sha256": "6c7bcd7ea376e1172633cd6d1395c9fe75d4ab951a812b6b2a9522f53d96822c",
+      "receipt": "scoped/frontend/proof/coefficient-table-read-v3/RECEIPT.json",
+      "receipt_sha256": "c310af32908faf0c2319627085c82a86c9dcd9d7f96b2664b0ebe8e76a29bd64",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.CoefficientTableFrames",
+      "source": "scoped/frontend/lean/ScopedC/CoefficientTableFrames.lean",
+      "source_sha256": "1a24d1ddf269800eb7621f3a5ab38ecddeb5cdc3b4a6924a016cf845d18ee7b2",
+      "receipt": "scoped/frontend/proof/coefficient-table-frames-v2/RECEIPT.json",
+      "receipt_sha256": "fc96bae55746408a0f9a784551223d7ea93193eca277792519f105989f87f3b0",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.UnsignedLocalSteps",
+      "source": "scoped/frontend/lean/ScopedC/UnsignedLocalSteps.lean",
+      "source_sha256": "1628ee0304dd9ce21f9b37e1d41d4c3ef570750496b8113185635ad4cd70b998",
+      "receipt": "scoped/frontend/proof/unsigned-local-steps-v1/RECEIPT.json",
+      "receipt_sha256": "1abddc65d0dbcb356346059f571fbf444eae4646e669d3e41f162065e7dfe0fe",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.CallEventNameTimeline",
+      "source": "scoped/frontend/lean/ScopedC/CallEventNameTimeline.lean",
+      "source_sha256": "645d46d8886b27e79b1e7c70fa8fbbc3bd0c348c2878697a3d68786e56a4bead",
+      "receipt": "scoped/frontend/proof/call-event-name-timeline-v1/RECEIPT.json",
+      "receipt_sha256": "1f4c8b36a1dc984194aaed4d560468a3c63c2bb197ed26b192abef13b3426331",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.TaylorFrame",
+      "source": "scoped/frontend/lean/ScopedC/TaylorFrame.lean",
+      "source_sha256": "a564c2d3f14454a3da1ea941beab1a9d1cc0b9d98fce9e2238140bd940c24e5c",
+      "receipt": "scoped/frontend/proof/taylor-frame-v2/RECEIPT.json",
+      "receipt_sha256": "74fcb1be6f9a99029c30bc3b4be7892b73d75d5400e8433b680b8a17c3fa4b81",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.TaylorStepData",
+      "source": "scoped/frontend/lean/ScopedC/TaylorStepData.lean",
+      "source_sha256": "fc388c3841461c3159df36bb56d9eeb74d0aa42b4f87261a8fd7c3fbd6b9e6ac",
+      "receipt": "scoped/frontend/proof/taylor-step-data-v1/RECEIPT.json",
+      "receipt_sha256": "3c809efa428c348b2d667554a9bda9c2cf175dd4e7fbb23379a380b1607689ba",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.TaylorStepEffects",
+      "source": "scoped/frontend/lean/ScopedC/TaylorStepEffects.lean",
+      "source_sha256": "150999eaa89579887d0745067bfb2d436e7fb611b5941e92d5ee2dd8f206a695",
+      "receipt": "scoped/frontend/proof/taylor-step-effects-v1/RECEIPT.json",
+      "receipt_sha256": "4467a735954081e39e3e22b877f983c8ff39dc35bf6300b6bb1fd4136ae58311",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.TaylorStepFrame",
+      "source": "scoped/frontend/lean/ScopedC/TaylorStepFrame.lean",
+      "source_sha256": "793e2b9e2efb34f4275ce7c8223e256c93065861cbe3b35c299a688e12640836",
+      "receipt": "scoped/frontend/proof/taylor-step-frame-v1/RECEIPT.json",
+      "receipt_sha256": "01a8b99b25c349aab549d5f1b2d64a55e3e71701af3d0d6cfd48a6747140896a",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.TaylorStepSource",
+      "source": "scoped/frontend/lean/ScopedC/TaylorStepSource.lean",
+      "source_sha256": "eda7a9e41a319c56a6a287c9bf73a4aa5942b9c35b08eb9c5839cf45255288e2",
+      "receipt": "scoped/frontend/proof/taylor-step-source-v2/RECEIPT.json",
+      "receipt_sha256": "9864fac96d12d56317f57b49953fc57e4a8b45e35706178d9ee518e2e277d5cc",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.TaylorStepMathematics",
+      "source": "scoped/frontend/lean/ScopedC/TaylorStepMathematics.lean",
+      "source_sha256": "f712f302e8bb6b1e6bcf96acfd39c84584e5d33de0252c4740da27e0d0ef3dd8",
+      "receipt": "scoped/frontend/proof/taylor-step-mathematics-v1/RECEIPT.json",
+      "receipt_sha256": "a1afe667cbb360c86a254bafe44d9e98cc07c67422451ad5af44de0d98ca7439",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.TaylorStepEvents",
+      "source": "scoped/frontend/lean/ScopedC/TaylorStepEvents.lean",
+      "source_sha256": "e31f564c6f3a176cccd6c80f4592f8d8d60a3b2b3e2638f4528674f0d371c51c",
+      "receipt": "scoped/frontend/proof/taylor-step-events-v2/RECEIPT.json",
+      "receipt_sha256": "0abcf908c3f257b8cc0fa57511b97c4b1d31abc3ae2997b6e340e7b286ecd736",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.TaylorIteration",
+      "source": "scoped/frontend/lean/ScopedC/TaylorIteration.lean",
+      "source_sha256": "cf3960567202130d74aa5ba5d8ac99e9d4b2bb53b45135e23d65935c618a927d",
+      "receipt": "scoped/frontend/proof/taylor-iteration-v2/RECEIPT.json",
+      "receipt_sha256": "3eabd4ab098600654e95e69ce6db4be619b839f86b9c203952008dd31f626d78",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.TaylorEventShapes",
+      "source": "scoped/frontend/lean/ScopedC/TaylorEventShapes.lean",
+      "source_sha256": "d305bc0a947994ba6d7d383c14a09f771dc7280d24bbd414e7a85d5156bf1b9b",
+      "receipt": "scoped/frontend/proof/taylor-event-shapes-v1/RECEIPT.json",
+      "receipt_sha256": "e1c3da6a8a5e74be5b91bba2c35a36f391fc6656b497f66c482dbf4b9959d338",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.TaylorLoop",
+      "source": "scoped/frontend/lean/ScopedC/TaylorLoop.lean",
+      "source_sha256": "086be714749aa1306f0ae35ce1cb265270fd2a365beb78be01cae6b5ae436e09",
+      "receipt": "scoped/frontend/proof/taylor-loop-v3/RECEIPT.json",
+      "receipt_sha256": "2e527942391c747e29b30438d2ece3c629860f6a13add7de2cc98c415cfeced8",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.SourceUnsignedGlobal",
+      "source": "scoped/frontend/lean/ScopedC/SourceUnsignedGlobal.lean",
+      "source_sha256": "4f526268e78e3d51a4cc6845664c1d8c7ace576e3ab14f87dc080d3bce6a86a6",
+      "receipt": "scoped/frontend/proof/source-unsigned-global-v1/RECEIPT.json",
+      "receipt_sha256": "af665bcd808a55832bb5ebbac1a5f8686f4ff225757b5212303f555bb9f66f6a",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.TaylorEntryData",
+      "source": "scoped/frontend/lean/ScopedC/TaylorEntryData.lean",
+      "source_sha256": "f18ff6e41f5ffaa5fad803981098082457f05268fc529cb50c89926e999c37d2",
+      "receipt": "scoped/frontend/proof/taylor-entry-data-v2/RECEIPT.json",
+      "receipt_sha256": "f4e65e9de194a843cdee301fab53b1c405c8acbfeb6f5402f24a4be82b75b160",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.TaylorEntryFrame",
+      "source": "scoped/frontend/lean/ScopedC/TaylorEntryFrame.lean",
+      "source_sha256": "9edbb7db0e602cdcf12351f22b233fd86315f12a51f364f5460e84fc49a96eb5",
+      "receipt": "scoped/frontend/proof/taylor-entry-frame-v2/RECEIPT.json",
+      "receipt_sha256": "3533cd26a21e765b84a6f63cbdf13a4504c06583da2ef6b2fa84085c9381dc8f",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.TaylorEntrySource",
+      "source": "scoped/frontend/lean/ScopedC/TaylorEntrySource.lean",
+      "source_sha256": "4e65a9757746aa7fce1fb5dcc1633116f01f326f6564e380ad6131b9cd44cd73",
+      "receipt": "scoped/frontend/proof/taylor-entry-source-v1/RECEIPT.json",
+      "receipt_sha256": "2835e69f7fe8bf7e66fe660e8091bf183c1509941255681fc7c28c82e0567c7e",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.TaylorBody",
+      "source": "scoped/frontend/lean/ScopedC/TaylorBody.lean",
+      "source_sha256": "8ca7a3338b66e0932b29be36c196653d4d682e97775cc16503aa0ae74f224ef2",
+      "receipt": "scoped/frontend/proof/taylor-body-v2/RECEIPT.json",
+      "receipt_sha256": "47b369f797e47ade6c57393408ab1e2faf3183a049f447d17099194ed6ee1f3f",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalPowerPhysicalEffects",
+      "source": "scoped/frontend/lean/ScopedC/RationalPowerPhysicalEffects.lean",
+      "source_sha256": "ec4c0e2ba74903035236c9957db428c6171eba66d40164e24acf621a127c5276",
+      "receipt": "scoped/frontend/proof/rational-power-physical-effects-v1/RECEIPT.json",
+      "receipt_sha256": "19e827da6a6bd879fab2f73720fce5211bcd5bc3b3270f2ed6f805a0a1c66ae0",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalPowerFramedLoop",
+      "source": "scoped/frontend/lean/ScopedC/RationalPowerFramedLoop.lean",
+      "source_sha256": "80509fa0ae9c86687d58d83c737ee796b609fde730758651518e0e011bc289d5",
+      "receipt": "scoped/frontend/proof/rational-power-framed-loop-v1/RECEIPT.json",
+      "receipt_sha256": "0c24efddc1b10d3c00713c7b0f87dc686b0f3dd3cf1592b3f6fb36e220c437f3",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalPowerComposition",
+      "source": "scoped/frontend/lean/ScopedC/RationalPowerComposition.lean",
+      "source_sha256": "86778358701f11eab0255089be250daec49dffefca59946035df6ce55e6421ef",
+      "receipt": "scoped/frontend/proof/rational-power-composition-v1/RECEIPT.json",
+      "receipt_sha256": "3bd048ccfa17a02faa5033a297f21be023633718923e873971019e2fff0199c8",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalPowerInitialEffects",
+      "source": "scoped/frontend/lean/ScopedC/RationalPowerInitialEffects.lean",
+      "source_sha256": "fc7b1bcc387edf8c5564b670f999d29b4fc024fe963192a86ee5aab6360db0fe",
+      "receipt": "scoped/frontend/proof/rational-power-initial-effects-v2/RECEIPT.json",
+      "receipt_sha256": "75441581037fd01818494a275094230c22f3f33f9c0f40f9d6aa693f19da450a",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalPowerFramedBody",
+      "source": "scoped/frontend/lean/ScopedC/RationalPowerFramedBody.lean",
+      "source_sha256": "05ce92cee87ca03c00d1a0023e01b4acf43a046f3fcf4553a27881ef13b75a86",
+      "receipt": "scoped/frontend/proof/rational-power-framed-body-v1/RECEIPT.json",
+      "receipt_sha256": "6ab456579f386df07599ae867ab2ef3590f89f2cef09286420a9b6ed661e4605",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.IntervalPowerScanPhysicalEffects",
+      "source": "scoped/frontend/lean/ScopedC/IntervalPowerScanPhysicalEffects.lean",
+      "source_sha256": "c13b156b7fd88c04d65b8adee5830176198981b718941f25261292850af56944",
+      "receipt": "scoped/frontend/proof/interval-power-scan-physical-effects-v2/RECEIPT.json",
+      "receipt_sha256": "b54ae8fa691ea22a5599521676b43751182fb297e0d2618710f9a69540cc6c56",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.IntervalPowerScanFramedLoop",
+      "source": "scoped/frontend/lean/ScopedC/IntervalPowerScanFramedLoop.lean",
+      "source_sha256": "00f5a2c8b498262e34198b7b3303ce87f2c41cb627b5923c2ce8b5d0c1faae9f",
+      "receipt": "scoped/frontend/proof/interval-power-scan-framed-loop-v1/RECEIPT.json",
+      "receipt_sha256": "d4048f243807547e35f8e5cba8c63411e00af5dfd65d745c885f24dfaf2dc122",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.IntervalPowerFramedReady",
+      "source": "scoped/frontend/lean/ScopedC/IntervalPowerFramedReady.lean",
+      "source_sha256": "ba38f3507ceb3ab3920fb06b407b557b09aadbf6c09ede7cb90b6760d36593fc",
+      "receipt": "scoped/frontend/proof/interval-power-framed-ready-v1/RECEIPT.json",
+      "receipt_sha256": "b3bceec9b67f012278d85c6788dca8ff46671d71e88269c144f864a7221dd36b",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.IntervalPowerComposition",
+      "source": "scoped/frontend/lean/ScopedC/IntervalPowerComposition.lean",
+      "source_sha256": "6fa4c94e5a3050712e3e6b8e4d4617fe8df28c6d8cf7105c8a8de09d876ba60c",
+      "receipt": "scoped/frontend/proof/interval-power-composition-v1/RECEIPT.json",
+      "receipt_sha256": "6e1f3966de0987bd6570e0fe76a14dd952d3217c8cbe8d067680c300a0847f1a",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.IntervalPowerInitialEffects",
+      "source": "scoped/frontend/lean/ScopedC/IntervalPowerInitialEffects.lean",
+      "source_sha256": "0812916e1bc8a0329eeca50bea90b26d6beaa895d342827b0751ea651410409f",
+      "receipt": "scoped/frontend/proof/interval-power-initial-effects-v1/RECEIPT.json",
+      "receipt_sha256": "3e72a7664877a34e9c8f8396745d86b02b784640100ef8376c1a3fe780dffce6",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.TaylorWritableBody",
+      "source": "scoped/frontend/lean/ScopedC/TaylorWritableBody.lean",
+      "source_sha256": "a69acf5a7a776ca5d973a67c91c295004e305c464e5762d9c753729c05ca8ed8",
+      "receipt": "scoped/frontend/proof/taylor-writable-body-v1/RECEIPT.json",
+      "receipt_sha256": "c6231ffaca632d99d491edcf9728e8dea43ebc4fc645b4f13af71ac84b44ba7d",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.IntervalPowerFramedBody",
+      "source": "scoped/frontend/lean/ScopedC/IntervalPowerFramedBody.lean",
+      "source_sha256": "51e77049e36e4effa05234e4a144bb8d1256a231da2ebc9c34c7c05db8a611ec",
+      "receipt": "scoped/frontend/proof/interval-power-positive-framed-v2/RECEIPT.json",
+      "receipt_sha256": "5455b50fdd123ebf380f6df176f113ca111d586aa6355a27509ea4224a97c380",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.IntervalPowerZeroFramed",
+      "source": "scoped/frontend/lean/ScopedC/IntervalPowerZeroFramed.lean",
+      "source_sha256": "a6c91b421a74bbcb2a470b2dd18999ff529532401b52389b2ed30844d1844c94",
+      "receipt": "scoped/frontend/proof/interval-power-zero-framed-v2/RECEIPT.json",
+      "receipt_sha256": "0d8d70dbf659b1c0906f8d915820f6e5cfc143c4c78c01f296bce52336173515",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.TaylorPhysicalEffects",
+      "source": "scoped/frontend/lean/ScopedC/TaylorPhysicalEffects.lean",
+      "source_sha256": "fd9cc78bcfcad25f515588474ebb6a011729c753be4d756fdf902293edf850c1",
+      "receipt": "scoped/frontend/proof/taylor-physical-effects-v1/RECEIPT.json",
+      "receipt_sha256": "eb1296d46b165d6a218fa64449d966be458642b5625519e5c60b65ff90daa3f4",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.TaylorFramedLoop",
+      "source": "scoped/frontend/lean/ScopedC/TaylorFramedLoop.lean",
+      "source_sha256": "cccfe3c7a1edb31168df45f1de6963484a5bbb11c8fad12e2146fb4b349cb78a",
+      "receipt": "scoped/frontend/proof/taylor-framed-loop-v1/RECEIPT.json",
+      "receipt_sha256": "a0b027d07590d1d7c9175c1bf8be0d5dbb5d7531f3e9366e7772ee53016cdb59",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.TaylorInitialEffects",
+      "source": "scoped/frontend/lean/ScopedC/TaylorInitialEffects.lean",
+      "source_sha256": "8ab5c1b6e389c749fbf618049b05fef90c6a749df507528eb62d7bc0b1737a67",
+      "receipt": "scoped/frontend/proof/taylor-initial-effects-v2/RECEIPT.json",
+      "receipt_sha256": "0354621481f77b3d67c60654eeb302198ae39a39d61988dad40a1294a596b505",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.TaylorFramedBody",
+      "source": "scoped/frontend/lean/ScopedC/TaylorFramedBody.lean",
+      "source_sha256": "3e6870eaa6fbae87f8e5de575780de9ad0a7543728f7ff230cf927944b78400f",
+      "receipt": "scoped/frontend/proof/taylor-framed-body-v1/RECEIPT.json",
+      "receipt_sha256": "4a018e5b88de62fded932abdb5304c73ed0297b4639f92a1df396e23a4f144d2",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalAbsApplicability",
+      "source": "scoped/frontend/lean/ScopedC/RationalAbsApplicability.lean",
+      "source_sha256": "b9ebad49d7ae02f0f9df712098d8abdf3784d30fc7808b464cd062ea284bdde1",
+      "receipt": "scoped/frontend/proof/rational-abs-applicability-v1/RECEIPT.json",
+      "receipt_sha256": "1669e40ca6538ec420407ecb08fd9aadea0105cc445e9b7e71b7726059f3e2a2",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.AtanhEntry",
+      "source": "scoped/frontend/lean/ScopedC/AtanhEntry.lean",
+      "source_sha256": "e8ee467ff756ea1ead2f531f0dde38bb32b48bd79374b0060146e2830dbb6a0f",
+      "receipt": "scoped/frontend/proof/atanh-entry-v1/RECEIPT.json",
+      "receipt_sha256": "325bcfb47ccd62e3b414b87932ee45973018e4c0b66992a582f387eaafbce5ae",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.AtanhGuard",
+      "source": "scoped/frontend/lean/ScopedC/AtanhGuard.lean",
+      "source_sha256": "df6e865f96e7e6d26314511f61a697497bf25177930e3e512f914772c3a095cc",
+      "receipt": "scoped/frontend/proof/atanh-guard-v2/RECEIPT.json",
+      "receipt_sha256": "96eaab226d94ae700961a085437e026c605f112b6210d07f05971e0b11dcb915",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalCompareEffects",
+      "source": "scoped/frontend/lean/ScopedC/RationalCompareEffects.lean",
+      "source_sha256": "384bf83fe373847ffeb04d3cdd2702858387c56b1ec548aa90af38cedb83e23b",
+      "receipt": "scoped/frontend/proof/rational-compare-effects-v2/RECEIPT.json",
+      "receipt_sha256": "12b52f586123d16a8187d6881b6647f2c38bad79e33a69b7a9af5ffea11239e1",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.AtanhEffects",
+      "source": "scoped/frontend/lean/ScopedC/AtanhEffects.lean",
+      "source_sha256": "c09525215ef6015f296ef5c144d2eecf721049b920899478f2a77247abf7b069",
+      "receipt": "scoped/frontend/proof/atanh-effects-v2/RECEIPT.json",
+      "receipt_sha256": "ebfe0faaada29f77e5aa8cc843b9156d4bac81789f1b7fb4da3e47bf80289e83",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.AtanhWideData",
+      "source": "scoped/frontend/lean/ScopedC/AtanhWideData.lean",
+      "source_sha256": "1cd13eabe5d88815cb1661a4601f3257718451ed9e88c01a46cf5a1a039a182a",
+      "receipt": "scoped/frontend/proof/atanh-wide-data-v3/RECEIPT.json",
+      "receipt_sha256": "d1700d42c9bd8bd3aecf18c61869a4fbbf818bca37ceb32283282fc40eaa9a8c",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.AtanhWideExpression",
+      "source": "scoped/frontend/lean/ScopedC/AtanhWideExpression.lean",
+      "source_sha256": "c49977f4626304cd9743886d4b11729d6e00922846ec497ff874294416e513d2",
+      "receipt": "scoped/frontend/proof/atanh-wide-expression-v1/RECEIPT.json",
+      "receipt_sha256": "3164715c06b928d15a611e77491bc847c615edd2841e487dc8fae05af67df2f7",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.AtanhWideSizes",
+      "source": "scoped/frontend/lean/ScopedC/AtanhWideSizes.lean",
+      "source_sha256": "80a873e929a14981a276f6a00d628182af2d557db6dcbb55ed6387cc78f5530b",
+      "receipt": "scoped/frontend/proof/atanh-wide-sizes-v2/RECEIPT.json",
+      "receipt_sha256": "dbd3f3ea9cd1af8dca9339e98be0c1b0cccc2cff48c5e788aa1b3725b139e65e",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.AtanhWideBody",
+      "source": "scoped/frontend/lean/ScopedC/AtanhWideBody.lean",
+      "source_sha256": "b27115cb7e1c6add3eb78c0674b642298e6ed39be287bd9a38e285296ac2239b",
+      "receipt": "scoped/frontend/proof/atanh-wide-body-v2/RECEIPT.json",
+      "receipt_sha256": "a95739d3f7a25052cf605d556389da2c9988c4e656245d58df36006b836c4a80",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.AtanhPower",
+      "source": "scoped/frontend/lean/ScopedC/AtanhPower.lean",
+      "source_sha256": "4866ad7aa7f95021f0a5fb73b097e42fbfa2879f0d1ac0ffe7e29a899209bfd5",
+      "receipt": "scoped/frontend/proof/atanh-power-v2/RECEIPT.json",
+      "receipt_sha256": "54604cfbe0183080fc91581f99157bf6bd112faa67965e2a61eacdc8708576f1",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalSubFraming",
+      "source": "scoped/frontend/lean/ScopedC/RationalSubFraming.lean",
+      "source_sha256": "6bc7477247b8d9f86c09229a8e9fbc258fbe40ddc67cd4b9b3301f72b8509d18",
+      "receipt": "scoped/frontend/proof/rational-sub-framing-v3/RECEIPT.json",
+      "receipt_sha256": "68ad4dfb6dc30f0a958d7184d14948b12681ec898928eace1a624836cc70b944",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalSubOutput",
+      "source": "scoped/frontend/lean/ScopedC/RationalSubOutput.lean",
+      "source_sha256": "80b5cc3ca796308d4474f34f94693b4ae15cb3e96a5570a67a6aa90cbd8ac228",
+      "receipt": "scoped/frontend/proof/rational-sub-output-v1/RECEIPT.json",
+      "receipt_sha256": "0e67b13be3fc1fe5cad7aa94705cd29d6c17a7e56e8c9fedf2c3319828acbd3e",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalDivideEffects",
+      "source": "scoped/frontend/lean/ScopedC/RationalDivideEffects.lean",
+      "source_sha256": "db6b84eaef8d26f98aafba76e55bde9fe75cecd486608b9575d94c487f25387c",
+      "receipt": "scoped/frontend/proof/rational-divide-effects-v2/RECEIPT.json",
+      "receipt_sha256": "66ffb113dd5d5bb8af0a64db280cd6f736c50fe553c3714e20d1ec2cc564ce9a",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalDivideOutput",
+      "source": "scoped/frontend/lean/ScopedC/RationalDivideOutput.lean",
+      "source_sha256": "24b3d60beb41537f4fbcb99048a428b1ca0f82bbf2fc4dcf730ec972814da56c",
+      "receipt": "scoped/frontend/proof/rational-divide-output-v1/RECEIPT.json",
+      "receipt_sha256": "c541117424210616ac6b79c5df62686fe80bf90cd473375d285f57a604c5a455",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.AtanhDenominator",
+      "source": "scoped/frontend/lean/ScopedC/AtanhDenominator.lean",
+      "source_sha256": "ccf75384eb458e1c115f579c1e5f946c947911528d4edb0b7efbdaa3324a5116",
+      "receipt": "scoped/frontend/proof/atanh-denominator-v2/RECEIPT.json",
+      "receipt_sha256": "b5931ea486fcdf3b12898bbe0e0a6ef82f5e3391ed3dbde153f172147f814a33",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.AtanhError",
+      "source": "scoped/frontend/lean/ScopedC/AtanhError.lean",
+      "source_sha256": "8e4a094e652f6bd76a321a34f4f174bf14c3b4ad7943d8cea8ba5af18e8fb7b8",
+      "receipt": "scoped/frontend/proof/atanh-error-v1/RECEIPT.json",
+      "receipt_sha256": "67b04b3e28d4085460f58f5c72e54a3e05161055f471799401d8a0c6d80ccc33",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.CoefficientTableGlobal",
+      "source": "scoped/frontend/lean/ScopedC/CoefficientTableGlobal.lean",
+      "source_sha256": "fb20af6e8e2371785129f5c60cef0cccbd21cd39baaefe651cb51d3ea07f742b",
+      "receipt": "scoped/frontend/proof/coefficient-table-global-v1/RECEIPT.json",
+      "receipt_sha256": "9057696d043a31b85a81d10152aea6eaf0d45dc637cc918ceaffd1e845631962",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.AtanhErrorEffects",
+      "source": "scoped/frontend/lean/ScopedC/AtanhErrorEffects.lean",
+      "source_sha256": "c874e7e99097731726e668078efee59dbf25075dc7d7101f33bf70118f617410",
+      "receipt": "scoped/frontend/proof/atanh-error-effects-v1/RECEIPT.json",
+      "receipt_sha256": "cdaea6b2c9600340fc30aee04070e4d916b2f582d3639bb5245e0ce3d772d3f2",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.AtanhPowerExpression",
+      "source": "scoped/frontend/lean/ScopedC/AtanhPowerExpression.lean",
+      "source_sha256": "e2c171a901a47d1cb0bada828e0199ed22e6e763911a49a390729918fa312f81",
+      "receipt": "scoped/frontend/proof/atanh-power-expression-v1/RECEIPT.json",
+      "receipt_sha256": "dbe929d3290b2f9825929b6f216ed44dcdff575b55bff869fb6be77694b05fc9",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.AtanhErrorExpression",
+      "source": "scoped/frontend/lean/ScopedC/AtanhErrorExpression.lean",
+      "source_sha256": "74653fb0af3b69de89c62b537d8ef2a119c79203cd3b5a346b44e130933caf85",
+      "receipt": "scoped/frontend/proof/atanh-error-expression-v2/RECEIPT.json",
+      "receipt_sha256": "cf7c9089e17778b97456262cd373ccb77c461c06a1966619a02036502d299813",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.AtanhRemainder",
+      "source": "scoped/frontend/lean/ScopedC/AtanhRemainder.lean",
+      "source_sha256": "0385c5f7c826a1902a2d5da0fe2e6ba4aa45343e0d6f5fa30c2848b20fab178d",
+      "receipt": "scoped/frontend/proof/atanh-remainder-v2/RECEIPT.json",
+      "receipt_sha256": "2921ab7dbeaca16384fbafca124f14052a32f2a43dbb264199bf7487154fd67a",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.AtanhRemainderEffects",
+      "source": "scoped/frontend/lean/ScopedC/AtanhRemainderEffects.lean",
+      "source_sha256": "2527551b6decfb997711b7dd424ff28ef9c475937861cbc15d0fa4b63a4a4f9f",
+      "receipt": "scoped/frontend/proof/atanh-remainder-effects-v2/RECEIPT.json",
+      "receipt_sha256": "a883da1a69e4b796bfbfdfa6b162c198f677cc3f01c26444376c647e4ffb93b9",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.AtanhUnshadowed",
+      "source": "scoped/frontend/lean/ScopedC/AtanhUnshadowed.lean",
+      "source_sha256": "9e6f96b7631c8e4c07d335e3d3073c3e5e0ec8ba99eaa91623c4e08e9acd78e2",
+      "receipt": "scoped/frontend/proof/atanh-unshadowed-v2/RECEIPT.json",
+      "receipt_sha256": "ca97c3f6c6243e2c52fc0bac44e759c6fbf113493d3dc43f8913f11f7cc1377d",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.AtanhTaylor",
+      "source": "scoped/frontend/lean/ScopedC/AtanhTaylor.lean",
+      "source_sha256": "8e19e150c4b68b086e2d06fdec4705561e00bfc1f2bbef4d691fac9d4de286f7",
+      "receipt": "scoped/frontend/proof/atanh-taylor-v1/RECEIPT.json",
+      "receipt_sha256": "ac39acfd8ef34ce2ddfa1f4d58d7a92c3d703b3c47acec0f56c37000c8396f8d",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.AtanhGuardLastBorrow",
+      "source": "scoped/frontend/lean/ScopedC/AtanhGuardLastBorrow.lean",
+      "source_sha256": "44be140bc730ef0ff6b5f5d260e1fffff8477e95faf56aedf12ac0a10b305a10",
+      "receipt": "scoped/frontend/proof/atanh-guard-last-borrow-v2/RECEIPT.json",
+      "receipt_sha256": "43d734f8e470cf71ef3c1bf69332e70a9ed27b55b61021aa01acd1b47993b30d",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.AtanhTail",
+      "source": "scoped/frontend/lean/ScopedC/AtanhTail.lean",
+      "source_sha256": "78a32b92f8f458434e8b24a24b91f8e97a17683b6fe10fc16e1020386fcce5fe",
+      "receipt": "scoped/frontend/proof/atanh-tail-v4/RECEIPT.json",
+      "receipt_sha256": "f28c04650919b37a2868bb7caa2b3846fd2fc05627d9ba23378a20313022fe68",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.AtanhReturnExpression",
+      "source": "scoped/frontend/lean/ScopedC/AtanhReturnExpression.lean",
+      "source_sha256": "36083d871ff4d6052c2dab3ca1a930090553e7526daa592f3d59fdd83af5829f",
+      "receipt": "scoped/frontend/proof/atanh-return-expression-v2/RECEIPT.json",
+      "receipt_sha256": "a7201d6eca28f64aa24c83703be6211b1c0d8c42dc99597b0ea1b618333bdfcc",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.IntervalScopeFraming",
+      "source": "scoped/frontend/lean/ScopedC/IntervalScopeFraming.lean",
+      "source_sha256": "2b8410011543b3102fa711e331d7bd644be8ff6cd6a1f917108a88bb8b17e62c",
+      "receipt": "scoped/frontend/proof/interval-scope-framing-v1/RECEIPT.json",
+      "receipt_sha256": "55f788c5703fce926b50d64ca197a48400d6c986ce5bb4741e4efcdec7e89380",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.AtanhNarrowBody",
+      "source": "scoped/frontend/lean/ScopedC/AtanhNarrowBody.lean",
+      "source_sha256": "ecb39b15c432198c336073358125dea86734cc56a2b6aed70acea15e055943fd",
+      "receipt": "scoped/frontend/proof/atanh-narrow-body-v5/RECEIPT.json",
+      "receipt_sha256": "f06d2215fb4e11dd5f2e35263146bc316f1c8615c455ed84c33d18ca46b64ecd",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.NumericIntervalValues",
+      "source": "scoped/frontend/lean/ScopedC/NumericIntervalValues.lean",
+      "source_sha256": "1edbb371a9ad6d6ef4f7ae89c1cceae5239389c00920222fe6842938e33477d8",
+      "receipt": "scoped/frontend/proof/numeric-interval-values-v3/RECEIPT.json",
+      "receipt_sha256": "387014915722cce3431e4503b56e4e50b5a0f761da59315acdd16de91b737f90",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.AtanhBody",
+      "source": "scoped/frontend/lean/ScopedC/AtanhBody.lean",
+      "source_sha256": "ea655ca4e6784d84fd6440d10e87850888e3b273527b6e436dad642edc40f66e",
+      "receipt": "scoped/frontend/proof/atanh-body-v1/RECEIPT.json",
+      "receipt_sha256": "164db76a9b0bf37ea03b268f603a3f56edfe191ca76a9530caf79ecd5556d5f8",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.SourceUnsignedStore",
+      "source": "scoped/frontend/lean/ScopedC/SourceUnsignedStore.lean",
+      "source_sha256": "a3f5d703607410c1971cef50ebe779053aac1a28328cf41b367d71b7c59bee2c",
+      "receipt": "scoped/frontend/proof/source-unsigned-store-v1/RECEIPT.json",
+      "receipt_sha256": "5b87102e8d0be201e2e0c4edf1c614f3627c0f4fbb9a924e3d6dbcfdae15fbb9",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.ExpFactorialFrame",
+      "source": "scoped/frontend/lean/ScopedC/ExpFactorialFrame.lean",
+      "source_sha256": "51d7519d3b850dbf0fb0eed1156f2727f29f4ff8e2c69433381904cb7049b136",
+      "receipt": "scoped/frontend/proof/exp-factorial-frame-v2/RECEIPT.json",
+      "receipt_sha256": "2797556ceeb1be62eda1a50dfa206903c09f20f04759d58ffbe7adbb2c9721c8",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.ExpFactorialStep",
+      "source": "scoped/frontend/lean/ScopedC/ExpFactorialStep.lean",
+      "source_sha256": "8efd622ca845e4b06dcd1e0459f1eda0559c213892520956d7afea39c2599ede",
+      "receipt": "scoped/frontend/proof/exp-factorial-step-v2/RECEIPT.json",
+      "receipt_sha256": "7bfdb2db3fdaf5ceed382e958a9e30fbdad2a75ea1f30d78d3fe39bbf49fa3e7",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.ExpFactorialSource",
+      "source": "scoped/frontend/lean/ScopedC/ExpFactorialSource.lean",
+      "source_sha256": "10096001a7c81f3b6e449062d90659a084406c4382777a12d0dbdd3d7d1a5be2",
+      "receipt": "scoped/frontend/proof/exp-factorial-source-v2/RECEIPT.json",
+      "receipt_sha256": "20cfe734899772853720cf1ac885784a6569dc353913b68d38104065eaf10120",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.ExpFactorialCondition",
+      "source": "scoped/frontend/lean/ScopedC/ExpFactorialCondition.lean",
+      "source_sha256": "0c47566638d3f0311cac644e4dd30347ddfc5e2ed5f3d2eaf1895661b2fbbd79",
+      "receipt": "scoped/frontend/proof/exp-factorial-condition-v2/RECEIPT.json",
+      "receipt_sha256": "8642e82d451afc8f8175506a2330e46aec25505073cc5661c2340cc66856efa4",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.ExpFactorialEvents",
+      "source": "scoped/frontend/lean/ScopedC/ExpFactorialEvents.lean",
+      "source_sha256": "ffece313ebe3ff2a1c473da6cf832df32115f3aed076ab569974e9d1586f0e1c",
+      "receipt": "scoped/frontend/proof/exp-factorial-events-v3/RECEIPT.json",
+      "receipt_sha256": "9e011c433ac369dc7ee30b83e77e1e7fda1114ff7a4e05c3ee74219dea31d2ac",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.ExpFactorialEffects",
+      "source": "scoped/frontend/lean/ScopedC/ExpFactorialEffects.lean",
+      "source_sha256": "5e99853e416a22da4a2598c7c4cac2253f43a54e77917c67ec083be35a4dae3f",
+      "receipt": "scoped/frontend/proof/exp-factorial-effects-v1/RECEIPT.json",
+      "receipt_sha256": "16da49c27e18b0a879d63cc7c00a7708ae47218be48bdf38b8f05dbe044f4e3c",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.ExpFactorialLoop",
+      "source": "scoped/frontend/lean/ScopedC/ExpFactorialLoop.lean",
+      "source_sha256": "248fff157703899e1325277c0469994b1b6f73282f0615fd03a15ddbc6f77da2",
+      "receipt": "scoped/frontend/proof/exp-factorial-loop-v3/RECEIPT.json",
+      "receipt_sha256": "5bbb6b2c57b03f6b7ed1cf77703f44bba76b4f738f86ff650a416b091a85d8de",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.ExpFactorialEntry",
+      "source": "scoped/frontend/lean/ScopedC/ExpFactorialEntry.lean",
+      "source_sha256": "2255a4584cc2c1edd7b192226dad9be3e75a78c0796089236a4d6d2992cf4f4b",
+      "receipt": "scoped/frontend/proof/exp-factorial-entry-v2/RECEIPT.json",
+      "receipt_sha256": "0246bd5d8004edb4fb5d2b3b8e9843ec2c71a559ad6c8d265393c319eff65aff",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.ExpRemainderEntry",
+      "source": "scoped/frontend/lean/ScopedC/ExpRemainderEntry.lean",
+      "source_sha256": "67a648034b4feaa0a327e3db1f86baa308c6515f1db4694ac162b247d34a7265",
+      "receipt": "scoped/frontend/proof/exp-remainder-entry-v2/RECEIPT.json",
+      "receipt_sha256": "3a9136ca908c40a081efa9d65c58d2a065e19a258ee86e1989e8c0cbaf97c541",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.ExpRemainderEntrySource",
+      "source": "scoped/frontend/lean/ScopedC/ExpRemainderEntrySource.lean",
+      "source_sha256": "1c0ab69d543155ec49e09d6b7bc3e78cfe2fed5c5631a02c933e6488ab49309b",
+      "receipt": "scoped/frontend/proof/exp-remainder-entry-source-v3/RECEIPT.json",
+      "receipt_sha256": "4efc1ef58052c9516ec7d4128b8d9e3e24a71b0e63ae1b0cdec11891fe74de81",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.SourceCeilQNormalizedTrace",
+      "source": "scoped/frontend/lean/ScopedC/SourceCeilQNormalizedTrace.lean",
+      "source_sha256": "49b7cb180dc91cd1dca294348bdc12ab3b0b6a90b01d1b3baba796fe8a4ba6f9",
+      "receipt": "scoped/frontend/proof/ceilq-normalized-trace-v1/RECEIPT.json",
+      "receipt_sha256": "99925d1016a14d609a57e66c963cd49cc110082e577d33abf7297da4dc16d390",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.AtanhMath",
+      "source": "scoped/frontend/lean/ScopedC/AtanhMath.lean",
+      "source_sha256": "c67c3ddbc94168d4f2672f797c455c74d9504538e06ff2c5ca91eedff2efffe1",
+      "receipt": "scoped/frontend/proof/atanh-math-v1/RECEIPT.json",
+      "receipt_sha256": "e1555fd52d769fde6785c77312db0dc8cadce04d8676424f013162aebd1ec111",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.AtanhValidity",
+      "source": "scoped/frontend/lean/ScopedC/AtanhValidity.lean",
+      "source_sha256": "ad2164b743bb1a490485f643e00a95aeffa5580c16a6b14d70d35e69cdc05ad0",
+      "receipt": "scoped/frontend/proof/atanh-validity-v1/RECEIPT.json",
+      "receipt_sha256": "632f79e1cf9c2d735ecc5f0b9695568ae2f0fce3c2f02f4baed447df2bdbd66a",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalScopeFraming",
+      "source": "scoped/frontend/lean/ScopedC/RationalScopeFraming.lean",
+      "source_sha256": "315dfeefedd0fb365054dc4548df6e44aedc86b3040afa39554ef7a9e40201e9",
+      "receipt": "scoped/frontend/proof/rational-scope-framing-v1/RECEIPT.json",
+      "receipt_sha256": "805b01d43ee75146acdedba4b07ce86d6b950ed05fd8ef855b5d16429b4882a0",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.ExpRemainderEntryEffects",
+      "source": "scoped/frontend/lean/ScopedC/ExpRemainderEntryEffects.lean",
+      "source_sha256": "e89af687f9e3c4784fd577a3443701578910aa9865f05fe55003f71251b1b3e7",
+      "receipt": "scoped/frontend/proof/exp-remainder-entry-effects-v2/RECEIPT.json",
+      "receipt_sha256": "05e032a2b4b6e3800c57f89bb4fd01fa99d841a009ee60c7472d43f49e020b87",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.ExpRemainderCeil",
+      "source": "scoped/frontend/lean/ScopedC/ExpRemainderCeil.lean",
+      "source_sha256": "142f2ea1b2be13aea36c8b434165f46e5b0224cdc286d86aa2291b1f89c5e49f",
+      "receipt": "scoped/frontend/proof/exp-remainder-ceil-v3/RECEIPT.json",
+      "receipt_sha256": "56dacaf948b778fefd7bac0b936a02e3818c9815234e58b6b1057b6ac1911dfe",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.ExpRemainderCeilLocal",
+      "source": "scoped/frontend/lean/ScopedC/ExpRemainderCeilLocal.lean",
+      "source_sha256": "6e6e1d297aff42f69501acaef7ba0e4dfca3f1ba49fcbd0ca1accbe44895652b",
+      "receipt": "scoped/frontend/proof/exp-remainder-ceil-local-v1/RECEIPT.json",
+      "receipt_sha256": "6ab46aa83a70034552046f79b50c1235e9748ab8d181936d77f2fa6bb9e186d1",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.ExpRemainderCeilMath",
+      "source": "scoped/frontend/lean/ScopedC/ExpRemainderCeilMath.lean",
+      "source_sha256": "413c097fa94af0a716e5b260341446ce870d9c61cdf9bc283ad123ce832f62bc",
+      "receipt": "scoped/frontend/proof/exp-remainder-ceil-math-v2/RECEIPT.json",
+      "receipt_sha256": "6406512a26602eb31e802aa244d88867bc11c8c736fe89a6607e46a744f8fcd2",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.ExpRemainderCount",
+      "source": "scoped/frontend/lean/ScopedC/ExpRemainderCount.lean",
+      "source_sha256": "0d9d9ce51a260b69a402d526641fe472316d2aa456784625ea8dac8d79567ebc",
+      "receipt": "scoped/frontend/proof/exp-remainder-count-v3/RECEIPT.json",
+      "receipt_sha256": "14572f332ecd1575dd14f3548beb973869cc96e69994b24bba32a427d764cd21",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.RationalPowerAllocated",
+      "source": "scoped/frontend/lean/ScopedC/RationalPowerAllocated.lean",
+      "source_sha256": "c4f8fad9d346a7d49a4192169fb94e50dca4c59fda592c1da76e45ca54f4424b",
+      "receipt": "scoped/frontend/proof/rational-power-allocated-v2/RECEIPT.json",
+      "receipt_sha256": "36228e5159d40d9d2f9fee85af190ce25019ab3a932dff8b569d1b3c6916af92",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.ExpRemainderFactorial",
+      "source": "scoped/frontend/lean/ScopedC/ExpRemainderFactorial.lean",
+      "source_sha256": "73e7fba2fae9ce5ef587c0e1be430b0dd7566333956b724f766bc672338f1d79",
+      "receipt": "scoped/frontend/proof/exp-remainder-factorial-v1/RECEIPT.json",
+      "receipt_sha256": "5cd703dea79f72ac4530e8f8ed4f6b81e8edfd29b1366b39def31e33f0db3798",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.LocalBindingIdentity",
+      "source": "scoped/frontend/lean/ScopedC/LocalBindingIdentity.lean",
+      "source_sha256": "d3c354c4269c4debab4f865a2d8a1cf286d691d215796e6a17f12ad9f30a8c5d",
+      "receipt": "scoped/frontend/proof/local-binding-identity-v1/RECEIPT.json",
+      "receipt_sha256": "1c0b668c87caf6497957a8339be4b5fb263f06831363a7f0e083b55a7661a19a",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.ExpFactorialInitialData",
+      "source": "scoped/frontend/lean/ScopedC/ExpFactorialInitialData.lean",
+      "source_sha256": "4be0f0208e7a670e94fdd3031e80f59953bdcb713b339141bf2af8f42361aed0",
+      "receipt": "scoped/frontend/proof/exp-factorial-initial-data-v1/RECEIPT.json",
+      "receipt_sha256": "deb4325b18cb0c6000ed2023d03a375e6a245baad2cb207e1e1602ad5c68214d",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.ExpRemainderFactorialFrames",
+      "source": "scoped/frontend/lean/ScopedC/ExpRemainderFactorialFrames.lean",
+      "source_sha256": "7a5b55050ad095c4e95022f2dc5ea6ae4cba86ab39c713ecd50e8391c4d89fe2",
+      "receipt": "scoped/frontend/proof/exp-remainder-factorial-frames-v2/RECEIPT.json",
+      "receipt_sha256": "4c1f359c42a7c517a9cb2bee934c5ac009569cfab771fc3260a00181eceb7779",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.ExpRemainderPowers",
+      "source": "scoped/frontend/lean/ScopedC/ExpRemainderPowers.lean",
+      "source_sha256": "76fd9d3fc826cfcdd2585bdf000744998396c158e290cdcbb278c24b8bcf78d0",
+      "receipt": "scoped/frontend/proof/exp-remainder-powers-v2/RECEIPT.json",
+      "receipt_sha256": "b258b76911b3d50c6de672103112f0f2c6f022368e1e5fbe3f4e91a3f67a8783",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.ExpRemainderNumerator",
+      "source": "scoped/frontend/lean/ScopedC/ExpRemainderNumerator.lean",
+      "source_sha256": "246521e9b7d34e82ae5201e6930a68e793e8e9dabaa7431d529d709a394d2c8f",
+      "receipt": "scoped/frontend/proof/exp-remainder-numerator-v1/RECEIPT.json",
+      "receipt_sha256": "2c9237695047fa974aed9587dcf8a0d6c5c8141b40ac32adaa863a61c296ffd2",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.ExpRemainderError",
+      "source": "scoped/frontend/lean/ScopedC/ExpRemainderError.lean",
+      "source_sha256": "604e8a12746443e60907ea0dc8b1741664e82a45fffb0658fd1d7385a42a88e4",
+      "receipt": "scoped/frontend/proof/exp-remainder-error-v1/RECEIPT.json",
+      "receipt_sha256": "76ee2ffa1a3a6f0b856f13550a58cb9b8367daa43ffc5ce16cc6ee45788a1f98",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.ExpRemainderErrorEffects",
+      "source": "scoped/frontend/lean/ScopedC/ExpRemainderErrorEffects.lean",
+      "source_sha256": "e52978a5402735378fa51a5fbb9498fe9f29a29f2a952ecc57e6879e970f2ae5",
+      "receipt": "scoped/frontend/proof/exp-remainder-error-effects-v2/RECEIPT.json",
+      "receipt_sha256": "85c844eb32b1040ae1ae48613047734e883b43c1762ae950b1c4b86a83775772",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.ExpRemainderOutput",
+      "source": "scoped/frontend/lean/ScopedC/ExpRemainderOutput.lean",
+      "source_sha256": "795e1fdd971b35d472a90d79284ac18a3e33edbe32883d8dd16c0613bbcb843c",
+      "receipt": "scoped/frontend/proof/exp-remainder-output-v1/RECEIPT.json",
+      "receipt_sha256": "1593c9ae5a8d5e29a207c20d190dae6d2751b6f22fe7c2a1106de5aadc697c0d",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.ExpRemainderModel",
+      "source": "scoped/frontend/lean/ScopedC/ExpRemainderModel.lean",
+      "source_sha256": "d0d37b7d9c976bc76813dbdd594b0304e259ba04e5dbe663c156cd48b2d87323",
+      "receipt": "scoped/frontend/proof/exp-remainder-model-v2/RECEIPT.json",
+      "receipt_sha256": "3f25d301743f17374cd742823af9bf7c0d201ac61385b28e7edde6661b207956",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.ExpRemainderExpressionBindings",
+      "source": "scoped/frontend/lean/ScopedC/ExpRemainderExpressionBindings.lean",
+      "source_sha256": "5d2596e387da4788c380a2129c8fd3cd5805eb56c3f6d25f7c746db927305504",
+      "receipt": "scoped/frontend/proof/exp-remainder-expression-bindings-v2/RECEIPT.json",
+      "receipt_sha256": "024b84848b6144ee95b76bb08231796079010e323ae25ea9903d6a4dc0ee8128",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.ExpRemainderErrorExpression",
+      "source": "scoped/frontend/lean/ScopedC/ExpRemainderErrorExpression.lean",
+      "source_sha256": "7493956c53fcc4d7d45b934368cd5d005a19d0de233bc3734554fe0caaa4daff",
+      "receipt": "scoped/frontend/proof/exp-remainder-error-expression-v1/RECEIPT.json",
+      "receipt_sha256": "ca715eb33f4603d74fc5d18627327789a4b6a3f525cae4041f4c7ca4900c35cd",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.ExpRemainderOutputFrame",
+      "source": "scoped/frontend/lean/ScopedC/ExpRemainderOutputFrame.lean",
+      "source_sha256": "a5f07fd570b517e57b270a5e37e1ed13ded8990f7eab64aea0c39fc6c75cafb1",
+      "receipt": "scoped/frontend/proof/exp-remainder-output-frame-v1/RECEIPT.json",
+      "receipt_sha256": "5e174ffe4d36d7e1e68317e42ac408da57fc9b1b419c672effcbe0423e5e252c",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.CallEventAbsent",
+      "source": "scoped/frontend/lean/ScopedC/CallEventAbsent.lean",
+      "source_sha256": "406486c2ffd1fe9533ef1a43eac2935e3f14dd8de4b11c5ac43ce072bad603d0",
+      "receipt": "scoped/frontend/proof/call-event-absent-v1/RECEIPT.json",
+      "receipt_sha256": "626284a3b2ceee999d308eb3b7cd9cb117c4ab2074cffc28b284fd4276a73bc4",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.ExpRemainderEventSizes",
+      "source": "scoped/frontend/lean/ScopedC/ExpRemainderEventSizes.lean",
+      "source_sha256": "8a418d39156e8f884366d2a79740078f9bc75dd9954a64dd13f75b9229ef50b0",
+      "receipt": "scoped/frontend/proof/exp-remainder-event-sizes-v1/RECEIPT.json",
+      "receipt_sha256": "d9a53cd08440d83a4179d88640dccd57294e9a40e0acb5b1795d726ef6b0e630",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.ExpRemainderOuterEvents",
+      "source": "scoped/frontend/lean/ScopedC/ExpRemainderOuterEvents.lean",
+      "source_sha256": "d43a99c3dcbbe4863a94af2193228f7060812d5e492c9326aa445f8412c5d4b3",
+      "receipt": "scoped/frontend/proof/exp-remainder-outer-events-v2/RECEIPT.json",
+      "receipt_sha256": "d52a7d38a287f3dda8d6d4718acbd5ae5be29c6b4ad3f9c234d562abdd367779",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.ExpRemainderOuterService",
+      "source": "scoped/frontend/lean/ScopedC/ExpRemainderOuterService.lean",
+      "source_sha256": "27f35417a0fed40dc703f1c9fc3e6fb5476b930494e26cf6eb877984c7468026",
+      "receipt": "scoped/frontend/proof/exp-remainder-outer-service-v2/RECEIPT.json",
+      "receipt_sha256": "7162574cb189adecbe9e4bf9dae797f7419fac862f8f0388577b76708c38f122",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    },
+    {
+      "module": "ScopedC.ExpRemainderBody",
+      "source": "scoped/frontend/lean/ScopedC/ExpRemainderBody.lean",
+      "source_sha256": "b62172a542191f7a2faee61395b1e1e634c6082a22b6fea2020fe4853a862c00",
+      "receipt": "scoped/frontend/proof/exp-remainder-body-v1/RECEIPT.json",
+      "receipt_sha256": "cc7100f8053b06d3ef8cf1b564dc5819cc90c93bc7727a174c957c95a2104234",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE"
+    }
+  ],
+  "previous_index": {
+    "path": "scoped/frontend/proof/SOURCE_HELPER_SUPPORT_INDEX_V30.json",
+    "sha256": "5d5f706b87cac1d2dfb118e2c6c17bbfb50989b7e98a15cfcd9dbde0b2d247d8",
+    "preserved": true
+  },
+  "mathematical_bridges": [
+    "ScopedC.NumericNegationRefinement.sn_math",
+    "ScopedC.NumericNegationRefinement.qn_math",
+    "ScopedC.NumericNegationRefinement.qabs_math",
+    "ScopedC.NumericNegationRefinement.point_math",
+    "ScopedC.NumericUnsignedRefinement.qi_math",
+    "ScopedC.NumericIntervalNegRefinement.rneg_math",
+    "ScopedC.NumericDyadicNegRefinement.ineg_math",
+    "ScopedC.DyadicValueEquivalence.source_neg_rep",
+    "ScopedC.NumericDyadicZeroRefinement.izero_math",
+    "ScopedC.NumericSignedMultiplyRefinement.sm_math",
+    "ScopedC.NumericSignedAddRefinement.sa_math",
+    "ScopedC.NumericRationalMakeRefinement.qm_math",
+    "ScopedC.NumericSignedCompareRefinement.sc_math",
+    "ScopedC.NumericRationalCompareRefinement.qc_math",
+    "ScopedC.NumericRationalSelectRefinement.qmin_math",
+    "ScopedC.NumericRationalSelectRefinement.qmax_math",
+    "ScopedC.NumericRationalAddRefinement.qa_math",
+    "ScopedC.NumericRationalMultiplyRefinement.qt_math",
+    "ScopedC.NumericRationalMultiplyRefinement.qt_canonical_math",
+    "ScopedC.NumericRationalSubRefinement.qs_math",
+    "ScopedC.NumericRationalDivideRefinement.qv_math",
+    "ScopedC.NumericRationalDivideRefinement.qv_canonical_math",
+    "ScopedC.NumericRationalIntervalAddRefinement.decoded_result",
+    "ScopedC.NumericRationalIntervalAddRefinement.radd_math",
+    "ScopedC.NumericDyadicAddRefinement.words100_add",
+    "ScopedC.NumericDyadicAddRefinement.decoded_result",
+    "ScopedC.NumericDyadicAddRefinement.iadd_math",
+    "ScopedC.DyadicAddValueEquivalence.add_same",
+    "ScopedC.DyadicAddValueEquivalence.source_add_rep",
+    "ScopedC.NumericRationalIntervalHullRefinement.decoded_result",
+    "ScopedC.NumericRationalIntervalHullRefinement.rhull_math",
+    "ScopedC.RationalSelectionTree.output_value",
+    "ScopedC.NumericRationalIntervalMultiplyRefinement.low_value",
+    "ScopedC.NumericRationalIntervalMultiplyRefinement.high_value",
+    "ScopedC.NumericRationalIntervalMultiplyRefinement.decoded_result",
+    "ScopedC.NumericRationalIntervalMultiplyRefinement.rmul_math",
+    "ScopedC.NumericRationalPowerRefinement.qpow_math",
+    "ScopedC.IntervalPowerCalls.rpow_closed",
+    "ScopedC.TaylorCalls.taylor_closed",
+    "ScopedC.RationalPowerCalls.qpow_framed"
+  ],
+  "dyadic_representation_qualification": "The C I record uses implicit exponent -100. The executable decoder validates sign/domain bits and order. Canonical inputs match exact old negation; arbitrary old coarser representations use SameValues endpoint-rational equality. Zero represents original finSumZero by endpoint values; field equality is not claimed.",
+  "comparison_domain_note": "sc_math requires bothZeroNormalized; qc_math requires positive rationaldenominators plus actualLiveinputs only, becauseactualcrossproduct smake/sm normalizeszero before source sc. No mathematicaloutput/SUCCESS premise isassumed.",
+  "rational_representation_qualification": "qm_math gives actualSourceCall +decodedexactRational.normalize,Normalized(gcd1/positiveDen/normalizedZeroSign),Represents canonicalRat.normalize numerator/denominator, rational value ratio,and rawmagnitude=canonicalRat.num.natAbs/den=canonicalRat.den. Representation-sensitive log2 reduction mustconsume these canonicalfields or proved dyadic cancellation; value-only equivalent rawfractions are insufficient. qt additionallyprovescanonicalnumeratoranddenominatorfornormalizedinputs, in addition to exact productvalue; no newsource execution assumption.",
+  "representation_inversion_roots": [
+    "ScopedC.NumericInputCompleteness.signed",
+    "ScopedC.NumericInputCompleteness.rational"
+  ],
+  "rational_multiply_preservation_roots": [
+    "ScopedC.RationalMultiplyCalls.top11",
+    "ScopedC.RationalMultiplyCalls.preserves"
+  ],
+  "rational_interval_add_qualification": "Exact original IntervalRat.add with the same ordered input/positive-denominator domain. Generic pair_service requires both actual lower SourceCall proofs; no independent application-output oracle. Local irreducibility controls proof elaboration only.",
+  "dyadic_add_qualification": "Actual source addition preserves the exact original IntervalDyadic.add for canonical fixed exponent-100 inputs, and separately preserves both endpoint rational values for arbitrary SameValues old input representations. This explicitly covers original zero exponent0 without asserting false record equality. Physical input liveness/pool applicability/ordering unchanged.",
+  "rational_interval_hull_qualification": "Exact original IntervalRat.hull, via actual qmin/qmax source executions, original positive-denominator and ordered-input mathematical domain; no supplied numerical output premise.",
+  "rational_interval_multiply_qualification": "Exact original IntervalRat.mul from actual4cross-cancelledqt+6selections, original ordered/live/positive-denominator domain. Proved arbitrary old NatBorrow/global/env/nonpoolheap/physicalscale preservation;sourceafterstate top increases80. Timeline only indexes already proved actualcalleeSourceCalls and also checks full state/name/args;never a supplied numerical output oracle.",
+  "rational_interval_multiply_framing_roots": [
+    "ScopedC.RationalIntervalMultiplyCalls.preserves_nat",
+    "ScopedC.RationalIntervalMultiplyCalls.after_globals",
+    "ScopedC.RationalIntervalMultiplyCalls.after_env",
+    "ScopedC.RationalIntervalMultiplyCalls.after_heap_length",
+    "ScopedC.RationalIntervalMultiplyCalls.after_other",
+    "ScopedC.RationalIntervalMultiplyCalls.preserves_scale"
+  ],
+  "rational_power_qualification": {
+    "mathematics": "Exact returned rational value a.value^n and successful physical decoder; not a structural canonical numerator/denominator claim.",
+    "domain": "Live Q with positive denominator, uint32 n, valid original physical pool and top+706<capacity.",
+    "mechanism": "Every source qt/qi answer includes a proved actual lower-rank SourceCall. The unique arena-length timeline only chooses an already proved call; full input state, name and arguments are rechecked. Every source statement/while transition and return is proved.",
+    "resources": "Proof-only conservative32-iteration/707-allocation bound. Original binary exponentiation, actual C source and mathematical inputs unchanged.",
+    "trust": "Host development with old source-associated objects reused; no new axioms/sorry/native execution/output premise. Fresh source-cold replay and all68/evaluate/full original numerical provider path remain incomplete."
+  },
+  "interval_power_qualification": {
+    "status": "COMPLETE_WHOLE_ACTUAL_SOURCE_AND_EXACT_ORIGINAL_INTERVAL_POW_COMPONENT",
+    "mathematics": "Successful output decoder exactly equals original LeanCert.Core.IntervalRat.pow on the actual represented interval, all uint32 exponents including zero. The proof follows the original left-to-right source algorithm and original recursive power equation; no associativity shortcut or substitute algorithm.",
+    "application_premises": "Physical valid pool, top+5120\u2264capacity, physically live RI input with positive denominators/ordered endpoints, uint32 exponent, actual installed parsed source functions. All are explicit source component applicability conditions, not trusted application initialization.",
+    "mechanism": "First source bit loop derives highest bit with no uint32 overflow, second source loop has actual rank8 rmul executions in collision-free arena-length event timeline with full states/names/arguments rechecked. Zero qi/point return uses their actual source bodies.",
+    "limitations": "Host development/reused source-associated objects. Arbitrary caller nonpool heap/global framing and prior-Nat-borrow APIs for the completed rpow wrapper are not yet exported. Full68 producer, source prepare/evaluate/main\u2192owner51 numerical output chain still open. Original current48/current49 capsules unchanged."
+  },
+  "taylor_qualification": {
+    "status": "COMPLETE_WHOLE_ACTUAL_SOURCE_AND_EXACT_OLD_HORNER_COMPONENT",
+    "source": "Unchanged actual Generated.f_taylor, coefficient order, typed operations, depth, original rational interval fold preserved.",
+    "physical_applicability": "Actual live/positive/ordered RI input, initialized Q table prefix of length d+1, real unsigned depth object containing d\u226464, depth object separate from pool-mutated objects, sufficient pool capacity. These are explicit application-state obligations. Actual Header uses depth object3 and pool objects0/1/2; final prepare/producer must establish the table/global invariants.",
+    "no_new_mathematical_premise": "No source theorem assumes Taylor correctness or the desired numerical output. Physical represented-input/applicability conditions are not promoted as trusted application initialization or as a new IEANTN mathematical axiom.",
+    "mechanism": "Every qi/point/rmul/radd callback return has actual SourceCall proof. Prefix callbacks reject later loop calls using actual proved caller-heap lengths, so equal arena-count point calls are not conflated. Source arrays, arguments, integer ranges, stores and scope removal are proved.",
+    "remaining": "Actual prepare must construct coefficient table and global state; full producer/evaluate/row/main/I/O\u2192owner51 connection remains open. Completed rpow arbitrary caller framing remains unexported; qpow framing is now accepted additively. Host development reuses old source-associated objects; no fresh source-cold claim."
+  },
+  "qpow_framing": {
+    "theorem": "ScopedC.RationalPowerCalls.qpow_framed",
+    "result_type": "ScopedC.RationalPowerCalls.FramedResult",
+    "status": "PASS_ACTUAL_SOURCE_CALL_AND_EXACT_VALUE_AND_CALLER_FRAME",
+    "fields": [
+      "actual SourceCall7",
+      "valid pool",
+      "live positive Q",
+      "successful exact rational decoder",
+      "exact value a^n",
+      "top budget707",
+      "unchanged globals/env/heap length",
+      "preserves every prior Nat borrow",
+      "preserves every prior nonpool heap object"
+    ],
+    "method": "Same accepted initial source steps and loop; adds derived physical effects and extends original loop certificate, then reuses exact source composition. No old source, algorithm, numerical input or conclusion changed.",
+    "remaining": "Canonical numerator/denominator output API remains unexported; full source prepare/evaluate/main and old numerical-provider closure remain open. rpow arbitrary caller framing still pending."
+  },
+  "rpow_partial_framing": {
+    "status": "FIVE_SUPPORT_MODULES_ACCEPTED_FINAL_UNIVERSAL_FRAME_PENDING",
+    "modules": [
+      "ScopedC.IntervalPowerScanPhysicalEffects",
+      "ScopedC.IntervalPowerScanFramedLoop",
+      "ScopedC.IntervalPowerFramedReady",
+      "ScopedC.IntervalPowerComposition",
+      "ScopedC.IntervalPowerInitialEffects"
+    ],
+    "qualification": "Source/mathematics of complete rpow were already accepted in V20. These five additive modules prove scan/initialization physical effects and fixed positive composition; no new whole body is counted. Positive final frame assembly and zero-path physical frame remain pending.",
+    "superseded_by": "rpow_framing"
+  },
+  "rpow_framing": {
+    "root": "ScopedC.IntervalPowerCalls.rpow_framed",
+    "status": "ACTUAL_SOURCE_STD3_PASS",
+    "qualification": "Complete original power algorithm, including zero case; every prior Nat borrow, caller globals/env/heap length and nonpool heap object preserved; not full68 producer acceptance."
+  },
+  "taylor_framing": {
+    "root": "ScopedC.TaylorCalls.taylor_framed",
+    "status": "ACTUAL_SOURCE_STD3_PASS",
+    "raw_array_writable_parameter": "Both Bool values, actual const-Q* conversion to same formal frame",
+    "caller_resources": "All prior Nat borrows/globals/env/heap length/nonpool old heap",
+    "remaining": "Source prepare must establish actual table/depth/pool; full consumers separate."
+  },
+  "atanh_partial_source": {
+    "status": "HISTORICAL_PARTIAL_RETAINED_SEE_ATANH_WHOLE_SOURCE",
+    "wide_source_root": "ScopedC.AtanhCalls.atanh_wide_closed",
+    "wide_domain": "1\u2264|q.mathematical.value|;actualtwoqi1000+qn+typedRIreturn",
+    "narrow_error_roots": [
+      "ScopedC.AtanhCalls.error_source",
+      "ScopedC.AtanhCalls.error_value",
+      "ScopedC.AtanhCalls.error_declaration"
+    ],
+    "narrow_error_value": "|q|^(d+1)/(1-|q|)",
+    "actual_caller_resources": "Realr/table/depth/oldNat/global/env/heap proofs; outputmetadata inverted from actual verified source decoder, never an executable output oracle",
+    "remaining": "CompleteactualerrorRI,point/taylor/radd and sourcegoodbranch plusfullatanhPointjoin;actualprepare/tableinputsremain separate. Notanotheracceptedwholebody."
+  },
+  "atanh_whole_source": {
+    "status": "COMPLETE_WHOLE_ACTUAL_SOURCE_EXACT_ORIGINAL_RATIONAL_ALGORITHM",
+    "root": "ScopedC.AtanhCalls.atanhPoint_closed",
+    "narrow": "Actual Taylor polynomial on q with original |q|^(d+1)/(1-|q|) symmetric radius; live physical atanhCoeffs and actual unsigned depth required.",
+    "wide": "Actual two qi(1000) calls and qn yield [-1000,1000] for 1\u2264|q|.",
+    "trust": "Every finite call event requires an actual lower-rank source proof, checked full state/name/arguments; metadata only inverts proved decoders, never an output service. Std3, native0.",
+    "remaining": "Actual prepare must establish physical coefficient/depth globals; full caller framing, exp/log bodies and complete old68/final51 integration remain open.",
+    "original_model_root": "ScopedC.AtanhCalls.atanhPoint_math",
+    "real_analytic_root": "ScopedC.AtanhCalls.atanhPoint_valid",
+    "real_analytic_domain": "Actual input has |q:Real|<1 and physical coefficientValues equal original IntervalRat.atanhTaylorCoeffs d; source prepare must establish actual table/depth/global/pool applicability."
+  },
+  "exp_factorial_source": {
+    "status": "COMPLETE_ACTUAL_ORIGINAL_FACTORIAL_WHILE_COMPONENT",
+    "root": "ScopedC.ExpFactorial.loop_certificate",
+    "initialization": "ScopedC.ExpFactorial.initial_frame / fact_declaration / k_declaration",
+    "mathematics": "Actual fact=qi1; k=1; fact=qt(fact,qi(k)); k=k+1 while k\u2264actual depth+1; final exact (d+1)! and k=d+2.",
+    "physical": "Real physical local fact/k/depth bindings; d\u226464; 14 allocations per iteration; prior Nat borrows/globals/env/heap length/nonlocal memory preserved.",
+    "remaining": "Full expRemainder prefix small/guard/declarations, error tail and outer controller remain pending; no additional complete function claimed."
+  },
+  "exp_remainder_partial_source": {
+    "status": "HISTORICAL_COMPONENT_CHAIN_RETAINED_SEE_EXP_REMAINDER_WHOLE_SOURCE",
+    "source_roots": [
+      "ScopedC.ExpRemainderCalls.radius_declaration",
+      "ScopedC.ExpRemainderCalls.ceil_stage",
+      "ScopedC.ExpRemainderCalls.ceil_declaration",
+      "ScopedC.ExpRemainderCalls.small_declaration",
+      "ScopedC.ExpRemainderCalls.ceil_branch",
+      "ScopedC.ExpRemainderCalls.small_branch",
+      "ScopedC.ExpFactorial.loop_certificate",
+      "ScopedC.ExpRemainderCalls.error_declaration",
+      "ScopedC.ExpRemainderCalls.output_declaration",
+      "ScopedC.ExpRemainderCalls.out_return"
+    ],
+    "model_root": "ScopedC.ExpRemainderCalls.output_model",
+    "model": "Exactly existing IntervalRat.expRemainderBoundComputable: source ceiling=Nat.ceil maxAbs, actual factorial (d+1)!, error=3^(ceil+1)*maxAbs^(d+1)/(d+1)!, actual symmetric RI.",
+    "applicability": "Actual live positive represented input; source depth\u226464; valid pool/top+3000; Int.ceil(maxAbs)<4294967295 discharges the real C sentinel guard and remains a caller range obligation. No callee-success/output premise.",
+    "remaining": "Outer expRemainder source controller must join actual prefix, factorial events, error/output and return scopes before counting whole function; full source prepare/final numerical/ANT consumers separate."
+  },
+  "qpow_allocated": {
+    "root": "ScopedC.RationalPowerCalls.qpow_allocated",
+    "additional_postcondition": "before.nats.values.length+3\u2264out.nats.values.length",
+    "qualification": "Actual qi1 initialization/source loop, retains all prior FramedResult fields; used to distinguish repeated calls, never inferred from generic arena liveness."
+  },
+  "exp_remainder_whole_source": {
+    "status": "COMPLETE_WHOLE_ACTUAL_SOURCE_EXACT_ORIGINAL_MODEL_COMPONENT",
+    "root": "ScopedC.ExpRemainderCalls.expRemainder_closed",
+    "source": "Unchanged Generated.f_expRemainder; actual qabs/qmax/ceilQ/small; both fail guards discharged from source/input domain; original complete factorial while; actual qi3/twoqpow/qt/qv/qn; RI initializer/return/scopes.",
+    "model": "Output decoder exactly original IntervalRat.expRemainderBoundComputable on actual input RI/depth.",
+    "applicability": "Positive/live/ordered actual RI; actual unsigned global depth d\u226464 with physical separation; Int.ceil(maxAbs)<4294967295 proves sentinel/no-overflow guard; valid pool/top+3000. Actual initialization and callers must establish these conditions.",
+    "remaining": "Caller frames, original prepare coefficients/scale/ln2; expPoint/rexp/logPoint/rlog and full old68/final51 source provider consumers remain open. Host development proof is not a cold or complete source-first acceptance receipt."
+  }
+}
