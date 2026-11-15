@@ -1,0 +1,36 @@
+{
+  "status": "PASS_ACTUAL_NATIVE_SOURCE_LINKER_CRT_RUN_AND_OBSERVED_SOURCE_NOT_PROOF_REPLAY",
+  "commands": [
+    [
+      "/usr/bin/python3.10",
+      "/task/reproduce_numerics.py",
+      "--compiler",
+      "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-exposure-maximal-20261109/evolution/work/environment-cold-v1/lean-4.34.0-rc2-linux/bin/clang",
+      "--out",
+      "/out/native/numerics"
+    ],
+    [
+      "/usr/bin/python3.10",
+      "/task/research/moment-hi-program-v1/reproduce_cpp_v2.py",
+      "--compiler",
+      "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-exposure-maximal-20261109/evolution/work/environment-cold-v1/lean-4.34.0-rc2-linux/bin/clang",
+      "--baseline",
+      "/out/native/numerics/height/run.stdout",
+      "--out",
+      "/out/native/actual-cpp"
+    ],
+    [
+      "/usr/bin/python3.10",
+      "/task/research/moment-hi-program-v1/generate_observation_v1.py",
+      "--run",
+      "/out/native/actual-cpp",
+      "--source",
+      "/out/native/observed/SynergyMomentCHi/ObservedOutput.lean",
+      "--receipt",
+      "/out/native/OBSERVATION.json"
+    ]
+  ],
+  "source_lock_sha256": "36b5b829fefce398e96a391b3dea0ea8047f18816fd07c76c27877d454be241d",
+  "observed_source_sha256": "a914c9d8625c5aab0156fa7aa4f669992b713a0d7eae38ece87e2141bee5f0b8",
+  "mathematical_acceptance": false
+}

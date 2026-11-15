@@ -1,0 +1,93 @@
+{
+  "status": "EXACT_NAMED_FORMAL_LIBRARY_SUPPORT_CHECKED",
+  "sources": [
+    {
+      "source": "Mathlib/NumberTheory/AbelSummation.lean",
+      "commit": "71a80585ee495fc24472fd0eaffc89d94e4fd8d6",
+      "line": 239,
+      "name": "sum_mul_eq_sub_integral_mul\u2081",
+      "statement": "theorem sum_mul_eq_sub_integral_mul\u2081 (hc : c 0 = 0) (hc1 : c 1 = 0) (b : \u211d)\n    (hf_diff : \u2200 t \u2208 Set.Icc 2 b, DifferentiableAt \u211d f t)\n    (hf_int : IntegrableOn (deriv f) (Set.Icc 2 b)) :\n    \u2211 k \u2208 Icc 0 \u230ab\u230b\u208a, f k * c k =\n      f b * (\u2211 k \u2208 Icc 0 \u230ab\u230b\u208a, c k) - \u222b t in Set.Ioc 2 b, deriv f t * \u2211 k \u2208 Icc 0 \u230at\u230b\u208a, c k",
+      "source_sha256": "0b1cbe3ed7bb5ffe694baaf0c6c16be5ce49371428a67b189987c6e6af178f5e"
+    },
+    {
+      "source": "Mathlib/NumberTheory/AbelSummation.lean",
+      "commit": "71a80585ee495fc24472fd0eaffc89d94e4fd8d6",
+      "line": 92,
+      "name": "integrableOn_mul_sum_Icc",
+      "statement": "theorem _root_.integrableOn_mul_sum_Icc {m : \u2115} (ha : 0 \u2264 a) {g : \u211d \u2192 \ud835\udd5c}\n    (hg_int : IntegrableOn g (Set.Icc a b)) :\n    IntegrableOn (fun t \u21a6 g t * \u2211 k \u2208 Icc m \u230at\u230b\u208a, c k) (Set.Icc a b)",
+      "source_sha256": "0b1cbe3ed7bb5ffe694baaf0c6c16be5ce49371428a67b189987c6e6af178f5e"
+    },
+    {
+      "source": "Mathlib/NumberTheory/Chebyshev.lean",
+      "commit": "71a80585ee495fc24472fd0eaffc89d94e4fd8d6",
+      "line": 336,
+      "name": "sum_PrimePow_eq_sum_sum'",
+      "statement": "theorem sum_PrimePow_eq_sum_sum' {R : Type*} [AddCommMonoid R] (f : \u2115 \u2192 R) {x : \u211d} (hx : 0 \u2264 x)\n  {N : \u2115} (hN : \u230alog x / log 2\u230b\u208a \u2264 N) :\n    \u2211 n \u2208 Ioc 0 \u230ax\u230b\u208a with IsPrimePow n, f n\n      = \u2211 k \u2208 Icc 1 N, \u2211 p \u2208 Ioc 0 \u230ax ^ ((1 : \u211d) / k)\u230b\u208a with p.Prime, f (p ^ k)",
+      "source_sha256": "074796f7737b6d08e00f07240e4436349e99a9e033cfc4128b96327bdcff8625"
+    },
+    {
+      "source": "Mathlib/NumberTheory/Chebyshev.lean",
+      "commit": "71a80585ee495fc24472fd0eaffc89d94e4fd8d6",
+      "line": 375,
+      "name": "sum_PrimePow_eq_sum_sum",
+      "statement": "theorem sum_PrimePow_eq_sum_sum {R : Type*} [AddCommMonoid R] (f : \u2115 \u2192 R) {x : \u211d} (hx : 0 \u2264 x) :\n    \u2211 n \u2208 Ioc 0 \u230ax\u230b\u208a with IsPrimePow n, f n\n      = \u2211 k \u2208 Icc 1 \u230alog x / log 2\u230b\u208a, \u2211 p \u2208 Ioc 0 \u230ax ^ ((1 : \u211d) / k)\u230b\u208a with p.Prime, f (p ^ k)",
+      "source_sha256": "074796f7737b6d08e00f07240e4436349e99a9e033cfc4128b96327bdcff8625"
+    },
+    {
+      "source": "Mathlib/NumberTheory/Chebyshev.lean",
+      "commit": "71a80585ee495fc24472fd0eaffc89d94e4fd8d6",
+      "line": 380,
+      "name": "psi_eq_sum_theta'",
+      "statement": "theorem psi_eq_sum_theta' {x : \u211d} (hx : 0 \u2264 x) {N : \u2115} (hN : \u230alog x / log 2\u230b\u208a \u2264 N) :\n    \u03c8 x = \u2211 n \u2208 Icc 1 N, \u03b8 (x ^ ((1 : \u211d) / n))",
+      "source_sha256": "074796f7737b6d08e00f07240e4436349e99a9e033cfc4128b96327bdcff8625"
+    },
+    {
+      "source": "Mathlib/NumberTheory/Chebyshev.lean",
+      "commit": "71a80585ee495fc24472fd0eaffc89d94e4fd8d6",
+      "line": 387,
+      "name": "psi_eq_sum_theta",
+      "statement": "theorem psi_eq_sum_theta {x : \u211d} (hx : 0 \u2264 x) :\n    \u03c8 x = \u2211 n \u2208 Icc 1 \u230alog x / log 2\u230b\u208a, \u03b8 (x ^ ((1 : \u211d) / n))",
+      "source_sha256": "074796f7737b6d08e00f07240e4436349e99a9e033cfc4128b96327bdcff8625"
+    },
+    {
+      "source": "Mathlib/NumberTheory/Chebyshev.lean",
+      "commit": "71a80585ee495fc24472fd0eaffc89d94e4fd8d6",
+      "line": 391,
+      "name": "psi_eq_theta_add_sum_theta'",
+      "statement": "theorem psi_eq_theta_add_sum_theta' {x : \u211d} (hx : 2 \u2264 x) {N : \u2115} (hN : \u230alog x / log 2\u230b\u208a \u2264 N) :\n    \u03c8 x = \u03b8 x + \u2211 n \u2208 Icc 2 N, \u03b8 (x ^ ((1 : \u211d) / n))",
+      "source_sha256": "074796f7737b6d08e00f07240e4436349e99a9e033cfc4128b96327bdcff8625"
+    },
+    {
+      "source": "Mathlib/NumberTheory/Chebyshev.lean",
+      "commit": "71a80585ee495fc24472fd0eaffc89d94e4fd8d6",
+      "line": 400,
+      "name": "psi_eq_theta_add_sum_theta",
+      "statement": "theorem psi_eq_theta_add_sum_theta {x : \u211d} (hx : 2 \u2264 x) :\n    \u03c8 x = \u03b8 x + \u2211 n \u2208 Icc 2 \u230alog x / log 2\u230b\u208a, \u03b8 (x ^ ((1 : \u211d) / n))",
+      "source_sha256": "074796f7737b6d08e00f07240e4436349e99a9e033cfc4128b96327bdcff8625"
+    },
+    {
+      "source": "Mathlib/NumberTheory/Chebyshev.lean",
+      "commit": "71a80585ee495fc24472fd0eaffc89d94e4fd8d6",
+      "line": 413,
+      "name": "abs_psi_sub_theta_le_sqrt_mul_log",
+      "statement": "theorem abs_psi_sub_theta_le_sqrt_mul_log {x : \u211d} (hx : 1 \u2264 x) :\n    |\u03c8 x - \u03b8 x| \u2264 2 * x.sqrt * x.log",
+      "source_sha256": "074796f7737b6d08e00f07240e4436349e99a9e033cfc4128b96327bdcff8625"
+    },
+    {
+      "source": "Mathlib/Analysis/SpecialFunctions/Pow/Real.lean",
+      "commit": "71a80585ee495fc24472fd0eaffc89d94e4fd8d6",
+      "line": 885,
+      "name": "log_le_rpow_div",
+      "statement": "lemma log_le_rpow_div {x \u03b5 : \u211d} (hx : 0 \u2264 x) (h\u03b5 : 0 < \u03b5) : log x \u2264 x ^ \u03b5 / \u03b5",
+      "source_sha256": "5f4970fe329b14615ca6cfa3e0dcb0cf9d2017c98d2e3501237412aa2474e70b"
+    },
+    {
+      "source": "Mathlib/NumberTheory/Chebyshev.lean",
+      "commit": "71a80585ee495fc24472fd0eaffc89d94e4fd8d6",
+      "line": 194,
+      "name": "theta_le_log4_mul_x",
+      "statement": "theorem theta_le_log4_mul_x {x : \u211d} (hx : 0 \u2264 x) : \u03b8 x \u2264 log 4 * x",
+      "source_sha256": "074796f7737b6d08e00f07240e4436349e99a9e033cfc4128b96327bdcff8625"
+    }
+  ]
+}
