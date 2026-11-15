@@ -1,0 +1,107 @@
+{
+  "schema": "SCOPED_PRINTS_ITERATION_PEER_REVIEW_V1",
+  "reviewer": "numerics_resume",
+  "status": "PASS_BOUNDED_READ_ONLY_PEER_REVIEW",
+  "scope": [
+    {
+      "file": "scoped/stdio-v1/lean/ScopedIO/PrintSIteration.lean",
+      "declaration": "ScopedIO.PrintSIteration.body_run",
+      "line": 42
+    },
+    {
+      "file": "scoped/stdio-v1/lean/ScopedIO/PrintSStepEvents.lean",
+      "declaration": "ScopedIO.PrintSStepEvents.events",
+      "line": 13
+    }
+  ],
+  "blueprint": "No standalone Blueprint label: internal source frontend/stdio proof modules.",
+  "primary_source": {
+    "path": "scoped/source-bundle/source/function_64_printS.inc",
+    "locator": "printS first while-body, first=0 through x=nd(x,nu(10))"
+  },
+  "checks": [
+    "Actual AST body lines15-21 matches designated source first while-body statements in order.",
+    "Source callees are nu10, nr, small, then digit array store and count increment, then separate nu10 and nd. Events e3/e4 use updated digits and count, retaining old x slot until its real assignment.",
+    "Five call events require actual lower-rank SourceCall proofs from PrintSDigitCalls.source_calls and PrintSDivision.source_calls; n%10 and n/10 are proved source outputs, not trusted answer/certificate premises.",
+    "Physical uninitialized char[1024] buffer is represented by initialized prefix plus none suffix; ds.length<1024 makes the actual store in range, and n%10<10 gives safe digit promotion/char cast.",
+    "Typed count increment excludes wraparound; typed N x assignment uses fresh quotient token and preserves digits/count. Exact five-allocation trace includes small UINT_MAX allocation.",
+    "Nested body scope pop uses equal heap extent/environment and retains the modified old cells. No desired-output oracle/new axiom found in reviewed scope."
+  ],
+  "limitations": [
+    "This verifies the two requested component declarations and inspected supporting joins only.",
+    "Initial application representation, signed entry/guard, full generation loop, reverse output and whole printS/source-cold/native49 closure are separate obligations; no full-printS completion claim."
+  ],
+  "files": [
+    {
+      "path": "scoped/source-bundle/source/function_64_printS.inc",
+      "sha256": "ff53f57d7f40e2657f24722f62032c3a99aa54ecea5d5a91b65fc353143f603a"
+    },
+    {
+      "path": "scoped/stdio-v1/lean/ScopedIO/PrintSIteration.lean",
+      "sha256": "fd424400d265079b854907068ec80609691d63bd8bf8d5d9d2bdf426df59afd4"
+    },
+    {
+      "path": "scoped/stdio-v1/lean/ScopedIO/PrintSStepEvents.lean",
+      "sha256": "0d3eeb7c02e7649f200b2998be0af4230a07760e9778db0f910d208e05e8f4c4"
+    },
+    {
+      "path": "scoped/stdio-v1/lean/ScopedIO/PrintSDivision.lean",
+      "sha256": "601bec02bbcdaebbcbf2e22af372f38b6048a0bde0f9af4db96bd74ed504bf71"
+    },
+    {
+      "path": "scoped/stdio-v1/lean/ScopedIO/PrintSDigitCalls.lean",
+      "sha256": "4c8d8b41b9feec85d824ab013c9a8a48f5082cd347ea2b450c0f36de66bfc2a6"
+    },
+    {
+      "path": "scoped/stdio-v1/lean/ScopedIO/PrintSFrames.lean",
+      "sha256": "e09ec9d75beca6662095676e1741513fb2774c44a23cc8884cf4bbbcaa8afca2"
+    },
+    {
+      "path": "scoped/stdio-v1/lean/ScopedIO/PrintSDigitExpression.lean",
+      "sha256": "42d4f171e3b75e363ce5c7f24cc15445e976e04d0991005d158177eaa65cf2ce"
+    }
+  ],
+  "receipts": [
+    {
+      "path": "scoped/stdio-v1/proof/prints-iteration-v1/RECEIPT.json",
+      "sha256": "16710c33e3e2c88b35ca402fd11453b40c5a58510e0b3c9ca2f1c81782772e68",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE",
+      "roots": [
+        {
+          "name": "ScopedIO.PrintSIteration.final_trace",
+          "axioms": []
+        },
+        {
+          "name": "ScopedIO.PrintSIteration.final_shape",
+          "axioms": [
+            "propext"
+          ]
+        },
+        {
+          "name": "ScopedIO.PrintSIteration.body_run",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "scoped/stdio-v1/proof/prints-step-events-v1/RECEIPT.json",
+      "sha256": "5d761a07ea3a88e44b6d6a2df0a8bd4969f806718d2a51c2cbacb1430138e6fa",
+      "status": "PASS_HOST_DEVELOPMENT_COMPILE",
+      "roots": [
+        {
+          "name": "ScopedIO.PrintSStepEvents.events",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ]
+    }
+  ],
+  "execution": "Read-only source/receipt review only; no new Lean build/job lease used for review."
+}
