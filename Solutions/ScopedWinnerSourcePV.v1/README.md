@@ -1,3 +1,7 @@
+**Paused at the owner's request, 2026-11-15.** All project compute jobs are stopped. [Current results, remaining obligations and exact restart notes](PAUSED_20261115.md). The source-only [paused code/evidence checkpoint](SOURCE_INTEGRATION_PAUSED_20261115.zip), [completed390-source component](HEIGHT_C_POINT390_SOURCE_COLD_COMPONENT_V1.zip) and [52-body supplement](SCOPED_CURRENT52_SOURCE_COMPONENTS_V1.zip) preserve this work. The52-body full fresh replay and main-weight kernel check were interrupted; full program PV remains incomplete.
+
+The documentation below is the earlier dated checkpoint, retained as historical context; use the pause note for the current state.
+
 # Scoped Winner and QRH: completed mathematics, partial C source verification
 
 **Full source-first PV remains unfinished.** Read the [offline continuation report](RESEARCH_CONTINUATION.html) for the current acceptance boundaries and the [paper-ready mathematical explanation](OWNER_SCOPE_PNT_MECHANISM_V1.html) for the completed stronger conditional bound. Original outcomes, assumptions, algorithms and comparator identities are preserved. Dated archives retain their original populations and statuses.
