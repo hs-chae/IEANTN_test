@@ -1,0 +1,394 @@
+{
+  "status": "PASS_24_ACTUAL_NEGATIVE_CLI_CONTROLS_NORMAL_O_OO",
+  "wrapper_sha256": "b8511bdecd57f0e211a4e398f02f150b9db0b3ab230cfc7fb16ae1e2b43f6319",
+  "source_lock_sha256": "a8d0ef7b2b463a4b086a52c88c2aa22ccbafeb802af850c3583eff68a05799da",
+  "rows": [
+    {
+      "mode": [],
+      "case": "missing-arguments",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/positive11-init-execute-cold-v1/reproduce_component.py"
+      ],
+      "exit_code": 2,
+      "stderr_sha256": "f4c0c3a22b24e92bf1b792a6fb11cdbf69172f2ac30a5c64c4ba2e147e6ac542",
+      "expected_error": "--environment"
+    },
+    {
+      "mode": [],
+      "case": "jobs-zero",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/positive11-init-execute-cold-v1/reproduce_component.py",
+        "--environment",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/DEVELOPMENT_ENVIRONMENT.json",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/positive11-wrapper-cli-v2/owned-temporary/zero",
+        "--jobs",
+        "0"
+      ],
+      "exit_code": 1,
+      "stderr_sha256": "ae92e5ed89ed0b4e3f39b9fa6db36e1631e236f56efeaa7c5a5005744223801b",
+      "expected_error": "jobs1..4"
+    },
+    {
+      "mode": [],
+      "case": "jobs-negative",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/positive11-init-execute-cold-v1/reproduce_component.py",
+        "--environment",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/DEVELOPMENT_ENVIRONMENT.json",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/positive11-wrapper-cli-v2/owned-temporary/negative",
+        "--jobs",
+        "-1"
+      ],
+      "exit_code": 1,
+      "stderr_sha256": "ae92e5ed89ed0b4e3f39b9fa6db36e1631e236f56efeaa7c5a5005744223801b",
+      "expected_error": "jobs1..4"
+    },
+    {
+      "mode": [],
+      "case": "jobs-five",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/positive11-init-execute-cold-v1/reproduce_component.py",
+        "--environment",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/DEVELOPMENT_ENVIRONMENT.json",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/positive11-wrapper-cli-v2/owned-temporary/five",
+        "--jobs",
+        "5"
+      ],
+      "exit_code": 1,
+      "stderr_sha256": "ae92e5ed89ed0b4e3f39b9fa6db36e1631e236f56efeaa7c5a5005744223801b",
+      "expected_error": "jobs1..4"
+    },
+    {
+      "mode": [],
+      "case": "wrong-dependency",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/positive11-init-execute-cold-v1/reproduce_component.py",
+        "--environment",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/positive11-wrapper-cli-v2/owned-temporary/wrong-env.json",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/positive11-wrapper-cli-v2/owned-temporary/dependency"
+      ],
+      "exit_code": 1,
+      "stderr_sha256": "c5a530d4b8daf3a98130352e76b70f951c81b624c7bbbbca09cbf47bba17d27d",
+      "expected_error": "generic dependency pins"
+    },
+    {
+      "mode": [],
+      "case": "source-corruption",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/positive11-wrapper-cli-v2/owned-temporary/changed-component/reproduce_component.py",
+        "--environment",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/DEVELOPMENT_ENVIRONMENT.json",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/positive11-wrapper-cli-v2/owned-temporary/corruption"
+      ],
+      "exit_code": 1,
+      "stderr_sha256": "53d395ff0402419ff9ff90ff683bf4c68e9b1dfbd76b6c3491192e975503cf0e",
+      "expected_error": "captured source/payload"
+    },
+    {
+      "mode": [],
+      "case": "existing-output",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/positive11-init-execute-cold-v1/reproduce_component.py",
+        "--environment",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/DEVELOPMENT_ENVIRONMENT.json",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/positive11-wrapper-cli-v2/owned-temporary/existing-out"
+      ],
+      "exit_code": 1,
+      "stderr_sha256": "e85893f158404c7beed0347a0f0b5838a00eb83c767932150ae4bb2bd55ddd80",
+      "expected_error": "fresh output outside sealed component"
+    },
+    {
+      "mode": [],
+      "case": "unapproved-base",
+      "exit_code": 1,
+      "stderr_sha256": "06509a5236d415d70824fd7395f603272cc982c5ec5061fcfc5532ac64d6f182"
+    },
+    {
+      "mode": [
+        "-O"
+      ],
+      "case": "missing-arguments",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/positive11-init-execute-cold-v1/reproduce_component.py"
+      ],
+      "exit_code": 2,
+      "stderr_sha256": "f4c0c3a22b24e92bf1b792a6fb11cdbf69172f2ac30a5c64c4ba2e147e6ac542",
+      "expected_error": "--environment"
+    },
+    {
+      "mode": [
+        "-O"
+      ],
+      "case": "jobs-zero",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/positive11-init-execute-cold-v1/reproduce_component.py",
+        "--environment",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/DEVELOPMENT_ENVIRONMENT.json",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/positive11-wrapper-cli-v2/owned-temporary/zero",
+        "--jobs",
+        "0"
+      ],
+      "exit_code": 1,
+      "stderr_sha256": "ae92e5ed89ed0b4e3f39b9fa6db36e1631e236f56efeaa7c5a5005744223801b",
+      "expected_error": "jobs1..4"
+    },
+    {
+      "mode": [
+        "-O"
+      ],
+      "case": "jobs-negative",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/positive11-init-execute-cold-v1/reproduce_component.py",
+        "--environment",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/DEVELOPMENT_ENVIRONMENT.json",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/positive11-wrapper-cli-v2/owned-temporary/negative",
+        "--jobs",
+        "-1"
+      ],
+      "exit_code": 1,
+      "stderr_sha256": "ae92e5ed89ed0b4e3f39b9fa6db36e1631e236f56efeaa7c5a5005744223801b",
+      "expected_error": "jobs1..4"
+    },
+    {
+      "mode": [
+        "-O"
+      ],
+      "case": "jobs-five",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/positive11-init-execute-cold-v1/reproduce_component.py",
+        "--environment",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/DEVELOPMENT_ENVIRONMENT.json",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/positive11-wrapper-cli-v2/owned-temporary/five",
+        "--jobs",
+        "5"
+      ],
+      "exit_code": 1,
+      "stderr_sha256": "ae92e5ed89ed0b4e3f39b9fa6db36e1631e236f56efeaa7c5a5005744223801b",
+      "expected_error": "jobs1..4"
+    },
+    {
+      "mode": [
+        "-O"
+      ],
+      "case": "wrong-dependency",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/positive11-init-execute-cold-v1/reproduce_component.py",
+        "--environment",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/positive11-wrapper-cli-v2/owned-temporary/wrong-env.json",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/positive11-wrapper-cli-v2/owned-temporary/dependency"
+      ],
+      "exit_code": 1,
+      "stderr_sha256": "c5a530d4b8daf3a98130352e76b70f951c81b624c7bbbbca09cbf47bba17d27d",
+      "expected_error": "generic dependency pins"
+    },
+    {
+      "mode": [
+        "-O"
+      ],
+      "case": "source-corruption",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/positive11-wrapper-cli-v2/owned-temporary/changed-component/reproduce_component.py",
+        "--environment",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/DEVELOPMENT_ENVIRONMENT.json",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/positive11-wrapper-cli-v2/owned-temporary/corruption"
+      ],
+      "exit_code": 1,
+      "stderr_sha256": "53d395ff0402419ff9ff90ff683bf4c68e9b1dfbd76b6c3491192e975503cf0e",
+      "expected_error": "captured source/payload"
+    },
+    {
+      "mode": [
+        "-O"
+      ],
+      "case": "existing-output",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/positive11-init-execute-cold-v1/reproduce_component.py",
+        "--environment",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/DEVELOPMENT_ENVIRONMENT.json",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/positive11-wrapper-cli-v2/owned-temporary/existing-out"
+      ],
+      "exit_code": 1,
+      "stderr_sha256": "e85893f158404c7beed0347a0f0b5838a00eb83c767932150ae4bb2bd55ddd80",
+      "expected_error": "fresh output outside sealed component"
+    },
+    {
+      "mode": [
+        "-O"
+      ],
+      "case": "unapproved-base",
+      "exit_code": 1,
+      "stderr_sha256": "06509a5236d415d70824fd7395f603272cc982c5ec5061fcfc5532ac64d6f182"
+    },
+    {
+      "mode": [
+        "-OO"
+      ],
+      "case": "missing-arguments",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/positive11-init-execute-cold-v1/reproduce_component.py"
+      ],
+      "exit_code": 2,
+      "stderr_sha256": "f4c0c3a22b24e92bf1b792a6fb11cdbf69172f2ac30a5c64c4ba2e147e6ac542",
+      "expected_error": "--environment"
+    },
+    {
+      "mode": [
+        "-OO"
+      ],
+      "case": "jobs-zero",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/positive11-init-execute-cold-v1/reproduce_component.py",
+        "--environment",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/DEVELOPMENT_ENVIRONMENT.json",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/positive11-wrapper-cli-v2/owned-temporary/zero",
+        "--jobs",
+        "0"
+      ],
+      "exit_code": 1,
+      "stderr_sha256": "ae92e5ed89ed0b4e3f39b9fa6db36e1631e236f56efeaa7c5a5005744223801b",
+      "expected_error": "jobs1..4"
+    },
+    {
+      "mode": [
+        "-OO"
+      ],
+      "case": "jobs-negative",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/positive11-init-execute-cold-v1/reproduce_component.py",
+        "--environment",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/DEVELOPMENT_ENVIRONMENT.json",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/positive11-wrapper-cli-v2/owned-temporary/negative",
+        "--jobs",
+        "-1"
+      ],
+      "exit_code": 1,
+      "stderr_sha256": "ae92e5ed89ed0b4e3f39b9fa6db36e1631e236f56efeaa7c5a5005744223801b",
+      "expected_error": "jobs1..4"
+    },
+    {
+      "mode": [
+        "-OO"
+      ],
+      "case": "jobs-five",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/positive11-init-execute-cold-v1/reproduce_component.py",
+        "--environment",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/DEVELOPMENT_ENVIRONMENT.json",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/positive11-wrapper-cli-v2/owned-temporary/five",
+        "--jobs",
+        "5"
+      ],
+      "exit_code": 1,
+      "stderr_sha256": "ae92e5ed89ed0b4e3f39b9fa6db36e1631e236f56efeaa7c5a5005744223801b",
+      "expected_error": "jobs1..4"
+    },
+    {
+      "mode": [
+        "-OO"
+      ],
+      "case": "wrong-dependency",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/positive11-init-execute-cold-v1/reproduce_component.py",
+        "--environment",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/positive11-wrapper-cli-v2/owned-temporary/wrong-env.json",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/positive11-wrapper-cli-v2/owned-temporary/dependency"
+      ],
+      "exit_code": 1,
+      "stderr_sha256": "c5a530d4b8daf3a98130352e76b70f951c81b624c7bbbbca09cbf47bba17d27d",
+      "expected_error": "generic dependency pins"
+    },
+    {
+      "mode": [
+        "-OO"
+      ],
+      "case": "source-corruption",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/positive11-wrapper-cli-v2/owned-temporary/changed-component/reproduce_component.py",
+        "--environment",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/DEVELOPMENT_ENVIRONMENT.json",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/positive11-wrapper-cli-v2/owned-temporary/corruption"
+      ],
+      "exit_code": 1,
+      "stderr_sha256": "53d395ff0402419ff9ff90ff683bf4c68e9b1dfbd76b6c3491192e975503cf0e",
+      "expected_error": "captured source/payload"
+    },
+    {
+      "mode": [
+        "-OO"
+      ],
+      "case": "existing-output",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/positive11-init-execute-cold-v1/reproduce_component.py",
+        "--environment",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/DEVELOPMENT_ENVIRONMENT.json",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/scoped/build/positive11-wrapper-cli-v2/owned-temporary/existing-out"
+      ],
+      "exit_code": 1,
+      "stderr_sha256": "e85893f158404c7beed0347a0f0b5838a00eb83c767932150ae4bb2bd55ddd80",
+      "expected_error": "fresh output outside sealed component"
+    },
+    {
+      "mode": [
+        "-OO"
+      ],
+      "case": "unapproved-base",
+      "exit_code": 1,
+      "stderr_sha256": "06509a5236d415d70824fd7395f603272cc982c5ec5061fcfc5532ac64d6f182"
+    }
+  ],
+  "cleanup": "Only this run owned-temporary copies/rejected outputs removed",
+  "positive_evidence": "Separate complete fresh default run and normal/O/OO composed runs; not repeated by negative controls"
+}

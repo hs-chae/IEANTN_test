@@ -1,154 +1,53 @@
-# Scoped Winner source-first PV: partial research checkpoint
+# Scoped Winner and QRH research: current partial checkpoint
 
-**IN PROGRESS. This checkpoint does not complete the requested migration.**
-The preserved original Scoped Winner final theorem has 49 native execution
-dependencies; its joint before/after comparison consumes 50. A separate
-intermediate overlay has recompiled all 106 consumers with 40 scalar facts
-proved by the ordinary kernel: its actual remaining counts are 9 and 10. The
-comparison-only theorem has zero in both versions. This kernel-only overlay
-is **not source-first PV**. No official network evidence or assumptions change.
+**The full source-first PV migration is unfinished.** This branch preserves the frozen algorithms, original outcomes and analytical premises. The current offline reports are [research continuation](RESEARCH_CONTINUATION.html) and [completed conditional PNT mathematics](HEIGHT_KERNEL_VALIDITY_PROGRESS.html). Older dated reports and archives remain historical evidence; their populations and earlier pending statuses are not the current status.
 
-The immutable target is the original 39 comparator identities, 8,192 versus
-16,384 integration cells, coefficients 0.009474458010474448 and
-0.009471462010471452, and strict comparison for exp(330) ≤ x ≤ exp(331).
-See the frozen identity and written-owner registries in `evidence/`.
+The immutable Scoped Winner target retains all 39 comparator identities, the original 8,192- and evolved 16,384-cell numerical algorithms, the coefficient improvement `0.009474458010474448 → 0.009471462010471452`, and the strict comparison on `[exp(330), exp(331)]`. Written identities and use paths, including the separate CLI sensitivity fact, are recorded in `evidence/`. No primary experimental success has been retroactively changed.
 
-Completed partial work in this checkpoint:
+## What is now proved
 
-* Actual handwritten C++ evaluators reproduce all 52 rows underlying the 50
-  joint numerical facts. They use the pinned generic Lean Nat object ABI,
-  rather than calling a Lean evaluator or embedding computed answers.
-* The 734-file C++ include bundle is associated compositionally with the full
-  structured source AST. Lean proves every leaf binding, include-tree assembly,
-  and exact functions/types/globals/input-array projections. The compiler and
-  preprocessor remain explicitly trusted generic tools.
-* The operational model includes checked C integers, records, pointers, arrays,
-  explicit initialization and logical ownership. Source-body proofs currently
-  cover 27 of the 68 original bodies, including comparisons, Nat wrappers,
-  constructors, pool ownership and selected signed/rational/interval operations.
-  The index names the exact contracts and remaining bodies; this is partial.
-* Separate mathematical support proves Taylor/logarithm and
-  prime-rich interval lemmas. The new fixed-point `basis_fp128.cpp` reproduces
-  useful candidate quadratures; it is **not yet source verified**. The proved
-  real interval model of its exponential routine is mathematical support only.
+* **Complete frozen numerical grid plane:** all 3,840 chunks have actual ordinary-kernel axiom audits, with identical acceptance in normal, `-O` and `-OO` modes. All ten original whole-row predicates, covering 122,880 cells, have compiled with only standard Lean logical axioms. This verifies the numerical model; it is not C source-first PV. The full 51-fact overlay and unchanged 106-consumer build are a separate acceptance gate whose final receipt is pending at this checkpoint.
+* **Stronger conditional PNT mathematics:** `E_pi(x) <= 0.008441646*x^(-1/8)` for every `x >= exp(330)`, with complete mathematical consumers and no native execution axioms. Here `Li_2` is the logarithmic integral from 2, and `E_pi = abs(pi-Li_2)/(x/log(x))`. The exact budget is `0.008441645490323989`. The corresponding prime-rich theorem gives at least `0.000114*x^(7/8)/log(x)` primes in `(x, x+0.017*x^(7/8)]`. These are **kernel-only conditional results**, not completed C source-first results. Their nine-root/463-source fresh replay is pending; a bounded independent review of the selected proof path found no defect and is not an exhaustive primary-paper audit.
+* **Actual C execution for a nontrivial component:** the bound source for `rat(1,3)` followed by `expNeg` is executed in Lean, including all 48 Horner steps, six squarings, actual callees, guards, casts and memory. Its output is joined to the real exponential. A complete default clean run rebuilt 357 application modules, audited 75 roots with only `propext`, `Classical.choice`, `Quot.sound`, and reproduced the exact 48-byte output of the compiled C program. It uses no application object inputs. It is a host source-cold finite-input library component; its auxiliary driver/serialization and complete ANT applications remain outside this proof.
+* **Current source-body development:** 40 of 68 original C body contracts and 11 of 19 positive 512-bit backend body contracts are accepted in source-associated host builds. Actual initialization of all 66 old globals and all 14 height globals is proved. All 524 height source files, 39 functions and 14 globals are compositionally bound to their AST. Prepared older capsules below each retain their own exact source/root populations. The computed height constant cache is still untrusted pending accepted execution of its actual initializer.
 
-Still required: the remaining rational/interval/Taylor/DAG/quadrature C bodies;
-complete numerical kernel certificates for the ten grid facts; unchanged Lean
-consumer integration; separate final/comparison dependency audits; and a final
-isolated source-cold verification. The analytic candidate near 0.00845 is not yet a completed numerical/source-PV
-instance. Eight isolated exploratory exposure sessions have run: four original
-pilot failures and four uniformly enlarged-budget followup successes. All four
-followups were independently rebuilt. This is calibration evidence, not a
-confirmatory or causal exposure claim.
+The PNT and prime-rich conclusions retain **all eight original PrimaryInputs fields and six separate original assumptions**: OriginalCHJSource, rvm_error_bound, rvm_error_small, no_zeroes_below_first_ordinate, RH up to height 3 trillion, and the open zero-free region with real part greater than 7/8, preserving the pole convention. QRH remains an explicit theorem parameter here; the separate imported QRH proof has not been instantiated in this toolchain. No optimality, best-known-result or whole-ray dominance claim is made. The original retained full function can beat a fixed cap at log(x)=1000.
 
-`src/Checkpoint.lean` imports the accepted partial checkpoints. Its development
-build and selected root axiom audits passed with only propext, Classical.choice
-and Quot.sound. This used pinned development dependencies and is not a clean
-final source-cold acceptance run. `MANIFEST.json` records exact source identities.
-`STATUS.json` and `evidence/` keep numerical runs separate from formal proofs.
+## Downloadable reproducibility components
 
-## Reproduction
+| Archive | Exact scope and actual replay status |
+|---|---|
+| `POSITIVE11_INIT_EXECUTE_SOURCE_COLD_V1.zip` | **Actually completed** clean default 357-module/75-root replay plus actual source-bound C generation/build/run and exact exponential readback; 1,643.664 seconds under 24 GiB. Normal/`-O`/`-OO` composed reuse also passed; 24 actual negative CLI controls passed. Its README gives the clean setup and one-command reproduction. |
+| `HEIGHT_KERNEL_VALIDITY_SOURCE_V1.zip` | 463 locked mathematical sources, public-only clean setup, exact C regeneration and numerical association scripts. Complete mathematical consumers are host-kernel accepted; **the fresh 463-source replay is pending**. No application object cache is included. |
+| `SCOPED_CURRENT40_SOURCE_COMPONENTS_V1.zip` | Current 40-body source-only supplement: 480 application sources, 885 payloads, 165 accepted host-module receipts and 373 selected roots. Includes latest source rounding and initialization stages. **Combined fresh 480-source replay not executed.** Import-header inventory is a recipe, not a new compiler acceptance result. |
+| `HEIGHT_SOURCE_BINDING_COMPONENT_V1.zip` | 112 Lean sources, 574 payloads covering all 524 actual C files, 39 functions and 14 globals; 16-root fresh recipe. Source binding, static initialization and generic execution/check API are accepted in host builds. **Fresh 112-proof replay and computed-cache source execution are not accepted.** Native/C/staged cache proposals remain untrusted. |
+| `SCOPED_EVALUATOR_AND_66_GLOBAL_SOURCE_COMPONENT_V1.zip` | 387-source/885-payload recipe; 46 source-associated host modules and 115 roots covering actual 66-global initialization and evaluator prefix support. **Combined fresh 387-source replay not executed.** Predates the latest floor/ceil proofs. |
+| `BODY35_SOURCE_SUPPLEMENT_V2.zip` | 164-source recipe, 35 body and 19 mathematical roots. **Combined fresh 35-body replay not executed.** The current host body count of 40 is a different population. |
+| `SCOPED28_C56_SOURCE_COLD_COMPONENT_V3.zip` | **Actually completed** 343 fresh application sources, 885 payloads, 60 root audits, 28 old-C bodies and C56 bindings; 1,571.56 seconds. Its proof replay does not repeat the separately recorded raw C56 execution. |
+| `POSITIVE6_STDIO_SOURCE_COLD_V1.zip` | **Actually completed** 52 fresh application sources, 53 payloads, 24 roots; 238.34 seconds. Six arithmetic bodies and a partial StdIO/actual checked-flush component. |
 
-Use Linux x86-64, Lean 4.34.0-rc2, Mathlib commit
-71a80585ee495fc24472fd0eaffc89d94e4fd8d6, and the exact checkout containing
-this directory. No numerical randomness is used.
+All accepted fresh components start with absent application objects and use pinned public generic dependencies. They are host source-cold runs, not namespace-isolated discovery sessions. Captured sources, exact parameters, dependency identities, commands, source/certificate hashes and essential receipts are retained. No random numerical seed is used. No generated binaries or large application object caches are included in the new source archives. Byte-integrity checking alone is not proof replay.
 
-```
+Older archives, including `source-checkpoint-v2.tar.xz`, `c56-and-rational-source-checkpoint-v1.tar.xz`, `J_CAPS_SOURCE_CHECKPOINT_V1.zip`, `SCOPED_16_BODY_SOURCE_COLD_COMPONENT_V1.zip` and `BODY32_SOURCE_SUPPLEMENT_V1.zip`, remain additive historical evidence. They do not imply a later combined replay.
+
+The original checkpoint still supports:
+
+```sh
 python3 reproduce.py --check-local
 python3 reproduce.py --lean-prefix /path/to/lean-4.34.0-rc2-linux --run-numerics --out /fresh/output
 python3 reproduce.py --build-lean --out /another/fresh/output
 ```
 
-The numerical command builds and executes the actual included program, checks
-all 52 source-input bounds with exact rational arithmetic, and separately runs
-the new basis scout. The Lean command asks Lake to resolve the existing pinned
-path dependencies and build this partial checkpoint. Network access may be
-needed for dependency/cache downloads. A full clean Lake reproduction is
-**not yet executed for this checkpoint**; the saved development compile is
-recorded accurately in `evidence/`. No final migration acceptance is implied.
+The numerical command compiles and runs the exact original 52-row C evaluator and the separate basis scout, checking exact rational bounds. The Lake command is a development checkpoint route whose complete clean Lake replay has not been accepted. For the completed 357-source clean component, unpack its ZIP and use its included `README.md` and `reproduce_component.py`; it uses the exact compiler/runtime/library pins and does not consult old IEANTN application objects.
 
-The executable's generic Nat arithmetic, reference-count operations, Lean
-initialization, precise compiler/ABI/runtime, standard I/O and hardware contracts
-remain trusted. Application pool initialization, references, buffers and loops
-must be proved applicable; output values or successful application execution
-are never assumed platform facts. The new 512-bit backend has its own pending
-source, overflow, buffer and whole-loop obligations.
+## Trust boundary and remaining obligations
 
-The baseline source is commit 9f108629f0039584250b5e5d781f5313bb3d0ea8.
-This is supplemental research, not a revision of locked historical outcomes.
+**PV means source-first program verification.** Kernel-only mathematical computations, native-assisted evaluation, source binding and ordinary certificate checking are identified separately. The original selected final theorem retains 49 native execution dependencies and its selected joint before/after closure retains 50. The earlier 40-scalar kernel overlay actually recompiled all 106 consumers and leaves 9 and 10, respectively. The comparison-only theorem has zero in both. The current full created/CLI target requires 51 facts; its new consumer/audit acceptance remains pending. The inherited 39-comparator proof union of 78 and imported primitive population of 84 are separate populations, not silently claimed migrated.
 
-The source include directory is `source/`, matching the exact `include_str`
-paths in the Lean modules. A self-contained, actually replayed 142-module
-source checkpoint is also supplied in `source-checkpoint-v2.tar.xz`; its README
-describes generic dependency setup and the checked replay command. This remains
-source-binding and raw-execution evidence, with application-body proofs pending.
+Lean's kernel, the pinned generic compiler/core runtime, ABI and documented OS/library/hardware contracts are trusted. Ordinary-call argument order is the specific **Clang22.1.4/Itanium implementation contract**, supported by primary compiler-source locators and actual POD/IR applicability evidence, not a portable ISO C++17 left-to-right guarantee. The additive census covers the old68 and basis19 functions, including 41 implicit defaulted trivial assignment nodes; it does not yet cover all extra height functions. Finite compiler canaries are not a compiler proof. Application initialization, guards, lifetimes, effects and output correctness are never trusted platform facts.
 
-## Supplemental checkpoint, 14 November
+Still required are the remaining source arithmetic/analytic bodies, prepared-state and complete evaluator/quadrature/main/printing proofs, source-linked numerical providers, real theorem consumption, final dependency audits and isolated acceptance. Actual source-height initialization exhausted its 12 GiB allocation; that resource failure is preserved separately from mathematical obligations and does not accept the proposed cache. The completed finite-input exponential component does not close these gaps.
 
-The exhaustive census covers 41 created declarations, both CLI routes and the
-39 recorded comparator identities. Their required created/CLI native union is
-51 (the selected joint union of 50 plus one sensitivity fact). The inherited
-39-comparator proof union contains 78 native facts; 84 occur among all imported
-native primitives. These populations are different; none is silently relabeled
-as migrated. Exact written identities and use paths are preserved in the audit.
+The eight current exploratory exposure sessions remain four original budget failures and four uniform-budget followup successes, independently checked. The historical 67/192 primary successes are unchanged. These observations establish no causal exposure advantage. The confirmatory source-contract investigation, full comparative research report, manuscript exposition and final campaign evidence bundle remain unfinished. The Derivation subsection belongs to another collaborator and is untouched.
 
-An additive C variant checks putchar/printf return values and flushes stdout
-before success. It appends the four original sensitivity inputs to the original
-52 rows. Lean has checked its 142-piece source AST, 728 unchanged copied-file
-identities, and the four actual source-array-to-original-expression bindings.
-Its full 56-row numerical replay passed in 1,320.80 seconds, with byte-identical original outputs and real /dev/full rejection. Whole arithmetic,
-loop, initialization, stream-effect and theorem-provider proofs remain open.
-
-The new 512-bit basis backend has actual source-body proofs for addU, mulU and
-zero, including the multiplication guard and zero short circuit. Its source
-initialization is proved from the actual bound global declarations. The complete
-19-function backend remains unfinished. Positive exp/log/interval models are
-mathematical support and do not substitute for its source-body proofs.
-
-The standalone source-binding capsule was actually replayed from 142 fresh
-application source modules with public generic dependencies and all 52 actual
-C rows; it reused no old application objects. This was a host source-cold run,
-not a namespace-isolated final migration run. The additive runtime guard was
-tested separately and is not mislabeled as a second complete replay.
-
-The offline [analytic research progress report](ANALYTIC_RESEARCH_PROGRESS.html)
-records 20 mechanisms, mathematical partial proofs, numerical scouts and serious
-challengers. It is a checkpoint, not the final project report or a claim that
-the remaining numerical/source-PV instances are complete.
-
-`c56-and-rational-source-checkpoint-v1.tar.xz` preserves the additive C56
-source, its actual AST/input proofs, accepted rational helper sources (including
-qm), scripts, receipts and source hashes. Its numerical runner accepts explicit
-source/toolchain/reference-output paths. The combined clean source-cold replay
-was not completed before the usage stop; no full source-PV claim is made.
-
-The final saved mathematical result is unconditional:
-`SynergyAnalytic.tangent256_universal_basis_caps` proves the three true
-Gaussian basis caps (1.865, 0.6365, 0.516) using genuine 272-cell ordinary-kernel
-execution, real soundness and analytic tails, with only standard Lean axioms.
-`J_CAPS_SOURCE_CHECKPOINT_V1.zip` preserves its 96-source dependency closure,
-receipts and README. This is kernel-only verification, not C-source PV. The
-new height/PNT numerical instance remains unfinished.
-
-`SCOPED_16_BODY_SOURCE_COLD_COMPONENT_V1.zip` contains the independently
-replayed 16-body/46-source component and reproducible scripts (302.90 seconds).
-It is host source-cold, not final namespace isolation. The later merged28-body
-and C56 source-cold replay remains pending.
-
-## Continued source proofs and fresh replays
-
-Two additive source-cold components are available:
-
-* `SCOPED28_C56_SOURCE_COLD_COMPONENT_V3.zip`:343fresh application sources,885exact include payloads,60Std3root audits,28actual old-C body contracts and the checkedC56 source/auxiliary bindings,1571.56seconds.
-* `POSITIVE6_STDIO_SOURCE_COLD_V1.zip`:52fresh application sources,53payloads,24Std3root audits,238.34seconds. Covers six actual C512 arithmetic bodies and the additive StdIO model/actual checked-flush statement. The later seventh body, positiveSub, and its mathematical join are explicitly a host-only supplement.
-
-Both runs start with empty application object directories and use only pinned public generic dependencies. Both are HOST runs, not namespace isolation or repeat numerical C executions. Each archive includes clean setup/reproduction scripts, source hashes, accepted receipts and actual root-audit logs. Source-first verification of the complete numerical applications and final ANT providers remains unfinished.
-
-The StdIO model allows failures and partial writes, and proves delivery from a zero fflush return. Its actual source-branch theorem is conditional in an arbitrary failure policy; it does not assert all application writes succeed or that the emitted mathematics is correct. Printing, buffers/lifetimes, complete main correctness and theorem consumption remain mandatory.
-
-`BODY32_SOURCE_SUPPLEMENT_V1.zip` records32 actual original C body contracts
-with the corresponding mathematical joins, including signed/rational
-comparison and rational min/max. Its119-source/47-root clean-replay recipe is
-preserved, but this combined32-body cold replay has not been executed; its
-proof receipts are source-associated host builds. The earlier28-body cold
-replay remains separate accepted evidence.
+Baseline mathematical source: `9f108629f0039584250b5e5d781f5313bb3d0ea8`. This is supplemental work on `research/qrh-pv-synergy-20261114`; the protected `qrh-2pv` branch and all locked original outcomes remain unchanged. `STATUS.json`, current reports and `evidence/continuation-20261114-v2/` distinguish accepted components from pending gates.
