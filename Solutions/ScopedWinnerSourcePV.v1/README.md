@@ -1,47 +1,48 @@
-# IEANTN QRH research: completed moment/PNT substudy
+# Original Scoped Winner source-first verification: complete
 
-[Tentative report of completed results](IEANTN_COMPLETED_RESULTS_TENTATIVE_20261115.html) — standalone offline HTML with the verified bounds, native-free mathematical migration, evidence and remaining source-first boundary.
+**16 November 2026.** The original fixed experiment is complete under its unchanged
+mathematical contracts. Read the [compact completion report](ORIGINAL_SOURCE_FIRST_COMPLETION_20261116.html)
+and [exact result/resource record](original-completion-20261116/RESULTS.json).
 
-**15 November2026. The new substudy is complete; the original program migration and
-core-network registration remain unfinished.** Read the [full offline report](evidence/moment-20261115-v7/exposure/heldout-audit-v1/HELDOUT_AND_MOMENT_ANT_REPORT_V6.html)
-and [exact scientific status/artifact manifest](MOMENT_ARTIFACTS_V7.json).
+The actual C++ application source, formal execution, physical result words and
+mathematical consumers preserve **0.009474458010474448 → 0.009471462010471452**,
+8,192 versus 16,384 integration cells, all 39 recorded comparator identities and
+the strict comparison on [exp(330), exp(331)]. The original seven grouped input
+contracts (fourteen propositions after unpacking the preserved structure) remain
+unchanged. This is conditional, without an optimality or PV-exclusive claim.
 
-The actual two C moment programs and consumed output reads prove Eπ,Eψ≤0.008848544·x⁻¹⁄⁸
-for everyx≥e³⁰⁰ under the same fourteen analytic inputs. An ordinary kernel-only vector
-checker proves the stronger0.008732871 coefficient under those same inputs; it is notPV.
-No exclusive coefficient advantage, optimum or global strongest-checker claim is made.
-The parameter-dependent source family also has losses near330/400; preserve old frontiers.
+The canonical 52-row and physical 4-row initialized source programs are verified.
+An additive 56-row counterpart supplies the four sensitivity computations.
+All 27 mathematical interfaces retain their exact old types; 15 data interfaces
+retain their values. The independent census covers the original 49 primary native
+identities, the joint result's 50, and the four sensitivity C computations.
+The separate arithmetic comparison was already native-free and uses no source fields.
 
-Download the [complete publication-clean source/evidence archive](HELDOUT_MOMENT_SOURCE_EVIDENCE_V7.tar.xz)
-(5,625,960bytes; SHA2569db5107964292467bc0d3d81838b5f49c9b796afae7cb966dcdbde63305cbc70).
-It includes all clean numerical/proof reproduction scripts, exact C/Lean source, parameters,
-public dependency pins, receipts, rejected outcomes and full actual type/axiom evidence.
-Open README.md after extraction. Verify the downloaded bytes and all27,363members with:
+Download the [complete original source/evidence package](ORIGINAL_SOURCE_FIRST_COMPLETE_20261116.tar.xz).
+Archive size: 33342476 bytes. SHA256: `6fd71b23f4d783f4824ce659a7295ceac9127669798b57fc97048b5a55d2ec3e`.
+Extract it and run `python3 -I -B verify_package.py`, then follow its README.
+It includes 6,597 fixed Lean sources and all 1,299 include payloads, plus checked
+deterministic generators for 4,373 large numerical Lean sources. No application
+object cache is distributed. Exact parameters, dependencies, C++ sources,
+commands, receipts, source/claim audits and cryptographic hashes are preserved.
 
-    python3 -B tools/verify_public_moment_tar_v7.py --archive HELDOUT_MOMENT_SOURCE_EVIDENCE_V7.tar.xz --out /absolute/fresh-receipt.json
+All 10,970 modules and 20,306 selected typed standard-axiom roots passed through
+explicitly validated source-built namespace continuations. The original giant
+audit's code-generator recursion failure is preserved; a supplemental audit of the
+same 10,338 objects and the final 632-module append completed the chain. This is
+not another uninterrupted empty-bank run. The complete clean default regenerates
+all numerical data and compiles from an empty application object bank; its input
+routes and full source materialization were actually checked. Its numerical stages
+and the explicit proof chain were executed separately.
 
-The expanded evidence tree here is an inspection view. Use the extracted archive for
-complete reproduction, which includes every full source-only capsule and its base.
-Accepted proof objects remain retained locally and regenerate from the supplied sources.
+The original C++ evaluator uses the pinned Lean **core Nat/reference-count API**
+for primitive arithmetic/storage. It does not invoke a Lean application evaluator
+or `native_decide` oracle. Pinned kernel, standard axioms, generic core runtime,
+C++ compiler/ABI, documented I/O, OS and hardware contracts remain explicit.
+Modeled accepted CSV bytes/source-state reads and separately observed native
+stdout association are distinguished; no formal OS-pipe/hardware-memory trace is claimed.
 
-The4057 graph was built in an empty application bank. The4076/4486/568 continuations
-are precisely validated4057+19,4057+429 and565+3 chains; they are not empty-bank runs.
-The matching565 mathematical graph did pass a separate empty-bank source replay.
-The initial568 attempt's final audit rejected a root-inventory mistake after all3
-mathematical modules compiled; its corrected same-source retry passed. Failure staysfailure.
-All original sealed research outcomes and historical scores are unchanged.
-
-The source boundary retains pinned Clang_BitInt512/ABI/runtime/linker/CRT, normal-stdio
-model, OS and hardware contracts. Actual source, model execution and observed output
-are linked; no universal host-I/O success or hardware-memory trace is asserted.
-Only each final128-byte footer is directly formally compared; full98432-byte native
-outputs and all768 source/word facts are separately verified. Current C uses noBoost.
-
-The original Scoped Winner migration currently closes65/68 source bodies. Its original
-main/lifetime/final source-consumer composition and exact fourteen-provider core mapping
-remain pending. No new core Conclusions/formalizationmetadata registration is claimed.
-The mathematical consumers are compiled Solution-level proofs, not an automatic core update.
-
-The [V5 study report](evidence/heldout-20261115-v5/exposure/heldout-audit-v1/HELDOUT_AND_TWO_ANT_CONSUMERS_REPORT_V5.html)
-and [V5 archive](HELDOUT_TWO_ANT_SOURCE_EVIDENCE_V5.zip) remain byte-preserved dated history;
-its pending verification descriptions are superseded by the current report.
+Broader Moment/Vector/theta research source-only verification and official IEANTN
+Comparator registration remain separate. No official receipt or verification
+status is fabricated. The [earlier README](original-completion-20261116/README_BEFORE_COMPLETION.md),
+all dated reports/archives and primary outcomes remain unchanged historical evidence.
