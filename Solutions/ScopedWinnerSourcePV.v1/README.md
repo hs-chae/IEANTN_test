@@ -1,5 +1,7 @@
 # IEANTN QRH research: completed moment/PNT substudy
 
+[Tentative report of completed results](IEANTN_COMPLETED_RESULTS_TENTATIVE_20261115.html) — standalone offline HTML with the verified bounds, native-free mathematical migration, evidence and remaining source-first boundary.
+
 **15 November2026. The new substudy is complete; the original program migration and
 core-network registration remain unfinished.** Read the [full offline report](evidence/moment-20261115-v7/exposure/heldout-audit-v1/HELDOUT_AND_MOMENT_ANT_REPORT_V6.html)
 and [exact scientific status/artifact manifest](MOMENT_ARTIFACTS_V7.json).
