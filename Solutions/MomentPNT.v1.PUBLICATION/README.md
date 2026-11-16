@@ -1,5 +1,11 @@
 # Completed moment PNT source solution
 
+**Numerical-closure correction:** the six mathematical proofs and C-program
+proofs remain valid, but additional numerical boundary providers still use
+kernel-only checks. The whole PNT numerical chain is not yet entirely source-first.
+Read [the precise scope correction](NUMERICAL_SOURCE_CLOSURE_CORRECTION_20261116.md)
+before interpreting the historical archive's verification-method claims.
+
 This checkpoint publishes two new node families and a completed six-conclusion
 conditional solution. It does not mark the wider Scoped Winner migration or
 research campaign complete. Original nodes,39 comparator identities, recorded
