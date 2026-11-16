@@ -83,6 +83,8 @@ import IEANTN.Nodes.LowZeroes.v1.Challenge
 import IEANTN.Nodes.MT.v1.Challenge
 import IEANTN.Nodes.MT.v2.Challenge
 import IEANTN.Nodes.MTY.v1.Challenge
+import IEANTN.Nodes.MomentPNT.v1.Challenge
+import IEANTN.Nodes.MomentSourceInputs.v1.Challenge
 import IEANTN.Nodes.OliveiraESilva2014.v1.Challenge
 import IEANTN.Nodes.OpenAIQRH.v1.Challenge
 import IEANTN.Nodes.Platt2015.v1.Challenge

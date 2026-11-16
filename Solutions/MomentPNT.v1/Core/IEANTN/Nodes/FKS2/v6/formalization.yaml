@@ -1,0 +1,76 @@
+version: v0.4
+project:
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+  name: Historical FKS2 Table4 anchor and comparison
+  description: Independent original table values, separately literature backed; no
+    enormous prime-counting values are computed.
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+automation:
+  methods:
+  - method: manual
+    role: Lean proofs, rational exponential bounds, exact challenge/solution comparison,
+      and downstream replay.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+node:
+  id: FKS2.v6
+  family: FKS2
+  version: v6
+  kind: paper
+  status: active
+conclusions:
+- id: table4_anchor_300
+  declaration: FKS2.v6.table4_anchor_300
+  challenge: FKS2.v6.challenge_table4_anchor_300
+  imports: []
+  imports_status: none
+  justifications:
+  - id: table4
+    kind: numerical
+    source: https://arxiv.org/abs/2206.12557v2
+    locator: Table4, printedp18, log(x1)=300 row; Definition5/(10), Corollary8/(15);
+      specialized at exp300
+    note: Original paper reports a numerical bound valid on the whole ray from the
+      tabulated threshold, via Theorem6/Corollary8. This input is literature-backed
+      and not a new checked-program result.
+  designated: table4
+- id: table4_330
+  declaration: FKS2.v6.table4_330
+  challenge: FKS2.v6.challenge_table4_330
+  imports: []
+  imports_status: none
+  justifications:
+  - id: table4
+    kind: numerical
+    source: https://arxiv.org/abs/2206.12557v2
+    locator: Table4, printedp18, log(x1)=330 row; Definition5/(10), Corollary8/(15)
+    note: Original paper reports a numerical bound valid on the whole ray from the
+      tabulated threshold, via Theorem6/Corollary8. This input is literature-backed
+      and not a new checked-program result.
+  designated: table4
+sources:
+- id: https://arxiv.org/abs/2206.12557v2
+  title: Sharper bounds for the error term in the Prime Number Theorem
+  authors:
+  - Andrew Fiori
+  - Habiba Kadiri
+  - Joshua Swidinsky
+  type: paper
+  relationship: formalizes
+  location: Table4, printedp18, rows300and330; Theorem6andCorollary8
+limitations:
+- The original historical Table4 computations are not independently rerun or formally
+  certified in this experiment.

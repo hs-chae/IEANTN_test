@@ -1,0 +1,87 @@
+version: v0.4
+node:
+  id: FKSComputationLed.v1
+  family: FKSComputationLed
+  version: v1
+  kind: computation
+  status: active
+project:
+  name: Computation-led continuous finite-window prime number theorem
+  description: >-
+    A new adaptive Li/count construction on the entire real interval [1e8,1e9],
+    with 81314 checked cells and 162628 exact canonical-sieve endpoint ranks.
+    The old prime coverage is reused knowledge, not a new discovery.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11Y35
+conclusions:
+- id: finite_pi_li
+  declaration: FKSComputationLed.v1.finite_pi_li
+  challenge: FKSComputationLed.v1.challenge_finite_pi_li
+  imports: []
+  imports_status: none
+  justifications:
+  - id: native-finite-envelope
+    kind: lean-noncompliant
+    note: >-
+      Full closed Lean consumer with three explicitly disclosed native_decide
+      leaves (canonical-sieve ranks, interval cells, cover geometry). No external
+      numerical input hypothesis, sorry, or oracle is used. This is the approved
+      native-assisted tier, not an official Comparator/NanoDa receipt.
+  designated: native-finite-envelope
+- id: finite_relative_error
+  declaration: FKSComputationLed.v1.finite_relative_error
+  challenge: FKSComputationLed.v1.challenge_finite_relative_error
+  imports:
+  - node: FKSComputationLed.v1
+    conclusion: finite_pi_li
+  imports_status: identified
+  justifications:
+  - id: algebraic-consumer
+    kind: lean-noncompliant
+    note: >-
+      Exact ordinary Lean algebraic transfer of the displayed finite_pi_li
+      supplier to the existing Epi vocabulary; upstream native tier is retained.
+      No official comparator receipt is claimed.
+  designated: algebraic-consumer
+sources:
+- id: computation-led-finite-window
+  title: Computation-led adaptive continuous Li2/count envelope
+  authors:
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: >-
+    Project-internal new construction. Reuses the existing LeanCert Dyadic
+    interval evaluator and DirectGoldbach pure-Lean canonical sieve with their
+    proved semantics. FKS2 and Buthe were the original scout/comparison sources;
+    neither supplies a new unproved premise to this closed result.
+automation:
+  methods:
+  - method: agent
+    role: Adaptive numerical construction, exact finite checking, analytic and cover proofs.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+  - Independent nonwriter Codex agent (source/math and fresh-source receipt review)
+  notes: >-
+    Final 49-source campaign is source-cold checked at the disclosed native
+    tier. Independent source reviews are recorded in routes/arithmetic/
+    FKS_FINITE_PNT_INDEPENDENT_REVIEW_V2.json and
+    FKS_STRONG_BASELINE_READBACK_V2.json outside the source-only network.
+    This is not an official comparator verification receipt.
+limitations:
+- Native compiler and hardware correctness are trusted for the three finite leaves.
+- No global-best, optimality, or necessity-of-verified-producer claim is made.
+- Existing primary exposure outcomes and all old source claims are unchanged.

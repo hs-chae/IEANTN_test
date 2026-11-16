@@ -1,0 +1,54 @@
+--- captured-C/HeightProfileScalars
++++ selected-math-nativefree/HeightProfileScalars
+@@ -3,6 +3,9 @@
+ import EulerGammaBound
+ import WinnerBetaA.HeightSource
+ import SourceDensityPoly
++set_option maxHeartbeats 0
++set_option maxRecDepth 100000
++
+ namespace WinnerHeightProfiles
+ open Real LeanCert.Core WinnerOriginalScalars WinnerBetaA.HeightSource WinnerDensitySource
+ set_option maxHeartbeats 0
+@@ -129,33 +132,33 @@
+ 
+  theorem log_lower (j : Fin 4) : ((row j).h:ℝ)≤log (anchor j) := by
+   rw [←log_semantics]
+-  fin_cases j <;> exact closed_lower _ _ (by native_decide)
++  fin_cases j <;> exact closed_lower _ _ (by decide +kernel)
+  theorem mean_one_upper (j : Fin 4) : meanOne (anchor j)≤(row j).m1 := by
+   rw [←one_semantics]
+-  fin_cases j <;> exact closed_upper _ _ (by native_decide)
++  fin_cases j <;> exact closed_upper _ _ (by decide +kernel)
+  theorem mean_two_upper (j : Fin 4) : meanTwo (anchor j)≤(row j).m2 := by
+   rw [←two_semantics]
+-  fin_cases j <;> exact closed_upper _ _ (by native_decide)
++  fin_cases j <;> exact closed_upper _ _ (by decide +kernel)
+  theorem ratio_zero_upper (j : Fin 4) :
+     (281/100)/((611/1000)*anchor j^((1:ℝ)/6)*log (anchor j))≤(row j).r0 := by
+   rw [←zero_semantics]
+-  fin_cases j <;> exact closed_upper _ _ (by native_decide)
++  fin_cases j <;> exact closed_upper _ _ (by decide +kernel)
+  theorem ratio_one_upper (j : Fin 4) :
+     1/((611/1000)*anchor j^((1:ℝ)/6)*log (anchor j)*sqrt (log (anchor j)))≤(row j).r1 := by
+   rw [←residual_semantics]
+-  fin_cases j <;> exact closed_upper _ _ (by native_decide)
++  fin_cases j <;> exact closed_upper _ _ (by decide +kernel)
+  theorem right_v_upper (j : Fin 4) : WinnerBetaA.HeightSource.rightV (289/500) (3599/10000) (anchor j)≤(row j).V := by
+   rw [←v_semantics]
+-  fin_cases j <;> exact closed_upper _ _ (by native_decide)
++  fin_cases j <;> exact closed_upper _ _ (by decide +kernel)
+  theorem coefficient_upper (j : Fin 4) : densityCoefficient (7/8) (3681/10000) (3599/10000)
+     (601/5000) (row j).U (row j).V sourceSmoothingR≤(row j).K := by
+   rw [←k_semantics]
+-  fin_cases j <;> exact closed_upper _ _ (by native_decide)
++  fin_cases j <;> exact closed_upper _ _ (by decide +kernel)
+  theorem slope_lower (j : Fin 4) : (54281/10000:ℝ)≤
+     2*log ((row j).V/(row j).U:ℝ)+4*(3599/10000)*interpolationPhi (3599/10000) (row j).U (row j).V := by
+   rw [←b_semantics]
+   have hn : ((54281/10000:ℚ):ℝ) ≤ value (bExpr j) := by
+-    fin_cases j <;> exact closed_lower _ _ (by native_decide)
++    fin_cases j <;> exact closed_lower _ _ (by decide +kernel)
+   norm_num at hn ⊢
+   exact hn
+ #print axioms coefficient_upper

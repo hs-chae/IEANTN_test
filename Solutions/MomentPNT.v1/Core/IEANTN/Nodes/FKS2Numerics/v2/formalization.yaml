@@ -1,0 +1,165 @@
+automation:
+  methods:
+  - method: agent
+    models:
+    - Codex (model identifier not recorded)
+    framework: Codex
+    role: Ported the existing checked proof and node contracts to the corrected numerical
+      premise. No new Comparator receipt or human audit is claimed.
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11Y70
+conclusions:
+- challenge: FKS2Numerics.v2.challenge_table6_row2_floor
+  declaration: FKS2Numerics.v2.table6_row2_floor
+  designated: fks2-computation
+  id: table6_row2_floor
+  imports: []
+  imports_status: none
+  justifications:
+  - id: fks2-computation
+    kind: numerical
+    source: FKS2
+    locator: Sections 5.2-5.3, the direct check for small x behind Table 6's row 2
+    note: 'A finite check rather than an argument, so `numerical`. On the window [e,
+      e^6] -- x between 2.72 and 403 -- pi(x) is an exact prime count and Li(x) a
+      certified quadrature, so the claim is bounded arithmetic with no analytic content.
+      The paper describes it as checking directly for particularly small x. Imports
+      `none`, and that is a real none: a finite computation on a bounded range consumes
+      no other result in the network. PrimeNumberTheoremAnd carries the same datum
+      as a deliberate `sorry` in its FKS2TrustedNumerics -- it has no import mechanism,
+      so its FKS2 development reports sorryAx. Stating it here is what lets FKS2.v1''s
+      solution rest on the same computation without a hole.'
+- challenge: FKS2Numerics.v2.challenge_nu_asymp_e30_le
+  declaration: FKS2Numerics.v2.nu_asymp_e30_le
+  designated: checked-source-stability
+  id: nu_asymp_e30_le
+  imports: []
+  imports_status: none
+  justifications:
+  - id: checked-source-stability
+    kind: lean-noncompliant
+    note: Complete checked multiplier proof in Solutions/FKS2Numerics.v2/Solution.lean
+      uses the original selected C execution, general symbolic binary64 summation
+      theorem and audited finite native certificates. Native facts are outside Comparator
+      standard-axiom policy; no Comparator receipt is claimed. Verified threshold6.339e-7
+      replaces the refuted pinned6.3376e-7 premise. Other numerical claims remain
+      separate.
+- challenge: FKS2Numerics.v2.challenge_theta_asymp_ge_one_below_e30
+  declaration: FKS2Numerics.v2.theta_asymp_ge_one_below_e30
+  designated: fks2-small-range-computation
+  id: theta_asymp_ge_one_below_e30
+  imports: []
+  imports_status: none
+  justifications:
+  - id: fks2-small-range-computation
+    kind: numerical
+    source: FKS2
+    locator: the proof of Corollary 14, where the minimum of epsilon_theta,asymp on
+      [2, e^30] is recorded as roughly 2.6271 at x = 2
+    note: 'What lets BKLNW''s E_theta(x) <= 1 cover [2, e^30], the range below where
+      FKS''s bound starts.
+
+      Weaker in kind than the other two claims on this node, and the difference is
+      worth stating. table6_row2_floor and nu_asymp_e30_le are arithmetic that no
+      amount of analysis will replace. This one quantifies over a continuum and is
+      PROVABLE OUTRIGHT: writing u = sqrt(log x / R), the bound is A u^3 exp(-2u),
+      which rises to its maximum at u = 3/2, so on any interval its minimum is at
+      an endpoint and only the endpoint evaluation is numerical. It is carried as
+      an assertion because that is how the paper carries it, and it is the first conclusion
+      on this node that should be promoted to a proof.
+
+      Found by porting, not by reading -- the second of the two missing imports of
+      FKS2.v1.corollary_14.'
+- challenge: FKS2Numerics.v2.challenge_corollary_22_mid_range
+  declaration: FKS2Numerics.v2.corollary_22_mid_range
+  designated: fks2-corollary-22-interpolation
+  id: corollary_22_mid_range
+  imports: []
+  imports_status: none
+  justifications:
+  - id: fks2-corollary-22-interpolation
+    kind: numerical
+    source: FKS2
+    locator: the proof of Corollary 22, the step-function interpolation below e^20000
+    note: 'Corollary 22 splits at e^20000. Above it the claim is analysis -- Theorem
+      3 applied to Corollary 14, with the multiplier controlled by a Dawson estimate
+      -- and that half is proved in Solutions/FKS2.v1. Below it the paper interpolates
+      numerical results as a step function, using the subdivisions of FKS''s Lemmas
+      5.2 and 5.3. A computation over a table, not an argument, so it is stated here.
+
+      Imports none: a bounded-range numerical claim consumes nothing from the network.
+
+      Worth recording that PrimeNumberTheoremAnd does not have this either. It formalizes
+      only corollary_22_tail, from exp 20000 onward, and has no full Corollary 22.
+      So this is the missing piece in both developments, and stating it here is what
+      lets FKS2.v1.corollary_22 be assembled at all.'
+- challenge: FKS2Numerics.v2.challenge_corollary_23_mid_range
+  declaration: FKS2Numerics.v2.corollary_23_mid_range
+  designated: fks2-corollary-23-mid-range
+  id: corollary_23_mid_range
+  imports: []
+  imports_status: none
+  justifications:
+  - id: fks2-corollary-23-mid-range
+    kind: numerical
+    source: FKS2
+    locator: the numerical inputs behind Table 6's row 2, between e^6 and e^20000
+    note: 'Corollary 23 splits three ways. On [e, e^6] it is table6_row2_floor; above
+      e^20000 it is analysis, since Corollary 22 dominates the row-2 curve there.
+      This is the middle, where the paper works numerically -- Buthe''s estimate up
+      to 10^19, then the Table 4 transport.
+
+
+      Both numerical stretches are folded into one claim rather than two: the split
+      between them is an artefact of which method is cheapest where, not of the mathematics,
+      and nothing in this network consumes the halves separately. PrimeNumberTheoremAnd
+      keeps them apart (floor_buthe2 on [e^6, e^10], then a quarter transport over
+      extended Table 4 cells to e^20000) because it proves them; here they are asserted
+      together.
+
+
+      Imports none: a bounded-range numerical claim consumes nothing from the network.'
+limitations:
+- No new Comparator receipt; native certificate trust for the multiplier is disclosed.
+- Four other numerical inputs retain their existing external numerical justification.
+node:
+  family: FKS2Numerics
+  id: FKS2Numerics.v2
+  kind: computation
+  status: stub
+  version: v2
+project:
+  authors:
+  - Terence Tao
+  description: 'Corrected FKS2 numerical variant: verified6.339e-7 multiplier with
+    the four other numerical inputs retained. Source-first provider imported from
+    hs-chae/goldbach_pv hs-chae/fp3b3205d into the existing QRH network; only the
+    correction multiplier is discharged here.'
+  license: Apache-2.0
+  name: FKS2's finite numerical checks
+  responsible_maintainers:
+  - Terence Tao
+repository:
+  role: substantive-development
+review:
+  status: self-assessed
+  reviewers:
+  - Jason (coding agent)
+  notes: Versioned correction based on checked source numerical computation. No published-paper
+    error or independent human audit is claimed.
+sources:
+- authors:
+  - Andrew Fiori
+  - Habiba Kadiri
+  - Joshua Swidinsky
+  id: arXiv:2206.12557
+  location: arXiv:2206.12557; the numerical checks behind Table 6
+  note: The same paper as FKS2.v1. Split by the kind of claim, not by the source.
+  relationship: formalizes
+  title: Sharper bounds for the error term in the Prime Number Theorem
+  type: paper
+version: v0.4

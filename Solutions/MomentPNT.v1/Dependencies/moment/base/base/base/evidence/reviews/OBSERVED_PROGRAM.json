@@ -1,0 +1,103 @@
+{
+  "schema": 1,
+  "status": "PASS_BOUNDED_OBSERVED_FINAL_BYTES_TO_SOURCE_PROGRAM_AND_ANT_REVIEW",
+  "utc": "2026-11-15T12:48:00.615393+00:00",
+  "reviewer": "controls_resume independent of analytic author",
+  "modules": [
+    {
+      "module": "SynergyHeightC.MainObservedOutput",
+      "source_sha256": "2189da14676473736085737bb019389427fd9192f4b1ffd7b5d3acf5742dc17b",
+      "receipt": "research/analytic/work/main-observed-output-v1/RECEIPT.json",
+      "receipt_sha256": "d9171f6861f3db687e8ff2bf0536d8c6dab778ecdfd2305207995cf03fa626b1",
+      "object_sha256": "dfc28f85b3e5416215f27ff054faacdd18c8985c3da252fbbb21b092fde80e8c",
+      "roots": [
+        {
+          "name": "SynergyHeightC.MainObservedOutput.total_exact",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "name": "SynergyHeightC.MainObservedOutput.bytes_exact",
+          "axioms": [
+            "propext"
+          ]
+        },
+        {
+          "name": "SynergyHeightC.MainObservedOutput.actual_source_bytes",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "name": "SynergyHeightC.MainObservedOutput.actual_source_sum",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "name": "SynergyHeightC.MainObservedOutput.observed_upper_word_bound",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "SynergyHeightC.MainObservedProgram",
+      "source_sha256": "c419850cd1172c19d6a210c834f73cbb600f9cec04b754dfddc0182da5940e97",
+      "receipt": "research/analytic/work/main-observed-program-v1/RECEIPT.json",
+      "receipt_sha256": "6bee34ed282c168f3e683d4d82e1d0a20849fd209908e36189bec6542f5eee1e",
+      "object_sha256": "d11e40d6fa58fbfd307865c7d863300eaa18c412654727bb9a1136e1c62d9957",
+      "roots": [
+        {
+          "name": "SynergyHeightC.MainObservedProgram.complete_source_main_observed_and_pnt",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ]
+    }
+  ],
+  "complete_standard_axiom_roots": 6,
+  "native_execution_axioms": 0,
+  "material_mismatches": [],
+  "observed_run": {
+    "receipt": "research/height-main-cpp-fresh-v1/RECEIPT.json",
+    "receipt_sha256": "e4b4ba16fe36c0139203235931d3a3667b27e9a62c6f2443eb68f5a0c710b45d",
+    "raw_bytes": 98432,
+    "raw_sha256": "9eed8900f85288d3c6890688417b53d9ecde40ccd837bf34e8993afba2ccc22e",
+    "tail_bytes": 128,
+    "tail_sha256": "9da54162a02ac36ebaf16bc66533ef479fcf7c86b1b2bcf5669b4ededb69b96b",
+    "compiler_sha256": "9fcd5fc4baeea9c449bcc9ca4b9db7714465107669498b0056a853f22f5f4def",
+    "physical_C_files": 524,
+    "both_compiled_and_proof_source_trees_exactly_pinned": true,
+    "Lean_byte_literals_equal_actual_tail": true,
+    "Lean_total_literals_equal_actual_tail_words": true,
+    "preparation_sha256": "98307891a674ce32a84bb98a22ddc19fc3b60a0e49940f011533a109a1c04620",
+    "generator_sha256": "ced85027e393694fabea9575afac74c10b9fc054a3b1c4b61df1c9dcf247d9c6"
+  },
+  "checked_mechanisms": [
+    "Raw compiler execution is correctly labeled source_first_PV=false by itself; the formal source-main proof and independently checked source weight computation supply the actual program and mathematics chain.",
+    "The generator derives the128 observed byte literals and two512-bit words from the actual98432-byte output; current source literals match those exact physical bytes, not a manually supplied numerical answer.",
+    "MainObservedOutput.total_exact identifies the observed words with independently source-proved Data.total768; bytes_exact is a kernel-checked byte equality to the source emitter encoding. The observation is never substituted as a numerical provider premise.",
+    "MainObservedProgram identifies the physically read out box with the independently proved observed/source total and rewrites the emitted byte statement; exact sum, word bound and PNT are consumed without additional numerical or I/O trace assumptions.",
+    "The complete source call remains under explicit CompleteIOModel.policy, with source-computed globals, actual768loop/emit/flush/return. Fresh host execution association is a separately checked source/compiler/raw-output receipt, not a universal-success assumption."
+  ],
+  "qualifications": [
+    "The final128byte numerical consumer is formally compared. The entire98432-byte observed output is pinned by the run receipt; this bounded review does not add a separate kernel equality for every auxiliary observed row byte.",
+    "Warm coherent-bank proof compiles passed; final complete source-cold/namespace-isolated replay remains a separate obligation.",
+    "The pinned compiler and documented generic C++ standard/Boost arithmetic, runtime/stdio, ABI, OS and hardware contracts remain execution trust boundaries. This review does not verify the generic compiler, library headers or hardware.",
+    "The eight original PrimaryInputs fields and six analytic hypotheses remain explicit."
+  ]
+}

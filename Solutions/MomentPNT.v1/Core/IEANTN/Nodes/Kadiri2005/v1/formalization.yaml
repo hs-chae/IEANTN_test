@@ -1,0 +1,109 @@
+# Node metadata for `Kadiri2005.v1`.  See docs/NODES.md.
+version: "v0.4"
+
+node:
+  id: Kadiri2005.v1
+  family: Kadiri2005
+  version: v1
+  kind: paper
+  status: stub
+
+project:
+  name: "Kadiri: an explicit zero-free region for the Riemann zeta function"
+  description: >-
+    An explicit zero-free region of classical de la Vallee Poussin shape: zeta has no zeros in a
+    region defined by an explicit constant. The other analytic input, alongside a zero density
+    estimate, to explicit bounds on the Chebyshev functions. The zero-free region, stated with its
+    constant as a parameter rather than baked in, so that a later sharpening -- `MTY`, for
+    instance -- can be swapped in by a downstream node without restating anything.
+  authors: ["Terence Tao"]
+  license: "Apache-2.0"
+  responsible_maintainers: ["Terence Tao"]
+
+repository:
+  role: substantive-development
+
+classification:
+  arxiv: [math.NT]
+  msc2020: ["11M26"]
+
+conclusions:
+- id: zero_free_region
+  declaration: Kadiri2005.v1.zero_free_region
+  challenge: Kadiri2005.v1.challenge_zero_free_region
+  imports:
+  - node: RosserSchoenfeld.v1
+    conclusion: zero_free_region_classical
+  - node: Wedeniwski.v1
+    conclusion: rh_up_to
+  imports_status: identified
+  justifications:
+  - id: kadiri-paper
+    kind: literature
+    source: Kadiri2005
+    locator: the paper's main theorem, as reported by MT Table 1 and Section 2
+    note: >-
+      Asserted on the authority of the paper, now read FIRST HAND from the published version, Acta Arith.
+      117.4 (2005). Theoreme 1.1 (Principal): 'La fonction zeta de Riemann ne s'annule jamais dans la
+      region suivante : Re s >= 1 - 1/(R_0 log(|Im s|)), |Im s| >= 2, avec R_0 = 5.69693.' Constant, threshold
+      and the closed form all confirmed. The node previously recorded this at second hand from MT, and
+      the arXiv preprint held alongside gives the weaker 5.70176, which -- since MT starts from R = 5.7
+      and a smaller R is the stronger claim -- could not have supported the edge into MT. The published
+      version was therefore load-bearing, and now it is held. Imports, both now edges. The paper takes
+      its starting region from Rosser-Schoenfeld: 'Grace au resultat de Rosser, nous prenons tout d'abord
+      R = 9.645908801', which is RosserSchoenfeld.v1.zero_free_region_classical -- the plain-shaped form,
+      since Kadiri uses 1/(R log t) at heights past 3.3e9, and that form is bridged from the paper's own
+      log(t/17) shape. And its height: 'pour T_0, nous prendrons la valeur de S. Wedeniwski, c'est a dire
+      tres exactement 3 330 657 430.697', which is Wedeniwski.v1. Note what the second edge costs. Wedeniwski
+      is the weakest evidence in the network -- a website, unpublished, with documented doubts -- so this
+      conclusion, and everything downstream of it as far as FKS2, rests on it. Discharging Wedeniwski
+      by a bridge from Platt2017 would remove that without changing any statement, and is the obvious
+      next move.
+  designated: kadiri-paper
+
+sources:
+- title: "Une region explicite sans zeros pour la fonction zeta de Riemann"
+  authors: ["Habiba Kadiri"]
+  type: "paper"
+  id: "https://arxiv.org/abs/math/0401238"
+  location: "Acta Arith. 117 (2005), no. 4, 303-339"
+  relationship: formalizes
+  note: >-
+    The published version, Acta Arith. 117.4 (2005), 303-339, is held and read; so is the arXiv preprint
+    math/0401238, which gives the weaker 5.70176. They are not interchangeable -- see the conclusion's
+    note.
+
+automation:
+  methods:
+  - method: agent
+    models: ["Claude Opus 5 (Anthropic)"]
+    framework: "Claude Code"
+    role: >-
+      Transcribed Theoreme 1.1 first hand from the published Acta Arith. version and recorded
+      what it rests on, under the direction of the maintainer. No proof is claimed.
+
+review:
+  status: self-assessed
+  reviewers: ["Terence Tao"]
+  notes: >-
+    Theoreme 1.1 was read first hand from the published Acta Arith. version, which the library holds,
+    and its constant, threshold and closed form all agree with what is stated here. The bibliographic
+    record -- originally taken from blueprint/src/references.bib in PrimeNumberTheoremAnd -- has since
+    been checked against the paper itself: the article's own first page reads ACTA ARITHMETICA 117.4
+    (2005), and it runs 37 pages ending at 339, which is the recorded 303-339. Note that `sources[].id`
+    still points at the arXiv preprint, which is the version that does NOT support this conclusion; the
+    source note records why. Replacing it with the published DOI would be the honest fix, and has not
+    been done here because the paper prints no DOI and guessing at one is how a citation goes wrong.
+
+limitations:
+- >-
+  The conclusion rests on the cited paper; it is not proved in Lean here. It is now recorded first hand
+  from the published Acta Arith. version.
+- >-
+  The arXiv preprint held alongside gives 5.70176, which is too weak to support MT's use: MT starts from
+  R = 5.7 and 5.70176 exceeds it. The two versions are not interchangeable.
+- >-
+  Its verification height comes from Wedeniwski.v1, whose evidence is `asserted` -- a website, unpublished,
+  with documented doubts about error control. Everything downstream of this node inherits that.
+- >-
+  No novelty is claimed. The result is Kadiri's.

@@ -1,0 +1,153 @@
+# Node metadata for `PrimeInterval.v1`.  See docs/NODES.md.
+version: "v0.4"
+
+node:
+  id: PrimeInterval.v1
+  family: PrimeInterval
+  version: v1
+  kind: pipeline
+  status: active
+
+project:
+  name: "PrimeInterval.v1"
+  description: >-
+    A pipeline node carrying a bound on the normalised error term Eθ to the existence of a prime
+    in a short interval (x, x + h]. States the θ characterisation of a prime in a short interval,
+    the Eθ criterion it is proved through, and the numerical- and classical-bound routes that
+    consume an Eθ bound however it was itself justified. Every conclusion imports nothing: all
+    inputs arrive as hypotheses, so the node can sit downstream of a bound-producing node such as
+    FKS2 without importing or reproving that node's proof.
+  authors: ["Sebastian Rodrigo"]
+  license: "Apache-2.0"
+  responsible_maintainers: ["Sebastian Rodrigo"]
+
+repository:
+  role: substantive-development
+
+classification:
+  arxiv: [math.NT]
+  msc2020: ["11N05", "11N56"]
+
+conclusions:
+- id: theta_characterisation
+  issue: 53
+  declaration: PrimeInterval.v1.theta_characterisation
+  challenge: PrimeInterval.v1.challenge_theta_characterisation
+  imports: []
+  imports_status: none
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: >-
+      Solutions/PrimeInterval.v1/ proves this; see progress there for status.
+  - id: comparator
+    kind: lean-comparator
+    note: 'Comparator accepted the solution. Run: https://github.com/teorth/IEANTN/actions/runs/34043946061'
+  designated: comparator
+
+- id: eTheta_criterion
+  issue: 53
+  declaration: PrimeInterval.v1.eTheta_criterion
+  challenge: PrimeInterval.v1.challenge_eTheta_criterion
+  imports: []
+  imports_status: none
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: >-
+      Solutions/PrimeInterval.v1/ proves this from theta_characterisation.
+  - id: comparator
+    kind: lean-comparator
+    note: 'Comparator accepted the solution. Run: https://github.com/teorth/IEANTN/actions/runs/34043946061'
+  designated: comparator
+
+- id: numericalBound_hasPrimeInInterval
+  issue: 53
+  declaration: PrimeInterval.v1.numericalBound_hasPrimeInInterval
+  challenge: PrimeInterval.v1.challenge_numericalBound_hasPrimeInInterval
+  imports: []
+  imports_status: none
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: >-
+      Solutions/PrimeInterval.v1/ proves this from eTheta_criterion. Included per the issue's
+      default (Vocabulary carries IEANTN.HasNumericalBound already).
+  - id: comparator
+    kind: lean-comparator
+    note: 'Comparator accepted the solution. Run: https://github.com/teorth/IEANTN/actions/runs/34043946061'
+  designated: comparator
+
+- id: classicalBound_hasPrimeInInterval
+  issue: 53
+  declaration: PrimeInterval.v1.classicalBound_hasPrimeInInterval
+  challenge: PrimeInterval.v1.challenge_classicalBound_hasPrimeInInterval
+  imports: []
+  imports_status: none
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: >-
+      Solutions/PrimeInterval.v1/ proves this by showing admissibleBound is AntitoneOn
+      [exp (R (2B/C)^2), ∞) and reducing to numericalBound_hasPrimeInInterval. This is the
+      conclusion FKS2.v2.proposition_13 is meant to feed.
+  - id: comparator
+    kind: lean-comparator
+    note: 'Comparator accepted the solution. Run: https://github.com/teorth/IEANTN/actions/runs/34043946061'
+  designated: comparator
+
+sources:
+- title: "PrimeInInterval.lean"
+  authors: ["Alex Kontorovich"]
+  type: "other"
+  id: "PrimeNumberTheoremAnd/IEANTN/PrimeInInterval.lean"
+  relationship: adapts
+  note: >-
+    275 lines, 7 results, 0 sorry in PrimeNumberTheoremAnd; used as inspiration for the
+    statement shapes and proof strategy, not ported. PNT+'s HasPrimeInInterval has the same
+    proposition and endpoint convention. Specialising IEANTN.HasClassicalBound to Eθ gives the
+    same inequality shape as PNT+'s Eθ.classicalBound; Eθ and admissibleBound use the same
+    formulae and argument order. The numerical-bound APIs differ: IEANTN.HasNumericalBound takes
+    a constant ε : ℝ, whereas PNT+'s Eθ.numericalBound takes ε : ℝ → ℝ and uses ε x₀.
+
+automation:
+  methods:
+  - method: ai-assisted
+    role: >-
+      Statement drafting and Lean proof development, reviewed by the contributor before commit.
+
+review:
+  status: self-assessed
+  reviewers: ["Terence Tao"]
+  notes: >-
+    CONTRIBUTED FROM OUTSIDE, AND REVIEWED BEFORE THE VERIFICATION WAS APPROVED. This node arrived
+    as PR #83 from Sebastian Rodrigo, the repository's first external node contribution; it was
+    merged through #84, which carried the branch together with its receipt, because verify.yml
+    records receipts by pushing to a branch on this repository and could not write to a fork. The
+    reviewer named here is the maintainer, who approved the Comparator run -- which in this
+    repository is the act of vouching for a branch, since the receipt job elaborates the branch's
+    core Lean while holding a write token.
+    WHAT THE REVIEW COVERED, so that a later reader is not left guessing. The four statements were
+    read against their intended meanings; theta_characterisation is quantified over all reals with
+    no positivity hypotheses, which is the shape a junk-value trap usually hides in, and it was
+    checked to be genuinely true rather than vacuous -- theta jumps by log p > 0 exactly at the
+    primes, and both sides are false for h <= 0. The threshold exp(R (2B/C)^2) in
+    classicalBound_hasPrimeInInterval was re-derived rather than taken on trust: with
+    u = sqrt(log x / R) the admissible bound is proportional to u^(2B) exp(-C u), whose derivative
+    changes sign at u = 2B/C, so the threshold is the exact turning point and not a conservative
+    over-estimate. The solution was compiled and its four challenge theorems checked with
+    #print axioms, giving propext, Classical.choice and Quot.sound and no sorryAx, before the
+    Comparator run confirmed the same independently.
+    THE BRANCH WAS ALSO SCANNED FOR BUILD-TIME CODE EXECUTION, which is the specific thing approving
+    a verification vouches for. Conclusions.lean, Challenge.lean, Examples.lean and Nodes.lean carry
+    no #eval, run_cmd, initialize, unsafe, implemented_by, extern, macro, elab or IO; the import
+    closure is Vocabulary plus the node's own Conclusions; and the solution's lake-manifest matches
+    the root's except for the expected IEANTN path dependency.
+    NOT AN INDEPENDENT MATHEMATICAL REFEREEING. status is self-assessed, and the statements have not
+    been checked by a second person against the literature they are modelled on.
+
+limitations:
+- >-
+  Excludes the prime_gap_record route the issue also surveys: IEANTN's Vocabulary does not yet
+  have a prime-gap-record predicate, so it is left for a follow-up node rather than stated here
+  against an ad hoc local definition.

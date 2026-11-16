@@ -1,0 +1,831 @@
+{
+  "status": "PASS_ACTUAL_COMPOSITION_REPRODUCER_CLI_CONTROLS_ALL3_MODES",
+  "routes": [
+    {
+      "mode": "normal",
+      "role": "source-identities",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/reproduce.py",
+        "--check-source-only",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-controls-v1/normal-source-only"
+      ],
+      "exit_code": 0,
+      "expected_acceptance": true,
+      "stdout_sha256": "d2b615cc523f537d589caa5e2222c846dc0915bb794f8e9429d17ddac34bbc9c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "mode": "normal",
+      "role": "actual-cpp",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/reproduce_cpp.py",
+        "--compiler",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-exposure-maximal-20261109/evolution/work/environment-cold-v1/lean-4.34.0-rc2-linux/bin/clang",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-controls-v1/normal-raw"
+      ],
+      "exit_code": 0,
+      "expected_acceptance": true,
+      "stdout_sha256": "596df59a5dcf963490309332ce79a6eacd1266c894a0d115ff821887cc2a2534",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "mode": "normal",
+      "role": "all-five-numerics",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/numerics/reproduce_height_numerics_v1.py",
+        "--compiler",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-exposure-maximal-20261109/evolution/work/environment-cold-v1/lean-4.34.0-rc2-linux/bin/clang",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-controls-v1/normal-numerics"
+      ],
+      "exit_code": 0,
+      "expected_acceptance": true,
+      "stdout_sha256": "0626e4818331ac6a7aa90e004c1d5fe111567b31b9901a0e2314505ee1ed1b06",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "mode": "normal",
+      "role": "numerical-word-association",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/numerics/verify_regenerated_height_words_v1.py",
+        "--source-root",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/source",
+        "--raw-root",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-controls-v1/normal-numerics",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-controls-v1/normal-word-association.json"
+      ],
+      "exit_code": 0,
+      "expected_acceptance": true,
+      "stdout_sha256": "4e4c7e9107cb3946a4fbb786783c753c60e00e0797b2e6e1b0a2f327abe4ea91",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "mode": "normal",
+      "role": "invalid-point-job-count",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/reproduce_all.py",
+        "--environment",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-preflight-resume-v1/OO-environment.json",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-controls-v1/normal-invalid-jobs",
+        "--jobs",
+        "2",
+        "--point-jobs",
+        "3"
+      ],
+      "exit_code": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "1a40b9698d06231eb7447f7c46c0b258562ced28592838ada10bda9dce947716"
+    },
+    {
+      "mode": "normal",
+      "role": "reproduce.py-unknown-option",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/reproduce.py",
+        "--definitely-unknown-option"
+      ],
+      "exit_code": 2,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "4bc0179a5abbb5559ea7dd7b99414286f7a247a06eba3a1ad84ddcf2d0a26639"
+    },
+    {
+      "mode": "normal",
+      "role": "reproduce_all.py-unknown-option",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/reproduce_all.py",
+        "--definitely-unknown-option"
+      ],
+      "exit_code": 2,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "15d86a89419486cc0d3f160631c88e564c0bbadbb2690c63940d665cff7ba373"
+    },
+    {
+      "mode": "normal",
+      "role": "prepare_environment.py-unknown-option",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/prepare_environment.py",
+        "--definitely-unknown-option"
+      ],
+      "exit_code": 2,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "ae9cd6f05b4547b1f8778ae7dd66038979a22474fb435f6e0edf18320ebddb12"
+    },
+    {
+      "mode": "normal",
+      "role": "reproduce_cpp.py-unknown-option",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/reproduce_cpp.py",
+        "--definitely-unknown-option"
+      ],
+      "exit_code": 2,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "719a47366cf141d96a9c1416fba13e5d7aebf575bd2840af5178b94317fe4316"
+    },
+    {
+      "mode": "normal",
+      "role": "numerics_reproduce_height_numerics_v1.py-unknown-option",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/numerics/reproduce_height_numerics_v1.py",
+        "--definitely-unknown-option"
+      ],
+      "exit_code": 2,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "df122c647e2be928d84a292f7ccf5daa2333e0492fb049a7acfc112f96501d49"
+    },
+    {
+      "mode": "normal",
+      "role": "numerics_verify_regenerated_height_words_v1.py-unknown-option",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/numerics/verify_regenerated_height_words_v1.py",
+        "--definitely-unknown-option"
+      ],
+      "exit_code": 2,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "6116e1010f4da49f20a864694c02014bb1841b70b5b8f3cf48f9f447353d85ee"
+    },
+    {
+      "mode": "normal",
+      "role": "source-corruption-rejected",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-controls-v1/normal-corrupt-fixture/reproduce.py",
+        "--check-source-only",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-controls-v1/normal-corruption-output"
+      ],
+      "exit_code": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "a5512657b75900d3226ecd50167c08e4ee137d8cd214f138cce3aa3c0f6ad892"
+    },
+    {
+      "mode": "normal",
+      "role": "existing-raw-output-rejected",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/reproduce_cpp.py",
+        "--compiler",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-exposure-maximal-20261109/evolution/work/environment-cold-v1/lean-4.34.0-rc2-linux/bin/clang",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-controls-v1/normal-raw"
+      ],
+      "exit_code": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "a8f5b38a70d4f1716e1351a22f5bdfd32260c2dcf92f65af4e7ddfe0cae45a68"
+    },
+    {
+      "mode": "normal",
+      "role": "existing-numerics-output-rejected",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/numerics/reproduce_height_numerics_v1.py",
+        "--compiler",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-exposure-maximal-20261109/evolution/work/environment-cold-v1/lean-4.34.0-rc2-linux/bin/clang",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-controls-v1/normal-numerics"
+      ],
+      "exit_code": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "85652b09baab1ca94db1f2bdefdff8921140919784e3ce1903e38f462a6c245a"
+    },
+    {
+      "mode": "normal",
+      "role": "proof-diagnostic-14",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-c",
+        "import importlib.util\ns=importlib.util.spec_from_file_location('target','/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/reproduce.py')\nm=importlib.util.module_from_spec(s);s.loader.exec_module(m)\nm.no_admitted_proof(\"declaration uses 'sorry'\",'','negative-control')\n"
+      ],
+      "exit_code": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "5f8550de1bd0610fa2f66d1fdbea6aa989bd34cbdd466116568c9855758b6243"
+    },
+    {
+      "mode": "normal",
+      "role": "proof-diagnostic-15",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-c",
+        "import importlib.util\ns=importlib.util.spec_from_file_location('target','/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/reproduce.py')\nm=importlib.util.module_from_spec(s);s.loader.exec_module(m)\nm.no_admitted_proof('declaration uses `sorry`','','negative-control')\n"
+      ],
+      "exit_code": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "5f8550de1bd0610fa2f66d1fdbea6aa989bd34cbdd466116568c9855758b6243"
+    },
+    {
+      "mode": "normal",
+      "role": "proof-diagnostic-16",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-c",
+        "import importlib.util\ns=importlib.util.spec_from_file_location('target','/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/reproduce.py')\nm=importlib.util.module_from_spec(s);s.loader.exec_module(m)\nm.no_admitted_proof('sorryAx','','negative-control')\n"
+      ],
+      "exit_code": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "5f8550de1bd0610fa2f66d1fdbea6aa989bd34cbdd466116568c9855758b6243"
+    },
+    {
+      "mode": "normal",
+      "role": "proof-diagnostic-17",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-c",
+        "import importlib.util\ns=importlib.util.spec_from_file_location('target','/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/reproduce.py')\nm=importlib.util.module_from_spec(s);s.loader.exec_module(m)\nm.no_admitted_proof('Lean.ofReduceBool','','negative-control')\n"
+      ],
+      "exit_code": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "5f8550de1bd0610fa2f66d1fdbea6aa989bd34cbdd466116568c9855758b6243"
+    },
+    {
+      "mode": "O",
+      "role": "source-identities",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/reproduce.py",
+        "--check-source-only",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-controls-v1/O-source-only"
+      ],
+      "exit_code": 0,
+      "expected_acceptance": true,
+      "stdout_sha256": "d2b615cc523f537d589caa5e2222c846dc0915bb794f8e9429d17ddac34bbc9c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "mode": "O",
+      "role": "actual-cpp",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/reproduce_cpp.py",
+        "--compiler",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-exposure-maximal-20261109/evolution/work/environment-cold-v1/lean-4.34.0-rc2-linux/bin/clang",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-controls-v1/O-raw"
+      ],
+      "exit_code": 0,
+      "expected_acceptance": true,
+      "stdout_sha256": "596df59a5dcf963490309332ce79a6eacd1266c894a0d115ff821887cc2a2534",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "mode": "O",
+      "role": "all-five-numerics",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/numerics/reproduce_height_numerics_v1.py",
+        "--compiler",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-exposure-maximal-20261109/evolution/work/environment-cold-v1/lean-4.34.0-rc2-linux/bin/clang",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-controls-v1/O-numerics"
+      ],
+      "exit_code": 0,
+      "expected_acceptance": true,
+      "stdout_sha256": "5d7c8e93480427f9d5c25563bc09d9f59e3ef88a8380fe7e99aad5f9705ae720",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "mode": "O",
+      "role": "numerical-word-association",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/numerics/verify_regenerated_height_words_v1.py",
+        "--source-root",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/source",
+        "--raw-root",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-controls-v1/O-numerics",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-controls-v1/O-word-association.json"
+      ],
+      "exit_code": 0,
+      "expected_acceptance": true,
+      "stdout_sha256": "4e4c7e9107cb3946a4fbb786783c753c60e00e0797b2e6e1b0a2f327abe4ea91",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "mode": "O",
+      "role": "invalid-point-job-count",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/reproduce_all.py",
+        "--environment",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-preflight-resume-v1/OO-environment.json",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-controls-v1/O-invalid-jobs",
+        "--jobs",
+        "2",
+        "--point-jobs",
+        "3"
+      ],
+      "exit_code": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "1a40b9698d06231eb7447f7c46c0b258562ced28592838ada10bda9dce947716"
+    },
+    {
+      "mode": "O",
+      "role": "reproduce.py-unknown-option",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/reproduce.py",
+        "--definitely-unknown-option"
+      ],
+      "exit_code": 2,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "4bc0179a5abbb5559ea7dd7b99414286f7a247a06eba3a1ad84ddcf2d0a26639"
+    },
+    {
+      "mode": "O",
+      "role": "reproduce_all.py-unknown-option",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/reproduce_all.py",
+        "--definitely-unknown-option"
+      ],
+      "exit_code": 2,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "15d86a89419486cc0d3f160631c88e564c0bbadbb2690c63940d665cff7ba373"
+    },
+    {
+      "mode": "O",
+      "role": "prepare_environment.py-unknown-option",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/prepare_environment.py",
+        "--definitely-unknown-option"
+      ],
+      "exit_code": 2,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "ae9cd6f05b4547b1f8778ae7dd66038979a22474fb435f6e0edf18320ebddb12"
+    },
+    {
+      "mode": "O",
+      "role": "reproduce_cpp.py-unknown-option",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/reproduce_cpp.py",
+        "--definitely-unknown-option"
+      ],
+      "exit_code": 2,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "719a47366cf141d96a9c1416fba13e5d7aebf575bd2840af5178b94317fe4316"
+    },
+    {
+      "mode": "O",
+      "role": "numerics_reproduce_height_numerics_v1.py-unknown-option",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/numerics/reproduce_height_numerics_v1.py",
+        "--definitely-unknown-option"
+      ],
+      "exit_code": 2,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "df122c647e2be928d84a292f7ccf5daa2333e0492fb049a7acfc112f96501d49"
+    },
+    {
+      "mode": "O",
+      "role": "numerics_verify_regenerated_height_words_v1.py-unknown-option",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/numerics/verify_regenerated_height_words_v1.py",
+        "--definitely-unknown-option"
+      ],
+      "exit_code": 2,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "6116e1010f4da49f20a864694c02014bb1841b70b5b8f3cf48f9f447353d85ee"
+    },
+    {
+      "mode": "O",
+      "role": "source-corruption-rejected",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-controls-v1/O-corrupt-fixture/reproduce.py",
+        "--check-source-only",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-controls-v1/O-corruption-output"
+      ],
+      "exit_code": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "8c7643a6e71eefa788503b14e055ea9ddf901c95ea98aec96c58593e9057ef7c"
+    },
+    {
+      "mode": "O",
+      "role": "existing-raw-output-rejected",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/reproduce_cpp.py",
+        "--compiler",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-exposure-maximal-20261109/evolution/work/environment-cold-v1/lean-4.34.0-rc2-linux/bin/clang",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-controls-v1/O-raw"
+      ],
+      "exit_code": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "a8f5b38a70d4f1716e1351a22f5bdfd32260c2dcf92f65af4e7ddfe0cae45a68"
+    },
+    {
+      "mode": "O",
+      "role": "existing-numerics-output-rejected",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/numerics/reproduce_height_numerics_v1.py",
+        "--compiler",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-exposure-maximal-20261109/evolution/work/environment-cold-v1/lean-4.34.0-rc2-linux/bin/clang",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-controls-v1/O-numerics"
+      ],
+      "exit_code": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "85652b09baab1ca94db1f2bdefdff8921140919784e3ce1903e38f462a6c245a"
+    },
+    {
+      "mode": "O",
+      "role": "proof-diagnostic-32",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "-c",
+        "import importlib.util\ns=importlib.util.spec_from_file_location('target','/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/reproduce.py')\nm=importlib.util.module_from_spec(s);s.loader.exec_module(m)\nm.no_admitted_proof(\"declaration uses 'sorry'\",'','negative-control')\n"
+      ],
+      "exit_code": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "5f8550de1bd0610fa2f66d1fdbea6aa989bd34cbdd466116568c9855758b6243"
+    },
+    {
+      "mode": "O",
+      "role": "proof-diagnostic-33",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "-c",
+        "import importlib.util\ns=importlib.util.spec_from_file_location('target','/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/reproduce.py')\nm=importlib.util.module_from_spec(s);s.loader.exec_module(m)\nm.no_admitted_proof('declaration uses `sorry`','','negative-control')\n"
+      ],
+      "exit_code": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "5f8550de1bd0610fa2f66d1fdbea6aa989bd34cbdd466116568c9855758b6243"
+    },
+    {
+      "mode": "O",
+      "role": "proof-diagnostic-34",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "-c",
+        "import importlib.util\ns=importlib.util.spec_from_file_location('target','/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/reproduce.py')\nm=importlib.util.module_from_spec(s);s.loader.exec_module(m)\nm.no_admitted_proof('sorryAx','','negative-control')\n"
+      ],
+      "exit_code": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "5f8550de1bd0610fa2f66d1fdbea6aa989bd34cbdd466116568c9855758b6243"
+    },
+    {
+      "mode": "O",
+      "role": "proof-diagnostic-35",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "-c",
+        "import importlib.util\ns=importlib.util.spec_from_file_location('target','/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/reproduce.py')\nm=importlib.util.module_from_spec(s);s.loader.exec_module(m)\nm.no_admitted_proof('Lean.ofReduceBool','','negative-control')\n"
+      ],
+      "exit_code": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "5f8550de1bd0610fa2f66d1fdbea6aa989bd34cbdd466116568c9855758b6243"
+    },
+    {
+      "mode": "OO",
+      "role": "source-identities",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/reproduce.py",
+        "--check-source-only",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-controls-v1/OO-source-only"
+      ],
+      "exit_code": 0,
+      "expected_acceptance": true,
+      "stdout_sha256": "d2b615cc523f537d589caa5e2222c846dc0915bb794f8e9429d17ddac34bbc9c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "mode": "OO",
+      "role": "actual-cpp",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/reproduce_cpp.py",
+        "--compiler",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-exposure-maximal-20261109/evolution/work/environment-cold-v1/lean-4.34.0-rc2-linux/bin/clang",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-controls-v1/OO-raw"
+      ],
+      "exit_code": 0,
+      "expected_acceptance": true,
+      "stdout_sha256": "596df59a5dcf963490309332ce79a6eacd1266c894a0d115ff821887cc2a2534",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "mode": "OO",
+      "role": "all-five-numerics",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/numerics/reproduce_height_numerics_v1.py",
+        "--compiler",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-exposure-maximal-20261109/evolution/work/environment-cold-v1/lean-4.34.0-rc2-linux/bin/clang",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-controls-v1/OO-numerics"
+      ],
+      "exit_code": 0,
+      "expected_acceptance": true,
+      "stdout_sha256": "68ca479d88fab8c9fb741edf3f61f03b46c850fee4063008f8e91dd2a6aae79c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "mode": "OO",
+      "role": "numerical-word-association",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/numerics/verify_regenerated_height_words_v1.py",
+        "--source-root",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/source",
+        "--raw-root",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-controls-v1/OO-numerics",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-controls-v1/OO-word-association.json"
+      ],
+      "exit_code": 0,
+      "expected_acceptance": true,
+      "stdout_sha256": "4e4c7e9107cb3946a4fbb786783c753c60e00e0797b2e6e1b0a2f327abe4ea91",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "mode": "OO",
+      "role": "invalid-point-job-count",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/reproduce_all.py",
+        "--environment",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-preflight-resume-v1/OO-environment.json",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-controls-v1/OO-invalid-jobs",
+        "--jobs",
+        "2",
+        "--point-jobs",
+        "3"
+      ],
+      "exit_code": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "1a40b9698d06231eb7447f7c46c0b258562ced28592838ada10bda9dce947716"
+    },
+    {
+      "mode": "OO",
+      "role": "reproduce.py-unknown-option",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/reproduce.py",
+        "--definitely-unknown-option"
+      ],
+      "exit_code": 2,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "4bc0179a5abbb5559ea7dd7b99414286f7a247a06eba3a1ad84ddcf2d0a26639"
+    },
+    {
+      "mode": "OO",
+      "role": "reproduce_all.py-unknown-option",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/reproduce_all.py",
+        "--definitely-unknown-option"
+      ],
+      "exit_code": 2,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "15d86a89419486cc0d3f160631c88e564c0bbadbb2690c63940d665cff7ba373"
+    },
+    {
+      "mode": "OO",
+      "role": "prepare_environment.py-unknown-option",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/prepare_environment.py",
+        "--definitely-unknown-option"
+      ],
+      "exit_code": 2,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "ae9cd6f05b4547b1f8778ae7dd66038979a22474fb435f6e0edf18320ebddb12"
+    },
+    {
+      "mode": "OO",
+      "role": "reproduce_cpp.py-unknown-option",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/reproduce_cpp.py",
+        "--definitely-unknown-option"
+      ],
+      "exit_code": 2,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "719a47366cf141d96a9c1416fba13e5d7aebf575bd2840af5178b94317fe4316"
+    },
+    {
+      "mode": "OO",
+      "role": "numerics_reproduce_height_numerics_v1.py-unknown-option",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/numerics/reproduce_height_numerics_v1.py",
+        "--definitely-unknown-option"
+      ],
+      "exit_code": 2,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "df122c647e2be928d84a292f7ccf5daa2333e0492fb049a7acfc112f96501d49"
+    },
+    {
+      "mode": "OO",
+      "role": "numerics_verify_regenerated_height_words_v1.py-unknown-option",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/numerics/verify_regenerated_height_words_v1.py",
+        "--definitely-unknown-option"
+      ],
+      "exit_code": 2,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "6116e1010f4da49f20a864694c02014bb1841b70b5b8f3cf48f9f447353d85ee"
+    },
+    {
+      "mode": "OO",
+      "role": "source-corruption-rejected",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-controls-v1/OO-corrupt-fixture/reproduce.py",
+        "--check-source-only",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-controls-v1/OO-corruption-output"
+      ],
+      "exit_code": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "230ffe12bc7223449f7060f642244b5c6a49d066280e166cb7c471549ee3b914"
+    },
+    {
+      "mode": "OO",
+      "role": "existing-raw-output-rejected",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/reproduce_cpp.py",
+        "--compiler",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-exposure-maximal-20261109/evolution/work/environment-cold-v1/lean-4.34.0-rc2-linux/bin/clang",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-controls-v1/OO-raw"
+      ],
+      "exit_code": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "a8f5b38a70d4f1716e1351a22f5bdfd32260c2dcf92f65af4e7ddfe0cae45a68"
+    },
+    {
+      "mode": "OO",
+      "role": "existing-numerics-output-rejected",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/numerics/reproduce_height_numerics_v1.py",
+        "--compiler",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-exposure-maximal-20261109/evolution/work/environment-cold-v1/lean-4.34.0-rc2-linux/bin/clang",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-controls-v1/OO-numerics"
+      ],
+      "exit_code": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "85652b09baab1ca94db1f2bdefdff8921140919784e3ce1903e38f462a6c245a"
+    },
+    {
+      "mode": "OO",
+      "role": "proof-diagnostic-50",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "-c",
+        "import importlib.util\ns=importlib.util.spec_from_file_location('target','/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/reproduce.py')\nm=importlib.util.module_from_spec(s);s.loader.exec_module(m)\nm.no_admitted_proof(\"declaration uses 'sorry'\",'','negative-control')\n"
+      ],
+      "exit_code": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "5f8550de1bd0610fa2f66d1fdbea6aa989bd34cbdd466116568c9855758b6243"
+    },
+    {
+      "mode": "OO",
+      "role": "proof-diagnostic-51",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "-c",
+        "import importlib.util\ns=importlib.util.spec_from_file_location('target','/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/reproduce.py')\nm=importlib.util.module_from_spec(s);s.loader.exec_module(m)\nm.no_admitted_proof('declaration uses `sorry`','','negative-control')\n"
+      ],
+      "exit_code": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "5f8550de1bd0610fa2f66d1fdbea6aa989bd34cbdd466116568c9855758b6243"
+    },
+    {
+      "mode": "OO",
+      "role": "proof-diagnostic-52",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "-c",
+        "import importlib.util\ns=importlib.util.spec_from_file_location('target','/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/reproduce.py')\nm=importlib.util.module_from_spec(s);s.loader.exec_module(m)\nm.no_admitted_proof('sorryAx','','negative-control')\n"
+      ],
+      "exit_code": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "5f8550de1bd0610fa2f66d1fdbea6aa989bd34cbdd466116568c9855758b6243"
+    },
+    {
+      "mode": "OO",
+      "role": "proof-diagnostic-53",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "-c",
+        "import importlib.util\ns=importlib.util.spec_from_file_location('target','/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/source-pnt-composition-capsule-v1/reproduce.py')\nm=importlib.util.module_from_spec(s);s.loader.exec_module(m)\nm.no_admitted_proof('Lean.ofReduceBool','','negative-control')\n"
+      ],
+      "exit_code": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "5f8550de1bd0610fa2f66d1fdbea6aa989bd34cbdd466116568c9855758b6243"
+    }
+  ],
+  "source_lock_sha256": "ed3b391cb68670cc185cb080eea020cae19d32c46ecf63fb60a947778e8654cd",
+  "validator_sha256": "801bcd12f7d1efd98d17d755adaed871b927dc0a33afbddc04b16e41fa7a3ecf",
+  "combined_fresh_proof_replay": false,
+  "qualification": "Actual raw C/regeneration/source-identity/negative CLI controls; the complete Lean graph is independently executed and accepted by its own receipt."
+}

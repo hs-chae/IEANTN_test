@@ -1,0 +1,39 @@
+--- captured-C/OriginalScalars
++++ selected-math-nativefree/OriginalScalars
+@@ -6,6 +6,9 @@
+ import DensityCachedSum
+ import Mathlib.Tactic
+ import Lean
++set_option maxHeartbeats 0
++set_option maxRecDepth 100000
++
+ set_option maxHeartbeats 0
+ set_option maxRecDepth 100000
+ namespace WinnerOriginalScalars
+@@ -110,7 +113,7 @@
+   simpa [value] using h
+ 
+ theorem height_log_lower : (28:ℝ) ≤ value h := by
+-  have hz := closed_lower h (28) (by native_decide)
++  have hz := closed_lower h (28) (by decide +kernel)
+   norm_num at hz ⊢
+   exact hz
+ theorem mean_one_upper : value mone ≤ 129/200 := by
+@@ -130,7 +133,7 @@
+   norm_num at hz ⊢
+   exact hz
+ theorem omega_upper : value omega ≤ 1000000000001/1000000000000 := by
+-  have hz := closed_upper omega (1000000000001/1000000000000) (by native_decide)
++  have hz := closed_upper omega (1000000000001/1000000000000) (by decide +kernel)
+   norm_num at hz ⊢
+   exact hz
+ theorem rightV_upper : value rightV ≤ 17/2 := by
+@@ -138,7 +141,7 @@
+   norm_num at hz ⊢
+   exact hz
+ theorem cSeven_upper : value cSeven ≤ 20 := by
+-  have hz := closed_upper cSeven (20) (by native_decide)
++  have hz := closed_upper cSeven (20) (by decide +kernel)
+   norm_num at hz ⊢
+   exact hz
+ theorem cEight_upper : value cEight ≤ 1 := by

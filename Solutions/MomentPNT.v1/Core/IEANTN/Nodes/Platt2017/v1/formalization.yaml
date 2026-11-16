@@ -1,0 +1,118 @@
+# Node metadata for `Platt2017.v1`.  See docs/NODES.md.
+version: "v0.4"
+
+node:
+  id: Platt2017.v1
+  family: Platt2017
+  version: v1
+  kind: computation
+  status: stub
+project:
+  name: 'Platt: isolating some non-trivial zeros of zeta'
+  description: >-
+    The verification of the Riemann hypothesis to height 3.0610046e10 that KLN fixes as its H_0. Unlike
+    the network's other computational nodes this one is recorded at first hand: the paper is held and
+    its abstract states the height and the claim directly.
+  authors:
+  - Terence Tao
+  license: Apache-2.0
+  responsible_maintainers:
+  - Terence Tao
+repository:
+  role: substantive-development
+
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11M26
+  - 11Y35
+conclusions:
+- id: rh_up_to
+  declaration: Platt2017.v1.rh_up_to
+  challenge: Platt2017.v1.challenge_rh_up_to
+  imports:
+  - node: Trudgian2011.v1
+    conclusion: integral_S_bound
+  imports_status: traced
+  justifications:
+  - id: platt2017-paper
+    kind: numerical
+    source: Platt2017
+    locator: the abstract, and the computation the paper reports
+    note: >-
+      A large finite computation, so `numerical` rather than `literature`. Recorded at FIRST hand, unlike
+      Platt2015.v1 and FKBJ.v1: the paper is held and its abstract says the algorithm isolates 'the non-trivial
+      zeros of zeta with imaginary part <= 30,610,046,000 to an absolute precision of +/- 2^-102' and
+      that 'in the process, we provide an independent verification of the Riemann Hypothesis to this height'.
+      3.0610046e10 is exactly the H_0 that KLN fixes throughout, citing this paper. The relationship to
+      Platt2017.v1 is now established rather than guessed: they are one computation reported in two papers.
+      Computing pi(x) Analytically says 'We isolated all the zeros of zeta to a height of 30,610,046,000
+      (103,800,788,359 zeros)' and cites for the technique a paper then in preparation titled 'Computing
+      zeta on the half line', which is what became Isolating some non-trivial zeros of zeta. That paper's
+      abstract reports the same height. KLN records N(H_0) = 103 800 788 359 at H_0 = 3.0610046e10 --
+      the same zero count. MT cites the pi(x) paper and rounds the height down to 3.06e10, which is why
+      this node states the weaker number: it exists to serve MT and states what MT selected. Formalizable
+      surface, assessed 2026-08-26. A verification of this kind is not one opaque computation: most of
+      the paper is analysis that could be formalized, and the computational core is small. Recording where
+      the line falls is what lets a reader size the hole rather than guess at it, and is the prerequisite
+      for ever splitting the node into a formal harness, a computational core, and a bridge from the two
+      to the conclusion. Here the analytic part is Section 4 and Appendices A to C: Theorem 4.1 defining
+      S(t), Theorem 4.2 (attributed to Trudgian) bounding the integral of S, Theorem 4.3 (Whittaker-Shannon
+      sampling), Theorem 4.4 (Weiss), and Lemmas A.1 to A.11, B.1, B.2, C.1 to C.3 -- incomplete Gamma
+      bounds, a Stirling-type bound on |Gamma((sigma+it)/2)| exp(pi t/4), Gaussian-window truncation bounds
+      and up-sampling bounds. The computational core is Section 5: evaluating the completed zeta function
+      on a lattice and counting sign changes. External inputs, none of which is currently an edge: Theorem
+      4.2 is Trudgian's, not this paper's; Theorem 4.4 is Weiss's; Whittaker-Shannon is classical; and
+      Lemma A.10 uses an explicit subconvexity bound for zeta on the critical line -- the authors' own
+      0.732, which Platt-Trudgian later note could have been Hiary's, now Hiary2016.v1. Any of these could
+      become a node; none is one yet, which is why this is `traced` and not `identified`. One of those
+      inputs is now an edge. Theorem 4.2 is attributed to Trudgian with the proof 'This is Theorem 2.2
+      of [27]', and that is now Trudgian2011.v1.integral_S_bound. Theorem 4.4 is Weiss's aliasing bound;
+      Brown1967.v1 exists for it but states nothing, because the result worth stating is Brown's own stronger
+      Theorem 1 and encoding it correctly needs Fourier vocabulary the network lacks and a symmetric limit
+      rather than a tsum -- see that node. Whittaker-Shannon and the FFT computation itself remain undrawable,
+      so this stays `traced`.
+  designated: platt2017-paper
+sources:
+- title: Isolating some non-trivial zeros of zeta
+  authors:
+  - David J. Platt
+  type: paper
+  id: Math. Comp. 86 (2017), no. 307, 2449-2467
+  location: Mathematics of Computation 86 (2017), 2449-2467; doi:10.1090/mcom/3198
+  relationship: formalizes
+  note: >-
+    Held and read. Distinct from Platt's Computing pi(x) analytically, which MT cites for the height Platt2015.v1
+    records, and from the later Platt-Trudgian verification to 3e12.
+automation:
+  methods:
+  - method: agent
+    models:
+    - Claude Opus 5 (Anthropic)
+    framework: Claude Code
+    role: >-
+      Created this node and stated the consequence of the computation that KLN's H_0 rests on, under the
+      direction of the maintainer. No proof is claimed.
+review:
+  status: self-assessed
+  reviewers:
+  - Terence Tao
+  notes: >-
+    The height and the claim were read from the paper's own abstract. The relationship to Platt2015.v1
+    is established, not assumed: matching height, matching zero count, and the other paper citing this
+    one for its technique under its preprint title. A bridge records the implication.
+limitations:
+- >-
+  The node states only the consequence that no zero below the height lies off the critical line. The computation's
+  real output is a list of isolated zeros to a precision of 2^-102, which is data rather than a proposition;
+  a consumer needing the zeros themselves needs more than the node says.
+- >-
+  Its relationship to Platt2015.v1 is one computation reported in two papers, established from both sources
+  rather than assumed. This node's 3.0610046e10 implies that node's 3.06e10, and IEANTN/Bridges/Platt/P2017ToP2015.lean
+  discharges it.
+- >-
+  Imports are undetermined: what a zero-verification rests on -- the rigorous arithmetic and the zeta
+  evaluation method -- has not been traced.
+- >-
+  No novelty is claimed.

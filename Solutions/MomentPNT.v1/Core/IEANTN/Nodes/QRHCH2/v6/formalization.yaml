@@ -1,0 +1,60 @@
+version: v0.4
+project:
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+  name: QRH polynomial PNT error successor
+  description: QRH polynomial PNT error successor
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+automation:
+  methods:
+  - method: manual
+    role: Lean proofs, rational exponential bounds, exact challenge/solution comparison,
+      and downstream replay.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+node:
+  id: QRHCH2.v6
+  family: QRHCH2
+  version: v6
+  kind: pipeline
+  status: active
+conclusions:
+- id: psi_polynomial_bound
+  declaration: QRHCH2.v6.psi_polynomial_bound
+  challenge: QRHCH2.v6.challenge_psi_polynomial_bound
+  imports:
+  - node: CH2.v10
+    conclusion: polynomial_transfer
+  - node: OpenAIQRH.v1
+    conclusion: zeta_seven_eighths
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Local exact-type Lean proof; official approved-workflow receipt pending.
+  designated: solution
+sources:
+- id: QRHPhase2
+  title: Targeted quantitative QRH propagation, Phase2
+  authors:
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: New derived statements, compared against frozen Phase1 contracts; no novelty
+    or optimality claim. Literature premises keep their prior evidence status.
+limitations:
+- No official workflow receipt is claimed.
+- The underlying OpenAI QRH and original literature premises remain explicit network
+  inputs.

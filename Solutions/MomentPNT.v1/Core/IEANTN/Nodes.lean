@@ -1,0 +1,137 @@
+/-
+Copyright (c) 2026 IEANTN contributors. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Terence Tao
+-/
+import IEANTN.Nodes.BKLNW.v1.Tables
+import IEANTN.Nodes.BKLNW.v1.Challenge
+import IEANTN.Nodes.BKLNW.v2.Challenge
+import IEANTN.Nodes.BKLNW.v3.Challenge
+import IEANTN.Nodes.BKLNW.v4.Challenge
+import IEANTN.Nodes.BKLNWNumerics.v1.Challenge
+import IEANTN.Nodes.Brown1967.v1.Challenge
+import IEANTN.Nodes.Buthe.v1.Tables
+import IEANTN.Nodes.Buthe.v1.Challenge
+import IEANTN.Nodes.Buthe.v2.Challenge
+import IEANTN.Nodes.Buthe2016.v1.Tables
+import IEANTN.Nodes.Buthe2016.v1.Challenge
+import IEANTN.Nodes.ButheNumerics.v1.Challenge
+import IEANTN.Nodes.CH2.v1.Challenge
+import IEANTN.Nodes.CH2.v10.Challenge
+import IEANTN.Nodes.CH2.v2.Challenge
+import IEANTN.Nodes.CH2.v3.Challenge
+import IEANTN.Nodes.CH2.v5.Challenge
+import IEANTN.Nodes.CH2.v6.Tables
+import IEANTN.Nodes.CH2.v6.Challenge
+import IEANTN.Nodes.CH2.v7.Challenge
+import IEANTN.Nodes.CH2.v8.Challenge
+import IEANTN.Nodes.CH2.v9.Challenge
+import IEANTN.Nodes.Chebyshev.v1.Challenge
+import IEANTN.Nodes.ChebyshevNumerics.v1.Challenge
+import IEANTN.Nodes.ChengGraham2004.v1.Challenge
+import IEANTN.Nodes.CotangentSeries.v1.Challenge
+import IEANTN.Nodes.DudekPlatt.v1.Challenge
+import IEANTN.Nodes.DudekPlatt.v2.Challenge
+import IEANTN.Nodes.DudekPlatt.v3.Challenge
+import IEANTN.Nodes.DudekPlatt.v4.Challenge
+import IEANTN.Nodes.DudekPlatt.v5.Challenge
+import IEANTN.Nodes.DudekPlatt.v6.Challenge
+import IEANTN.Nodes.DudekPlattNumerics.v1.Challenge
+import IEANTN.Nodes.DudekPlattNumerics.v2.Challenge
+import IEANTN.Nodes.DudekPlattNumerics.v3.Challenge
+import IEANTN.Nodes.DudekPlattNumerics.v4.Challenge
+import IEANTN.Nodes.DudekPlattNumerics.v5.Challenge
+import IEANTN.Nodes.DudekPlattNumerics.v6.Challenge
+import IEANTN.Nodes.DudekPlattNumerics.v7.Challenge
+import IEANTN.Nodes.Dusart2018.v1.Challenge
+import IEANTN.Nodes.Erdos392.v1.Challenge
+import IEANTN.Nodes.FKBJ.v1.Challenge
+import IEANTN.Nodes.FKS.v1.Challenge
+import IEANTN.Nodes.FKS.v2.Challenge
+import IEANTN.Nodes.FKS.v3.Challenge
+import IEANTN.Nodes.FKS2.v1.Challenge
+import IEANTN.Nodes.FKS2.v2.Challenge
+import IEANTN.Nodes.FKS2.v3.Challenge
+import IEANTN.Nodes.FKS2.v4.Challenge
+import IEANTN.Nodes.FKS2.v5.Challenge
+import IEANTN.Nodes.FKS2.v6.Challenge
+import IEANTN.Nodes.FKS2.v7.Challenge
+import IEANTN.Nodes.FKS2.v8.Challenge
+import IEANTN.Nodes.FKS2.v9.Challenge
+import IEANTN.Nodes.FKS2Numerics.v1.Challenge
+import IEANTN.Nodes.FKS2Numerics.v2.Challenge
+import IEANTN.Nodes.FKS2Numerics.v3.Challenge
+import IEANTN.Nodes.FKS2Numerics.v4.Challenge
+import IEANTN.Nodes.FKS2Numerics.v5.Challenge
+import IEANTN.Nodes.FKS2Numerics.v6.Challenge
+import IEANTN.Nodes.FKS2Numerics.v7.Challenge
+import IEANTN.Nodes.FKSComputationLed.v1.Challenge
+import IEANTN.Nodes.GammaAsymptotics.v1.Challenge
+import IEANTN.Nodes.GammaAsymptotics.v2.Challenge
+import IEANTN.Nodes.Goldbach.v1.Challenge
+import IEANTN.Nodes.GoldbachCountNumerics.v1.Challenge
+import IEANTN.Nodes.HPY.v1.Challenge
+import IEANTN.Nodes.Hiary2016.v1.Challenge
+import IEANTN.Nodes.KLN.v1.Challenge
+import IEANTN.Nodes.Kadiri2005.v1.Challenge
+import IEANTN.Nodes.KadiriLumley.v1.Challenge
+import IEANTN.Nodes.Lcm.v1.Challenge
+import IEANTN.Nodes.Lcm.v1.Examples
+import IEANTN.Nodes.Lcm.v2.Challenge
+import IEANTN.Nodes.Lcm.v3.Challenge
+import IEANTN.Nodes.LowZeroes.v1.Challenge
+import IEANTN.Nodes.MT.v1.Challenge
+import IEANTN.Nodes.MT.v2.Challenge
+import IEANTN.Nodes.MTY.v1.Challenge
+import IEANTN.Nodes.MomentPNT.v1.Challenge
+import IEANTN.Nodes.MomentSourceInputs.v1.Challenge
+import IEANTN.Nodes.OliveiraESilva2014.v1.Challenge
+import IEANTN.Nodes.OpenAIQRH.v1.Challenge
+import IEANTN.Nodes.Platt2015.v1.Challenge
+import IEANTN.Nodes.Platt2017.v1.Challenge
+import IEANTN.Nodes.PlattTrudgian.v1.Challenge
+import IEANTN.Nodes.PlattTrudgian2021.v1.Tables
+import IEANTN.Nodes.PlattTrudgian2021.v1.Challenge
+import IEANTN.Nodes.PlattTrudgian2021.v2.Challenge
+import IEANTN.Nodes.PlattZeroSum.v1.Challenge
+import IEANTN.Nodes.PrimeInterval.v1.Challenge
+import IEANTN.Nodes.PrimeInterval.v1.Examples
+import IEANTN.Nodes.Primorial.v1.Challenge
+import IEANTN.Nodes.QRHCH2.v1.Challenge
+import IEANTN.Nodes.QRHCH2.v2.Challenge
+import IEANTN.Nodes.QRHCH2.v3.Challenge
+import IEANTN.Nodes.QRHCH2.v4.Challenge
+import IEANTN.Nodes.QRHCH2.v5.Challenge
+import IEANTN.Nodes.QRHCH2.v6.Challenge
+import IEANTN.Nodes.QRHConsequences.v1.Challenge
+import IEANTN.Nodes.QRHPropagation.v1.Challenge
+import IEANTN.Nodes.QRHPropagation.v2.Challenge
+import IEANTN.Nodes.QRHPropagation.v3.Challenge
+import IEANTN.Nodes.RamanujanGap.v1.Challenge
+import IEANTN.Nodes.RamanujanGap.v2.Challenge
+import IEANTN.Nodes.RamanujanNumerics.v1.Challenge
+import IEANTN.Nodes.RamanujanNumerics.v2.Challenge
+import IEANTN.Nodes.RamareSaouter2003.v1.Challenge
+import IEANTN.Nodes.Richstein2001.v1.Challenge
+import IEANTN.Nodes.RosserSchoenfeld.v1.Challenge
+import IEANTN.Nodes.RosserSchoenfeld1962.v1.Challenge
+import IEANTN.Nodes.Trudgian2011.v1.Challenge
+import IEANTN.Nodes.Wedeniwski.v1.Challenge
+import IEANTN.Nodes.ZeroCount.v1.Challenge
+import IEANTN.Nodes.ZeroFreeHalfPlane.v1.Challenge
+import IEANTN.Nodes.ZeroFreeHeight.v1.Challenge
+import IEANTN.Nodes.ZetaHadamard.v1.Challenge
+import IEANTN.Nodes.ZetaHadamard.v2.Challenge
+import IEANTN.Nodes.ZetaLogDeriv.v1.Challenge
+import IEANTN.Nodes.ZetaLogDeriv.v2.Challenge
+import IEANTN.Nodes.ZetaLogDerivValues.v1.Challenge
+import IEANTN.Nodes.ZetaZeroes.v1.Challenge
+
+/-!
+# The node network
+
+**Generated file - do not edit.**  Regenerated by `python scripts/ieantn.py gen-challenges`.
+
+Every node version's conclusions, generated challenge, and examples where present. Nodes are
+versioned: a node lives at `IEANTN/Nodes/<Family>/<version>/` and its id is `<Family>.<version>`.
+-/

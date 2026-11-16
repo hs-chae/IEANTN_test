@@ -1,0 +1,90 @@
+version: v0.4
+node:
+  id: RamanujanGap.v1
+  family: RamanujanGap
+  version: v1
+  kind: pipeline
+  status: active
+project:
+  name: Controlled forward Ramanujan quantitative baseline consumer
+  description: Preregistered old-input source-verified threshold experiment; no known
+    updated numerical output used before baseline freeze.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+conclusions:
+- id: loss_bound
+  declaration: RamanujanGap.v1.loss_bound
+  challenge: RamanujanGap.v1.challenge_loss_bound
+  imports:
+  - node: DudekPlattNumerics.v7
+    conclusion: pi_asymmetric_pnt
+  - node: RamanujanNumerics.v1
+    conclusion: epsilon_budget
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Standard-axiom consumer solution; both the analytic pi input and source
+      numerical provider are actual AND requirements. Official receipt pending.
+  designated: solution
+- id: gap_lower_bound
+  declaration: RamanujanGap.v1.gap_lower_bound
+  challenge: RamanujanGap.v1.challenge_gap_lower_bound
+  imports:
+  - node: DudekPlattNumerics.v7
+    conclusion: pi_asymmetric_pnt
+  - node: RamanujanNumerics.v1
+    conclusion: epsilon_budget
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Standard-axiom consumer solution; both the analytic pi input and source
+      numerical provider are actual AND requirements. Official receipt pending.
+  designated: solution
+- id: ramanujan
+  declaration: RamanujanGap.v1.ramanujan
+  challenge: RamanujanGap.v1.challenge_ramanujan
+  imports:
+  - node: DudekPlattNumerics.v7
+    conclusion: pi_asymmetric_pnt
+  - node: RamanujanNumerics.v1
+    conclusion: epsilon_budget
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Standard-axiom consumer solution; both the analytic pi input and source
+      numerical provider are actual AND requirements. Official receipt pending.
+  designated: solution
+sources:
+- id: forward-replay
+  title: Preregistered controlled forward Ramanujan experiment
+  authors:
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: Adapts DudekPlatt.v3 repaired Lemma2.1 and actual existing threshold in DudekPlatt.v2;
+    new source-level numerical obligation. M0 historical input remains explicit.
+automation:
+  methods:
+  - method: manual
+    role: Source model, exact floating-point certificates and checked analytic consumer.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+limitations:
+- Controlled replay, no held-out blindness or new mathematical discovery. Compiler/runtime/hardware
+  trusted; numerical finite native checking disclosed. No best-known cutoff or optimality
+  claim.

@@ -1,0 +1,64 @@
+version: v0.4
+project:
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+  name: Ramanujan inequality above exp401 via the existing repaired criterion
+  description: Ramanujan inequality above exp401 via the existing repaired criterion
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+automation:
+  methods:
+  - method: manual
+    role: Lean proofs, rational exponential bounds, exact challenge/solution comparison,
+      and downstream replay.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+node:
+  id: DudekPlatt.v5
+  family: DudekPlatt
+  version: v5
+  kind: pipeline
+  status: active
+conclusions:
+- id: ramanujan_401
+  declaration: DudekPlatt.v5.ramanujan_401
+  challenge: DudekPlatt.v5.challenge_ramanujan_401
+  imports:
+  - node: DudekPlattNumerics.v5
+    conclusion: pi_two_sided_qrh
+  - node: DudekPlatt.v3
+    conclusion: criterion
+  imports_status: identified
+  justifications:
+  - id: core-bridge
+    kind: bridged
+    from:
+    - DudekPlattNumerics.v5.pi_two_sided_qrh
+    - DudekPlatt.v3.criterion
+    bridge: IEANTN/Bridges/DudekPlatt/QRH.lean
+    note: Lean implication in the ordinary core build; exact input list remains explicit.
+  designated: core-bridge
+sources:
+- id: QRHExperiment
+  title: 'QRH maximum propagation: derived proof interfaces'
+  authors:
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: New derived implications from explicit existing node statements. No novelty
+    or optimality is claimed; paper inputs retain their original source boundary.
+limitations:
+- No official workflow receipt is claimed.
+- The underlying OpenAI QRH and original literature premises remain explicit network
+  inputs.

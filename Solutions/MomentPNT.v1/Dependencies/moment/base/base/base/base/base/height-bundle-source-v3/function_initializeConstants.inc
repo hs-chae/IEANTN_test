@@ -1,0 +1,13 @@
+static void initializeConstants(){I pl=rat(((((((((U)0)*((U)1000000000))+((U)3))*((U)1000000000))+((U)141592653))*((U)1000000000))+((U)589793238)),((((((((U)0)*((U)1000000000))+((U)1))*((U)1000000000))+((U)0))*((U)1000000000))+((U)0)));
+I ph=rat(((((((((U)0)*((U)1000000000))+((U)3))*((U)1000000000))+((U)141592653))*((U)1000000000))+((U)589793239)),((((((((U)0)*((U)1000000000))+((U)1))*((U)1000000000))+((U)0))*((U)1000000000))+((U)0)));
+(piBox={(pl.lo),(ph.hi)});
+(alphaBox=rat(601,5000));
+(dBox=rat(3681,10000));
+(deltaBox=rat(3599,10000));
+(m0Box=sqrtInterval(add(unit(),mul(rat(2,3),sqrtInterval(rat(6,5))))));
+(gaussianBox=divN(sqrtInterval(divI(piBox,rat(601,2500))),2));
+(peakBox=expNeg(divN(add(unit(),logTight(mul(rat(6,1),rat(601,2500)))),6)));
+(sqrtPi=sqrtInterval(piBox));
+(sqrt2Alpha=sqrtInterval(mul(rat(2,1),alphaBox)));
+I hstar=positiveSub(rat(((((((U)0)*((U)1000000000))+((U)3000))*((U)1000000000))+((U)0)),1),unit());
+(smoothingBox=divI(rat(1,2),squareI(positiveSub(unit(),inverseI(hstar)))));}

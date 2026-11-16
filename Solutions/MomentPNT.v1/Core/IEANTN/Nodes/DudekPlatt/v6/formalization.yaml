@@ -1,0 +1,60 @@
+version: v0.4
+project:
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+  name: Ramanujan inequality above exp145
+  description: Ramanujan inequality above exp145
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+automation:
+  methods:
+  - method: manual
+    role: Lean proofs, rational exponential bounds, exact challenge/solution comparison,
+      and downstream replay.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+node:
+  id: DudekPlatt.v6
+  family: DudekPlatt
+  version: v6
+  kind: pipeline
+  status: active
+conclusions:
+- id: ramanujan_145
+  declaration: DudekPlatt.v6.ramanujan_145
+  challenge: DudekPlatt.v6.challenge_ramanujan_145
+  imports:
+  - node: DudekPlattNumerics.v6
+    conclusion: pi_two_sided_144
+  - node: DudekPlatt.v3
+    conclusion: criterion
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Local exact-type Lean proof; official approved-workflow receipt pending.
+  designated: solution
+sources:
+- id: QRHPhase2
+  title: Targeted quantitative QRH propagation, Phase2
+  authors:
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: New derived statements, compared against frozen Phase1 contracts; no novelty
+    or optimality claim. Literature premises keep their prior evidence status.
+limitations:
+- No official workflow receipt is claimed.
+- The underlying OpenAI QRH and original literature premises remain explicit network
+  inputs.

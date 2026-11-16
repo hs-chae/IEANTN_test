@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "phase": "QRH_SOURCE_PV_ANALYTIC_SYNERGY_SUPPLEMENTAL_20261114",
+  "utc": "2026-11-15T12:43:13.717820+00:00",
+  "unit": "ieantn-r2-recovery-47c8a66a421a.scope",
+  "command": [
+    "systemd-run",
+    "--user",
+    "--scope",
+    "--quiet",
+    "--collect",
+    "--unit=ieantn-r2-recovery-47c8a66a421a.scope",
+    "-p",
+    "MemoryMax=17179869184",
+    "-p",
+    "MemorySwapMax=0",
+    "-p",
+    "TasksMax=1024",
+    "-p",
+    "CPUQuota=400%",
+    "-p",
+    "RuntimeMaxSec=600",
+    "-p",
+    "KillSignal=SIGKILL",
+    "taskset",
+    "-c",
+    "64,65,68,69",
+    "python3",
+    "-OO",
+    "research/source-weight-pnt-append-capsule-v2/check_controls.py",
+    "--environment",
+    "research/source-pnt-composition-preflight-resume-v1/OO-environment.json",
+    "--out",
+    "research/source-weight-pnt-append-controls-v4"
+  ],
+  "policy_sha256": "b68fb0e5fd5b4a65138db295b591a71007ab4b07aa0bfb32c614c8456dc4fd46",
+  "launcher_sha256": "88e08144e18cb67d320461f5a45d2b8dd18516e95775e90f6588614c4fa05c38",
+  "requested_memory_bytes": 17179869184,
+  "cpus": 4,
+  "wall_seconds": 600,
+  "CPU_affinity": [
+    64,
+    65,
+    68,
+    69
+  ],
+  "inherited_rlimit_as": "UNCHANGED_UNLIMITED",
+  "samples": [
+    {
+      "seconds": 0.002,
+      "host_available_RAM_bytes": 1406255054848,
+      "free_disk_bytes": 1984165064704,
+      "supplemental_workspace_written_bytes": 117644928659
+    },
+    {
+      "seconds": 3.274,
+      "host_available_RAM_bytes": 1411541950464,
+      "free_disk_bytes": 1984142852096,
+      "supplemental_workspace_written_bytes": 117644928659,
+      "cpu.stat": "usage_usec 3267423\nuser_usec 1723696\nsystem_usec 1543727",
+      "memory.current": "42905600",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+      "pids.current": "1"
+    }
+  ],
+  "cgroup": "/sys/fs/cgroup/user.slice/user-1013.slice/user@1013.service/app.slice/ieantn-r2-recovery-47c8a66a421a.scope",
+  "actual_limits": {
+    "memory.max": "17179869184",
+    "memory.swap.max": "0",
+    "pids.max": "1024",
+    "cpu.max": null
+  },
+  "exit_code": 0,
+  "elapsed_seconds": 5.282222798094153
+}

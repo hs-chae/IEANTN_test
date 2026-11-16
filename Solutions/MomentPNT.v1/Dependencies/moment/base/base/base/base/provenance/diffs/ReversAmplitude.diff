@@ -1,0 +1,21 @@
+--- original-main/ReversAmplitude
++++ unchanged-selected-base/ReversAmplitude
+@@ -4,6 +4,9 @@
+ Authors: OpenAI (Codex)
+ -/
+ import OriginalSharpScalars
++set_option maxHeartbeats 0
++set_option maxRecDepth 100000
++
+ namespace WinnerOriginalScalars.Revers
+ open Real LeanCert.Core
+ set_option maxHeartbeats 0
+@@ -12,7 +15,7 @@
+   (dv (mul (lit 6) (lit (611/1000))) (.exp (lit 1))) (lit (1461/1000))
+ 
+ theorem amplitude_floor_check : value amplitudeFloor≤281/100 := by
+-  have h := closed_upper amplitudeFloor (281/100) (by native_decide)
++  have h := closed_upper amplitudeFloor (281/100) (by decide +kernel)
+   norm_num at h ⊢
+   exact h
+ 

@@ -1,0 +1,129 @@
+# Node metadata for `DudekPlatt.v3`.  See docs/NODES.md.
+#
+# Dudek-Platt's Lemma 2.1, REPAIRED: the pipeline both v1's and v2's thresholds are instances of.
+# A variant of v1 and v2, not a successor -- all three stay.
+version: "v0.4"
+
+node:
+  id: DudekPlatt.v3
+  family: DudekPlatt
+  version: v3
+  kind: pipeline
+  status: active
+
+project:
+  name: "Dudek-Platt's criterion for Ramanujan's inequality, repaired"
+  description: >-
+    The criterion carrying a two-sided explicit estimate for pi(x) to Ramanujan's inequality
+    pi(x)^2 < (e x / log x) pi(x/e), stated for arbitrary parameters. This is Dudek and Platt's Lemma
+    2.1 with a defect in its proof repaired: the paper bounds the term carrying its lower-bound
+    constant m in the wrong direction whenever m is negative, which it always is in practice. The
+    repair is a case split on the sign of m, and it is the difference between the two seventh-order
+    lower-bound terms stated here. Imports nothing, so a Lean proof is its whole justification; the
+    thresholds on DudekPlatt.v1 and DudekPlatt.v2 are instances of it.
+  authors: ["Terence Tao"]
+  license: "Apache-2.0"
+  responsible_maintainers: ["Terence Tao"]
+
+repository:
+  role: substantive-development
+
+classification:
+  arxiv: [math.NT]
+  msc2020: ["11N05", "11A41"]
+
+conclusions:
+- id: criterion
+  issue: 54
+  declaration: DudekPlatt.v3.criterion
+  challenge: DudekPlatt.v3.challenge_criterion
+  imports: []
+  imports_status: none
+  justifications:
+  - id: unjustified
+    kind: none-yet
+    note: >-
+      A COMPLETE SOLUTION EXISTS at Solutions/DudekPlatt.v3, awaiting verification. It is free of
+      sorryAx and its axioms are exactly propext, Classical.choice and Quot.sound; its type matches
+      the challenge under `set_option pp.all true`. The justification stays `none-yet` until a
+      receipt is recorded by the verification workflow -- a justification one can write by hand
+      attests nothing. Imports `none`, and that is a real none: a
+      conditional theorem quantified over all admissible parameters consumes no other result in the
+      network, because everything it needs arrives as a hypothesis. So its justification can only be a
+      Lean proof, and it can be verified without waiting on any numerical input.
+      The proof follows PrimeNumberTheoremAnd's `Ramanujan.criterion`, which carries the same repair as
+      `εlower` (a case split on the sign of m) and `shift_m_lower_of_nonpos`. The question of whether
+      PNT+'s wider development meets this repository's axiom bound does not arise here: this chain was
+      ported into a standalone solution and checked directly, and it uses no native_decide and touches
+      none of PNT+'s numerical machinery.
+  - id: comparator
+    kind: lean-comparator
+    note: 'Comparator accepted the solution. Run: https://github.com/teorth/IEANTN/actions/runs/33279819834'
+  designated: comparator
+
+sources:
+- title: "On solving a curious inequality of Ramanujan"
+  authors: ["Adrian W. Dudek", "David J. Platt"]
+  type: "paper"
+  id: "https://doi.org/10.1080/10586458.2014.990118"
+  location: "Exp. Math. 24 (2015), no. 3, 289-294"
+  relationship: adapts
+  note: >-
+    `adapts`, not `formalizes`. This is the paper's Lemma 2.1 with a defect in its proof repaired, so
+    it is not a faithful transcription of what the paper states and must not be read as one. The same
+    defect is present in the authors' earlier arXiv:1407.1901.
+
+automation:
+  methods:
+  - method: agent
+    models: ["Claude Opus 5 (Anthropic)"]
+    framework: "Claude Code"
+    role: >-
+      Stated the paper's Lemma 2.1 with the sign-of-m case split its proof requires, following the shape
+      PrimeNumberTheoremAnd uses, under the direction of the maintainer. The defect was reported by the
+      maintainer, not found here. No proof is claimed.
+
+review:
+  status: self-assessed
+  reviewers: ["Terence Tao"]
+  notes: >-
+    The statement was written against PrimeNumberTheoremAnd's `criterion`, `ε`, `ε'`, `εneg` and
+    `εlower`, with names and shapes adapted to this repository's Vocabulary. Two independent checks on
+    the transcription. First, the paper's own seventh-order lower-bound term reads
+    206 + m + 364/log x + 381/log^2 x + 238/log^3 x + 97/log^4 x + 30/log^5 x, which matches εPos here
+    up to the 8/log^6 x tail that the PDF text layer truncates. Second, the threshold condition is a
+    comparison against log x rather than against zero, and at the paper's parameters
+    Mₐ = 3343.48, mₐ = -3103.33 the leading difference (72 + 2Mₐ) - (206 + mₐ) is about 9656 against a
+    published threshold of exp(9657.8) -- so the condition is satisfied with very little room, which
+    both corroborates the shape and explains why reading it as a comparison against zero makes the
+    argument look false.
+
+limitations:
+- >-
+  Proved, but not yet verified: a receipt requires a Comparator run, and until one exists the
+  designated justification is `none-yet` regardless of the solution's state.
+- >-
+  It is NOT what the paper states. The paper's Lemma 2.1 uses the equivalent of εPos unconditionally,
+  and applies it only ever with negative m, where εNeg is required. A node faithfully transcribing the
+  paper's lemma would be stating a false implication. That is why `relationship` is `adapts`, and why
+  this is a separate version rather than an edit to anything.
+- >-
+  The repair changes only seventh-order terms, but "only" is not "not at all". Recomputing at
+  DudekPlatt.v1's parameters -- M_a = 3343.48, m_a = -3103.33, x_a = exp(9656.8) -- the threshold
+  condition this criterion assumes FAILS at log x = 9658 and holds at log x = 9659, checked in Lean by
+  norm_num on exact rationals. The repair costs 1.9287 in the gap and the paper had 0.84 of margin. So
+  the paper's printed exp(9658) is not reachable through this criterion at its own parameters, and
+  exp(9659) is. See DudekPlatt.v1's limitations. DudekPlatt.v2's exp(3915) has NOT been rechecked the
+  same way, because PNT+'s constants there are functions rather than literals; doing so is part of the
+  work of justifying v2.
+- >-
+  Proving this does not by itself justify either threshold. Each instance also needs its two-sided pi
+  estimate -- DudekPlattNumerics.v1.pi_two_sided_paper for v1, and something not yet stated for v2 --
+  and the threshold condition discharged at those parameters. That condition deliberately does NOT
+  live on a numerics node. It is not a finite check, quantifying over all x above the threshold; it is
+  provable outright from literal constants, so asserting it would put something provable on the
+  asserted side; and at v1's parameters it is FALSE at the printed threshold, which asserting it would
+  have concealed. It belongs inside whichever solution proves an instance, as a lemma.
+- >-
+  No novelty is claimed. The criterion is Dudek and Platt's; the correction is theirs to make, and the
+  form used here follows PrimeNumberTheoremAnd's.

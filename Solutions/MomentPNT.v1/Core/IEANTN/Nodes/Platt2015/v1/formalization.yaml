@@ -1,0 +1,117 @@
+version: "v0.4"
+node:
+  id: Platt2015.v1
+  family: Platt2015
+  version: v1
+  kind: computation
+  status: stub
+project:
+  name: 'Platt: computing pi(x) analytically'
+  description: >-
+    The verification of the Riemann hypothesis to height 3.06e10 that Mossinghoff-Trudgian's Theorem 1
+    consumes. The node states the part of the computation that is expressible as a proposition -- that
+    no zero below that height lies off the critical line -- which is precisely what MT takes from it.
+  authors:
+  - Terence Tao
+  license: Apache-2.0
+  responsible_maintainers:
+  - Terence Tao
+repository:
+  role: substantive-development
+
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11M26
+  - 11Y35
+  - 11Y70
+conclusions:
+- id: rh_up_to
+  declaration: Platt2015.v1.rh_up_to
+  challenge: Platt2015.v1.challenge_rh_up_to
+  imports: []
+  imports_status: traced
+  justifications:
+  - id: platt-paper
+    kind: numerical
+    source: Platt2015
+    locator: Section 6, the zero computation the paper reports
+    note: >-
+      A large finite computation, so `numerical` rather than `literature`. Now recorded at FIRST hand:
+      the arXiv source (1203.5712) is held, and says 'We isolated all the zeros of zeta to a height of
+      30,610,046,000 (103,800,788,359 zeros)', having 'biased the run time towards computing zeros, both
+      to confirm RH holds to a height sufficient for this computation'. That is 3.0610046e10, so the 3.06e10
+      stated here is implied with room to spare. Earlier this node rested on MT's citation alone. The
+      relationship to Platt2017.v1 is now established rather than guessed: they are one computation reported
+      in two papers. Computing pi(x) Analytically says 'We isolated all the zeros of zeta to a height
+      of 30,610,046,000 (103,800,788,359 zeros)' and cites for the technique a paper then in preparation
+      titled 'Computing zeta on the half line', which is what became Isolating some non-trivial zeros
+      of zeta. That paper's abstract reports the same height. KLN records N(H_0) = 103 800 788 359 at
+      H_0 = 3.0610046e10 -- the same zero count. MT cites the pi(x) paper and rounds the height down to
+      3.06e10, which is why this node states the weaker number: it exists to serve MT and states what
+      MT selected. Formalizable surface, assessed 2026-08-26. A verification of this kind is not one opaque
+      computation: most of the paper is analysis that could be formalized, and the computational core
+      is small. Recording where the line falls is what lets a reader size the hole rather than guess at
+      it, and is the prerequisite for ever splitting the node into a formal harness, a computational core,
+      and a bridge from the two to the conclusion. This paper is the lighter of the two: its Section 6
+      reports the zero computation, and it cites for the technique the paper that became Isolating some
+      non-trivial zeros of zeta, which is Platt2017.v1 and where the analytic apparatus actually lives.
+      So its formalizable surface is largely Platt2017's, and its own contribution is the analytic method
+      for pi(x) built on top. The dependency on Platt2017 is on an algorithm rather than on a proposition,
+      so it cannot be an edge; the bridge between the two nodes records the part that can be.
+  - id: bridge-from-platt2017
+    kind: bridged
+    from: Platt2017.v1.rh_up_to
+    bridge: IEANTN/Bridges/Platt/P2017ToP2015.lean
+    note: >-
+      A second, independent ground, and the place where 'same computation, two papers' stops being prose.
+      RiemannHypothesisUpTo is antitone in its height, so Platt2017.v1's 3.0610046e10 implies this node's
+      3.06e10; the bridge is four lines and is compiled by the core build, so it cannot silently stop
+      being a proof. NOT designated: the direct justification above rests on this node's own paper, while
+      this one would route trust through another node. Its value is that the relationship is checked on
+      every push.
+  designated: platt-paper
+sources:
+- title: Computing pi(x) Analytically
+  authors:
+  - David J. Platt
+  type: paper
+  id: arXiv:1203.5712v3; Math. Comp. 84 (2015), 1521-1535
+  location: Mathematics of Computation 84 (2015), 1521-1535; doi:10.1090/S0025-5718-2014-02884-6
+  relationship: formalizes
+  note: >-
+    arXiv source held and read. Distinct from Platt's Isolating some non-trivial zeros of zeta, which
+    reports the same computation and which this paper cites for the technique under its preprint title,
+    and from the later Platt-Trudgian verification to 3e12.
+automation:
+  methods:
+  - method: agent
+    models:
+    - Claude Opus 5 (Anthropic)
+    framework: Claude Code
+    role: >-
+      Created this node and stated the consequence of the computation that MT's Theorem 1 rests on, under
+      the direction of the maintainer. No proof is claimed.
+review:
+  status: self-assessed
+  reviewers:
+  - Terence Tao
+  notes: >-
+    The height and the zero count were read from the paper's own LaTeX source. What was previously flagged
+    as a guess -- the relationship to Platt2017.v1 -- is now established by the matching height, the matching
+    zero count, and this paper's citation of the other for its technique.
+limitations:
+- >-
+  The node states only the consequence that no zero below the height lies off the critical line. The computation's
+  real output is a list of isolated zeros; a consumer needing those -- Buthe's algorithm does -- needs
+  more than the node says.
+- >-
+  The node states 3.06e10 where the paper states 3.0610046e10, because 3.06e10 is what MT selects and
+  this node exists to serve MT. Platt2017.v1 states the sharper height, and the bridge between them makes
+  the implication explicit.
+- >-
+  Imports are undetermined: what a zero-verification rests on -- the rigorous interval arithmetic and
+  the zeta evaluation method -- has not been traced.
+- >-
+  No novelty is claimed.

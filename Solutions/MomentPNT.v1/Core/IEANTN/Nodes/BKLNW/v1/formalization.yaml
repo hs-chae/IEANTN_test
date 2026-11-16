@@ -1,0 +1,229 @@
+# Node metadata for `BKLNW.v1`.  See docs/NODES.md.
+version: "v0.4"
+
+node:
+  id: BKLNW.v1
+  family: BKLNW
+  version: v1
+  kind: paper
+  status: active
+
+project:
+  name: "Broadbent-Kadiri-Lumley-Ng-Wilk: sharper bounds for the Chebyshev function theta(x)"
+  description: >-
+    Explicit bounds on `theta(x) - x`. The method rests on a zero-free region, a zero density
+    estimate, and a verification of the Riemann hypothesis to a finite height, together with
+    substantial numerical work. The headline admissible classical bound on `E_theta` is the
+    conclusion downstream nodes want. The paper's table-driven components are a natural candidate
+    for splitting into their own node once anyone formalizes them, since a table is a different
+    kind of evidence from an analytic argument.
+  authors: ["Terence Tao"]
+  license: "Apache-2.0"
+  responsible_maintainers: ["Terence Tao"]
+
+repository:
+  role: substantive-development
+
+classification:
+  arxiv: [math.NT]
+  msc2020: ["11N05", "11M06", "11M26"]
+
+conclusions:
+- id: corollary_5_1
+  declaration: BKLNW.v1.corollary_5_1
+  challenge: BKLNW.v1.challenge_corollary_5_1
+  imports:
+  - node: Buthe.v1
+    conclusion: theorem_2_theta_lower
+  justifications:
+  - id: bklnw-paper
+    kind: literature
+    source: BKLNW
+    locator: Corollary 5.1, equations (2.10) to (2.12), restricted to b <= 38 log 10
+    note: >-
+      Asserted on the authority of the paper, transcribed from arXiv:2002.11068v2. Stated on 7 <= b <=
+      38 log 10 only. Above that threshold a1(b) is 1 + eps(b/2) with eps read from the paper's Table
+      8; below it a1 is the explicit constant 1 + 1.93378e-8, and every current consumer is below it --
+      FKS2 uses x0 = e^30, and 38 log 10 is about 87.4982. This is a restriction of the paper's range,
+      not a weakening of what it claims on that range. The paper contradicts itself here and the displayed
+      statement is the correct side, so that is what is transcribed. Theorem 5 gives a2 = (1 + alpha)
+      max{...}; Corollary 5.1's proof declares alpha = 1.93378e-8 from Corollary 2.1 and then writes 1.15177e-8
+      for the same quantity one sentence later, so (2.12) is self-consistent and the proof's figure is
+      a stray -- most likely a leftover from a draft with a different epsilon. It appears on page 9 of
+      both arXiv:2002.11068v2 and the published Math. Comp. version, and never reached PNT+, whose formalization
+      uses the correct value. The difference is lower order and harmless; it is recorded because a stray
+      constant that nobody writes down is the kind of thing that gets propagated later. Imports: the proof
+      applies the paper's Theorem 5 with alpha = 1.93378e-8 from its Corollary 2.1, and its Proposition
+      4 with x1 = 10^19 'from the work of Buthe [4, Equation (1.7)]' -- that is Buthe.v1.theorem_2_theta_lower,
+      which is the same (1.7). The paper leans on it twice: Corollary 2.1 combines 'theta(x) < x for 0
+      < x <= 10^19 ([4, Theorem 2, (1.7)])' with M0 = eps(19 log 10) from Table 8, and equation (3.17)
+      quotes (1.7) in full. The other half of that, the Table 8 entry, is this node's own table8_psi_bound_above,
+      so it is not an import.
+  designated: bklnw-paper
+  imports_status: identified
+- id: corollary_5_1_above
+  declaration: BKLNW.v1.corollary_5_1_above
+  challenge: BKLNW.v1.challenge_corollary_5_1_above
+  imports:
+  - node: Buthe.v1
+    conclusion: theorem_2_theta_lower
+  justifications:
+  - id: bklnw-paper
+    kind: literature
+    source: BKLNW
+    locator: Corollary 5.1, equations (2.10) to (2.12), b > 38 log 10
+    note: >-
+      Asserted on the authority of the paper, transcribed from arXiv:2002.11068v2. The high branch
+      of (2.11): a1(b) = 1 + eps(b/2) with eps read from Table 8, while a2(b) keeps the fixed
+      leading factor of (2.12). Quantified over Table 8 rows (beta, eps) with b = 2*beta so that
+      eps(b/2) is an exact table entry. The low branch corollary_5_1 is unchanged. Imports match
+      the low branch: Buthe.v1.theorem_2_theta_lower via the paper's use of [4, Equation (1.7)].
+  designated: bklnw-paper
+  imports_status: identified
+- id: table8_psi_bound
+  declaration: BKLNW.v1.table8_psi_bound
+  challenge: BKLNW.v1.challenge_table8_psi_bound
+  imports:
+  - node: Buthe2016.v1
+    conclusion: theorem_2_psi
+  - node: PlattTrudgian2021.v1
+    conclusion: theorem_1_numerical
+  imports_status: traced
+  justifications:
+  - id: bklnw-paper
+    kind: literature
+    source: BKLNW
+    locator: Table 8, read as its Corollary 8.1 reads it
+    note: >-
+      Asserted on the authority of the paper. The entries themselves are in Tables.lean, extracted from
+      the typeset table rather than retyped. What the table means is fixed by the paper's Corollary 8.1,
+      which reads the caption's b' as the next entry of column 1; see the Tables.lean docstring, which
+      also records the four cross-checks against the paper's prose. Imports, now traced. BKLNW's Theorem
+      2 is attributed to 'Buthe, Platt-Trudgian' and says plainly: 'We use [3, Theorem 2], [4, Theorem
+      1] and [37, Theorem 1] to compute a more exhaustive list of values for eps(b)'. Resolving those:
+      [3, Theorem 2] is Buthe 2016's conditional Schoenfeld bound, now Buthe2016.v1; [37, Theorem 1] is
+      Platt-Trudgian's error-term paper, now PlattTrudgian2021.v1. Both are edges. [4, Theorem 1] is not,
+      and cannot be: Buthe 2018's Theorem 1 states the existence of an ALGORITHM which, given the zeros
+      to a stated accuracy, outputs bounds on psi -- not an inequality. The network can only import propositions,
+      so that input is recorded here in prose rather than drawn, exactly as FKBJ.v1's zero data is. This
+      is why the status is `identified` and not `undetermined`: every input is either an edge or is inherently
+      unrepresentable, and the unrepresentable one is named. The table's values are the output of running
+      both algorithms, so the edges understate the dependency in the same way. The paper notes Buthe's
+      technique wins below about e^2300 and Platt-Trudgian's above, which is the b <= 2000 / b >= 2500
+      split visible in the table. Reclassified from `identified` to `traced`: two of the three inputs
+      are edges and the third, the algorithm of Buthe 2018's Theorem 1, can never be one. `traced` is
+      the value for that, and it lets `identified` mean simply that the arrows tell the whole story.
+  designated: bklnw-paper
+- id: table8_psi_bound_above
+  declaration: BKLNW.v1.table8_psi_bound_above
+  challenge: BKLNW.v1.challenge_table8_psi_bound_above
+  imports:
+  - node: Buthe2016.v1
+    conclusion: theorem_2_psi
+  - node: PlattTrudgian2021.v1
+    conclusion: theorem_1_numerical
+  imports_status: traced
+  justifications:
+  - id: bklnw-paper
+    kind: literature
+    source: BKLNW
+    locator: Table 8 in the form used by Corollaries 2.1 and 15.1
+    note: >-
+      Asserted on the authority of the paper. The entries themselves are in Tables.lean, extracted from
+      the typeset table rather than retyped. What the table means is fixed by the paper's Corollary 8.1,
+      which reads the caption's b' as the next entry of column 1; see the Tables.lean docstring, which
+      also records the four cross-checks against the paper's prose. This is the unbounded reading the
+      paper actually applies: Corollary 2.1 takes M0 = eps(19 log 10) with no upper cutoff and Corollary
+      15.1 writes eps(19 log 10) as holding for all x >= e^b. It follows from table8_psi_bound plus the
+      fact that the tabulated eps strictly decrease, which was checked mechanically across all 57 consecutive
+      pairs, so a solution should derive it rather than reassert it. The cutoff at e^25000 is the last
+      tabulated b and is not removable from the table alone. Imports, now traced. BKLNW's Theorem 2 is
+      attributed to 'Buthe, Platt-Trudgian' and says plainly: 'We use [3, Theorem 2], [4, Theorem 1] and
+      [37, Theorem 1] to compute a more exhaustive list of values for eps(b)'. Resolving those: [3, Theorem
+      2] is Buthe 2016's conditional Schoenfeld bound, now Buthe2016.v1; [37, Theorem 1] is Platt-Trudgian's
+      error-term paper, now PlattTrudgian2021.v1. Both are edges. [4, Theorem 1] is not, and cannot be:
+      Buthe 2018's Theorem 1 states the existence of an ALGORITHM which, given the zeros to a stated accuracy,
+      outputs bounds on psi -- not an inequality. The network can only import propositions, so that input
+      is recorded here in prose rather than drawn, exactly as FKBJ.v1's zero data is. This is why the
+      status is `identified` and not `undetermined`: every input is either an edge or is inherently unrepresentable,
+      and the unrepresentable one is named. The table's values are the output of running both algorithms,
+      so the edges understate the dependency in the same way. The paper notes Buthe's technique wins below
+      about e^2300 and Platt-Trudgian's above, which is the b <= 2000 / b >= 2500 split visible in the
+      table. Reclassified from `identified` to `traced`: two of the three inputs are edges and the third,
+      the algorithm of Buthe 2018's Theorem 1, can never be one. `traced` is the value for that, and it
+      lets `identified` mean simply that the arrows tell the whole story.
+  designated: bklnw-paper
+- id: theta_error_le_one
+  declaration: BKLNW.v1.theta_error_le_one
+  challenge: BKLNW.v1.challenge_theta_error_le_one
+  imports:
+  - node: Buthe.v1
+    conclusion: theorem_2_theta_lower
+  justifications:
+  - id: bklnw-paper
+    kind: literature
+    source: BKLNW
+    locator: Tables 13 and 14, as used in FKS2 Corollary 14
+    note: >-
+      Asserted on the authority of the paper. Stated as the consequence FKS2 draws from those tables --
+      E_theta(x) <= 1 on [2, e^30] -- rather than as the tables themselves, because the consequence is
+      what is consumed and it is a single clean inequality. Transcribed from FKS2's proof of its Corollary
+      14, not read off the tables directly; confirm against the published tables before relying on it
+      for anything sharper. Attribution confirmed from FKS2's LaTeX source, which reads 'The results found
+      in \cite[Table~13 and 14]{BKLNW21} give E_theta(x) <= 1 < eps_{theta,asymp}(2) <= eps_{theta,asymp}(x)
+      for all 2 <= x <= e^30' -- exactly this conclusion. Previously this was transcribed from the PDF.
+      Imports, preliminary. BKLNW says of that range: "Buthe's [4, Theorem 2, (1.7)] implies that, for
+      all x < 10^19, theta(x) < x, giving M_k = 0 for all k and x in this range. In addition we did direct
+      calculations for values of x up to 7 * 10^11 (see Table 13)." The second is BKLNW's own computation
+      and internal. The first is Buthe.v1.theorem_2_theta_lower, and it is what carries the claim: e^30
+      is about 1.07e13, well inside x < 10^19, so theta(x) < x there, whence |theta(x) - x| = x - theta(x)
+      <= x because theta is non-negative -- which is exactly E_theta(x) <= 1. Marked identified rather
+      than undetermined because the one external input is an edge and the other input is internal. It
+      is called preliminary because Tables 13 and 14 are commented out in BKLNW's arXiv source and have
+      not been read directly; they establish far more than this weak bound, and a node wanting their sharper
+      values must read the published tables.
+  designated: bklnw-paper
+
+  imports_status: identified
+sources:
+- title: "Sharper bounds for the Chebyshev function theta(x)"
+  authors: ["Samuel Broadbent", "Habiba Kadiri", "Allysa Lumley", "Nathan Ng", "Kirsten Wilk"]
+  type: "paper"
+  id: "https://doi.org/10.1090/mcom/3643"
+  location: "Math. Comp. 90 (2021), no. 331, 2281-2315"
+  relationship: formalizes
+
+automation:
+  methods:
+  - method: agent
+    models: ["Claude Opus 5 (Anthropic)"]
+    framework: "Claude Code"
+    role: >-
+      Transcribed four statements from the arXiv preprint 2002.11068v2 -- including the
+      definition of f at its equation (2.4), read off the rendered page because the
+      plain-text extraction was unusable -- and recorded what each rests on, under the
+      direction of the maintainer. No proof is claimed.
+
+review:
+  status: self-assessed
+  reviewers: ["Terence Tao"]
+  notes: >-
+    Statements read from the arXiv preprint 2002.11068v2 directly, including the definition of f in equation
+    (2.4), which the plain-text extraction rendered unusably and which was read off the rendered page
+    instead. The published Math. Comp. version is held in the library but has not been checked against
+    these statements.
+
+limitations:
+- >-
+  Every conclusion rests on the cited paper; none is proved in Lean here.
+- >-
+  corollary_5_1 is stated on 7 <= b <= 38 log 10; corollary_5_1_above states the complementary
+  b > 38 log 10 branch with a1(b) = 1 + eps(b/2) from Table 8.
+- >-
+  The Table 8 conclusions import Buthe2016.v1 and PlattTrudgian2021.v1, but the third input -- the algorithm
+  of Buthe 2018's Theorem 1 -- is not a proposition and can never be an edge. The tabulated values are
+  what those algorithms output, so the edges understate the dependency.
+- >-
+  theta_error_le_one is transcribed from FKS2's use of Tables 13 and 14, not read off those tables directly.
+- >-
+  No novelty is claimed. The results are the paper's.

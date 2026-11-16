@@ -1,0 +1,72 @@
+version: v0.4
+project:
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+  name: Source-verified conservative FKS2 correction baseline
+  description: Same FKS2 correction application, unchanged coefficient-anchor loops,
+    explicit application threshold and literal coefficient; original calibration and
+    N0baseline established before QRH.
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+automation:
+  methods:
+  - method: manual
+    role: Lean proofs, rational exponential bounds, exact challenge/solution comparison,
+      and downstream replay.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+node:
+  id: FKS2Numerics.v3
+  family: FKS2Numerics
+  version: v3
+  kind: computation
+  status: active
+conclusions:
+- id: calibration_bound
+  declaration: FKS2Numerics.v3.calibration_bound
+  challenge: FKS2Numerics.v3.challenge_calibration_bound
+  imports: []
+  imports_status: none
+  justifications:
+  - id: source-verified
+    kind: lean-noncompliant
+    note: Closed source-model execution, exact target normalization and symbolic summation-stability
+      error proof. Audited finite native_decide certificates require the disclosed
+      source-level trust boundary; no official Comparator receipt.
+  designated: source-verified
+- id: baseline_bound
+  declaration: FKS2Numerics.v3.baseline_bound
+  challenge: FKS2Numerics.v3.challenge_baseline_bound
+  imports: []
+  imports_status: none
+  justifications:
+  - id: source-verified
+    kind: lean-noncompliant
+    note: Closed source-model execution, exact target normalization and symbolic summation-stability
+      error proof. Audited finite native_decide certificates require the disclosed
+      source-level trust boundary; no official Comparator receipt.
+  designated: source-verified
+sources:
+- id: FKS2Application
+  title: Conservative extension of the source-first FKS2 correction application
+  authors:
+  - hs-chae contributors
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: Original fixed application and symbolic summation integration from hs-chae/goldbach_pv
+    hs-chae/fp3b3205d; one canonical IEANTN namespace. No new generic numerical application.
+limitations:
+- Native finite facts require the disclosed nonstandard-axiom tier; no official Comparator
+  receipt.

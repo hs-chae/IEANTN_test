@@ -1,0 +1,62 @@
+"""Regenerate original numerical data and C++ association, then prove the graph.
+
+Raw execution is association evidence. Only the subsequent actual complete
+source rebuild can accept the finite source-point-to-ANT composition.
+"""
+from pathlib import Path
+import argparse
+import hashlib
+import json
+import subprocess
+import sys
+import time
+
+B=Path(__file__).resolve().parent
+def need(value,message):
+    if not value:
+        raise RuntimeError(message)
+def sha(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+def main():
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--environment',type=Path,required=True)
+    parser.add_argument('--out',type=Path,required=True)
+    parser.add_argument('--jobs',type=int,default=2)
+    parser.add_argument('--point-jobs',type=int,default=1)
+    args=parser.parse_args()
+    need(1<=args.jobs<=8 and 1<=args.point_jobs<=args.jobs,'bounded explicit job counts')
+    out=args.out.resolve()
+    need(not out.exists() and B not in out.parents,'fresh output outside capsule')
+    out.mkdir(parents=True)
+    environment=json.loads(args.environment.read_text())
+    compiler=Path(environment['compiler']).with_name('clang')
+    start=time.monotonic()
+    steps=[]
+    def run(command,name):
+        began=time.monotonic()
+        with (out/(name+'.stdout')).open('wb') as stdout,(out/(name+'.stderr')).open('wb') as stderr:
+            result=subprocess.run(command,stdout=stdout,stderr=stderr)
+        need(result.returncode==0,'failed '+name+'; preserve partial evidence')
+        steps.append(dict(name=name,command=command,seconds=time.monotonic()-began))
+    run([sys.executable,str(B/'reproduce_cpp.py'),'--compiler',str(compiler),'--out',str(out/'actual-cpp')],'actual-cpp-association')
+    run([sys.executable,str(B/'numerics/reproduce_height_numerics_v1.py'),'--compiler',str(compiler),'--out',str(out/'numerical-data')],'numerical-regeneration')
+    run([sys.executable,str(B/'numerics/verify_regenerated_height_words_v1.py'),'--source-root',str(B/'source'),
+        '--raw-root',str(out/'numerical-data'),'--out',str(out/'NUMERICAL_WORD_ASSOCIATION.json')],'numerical-word-association')
+    flags=['-OO'] if sys.flags.optimize>=2 else ['-O'] if sys.flags.optimize else []
+    run([sys.executable,*flags,str(B/'reproduce.py'),'--environment',str(args.environment.resolve()),
+        '--out',str(out/'proofs'),'--jobs',str(args.jobs),'--point-jobs',str(args.point_jobs)],'complete-source-proofs')
+    proof=json.loads((out/'proofs/RECEIPT.json').read_text())
+    need(proof['status']=='PASS_SOURCE_COLD_BARE768_C_POINT_TO_ANT_COMPOSITION'
+         and proof['source_modules']==1412 and proof['theorem_roots']==2350
+         and proof['application_object_inputs']==[],'actual complete source proof receipt')
+    receipt=dict(status='PASS_FRESH_BARE768_SOURCE_POINT_ANT_WITH_REGENERATION',seconds=time.monotonic()-start,
+        steps=steps,proof_receipt_sha256=sha(out/'proofs/RECEIPT.json'),
+        source_lock_sha256=sha(B/'SOURCE_LOCK.json'),combined_fresh_replay_completed=True,
+        full_program_source_first_PV=False,
+        qualification='Actual complete finite source-point/ANT proof plus raw source/output associations. Full startup/main/weight/I/O and final isolated acceptance are separate.')
+    pending=out/'RECEIPT.pending'
+    pending.write_text(json.dumps(receipt,indent=2)+'\n')
+    pending.replace(out/'RECEIPT.json')
+    print(json.dumps({k:v for k,v in receipt.items() if k!='steps'}))
+if __name__=='__main__':
+    main()

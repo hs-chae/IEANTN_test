@@ -1,0 +1,21 @@
+--- original-main/EulerGammaBound
++++ unchanged-selected-base/EulerGammaBound
+@@ -5,6 +5,9 @@
+ -/
+ import OriginalSharpScalars
+ import Mathlib.NumberTheory.Harmonic.EulerMascheroni
++set_option maxHeartbeats 0
++set_option maxRecDepth 100000
++
+ namespace WinnerEulerGamma
+ open Real LeanCert.Core WinnerOriginalScalars
+ set_option maxHeartbeats 0
+@@ -23,7 +26,7 @@
+ def upperExpr : Expr := sub (harmonicExpr 700) (.log (lit 700))
+ 
+ theorem upper_check : value upperExpr ≤ 289/500 := by
+-  have h := closed_upper upperExpr (289/500) (by native_decide)
++  have h := closed_upper upperExpr (289/500) (by decide +kernel)
+   norm_num at h ⊢
+   exact h
+ 

@@ -1,0 +1,85 @@
+version: v0.4
+project:
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+  name: 'QRH plus CH2: an explicit PNT envelope'
+  description: Specialize the fixed-strip pipeline at beta=7/8, then retain the smaller of the new power-saving
+    bound and CH2 Corollary 1.3. Existing statements are unchanged.
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+automation:
+  methods:
+  - method: manual
+    role: Source transcription, explicit written derivation, and a short Lean composition.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+node:
+  id: QRHCH2.v1
+  family: QRHCH2
+  version: v1
+  kind: pipeline
+  status: active
+conclusions:
+- id: psi_power_bound
+  declaration: QRHCH2.v1.psi_power_bound
+  challenge: QRHCH2.v1.challenge_psi_power_bound
+  imports:
+  - node: OpenAIQRH.v1
+    conclusion: zeta_seven_eighths
+  - node: CH2.v5
+    conclusion: psi_bound_of_fixed_strip
+  imports_status: identified
+  justifications:
+  - id: composition
+    kind: bridged
+    note: The bridge specializes the fixed-strip statement and normalizes rational coefficients. It does
+      not prove the upstream QRH or analytic transfer.
+    from:
+    - CH2.v5.psi_bound_of_fixed_strip
+    bridge: IEANTN/Bridges/QRHCH2/Compose.lean
+  designated: composition
+- id: psi_hybrid_bound
+  declaration: QRHCH2.v1.psi_hybrid_bound
+  challenge: QRHCH2.v1.challenge_psi_hybrid_bound
+  imports:
+  - node: QRHCH2.v1
+    conclusion: psi_power_bound
+  - node: CH2.v1
+    conclusion: corollary_1_3_psi
+  imports_status: identified
+  justifications:
+  - id: composition
+    kind: bridged
+    note: The bridge divides CH2's bound by positive x and takes the minimum. Both inputs remain explicit.
+    from:
+    - QRHCH2.v1.psi_power_bound
+    - CH2.v1.corollary_1_3_psi
+    bridge: IEANTN/Bridges/QRHCH2/Compose.lean
+  designated: composition
+sources:
+- id: CH2FixedStripDerivation
+  title: A fixed-zero-strip consequence of the Chirre-Helfgott formula
+  authors:
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: CH2.v5/Derivation.html supplies the analytic transfer; this node only composes named inputs. Original-proof
+    identifies a derivation written in this project; mathematical novelty is unknown and is not claimed.
+limitations:
+- The short composition is Lean checked; the exact original CH2.v5 analytic transfer now has a local Lean
+  proof and standard-three-axiom build check. Final independent checking for its new solution package
+  is pending.
+- Both new conclusions apply only at x>=exp(128). CH2.v1 already covers x>=1 separately.
+- No automatic discovery or reoptimization of downstream results is claimed; this is an explicit graph
+  connection.

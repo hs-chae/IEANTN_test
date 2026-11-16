@@ -1,0 +1,135 @@
+# Node metadata for `PlattTrudgian.v1`.  See docs/NODES.md.
+version: "v0.4"
+
+node:
+  id: PlattTrudgian.v1
+  family: PlattTrudgian
+  version: v1
+  kind: computation
+  status: active            # change this once the node is filled in
+
+project:
+  name: "Platt-Trudgian: the Riemann hypothesis is true up to 3 x 10^12"
+  description: >-
+    A numerical verification that every zero of zeta with imaginary part up to 3 x 10^12 lies on the critical
+    line. This is the finite computation the explicit estimates downstream ultimately rest on: FKS takes
+    H0 = 3 x 10^12 from here, and everything FKS feeds inherits it.
+  authors:
+  - Terence Tao
+  license: "Apache-2.0"
+  responsible_maintainers:
+  - Terence Tao
+
+repository:
+  role: substantive-development
+
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11M26
+  - 11Y35
+
+conclusions:
+- id: rh_up_to
+  declaration: PlattTrudgian.v1.rh_up_to
+  challenge: PlattTrudgian.v1.challenge_rh_up_to
+  imports: []
+  justifications:
+  - id: platttrudgian-paper
+    kind: literature
+    source: PlattTrudgian
+    locator: the paper's main result
+    note: >-
+      Asserted on the authority of the paper. This is a very large finite computation and the node is
+      kind: computation accordingly -- it will not carry a Lean solution in any foreseeable sense, and
+      what a formalization offers here is a statement of record with an honest citation rather than a
+      proof. The paper's own framing is that the first 10^13 zeros lie on the critical line; the round
+      3 x 10^12 recorded here is the height downstream papers quote. Minor: the paper states 'all zeroes
+      beta + i gamma with 0 < gamma <= 3e12 have beta = 1/2', so its range is open at zero, while RiemannHypothesisUpTo
+      quantifies over Im s in [0, T]. Including gamma = 0 is harmless -- zeta has no real zero in (0,1)
+      -- but that is a classical fact and not something this paper proves, so the conclusion is very slightly
+      stronger than its source. Formalizable surface, assessed 2026-08-26. A verification of this kind
+      is not one opaque computation: most of the paper is analysis that could be formalized, and the computational
+      core is small. Recording where the line falls is what lets a reader size the hole rather than guess
+      at it, and is the prerequisite for ever splitting the node into a formal harness, a computational
+      core, and a bridge from the two to the conclusion. Here there is nothing to extract, and that is
+      the finding. The paper is short and its section 'Theory and computation' contains no theorem at
+      all -- it is an account of engineering (Arb in place of MPFI, sampling rates, core hours) resting
+      on one sentence: 'We used the algorithm described in [Platt]', which is Platt2017.v1. So this node
+      is genuinely primitive: its only input is another paper's algorithm, which the network cannot express,
+      and there is no analytic component of its own to split off. It is `traced` rather than `identified`
+      for that reason -- the input is known and is not drawable -- and unlike the others it will stay
+      that way. Note also that the paper's Theorem 1 states the sharper height 3,000,175,332,800 -- 'the
+      lowest 12,363,153,437,138 non-trivial zeroes have Re rho = 1/2'. This node states 3e12, which is
+      implied and is the figure the downstream literature quotes.
+  designated: platttrudgian-paper
+  imports_status: traced
+- id: rh_up_to_exact
+  declaration: PlattTrudgian.v1.rh_up_to_exact
+  challenge: PlattTrudgian.v1.challenge_rh_up_to_exact
+  imports: []
+  justifications:
+  - id: platttrudgian-theorem-1
+    kind: literature
+    source: PlattTrudgian
+    locator: Theorem 1
+    note: >-
+      Asserted on the authority of the paper, and the same computation as `rh_up_to` -- nothing further
+      is being claimed, only the height stated without rounding. Theorem 1 reads, verbatim: 'The Riemann
+      hypothesis is true up to height 3 000 175 332 800. That is, the lowest 12 363 153 437 138 non-trivial
+      zeroes rho have Re rho = 1/2.' The abstract quotes the rounded 3e12 instead, which is why the rounded
+      form is the one the downstream literature carries and why this node states both. Read from the arXiv
+      version, arXiv:2004.09765, on 2026-09-20; the rounded figure in the abstract was checked at the
+      same
+      time.
+      WHY BOTH ARE STATED. The difference of 1.75e8 is invisible to every current consumer but one:
+      CH2.v1's Corollary 1.2 has the error term pi/(T-1) and its Corollary 1.3 quotes that as
+      pi/(3e12), a step that needs T >= 3e12 + 1. The rounded height misses it by one; this one clears
+      it by 1.75e8. `rh_up_to` is this conclusion weakened, so a solution would prove this one and get
+      the other in a line -- which is the reason to keep them in one node rather than split a version
+      off.
+      The same caveat as `rh_up_to` applies about the range at zero: the paper's 0 < gamma is open,
+      `RiemannHypothesisUpTo` includes Im s = 0, and zeta has no real zero in (0,1), so the conclusion
+      is very slightly stronger than its source by a classical fact the paper does not prove.
+  designated: platttrudgian-theorem-1
+  imports_status: traced
+sources:
+- title: The Riemann hypothesis is true up to 3 x 10^12
+  authors:
+  - David J. Platt
+  - Timothy S. Trudgian
+  type: paper
+  id: https://doi.org/10.1112/blms.12460
+  location: Bull. Lond. Math. Soc. 53 (2021), no. 3, 792-797
+  relationship: formalizes
+  note: >-
+    Bibliographic details from PNT+'s references.bib and FKS's reference [26]; the DOI has not been confirmed
+    against the publisher and should be before external use. The arXiv version is arXiv:2004.09765, and
+    Theorem 1 and the abstract were read there on 2026-09-20.
+automation:
+  methods:
+  - method: agent
+    models:
+    - Claude Opus 5 (Anthropic)
+    framework: Claude Code
+    role: >-
+      Transcribed the statement into the network's vocabulary and wrote this metadata, under the direction
+      of the maintainer. No proof is claimed.
+review:
+  status: self-assessed
+  reviewers:
+  - Terence Tao
+  notes: >-
+    Statement transcribed from FKS's use of the result, which quotes the height as H0 = 3 x 10^12. Not
+    read from the paper itself.
+
+limitations:
+- >-
+  Rests entirely on the cited computation. Nothing downstream of it is unconditional in any stronger sense
+  than that computation is correct.
+- >-
+  The height is recorded as the round 3 x 10^12 that downstream papers quote. A node needing the sharper
+  height implied by the first 10^13 zeros should state it separately.
+- >-
+  No novelty is claimed.

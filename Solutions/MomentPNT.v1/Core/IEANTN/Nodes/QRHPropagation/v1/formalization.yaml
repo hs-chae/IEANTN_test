@@ -1,0 +1,143 @@
+version: v0.4
+project:
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+  name: Power-saving errors, moving prime intervals and existing FKS2 reuse
+  description: Power-saving errors, moving prime intervals and existing FKS2 reuse
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+automation:
+  methods:
+  - method: manual
+    role: Lean proofs, rational exponential bounds, exact challenge/solution comparison,
+      and downstream replay.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+node:
+  id: QRHPropagation.v1
+  family: QRHPropagation
+  version: v1
+  kind: pipeline
+  status: active
+conclusions:
+- id: theta_power_bound
+  declaration: QRHPropagation.v1.theta_power_bound
+  challenge: QRHPropagation.v1.challenge_theta_power_bound
+  imports:
+  - node: QRHCH2.v5
+    conclusion: psi_refined_bound
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Complete proof is implemented locally; official exact-type verification
+      receipt remains pending.
+  designated: solution
+- id: pi_power_bound
+  declaration: QRHPropagation.v1.pi_power_bound
+  challenge: QRHPropagation.v1.challenge_pi_power_bound
+  imports:
+  - node: QRHPropagation.v1
+    conclusion: theta_power_bound
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Complete proof is implemented locally; official exact-type verification
+      receipt remains pending.
+  designated: solution
+- id: short_prime_intervals
+  declaration: QRHPropagation.v1.short_prime_intervals
+  challenge: QRHPropagation.v1.challenge_short_prime_intervals
+  imports:
+  - node: QRHPropagation.v1
+    conclusion: theta_power_bound
+  - node: PrimeInterval.v1
+    conclusion: eTheta_criterion
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Complete proof is implemented locally; official exact-type verification
+      receipt remains pending.
+  designated: solution
+- id: fks2_classical_replay
+  declaration: QRHPropagation.v1.fks2_classical_replay
+  challenge: QRHPropagation.v1.challenge_fks2_classical_replay
+  imports:
+  - node: QRHPropagation.v1
+    conclusion: theta_power_bound
+  - node: FKS2.v2
+    conclusion: theorem_3
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Complete proof is implemented locally; official exact-type verification
+      receipt remains pending.
+  designated: solution
+- id: theta_density_bound
+  declaration: QRHPropagation.v1.theta_density_bound
+  challenge: QRHPropagation.v1.challenge_theta_density_bound
+  imports:
+  - node: QRHCH2.v2
+    conclusion: psi_density_frontier
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Complete proof is implemented locally; official exact-type verification
+      receipt remains pending.
+  designated: solution
+- id: pi_density_bound
+  declaration: QRHPropagation.v1.pi_density_bound
+  challenge: QRHPropagation.v1.challenge_pi_density_bound
+  imports:
+  - node: QRHPropagation.v1
+    conclusion: theta_density_bound
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Complete proof is implemented locally; official exact-type verification
+      receipt remains pending.
+  designated: solution
+- id: density_prime_intervals
+  declaration: QRHPropagation.v1.density_prime_intervals
+  challenge: QRHPropagation.v1.challenge_density_prime_intervals
+  imports:
+  - node: QRHPropagation.v1
+    conclusion: theta_density_bound
+  - node: PrimeInterval.v1
+    conclusion: eTheta_criterion
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Complete proof is implemented locally; official exact-type verification
+      receipt remains pending.
+  designated: solution
+sources:
+- id: QRHExperiment
+  title: 'QRH maximum propagation: derived proof interfaces'
+  authors:
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: New derived implications from explicit existing node statements. No novelty
+    or optimality is claimed; paper inputs retain their original source boundary.
+limitations:
+- No official workflow receipt is claimed.
+- The underlying OpenAI QRH and original literature premises remain explicit network
+  inputs.

@@ -1,0 +1,171 @@
+version: v0.4
+project:
+  name: QRH moment programs and matched analytic control
+  description: Source-linked mass and first-moment outputs give a whole-ray PNT bound from exp300
+    and a reusable future-onset profile. A stronger same-fourteen-premise kernel-only control
+    is preserved.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+node:
+  id: MomentPNT.v1
+  family: MomentPNT
+  version: v1
+  kind: pipeline
+  status: awaiting-verification
+conclusions:
+- id: moment_pi
+  declaration: MomentPNT.v1.moment_pi
+  challenge: MomentPNT.v1.challenge_moment_pi
+  imports: &id001
+  - node: MomentSourceInputs.v1
+    conclusion: low_zeta
+  - node: MomentSourceInputs.v1
+    conclusion: revers_zeta
+  - node: MomentSourceInputs.v1
+    conclusion: mollifier_mean_square
+  - node: MomentSourceInputs.v1
+    conclusion: source_smoothing
+  - node: MomentSourceInputs.v1
+    conclusion: source_right_moment
+  - node: MomentSourceInputs.v1
+    conclusion: source_rectangle
+  - node: MomentSourceInputs.v1
+    conclusion: source_unsmoothing
+  - node: MomentSourceInputs.v1
+    conclusion: source_interpolation
+  - node: MomentSourceInputs.v1
+    conclusion: original_chj
+  - node: ZeroCount.v1
+    conclusion: rvm_error_bound
+  - node: ZeroCount.v1
+    conclusion: rvm_error_small
+  - node: LowZeroes.v1
+    conclusion: no_zeroes_below_first_ordinate
+  - node: PlattTrudgian.v1
+    conclusion: rh_up_to
+  - node: OpenAIQRH.v1
+    conclusion: zeta_seven_eighths
+  imports_status: identified
+  justifications:
+  - id: local-proof
+    kind: lean-noncompliant
+    note: 'Complete public source solution: six exact challenge types compiled and audited with
+      only the standard three axioms in an isolated append to the validated source-built4486-module
+      parent. Eight modules freshly compiled, including coherent vector extension; no native execution
+      axiom. See Solutions/MomentPNT.v1 for sources, regeneration recipes, namespace/resource
+      receipts and artifact hashes. Official Comparator receipt remains pending. The proof consumes
+      actual source-linked mass and first-moment program reads under documented compiler/runtime/platform
+      and normal-I/O contracts.'
+  designated: local-proof
+- id: moment_psi
+  declaration: MomentPNT.v1.moment_psi
+  challenge: MomentPNT.v1.challenge_moment_psi
+  imports: *id001
+  imports_status: identified
+  justifications:
+  - id: local-proof
+    kind: lean-noncompliant
+    note: 'Complete public source solution: six exact challenge types compiled and audited with
+      only the standard three axioms in an isolated append to the validated source-built4486-module
+      parent. Eight modules freshly compiled, including coherent vector extension; no native execution
+      axiom. See Solutions/MomentPNT.v1 for sources, regeneration recipes, namespace/resource
+      receipts and artifact hashes. Official Comparator receipt remains pending. The proof consumes
+      actual source-linked mass and first-moment program reads under documented compiler/runtime/platform
+      and normal-I/O contracts.'
+  designated: local-proof
+- id: kernel_control_pi
+  declaration: MomentPNT.v1.kernel_control_pi
+  challenge: MomentPNT.v1.challenge_kernel_control_pi
+  imports: *id001
+  imports_status: identified
+  justifications:
+  - id: local-proof
+    kind: lean-noncompliant
+    note: 'Complete public source solution: six exact challenge types compiled and audited with
+      only the standard three axioms in an isolated append to the validated source-built4486-module
+      parent. Eight modules freshly compiled, including coherent vector extension; no native execution
+      axiom. See Solutions/MomentPNT.v1 for sources, regeneration recipes, namespace/resource
+      receipts and artifact hashes. Official Comparator receipt remains pending. This comparison
+      uses ordinary Lean kernel numerical verification, not source-first PV.'
+  designated: local-proof
+- id: kernel_control_psi
+  declaration: MomentPNT.v1.kernel_control_psi
+  challenge: MomentPNT.v1.challenge_kernel_control_psi
+  imports: *id001
+  imports_status: identified
+  justifications:
+  - id: local-proof
+    kind: lean-noncompliant
+    note: 'Complete public source solution: six exact challenge types compiled and audited with
+      only the standard three axioms in an isolated append to the validated source-built4486-module
+      parent. Eight modules freshly compiled, including coherent vector extension; no native execution
+      axiom. See Solutions/MomentPNT.v1 for sources, regeneration recipes, namespace/resource
+      receipts and artifact hashes. Official Comparator receipt remains pending. This comparison
+      uses ordinary Lean kernel numerical verification, not source-first PV.'
+  designated: local-proof
+- id: moment_future_pi
+  declaration: MomentPNT.v1.moment_future_pi
+  challenge: MomentPNT.v1.challenge_moment_future_pi
+  imports: *id001
+  imports_status: identified
+  justifications:
+  - id: local-proof
+    kind: lean-noncompliant
+    note: 'Complete public source solution: six exact challenge types compiled and audited with
+      only the standard three axioms in an isolated append to the validated source-built4486-module
+      parent. Eight modules freshly compiled, including coherent vector extension; no native execution
+      axiom. See Solutions/MomentPNT.v1 for sources, regeneration recipes, namespace/resource
+      receipts and artifact hashes. Official Comparator receipt remains pending. The proof consumes
+      actual source-linked mass and first-moment program reads under documented compiler/runtime/platform
+      and normal-I/O contracts.'
+  designated: local-proof
+- id: moment_prime_rich
+  declaration: MomentPNT.v1.moment_prime_rich
+  challenge: MomentPNT.v1.challenge_moment_prime_rich
+  imports:
+  - node: MomentPNT.v1
+    conclusion: moment_future_pi
+  imports_status: identified
+  justifications:
+  - id: profile-transport
+    kind: lean-noncompliant
+    note: 'Complete public source solution: six exact challenge types compiled and audited with
+      only the standard three axioms in an isolated append to the validated source-built4486-module
+      parent. Eight modules freshly compiled, including coherent vector extension; no native execution
+      axiom. See Solutions/MomentPNT.v1 for sources, regeneration recipes, namespace/resource
+      receipts and artifact hashes. Official Comparator receipt remains pending. Derived solely
+      from moment_future_pi. The0.00095363 count coefficient improves the historical0.00079 at
+      width0.018*x^(7/8); an existing paired-source profile is stronger at330. This is not a best-current
+      claim or independent discovery.'
+  designated: profile-transport
+sources:
+- id: MomentResearch2026
+  title: QRH source-first mass/moment PNT experiment and shared-mathematics direct-vector control
+  authors:
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: Conditional on exactly the fourteen displayed source interfaces. New evidence never changes
+    locked primary experimental outcomes.
+limitations:
+- Complete conditional proofs and source semantics are supplemental research evidence; no official
+  Comparator receipt is claimed.
+- The direct-vector kernel-only control is stronger than this moment-source cap; no exclusive
+  PV advantage or best-known claim is made.
+- The open QRH half-plane remains a named input; the separately pinned OpenAI formalization uses
+  a different Lean version.
+- Whole-ray validity does not assert pointwise superiority over every retained comparator.
+- An existing same-fourteen-premise paired-source profile gives0.008441646 above exp330 and a
+  separate rational future profile; the moment profile is not uniformly strongest. Its distinct
+  contributions are exp300 onset, both pi/psi outputs, and reusable mass/moment data.

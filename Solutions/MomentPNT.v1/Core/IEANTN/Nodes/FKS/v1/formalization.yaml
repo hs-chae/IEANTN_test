@@ -1,0 +1,212 @@
+# Node metadata for `FKS.v1`.  See docs/NODES.md.
+version: "v0.4"
+
+node:
+  id: FKS.v1
+  family: FKS
+  version: v1
+  kind: paper
+  status: active
+
+project:
+  name: "Fiori-Kadiri-Swidinsky: sharper bounds for the Chebyshev function psi(x)"
+  description: >-
+    Explicit bounds on `psi(x) - x`, obtained from a zero-free region and a zero density estimate
+    for the Riemann zeta function together with a numerical verification of the Riemann hypothesis
+    to a finite height. The natural first conclusion is the paper's headline admissible classical
+    bound on `E_psi`, which is exactly the shape `FKS2`'s first pipeline consumes.
+  authors: ["Terence Tao"]
+  license: "Apache-2.0"
+  responsible_maintainers: ["Terence Tao"]
+
+repository:
+  role: substantive-development
+
+classification:
+  arxiv: [math.NT]
+  msc2020: ["11N05", "11M06", "11Y35"]
+
+conclusions:
+- id: psi_bound_all_x
+  declaration: FKS.v1.psi_bound_all_x
+  challenge: FKS.v1.challenge_psi_bound_all_x
+  imports:
+  - node: KLN.v1
+    conclusion: subconvexity_bound
+  - node: MT.v1
+    conclusion: zero_free_region_sharpened
+  - node: PlattTrudgian.v1
+    conclusion: rh_up_to
+  imports_status: traced
+  justifications:
+  - id: fks-paper
+    kind: literature
+    source: FKS
+    locator: Corollary 1.4, in the published version and in arXiv:2204.02588v2 and v3 alike
+    note: >-
+      Asserted on the authority of the paper, and transcribed from the preprint in the paper's own normalisation
+      rather than converted to the admissible-bound shape. The conversion is not free: with R = 5.5666305
+      it gives A = 9.22022 * R^(3/2) = 121.09602174... and C = 0.8476836 * sqrt(R) = 1.99999992...,
+      so the printed 121.096 / C = 2 are strengthenings rather than benign rounding versus this rescaling. Imports: Settled against
+      the published version (J. Math. Anal. Appl. 527 (2023) 127426). FKS names three inputs: the verification
+      height H0 = 3 x 10^12 from Platt and Trudgian, the zero-free region R = 5.5666305 from Mossinghoff
+      and Trudgian, and a zero-density bound for N-tilde(sigma, T) of the shape (2.6) from Kadiri, Lumley
+      and Ng [18], the published J. Math. Anal. Appl. 465 (2018) paper that KLN.v1 records. The first
+      two are recorded as edges. The third is now recorded too, at the point where the error FKS reports
+      actually bites: KLN.v1 states the subconvexity bound of its Lemma 3.2 with FKS's corrected constant
+      0.77 rather than the printed 0.63, which is the value FKS itself uses. KLN's Theorem 1.1 and its
+      numerical density tables remain unstated. Not because nobody has recomputed them -- FKS does,
+      in its Tables 7 and 8, at a1 = 0.77 and H0 = 3 x 10^12 ("we provided updated parameters optimized
+      for H0 = 3 . 10^12") -- but because what FKS publishes are parameters for its own restatement,
+      Theorem 2.7, rather than a reissue of KLN's tables, as KLN.v1's own limitations already say. FKS's other Kadiri-Lumley-Ng reference [19], the
+      unpublished preprint 'Bounding psi(x) with zero-density', is NOT an input: Lemma 2.5, the sums-over-zeros
+      estimate, is proved in FKS itself and the preprint is cited as attribution. It is background, not
+      an edge. Absolute values, checked against the rendered page. FKS (1.1) defines E_psi(x) = |(psi(x)
+      - x)/x| and FKS2 (1) and (2) define E_pi, E_theta and E_psi the same way, all with bars, exactly
+      as this network's Vocabulary does. An earlier note here claimed the papers defined these signed
+      and that the conclusions were therefore stronger than the printed corollaries; that was wrong. PDF
+      text extraction silently drops absolute-value bars around a displayed fraction, and the definitions
+      were read from extracted text. They have since been read from the rendered page, where the bars
+      are plainly there. Nothing about the statements needed to change.
+  designated: fks-paper
+- id: psi_classical_bound
+  declaration: FKS.v1.psi_classical_bound
+  challenge: FKS.v1.challenge_psi_classical_bound
+  imports:
+  - node: KLN.v1
+    conclusion: subconvexity_bound
+  - node: MT.v1
+    conclusion: zero_free_region_sharpened
+  - node: PlattTrudgian.v1
+    conclusion: rh_up_to
+  imports_status: traced
+  justifications:
+  - id: fks-paper
+    kind: literature
+    source: FKS
+    locator: not a numbered statement of FKS; checked inside the proof of Lemma 5.3 (arXiv v3 numbering) on 2100 < log x <= 200000, and quoted by FKS2 as [8, Corollary 1.3], the arXiv v1 number of Corollary 1.4
+    note: >-
+      Asserted on the authority of the paper. Transcribed from FKS2's proof of its Corollary 14, which
+      quotes A = 121.096, B = 3/2, C = 2, R = 5.5666305 for x >= e^30 and attributes them to [8, Corollary
+      1.3]. Settled in #52: the classical form is not a numbered statement of FKS in any version. In arXiv
+      v2 and v3 it appears only inside the proof of Lemma 5.3 (v3 numbering), which checks it on
+      2100 < log x <= 200000 --
+      121.096 is the largest "Bound on A" in that proof's table -- before converting it to the all-x
+      form. The proof of Corollary 1.4 covers log x > 200000 by Theorem 1.2, whose table gives
+      A(e^200000) = 121.0360, and log x <= 2100 by Lemma 5.2, which is in the all-x shape with constant 2
+      and, where it holds, gives the classical form by rescaling with a factor of 4.6 to spare. The
+      published version has
+      no Corollary 1.3; FKS2's number is that of arXiv v1, whose Corollary 1.3 is the all-x bound with
+      9.22106. The same bound holds from x0 = 2, which FKS.v2 states, bridged from this conclusion.
+      Imports: Settled against the published version (J. Math. Anal. Appl. 527
+      (2023) 127426). FKS names three inputs: the verification height H0 = 3 x 10^12 from Platt and Trudgian,
+      the zero-free region R = 5.5666305 from Mossinghoff and Trudgian, and a zero-density bound for N-tilde(sigma,
+      T) of the shape (2.6) from Kadiri, Lumley and Ng [18], the published J. Math. Anal. Appl. 465 (2018)
+      paper that KLN.v1 records. The first two are recorded as edges. The third is now recorded too, at
+      the point where the error FKS reports actually bites: KLN.v1 states the subconvexity bound of its
+      Lemma 3.2 with FKS's corrected constant 0.77 rather than the printed 0.63, which is the value FKS
+      itself uses. KLN's Theorem 1.1 and its numerical density tables remain unstated. Not because nobody
+      has recomputed them -- FKS does, in its Tables 7 and 8, at a1 = 0.77 and H0 = 3 x 10^12 -- but because
+      what FKS publishes are parameters for its own restatement, Theorem 2.7, rather than a reissue of KLN's
+      tables, as KLN.v1's own limitations already say. FKS's other Kadiri-Lumley-Ng reference [19], the
+      unpublished preprint 'Bounding psi(x) with zero-density', is NOT an input: Lemma
+      2.5, the sums-over-zeros estimate, is proved in FKS itself and the preprint is cited as attribution.
+      It is background, not an edge. Absolute values, checked against the rendered page. FKS (1.1) defines
+      E_psi(x) = |(psi(x) - x)/x| and FKS2 (1) and (2) define E_pi, E_theta and E_psi the same way, all
+      with bars, exactly as this network's Vocabulary does. An earlier note here claimed the papers defined
+      these signed and that the conclusions were therefore stronger than the printed corollaries; that
+      was wrong. PDF text extraction silently drops absolute-value bars around a displayed fraction, and
+      the definitions were read from extracted text. They have since been read from the rendered page,
+      where the bars are plainly there. Nothing about the statements needed to change.
+  designated: fks-paper
+- id: rescaled_A_exceeds_printed
+  declaration: FKS.v1.rescaled_A_exceeds_printed
+  challenge: FKS.v1.challenge_rescaled_A_exceeds_printed
+  imports: []
+  imports_status: none
+  justifications:
+  - id: fks-rescaling-A
+    kind: numerical
+    source: FKS
+    locator: Corollary 1.4 versus the printed A = 121.096
+    note: >-
+      Closed-form comparison of the two printed constants at R = 5.5666305. Imports none. This is the
+      A-gap recorded on psi_bound_all_x: the rescaling overshoots 121.096, so the classical bound is
+      not derivable from the all-x bound by converting R. The preprint's proof of Lemma 5.3 checks
+      the other direction, 121.096 / R^{3/2} < 9.22022, which is the same inequality.
+  designated: fks-rescaling-A
+- id: rescaled_C_is_short_of_two
+  declaration: FKS.v1.rescaled_C_is_short_of_two
+  challenge: FKS.v1.challenge_rescaled_C_is_short_of_two
+  imports: []
+  imports_status: none
+  justifications:
+  - id: fks-rescaling-C
+    kind: numerical
+    source: FKS
+    locator: Corollary 1.4 versus the printed C = 2
+    note: >-
+      The companion gap in C. 0.8476836 * sqrt(R) is strictly less than 2, so the printed classical
+      decay is a strengthening of the rescaling rather than a rounding of it.
+  designated: fks-rescaling-C
+sources:
+- title: "Sharper bounds for the Chebyshev function psi(x)"
+  authors: ["Andrew Fiori", "Habiba Kadiri", "Joshua Swidinsky"]
+  type: "paper"
+  id: "https://doi.org/10.1016/j.jmaa.2023.127426"
+  location: "J. Math. Anal. Appl. 527 (2023), Paper No. 127426, 28 pp."
+  relationship: formalizes
+
+automation:
+  methods:
+  - method: agent
+    models: ["Claude Opus 5 (Anthropic)"]
+    framework: "Claude Code"
+    role: >-
+      Transcribed two statements from the paper and recorded what they rest on, under the
+      direction of the maintainer. The bibliographic record came from PrimeNumberTheoremAnd's
+      references.bib rather than the paper; see the review notes. No proof is claimed.
+
+review:
+  status: self-assessed
+  reviewers: ["Terence Tao"]
+  notes: >-
+    Bibliographic details confirmed against Crossref (DOI 10.1016/j.jmaa.2023.127426: title, the three
+    authors, vol. 527 no. 2, article 127426, November 2023) and the page count against the published
+    article, which is 28 pages. Originally taken from blueprint/src/references.bib in PrimeNumberTheoremAnd
+    rather than from the printed paper. The published JMAA version is now held in the library;
+    verify them against it before this node is cited externally or used as the basis for a
+    submission. The numbering discrepancy is settled (#52); see the limitations.
+
+limitations:
+- >-
+  Both conclusions rest on the cited paper; neither is proved in Lean here.
+- >-
+  Numbering, settled in #52. The published version and arXiv:2204.02588v2 and v3 number the all-x bound
+  Corollary 1.4 and have no Corollary 1.3. The "[8, Corollary 1.3]" that FKS2 cites is the arXiv v1
+  number, from the version whose constant was 9.22106. The classical form is not a numbered
+  statement in any version; in arXiv v2 and v3 it appears only inside the proof of Lemma 5.3, on
+  2100 < log x <= 200000 (see the note on psi_classical_bound).
+- >-
+  psi_classical_bound is not derivable from psi_bound_all_x by rescaling at R = 5.5666305. The two
+  new conclusions record the A and C gaps as claims. The converse direction, which the paper's proof
+  of Lemma 5.3 takes, does close: see FKS.v2 and IEANTN/Bridges/FKS/ClassicalToAllX.lean.
+- >-
+  Lemma 5.2 of the paper (arXiv v3 numbering, which PrimeNumberTheoremAnd follows) is false as
+  printed. It states E_psi(x) <= 2 (log x)^(3/2) exp(-0.8476836 sqrt(log x)) for 0 < log x <= 2100.
+  For 1 < x < 2, psi(x) = 0 and E_psi(x) = 1, and at x = 2, E_psi = 0.65343... against a right-hand
+  side of 0.56986...; the bound fails on all of (1, 2.2901308748...) and holds from x = 2.2902 on: checked
+  box by box in interval arithmetic up to e^4 in #52, and above that the paper's comparisons with
+  Buthe 2018 and BKLNW Table 8 go through. The slip is the proof's "For 0 < log x <= 4 the bound we
+  are claiming is trivial", which the published version prints too. The paper's proof of Corollary
+  1.4 applies the lemma on all of 0 < log x <= 2100, so that proof has a gap on (2, 2.2901308748...).
+  The statements here are unaffected: below e^30 their right-hand sides exceed 2 while E_psi <= 2 by
+  Mathlib's Chebyshev bound (the argument of IEANTN/Bridges/FKS/ThresholdTwo.lean), and above e^30
+  the lemma holds. PrimeNumberTheoremAnd's lemma_5_2 carries the printed statement, over Ioc 0 2100.
+  A node that states the paper's lemmas should use the corrected range,
+  2.2902 <= x <= e^2100, and record this falsity in its limitations.
+- >-
+  R = 5.5666305 is not this paper's constant but Mossinghoff and Trudgian's, J. Number Theory 157 (2015).
+  A sharper value is available from MTY.v1 and is the first thing to change when the chain is re-run.
+- >-
+  No novelty is claimed. The results are Fiori, Kadiri and Swidinsky's.

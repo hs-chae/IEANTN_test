@@ -1,0 +1,122 @@
+# Node metadata for `Hiary2016.v1`.  See docs/NODES.md.
+version: "v0.4"
+
+node:
+  id: Hiary2016.v1
+  family: Hiary2016
+  version: v1
+  kind: paper
+  status: stub
+project:
+  name: 'Hiary: an explicit van der Corput estimate for zeta on the critical line'
+  description: >-
+    The explicit subconvexity bound |zeta(1/2 + it)| <= a_1 t^(1/6) log t that KLN's Lemma 3.2 quotes
+    and the FKS chain ultimately consumes. Stated with the corrected constant 0.77 rather than the printed
+    0.63, for the reason KLN.v1 states it: the printed value depends on an erroneous explicit van der
+    Corput test.
+  authors:
+  - Terence Tao
+  license: Apache-2.0
+  responsible_maintainers:
+  - Terence Tao
+
+repository:
+  role: substantive-development
+
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11M06
+  - 11Y35
+
+conclusions:
+- id: zeta_half_line_bound
+  declaration: Hiary2016.v1.zeta_half_line_bound
+  challenge: Hiary2016.v1.challenge_zeta_half_line_bound
+  imports: []
+  imports_status: traced
+  justifications:
+  - id: hiary-paper
+    kind: literature
+    source: Hiary2016
+    locator: Theorem 1.1, the t >= 3 half, with the constant corrected from 0.63 to 0.77
+    note: >-
+      Asserted on the authority of the paper, with the correction. Read from the arXiv LaTeX source: Theorem
+      1.1 reads 'If 0 <= t <= 3, then |zeta(1/2+it)| <= 1.461. If t >= 3, then |zeta(1/2+it)| <= 0.63
+      t^(1/6) log t'. The 0.63 depends on an erroneous explicit van der Corput second-derivative test
+      of Cheng and Graham; FKS records that 'after accounting for this correction, the constant, a_1,
+      changes to 0.77' and computes its own tables with 0.77. Stating 0.63 would put a knowably wrong
+      value in the network. Imports, traced from the paper's own LaTeX source rather than from FKS's characterisation
+      of it, and the two agree exactly. Hiary's Theorem 1.1 rests on his Lemma (corput lemma), whose proof
+      in his Section 'Proof of Lemma' applies three results of Cheng-Graham: [Lemma 5], the Weyl-van der
+      Corput lemma 'in the more precise form presented at the bottom of page 1273'; [Lemma 3], the van
+      der Corput second-derivative test, at a step his source labels literally `corput second der`; and
+      the summation estimates following [Lemma 7]. It also uses [Lemma 2] of Platt-Trudgian, An improved
+      explicit bound on |zeta(1/2+it)|, J. Number Theory 147 (2015), 842-851, for a refinement. So FKS's
+      report is exact: the erroneous input is Cheng-Graham's Lemma 3, the second-derivative test, which
+      is why the constant moves from 0.63 to 0.77. ChengGraham2004.v1 now exists but states nothing, deliberately
+      -- transcribing Lemma 3 as printed would put a knowably wrong statement into the network, and the
+      corrected form is argued only in Patel's footnote, which is not held. Neither input is an edge,
+      so this stays `traced`. The correction is now verified FIRST HAND. Patel's paper is on arXiv as
+      2009.00769, which earlier searches by title missed; its Footnote 3 reads: 'This corrected version
+      of the explicit third derivative test in turn changes the explicit van der Corput bound derived
+      by Hiary in [Theorem 1.1]. In that paper, Hiary obtained |zeta(1/2+it)| <= 0.63 t^(1/6) log t at
+      the time. ... With the correction provided in Lemma [derivative3test], the estimate obtained by
+      Hiary now becomes |zeta(1/2+it)| <= 0.77 t^(1/6) log t.' So 0.77 is confirmed against the paper
+      that argues it, not merely against FKS's report of it. Patel's Section 2 also says more than FKS
+      did: the flaw is in Cheng-Graham's LEMMAS 2 AND 3, not Lemma 3 alone; it was found by Kevin Ford
+      and by Reyna; the leading term of the incorrect Lemma 3 is 'off by a factor of sqrt(2)'; and it
+      'affects many explicit estimates in the literature'. Patel gives corrected versions, so a Patel2022
+      node stating them would make this conclusion's imports drawable -- that is the next step here. The
+      correction is now verified FIRST HAND. Patel's paper is on arXiv as 2009.00769, which earlier searches
+      by title missed; its Footnote 3 reads: 'This corrected version of the explicit third derivative
+      test in turn changes the explicit van der Corput bound derived by Hiary in [Theorem 1.1]. In that
+      paper, Hiary obtained |zeta(1/2+it)| <= 0.63 t^(1/6) log t at the time. ... With the correction
+      provided in Lemma [derivative3test], the estimate obtained by Hiary now becomes |zeta(1/2+it)| <=
+      0.77 t^(1/6) log t.' So 0.77 is confirmed against the paper that argues it, not merely against FKS's
+      report of it. Patel's Section 2 also says more than FKS did: the flaw is in Cheng-Graham's LEMMAS
+      2 AND 3, not Lemma 3 alone; it was found by Kevin Ford and by Reyna; the leading term of the incorrect
+      Lemma 3 is 'off by a factor of sqrt(2)'; and it 'affects many explicit estimates in the literature'.
+      Patel gives corrected versions, so a Patel2022 node stating them would make this conclusion's imports
+      drawable -- that is the next step here.
+  designated: hiary-paper
+sources:
+- title: An explicit van der Corput estimate for zeta(1/2 + it)
+  authors:
+  - Ghaith A. Hiary
+  type: paper
+  id: arXiv:1507.01261; Int. J. Number Theory 12 (2016)
+  location: International Journal of Number Theory; arXiv:1507.01261
+  relationship: formalizes
+  note: >-
+    arXiv LaTeX source held and read. The constant stated in this node is corrected relative to the paper;
+    see the conclusion's note.
+automation:
+  methods:
+  - method: agent
+    models:
+    - Claude Opus 5 (Anthropic)
+    framework: Claude Code
+    role: >-
+      Transcribed the statement from the paper's LaTeX source and applied the correction FKS documents,
+      under the direction of the maintainer. No proof is claimed.
+review:
+  status: self-assessed
+  reviewers:
+  - Terence Tao
+  notes: >-
+    The correction from 0.63 to 0.77 is taken from FKS, not verified independently; Patel's footnote,
+    which is where it is argued, has not been read.
+limitations:
+- >-
+  The conclusion rests on the cited paper as corrected by a third one; it is not proved in Lean here,
+  and the correction has not been verified against Patel's footnote.
+- >-
+  Its inputs are named but not drawn. ChengGraham2004.v1 exists and states nothing on purpose; Platt-Trudgian's
+  2015 bound has no node. Neither can become an edge until the corrected second-derivative test is available.
+- >-
+  Hiary, Patel and Yang have since recovered and improved the constant to 0.618, per FKS. That paper is
+  held and has no node; adopting it would sharpen the whole chain.
+- >-
+  No novelty is claimed. The result is Hiary's.

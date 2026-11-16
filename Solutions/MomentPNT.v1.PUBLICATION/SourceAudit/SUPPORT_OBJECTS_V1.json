@@ -1,0 +1,378 @@
+{
+  "selection": "Definitions actually instantiated in the eight field formulas, recursively through source-owned operands, plus actual zero-count conventions of the six external interfaces. Ordinary Mathlib infrastructure is outside the requested universe. These supportdefinitions are not extra input hypotheses.",
+  "rows": [
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/OriginalScalarSemantics.lean",
+      "decl_line": 27,
+      "lean_name": "WinnerOriginalScalars.height",
+      "file_sha256": "23ea815031998b2c72bf5873c8b5b2737285d3ddd3a43c1f9a261e45e9d5a554",
+      "written_definition": "noncomputable def height : \u211d := 3000000000000",
+      "primary_correspondence": "KLN3.15; FKS2.8 updated height"
+    },
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/OriginalScalarSemantics.lean",
+      "decl_line": 28,
+      "lean_name": "WinnerOriginalScalars.sourceM0",
+      "file_sha256": "23ea815031998b2c72bf5873c8b5b2737285d3ddd3a43c1f9a261e45e9d5a554",
+      "written_definition": "noncomputable def sourceM0 : \u211d := sqrt (1+(2/3)*sqrt (6/5))",
+      "primary_correspondence": "KLN3.15; FKS2.8 updated height"
+    },
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/WinnerBetaA/ActualObject.lean",
+      "decl_line": 19,
+      "lean_name": "WinnerBetaA.ActualObject.vertical",
+      "file_sha256": "bedbd44bc91ffc400d5e21cca5b7f3db481b4c38d45663472a380bd7e8434924",
+      "written_definition": "noncomputable def vertical (\u03c3 t : \u211d) : \u2102 := (\u03c3:\u2102)+(t:\u2102)*Complex.I",
+      "primary_correspondence": "KLN2.4,2.5,2.10,2.11,3.17"
+    },
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/WinnerBetaA/ActualObject.lean",
+      "decl_line": 21,
+      "lean_name": "WinnerBetaA.ActualObject.mollifier",
+      "file_sha256": "bedbd44bc91ffc400d5e21cca5b7f3db481b4c38d45663472a380bd7e8434924",
+      "written_definition": "noncomputable def mollifier (X : \u211d) (s : \u2102) : \u2102 :=\n  \u2211 n \u2208 Finset.Icc 1 \u230aX\u230b\u208a, (ArithmeticFunction.moebius n:\u2102)*(n:\u2102)^(-s)",
+      "primary_correspondence": "KLN2.4,2.5,2.10,2.11,3.17"
+    },
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/WinnerBetaA/ActualObject.lean",
+      "decl_line": 24,
+      "lean_name": "WinnerBetaA.ActualObject.mollifiedError",
+      "file_sha256": "bedbd44bc91ffc400d5e21cca5b7f3db481b4c38d45663472a380bd7e8434924",
+      "written_definition": "noncomputable def mollifiedError (X : \u211d) (s : \u2102) : \u2102 :=\n  riemannZeta s*mollifier X s-1",
+      "primary_correspondence": "KLN2.4,2.5,2.10,2.11,3.17"
+    },
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/WinnerBetaA/ActualObject.lean",
+      "decl_line": 27,
+      "lean_name": "WinnerBetaA.ActualObject.cumulativeSquare",
+      "file_sha256": "bedbd44bc91ffc400d5e21cca5b7f3db481b4c38d45663472a380bd7e8434924",
+      "written_definition": "noncomputable def cumulativeSquare (X \u03c3 t : \u211d) : \u211d :=\n  \u222b u in (0:\u211d)..t, \u2016mollifiedError X (vertical \u03c3 u)\u2016^2",
+      "primary_correspondence": "KLN2.4,2.5,2.10,2.11,3.17"
+    },
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/WinnerBetaA/ActualObject.lean",
+      "decl_line": 31,
+      "lean_name": "WinnerBetaA.ActualObject.scaledCriticalF",
+      "file_sha256": "bedbd44bc91ffc400d5e21cca5b7f3db481b4c38d45663472a380bd7e8434924",
+      "written_definition": "noncomputable def scaledCriticalF (T x : \u211d) : \u211d := cumulativeSquare T (1/2) (x*T)",
+      "primary_correspondence": "KLN2.4,2.5,2.10,2.11,3.17"
+    },
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/WinnerBetaA/ActualObject.lean",
+      "decl_line": 33,
+      "lean_name": "WinnerBetaA.ActualObject.smoothingWeight",
+      "file_sha256": "bedbd44bc91ffc400d5e21cca5b7f3db481b4c38d45663472a380bd7e8434924",
+      "written_definition": "noncomputable def smoothingWeight (T : \u211d) (s : \u2102) : \u2102 :=\n  ((s-1)/s)*Complex.exp (((601/5000:\u211d):\u2102)*(s/(T:\u2102))^2)",
+      "primary_correspondence": "KLN2.4,2.5,2.10,2.11,3.17"
+    },
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/WinnerBetaA/ActualObject.lean",
+      "decl_line": 36,
+      "lean_name": "WinnerBetaA.ActualObject.sourceMoment",
+      "file_sha256": "bedbd44bc91ffc400d5e21cca5b7f3db481b4c38d45663472a380bd7e8434924",
+      "written_definition": "noncomputable def sourceMoment (T \u03c3 : \u211d) : \u211d :=\n  \u222b t : \u211d, \u2016smoothingWeight T (vertical \u03c3 t)*mollifiedError T (vertical \u03c3 t)\u2016^2",
+      "primary_correspondence": "KLN2.4,2.5,2.10,2.11,3.17"
+    },
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/WinnerBetaA/Moment.lean",
+      "decl_line": 12,
+      "lean_name": "WinnerBetaA.Minkowski.gaussianWeight",
+      "file_sha256": "17690f6c9c859672214f533909ee8b108b37aaf0a0a8c729f7b209ab60dc40b9",
+      "written_definition": "noncomputable def gaussianWeight (x : \u211d) : \u211d := x*exp (-(601/2500:\u211d)*x^2)",
+      "primary_correspondence": "KLN4.13 at beta2"
+    },
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/WinnerBetaA/HeightSource.lean",
+      "decl_line": 10,
+      "lean_name": "WinnerBetaA.HeightSource.meanOne",
+      "file_sha256": "a884142f4d2e0a1da65de8f3da6196b04dee4439b5b47029ca0175e8bd36764e",
+      "written_definition": "noncomputable def meanOne (T : \u211d) : \u211d := 6/Real.pi^2+(131/125)/log T",
+      "primary_correspondence": "KLN4.1 proof beforeuniformization;3.10/3.11;4.19/4.20"
+    },
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/WinnerBetaA/HeightSource.lean",
+      "decl_line": 11,
+      "lean_name": "WinnerBetaA.HeightSource.meanTwo",
+      "file_sha256": "a884142f4d2e0a1da65de8f3da6196b04dee4439b5b47029ca0175e8bd36764e",
+      "written_definition": "noncomputable def meanTwo (T : \u211d) : \u211d :=\n  Real.pi*sourceM0*(31/50)/log T+6*sourceM0/(Real.pi*T)+\n    Real.pi*sourceM0*(131/125)/(T*log T)",
+      "primary_correspondence": "KLN4.1 proof beforeuniformization;3.10/3.11;4.19/4.20"
+    },
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/WinnerBetaA/HeightSource.lean",
+      "decl_line": 16,
+      "lean_name": "WinnerBetaA.HeightSource.rightFive",
+      "file_sha256": "a884142f4d2e0a1da65de8f3da6196b04dee4439b5b47029ca0175e8bd36764e",
+      "written_definition": "noncomputable def rightFive (gamma delta T : \u211d) : \u211d :=\n  Real.pi*sourceM0*(529/1000)/(2*delta)*\n    (1+2*delta/log T)^2*exp (2*delta*gamma/log T)",
+      "primary_correspondence": "KLN4.1 proof beforeuniformization;3.10/3.11;4.19/4.20"
+    },
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/WinnerBetaA/HeightSource.lean",
+      "decl_line": 208,
+      "lean_name": "WinnerBetaA.HeightSource.rightSixExact",
+      "file_sha256": "a884142f4d2e0a1da65de8f3da6196b04dee4439b5b47029ca0175e8bd36764e",
+      "written_definition": "noncomputable def rightSixExact (gamma delta T : \u211d) : \u211d :=\n  (529/1000)/(5*delta*exp delta)*(1+delta/log T)^2*\n    exp (delta*(gamma-log 5)/log T)+(121/200)*exp (-2*delta)/(log T)^2",
+      "primary_correspondence": "KLN4.1 proof beforeuniformization;3.10/3.11;4.19/4.20"
+    },
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/WinnerBetaA/HeightSource.lean",
+      "decl_line": 211,
+      "lean_name": "WinnerBetaA.HeightSource.rightVExact",
+      "file_sha256": "a884142f4d2e0a1da65de8f3da6196b04dee4439b5b47029ca0175e8bd36764e",
+      "written_definition": "noncomputable def rightVExact (gamma delta T : \u211d) : \u211d :=\n  8*(601/5000)*exp (2*(601/5000)*((1+delta/log T)/T)^2)*\n    ((rightFive gamma delta T+rightSixExact gamma delta T*Real.pi*sourceM0/T)/(4*(601/5000))+\n      rightSixExact gamma delta T*sqrt Real.pi/(8*(601/5000)*sqrt (2*(601/5000))))",
+      "primary_correspondence": "KLN4.1 proof beforeuniformization;3.10/3.11;4.19/4.20"
+    },
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/WinnerDensityA/HeightContext.lean",
+      "decl_line": 11,
+      "lean_name": "WinnerNewHeightSource.alpha",
+      "file_sha256": "2a634ff42410666c9096fc3217cfc99feb09b293af10a983d98b6a00db871738",
+      "written_definition": "noncomputable def alpha : \u211d := 601/5000",
+      "primary_correspondence": "KLN3.18/3.19;4.1; actualchosenparameters"
+    },
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/WinnerDensityA/HeightContext.lean",
+      "decl_line": 12,
+      "lean_name": "WinnerNewHeightSource.Hstar",
+      "file_sha256": "2a634ff42410666c9096fc3217cfc99feb09b293af10a983d98b6a00db871738",
+      "written_definition": "noncomputable def Hstar : \u211d := height-1",
+      "primary_correspondence": "KLN3.18/3.19;4.1; actualchosenparameters"
+    },
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/WinnerDensityA/HeightContext.lean",
+      "decl_line": 13,
+      "lean_name": "WinnerNewHeightSource.shifted",
+      "file_sha256": "2a634ff42410666c9096fc3217cfc99feb09b293af10a983d98b6a00db871738",
+      "written_definition": "noncomputable def shifted (d sigma T : \u211d) : \u211d := sigma-d/log T",
+      "primary_correspondence": "KLN3.18/3.19;4.1; actualchosenparameters"
+    },
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/WinnerDensityA/HeightContext.lean",
+      "decl_line": 14,
+      "lean_name": "WinnerNewHeightSource.rightLine",
+      "file_sha256": "2a634ff42410666c9096fc3217cfc99feb09b293af10a983d98b6a00db871738",
+      "written_definition": "noncomputable def rightLine (delta T : \u211d) : \u211d := 1+delta/log T",
+      "primary_correspondence": "KLN3.18/3.19;4.1; actualchosenparameters"
+    },
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/WinnerDensityA/HeightContext.lean",
+      "decl_line": 15,
+      "lean_name": "WinnerNewHeightSource.sourceOmega",
+      "file_sha256": "2a634ff42410666c9096fc3217cfc99feb09b293af10a983d98b6a00db871738",
+      "written_definition": "noncomputable def sourceOmega (d sigma T : \u211d) : \u211d :=\n  (1-1/Hstar)*exp (alpha*((shifted d sigma T)/T)^2-alpha)",
+      "primary_correspondence": "KLN3.18/3.19;4.1; actualchosenparameters"
+    },
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/WinnerDensityA/HeightContext.lean",
+      "decl_line": 17,
+      "lean_name": "WinnerNewHeightSource.sourceFdiff",
+      "file_sha256": "2a634ff42410666c9096fc3217cfc99feb09b293af10a983d98b6a00db871738",
+      "written_definition": "noncomputable def sourceFdiff (d sigma T : \u211d) : \u211d :=\n  cumulativeSquare T (shifted d sigma T) T-cumulativeSquare T (shifted d sigma T) Hstar",
+      "primary_correspondence": "KLN3.18/3.19;4.1; actualchosenparameters"
+    },
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/WinnerDensityA/ActualLowerContour.lean",
+      "decl_line": 46,
+      "lean_name": "WinnerLowerContour.rawRectangleBound",
+      "file_sha256": "e34dc234655bbe08d038c6d7f686f9d0d555325d6630114ef8fd22135b250276",
+      "written_definition": "noncomputable def rawRectangleBound (X sigma sigmap mu C7 C8 T h : \u211d) : \u211d :=\n  ((T-h)*log (1+(cumulativeSquare X sigmap T-cumulativeSquare X sigmap h)/(T-h))+\n    (C7*(mu-sigmap)+C8/2)*log T)/(2*Real.pi*(sigma-sigmap))\n\n theorem raw_lower_continuous {X sigma sigmap mu C7 C8 T h : \u211d}\n    (hs : sigmap\u22601) (hh : h<T) :\n    ContinuousAt (rawRectangleBound X sigma sigmap mu C7 C8 T) h := by\n  have hden : T-h\u22600 := (sub_pos.mpr hh).ne'\n  have hc := (actual_F_endpoint_continuous hs X).continuousAt (x:=h)\n  have hn := actual_F_difference_nonneg hs X hh.le\n  have harg : 0<1+(cumulativeSquare X sigmap T-cumulativeSquare X sigmap h)/(T-h) := by positivity\n  unfold rawRectangleBound\n  have hfrac : ContinuousAt (fun u : \u211d =>\n      1+(cumulativeSquare X sigmap T-cumulativeSquare X sigmap u)/(T-u)) h := by\n    exact continuousAt_const.add ((continuousAt_const.sub hc).div (continuousAt_const.sub continuousAt_id) hden)\n  have hlogcont : ContinuousAt (fun u : \u211d =>\n      log (1+(cumulativeSquare X sigmap T-cumulativeSquare X sigmap u)/(T-u))) h :=\n    hfrac.log harg.ne'\n  exact (((continuousAt_const.sub continuousAt_id).mul hlogcont).add continuousAt_const).div_const _\n\n theorem raw_C7_mono {X sigma sigmap mu C7 C7' C8 T h : \u211d}\n    (hgap : sigmap<sigma) (hmu : sigmap\u2264mu) (hT : 1\u2264T) (hC : C7\u2264C7') :\n    rawRectangleBound X sigma sigmap mu C7 C8 T h\u2264rawRectangleBound X sigma sigmap mu C7' C8 T h := by\n  have hl : 0\u2264log T := log_nonneg hT\n  have hprod := mul_le_mul_of_nonneg_right hC (sub_nonneg.mpr hmu)\n  have hplus : C7*(mu-sigmap)+C8/2\u2264C7'*(mu-sigmap)+C8/2 := by linarith\n  have hlogs := mul_le_mul_of_nonneg_right hplus hl\n  unfold rawRectangleBound\n  apply div_le_div_of_nonneg_right _ (by positivity : 0\u22642*Real.pi*(sigma-sigmap))\n  linarith\n\n theorem actual_low_count_zero (hRH : IEANTN.RiemannHypothesisUpTo height)\n    {sigma h : \u211d} (hs : (3/4:\u211d)\u2264sigma) (hh : h\u2264height) : IEANTN.zetaN' sigma h=0 := by\n  have he : IsEmpty (IEANTN.zetaZeroesIn (Ioo sigma 1) (Ioo 0 h)) := by\n    refine \u27e8fun z => ?_\u27e9\n    apply hRH.false\n    exact \u27e8z,\u27e8\u27e8by linarith [z.property.1.1],z.property.1.2\u27e9,\n      \u27e8z.property.2.1.1.le,z.property.2.1.2.le.trans hh\u27e9,z.property.2.2\u27e9\u27e9\n  letI := he\n  simp [IEANTN.zetaN',IEANTN.zetaZeroesSum]",
+      "primary_correspondence": "KLN2.3,2.9;4.14firstproofdisplay +FKS2.7proof C8/2"
+    },
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/OriginalBoundaryScalars.lean",
+      "decl_line": 14,
+      "lean_name": "WinnerOriginalScalars.sourceBSix",
+      "file_sha256": "fbd0cfbb1bc79b8ce3e10099fa13743ae5939e36d5f598c41f9b79a9f4496faa",
+      "written_definition": "noncomputable def sourceBSix (X q gamma : \u211d) : \u211d :=\n  (1+q)*log X/(q*exp (q*log X))*\n    (1+1/(q*log X)+gamma/log X+7*q/(12*(1+q)*X*log X))\n\n theorem bSix_semantics (x q : Expr) : value (bSix x q)=sourceBSix (value x) (value q) 1 := by\n  simp [bSix,sourceBSix]",
+      "primary_correspondence": "KLN4.44/4.45/4.50/4.51/4.56/4.59/4.63/4.66/4.68"
+    },
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/OriginalBoundaryScalars.lean",
+      "decl_line": 45,
+      "lean_name": "WinnerOriginalScalars.boundaryEta",
+      "file_sha256": "fbd0cfbb1bc79b8ce3e10099fa13743ae5939e36d5f598c41f9b79a9f4496faa",
+      "written_definition": "noncomputable def boundaryEta : \u211d := 507/2000",
+      "primary_correspondence": "KLN4.44/4.45/4.50/4.51/4.56/4.59/4.63/4.66/4.68"
+    },
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/OriginalBoundaryScalars.lean",
+      "decl_line": 46,
+      "lean_name": "WinnerOriginalScalars.boundaryMu",
+      "file_sha256": "fbd0cfbb1bc79b8ce3e10099fa13743ae5939e36d5f598c41f9b79a9f4496faa",
+      "written_definition": "noncomputable def boundaryMu : \u211d := 1237/1000",
+      "primary_correspondence": "KLN4.44/4.45/4.50/4.51/4.56/4.59/4.63/4.66/4.68"
+    },
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/OriginalBoundaryScalars.lean",
+      "decl_line": 47,
+      "lean_name": "WinnerOriginalScalars.sourceBFive",
+      "file_sha256": "fbd0cfbb1bc79b8ce3e10099fa13743ae5939e36d5f598c41f9b79a9f4496faa",
+      "written_definition": "noncomputable def sourceBFive : \u211d :=\n  positiveZeta (1+boundaryEta)^4/positiveZeta (2+2*boundaryEta)^2+\n  2*positiveZeta (1+boundaryEta)^2/positiveZeta (2+2*boundaryEta)",
+      "primary_correspondence": "KLN4.44/4.45/4.50/4.51/4.56/4.59/4.63/4.66/4.68"
+    },
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/OriginalBoundaryScalars.lean",
+      "decl_line": 50,
+      "lean_name": "WinnerOriginalScalars.sourceBSeven",
+      "file_sha256": "fbd0cfbb1bc79b8ce3e10099fa13743ae5939e36d5f598c41f9b79a9f4496faa",
+      "written_definition": "noncomputable def sourceBSeven : \u211d :=\n  (1+2/((1503/500)*positiveZeta (1+boundaryEta)*height^(1+boundaryEta)))*\n    ((1503/500)*positiveZeta (1+boundaryEta))^2",
+      "primary_correspondence": "KLN4.44/4.45/4.50/4.51/4.56/4.59/4.63/4.66/4.68"
+    },
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/OriginalBoundaryScalars.lean",
+      "decl_line": 53,
+      "lean_name": "WinnerOriginalScalars.sourceBEight",
+      "file_sha256": "fbd0cfbb1bc79b8ce3e10099fa13743ae5939e36d5f598c41f9b79a9f4496faa",
+      "written_definition": "noncomputable def sourceBEight : \u211d :=\n  sqrt ((2+boundaryEta)^2/(height-1)^2+((1+2*boundaryEta)/(height-1)+1)^2)",
+      "primary_correspondence": "KLN4.44/4.45/4.50/4.51/4.56/4.59/4.63/4.66/4.68"
+    },
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/OriginalBoundaryScalars.lean",
+      "decl_line": 55,
+      "lean_name": "WinnerOriginalScalars.sourceBNine",
+      "file_sha256": "fbd0cfbb1bc79b8ce3e10099fa13743ae5939e36d5f598c41f9b79a9f4496faa",
+      "written_definition": "noncomputable def sourceBNine (gamma : \u211d) : \u211d :=\n  Real.pi/log 2*(log sourceBSeven+log sourceBFive-\n    2*log (1-sourceBSix 1000000000 boundaryEta gamma^2))+Real.pi+\n    2*(1+2*boundaryEta)/log 2*log (sourceBEight/(2*Real.pi))",
+      "primary_correspondence": "KLN4.44/4.45/4.50/4.51/4.56/4.59/4.63/4.66/4.68"
+    },
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/OriginalBoundaryScalars.lean",
+      "decl_line": 59,
+      "lean_name": "WinnerOriginalScalars.sourceCSeven",
+      "file_sha256": "fbd0cfbb1bc79b8ce3e10099fa13743ae5939e36d5f598c41f9b79a9f4496faa",
+      "written_definition": "noncomputable def sourceCSeven (gamma : \u211d) : \u211d :=\n  (2*(1+2*boundaryEta)+2*Real.pi*(1+boundaryEta))/log 2+sourceBNine gamma/log height",
+      "primary_correspondence": "KLN4.44/4.45/4.50/4.51/4.56/4.59/4.63/4.66/4.68"
+    },
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/OriginalBoundaryScalars.lean",
+      "decl_line": 178,
+      "lean_name": "WinnerOriginalScalars.sourceBEleven",
+      "file_sha256": "fbd0cfbb1bc79b8ce3e10099fa13743ae5939e36d5f598c41f9b79a9f4496faa",
+      "written_definition": "noncomputable def sourceBEleven (tau : \u211d) : \u211d :=\n  1+3/((tau-1)*log height)+6/((tau-1)*log height)^2+6/((tau-1)*log height)^3",
+      "primary_correspondence": "KLN4.44/4.45/4.50/4.51/4.56/4.59/4.63/4.66/4.68"
+    },
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/OriginalBoundaryScalars.lean",
+      "decl_line": 180,
+      "lean_name": "WinnerOriginalScalars.sourceCEightBase",
+      "file_sha256": "fbd0cfbb1bc79b8ce3e10099fa13743ae5939e36d5f598c41f9b79a9f4496faa",
+      "written_definition": "noncomputable def sourceCEightBase : \u211d :=\n  (log height)^2/exp ((2*boundaryMu-2)*log height)*\n    (4*boundaryMu*sourceBEleven (2*boundaryMu)/(2*boundaryMu-1)+\n     2*Real.pi*sourceM0*(2*boundaryMu-1)*sourceBEleven (2*boundaryMu-1)/(boundaryMu-1))",
+      "primary_correspondence": "KLN4.44/4.45/4.50/4.51/4.56/4.59/4.63/4.66/4.68"
+    },
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/OriginalBoundaryScalars.lean",
+      "decl_line": 184,
+      "lean_name": "WinnerOriginalScalars.sourceBTen",
+      "file_sha256": "fbd0cfbb1bc79b8ce3e10099fa13743ae5939e36d5f598c41f9b79a9f4496faa",
+      "written_definition": "noncomputable def sourceBTen (gamma : \u211d) : \u211d :=\n  -log (1-(sourceBSix height (boundaryMu-1) gamma)^2)/(sourceBSix height (boundaryMu-1) gamma)^2",
+      "primary_correspondence": "KLN4.44/4.45/4.50/4.51/4.56/4.59/4.63/4.66/4.68"
+    },
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/OriginalBoundaryScalars.lean",
+      "decl_line": 186,
+      "lean_name": "WinnerOriginalScalars.sourceCEight",
+      "file_sha256": "fbd0cfbb1bc79b8ce3e10099fa13743ae5939e36d5f598c41f9b79a9f4496faa",
+      "written_definition": "noncomputable def sourceCEight (gamma : \u211d) : \u211d := sourceBTen gamma*sourceCEightBase\n\n theorem bEleven_semantics (tau : Expr) : value (bEleven tau)=sourceBEleven (value tau) := by\n  simp [bEleven,sourceBEleven,log_semantics]\n  ring\n\n theorem ceight_simple_semantics : value cEightSimple=2*sourceCEightBase := by\n  simp [cEightSimple,sourceCEightBase,bEleven_semantics,boundaryMu,mu,\n    mzero_semantics,log_semantics]\n  ring\n\n theorem ceight_base_nonneg : 0\u2264sourceCEightBase := by\n  have hh : 0<log height := by linarith [source_log_lower]\n  have hm:=source_mzero_pos\n  unfold sourceCEightBase sourceBEleven boundaryMu\n  positivity\n\n theorem bten_le_two {gamma : \u211d} (hg0 : 0\u2264gamma) (hg1 : gamma\u22641) : sourceBTen gamma\u22642 := by\n  have hH : 1<height := by norm_num [height]\n  have hq : 0<boundaryMu-1 := by norm_num [boundaryMu]\n  have hb0 := bsix_pos hH hq hg0\n  have hbc := bsix_gamma_le hH hq hg1\n  have hupper : sourceBSix height (boundaryMu-1) 1\u22641/4 := by\n    norm_num [boundaryMu] at hbc \u22a2\n    exact mu_bsix_upper\n  have hb : sourceBSix height (boundaryMu-1) gamma\u22641/4 := hbc.trans hupper\n  let r := (sourceBSix height (boundaryMu-1) gamma)^2\n  have hr : 0<r := sq_pos_of_pos hb0\n  have hr' : r\u22641/16 := by dsimp [r];nlinarith\n  have hu : 0<1-r := by linarith\n  have hl : -log (1-r)\u22641/(1-r)-1 := by\n    have h := log_le_sub_one_of_pos (inv_pos.mpr hu)\n    simpa only [log_inv,one_div] using h\n  have hf : 1/(1-r)-1\u22642*r := by\n    apply (sub_le_iff_le_add).mpr\n    apply (div_le_iff\u2080 hu).mpr\n    nlinarith\n  unfold sourceBTen\n  change -log (1-r)/r\u22642\n  apply (div_le_iff\u2080 hr).mpr\n  linarith\n\n theorem source_ceight_upper : sourceCEight eulerMascheroniConstant\u22641 := by\n  have hg0 : 0\u2264eulerMascheroniConstant := by linarith [one_half_lt_eulerMascheroniConstant]\n  have h := mul_le_mul_of_nonneg_right (bten_le_two hg0 euler_gamma_le_one) ceight_base_nonneg\n  have hfinite : 2*sourceCEightBase\u22641 := by rw [\u2190ceight_simple_semantics];exact ceight_simple_upper\n  exact h.trans hfinite\n\n theorem source_log_height_uniform {T : \u211d} (hT : height\u2264T) : 28\u2264log T := by\n  exact source_log_lower.trans (log_le_log (by norm_num [height]) hT)\n\n#print axioms source_cseven_upper\n#print axioms source_ceight_upper\n\n#print axioms bfive_upper\n#print axioms bseven_upper\n#print axioms coarse_cseven_upper",
+      "primary_correspondence": "KLN4.44/4.45/4.50/4.51/4.56/4.59/4.63/4.66/4.68"
+    },
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/LowerContourLimit.lean",
+      "decl_line": 30,
+      "lean_name": "WinnerLowerContour.bEightAt",
+      "file_sha256": "1c2993fa29774583c2c6e134f8a7ae5eb111bf2a5b9970baca9933059435ed1e",
+      "written_definition": "noncomputable def bEightAt (h : \u211d) : \u211d :=\n  sqrt ((2+boundaryEta)^2/h^2+((1+2*boundaryEta)/h+1)^2)",
+      "primary_correspondence": "KLN4.51/4.59/4.56 with actual lowerh"
+    },
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/LowerContourLimit.lean",
+      "decl_line": 32,
+      "lean_name": "WinnerLowerContour.bNineAt",
+      "file_sha256": "1c2993fa29774583c2c6e134f8a7ae5eb111bf2a5b9970baca9933059435ed1e",
+      "written_definition": "noncomputable def bNineAt (gamma h : \u211d) : \u211d :=\n  Real.pi/log 2*(log sourceBSeven+log sourceBFive-\n    2*log (1-sourceBSix 1000000000 boundaryEta gamma^2))+Real.pi+\n    2*(1+2*boundaryEta)/log 2*log (bEightAt h/(2*Real.pi))",
+      "primary_correspondence": "KLN4.51/4.59/4.56 with actual lowerh"
+    },
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/LowerContourLimit.lean",
+      "decl_line": 36,
+      "lean_name": "WinnerLowerContour.cSevenAt",
+      "file_sha256": "1c2993fa29774583c2c6e134f8a7ae5eb111bf2a5b9970baca9933059435ed1e",
+      "written_definition": "noncomputable def cSevenAt (gamma h : \u211d) : \u211d :=\n  (2*(1+2*boundaryEta)+2*Real.pi*(1+boundaryEta))/log 2+bNineAt gamma h/log height",
+      "primary_correspondence": "KLN4.51/4.59/4.56 with actual lowerh"
+    },
+    {
+      "file": "scoped/kernel-overlay51-v1/lean/OriginalZeta.lean",
+      "decl_line": 13,
+      "lean_name": "WinnerOriginalScalars.positiveZeta",
+      "file_sha256": "31e844f5c053b33620d1e2aaee49e6e59d65cf146784e9ff5f0e66d38f6229b6",
+      "written_definition": "noncomputable def positiveZeta (s : \u211d) : \u211d := \u2211' n : \u2115, ((n:\u211d)+1)^(-s)",
+      "primary_correspondence": "KLNrealpositivezeta operands; exact positiveZeta_complex identity"
+    },
+    {
+      "file": "network/IEANTN/Vocabulary/Zeta.lean",
+      "decl_line": 26,
+      "lean_name": "IEANTN.zetaZeroes",
+      "file_sha256": "42e239de4c1151d03ed94ee4c0c51d031f974faa6998f447e85845665bb846ef",
+      "written_definition": "def zetaZeroes : Set \u2102 := {s : \u2102 | riemannZeta s = 0}",
+      "primary_correspondence": "KLN1.1counting convention; zero multiplicity"
+    },
+    {
+      "file": "network/IEANTN/Vocabulary/Zeta.lean",
+      "decl_line": 31,
+      "lean_name": "IEANTN.zetaZeroesIn",
+      "file_sha256": "42e239de4c1151d03ed94ee4c0c51d031f974faa6998f447e85845665bb846ef",
+      "written_definition": "def zetaZeroesIn (I J : Set \u211d) : Set \u2102 :=\n  {s : \u2102 | s.re \u2208 I \u2227 s.im \u2208 J \u2227 s \u2208 zetaZeroes}",
+      "primary_correspondence": "KLN1.1counting convention; zero multiplicity"
+    },
+    {
+      "file": "network/IEANTN/Vocabulary/Zeta.lean",
+      "decl_line": 37,
+      "lean_name": "IEANTN.zetaOrder",
+      "file_sha256": "42e239de4c1151d03ed94ee4c0c51d031f974faa6998f447e85845665bb846ef",
+      "written_definition": "noncomputable def zetaOrder (s : \u2102) : \u2124 := (meromorphicOrderAt riemannZeta s).untopD 0",
+      "primary_correspondence": "KLN1.1counting convention; zero multiplicity"
+    },
+    {
+      "file": "network/IEANTN/Vocabulary/Zeta.lean",
+      "decl_line": 49,
+      "lean_name": "IEANTN.zetaZeroesSum",
+      "file_sha256": "42e239de4c1151d03ed94ee4c0c51d031f974faa6998f447e85845665bb846ef",
+      "written_definition": "noncomputable def zetaZeroesSum {\u03b1 : Type*} [RCLike \u03b1] (I J : Set \u211d) (f : \u2102 \u2192 \u03b1) : \u03b1 :=\n  \u2211' \u03c1 : zetaZeroesIn I J, f \u03c1 * (zetaOrder \u03c1 : \u2124)\n\n/-! ### Zero counting functions -/",
+      "primary_correspondence": "KLN1.1counting convention; zero multiplicity"
+    },
+    {
+      "file": "network/IEANTN/Vocabulary/Zeta.lean",
+      "decl_line": 60,
+      "lean_name": "IEANTN.zetaN'",
+      "file_sha256": "42e239de4c1151d03ed94ee4c0c51d031f974faa6998f447e85845665bb846ef",
+      "written_definition": "noncomputable def zetaN' (\u03c3 T : \u211d) : \u211d := zetaZeroesSum (Set.Ioo \u03c3 1) (Set.Ioo 0 T) fun _ \u21a6 1",
+      "primary_correspondence": "KLN1.1counting convention; zero multiplicity"
+    },
+    {
+      "file": "network/IEANTN/Nodes/ZeroCount/v1/Conclusions.lean",
+      "decl_line": 66,
+      "lean_name": "ZeroCount.v1.zetaNClosed",
+      "file_sha256": "8e8d6408e9cbea09e17c32cd92152133c78f690b84b72f9d4df2bf6f71a38a13",
+      "written_definition": "noncomputable def zetaNClosed (t : \u211d) : \u211d :=\n  zetaZeroesSum Set.univ (Set.Ioc 0 t) fun _ \u21a6 1",
+      "primary_correspondence": "CH2AppendixBdefinition ofN/Q"
+    },
+    {
+      "file": "network/IEANTN/Nodes/ZeroCount/v1/Conclusions.lean",
+      "decl_line": 73,
+      "lean_name": "ZeroCount.v1.rvmMain",
+      "file_sha256": "8e8d6408e9cbea09e17c32cd92152133c78f690b84b72f9d4df2bf6f71a38a13",
+      "written_definition": "noncomputable def rvmMain (t : \u211d) : \u211d :=\n  t / (2 * \u03c0) * log (t / (2 * \u03c0)) - t / (2 * \u03c0) + 7 / 8",
+      "primary_correspondence": "CH2AppendixBdefinition ofN/Q"
+    }
+  ],
+  "actual_parameters": {
+    "d": "3681/10000",
+    "delta": "3599/10000",
+    "alpha": "601/5000",
+    "k": "1",
+    "eta": "507/2000",
+    "mu": "1237/1000",
+    "height": "3000000000000",
+    "Hstar": "height-1",
+    "sigma_range": "[3/4,7/8]",
+    "T_range": "T>=height"
+  },
+  "qualification": "Source-definition inventory only; per-interface comparison and domain derivations are recorded separately."
+}

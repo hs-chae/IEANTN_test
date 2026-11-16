@@ -1,0 +1,63 @@
+version: v0.4
+project:
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+  name: Corrected FKS numerical density bounds on [3/4,7/8]
+  description: Corrected FKS numerical density bounds on [3/4,7/8]
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+automation:
+  methods:
+  - method: manual
+    role: Source research, written analytic derivation, numerical interval checks and conditional
+      composition.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+node:
+  id: FKS.v3
+  family: FKS
+  version: v3
+  kind: paper
+  status: active
+conclusions:
+- id: density_0618
+  declaration: FKS.v3.density_0618
+  challenge: FKS.v3.challenge_density_0618
+  imports:
+  - node: HPY.v1
+    conclusion: subconvexity_bound
+  - node: PlattTrudgian.v1
+    conclusion: rh_up_to
+  imports_status: traced
+  justifications:
+  - id: written-proof
+    kind: literature
+    source: FKS
+    locator: "Corollary 2.9 (2.17), Table 8 lower a1=0.618 panel, rows 0.70\u20130.88"
+    note: Maximum c1=9.7945 and c2=4.4648 rounded upwards. KLN analytic machinery and the numerical
+      source table remain source-level inputs.
+  designated: written-proof
+sources:
+- id: FKS
+  title: Sharper bounds for the Chebyshev function psi(x)
+  authors:
+  - Andrew Fiori
+  - Habiba Kadiri
+  - Joshua Swidinsky
+  type: paper
+  relationship: formalizes
+  url: https://arxiv.org/abs/2204.02588v3
+limitations:
+- Source-table numerical evidence has not been independently recomputed.
+- The old KLN 0.63 tables are not used. The displayed HPY 0.618 input is separately named.

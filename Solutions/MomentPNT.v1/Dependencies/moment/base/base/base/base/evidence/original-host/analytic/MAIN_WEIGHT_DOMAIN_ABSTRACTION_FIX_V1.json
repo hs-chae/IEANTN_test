@@ -1,0 +1,127 @@
+{
+  "status": "PASS_EXACT_CHECKER_AND_CELL_ABSTRACTION_AND_REAL_SOURCE_WEIGHT_TRANSFER",
+  "utc": "2026-11-15T11:22:05.278550+00:00",
+  "accepted_modules": [
+    {
+      "module": "SynergyHeightC.MainWeightAbstract",
+      "source_sha256": "53f0622e6411906ba53a7218e4c4a83133ee521a3293deafc75c00c0eb143ad6",
+      "object_sha256": "e0b0b9f1eabbb4f1cd01127f017c432bc708f1d8d72f69c33fa8506ce7ee4e09",
+      "receipt": "research/analytic/work/main-weight-abstract-function-controls-v1/RECEIPT.json",
+      "receipt_sha256": "6a5d5c2d09f433fff259973149b55300045e673d044565ea9e607b0a1cad3321",
+      "seconds": 4.834823919460177,
+      "audits": [
+        {
+          "name": "SynergyHeightC.MainWeightModel.actual_domain_function_exact",
+          "axioms": [
+            "propext"
+          ]
+        },
+        {
+          "name": "SynergyHeightC.MainWeightModel.actual_domain_exact",
+          "axioms": [
+            "propext"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "SynergyHeightC.MainWeightCellAbstract",
+      "source_sha256": "89fd6e47d303f2984cb18dfad8e801c5561f2e7e4f154ef7b00beaf8b6491ab6",
+      "object_sha256": "e72af1ac15ff69ad63ce80121a42931f79c2e60fcff2ed29bd047633c2641e42",
+      "receipt": "research/analytic/work/main-weight-cell-abstract-controls-v2/RECEIPT.json",
+      "receipt_sha256": "c4b0f5f9e38a8c90054027b661f916461d08095034a01848cb0477943230c122",
+      "seconds": 5.108864396810532,
+      "audits": [
+        {
+          "name": "SynergyHeightC.MainWeightModel.actual_cell_function_exact",
+          "axioms": [
+            "propext"
+          ]
+        },
+        {
+          "name": "SynergyHeightC.MainWeightModel.cell_from_data",
+          "axioms": [
+            "propext",
+            "Quot.sound"
+          ]
+        },
+        {
+          "name": "SynergyHeightC.MainWeightModel.cell_from_pair_data",
+          "axioms": [
+            "propext",
+            "Quot.sound"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "SynergyHeightC.MainWeightDomainGeneric",
+      "source_sha256": "08d0a83a1498200f8497a4879011bee12f8d95d35281555e885b59f5da3a7cc7",
+      "object_sha256": "8879f074863dfb2f3f2a8dcaedb6baa0f2a05bb825f96ce08a6602ef9855cc28",
+      "receipt": "research/analytic/work/main-weight-domain-controls-v3/RECEIPT.json",
+      "receipt_sha256": "1b9aa9bafb0e107cf3de6dda91982f0cec2d458e45bb33551f3f4083c5690835",
+      "seconds": 4.8745801486074924,
+      "audits": [
+        {
+          "name": "SynergyHeightC.MainWeightModel.abstract_domain_decode",
+          "axioms": [
+            "propext"
+          ]
+        },
+        {
+          "name": "SynergyHeightC.MainWeightModel.cell_domain_decode",
+          "axioms": [
+            "propext"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "SynergyHeightC.MainWeightData",
+      "source_sha256": "fd3456a9f60a54daeacd718afc9c0cb985d0065bd882f1d3a691423c35239049",
+      "object_sha256": "8135e0da12dbf9ef9270f9040df34b9df6cbbc7f05a4d562c1b0d8e1a8b5f99a",
+      "receipt": "research/analytic/work/main-weight-data-real-controls-v3/RECEIPT.json",
+      "receipt_sha256": "60124db7d65dcea4b1ea18431afd8656f3df9c01667503dda944e7334f03e8b4",
+      "seconds": 5.112953957170248,
+      "audits": [
+        {
+          "name": "SynergyHeightC.MainWeightModel.fullC_eq",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "name": "SynergyHeightC.MainWeightModel.domain_spec",
+          "axioms": [
+            "propext"
+          ]
+        },
+        {
+          "name": "SynergyHeightC.MainWeightModel.domain_D",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "name": "SynergyHeightC.MainWeightModel.cell_real_sound",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ]
+    }
+  ],
+  "selected_roots": 11,
+  "frozen_C_or_numerical_model_changed": false,
+  "new_axioms_or_sorry": false,
+  "native_execution_axioms": false,
+  "original_mathematical_hypotheses_changed": false,
+  "explanation": "Pointwise equality and direct symbolic checker/cell unfolding normalized the full numerical program at an unknown index. Exact original expression abstraction is admitted by mandatory kernel checking; function-level equality is proved before applying indices via congrFun. Generic raw-conjunction decoding then retains the actual checker decision; function aliases carry getD equality without normalizing modelOutputs. Exact original source-cell equality is transported through the same abstraction. Final generic integer range and explicit c argument avoid partial evaluation and unresolved implicit parameters. All original model values, C algorithms, source checks and claims remain unchanged.",
+  "qualification": "Proof compilation and exact real interval interpretation; actual full main-loop/weight source execution, complete app-to-ANT consumers and fresh graph acceptance remain separately tracked."
+}

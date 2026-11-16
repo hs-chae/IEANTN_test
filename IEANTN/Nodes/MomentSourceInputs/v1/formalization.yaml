@@ -1,0 +1,268 @@
+version: v0.4
+project:
+  name: Exact source interfaces for the QRH moment experiment
+  description: Nine unchanged source predicates, separated from their conditional PNT consumers. Specializations
+    retain d=.3681,delta=.3599,k=1,H0=3e12,alpha=.1202.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+node:
+  id: MomentSourceInputs.v1
+  family: MomentSourceInputs
+  version: v1
+  kind: pipeline
+  status: awaiting-verification
+conclusions:
+- id: low_zeta
+  declaration: MomentSourceInputs.v1.low_zeta
+  challenge: MomentSourceInputs.v1.challenge_low_zeta
+  imports: []
+  imports_status: none
+  justifications:
+  - id: source-interface
+    kind: literature
+    note: 'The paper establishes |zeta(1/2+iu)|<=1.461 on the closed interval 0<=u<=3. This is exactly 1461/1000
+      and both source endpoints are retained. The small-height interval computation is the cited literature
+      input; the separate large-height 0.63 argument is not used here. Literature-tier authority only: these
+      are unchanged source predicates, not Lean reproofs of the papers or new numerical certifications. Exact
+      14-interface / 45-definition audit: Solutions/MomentPNT.v1.PUBLICATION/SourceAudit/RECEIPT_V2.json, SHA256 643bf26807e647ff112fddedd5e06f987beeac679d8b6c2750ddb617995400c0.'
+    source: Hiary2016
+    locator: Theorem 1.1 first sentence (PDF p1), with the independent small-height proof in Lemma 2.2 (PDF
+      p3)
+  designated: source-interface
+- id: revers_zeta
+  declaration: MomentSourceInputs.v1.revers_zeta
+  challenge: MomentSourceInputs.v1.challenge_revers_zeta
+  imports: []
+  imports_status: none
+  justifications:
+  - id: source-interface
+    kind: literature
+    note: 'The exact source bound is 0.611*u^(1/6)*log(u) for every real u>=3, matching 611/1000 and the closed
+      lower endpoint. This claim uses Revers, not the different HPY 0.618 estimate. The paper computational
+      proof remains literature-backed. Literature-tier authority only: these are unchanged source predicates,
+      not Lean reproofs of the papers or new numerical certifications. Exact 14-interface / 45-definition audit:
+      Solutions/MomentPNT.v1.PUBLICATION/SourceAudit/RECEIPT_V2.json, SHA256 643bf26807e647ff112fddedd5e06f987beeac679d8b6c2750ddb617995400c0.'
+    source: Revers2026
+    locator: Theorem 1.1(a), PDF p3
+  designated: source-interface
+- id: mollifier_mean_square
+  declaration: MomentSourceInputs.v1.mollifier_mean_square
+  challenge: MomentSourceInputs.v1.challenge_mollifier_mean_square
+  imports: []
+  imports_status: none
+  justifications:
+  - id: source-interface
+    kind: literature
+    note: 'Set the actual mollifier cutoff X=T and retain a distinct arbitrary integration endpoint t>0. With
+      m0=sqrt(1+(2/3)*sqrt(6/5)), the pre-uniform proof yields meanOne(T)=6/pi^2+1.048/log(T) and meanTwo(T)=pi*m0*0.62/log(T)+6*m0/(pi*T)+pi*m0*1.048/(T*log(T));
+      the integral is bounded by (meanOne(T)*t+meanTwo(T)*T)*log(T) for T>=3e12. These are the exact code coefficients;
+      they are derived before the printed lemma replaces X and log(X) by uniform height bounds, rather than
+      guessed by substitution in that weaker display. Literature-tier authority only: these are unchanged source
+      predicates, not Lean reproofs of the papers or new numerical certifications. Exact 14-interface / 45-definition
+      audit: Solutions/MomentPNT.v1.PUBLICATION/SourceAudit/RECEIPT_V2.json, SHA256 643bf26807e647ff112fddedd5e06f987beeac679d8b6c2750ddb617995400c0.'
+    source: KLN2018
+    locator: Lemma 4.1 proof before uniformization, PDF p9; Eqs 3.5-3.7 and 3.14-3.15
+  designated: source-interface
+- id: source_smoothing
+  declaration: MomentSourceInputs.v1.source_smoothing
+  challenge: MomentSourceInputs.v1.challenge_source_smoothing
+  imports: []
+  imports_status: none
+  justifications:
+  - id: source-interface
+    kind: literature
+    note: 'Use X=T, k=1, beta=2, alpha=0.1202=601/5000 and T>=3e12. The actual weight is g(s)=(s-1)/s*exp(alpha*(s/T)^2),
+      and the moment integrates |g(s)*(zeta(s)*M_T(s)-1)|^2 over all real ordinates. Eq 4.13 at real part 1/2
+      gives the exact multiplier 8*alpha*exp(alpha/(2*T^2)) and kernel x*exp(-2*alpha*x^2) against the actual
+      cumulative-square integral at x*T. No density conclusion is assumed. Literature-tier authority only:
+      these are unchanged source predicates, not Lean reproofs of the papers or new numerical certifications.
+      Exact 14-interface / 45-definition audit: Solutions/MomentPNT.v1.PUBLICATION/SourceAudit/RECEIPT_V2.json, SHA256 643bf26807e647ff112fddedd5e06f987beeac679d8b6c2750ddb617995400c0.'
+    source: KLN2018
+    locator: Lemma 3.7/Eqs 3.17-3.18 (PDF p8) and Lemma 4.5/Eq 4.13 (PDF p11)
+  designated: source-interface
+- id: source_right_moment
+  declaration: MomentSourceInputs.v1.source_right_moment
+  challenge: MomentSourceInputs.v1.challenge_source_right_moment
+  imports: []
+  imports_status: none
+  justifications:
+  - id: source-interface
+    kind: literature
+    note: 'Use X=T, k=1, delta=0.3599>0, alpha=0.1202 and T>=3e12, with right line 1+delta/log(T). The exact
+      pre-uniform C5 is pi*m0*0.529/(2*delta)*(1+2*delta/log(T))^2*exp(2*delta*gamma/log(T)). The exact C6
+      retains 0.529/(5*delta*exp(delta))*(1+delta/log(T))^2*exp(delta*(gamma-log(5))/log(T))+0.605*exp(-2*delta)/log(T)^2,
+      where gamma is Euler constant. Its negative exponential is retained from Eq 3.11, before the later relaxed
+      uniform C6 display. The Gaussian moments 1/(4*alpha) and sqrt(pi)/(8*alpha*sqrt(2*alpha)) yield the exact
+      rightVExact coefficient. The underlying proof domain is delta>0; the top-level FKS theorem requiring
+      delta>=1 is not invoked at delta=0.3599. Literature-tier authority only: these are unchanged source predicates,
+      not Lean reproofs of the papers or new numerical certifications. Exact 14-interface / 45-definition audit:
+      Solutions/MomentPNT.v1.PUBLICATION/SourceAudit/RECEIPT_V2.json, SHA256 643bf26807e647ff112fddedd5e06f987beeac679d8b6c2750ddb617995400c0.'
+    source: KLN2018
+    locator: Eqs 3.10-3.11 (PDF p6), Lemma 4.3 proof (PDF p10), Lemma 4.7 proof/Eqs 4.19-4.20 (PDF pp12-13)
+  designated: source-interface
+- id: source_rectangle
+  declaration: MomentSourceInputs.v1.source_rectangle
+  challenge: MomentSourceInputs.v1.challenge_source_rectangle
+  imports: []
+  imports_status: none
+  justifications:
+  - id: source-interface
+    kind: literature
+    note: 'Retain the raw pre-uniform count difference N(sigma,T)-N(sigma,h), with sigma in [3/4,7/8], T>=3e12
+      and regular h in(3e12-1,3e12), outside the stated countable exceptional height sets. Set X=T, k=1, d=0.3681,shifted
+      line sigma-d/log(T),eta=0.2535 and mu=1.237. KLN Lemma 4.14 first proof display supplies the rectangle
+      inequality and its actual C7/C8 source definitions (PDF pp18-21). FKS Eq 2.16 explicitly improves only
+      C8 toC8/2: CHT Theorem 2 proves sum_{n<=x}d(n)^2<=x*log(x)^3 for x>=7, halving the old KLN 2*x*log(x)^3
+      coefficient. Partial summation and the right-edge estimate are linear in this coefficient, so the correction
+      applies before density uniformization and independently of delta. This is not an application of the final
+      FKS delta>=1 density theorem. Literature-tier authority only: these are unchanged source predicates,
+      not Lean reproofs of the papers or new numerical certifications. Exact 14-interface / 45-definition audit:
+      Solutions/MomentPNT.v1.PUBLICATION/SourceAudit/RECEIPT_V2.json, SHA256 643bf26807e647ff112fddedd5e06f987beeac679d8b6c2750ddb617995400c0.'
+    source: FKS2
+    locator: Theorem 2.7 proof/Eq 2.16 (PDF p7), using KLN Lemmas 2.3,2.9,4.12-4.14 and CHT Theorem 2 (PDF
+      p4)
+  designated: source-interface
+- id: source_unsmoothing
+  declaration: MomentSourceInputs.v1.source_unsmoothing
+  challenge: MomentSourceInputs.v1.challenge_source_unsmoothing
+  imports: []
+  imports_status: none
+  justifications:
+  - id: source-interface
+    kind: literature
+    note: 'Set H=3e12-1, alpha=0.1202, X=T and shifted line sigma-0.3681/log(T), with sigma in [3/4,7/8], T>=3e12.
+      On [H,T], the exact lower weight is omega=(1-1/H)*exp(alpha*(shifted/T)^2-alpha). The actual cumulative-square
+      difference is bounded by the all-real smoothed moment divided by 2*omega^2; the factor 2 is from the
+      equal positive/negative-ordinate contributions. The code keeps this raw inequality before substituting
+      moment estimates. Literature-tier authority only: these are unchanged source predicates, not Lean reproofs
+      of the papers or new numerical certifications. Exact 14-interface / 45-definition audit: Solutions/MomentPNT.v1.PUBLICATION/SourceAudit/RECEIPT_V2.json,
+      SHA256 643bf26807e647ff112fddedd5e06f987beeac679d8b6c2750ddb617995400c0.'
+    source: KLN2018
+    locator: Lemma 4.9 proof before moment substitutions (PDF p14), using Eq 3.19 (PDF p8)
+  designated: source-interface
+- id: source_interpolation
+  declaration: MomentSourceInputs.v1.source_interpolation
+  challenge: MomentSourceInputs.v1.challenge_source_interpolation
+  imports: []
+  imports_status: none
+  justifications:
+  - id: source-interface
+    kind: literature
+    note: 'Apply the exact log-convex moment inequality between real parts 1/2 and sigma2=1+0.3599/log(T),
+      at sigmap=sigma-0.3681/log(T), with T>=3e12 and sigma in [3/4,7/8]. The original powers (sigma2-sigmap)/(sigma2-1/2)
+      and (sigmap-1/2)/(sigma2-1/2) are retained. The fixed parameters put sigmap strictly between 1/2 and
+      sigma2; delta>0 is sufficient for this underlying lemma. The actual evaluated lines avoid the pole, and
+      replacing the removable weighted integrand value at a single point does not change the moment. Literature-tier
+      authority only: these are unchanged source predicates, not Lean reproofs of the papers or new numerical
+      certifications. Exact 14-interface / 45-definition audit: Solutions/MomentPNT.v1.PUBLICATION/SourceAudit/RECEIPT_V2.json,
+      SHA256 643bf26807e647ff112fddedd5e06f987beeac679d8b6c2750ddb617995400c0.'
+    source: KLN2018
+    locator: Lemma 4.4/Eq 4.12, PDF p11
+  designated: source-interface
+- id: original_chj
+  declaration: MomentSourceInputs.v1.original_chj
+  challenge: MomentSourceInputs.v1.challenge_original_chj
+  imports: []
+  imports_status: none
+  justifications:
+  - id: source-interface
+    kind: literature
+    note: 'Table 4 gives log(x_M)=40,alpha=1/2,lambda=0.48 and M=6.431. The exact specialized source inequality
+      has x>=exp(40),max(51,log(x))<T<(sqrt(x)-2)/2, closed zero-height cutoff |Im(rho)|<=T and error at most
+      6.431*x*log(x)/T. The named table row, rather than the distinct sharper introductory 5.03 allowance,
+      is the source of this unchanged predicate. Literature-tier authority only: these are unchanged source
+      predicates, not Lean reproofs of the papers or new numerical certifications. Exact 14-interface / 45-definition
+      audit: Solutions/MomentPNT.v1.PUBLICATION/SourceAudit/RECEIPT_V2.json, SHA256 643bf26807e647ff112fddedd5e06f987beeac679d8b6c2750ddb617995400c0.'
+    source: CHJ2023
+    locator: Theorem 1.2/Eq1.5 (PDF p2) and Table 4 first row (PDF p20), arXiv 2111.10001v5
+  designated: source-interface
+sources:
+- id: Hiary2016
+  title: An explicit van der Corput estimate for zeta(1/2+it)
+  authors:
+  - Ghaith A. Hiary
+  type: paper
+  url: https://arxiv.org/abs/1507.01261v4
+  relationship: formalizes
+  note: 'Exact audited primary PDF: Hiary1507.01261v4.pdf, SHA256 9a1c88ff34de375a4f634319b44502a25cf4b58509ef5e665c6ae017e4c22740.
+    Title/authors and version URL checked against the primary title page and arXiv version metadata.'
+- id: Revers2026
+  title: A new improved explicit estimate for zeta(1/2+it)
+  authors:
+  - Michael Revers
+  type: paper
+  url: https://arxiv.org/abs/2602.05614v1
+  relationship: formalizes
+  note: 'Exact audited primary PDF: Revers2602.05614v1.pdf, SHA256 040ddb54613fbdc6f7923a8f1dabf7d2e3327f35f845f4edf36f2db0ac8d19c3.
+    Title/authors and version URL checked against the primary title page and arXiv version metadata.'
+- id: KLN2018
+  title: Explicit zero density for the Riemann zeta function
+  authors:
+  - Habiba Kadiri
+  - Allysa Lumley
+  - Nathan Ng
+  type: paper
+  url: https://arxiv.org/abs/2101.12263v1
+  relationship: formalizes
+  note: 'Exact audited primary PDF: KLN2018_authors.pdf, SHA256 0d9c10276e8573f1780c34c4fa0d97cbb7ed1066ed84538e608f996854f68492.
+    Cached authors manuscript for the 2018 JMAA paper; associated arXiv 2101.12263v1 is the 24-page version.
+    All page locators refer to the pinned PDF.'
+- id: FKS2
+  title: Sharper bounds for the Chebyshev function ψ(x)
+  authors:
+  - Andrew Fiori
+  - Habiba Kadiri
+  - Joshua Swidinsky
+  type: paper
+  url: https://arxiv.org/abs/2204.02588v3
+  relationship: formalizes
+  note: 'Exact audited primary PDF: FKS2204.02588v3.pdf, SHA256 15eff02042f2c1ab4878d029ce52a0abd6c95d66995b183a2dbc689ce9af49a4.
+    Title/authors and version URL checked against the primary title page and arXiv version metadata.'
+- id: CHJ2023
+  title: On the error term in the explicit formula of Riemann-von Mangoldt
+  authors:
+  - Michaela Cully-Hugill
+  - Daniel R. Johnston
+  type: paper
+  url: https://arxiv.org/abs/2111.10001v5
+  relationship: formalizes
+  note: 'Exact audited primary PDF: CHJ2111.10001v5.pdf, SHA256 dc51b2ca4bf326dce388a7c1075ad2da88ab499560696ece490b73dc07135315.
+    The bibliographic ID is retained; the pinned v5 preprint is dated 8 January 2024. Table 4 first row is
+    the exact selected source.'
+- id: CHT2019
+  title: Two explicit divisor sums
+  authors:
+  - Michaela Cully-Hugill
+  - Timothy Trudgian
+  type: paper
+  url: https://arxiv.org/abs/1911.07369v1
+  relationship: formalizes
+  note: 'Exact audited primary PDF: CullyTrudgian1911.07369.pdf, SHA256 23cbb0b82f0fa410fc7c179a5e59a05d465daefa3fcde9308ec32cea56a541b9.
+    The title page abbreviates Timothy Trudgian as Tim Trudgian; Theorem 2 is the divisor-square input to the
+    FKS correction.'
+limitations:
+- All nine designated justifications are literature-tier source authority, not Lean reproofs of the papers.
+  They remain explicit mathematical assumptions for the conditional numerical/PNT consumers; their exact original
+  contracts are unchanged.
+- The completed source audit covers exactly14 input interfaces and45 instantiated definitions, not all Mathlib
+  or an independent reproof of nine papers. Its artifact receipt is not an official IEANTN Comparator receipt,
+  source-first PV receipt or new numerical validation.
+- The pre-uniformization mean/right-moment proof operands, including the exact meanOne/meanTwo coefficients
+  and negative exponential in rightSixExact, are retained at delta=0.3599>0. The top-level FKS density theorem
+  withdelta>=1 is not invoked.
+- FKS Eq 2.16/CHT Theorem 2 supply the separate delta-independent C8/2 divisor correction to the raw rectangle
+  estimate. The regular-height/countable-exception contracts and all boundary constants remain exactly as stated.
+- All 45 underlying source definitions and actual parameter domains are detailed in the offline 83-formula
+  Solutions/MomentPNT.v1.PUBLICATION/SourceAudit/PRIMARY14_AND_SUPPORT_SOURCE_AUDIT_V4.html and final 59-row Solutions/MomentPNT.v1.PUBLICATION/SourceAudit/REVIEW_DELTA_V3.csv associated with the pinned
+  audit receipt.

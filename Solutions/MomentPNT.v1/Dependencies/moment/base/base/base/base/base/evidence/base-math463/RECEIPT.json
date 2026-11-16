@@ -1,0 +1,54 @@
+{
+  "status": "FULL_KERNEL_VALIDITY_AND_NUMERICAL_REGENERATION_PASS",
+  "seconds": 3566.539108570665,
+  "steps": [
+    {
+      "name": "numerics",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/analytic/kernel-validity-capsule-v1/numerics/reproduce_height_numerics_v1.py",
+        "--compiler",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-exposure-maximal-20261109/evolution/work/environment-cold-v1/lean-4.34.0-rc2-linux/bin/clang",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/analytic/kernel-validity-capsule-v1/numerics/regeneration/run-8ac5269b6389a160dc6d"
+      ],
+      "seconds": 18.76256082765758
+    },
+    {
+      "name": "word-association",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/analytic/kernel-validity-capsule-v1/numerics/verify_regenerated_height_words_v1.py",
+        "--source-root",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/analytic/kernel-validity-capsule-v1/source",
+        "--raw-root",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/analytic/kernel-validity-capsule-v1/numerics/regeneration/run-8ac5269b6389a160dc6d",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/analytic/kernel-validity-replay-v1/NUMERICAL_WORD_ASSOCIATION.json"
+      ],
+      "seconds": 0.030768148601055145
+    },
+    {
+      "name": "mathematical-proofs",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/analytic/kernel-validity-capsule-v1/reproduce.py",
+        "--environment",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/analytic/kernel-validity-environment-v1.json",
+        "--out",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/analytic/kernel-validity-replay-v1/math",
+        "--jobs",
+        "2"
+      ],
+      "seconds": 3547.74316621013
+    }
+  ],
+  "mathematical_receipt_sha256": "cba1c9c4367c5e5609e113582de09281ad4c918aa2211f28326fb03fad8430a8",
+  "numerical_receipt": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-qrh-pv-synergy-20261114/research/analytic/kernel-validity-capsule-v1/numerics/regeneration/run-8ac5269b6389a160dc6d/RECEIPT.json",
+  "numerical_receipt_sha256": "282e9002e2e858ccf02a12217ebaa1871b41ce38dfe43f34dfa20662b239eaaf",
+  "word_association_sha256": "04f76d1a7a8c3378d5eead5561c556fe007617fe7207392a4721e365f587fe2c",
+  "source_lock_sha256": "cb5a8f006c81344f96af7414f0bc0da6fb1a06d46303520c0e9a73205db2f65d",
+  "selected_mathematical_axioms": "propext,Classical.choice,Quot.sound only",
+  "source_first_PV": false,
+  "qualification": "Fresh application-source rebuild with pinned public generic libraries, plus deterministic executable numerical regeneration. C source-to-model/application-execution proofs remain separate obligations; no compiler/hardware output is promoted into mathematical truth by this receipt."
+}

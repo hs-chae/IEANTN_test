@@ -1,0 +1,71 @@
+version: v0.4
+project:
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+  name: Consumer of verified FKS2 numerical pi transport
+  description: Convert the certified normalized numerical allowance to an absolute
+    prime-counting error; compare with the original Table4 allowance on the identical
+    ray.
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+automation:
+  methods:
+  - method: manual
+    role: Lean proofs, rational exponential bounds, exact challenge/solution comparison,
+      and downstream replay.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+node:
+  id: FKS2.v7
+  family: FKS2
+  version: v7
+  kind: pipeline
+  status: active
+conclusions:
+- id: absolute_pi_bound
+  declaration: FKS2.v7.absolute_pi_bound
+  challenge: FKS2.v7.challenge_absolute_pi_bound
+  imports:
+  - node: FKS2Numerics.v5
+    conclusion: numerical_pi
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Exact Lean solution; official approved workflow receipt pending.
+  designated: solution
+- id: strict_allowance_improvement
+  declaration: FKS2.v7.strict_allowance_improvement
+  challenge: FKS2.v7.challenge_strict_allowance_improvement
+  imports: []
+  imports_status: none
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Exact Lean solution; official approved workflow receipt pending.
+  designated: solution
+sources:
+- id: FKS2Application
+  title: Conservative extension of the source-first FKS2 correction application
+  authors:
+  - hs-chae contributors
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: Original fixed application and symbolic summation integration from hs-chae/goldbach_pv
+    hs-chae/fp3b3205d; one canonical IEANTN namespace. No new generic numerical application.
+limitations:
+- Historical anchor and original CH2 source premises remain explicit. Native finite
+  certificates are in the disclosed source-level trust tier, not an official Comparator
+  receipt.

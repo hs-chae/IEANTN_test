@@ -1,0 +1,337 @@
+{
+  "status": "NINE_EXACT_SOURCE_CONTRACTS_LITERATURE_METADATA",
+  "node": "MomentSourceInputs.v1",
+  "conclusions": 9,
+  "edges": [
+    {
+      "node": "MomentSourceInputs.v1",
+      "conclusion": "low_zeta",
+      "core_identity": {
+        "file": "network/IEANTN/Nodes/MomentSourceInputs/v1/Conclusions.lean",
+        "declaration": "MomentSourceInputs.v1.low_zeta",
+        "line": 59,
+        "file_sha256": "9ab650dd3f7dc44ad809b50367e038d6448e4f67fed43184ae302782a479f8ba"
+      },
+      "audited_original_identity": {
+        "file": "scoped/kernel-overlay51-v1/lean/WinnerDensityA/HeightPrimary.lean",
+        "decl_line": 12,
+        "lean_name": "WinnerNewHeightSource.PrimaryInputs.lowZeta",
+        "written_formula": "  lowZeta : ∀u:ℝ,0≤u→u≤3→‖riemannZeta (vertical (1/2) u)‖≤(1461/1000:ℝ)",
+        "parent_structure": "WinnerNewHeightSource.PrimaryInputs",
+        "file_sha256": "facdd75dce394afeec27509028bdf662de75a6fced9d65aae38e60de97204637",
+        "verdict": "pending_primary_source_locator"
+      },
+      "evidence_tier": "literature",
+      "primary_source": "Hiary2016",
+      "locator": "Theorem 1.1 first sentence (PDF p1), with the independent small-height proof in Lemma 2.2 (PDF p3)",
+      "actual_specialization_and_source_derivation": "The paper establishes |zeta(1/2+iu)|<=1.461 on the closed interval 0<=u<=3. This is exactly 1461/1000 and both source endpoints are retained. The small-height interval computation is the cited literature input; the separate large-height 0.63 argument is not used here.",
+      "supporting_sources": [
+        "Hiary2016"
+      ]
+    },
+    {
+      "node": "MomentSourceInputs.v1",
+      "conclusion": "revers_zeta",
+      "core_identity": {
+        "file": "network/IEANTN/Nodes/MomentSourceInputs/v1/Conclusions.lean",
+        "declaration": "MomentSourceInputs.v1.revers_zeta",
+        "line": 65,
+        "file_sha256": "9ab650dd3f7dc44ad809b50367e038d6448e4f67fed43184ae302782a479f8ba"
+      },
+      "audited_original_identity": {
+        "file": "scoped/kernel-overlay51-v1/lean/WinnerDensityA/HeightPrimary.lean",
+        "decl_line": 13,
+        "lean_name": "WinnerNewHeightSource.PrimaryInputs.reversZeta",
+        "written_formula": "  reversZeta : ∀u:ℝ,3≤u→‖riemannZeta (vertical (1/2) u)‖≤(611/1000)*u^((1:ℝ)/6)*log u",
+        "parent_structure": "WinnerNewHeightSource.PrimaryInputs",
+        "file_sha256": "facdd75dce394afeec27509028bdf662de75a6fced9d65aae38e60de97204637",
+        "verdict": "pending_primary_source_locator"
+      },
+      "evidence_tier": "literature",
+      "primary_source": "Revers2026",
+      "locator": "Theorem 1.1(a), PDF p3",
+      "actual_specialization_and_source_derivation": "The exact source bound is 0.611*u^(1/6)*log(u) for every real u>=3, matching 611/1000 and the closed lower endpoint. This claim uses Revers, not the different HPY 0.618 estimate. The paper computational proof remains literature-backed.",
+      "supporting_sources": [
+        "Revers2026"
+      ]
+    },
+    {
+      "node": "MomentSourceInputs.v1",
+      "conclusion": "mollifier_mean_square",
+      "core_identity": {
+        "file": "network/IEANTN/Nodes/MomentSourceInputs/v1/Conclusions.lean",
+        "declaration": "MomentSourceInputs.v1.mollifier_mean_square",
+        "line": 72,
+        "file_sha256": "9ab650dd3f7dc44ad809b50367e038d6448e4f67fed43184ae302782a479f8ba"
+      },
+      "audited_original_identity": {
+        "file": "scoped/kernel-overlay51-v1/lean/WinnerDensityA/HeightPrimary.lean",
+        "decl_line": 14,
+        "lean_name": "WinnerNewHeightSource.PrimaryInputs.mollifierMeanSquare",
+        "written_formula": "  mollifierMeanSquare : ∀T:ℝ,height≤T→∀t>0,\n    (∫u in (0:ℝ)..t,‖mollifier T (vertical (1/2) u)‖^2)≤(meanOne T*t+meanTwo T*T)*log T",
+        "parent_structure": "WinnerNewHeightSource.PrimaryInputs",
+        "file_sha256": "facdd75dce394afeec27509028bdf662de75a6fced9d65aae38e60de97204637",
+        "verdict": "pending_primary_source_locator"
+      },
+      "evidence_tier": "literature",
+      "primary_source": "KLN2018",
+      "locator": "Lemma 4.1 proof before uniformization, PDF p9; Eqs 3.5-3.7 and 3.14-3.15",
+      "actual_specialization_and_source_derivation": "Set the actual mollifier cutoff X=T and retain a distinct arbitrary integration endpoint t>0. With m0=sqrt(1+(2/3)*sqrt(6/5)), the pre-uniform proof yields meanOne(T)=6/pi^2+1.048/log(T) and meanTwo(T)=pi*m0*0.62/log(T)+6*m0/(pi*T)+pi*m0*1.048/(T*log(T)); the integral is bounded by (meanOne(T)*t+meanTwo(T)*T)*log(T) for T>=3e12. These are the exact code coefficients; they are derived before the printed lemma replaces X and log(X) by uniform height bounds, rather than guessed by substitution in that weaker display.",
+      "supporting_sources": [
+        "KLN2018"
+      ]
+    },
+    {
+      "node": "MomentSourceInputs.v1",
+      "conclusion": "source_smoothing",
+      "core_identity": {
+        "file": "network/IEANTN/Nodes/MomentSourceInputs/v1/Conclusions.lean",
+        "declaration": "MomentSourceInputs.v1.source_smoothing",
+        "line": 91,
+        "file_sha256": "9ab650dd3f7dc44ad809b50367e038d6448e4f67fed43184ae302782a479f8ba"
+      },
+      "audited_original_identity": {
+        "file": "scoped/kernel-overlay51-v1/lean/WinnerDensityA/HeightPrimary.lean",
+        "decl_line": 16,
+        "lean_name": "WinnerNewHeightSource.PrimaryInputs.sourceSmoothing",
+        "written_formula": "  sourceSmoothing : ∀T:ℝ,height≤T→sourceMoment T (1/2)≤\n    (8*(601/5000:ℝ)*exp ((601/5000:ℝ)/(2*T^2)))*\n      (∫x in Ioi 0,WinnerBetaA.Minkowski.gaussianWeight x*scaledCriticalF T x)",
+        "parent_structure": "WinnerNewHeightSource.PrimaryInputs",
+        "file_sha256": "facdd75dce394afeec27509028bdf662de75a6fced9d65aae38e60de97204637",
+        "verdict": "pending_primary_source_locator"
+      },
+      "evidence_tier": "literature",
+      "primary_source": "KLN2018",
+      "locator": "Lemma 3.7/Eqs 3.17-3.18 (PDF p8) and Lemma 4.5/Eq 4.13 (PDF p11)",
+      "actual_specialization_and_source_derivation": "Use X=T, k=1, beta=2, alpha=0.1202=601/5000 and T>=3e12. The actual weight is g(s)=(s-1)/s*exp(alpha*(s/T)^2), and the moment integrates |g(s)*(zeta(s)*M_T(s)-1)|^2 over all real ordinates. Eq 4.13 at real part 1/2 gives the exact multiplier 8*alpha*exp(alpha/(2*T^2)) and kernel x*exp(-2*alpha*x^2) against the actual cumulative-square integral at x*T. No density conclusion is assumed.",
+      "supporting_sources": [
+        "KLN2018"
+      ]
+    },
+    {
+      "node": "MomentSourceInputs.v1",
+      "conclusion": "source_right_moment",
+      "core_identity": {
+        "file": "network/IEANTN/Nodes/MomentSourceInputs/v1/Conclusions.lean",
+        "declaration": "MomentSourceInputs.v1.source_right_moment",
+        "line": 128,
+        "file_sha256": "9ab650dd3f7dc44ad809b50367e038d6448e4f67fed43184ae302782a479f8ba"
+      },
+      "audited_original_identity": {
+        "file": "scoped/kernel-overlay51-v1/lean/WinnerDensityA/HeightPrimary.lean",
+        "decl_line": 19,
+        "lean_name": "WinnerNewHeightSource.PrimaryInputs.sourceRightMoment",
+        "written_formula": "  sourceRightMoment : ∀T:ℝ,height≤T→sourceMoment T (rightLine delta T)≤\n    rightVExact eulerMascheroniConstant delta T*log T^(2:ℕ)",
+        "parent_structure": "WinnerNewHeightSource.PrimaryInputs",
+        "file_sha256": "facdd75dce394afeec27509028bdf662de75a6fced9d65aae38e60de97204637",
+        "verdict": "pending_primary_source_locator"
+      },
+      "evidence_tier": "literature",
+      "primary_source": "KLN2018",
+      "locator": "Eqs 3.10-3.11 (PDF p6), Lemma 4.3 proof (PDF p10), Lemma 4.7 proof/Eqs 4.19-4.20 (PDF pp12-13)",
+      "actual_specialization_and_source_derivation": "Use X=T, k=1, delta=0.3599>0, alpha=0.1202 and T>=3e12, with right line 1+delta/log(T). The exact pre-uniform C5 is pi*m0*0.529/(2*delta)*(1+2*delta/log(T))^2*exp(2*delta*gamma/log(T)). The exact C6 retains 0.529/(5*delta*exp(delta))*(1+delta/log(T))^2*exp(delta*(gamma-log(5))/log(T))+0.605*exp(-2*delta)/log(T)^2, where gamma is Euler constant. Its negative exponential is retained from Eq 3.11, before the later relaxed uniform C6 display. The Gaussian moments 1/(4*alpha) and sqrt(pi)/(8*alpha*sqrt(2*alpha)) yield the exact rightVExact coefficient. The underlying proof domain is delta>0; the top-level FKS theorem requiring delta>=1 is not invoked at delta=0.3599.",
+      "supporting_sources": [
+        "KLN2018"
+      ]
+    },
+    {
+      "node": "MomentSourceInputs.v1",
+      "conclusion": "source_rectangle",
+      "core_identity": {
+        "file": "network/IEANTN/Nodes/MomentSourceInputs/v1/Conclusions.lean",
+        "declaration": "MomentSourceInputs.v1.source_rectangle",
+        "line": 176,
+        "file_sha256": "9ab650dd3f7dc44ad809b50367e038d6448e4f67fed43184ae302782a479f8ba"
+      },
+      "audited_original_identity": {
+        "file": "scoped/kernel-overlay51-v1/lean/WinnerDensityA/HeightPrimary.lean",
+        "decl_line": 21,
+        "lean_name": "WinnerNewHeightSource.PrimaryInputs.sourceRectangle",
+        "written_formula": "  sourceRectangle : ∀sigma:ℝ,(3/4:ℝ)≤sigma→sigma≤7/8→\n    ∃Etop:Set ℝ,Etop.Countable ∧ ∀T:ℝ,height≤T→T∉Etop→\n      ∃Elower:Set ℝ,Elower.Countable ∧ ∀h:ℝ,height-1<h→h<height→h∉Elower→\n        IEANTN.zetaN' sigma T-IEANTN.zetaN' sigma h≤\n          rawRectangleBound T sigma (sigma-d/log T) (1237/1000)\n            (cSevenAt eulerMascheroniConstant h) (sourceCEight eulerMascheroniConstant) T h",
+        "parent_structure": "WinnerNewHeightSource.PrimaryInputs",
+        "file_sha256": "facdd75dce394afeec27509028bdf662de75a6fced9d65aae38e60de97204637",
+        "verdict": "pending_primary_source_locator"
+      },
+      "evidence_tier": "literature",
+      "primary_source": "FKS2",
+      "locator": "Theorem 2.7 proof/Eq 2.16 (PDF p7), using KLN Lemmas 2.3,2.9,4.12-4.14 and CHT Theorem 2 (PDF p4)",
+      "actual_specialization_and_source_derivation": "Retain the raw pre-uniform count difference N(sigma,T)-N(sigma,h), with sigma in [3/4,7/8], T>=3e12 and regular h in(3e12-1,3e12), outside the stated countable exceptional height sets. Set X=T, k=1, d=0.3681,shifted line sigma-d/log(T),eta=0.2535 and mu=1.237. KLN Lemma 4.14 first proof display supplies the rectangle inequality and its actual C7/C8 source definitions (PDF pp18-21). FKS Eq 2.16 explicitly improves only C8 toC8/2: CHT Theorem 2 proves sum_{n<=x}d(n)^2<=x*log(x)^3 for x>=7, halving the old KLN 2*x*log(x)^3 coefficient. Partial summation and the right-edge estimate are linear in this coefficient, so the correction applies before density uniformization and independently of delta. This is not an application of the final FKS delta>=1 density theorem.",
+      "supporting_sources": [
+        "KLN2018",
+        "FKS2",
+        "CHT2019"
+      ]
+    },
+    {
+      "node": "MomentSourceInputs.v1",
+      "conclusion": "source_unsmoothing",
+      "core_identity": {
+        "file": "network/IEANTN/Nodes/MomentSourceInputs/v1/Conclusions.lean",
+        "declaration": "MomentSourceInputs.v1.source_unsmoothing",
+        "line": 328,
+        "file_sha256": "9ab650dd3f7dc44ad809b50367e038d6448e4f67fed43184ae302782a479f8ba"
+      },
+      "audited_original_identity": {
+        "file": "scoped/kernel-overlay51-v1/lean/WinnerDensityA/HeightPrimary.lean",
+        "decl_line": 27,
+        "lean_name": "WinnerNewHeightSource.PrimaryInputs.sourceUnsmoothing",
+        "written_formula": "  sourceUnsmoothing : ∀sigma T:ℝ,(3/4:ℝ)≤sigma→sigma≤7/8→height≤T→\n    sourceFdiff d sigma T≤sourceMoment T (shifted d sigma T)/(2*sourceOmega d sigma T^2)",
+        "parent_structure": "WinnerNewHeightSource.PrimaryInputs",
+        "file_sha256": "facdd75dce394afeec27509028bdf662de75a6fced9d65aae38e60de97204637",
+        "verdict": "pending_primary_source_locator"
+      },
+      "evidence_tier": "literature",
+      "primary_source": "KLN2018",
+      "locator": "Lemma 4.9 proof before moment substitutions (PDF p14), using Eq 3.19 (PDF p8)",
+      "actual_specialization_and_source_derivation": "Set H=3e12-1, alpha=0.1202, X=T and shifted line sigma-0.3681/log(T), with sigma in [3/4,7/8], T>=3e12. On [H,T], the exact lower weight is omega=(1-1/H)*exp(alpha*(shifted/T)^2-alpha). The actual cumulative-square difference is bounded by the all-real smoothed moment divided by 2*omega^2; the factor 2 is from the equal positive/negative-ordinate contributions. The code keeps this raw inequality before substituting moment estimates.",
+      "supporting_sources": [
+        "KLN2018"
+      ]
+    },
+    {
+      "node": "MomentSourceInputs.v1",
+      "conclusion": "source_interpolation",
+      "core_identity": {
+        "file": "network/IEANTN/Nodes/MomentSourceInputs/v1/Conclusions.lean",
+        "declaration": "MomentSourceInputs.v1.source_interpolation",
+        "line": 384,
+        "file_sha256": "9ab650dd3f7dc44ad809b50367e038d6448e4f67fed43184ae302782a479f8ba"
+      },
+      "audited_original_identity": {
+        "file": "scoped/kernel-overlay51-v1/lean/WinnerDensityA/HeightPrimary.lean",
+        "decl_line": 29,
+        "lean_name": "WinnerNewHeightSource.PrimaryInputs.sourceInterpolation",
+        "written_formula": "  sourceInterpolation : ∀sigma T:ℝ,(3/4:ℝ)≤sigma→sigma≤7/8→height≤T→\n    sourceMoment T (shifted d sigma T)≤\n      sourceMoment T (1/2)^((rightLine delta T-shifted d sigma T)/(rightLine delta T-1/2))*\n      sourceMoment T (rightLine delta T)^((shifted d sigma T-1/2)/(rightLine delta T-1/2))",
+        "parent_structure": "WinnerNewHeightSource.PrimaryInputs",
+        "file_sha256": "facdd75dce394afeec27509028bdf662de75a6fced9d65aae38e60de97204637",
+        "verdict": "pending_primary_source_locator"
+      },
+      "evidence_tier": "literature",
+      "primary_source": "KLN2018",
+      "locator": "Lemma 4.4/Eq 4.12, PDF p11",
+      "actual_specialization_and_source_derivation": "Apply the exact log-convex moment inequality between real parts 1/2 and sigma2=1+0.3599/log(T), at sigmap=sigma-0.3681/log(T), with T>=3e12 and sigma in [3/4,7/8]. The original powers (sigma2-sigmap)/(sigma2-1/2) and (sigmap-1/2)/(sigma2-1/2) are retained. The fixed parameters put sigmap strictly between 1/2 and sigma2; delta>0 is sufficient for this underlying lemma. The actual evaluated lines avoid the pole, and replacing the removable weighted integrand value at a single point does not change the moment.",
+      "supporting_sources": [
+        "KLN2018"
+      ]
+    },
+    {
+      "node": "MomentSourceInputs.v1",
+      "conclusion": "original_chj",
+      "core_identity": {
+        "file": "network/IEANTN/Nodes/MomentSourceInputs/v1/Conclusions.lean",
+        "declaration": "MomentSourceInputs.v1.original_chj",
+        "line": 441,
+        "file_sha256": "9ab650dd3f7dc44ad809b50367e038d6448e4f67fed43184ae302782a479f8ba"
+      },
+      "audited_original_identity": {
+        "file": "scoped/kernel-overlay51-v1/lean/WinnerDensityA/DirectCHJPairing.lean",
+        "decl_line": 12,
+        "lean_name": "WinnerDirectKernel.OriginalCHJSource",
+        "interface_label": "OriginalCHJSource",
+        "written_formula": "def OriginalCHJSource : Prop := ∀ x T : ℝ, Real.exp 40≤x → max 51 (Real.log x)<T →\n    T<(Real.sqrt x-2)/2 →\n    |Chebyshev.psi x-x+(IEANTN.zetaZeroesSum (Ioo 0 1) (Icc (-T) T)\n      (fun rho : ℂ=>(x:ℂ)^rho/rho)).re|≤(6431/1000)*x*Real.log x/T\n\n theorem signed_im_ne_zero {T : ℝ} {rho : ℂ}\n    (hr : rho∈IEANTN.zetaZeroesIn (Ioo 0 1) (Icc (-T) T)) : rho.im≠0 := by\n  intro hi\n  have he : rho=(rho.re:ℂ) := by apply Complex.ext <;> simp [hi]\n  have hz:=CH2ZetaReal.riemannZeta_ne_zero_Ico hr.1.1.le hr.1.2\n  exact hz (by rw [←he];exact hr.2.2)\n\n theorem pair_mem_signed (hqrh : IEANTN.ZetaZeroFreeHalfPlane (7/8))\n    {T : ℝ} {q : ℂ×Bool} (hq : q∈pairedZeros T) :\n    pairZ q∈IEANTN.zetaZeroesIn (Ioo 0 1) (Icc (-T) T) := by\n  have hm:=Finset.mem_product.mp hq\n  have hp:=positive_mem hm.1\n  have hre0:=positive_re_lower hqrh hm.1\n  have hre1:=CH2QRH.re_le_boundary hqrh hp.2.2 hp.2.1.1\n  rcases q with ⟨rho,b⟩\n  cases b\n  · simp only [pairZ,Bool.false_eq_true,ite_false]\n    refine ⟨?_,?_,?_⟩\n    · simpa only [Complex.conj_re,mem_Ioo] using And.intro (by linarith : 0<rho.re) (by linarith : rho.re<1)\n    · simp only [Complex.conj_im,mem_Icc]\n      constructor <;> linarith [hp.2.1.1,hp.2.1.2]\n    · change riemannZeta ((starRingEnd ℂ) rho)=0\n      rw [riemannZeta_conj,hp.2.2,map_zero]\n  · simp only [pairZ,ite_true]\n    refine ⟨⟨by linarith,by linarith⟩,⟨?_,hp.2.1.2⟩,hp.2.2⟩\n    linarith [hp.2.1.1,hp.2.1.2]\n\n theorem signed_has_pair {T : ℝ} {rho : ℂ}\n    (hr : rho∈IEANTN.zetaZeroesIn (Ioo 0 1) (Icc (-T) T)) :\n    ∃q∈pairedZeros T,pairZ q=rho := by\n  have hi:=signed_im_ne_zero hr\n  by_cases hp : 0<rho.im\n  · refine ⟨(rho,true),?_,by simp [pairZ]⟩\n    apply Finset.mem_product.mpr\n    constructor\n    · apply (Set.Finite.mem_toFinset _).mpr\n      exact ⟨trivial,⟨hp,hr.2.1.2⟩,hr.2.2⟩\n    · simp\n  · have hn : rho.im<0 := lt_of_le_of_ne (le_of_not_gt hp) hi\n    refine ⟨((starRingEnd ℂ) rho,false),?_,by simp [pairZ]⟩\n    apply Finset.mem_product.mpr\n    constructor\n    · apply (Set.Finite.mem_toFinset _).mpr\n      refine ⟨trivial,?_,?_⟩\n      · simp only [Complex.conj_im,mem_Ioc]\n        constructor <;> linarith [hr.2.1.1]\n      · change riemannZeta ((starRingEnd ℂ) rho)=0\n        rw [riemannZeta_conj,hr.2.2,map_zero]\n    · simp\n\n theorem signed_finite (T : ℝ) :\n    (IEANTN.zetaZeroesIn (Ioo 0 1) (Icc (-T) T)).Finite := by\n  apply ((pairedZeros T).finite_toSet.image pairZ).subset\n  intro rho hr\n  obtain ⟨q,hq,he⟩:=signed_has_pair hr\n  exact ⟨q,hq,he⟩\n\n theorem pair_injective {T : ℝ} {q r : ℂ×Bool}\n    (hq : q∈pairedZeros T) (hr : r∈pairedZeros T) (he : pairZ q=pairZ r) : q=r := by\n  have hqi:=(positive_mem (Finset.mem_product.mp hq).1).2.1.1\n  have hri:=(positive_mem (Finset.mem_product.mp hr).1).2.1.1\n  rcases q with ⟨q,b⟩\n  rcases r with ⟨r,c⟩\n  cases b <;> cases c\n  · simp only [pairZ,Bool.false_eq_true,ite_false] at he\n    have hh:=congrArg (starRingEnd ℂ) he\n    simpa using hh\n  · have hh:=congrArg Complex.im he\n    simp only [pairZ,Bool.false_eq_true,ite_false,ite_true,Complex.conj_im] at hh\n    linarith\n  · have hh:=congrArg Complex.im he\n    simp only [pairZ,Bool.false_eq_true,ite_false,ite_true,Complex.conj_im] at hh\n    linarith\n  · simpa only [pairZ,ite_true] using congrArg (fun z=>(z,true)) he\n\n theorem signed_sum_complex (T : ℝ) (f : ℂ→ℂ) :\n    IEANTN.zetaZeroesSum (Ioo 0 1) (Icc (-T) T) f=\n      ∑rho∈(signed_finite T).toFinset,f rho*(IEANTN.zetaOrder rho:ℂ) := by\n  classical\n  unfold IEANTN.zetaZeroesSum\n  rw [tsum_subtype (IEANTN.zetaZeroesIn (Ioo 0 1) (Icc (-T) T))\n      (fun rho=>f rho*(IEANTN.zetaOrder rho:ℂ)),\n    tsum_eq_sum (s:=(signed_finite T).toFinset)]\n  · exact Finset.sum_congr rfl (fun rho hr=>Set.indicator_of_mem ((Set.Finite.mem_toFinset _).mp hr) _)\n  · intro rho hr\n    exact Set.indicator_of_notMem (fun h=>hr ((Set.Finite.mem_toFinset _).mpr h)) _\n\n theorem exp_real_cpow (u : ℝ) (rho : ℂ) : (Real.exp u:ℂ)^rho=zexp rho u := by\n  have he : (Real.exp u:ℂ)≠0 := by exact_mod_cast (Real.exp_pos u).ne'\n  rw [Complex.cpow_def_of_ne_zero he,←Complex.ofReal_log (Real.exp_pos u).le,Real.log_exp]\n  unfold zexp\n  congr 1\n  ring\n\n theorem signed_sum_eq_paired (hqrh : IEANTN.ZetaZeroFreeHalfPlane (7/8)) (T u : ℝ) :\n    IEANTN.zetaZeroesSum (Ioo 0 1) (Icc (-T) T) (fun rho : ℂ=>(Real.exp u:ℂ)^rho/rho)=\n      zeroSum (pairedZeros T) pairZ pairW u := by\n  classical\n  rw [signed_sum_complex]\n  symm\n  unfold zeroSum\n  apply Finset.sum_bij (fun q _=>pairZ q)\n  · intro q hq\n    exact (Set.Finite.mem_toFinset _).mpr (pair_mem_signed hqrh hq)\n  · intro q hq r hr he\n    exact pair_injective hq hr he\n  · intro rho hr\n    obtain ⟨q,hq,he⟩:=signed_has_pair ((Set.Finite.mem_toFinset _).mp hr)\n    exact ⟨q,hq,he⟩\n  · intro q hq\n    rw [exp_real_cpow]\n    have hm : (IEANTN.zetaOrder (pairZ q):ℝ)=pairW q := by\n      rcases q with ⟨rho,b⟩\n      cases b <;> simp [pairZ,pairW,CH2Section6.zetaOrder_conj]\n    have hmC : (IEANTN.zetaOrder (pairZ q):ℂ)=(pairW q:ℂ) := by exact_mod_cast hm\n    rw [hmC]\n    ring\n\n theorem original_CHJ_to_paired (h : OriginalCHJSource)\n    (hqrh : IEANTN.ZetaZeroFreeHalfPlane (7/8)) : CHJSource := by\n  intro u T hu hT hUpper\n  have hp:=h (Real.exp u) T (Real.exp_le_exp.mpr hu)\n    (by simpa only [Real.log_exp] using hT) (by rw [←Real.exp_half];exact hUpper)\n  rw [signed_sum_eq_paired hqrh] at hp\n  simp only [Real.log_exp] at hp\n  change |psiResidual u+(zeroSum (pairedZeros T) pairZ pairW u).re|≤_\n  apply hp.trans\n  have hTp : 0<T := by have hh:= (le_max_left (51:ℝ) u).trans_lt hT;linarith\n  have hcoef : (6431/1000:ℝ)≤13/2 := by norm_num\n  have hh:=mul_le_mul_of_nonneg_right hcoef (show 0≤Real.exp u*u/T by positivity)\n  convert! hh using 1 <;> ring\n\n#print axioms signed_sum_eq_paired\n#print axioms original_CHJ_to_paired",
+        "instantiation": null,
+        "file_sha256": "4183a4017e86cee4c6b4f3ffea750b1a496d82fbe1343270c36fd23e9373bdbc",
+        "verdict": "pending_primary_source_locator"
+      },
+      "evidence_tier": "literature",
+      "primary_source": "CHJ2023",
+      "locator": "Theorem 1.2/Eq1.5 (PDF p2) and Table 4 first row (PDF p20), arXiv 2111.10001v5",
+      "actual_specialization_and_source_derivation": "Table 4 gives log(x_M)=40,alpha=1/2,lambda=0.48 and M=6.431. The exact specialized source inequality has x>=exp(40),max(51,log(x))<T<(sqrt(x)-2)/2, closed zero-height cutoff |Im(rho)|<=T and error at most 6.431*x*log(x)/T. The named table row, rather than the distinct sharper introductory 5.03 allowance, is the source of this unchanged predicate.",
+      "supporting_sources": [
+        "CHJ2023"
+      ]
+    }
+  ],
+  "primary_sources": [
+    {
+      "id": "Hiary2016",
+      "title": "An explicit van der Corput estimate for zeta(1/2+it)",
+      "authors": [
+        "Ghaith A. Hiary"
+      ],
+      "type": "paper",
+      "url": "https://arxiv.org/abs/1507.01261v4",
+      "relationship": "formalizes",
+      "note": "Exact audited primary PDF: Hiary1507.01261v4.pdf, SHA256 9a1c88ff34de375a4f634319b44502a25cf4b58509ef5e665c6ae017e4c22740. Title/authors and version URL checked against the primary title page and arXiv version metadata."
+    },
+    {
+      "id": "Revers2026",
+      "title": "A new improved explicit estimate for zeta(1/2+it)",
+      "authors": [
+        "Michael Revers"
+      ],
+      "type": "paper",
+      "url": "https://arxiv.org/abs/2602.05614v1",
+      "relationship": "formalizes",
+      "note": "Exact audited primary PDF: Revers2602.05614v1.pdf, SHA256 040ddb54613fbdc6f7923a8f1dabf7d2e3327f35f845f4edf36f2db0ac8d19c3. Title/authors and version URL checked against the primary title page and arXiv version metadata."
+    },
+    {
+      "id": "KLN2018",
+      "title": "Explicit zero density for the Riemann zeta function",
+      "authors": [
+        "Habiba Kadiri",
+        "Allysa Lumley",
+        "Nathan Ng"
+      ],
+      "type": "paper",
+      "url": "https://arxiv.org/abs/2101.12263v1",
+      "relationship": "formalizes",
+      "note": "Exact audited primary PDF: KLN2018_authors.pdf, SHA256 0d9c10276e8573f1780c34c4fa0d97cbb7ed1066ed84538e608f996854f68492. Cached authors manuscript for the 2018 JMAA paper; associated arXiv 2101.12263v1 is the 24-page version. All page locators refer to the pinned PDF."
+    },
+    {
+      "id": "FKS2",
+      "title": "Sharper bounds for the Chebyshev function ψ(x)",
+      "authors": [
+        "Andrew Fiori",
+        "Habiba Kadiri",
+        "Joshua Swidinsky"
+      ],
+      "type": "paper",
+      "url": "https://arxiv.org/abs/2204.02588v3",
+      "relationship": "formalizes",
+      "note": "Exact audited primary PDF: FKS2204.02588v3.pdf, SHA256 15eff02042f2c1ab4878d029ce52a0abd6c95d66995b183a2dbc689ce9af49a4. Title/authors and version URL checked against the primary title page and arXiv version metadata."
+    },
+    {
+      "id": "CHJ2023",
+      "title": "On the error term in the explicit formula of Riemann-von Mangoldt",
+      "authors": [
+        "Michaela Cully-Hugill",
+        "Daniel R. Johnston"
+      ],
+      "type": "paper",
+      "url": "https://arxiv.org/abs/2111.10001v5",
+      "relationship": "formalizes",
+      "note": "Exact audited primary PDF: CHJ2111.10001v5.pdf, SHA256 dc51b2ca4bf326dce388a7c1075ad2da88ab499560696ece490b73dc07135315. The bibliographic ID is retained; the pinned v5 preprint is dated 8 January 2024. Table 4 first row is the exact selected source."
+    },
+    {
+      "id": "CHT2019",
+      "title": "Two explicit divisor sums",
+      "authors": [
+        "Michaela Cully-Hugill",
+        "Timothy Trudgian"
+      ],
+      "type": "paper",
+      "url": "https://arxiv.org/abs/1911.07369v1",
+      "relationship": "formalizes",
+      "note": "Exact audited primary PDF: CullyTrudgian1911.07369.pdf, SHA256 23cbb0b82f0fa410fc7c179a5e59a05d465daefa3fcde9308ec32cea56a541b9. The title page abbreviates Timothy Trudgian as Tim Trudgian; Theorem 2 is the divisor-square input to the FKS correction."
+    }
+  ],
+  "source_audit_receipt": {
+    "path": "audit/primary14-source-audit-v1/RECEIPT_V2.json",
+    "sha256": "643bf26807e647ff112fddedd5e06f987beeac679d8b6c2750ddb617995400c0",
+    "scope": {
+      "interfaces": 14,
+      "support_definitions": 45,
+      "rows": 59
+    },
+    "not_official_comparator_receipt": true
+  },
+  "metadata_before_sha256": "5cfff8b9edc9a8a5ab2371de0b78e0aa5eb7c265dcdaf9d2c077a850c37100db",
+  "metadata_after_sha256": "47edeb416b85a18026914e9be431b1ac8cd5390d277a60550e51e76bc4606e6a",
+  "protected_lean_generated_files": {
+    "Conclusions.lean": "9ab650dd3f7dc44ad809b50367e038d6448e4f67fed43184ae302782a479f8ba",
+    "fingerprints.json": "6753005fba00f1618c59e866be402c8f517b85c4d76108d3009f3a896bbc49ae",
+    "Challenge.lean": "7d2e8171723b07a71d55c92f08c31e4e9b7ab47e9e805b5ceacde4839d12cc18"
+  },
+  "updater_sha256": "7c52285bfb5d34a3e3cb3483eb753ea3e381fa14b9fe13c34e9e1555dd69141a",
+  "qualification": "Metadata source authority only. No Lean/generated files or other nodes edited; no premise, claim, numerical result or analytic domain changed. No new proof or numerical promotion."
+}

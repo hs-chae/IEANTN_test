@@ -1,0 +1,117 @@
+version: v0.4
+project:
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+  name: 'CH2: a fixed-zero-strip PNT transfer'
+  description: A conservative fixed-strip consequence of the CH2 finite spectral formula. For 1/2<=beta<1,
+    a zero-free half-plane Re(s)>beta gives Epsi(x)<=2(1-beta)^2 log(x)^2 x^(beta-1), above exp(16/(1-beta)).
+    The coefficient and threshold are derived here rather than printed in CH2.
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+automation:
+  methods:
+  - method: manual
+    role: Source transcription, explicit written derivation, and a short Lean composition.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+node:
+  id: CH2.v5
+  family: CH2
+  version: v5
+  kind: pipeline
+  status: active
+conclusions:
+- id: psi_bound_of_fixed_strip
+  declaration: CH2.v5.psi_bound_of_fixed_strip
+  challenge: CH2.v5.challenge_psi_bound_of_fixed_strip
+  imports:
+  - node: CH2.v2
+    conclusion: proposition_2_4_upper
+  - node: CH2.v2
+    conclusion: proposition_2_4_lower
+  - node: CH2.v3
+    conclusion: extremal_majorant
+  - node: CH2.v3
+    conclusion: extremal_minorant
+  - node: ZeroCount.v1
+    conclusion: rvm_error_bound
+  - node: ZeroCount.v1
+    conclusion: rvm_error_small
+  - node: ZetaHadamard.v1
+    conclusion: logDeriv_partial_fractions
+  - node: ZetaLogDeriv.v1
+    conclusion: logDeriv_functional_equation
+  - node: ZetaLogDerivValues.v1
+    conclusion: logDeriv_two
+  - node: ZetaLogDerivValues.v1
+    conclusion: logDeriv_three_halves
+  - node: ZetaLogDerivValues.v1
+    conclusion: logDeriv_neg_one
+  - node: ZetaLogDerivValues.v1
+    conclusion: logDeriv_laurent_alternating
+  - node: GammaAsymptotics.v2
+    conclusion: digamma_sub_log_isBigO_strip
+  - node: CotangentSeries.v1
+    conclusion: cot_series_zeta_values
+  - node: LowZeroes.v1
+    conclusion: no_zeroes_below_first_ordinate
+  imports_status: identified
+  justifications:
+  - id: written-proof
+    kind: literature
+    note: Original written derivation retained in Derivation.html. It is an original consequence, not
+      a verbatim CH2 theorem. The exact full general-beta implication is now proved by the separate lean-solution
+      justification below; all required original source statements are identified.
+    source: CH2FixedStripDerivation
+    locator: Derivation.html, Sections 1-7; CH2 Theorem 1.1 (1.2), Lemma C.1, Proposition 8.8, A.5, B.2-B.3,
+      B.8
+  - id: lean-solution
+    kind: none-yet
+    note: Complete exact original fifteen-input solution in Solutions/CH2.v5/GeneralStripSolution.lean.
+      Repository progress reports zero holes; the unmodified local verification script accepted the exact
+      challenge with the standard three axioms, NanoDa and Lean default kernel. The official workflow
+      receipt remains pending maintainer verification. The two original unused CH2.v3 inputs are preserved.
+  designated: written-proof
+  progress:
+    solution: Solutions/CH2.v5/
+    state: in-progress
+    remaining_holes: 0
+sources:
+- id: CH2FixedStripDerivation
+  title: A fixed-zero-strip consequence of the Chirre-Helfgott formula
+  authors:
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: 'Local written proof: IEANTN/Nodes/CH2/v5/Derivation.html. Self-assessed; unrefereed; not a Lean
+    proof. Novelty unknown. Original-proof identifies a derivation written in this project; mathematical
+    novelty is unknown and is not claimed.'
+- id: CH2
+  title: Optimal bounds for sums of non-negative arithmetic functions
+  authors:
+  - Andres Chirre
+  - Harald Andres Helfgott
+  type: paper
+  relationship: background
+  url: https://arxiv.org/abs/2512.15709v1
+  note: Theorem 1.1 (1.2), Lemma C.1, Proposition 8.8 (8.10), Lemma A.5, Corollaries B.2-B.3 and Proposition
+    B.8. The new coefficient 2 and threshold are proved in the local derivation, not attributed to the
+    paper. Source of the analytic input formula; it is not a prior statement of this derived fixed-strip
+    coefficient and threshold.
+limitations:
+- Exact statement and standard-axiom Lean checks pass; the separate official IEANTN verification workflow
+  has not issued a receipt.
+- The original fifteen challenge inputs are preserved; the actual proof uses thirteen and does not need
+  the two CH2.v3 extremal-function statements.
+- No optimization or mathematical novelty is claimed.

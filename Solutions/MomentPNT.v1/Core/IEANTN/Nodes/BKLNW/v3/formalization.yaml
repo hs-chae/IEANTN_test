@@ -1,0 +1,59 @@
+version: v0.4
+project:
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+  name: QRH replay of the existing Table8 thresholds
+  description: QRH replay of the existing Table8 thresholds
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+automation:
+  methods:
+  - method: manual
+    role: Lean proofs, rational exponential bounds, exact challenge/solution comparison,
+      and downstream replay.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+node:
+  id: BKLNW.v3
+  family: BKLNW
+  version: v3
+  kind: pipeline
+  status: active
+conclusions:
+- id: table8_qrh_replay
+  declaration: BKLNW.v3.table8_qrh_replay
+  challenge: BKLNW.v3.challenge_table8_qrh_replay
+  imports:
+  - node: QRHCH2.v2
+    conclusion: psi_density_frontier
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Complete proof is implemented locally; official exact-type verification
+      receipt remains pending.
+  designated: solution
+sources:
+- id: QRHExperiment
+  title: 'QRH maximum propagation: derived proof interfaces'
+  authors:
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: New derived implications from explicit existing node statements. No novelty
+    or optimality is claimed; paper inputs retain their original source boundary.
+limitations:
+- No official workflow receipt is claimed.
+- The underlying OpenAI QRH and original literature premises remain explicit network
+  inputs.

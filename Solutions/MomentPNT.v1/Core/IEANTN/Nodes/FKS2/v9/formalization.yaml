@@ -1,0 +1,118 @@
+version: v0.4
+project:
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+  name: Paired old and QRH Table4 consumers
+  description: Same-ray absolute-error consumers and exact route-local allowance comparisons;
+    provider dependencies are AND requirements.
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+automation:
+  methods:
+  - method: manual
+    role: Lean proofs, rational exponential bounds, exact challenge/solution comparison,
+      and downstream replay.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+node:
+  id: FKS2.v9
+  family: FKS2
+  version: v9
+  kind: pipeline
+  status: active
+conclusions:
+- id: old_absolute_pi
+  declaration: FKS2.v9.old_absolute_pi
+  challenge: FKS2.v9.challenge_old_absolute_pi
+  imports:
+  - node: FKS2Numerics.v6
+    conclusion: old_pi
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Standard-axiom solution in Solutions/FKS2Numerics.v7/FKS2PairConsumers.lean;
+      numerical providers remain declared premises; no official receipt.
+  designated: solution
+- id: qrh_absolute_pi
+  declaration: FKS2.v9.qrh_absolute_pi
+  challenge: FKS2.v9.challenge_qrh_absolute_pi
+  imports:
+  - node: FKS2Numerics.v7
+    conclusion: qrh_pi
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Standard-axiom solution in Solutions/FKS2Numerics.v7/FKS2PairConsumers.lean;
+      numerical providers remain declared premises; no official receipt.
+  designated: solution
+- id: paired_absolute_pi
+  declaration: FKS2.v9.paired_absolute_pi
+  challenge: FKS2.v9.challenge_paired_absolute_pi
+  imports:
+  - node: FKS2Numerics.v6
+    conclusion: old_pi
+  - node: FKS2Numerics.v7
+    conclusion: qrh_pi
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Standard-axiom solution in Solutions/FKS2Numerics.v7/FKS2PairConsumers.lean;
+      numerical providers remain declared premises; no official receipt.
+  designated: solution
+- id: strict_reconstructed_improvement
+  declaration: FKS2.v9.strict_reconstructed_improvement
+  challenge: FKS2.v9.challenge_strict_reconstructed_improvement
+  imports: []
+  imports_status: none
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Standard-axiom solution in Solutions/FKS2Numerics.v7/FKS2PairConsumers.lean;
+      numerical providers remain declared premises; no official receipt.
+  designated: solution
+- id: strict_historical_improvement
+  declaration: FKS2.v9.strict_historical_improvement
+  challenge: FKS2.v9.challenge_strict_historical_improvement
+  imports: []
+  imports_status: none
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Standard-axiom solution in Solutions/FKS2Numerics.v7/FKS2PairConsumers.lean;
+      numerical providers remain declared premises; no official receipt.
+  designated: solution
+- id: exact_allowance_ratios
+  declaration: FKS2.v9.exact_allowance_ratios
+  challenge: FKS2.v9.challenge_exact_allowance_ratios
+  imports: []
+  imports_status: none
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Standard-axiom solution in Solutions/FKS2Numerics.v7/FKS2PairConsumers.lean;
+      numerical providers remain declared premises; no official receipt.
+  designated: solution
+sources:
+- id: FKS2PairApplication
+  title: Paired bounded-anchor Table4 consumer
+  type: original-proof
+  relationship: other
+  note: Retrospective30-cell reconstruction; comparisons concern certified allowances
+    only. Historical P_old from FKS2 Table4 row330.
+limitations:
+- Stronger Phase2 density route requires additional FKS density/finite-RH premises;
+  no global best-known claim.

@@ -1,0 +1,120 @@
+{
+  "schema": 1,
+  "phase": "QRH_SOURCE_PV_ANALYTIC_SYNERGY_SUPPLEMENTAL_20261114",
+  "utc": "2026-11-15T14:58:06.913172+00:00",
+  "unit": "ieantn-r2-recovery-0f36dffbc6d6.scope",
+  "command": [
+    "systemd-run",
+    "--user",
+    "--scope",
+    "--quiet",
+    "--collect",
+    "--unit=ieantn-r2-recovery-0f36dffbc6d6.scope",
+    "-p",
+    "MemoryMax=8589934592",
+    "-p",
+    "MemorySwapMax=0",
+    "-p",
+    "TasksMax=1024",
+    "-p",
+    "CPUQuota=200%",
+    "-p",
+    "RuntimeMaxSec=180",
+    "-p",
+    "KillSignal=SIGKILL",
+    "taskset",
+    "-c",
+    "64,65",
+    "python3",
+    "research/source-rational-profile-overlay-capsule-v3/check_controls.py",
+    "--out",
+    "research/source-continuous-baseline-controls-v1"
+  ],
+  "policy_sha256": "b68fb0e5fd5b4a65138db295b591a71007ab4b07aa0bfb32c614c8456dc4fd46",
+  "launcher_sha256": "88e08144e18cb67d320461f5a45d2b8dd18516e95775e90f6588614c4fa05c38",
+  "requested_memory_bytes": 8589934592,
+  "cpus": 2,
+  "wall_seconds": 180,
+  "CPU_affinity": [
+    64,
+    65
+  ],
+  "inherited_rlimit_as": "UNCHANGED_UNLIMITED",
+  "samples": [
+    {
+      "seconds": 0.002,
+      "host_available_RAM_bytes": 1404781789184,
+      "free_disk_bytes": 1982078492672,
+      "supplemental_workspace_written_bytes": 119098654403
+    },
+    {
+      "seconds": 3.442,
+      "host_available_RAM_bytes": 1404720291840,
+      "free_disk_bytes": 1982078296064,
+      "supplemental_workspace_written_bytes": 119098654403,
+      "cpu.stat": "usage_usec 3428157\nuser_usec 1939563\nsystem_usec 1488594",
+      "memory.current": "13492224",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+      "pids.current": "2"
+    },
+    {
+      "seconds": 5.452,
+      "host_available_RAM_bytes": 1404595085312,
+      "free_disk_bytes": 1982078156800,
+      "supplemental_workspace_written_bytes": 119098654403,
+      "cpu.stat": "usage_usec 5428952\nuser_usec 3133623\nsystem_usec 2295329",
+      "memory.current": "34189312",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+      "pids.current": "2"
+    },
+    {
+      "seconds": 7.454,
+      "host_available_RAM_bytes": 1404730109952,
+      "free_disk_bytes": 1982077386752,
+      "supplemental_workspace_written_bytes": 119098654403,
+      "cpu.stat": "usage_usec 7425484\nuser_usec 4271649\nsystem_usec 3153834",
+      "memory.current": "35602432",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+      "pids.current": "2"
+    },
+    {
+      "seconds": 9.455,
+      "host_available_RAM_bytes": 1404736520192,
+      "free_disk_bytes": 1982077091840,
+      "supplemental_workspace_written_bytes": 119098654403,
+      "cpu.stat": "usage_usec 9420398\nuser_usec 5428704\nsystem_usec 3991694",
+      "memory.current": "34086912",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+      "pids.current": "2"
+    },
+    {
+      "seconds": 11.457,
+      "host_available_RAM_bytes": 1404730290176,
+      "free_disk_bytes": 1982034305024,
+      "supplemental_workspace_written_bytes": 119098654403,
+      "cpu.stat": "usage_usec 11419326\nuser_usec 6382210\nsystem_usec 5037116",
+      "memory.current": "93962240",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+      "pids.current": "2"
+    },
+    {
+      "seconds": 13.459,
+      "host_available_RAM_bytes": 1404741709824,
+      "free_disk_bytes": 1982034268160,
+      "supplemental_workspace_written_bytes": 119098654403,
+      "cpu.stat": "usage_usec 13414617\nuser_usec 7467643\nsystem_usec 5946974",
+      "memory.current": "88002560",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+      "pids.current": "1"
+    }
+  ],
+  "cgroup": "/sys/fs/cgroup/user.slice/user-1013.slice/user@1013.service/app.slice/ieantn-r2-recovery-0f36dffbc6d6.scope",
+  "actual_limits": {
+    "memory.max": "8589934592",
+    "memory.swap.max": "0",
+    "pids.max": "1024",
+    "cpu.max": null
+  },
+  "exit_code": 0,
+  "elapsed_seconds": 15.46066695638001
+}

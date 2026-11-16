@@ -1,0 +1,60 @@
+version: v0.4
+project:
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+  name: QRH same-shape input for the FKS2 application
+  description: Whole-ray analytic conversion of the actual 1/566 QRH-CH2 psi bound
+    to the frozen FKS2 shape.
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+automation:
+  methods:
+  - method: manual
+    role: Lean proofs, rational exponential bounds, exact challenge/solution comparison,
+      and downstream replay.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+node:
+  id: QRHPropagation.v3
+  family: QRHPropagation
+  version: v3
+  kind: pipeline
+  status: active
+conclusions:
+- id: psi_classical_bound
+  declaration: QRHPropagation.v3.psi_classical_bound
+  challenge: QRHPropagation.v3.challenge_psi_classical_bound
+  imports:
+  - node: QRHCH2.v5
+    conclusion: psi_refined_bound
+  imports_status: identified
+  justifications:
+  - id: solution
+    kind: none-yet
+    note: Whole-tail Lean adapter; no endpoint-only extrapolation. Official receipt
+      pending.
+  designated: solution
+sources:
+- id: FKS2Application
+  title: Conservative extension of the source-first FKS2 correction application
+  authors:
+  - hs-chae contributors
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: Original fixed application and symbolic summation integration from hs-chae/goldbach_pv
+    hs-chae/fp3b3205d; one canonical IEANTN namespace. No new generic numerical application.
+limitations:
+- Native finite facts require the disclosed nonstandard-axiom tier; no official Comparator
+  receipt.
