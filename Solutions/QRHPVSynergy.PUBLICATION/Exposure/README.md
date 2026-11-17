@@ -2,7 +2,7 @@
 
 Read EXPOSURE_EXPERIMENTS_REPORT.html. It is standalone/offline and contains the historical192-session study, the newer six-session format comparison, retrospective/ablation findings, limitations, and a recommendation about further effort. No new exposure or proof experiment was launched to produce this report.
 
-Verdict: the evidence does not establish an overall exposure advantage. Pause new broad experimentation. A separately bounded finish to the existing mathematical/source-first flagship could still have value. Do not retroactively change primary scores using later proof completion.
+Verdict: the evidence does not establish an overall exposure advantage. Pause new broad experimentation. For the five numerical families specifically (height, mass, first moment, unpaired-300 and Gaussian basis), the report recommends one fixed final-verification pass, with a proposed four-hour cap if resumed. This is a spending limit, not an ETA. Their local proofs and the large source build are complete; source-use/context/output-to-theorem gates still need acceptance. No job is restarted by the recommendation. Do not retroactively change primary scores using later proof completion.
 
 ## Reproduce the descriptive counts
 

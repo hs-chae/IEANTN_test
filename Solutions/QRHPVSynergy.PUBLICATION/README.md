@@ -1,7 +1,7 @@
 # QRH source-first research: evidence and pause checkpoint
 
 
-**17 November 2026 UTC — clean pause checkpoint.** Read the [standalone exposure report](Exposure/EXPOSURE_EXPERIMENTS_REPORT.html) for all 192original outcomes, the six-session follow-up, independent evidence checks, limits and an objective continue/pause assessment. The evidence does not establish an overall exposure advantage; no new broad exposure round is recommended now.
+**17 November 2026 UTC — clean pause checkpoint.** Read the [standalone exposure report](Exposure/EXPOSURE_EXPERIMENTS_REPORT.html) for all 192original outcomes, the six-session follow-up, independent evidence checks, limits and an objective continue/pause assessment. The evidence does not establish an overall exposure advantage; no new broad exposure round is recommended now. Separately, the five numerical program families—height, mass, first moment, unpaired-300 and Gaussian basis—justify one fixed final-verification pass if resumed; the report proposes a four-hour spending cap, explicitly not an ETA. Their local proofs and large source build have passed, but final connected acceptance remains pending. No job has been restarted.
 
 The canonical isolated build has now completed **14,878 modules=10,970 explicitly validated parent modules+3,908 fresh modules** and **20,541 typed standard-axiom roots**, exit 0. All scoped jobs and waiting controllers are stopped. [Download the compact successful-build receipts](Exposure/Evidence/CANONICAL_BUILD_CHECKPOINT_20261117.tar.gz); all original accepted proof outputs remain preserved. This is a successful explicitly chained build, not another empty-bank run and not completion of later source-use/context/network gates.
 
