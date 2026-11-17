@@ -1,0 +1,72 @@
+{
+  "status": "READ_CURRENT_PINNED_SOURCE_FORMULATIONS_NO_NEW_PROOF_OR_PENDING_GATE_PROMOTION",
+  "claims": [
+    {
+      "module": "SynergyMomentCHi.Early240Profiles",
+      "source_path": "research/moment-hi-program-v1/lean/SynergyMomentCHi/Early240Profiles.lean",
+      "source_sha256": "488c3fda9d50e7dd29b1c52ee30b9e93d7c803dabf4d74a09e2053b767ce9e25",
+      "decl": "source_pi_psi_240",
+      "line": 132,
+      "exact_statement": "theorem source_pi_psi_240 (platform : WorldIO.Platform) (initial : Stream)\n (h : PrimaryInputs (3681/10000) (3599/10000))\n (hCHJ : OriginalCHJSource) (hrvm : ZeroCount.v1.rvm_error_bound)\n (hsmall : ZeroCount.v1.rvm_error_small)\n (hlow : LowZeroes.v1.no_zeroes_below_first_ordinate)\n (hRH : RiemannHypothesisUpTo WinnerOriginalScalars.height)\n (hQRH : ZetaZeroFreeHalfPlane (7/8)) :\n \u2203massTrace massFinal momentTrace momentFinal,\n  FinalProgram.Scenario .mass platform initial massTrace massFinal \u2227\n  FinalProgram.Scenario .firstMoment platform initial momentTrace momentFinal \u2227\n  (HasPowerLogBound E\u03c0 (9963192/1000000000) 0 (7/8) (_root_.Real.exp 240) \u2227\n   HasPowerLogBound E\u03c8 (9963192/1000000000) 0 (7/8) (_root_.Real.exp 240)) ",
+      "normalized_coefficient_numerator": 9963192,
+      "normalized_coefficient_denominator": 1000000000,
+      "threshold_exp": 240,
+      "closed_current_roots": [
+        "SourceRepaired.ResearchCurrentV1.actual.SynergyMomentCHi.Early240Profiles.source_pi_psi_240"
+      ]
+    },
+    {
+      "module": "SynergyVectorC300.FinalProgram",
+      "source_path": "network/Solutions/SourceVectorPNT.v1/Application/lean/SynergyVectorC300/FinalProgram.lean",
+      "source_sha256": "ccd34c966afd23119e5bff5bad7b817c562318d09916d804ccb59739dbdb78d6",
+      "decl": "source_pi_psi_and_future",
+      "line": 43,
+      "exact_statement": "theorem source_pi_psi_and_future (platform : WorldIO.Platform) (initial : Stream)\n    (h : PrimaryInputs (3681/10000) (3599/10000))\n    (hCHJ : OriginalCHJSource) (hrvm : ZeroCount.v1.rvm_error_bound)\n    (hsmall : ZeroCount.v1.rvm_error_small)\n    (hlow : LowZeroes.v1.no_zeroes_below_first_ordinate)\n    (hRH : RiemannHypothesisUpTo WinnerOriginalScalars.height)\n    (hQRH : ZetaZeroFreeHalfPlane (7/8)) :\n    \u2203vectorTrace vectorFinal massTrace massFinal,\n      Scenario platform initial vectorTrace vectorFinal \u2227\n      SynergyMomentCHi.FinalProgram.Scenario .mass platform initial massTrace massFinal \u2227\n      (HasPowerLogBound E\u03c0 (8732871/1000000000) 0 (7/8) (_root_.Real.exp 300) \u2227\n       HasPowerLogBound E\u03c8 (8732871/1000000000) 0 (7/8) (_root_.Real.exp 300)) \u2227\n      (\u2200A : \u211d,300 \u2264 A\u2192\n        HasPowerLogBound E\u03c0 (finitePNTCoefficient (vectorMassEnvelope\n          SynergyVector300.rawUpper SynergyMomentMath.PNT300.massUpper A) A)\n          0 (7/8) (_root_.Real.exp A) \u2227\n        HasPowerLogBound E\u03c8 (finitePNTCoefficient (vectorMassEnvelope\n          SynergyVector300.rawUpper SynergyMomentMath.PNT300.massUpper A) A)\n          0 (7/8) (_root_.Real.exp A)) ",
+      "normalized_coefficient_numerator": 8732871,
+      "normalized_coefficient_denominator": 1000000000,
+      "threshold_exp": 300,
+      "closed_current_roots": [
+        "SourceRepaired.ResearchCurrentV1.actual.SynergyVectorC300.FinalProgram.source_pi_psi_and_future",
+        "SourceRepaired.VectorCompleteV1.actual.SynergyVectorC300.FinalProgram.source_pi_psi_and_future"
+      ]
+    },
+    {
+      "module": "SynergyMomentCHi.PairedMassProgram",
+      "source_path": "research/moment-hi-program-v1/lean/SynergyMomentCHi/PairedMassProgram.lean",
+      "source_sha256": "683385cb40d08820b1d1080a5d95b5ec271cc7ba2b3a49cec77633a984d45b41",
+      "decl": "source_both_and_prime_rich",
+      "line": 28,
+      "exact_statement": "theorem source_both_and_prime_rich\n    (platform : WorldIO.Platform) (initial : Stream)\n    (h : PrimaryInputs (3681/10000) (3599/10000))\n    (hCHJ : OriginalCHJSource) (hrvm : ZeroCount.v1.rvm_error_bound)\n    (hsmall : ZeroCount.v1.rvm_error_small)\n    (hlow : LowZeroes.v1.no_zeroes_below_first_ordinate)\n    (hRH : RiemannHypothesisUpTo WinnerOriginalScalars.height)\n    (hQRH : ZetaZeroFreeHalfPlane (7/8)) :\n    \u2203 pairedTrace pairedFinal pairedOut massTrace massFinal,\n      PairedScenario platform initial pairedTrace pairedFinal pairedOut \u2227\n      FinalProgram.Scenario .mass platform initial massTrace massFinal \u2227\n      (\u2200 L : \u211d, 330 \u2264 L \u2192\n        HasPowerLogBound E\u03c0 (sourceMassCoefficient L) 0 (7/8) (_root_.Real.exp L) \u2227\n        HasPowerLogBound E\u03c8 (sourceMassCoefficient L) 0 (7/8) (_root_.Real.exp L)) \u2227\n      (HasPowerLogBound E\u03c0 (7984699/1000000000) 0 (7/8) (_root_.Real.exp 400) \u2227\n        HasPowerLogBound E\u03c8 (7984699/1000000000) 0 (7/8) (_root_.Real.exp 400)) \u2227\n      (\u2200 x : \u211d, _root_.Real.exp 400 \u2264 x \u2192\n        (1449/50000000:\u211d)*x^((7:\u211d)/8)/_root_.Real.log x \u2264\n        primeCounting (x+(2/125:\u211d)*x^((7:\u211d)/8))-primeCounting x) \u2227\n      (\u2200 L : \u211d, 330 < L \u2192 sourceMassCoefficient L <\n        rationalHeightCoefficient (8433850764/1000000000000) L) ",
+      "normalized_coefficient_numerator": 7984699,
+      "normalized_coefficient_denominator": 1000000000,
+      "threshold_exp": 400,
+      "closed_current_roots": [
+        "SourceRepaired.ResearchCurrentV1.actual.SynergyMomentCHi.PairedMassProgram.source_both_and_prime_rich"
+      ]
+    }
+  ],
+  "error_terms": {
+    "Epsi": "abs(Chebyshev.psi x - x) / x",
+    "Epi": "abs(primeCounting x - Li x) / (x / log x)",
+    "Li": "offset logarithmic integral as defined in IEANTN vocabulary"
+  },
+  "bound_definition": "For every x >= exp(A), E(x) <= c * log(x)^0 * x^(7/8 - 1), hence c*x^(-1/8).",
+  "same14analytic_inputs": [
+    "lowZeta",
+    "reversZeta",
+    "mollifierMeanSquare",
+    "sourceSmoothing",
+    "sourceRightMoment",
+    "sourceRectangle",
+    "sourceUnsmoothing",
+    "sourceInterpolation",
+    "OriginalCHJSource",
+    "ZeroCount.v1.rvm_error_bound",
+    "ZeroCount.v1.rvm_error_small",
+    "LowZeroes.v1.no_zeroes_below_first_ordinate",
+    "RiemannHypothesisUpTo WinnerOriginalScalars.height",
+    "ZetaZeroFreeHalfPlane (7/8)"
+  ],
+  "program_scenario_qualification": "The complete source theorems construct normal-I/O scenarios with source calls and read events. They do not assume all physical host executions have successful I/O.",
+  "source_lock_sha256": "e0262eb3fd346d31c896e54ed88c0fb0a7b66b82609aa5c2d867e61e5cf1c26a"
+}
