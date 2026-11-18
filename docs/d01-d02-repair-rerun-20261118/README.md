@@ -1,25 +1,15 @@
-# D01/D02 mathematical repair and exposure follow-up
+# D01/D02 repair and matched rerun
 
-**Active research checkpoint, 2026-11-18. This is not the final report.**
+**Stopped at the mandatory usage guard on 18 November 2026. This is a restart checkpoint, not the final research report.**
 
-This follow-up preserves the earlier deep-tertiary experiment and its original outcomes. It studies two supplied hypothetical direct bounds on the Chebyshev psi function: exponent 7/8 (D01) and 27/32 (D02), coefficient 1/64 and real domain x >= exp(200), added to the same frozen seven-paper corpus. These assumptions are not newly proved OpenAI results.
+All 24 canonical mathematical portfolios have completed their qualified source and mathematical assessments, covering 11,411 written-source objects. All 24 unique full numerical replays are complete, spanning 595 required command routes across the recorded clean roots. These counts describe portfolio objects and command routes, not independent new theorems or trials. Original experimental outcomes and rejected historical claims remain unchanged.
 
-The fixed 24-stage cohort contains two fresh three-arm D01-to-D02 trajectories, six fresh D02 controls, and six continuation/repair stages. Arms receive IEANTN exposure, a native PNT+ projection, or only the common literature. Actual research and independent reviews run in separate isolated workspaces. Own repairs retain their candidate identity and do not rewrite primary results or become new independent trials.
+The last C022 replay passed its 31 routes, all 22 original outcomes and all 17 fresh whole-output checks in 1,160.44 seconds. Its unchanged output reader passed in normal, -O and -OO modes; the driver and scientific unit are inactive with PID 0, and its cgroup and reservation are absent. Fifty-nine durable files preserve its output evidence. Its first failed replay remains separately recorded as a historical command-path replay failure, not a mathematical or out-of-memory failure.
 
-At this checkpoint, 23 research stages have actually started, 22 have submitted, and 16 complete portfolios have passed full mathematical/source assessment at their stated literature and ordinary numerical-execution tier. The first batch of eight clean numerical replays has passed. Remaining research, author repairs, fresh reviews, whole-portfolio comparisons, clean-root reproduction, final exposition and evidence packaging are still required. See [the exact checkpoint census](CHECKPOINT.json) and [the offline progress page](index.html).
+The current numerical interface passed 57 actual metadata controls. The clean-environment reproduction coordinator passed 15 actual preparation, rejection and workspace-read-denial controls. Its numerical execution entry point preserves the original source algorithms and parameters. The final combined coverage and packaging gates remain unfinished.
 
-## Mathematical scope
+This study uses written mathematical proofs and ordinary numerical execution. It does not establish full analytic Lean proofs, source-first program verification, new verified IEANTN nodes, or a general exposure advantage. D01 and D02 are supplied hypothetical bounds, rather than new proved OpenAI results; the common source corpus already implies D01.
 
-Both the Ramanujan prime-counting gap and four Mertens sum/product errors are assessed, with complete domains, signed information, onsets, inherited branches and conditional implications preserved. D02 implies D01. The common QRH input already implies D01, so a new B0 result is not automatically a D01 propagation effect. D02 can imply a stronger global zero strip, whose effects can start before exp(200); this never licenses using the direct input pointwise below its domain.
+Remaining work is the independent source-reread for one stale C017 premise entry in the coverage cache, public-bundle source resolution, final quantitative comparison and figures, integrated offline HTML/Markdown report and exposition, browser checks, evidence packaging and clean reconstruction, checked cleanup, reviewed owner-branch publication and actual file delivery. Current numerical eligibility already prevents the stale coverage-cache entry from granting the D02-only bound to B0.
 
-The comparison of B0 with B0+D02 is an informed within-method assumption ablation, not a new blind baseline. Frontier rows share proof obligations and are not independent replications. No overall exposure advantage, best-known result or global optimality is established.
-
-## Proof and program-verification status
-
-The new results use written analytic proofs, named original sources, and ordinary exact/directed numerical programs and replays. Their complete analytic Lean endpoints and source-first program verification have not been established. In this work, PV exclusively means verification from actual executable C/C++/CUDA source through formal execution semantics and correctness to the mathematical consumer; certificate checking, native_decide and a successful executable replay do not satisfy that definition.
-
-This publication adds research documentation only. It adds no verified IEANTN node, edits no existing theorem statement or verification receipt, and does not change the paused source-first verification work. The experimental IEANTN pin, the publication base and the separately checked live default branch are distinct in CHECKPOINT.json.
-
-The final publication will add the complete accessible report, accepted proof exposition, source/parameter manifests, numerical regeneration scripts, public execution receipts, artifact hashes and reproduction instructions. Private model context, account data and coordinator reasoning are excluded.
-
-AI-assisted research and documentation: OpenAI Codex.
+See [CHECKPOINT.json](CHECKPOINT.json) for exact current mathematical-seal and numerical-receipt hashes. Restart instructions and experiment-owned source, receipts, outputs and drafts remain saved locally. No final evidence bundle has yet been built or delivered; this wrap adds only a local checkpoint commit.
