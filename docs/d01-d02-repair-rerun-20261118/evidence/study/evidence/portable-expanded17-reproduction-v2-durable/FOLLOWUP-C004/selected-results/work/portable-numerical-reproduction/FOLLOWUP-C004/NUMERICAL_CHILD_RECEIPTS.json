@@ -1,0 +1,264 @@
+{
+  "status": "COMPLETE",
+  "restores": [
+    {
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "/task/RESTORE_CANDIDATE.py",
+        "--out",
+        "/work/c004"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "f36833cc6088f91ea4c2e29b67e1eb00ce8002211e77d2be846cb9dd210a9a6f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "jobs": [
+    {
+      "job_id": "tables",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "tables.py"
+      ],
+      "cwd": "/work/c004",
+      "exit_code": 0,
+      "seconds": 0.6458533201366663,
+      "stdout_sha256": "83f50d818691d7f0d584654b2c1e5ad7fdd213cc6003cb1b2f1920a859f26244",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "83f50d818691d7f0d584654b2c1e5ad7fdd213cc6003cb1b2f1920a859f26244",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "compile",
+      "argv": [
+        "/usr/bin/g++",
+        "-O3",
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "sieve.cpp",
+        "-o",
+        "/work/primes-cert"
+      ],
+      "cwd": "/work/c004",
+      "exit_code": 0,
+      "seconds": 0.4417142979800701,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "sieve",
+      "argv": [
+        "/work/primes-cert"
+      ],
+      "cwd": "/work/c004",
+      "exit_code": 0,
+      "seconds": 375.1773381549865,
+      "stdout_sha256": "3cbcdd69d118880c460d30d2995b7bff4ce6e22e442ed17f3c626942372edea0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "3cbcdd69d118880c460d30d2995b7bff4ce6e22e442ed17f3c626942372edea0",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "root",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "-u",
+        "verify.py",
+        "root"
+      ],
+      "cwd": "/work/c004",
+      "exit_code": 0,
+      "seconds": 8.779131451621652,
+      "stdout_sha256": "5f2ef3ff6f6858ab5777e328b3c10fec07974d307018661680a8e2a98207d788",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "5f2ef3ff6f6858ab5777e328b3c10fec07974d307018661680a8e2a98207d788",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "gap",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "-u",
+        "verify.py",
+        "gap"
+      ],
+      "cwd": "/work/c004",
+      "exit_code": 0,
+      "seconds": 44.51921700686216,
+      "stdout_sha256": "3250a0400b4e910085399a44b69bc7ac77ce3365c4368ee5431cd41bcf7297c7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "3250a0400b4e910085399a44b69bc7ac77ce3365c4368ee5431cd41bcf7297c7",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "trade",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "-u",
+        "verify.py",
+        "trade"
+      ],
+      "cwd": "/work/c004",
+      "exit_code": 0,
+      "seconds": 1.8449622504413128,
+      "stdout_sha256": "78386f18515c24d718380f32d3007d788ce34cbdfe72041d789c29edd3a60b99",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "78386f18515c24d718380f32d3007d788ce34cbdfe72041d789c29edd3a60b99",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "mcheck",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "-u",
+        "mcheck.py"
+      ],
+      "cwd": "/work/c004",
+      "exit_code": 0,
+      "seconds": 0.25913797318935394,
+      "stdout_sha256": "990e9126c423ce2a188b15016d93a8b1cdf57df7164f6ad6b016d79805aba4f3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "990e9126c423ce2a188b15016d93a8b1cdf57df7164f6ad6b016d79805aba4f3",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "orders",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "-u",
+        "orders.py",
+        "0",
+        "6",
+        "12",
+        "19",
+        "25",
+        "50"
+      ],
+      "cwd": "/work/c004",
+      "exit_code": 0,
+      "seconds": 0.02937036007642746,
+      "stdout_sha256": "715a47a403d219852e2f29bb08d52ba5d7fb17d63c14b262f6653f7613441d88",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "715a47a403d219852e2f29bb08d52ba5d7fb17d63c14b262f6653f7613441d88",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "ubsan-compile",
+      "argv": [
+        "/usr/bin/g++",
+        "-O3",
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-fsanitize=undefined",
+        "-fno-sanitize-recover=undefined",
+        "sieve.cpp",
+        "-o",
+        "/work/primes-ubsan"
+      ],
+      "cwd": "/work/c004",
+      "exit_code": 0,
+      "seconds": 0.6539803259074688,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "ubsan",
+      "argv": [
+        "/work/primes-ubsan"
+      ],
+      "cwd": "/work/c004",
+      "exit_code": 0,
+      "seconds": 517.1839305590838,
+      "stdout_sha256": "3cbcdd69d118880c460d30d2995b7bff4ce6e22e442ed17f3c626942372edea0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "3cbcdd69d118880c460d30d2995b7bff4ce6e22e442ed17f3c626942372edea0",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "checks",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "/work/submission/checks.py"
+      ],
+      "cwd": "/work/submission",
+      "exit_code": 0,
+      "seconds": 0.29349371790885925,
+      "stdout_sha256": "513a0c2c096ce39517c86ac47168f9e011160df5dcf01d037bcc0100765d9ba6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "513a0c2c096ce39517c86ac47168f9e011160df5dcf01d037bcc0100765d9ba6",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    }
+  ],
+  "external_scope_drain_pending": true,
+  "full_analytic_Lean": false,
+  "source_first_PV": false
+}

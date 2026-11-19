@@ -1,0 +1,26 @@
+Traceback (most recent call last):
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/coordinator-private/public-evidence-package-preparation-v1/package_evidence.py", line 68, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/coordinator-private/public-evidence-package-preparation-v1/package_evidence.py", line 39, in main
+    x=validate(a.inventory,a.Root_approval)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/coordinator-private/public-evidence-package-preparation-v1/package_evidence.py", line 16, in validate
+    x=m.load(ip);m.need(x['schema']=='PUBLIC_EVIDENCE_SOURCE_INVENTORY_DRAFT_V1','exact inventory schema');names=set();packed_names=set();restored_names=set();decompressed_names=set()
+      ^^^^^^^^^^
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/coordinator-private/public-evidence-package-preparation-v1/prepare_inventory.py", line 14, in load
+    def load(p):return json.loads(Path(p).read_bytes(),object_pairs_hook=pairs,parse_float=finite,parse_constant=reject_constant)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/__init__.py", line 359, in loads
+    return cls(**kw).decode(s)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/coordinator-private/public-evidence-package-preparation-v1/prepare_inventory.py", line 13, in reject_constant
+    def reject_constant(s):raise ValueError('nonfinite JSON constant '+s)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: nonfinite JSON constant Infinity

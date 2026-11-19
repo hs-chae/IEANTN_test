@@ -1,0 +1,302 @@
+{
+  "restoration": [
+    "/usr/bin/python3.10",
+    "/task/RESTORE_CANDIDATE.py",
+    "--out",
+    "/work/reviewcand"
+  ],
+  "executor": "non-login /bin/bash; Python 3.10.12, GCC 11.4.0; stdlib only for Python",
+  "bridge_compile": [
+    "/usr/bin/gcc",
+    "-std=c11",
+    "-O3",
+    "/work/reviewcand/bridge.c",
+    "-o",
+    "/work/bridge"
+  ],
+  "bridge_exec": [
+    "/work/bridge"
+  ],
+  "bridge_regenerable_files": [
+    {
+      "path": "/work/bridge.logs",
+      "size": 1171198,
+      "sha256": "53335e5130d62d606543d1823bfe5526e1c12a88b1127eeb3678bd8582322864"
+    },
+    {
+      "path": "/work/bridge",
+      "size": 16584,
+      "sha256": "c921ddd4d5998b3448db23f4dc6e0eecd73d5e0aa33a86dfa23102cb8b8a0788"
+    }
+  ],
+  "receipts": {
+    "verify": {
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "-u",
+        "verify.py",
+        "--endpoint"
+      ],
+      "cwd": "/work/reviewcand",
+      "env": {
+        "LC_ALL": "C"
+      },
+      "exit_status": 0,
+      "elapsed_seconds": 44.571705870330334,
+      "dependencies": "count.py (endpoint); stdlib decimal/fractions/math",
+      "covered_obligations": "root and two counts at N/floor(N/e); G18 and Li anchor; old closed cells L=36.98–60 and bands through 77; old unit [60,163]; 9 monotone tails; density constants",
+      "stdout": "verify.replay",
+      "stdout_sha256": "aa13b96d20d65af7f8eb23e5624117f1b6f28a978a941acc3fa9d1d7b891ae3f",
+      "stderr": "verify.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "locked_log_match": true
+    },
+    "bridge": {
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "-u",
+        "bridge.py"
+      ],
+      "cwd": "/work/reviewcand",
+      "env": {
+        "LC_ALL": "C"
+      },
+      "exit_status": 0,
+      "elapsed_seconds": 123.31399993784726,
+      "dependencies": "verify.py for interval e/logs; bridge.c; GCC -std=c11 -O3; /work/bridge.logs",
+      "covered_obligations": "[38358837683,100000000000]; 2473381581 prime tests; left and truncated shifted counts",
+      "stdout": "bridge.replay",
+      "stdout_sha256": "bb8f2be3ceb55886a9a5ab6f2f5e920c2f252a0b54194bc37737b1bf569a083f",
+      "stderr": "bridge.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "locked_log_match": true
+    },
+    "general": {
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "-u",
+        "general.py"
+      ],
+      "cwd": "/work/reviewcand",
+      "env": {
+        "LC_ALL": "C"
+      },
+      "exit_status": 0,
+      "elapsed_seconds": 47.977249873802066,
+      "dependencies": "verify.py for ED and factorial arithmetic",
+      "covered_obligations": "orders 20,24,32,48,64 at 722,868,1161,1748,2336",
+      "stdout": "general.replay",
+      "stdout_sha256": "bf455c5c05df8bc1907c18410fd878af33f3dc9da5a65654468667ddd9073274",
+      "stderr": "general.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "locked_log_match": true
+    },
+    "early": {
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "-u",
+        "early.py"
+      ],
+      "cwd": "/work/reviewcand",
+      "env": {
+        "LC_ALL": "C"
+      },
+      "exit_status": 0,
+      "elapsed_seconds": 85.79244202375412,
+      "dependencies": "verify.py interval primitives",
+      "covered_obligations": "[2,2278383]; gamma/M/B3 normalizers; all active clipped constant-prefix cells",
+      "stdout": "early.replay",
+      "stdout_sha256": "a02a3ba13fa727a8348101e94d8a9424cf4e64410e50295a17af22f2d6dca03d",
+      "stderr": "early.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "locked_log_match": true
+    },
+    "weighted": {
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "-u",
+        "weighted.py"
+      ],
+      "cwd": "/work/reviewcand",
+      "env": {
+        "LC_ALL": "C"
+      },
+      "exit_status": 0,
+      "elapsed_seconds": 54.70528034679592,
+      "dependencies": "early.py sieve, verify.py intervals; fixed-point logs; Dusart 4.2 .2/L² at 25000000",
+      "covered_obligations": "listed real onsets through 66000000, exact weighted scale on each cell",
+      "stdout": "weighted.replay",
+      "stdout_sha256": "7d38934ba615cde7c4d42b095bcace5bba3d874f2f9645a4e3c9b9b6deca26ea",
+      "stderr": "weighted.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "locked_log_match": true
+    },
+    "smallprod": {
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "-u",
+        "smallprod.py"
+      ],
+      "cwd": "/work/reviewcand",
+      "env": {
+        "LC_ALL": "C"
+      },
+      "exit_status": 0,
+      "elapsed_seconds": 129.23044981248677,
+      "dependencies": "early.py sieve, weighted.py fixed-point helpers, verify.py; Dusart 4.2 10/L³ from N=2278383",
+      "covered_obligations": "listed real onsets through 66000000, separate P/Q/E1",
+      "stdout": "smallprod.replay",
+      "stdout_sha256": "68b6cce9afbcb93fb8384a6c45ac758f29a3051afe5d9a90ecb80b7ddf63a3f4",
+      "stderr": "smallprod.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "locked_log_match": true
+    },
+    "mverify": {
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "-u",
+        "mverify.py"
+      ],
+      "cwd": "/work/reviewcand",
+      "env": {
+        "LC_ALL": "C"
+      },
+      "exit_status": 0,
+      "elapsed_seconds": 0.121518949046731,
+      "dependencies": "verify.py density and intervals; original constants",
+      "covered_obligations": "W band inequalities, .01970 + seven endpoints, .130/.2 whole-ray tests, crossings, early power joins",
+      "stdout": "mverify.replay",
+      "stdout_sha256": "1db1d23d3fd1dc3cdb1c4063df9cd684ecaedba6d20814186e689927760c7ef4",
+      "stderr": "mverify.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "locked_log_match": true
+    },
+    "tradeoff": {
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "-u",
+        "tradeoff.py"
+      ],
+      "cwd": "/work/reviewcand",
+      "env": {
+        "LC_ALL": "C"
+      },
+      "exit_status": 0,
+      "elapsed_seconds": 3.7881570365279913,
+      "dependencies": "verify.py EC/closed cells/coefficient arithmetic",
+      "covered_obligations": "EC-only [60,269]; 6 D01 tails; two Mertens direct-use coefficients at L=200",
+      "stdout": "tradeoff.replay",
+      "stdout_sha256": "ca181ab9b2b84eb36f1f7dbec64e80cbc76a36c429a10b224515a9ea244be5bf",
+      "stderr": "tradeoff.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "locked_log_match": true
+    },
+    "receipts": {
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "-u",
+        "receipts.py"
+      ],
+      "cwd": "/work/reviewcand",
+      "env": {
+        "LC_ALL": "C"
+      },
+      "exit_status": 0,
+      "elapsed_seconds": 0.017106249928474426,
+      "dependencies": "early.log, smallprod.log, weighted.log, bridge.log (locked); also independently reran underlying scripts",
+      "covered_obligations": "Decimal comparisons of selected table rows, not standalone certificates",
+      "stdout": "receipts.replay",
+      "stdout_sha256": "bed6d40f2c71ef53e0f4305a882b2bba390373fe6cefd1738e56e6fec5fba97b",
+      "stderr": "receipts.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "locked_log_match": null
+    },
+    "spectral_repair": {
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "-u",
+        "spectral_repair.py"
+      ],
+      "cwd": "/work/reviewcand",
+      "env": {
+        "LC_ALL": "C"
+      },
+      "exit_status": 0,
+      "elapsed_seconds": 0.12476917542517185,
+      "dependencies": "verify.py; smallprod.log, weighted.log locked finite rows, matched independent replays",
+      "covered_obligations": "J weights, prime-power constants, W* bands, 7 late endpoints, density-free 230 test, crossings and theta-scope diagnostic",
+      "stdout": "spectral_repair.replay",
+      "stdout_sha256": "0ff1f53499a751d2fb11edab1a73ed35d8774d51f09bae5711a2f724d9d8b55b",
+      "stderr": "spectral_repair.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "locked_log_match": true
+    },
+    "power_bridge": {
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "-u",
+        "power_bridge.py"
+      ],
+      "cwd": "/work/reviewcand",
+      "env": {
+        "LC_ALL": "C"
+      },
+      "exit_status": 0,
+      "elapsed_seconds": 6.0944221932441,
+      "dependencies": "weighted.py, early.py, smallprod.py, verify.py; Dusart 4.2 .2/L² at N=5000000",
+      "covered_obligations": "listed onsets 50000–120000 through T=1202606, finite power scaling and four asserted tradeoffs",
+      "stdout": "power_bridge.replay",
+      "stdout_sha256": "0c37dd01c23ec3d0f569f90962f3eed14f68cfbd4154981397d4d56ba8b3ef0a",
+      "stderr": "power_bridge.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "locked_log_match": true
+    },
+    "gap_repair": {
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "-u",
+        "gap_repair.py"
+      ],
+      "cwd": "/work/reviewcand",
+      "env": {
+        "LC_ALL": "C"
+      },
+      "exit_status": 0,
+      "elapsed_seconds": 1.3393723294138908,
+      "dependencies": "verify.py, spectral_repair.py (and its dependencies)",
+      "covered_obligations": "19 closed adaptive joins with prescribed PV flag and separate shifted arguments; 14 decimal tail onsets",
+      "stdout": "gap_repair.replay",
+      "stdout_sha256": "ccb273b3a5b5253fcce5ef7cb8031209238b5e97faaae29316c5d90b84f3a30d",
+      "stderr": "gap_repair.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "locked_log_match": true
+    },
+    "audit_aux": {
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "audit_aux.py"
+      ],
+      "cwd": "/work/submission",
+      "exit_status": 0,
+      "dependencies": "locked verify.py, count.py; /task indices; original PDFs and extracts; stdlib zlib",
+      "covered_obligations": "all immutable file digests; explicit real-endpoint witness; floor of 10^11/e; extra .019 endpoint; fixed meshes and PDF stream checkpoints",
+      "stdout": "audit_aux.replay",
+      "stdout_sha256": "283390923463297867e5c65855d21215e1cdf37eb96f048f059ba40b13ce0ecc",
+      "stderr": "audit_aux.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  }
+}

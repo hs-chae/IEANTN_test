@@ -1,0 +1,37 @@
+{
+  "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+  "libmpdec": "2.5.1",
+  "environment_overrides": {
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "LC_ALL": "C"
+  },
+  "runs": [
+    {
+      "cmd": [
+        "/usr/bin/g++",
+        "--version"
+      ],
+      "cwd": "/work/exact-review",
+      "elapsed_s": 0.001,
+      "status": 0,
+      "stdout": "g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0\nCopyright (C) 2021 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+      "stderr": "",
+      "stdout_sha256": "9eaf9b7f4b11c2e84e2478c2ceb0e4f48f4ba88565bcfc832b3bce49847dda6d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "cmd": [
+        "/usr/bin/python3.10",
+        "-c",
+        "from cert import *; l,u=Q(484079,2560),Q(968163,5120); c=Q(77,10); slack=I(145-c)/I(u)**2+sum(I(g(k))/I(u)**(k-4) for k in range(7,28))-loss(l,u,0,False); print(l,u,slack); assert slack.b<0"
+      ],
+      "cwd": "/work/exact-review",
+      "elapsed_s": 0.439,
+      "status": 0,
+      "stdout": "484079/2560 968163/5120 [-5.88804309090287364530068401613759443051046254534E-8,-5.88804309090287364530068401613759443051046254476E-8]\n",
+      "stderr": "",
+      "stdout_sha256": "843b563e5a8c44cf272a732d32756095f86890a0fd7e1a4b764bc203bb2eaf1e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

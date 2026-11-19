@@ -1,0 +1,59 @@
+{
+  "status": "COMPLETE",
+  "restores": [
+    {
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "/task/RESTORE_CANDIDATE.py",
+        "--out",
+        "/work/locked"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "f36833cc6088f91ea4c2e29b67e1eb00ce8002211e77d2be846cb9dd210a9a6f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "/task/RESTORE_CANDIDATE.py",
+        "--out",
+        "/work/replay"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "f36833cc6088f91ea4c2e29b67e1eb00ce8002211e77d2be846cb9dd210a9a6f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "jobs": [
+    {
+      "job_id": "complete-current-c023",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "/replay/source-root/ieantn-d01-d02-repair-rerun-20261118/coordinator-private/portable-relocation-v2/C023-finalized-recipe-preparation-v1/replay_full_original_workloads.py",
+        "--contract",
+        "/replay/source-root/ieantn-d01-d02-repair-rerun-20261118/coordinator-private/portable-relocation-v2/C023-finalized-recipe-preparation-v1/FULL_RUNTIME_CONTRACT.json",
+        "--source-root",
+        "/replay/source-root",
+        "--run"
+      ],
+      "cwd": "/work/locked",
+      "exit_code": 0,
+      "seconds": 1005.3664205763489,
+      "stdout_sha256": "8b74140101a9ed244231a36d616abadeffaf17d9508d92a077ed3a4db79859c9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "8b74140101a9ed244231a36d616abadeffaf17d9508d92a077ed3a4db79859c9",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    }
+  ],
+  "external_scope_drain_pending": true,
+  "full_analytic_Lean": false,
+  "source_first_PV": false
+}

@@ -1,0 +1,4 @@
+# Historical snapshot 17 note (superseded by RESTART.md and final proofs)
+
+# Restart notes (working)
+Packet files opened with /bin/bash builtins and /usr/bin/python3.10 (initial pwd succeeded; ls was not on PATH, exit 127). All fourteen source hashes matched SOURCE_INDEX.json. No outside sources. The main observation is that B0 implies the FOLLOWUP-D01 majorant, using OpenAIQRH Theorem 1.1, FKS Theorem 3.2 and verified finite RH and zero-sum estimates. Density (FKS Cor. 2.9 Table 8) gives much stronger power-only B0 bounds after splitting at Re rho=3/4. Finite real Ramanujan endpoint needs repair: the supplied theorem's wording, if read literally for reals just above the printed integer, conflicts with exact counts; count.cpp computes the three necessary counts. Developed factorial-series and weighted-kernel proof plans; numerical certificates and proofs in progress. No formal or source-first PV claim.

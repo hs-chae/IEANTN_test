@@ -1,0 +1,1 @@
+Early checkpoint. Candidate routes: use CH2 Cor. 1.3 to bridge Ramanujan between the finite-height prime-counting regime and PsiMajorant; exploit exact weighted psi tails for Mertens, retaining a separate correction for prime powers. All numerical onsets pending verification here. The original baseline is retained.

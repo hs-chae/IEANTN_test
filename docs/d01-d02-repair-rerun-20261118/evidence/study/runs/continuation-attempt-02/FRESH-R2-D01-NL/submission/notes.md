@@ -1,0 +1,1 @@
+Initial tool call: pwd worked; bare ls exited 127 (command not found). Bash glob and /usr/bin/python3.10 recovered access to the packet immediately. Every bash call is non-login. No independent baseline arm or external information used. Text extractions used for searches; no PDF utility located. Controller usage counters not visible.

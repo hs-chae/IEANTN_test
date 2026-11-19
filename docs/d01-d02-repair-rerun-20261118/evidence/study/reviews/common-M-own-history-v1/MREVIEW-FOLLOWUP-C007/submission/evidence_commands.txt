@@ -1,0 +1,19 @@
+Commands were run through the assigned offline executor using non-login /bin/bash and /usr/bin/python3.10. No network, project Lean, or other source roots. Initial cwd/readability via shell test -r and Python open; ls was not installed. An executor reset emptied /work after the complete first pass, whose observed exact matches and statuses are also documented in the review. Restore/replay below reconstructs the files without editing candidate program bytes.
+
+1. /usr/bin/python3.10 /task/RESTORE_CANDIDATE.py --out /work/c
+2. Create /work/submission and /work/replay with Python Path.mkdir. cd /work/c.
+3. /bin/bash ./d02_replay.sh >/work/submission/d02.stdout 2>/work/submission/d02.stderr; echo $? >/work/submission/d02.status
+   Script invokes /usr/bin/python3.10 -Bu d02_check.py constants centered mertens compact tails extra early_compact strip smoothcheck q2check onsets basic_mid. Exact receipt lines compared after run. Decimal Context directed; exp/log rounded then widened; higher precision for anchors. No floating-point samples used to prove any rays.
+4. Construct /work/old.sh from replay.sh lines 1–24 with line 4 changed to cd /work/c (original directory assumption is not valid in review). Then /bin/bash /work/old.sh >/work/submission/old.stdout 2>/work/submission/old.stderr; echo $? >/work/submission/old.status. C++ commands in replay.sh 6–9,21–22 use /usr/bin/g++, -std=c++17, -O3 or -O2 -fsanitize=undefined -fno-sanitize-recover=undefined. Compiled exact unchanged 64m and 256m sieves and small quotient count. Actual Python/C++ execution commands in replay.sh lines 10–20,23–24; separate identical hash comparisons in step 5, not original layout-dependent manifest code. Raw old receipt hashes reproducible from actual files; no large prime dumps.
+5. cd /work/submission; /usr/bin/python3.10 -B verify_review.py >audit.stdout 2>audit.stderr; echo $? >audit.status
+6. /usr/bin/python3.10 -B make_review_index.py; independently identified statements/locators, not use of old verdicts.
+
+Coverage: old finite gap sweeps through 64m (exact rational starts) and 256m (four directional frontiers), local exact counts at four integers, analytical cell and tail tests with original supplied parameters. D02 gap compact checks over [36.4,47.05], [42,125.20], [111,400] and [185,310], with only claimed passing subsets and independent tail starts used. D02 Mertens closed strip log(64m) to log(1e13) split at log(1e8), intermediate cells [150,420], and analytically monotone exact endpoint inversions. Density slope cells width .00025 up to appropriate spectral edge. Published long sieve/finite zero computation not independently rerun. Initial first-pass audit command was tried before D02 finished and returned 1 only because status file still pending; rerun after exit 0 succeeded. No mathematical failure inferred from command timing or runtime reset.
+Python 3.10.12
+g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+
+Resumption spot replay (not a substitute for full first-pass replay): cd /work/c; /usr/bin/g++ -std=c++17 -O3 small_end.cpp -o /work/small_end; /work/small_end 38358837677 38358837682 38358837683 14111427770; /usr/bin/python3.10 -Bu d02_check.py constants centered q2check. Raw resumption.stdout/stderr and exit status retained. /usr/bin/python3.10 -B compact_index.py packs reference-indexed fields without dropping rows.

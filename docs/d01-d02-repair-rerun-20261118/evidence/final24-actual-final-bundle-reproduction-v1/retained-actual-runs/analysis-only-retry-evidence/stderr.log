@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/data/ivy-final24-actual-bundle-repro-ldnkxgks/extracted/reproduction-work/frontiers/reproduce_analysis.py", line 23, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/data/ivy-final24-actual-bundle-repro-ldnkxgks/extracted/reproduction-work/frontiers/reproduce_analysis.py", line 19, in main
+    need(r.returncode==0,'SEQUENTIAL_REGENERATION_STOPPED '+cmd[0]+':'+r.stderr[-1000:])
+  File "/data/ivy-final24-actual-bundle-repro-ldnkxgks/extracted/reproduction-work/frontiers/collect.py", line 8, in need
+    if not ok: raise ValueError(msg)
+               ^^^^^^^^^^^^^^^^^^^^^
+ValueError: SEQUENTIAL_REGENERATION_STOPPED collect.py:final24-actual-bundle-repro-ldnkxgks/extracted/reproduction-work/frontiers/collect.py", line 54, in main
+    vp=verified(assoc['reviewed_source_view_manifest']);validate_lock(vp);roots.append(vp.parent);views.append(assoc['reviewed_source_view_manifest'])
+                                                        ^^^^^^^^^^^^^^^^^
+  File "/data/ivy-final24-actual-bundle-repro-ldnkxgks/extracted/reproduction-work/frontiers/collect.py", line 29, in validate_lock
+    need(physical=={x['path'] for x in fs}|{'LOCK.json'},'physical LOCK membership '+str(p))
+  File "/data/ivy-final24-actual-bundle-repro-ldnkxgks/extracted/reproduction-work/frontiers/collect.py", line 8, in need
+    if not ok: raise ValueError(msg)
+               ^^^^^^^^^^^^^^^^^^^^^
+ValueError: physical LOCK membership /ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/protocol/own-control-repair1-common-M-review-preparation-v1/FOLLOWUP-C010/SOURCE_PRESERVING_OWN_HISTORY_VIEW_UNSIGNED/LOCK.json
+

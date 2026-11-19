@@ -1,0 +1,31 @@
+{
+  "status": "INDEPENDENT_WRITTEN_KERNEL_QUALIFICATION_PEER_PASS_NO_NEW_EXECUTION",
+  "source": {
+    "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/runs/own-legacy-D02-review-repair-attempt-01/LEGACY-D02-PNT/submission/D02_M.md",
+    "sha256": "d9e279f13288e2a807d0894c0d62fc21dfb7a6b9040207f284fda4e943911fd4"
+  },
+  "source_byte_LF": [
+    197,
+    233
+  ],
+  "Root_proof": {
+    "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/coordinator-private/C022-repair1-full1007-informed-audit-v1/OPTIONAL_KERNEL_FINITE_INTEGRAL_QUALIFICATION.md",
+    "sha256": "165f421d0976f58056786e4e373c3ae15fbb49d70f37f410d389b9c055494a81"
+  },
+  "raw_general_wording": "Incomplete: differentiability, nonnegative decrease and t*f(t)->0 do not imply finite I_f. It is not admitted without the explicit finiteness qualification.",
+  "counterexample": "f(t)=1/(t logt) on t>=2 satisfies t*f(t)->0 but has divergent integral. The raw real-valued displayed difference is therefore not established.",
+  "proof_checks": [
+    "For continuous monotone f, positive Lebesgue-Stieltjes measure d(-f) gives exact prime-tail Abel summation at inclusive theta(y); differentiability does not silently become absolute continuity.",
+    "theta(t)<=constant*t and t*f(t)->0 remove the upper boundary. Integration by parts gives integral t d(-f)=y f(y)+I_f(y), finite after qualification.",
+    "Subtracting the same identity with theta(t)=t leaves boundary error bounded by d(y)y f(y), plus integral error bounded by d(y)(y f(y)+I_f(y)), hence exact d(y)(2yf+I_f).",
+    "All actual displayed k=2,3 instances use f=t^-k or f=1/(k t^k logt), with root y=x^(1/k) or y=x>1. These are smooth nonnegative decreasing kernels; their finite integrals are bounded exactly as written.",
+    "The inverse-log kernel substitution w=(k-1)logt gives I_f(y)=E1((k-1)logy)/k; at root y=x^(1/k) this is E1((1-1/k)L)/k. At y=x, the lower limit is (k-1)L. No unrooted source onset is transferred to a root.",
+    "For those smooth kernels d(-f)=-fprime dt, so every actual old formula/consumer retains its original execution and numerical output; no new analytic-source premise is introduced."
+  ],
+  "source_scope": "Every actual theta majorant still requires its own source domain at y and all t>=y. This conditional input is retained; the proof does not establish it on a new root range.",
+  "admission_recommendation": "Admit only explicitly finite-I_f general statement; preserve raw unrestricted wording as incomplete. Current k2,3 applications remain valid at their original source domains.",
+  "not_a_full_C022_math_admission": true,
+  "new_ANT_model_compiler_executions": 0,
+  "full_analytic_Lean": false,
+  "source_first_PV": false
+}

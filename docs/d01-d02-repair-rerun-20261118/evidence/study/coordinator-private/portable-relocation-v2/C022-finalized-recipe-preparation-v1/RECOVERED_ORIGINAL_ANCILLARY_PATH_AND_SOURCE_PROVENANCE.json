@@ -1,0 +1,72 @@
+{
+  "status": "RECOVERED_EXACT_PUBLIC_ORIGINAL_ANCILLARY_PATH_OVERLAY_SAVE_AND_CORRECTION_SOURCE_ONLY",
+  "events": {
+    "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/reviews/common-M-own-legacy-D02-repair1-v1/MREVIEW-REPAIR1-FOLLOWUP-C022/events.jsonl",
+    "sha256": "dd472785244b6962375fafaeea37a7d216cbb8cf57b7e20aeaa52004e0c4602c"
+  },
+  "public_events": {
+    "source_write": {
+      "event_id": "exec-45dffd4d-520d-4e10-b421-ded5206c59b9",
+      "physical_LF": 254,
+      "public_outer_command": "/bin/bash -c \"cd /work/submission\n/bin/bash -c 'while IFS= read -r line || [[ -n \\\"\"'$line\" ]]; do printf \"%s'\"\\\\n\\\" \\\"\"'$line\"; done'\"' > ancillary.py <<'PY'\n\\\"\\\"\\\"Independent local guards; no new analytic construction or parameter search.\nRun with cwd at restored candidate and PYTHONPATH set to that directory.\n\\\"\\\"\\\"\nfrom pathlib import Path\nfrom hashlib import sha256\nfrom fractions import Fraction as F\nimport ast, json\nimport d02screen as s\nfrom d02rigor import I, log, exp, PI\nimport d02ram as r\nimport d02m as m\nfrom endpoint_check import lu, ei\nfrom mertens_check import sieve, add, lp_data, residuals, B\ndef D(z): return sha256(z.read_bytes()).hexdigest()\nfor p in json.load(open('/task/SOURCE_INDEX.json'))['sources']:\n    for k in ('pdf','text'):\n        assert D(Path('/corpus/originals',p[k]))==p[k+'_sha256']\nfor p in json.load(open('/task/CANDIDATE_INDEX.json'))['candidate_files']:\n    assert D(Path(p['original_name']))==p['sha256']\nprint('Exact identity: 192 candidate payloads, 14 original-source bindings')\nN=38358837682\nx=N+F(1,10); lo,hi=lu(x); el,eu=ei(F(1))\nP,Q=1644673232,632207037\nassert -8100000<el*x*Q/hi-P**2<=eu*x*Q/lo-P**2<-7900000\nprint('At N+1/10: -8100000 < R < -7900000 (counts from exact quotient replay)')\na=I(20)\nassert 2*a*exp(-a/2)/(8*PI)+1354*a*exp(-a)<3*a*exp(10-a)\nassert exp(I('26.8'))>2657 and exp(I('30.8'))<10**13\nassert exp(I(34))>10**9\nfor L,c in [(155,F('.19')),(155,F('.27')),(155,F('.35')),(180,F('.45')),(200,F('.25'))]:\n    assert exp(c*I(L))>max(51,L)\n    assert 5*exp(c*I(L))+2<exp(I(L)/2)\nassert I('113.67')+I('1.000000147')+I('1.78')*exp(-log(2)/6)<117\nassert r.ac(6)>F(1,24)*720\nprint('Earliest shifted prefix, cutoff starts and coefficient endpoint guards passed')\ns.prelim()\nprint('Chosen uniform bins:',len(s.chords()),'out of',len(s.table()))\nassert len(s.chords())==479 and len(s.table())==495\nfor j,c in [(1,I('.116297')),(2,I('2.506e-14'))]:\n    w=s.U(s.mass(s.b,j,True))\n    assert w<c\n    print('Terminal upward Dusart ceiling (m):',j,w)\nassert s.U(s.mass(F(7,8),1,True))>I('.00666')\nprint('B0 full-height CH2 boundary test is in repair_limits.py')\nx=912560\nsv=sieve(x)\nst=(0,)*6\nfor p in range(2,x+1):\n    if sv[p]: st,_,_=add(st,p)\nargv=__import__('sys').argv\nf=Path(argv[1])\nraw=f.read_text().splitlines()[1].split(': ',1)[1]\nG,M,C=ast.literal_eval('('+raw.replace(') (','),(')+')')\nL=lp_data(x)\nl,u=residuals(st,st,L,L,(*M,*C))[2]\nassert F('.2999993')<F(l*L[0]**2,B**3)<=F(u*L[1]**2,B**3)<F('.2999995')\nprint('Weighted benchmark at 912560: .2999993 < L\"'^2 delta_V < .2999995'\"')\nfrom ray_check import grid, loss, TAIL\nfor a,b,step in [(50,58,F(1,8)),(58,100,F(1,4)),(100,169,F(1,4))]:\n    for l,r in grid(F(a),F(b),step):\n        assert 85+1412/r-TAIL/l**7>r**6*loss(l,r,'C')\nprint('Retained QRH-free K=60 on [50,169] independently replayed')\nPY\n\"",
+      "public_shell_argv": [
+        "/bin/bash",
+        "-c",
+        "cd /work/submission\n/bin/bash -c 'while IFS= read -r line || [[ -n \"$line\" ]]; do printf \"%s\\n\" \"$line\"; done' > ancillary.py <<'PY'\n\"\"\"Independent local guards; no new analytic construction or parameter search.\nRun with cwd at restored candidate and PYTHONPATH set to that directory.\n\"\"\"\nfrom pathlib import Path\nfrom hashlib import sha256\nfrom fractions import Fraction as F\nimport ast, json\nimport d02screen as s\nfrom d02rigor import I, log, exp, PI\nimport d02ram as r\nimport d02m as m\nfrom endpoint_check import lu, ei\nfrom mertens_check import sieve, add, lp_data, residuals, B\ndef D(z): return sha256(z.read_bytes()).hexdigest()\nfor p in json.load(open('/task/SOURCE_INDEX.json'))['sources']:\n    for k in ('pdf','text'):\n        assert D(Path('/corpus/originals',p[k]))==p[k+'_sha256']\nfor p in json.load(open('/task/CANDIDATE_INDEX.json'))['candidate_files']:\n    assert D(Path(p['original_name']))==p['sha256']\nprint('Exact identity: 192 candidate payloads, 14 original-source bindings')\nN=38358837682\nx=N+F(1,10); lo,hi=lu(x); el,eu=ei(F(1))\nP,Q=1644673232,632207037\nassert -8100000<el*x*Q/hi-P**2<=eu*x*Q/lo-P**2<-7900000\nprint('At N+1/10: -8100000 < R < -7900000 (counts from exact quotient replay)')\na=I(20)\nassert 2*a*exp(-a/2)/(8*PI)+1354*a*exp(-a)<3*a*exp(10-a)\nassert exp(I('26.8'))>2657 and exp(I('30.8'))<10**13\nassert exp(I(34))>10**9\nfor L,c in [(155,F('.19')),(155,F('.27')),(155,F('.35')),(180,F('.45')),(200,F('.25'))]:\n    assert exp(c*I(L))>max(51,L)\n    assert 5*exp(c*I(L))+2<exp(I(L)/2)\nassert I('113.67')+I('1.000000147')+I('1.78')*exp(-log(2)/6)<117\nassert r.ac(6)>F(1,24)*720\nprint('Earliest shifted prefix, cutoff starts and coefficient endpoint guards passed')\ns.prelim()\nprint('Chosen uniform bins:',len(s.chords()),'out of',len(s.table()))\nassert len(s.chords())==479 and len(s.table())==495\nfor j,c in [(1,I('.116297')),(2,I('2.506e-14'))]:\n    w=s.U(s.mass(s.b,j,True))\n    assert w<c\n    print('Terminal upward Dusart ceiling (m):',j,w)\nassert s.U(s.mass(F(7,8),1,True))>I('.00666')\nprint('B0 full-height CH2 boundary test is in repair_limits.py')\nx=912560\nsv=sieve(x)\nst=(0,)*6\nfor p in range(2,x+1):\n    if sv[p]: st,_,_=add(st,p)\nargv=__import__('sys').argv\nf=Path(argv[1])\nraw=f.read_text().splitlines()[1].split(': ',1)[1]\nG,M,C=ast.literal_eval('('+raw.replace(') (','),(')+')')\nL=lp_data(x)\nl,u=residuals(st,st,L,L,(*M,*C))[2]\nassert F('.2999993')<F(l*L[0]**2,B**3)<=F(u*L[1]**2,B**3)<F('.2999995')\nprint('Weighted benchmark at 912560: .2999993 < L^2 delta_V < .2999995')\nfrom ray_check import grid, loss, TAIL\nfor a,b,step in [(50,58,F(1,8)),(58,100,F(1,4)),(100,169,F(1,4))]:\n    for l,r in grid(F(a),F(b),step):\n        assert 85+1412/r-TAIL/l**7>r**6*loss(l,r,'C')\nprint('Retained QRH-free K=60 on [50,169] independently replayed')\nPY\n"
+      ],
+      "public_event_line_sha256": "49b7dc32eead6b753e4fa2279c9c846da7124cfd71d98a015901dc23c1c1a0d5"
+    },
+    "initial_run": {
+      "event_id": "exec-a524b9ec-a38e-4ba0-9541-e52fcf8e0a45",
+      "physical_LF": 280,
+      "public_outer_command": "/bin/bash -c \"cd /work/exact; export LC_ALL=C; PYTHONPATH=/work/exact /usr/bin/python3.10 -B /work/submission/ancillary.py /work/submission/mertens_check.stdout >/work/submission/ancillary.stdout 2>/work/submission/ancillary.stderr; printf '%s\\\\n' \\\"\"'$?\" >/work/submission/ancillary.status; /usr/bin/python3.10 - <<'\"'PY'\nfrom pathlib import Path\nimport json\no=Path('/work/submission')\nfor p in Path('/work').glob('*replay.out'): (o/p.name).write_bytes(p.read_bytes())\np=Path('/work/exact')\na=json.loads((p/'D01_M_REVIEW_review.json').read_text())['claims']\nfor r in a:\n if ('diagnostic' in r['full_domain'] or r.get('historical_or_comparator_only')) and not r['claim_id'].startswith('M.threshold.'):\n  print(r['claim_id'],r['full_domain'],r.get('historical_or_comparator_only'))\nPY\"",
+      "public_shell_argv": [
+        "/bin/bash",
+        "-c",
+        "cd /work/exact; export LC_ALL=C; PYTHONPATH=/work/exact /usr/bin/python3.10 -B /work/submission/ancillary.py /work/submission/mertens_check.stdout >/work/submission/ancillary.stdout 2>/work/submission/ancillary.stderr; printf '%s\\n' \"$?\" >/work/submission/ancillary.status; /usr/bin/python3.10 - <<'PY'\nfrom pathlib import Path\nimport json\no=Path('/work/submission')\nfor p in Path('/work').glob('*replay.out'): (o/p.name).write_bytes(p.read_bytes())\np=Path('/work/exact')\na=json.loads((p/'D01_M_REVIEW_review.json').read_text())['claims']\nfor r in a:\n if ('diagnostic' in r['full_domain'] or r.get('historical_or_comparator_only')) and not r['claim_id'].startswith('M.threshold.'):\n  print(r['claim_id'],r['full_domain'],r.get('historical_or_comparator_only'))\nPY"
+      ],
+      "public_event_line_sha256": "97ca2a81fed715a8c45f911fd353b91aad16080b39878061d902471bde62709b"
+    },
+    "save_initial_and_corrected_run": {
+      "event_id": "exec-e9cbc6a3-111b-4dff-bb90-fab4f3f87d89",
+      "physical_LF": 293,
+      "public_outer_command": "/bin/bash -c \"export LC_ALL=C; cd /work/submission; /usr/bin/python3.10 - <<'PY'\nfrom pathlib import Path\nfor k in ('stdout','stderr','status','py'): Path('ancillary.'+k).rename('ancillary-initial.'+k)\np=Path('ancillary-initial.py')\nPath('ancillary.py').write_text(p.read_text().replace(\\\"exp(I('30.8'))<10**13\\\",\\\"exp(I('29.9'))<10**13 and exp(I('30.8'))<10**19\\\"))\nPY\ncd /work/exact; PYTHONPATH=/work/exact /usr/bin/python3.10 -B /work/submission/ancillary.py /work/submission/mertens_check.stdout >/work/submission/ancillary.stdout 2>/work/submission/ancillary.stderr; printf '%s\\\\n' \\\"\"'$?\" >/work/submission/ancillary.status'",
+      "public_shell_argv": [
+        "/bin/bash",
+        "-c",
+        "export LC_ALL=C; cd /work/submission; /usr/bin/python3.10 - <<'PY'\nfrom pathlib import Path\nfor k in ('stdout','stderr','status','py'): Path('ancillary.'+k).rename('ancillary-initial.'+k)\np=Path('ancillary-initial.py')\nPath('ancillary.py').write_text(p.read_text().replace(\"exp(I('30.8'))<10**13\",\"exp(I('29.9'))<10**13 and exp(I('30.8'))<10**19\"))\nPY\ncd /work/exact; PYTHONPATH=/work/exact /usr/bin/python3.10 -B /work/submission/ancillary.py /work/submission/mertens_check.stdout >/work/submission/ancillary.stdout 2>/work/submission/ancillary.stderr; printf '%s\\n' \"$?\" >/work/submission/ancillary.status"
+      ],
+      "public_event_line_sha256": "c6cc8b9da157c03574f684fb09cf63e8106efaff8ff9300ae9c4b50f23389ffb"
+    }
+  },
+  "exact_original_initial_argv": [
+    "/usr/bin/python3.10",
+    "-B",
+    "/work/submission/ancillary.py",
+    "/work/submission/mertens_check.stdout"
+  ],
+  "cwd": "/work/exact",
+  "initial_source": {
+    "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/reviews/common-M-own-legacy-D02-repair1-v1/MREVIEW-REPAIR1-FOLLOWUP-C022/submission/ancillary-initial.py",
+    "sha256": "762adbe0931529873bf28096ca1be94e80c392ff10e3c02542d7b5fe07f0548c"
+  },
+  "corrected_source": {
+    "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/reviews/common-M-own-legacy-D02-repair1-v1/MREVIEW-REPAIR1-FOLLOWUP-C022/submission/ancillary.py",
+    "sha256": "726fce87f5873cceb8e4541ffc29d84ae931845b60835b4311f732233a82541e"
+  },
+  "original_initial_stdout": {
+    "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/reviews/common-M-own-legacy-D02-repair1-v1/MREVIEW-REPAIR1-FOLLOWUP-C022/submission/ancillary-initial.stdout",
+    "sha256": "b506ace63ac8374acc326cbf2d1b5fe3333756948b23aa84285a8e20cbaf3db7"
+  },
+  "original_initial_stderr": {
+    "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/reviews/common-M-own-legacy-D02-repair1-v1/MREVIEW-REPAIR1-FOLLOWUP-C022/submission/ancillary-initial.stderr",
+    "sha256": "b8f826b598cfe7d00a676803c78a2e7b7094f54b8afdbf00524afb7a91054d5e"
+  },
+  "original_initial_status": 1,
+  "initial_script_was_saved_under_ancillary_initial_only_after_execution": true,
+  "source_overlay_restore_needed_only_in_isolated_work_submission": true,
+  "no_traceback_normalization_or_numerical_change": true,
+  "current22_command_census_row21_saved_filename_is_not_actual_original_argv": true,
+  "scientific_source_programs_or_constants_changed": false,
+  "source_or_shell_execution_calls": 0
+}

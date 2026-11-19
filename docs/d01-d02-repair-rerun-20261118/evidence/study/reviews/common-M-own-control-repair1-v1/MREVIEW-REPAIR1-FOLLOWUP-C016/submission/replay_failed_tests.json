@@ -1,0 +1,66 @@
+{
+  "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+  "libmpdec": "2.5.1",
+  "environment_overrides": {
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "LC_ALL": "C"
+  },
+  "runs": [
+    {
+      "cmd": [
+        "/usr/bin/g++",
+        "--version"
+      ],
+      "cwd": "/work/exact-review",
+      "elapsed_s": 0.001,
+      "status": 0,
+      "stdout": "g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0\nCopyright (C) 2021 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+      "stderr": "",
+      "stdout_sha256": "9eaf9b7f4b11c2e84e2478c2ceb0e4f48f4ba88565bcfc832b3bce49847dda6d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "cmd": [
+        "/usr/bin/python3.10",
+        "-c",
+        "from cert import main_ode; main_ode(28)"
+      ],
+      "cwd": "/work/exact-review",
+      "elapsed_s": 0.419,
+      "status": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/work/exact-review/cert.py\", line 148, in main_ode\n    assert P.b < A0.a and A0.b < Alim(L0).a\nAssertionError\n",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "91d69623c488f84b986542cc359b37c5ce0e3dd2ee1b7c398229f142685dfd4d"
+    },
+    {
+      "cmd": [
+        "/usr/bin/python3.10",
+        "-c",
+        "from cert import main_ode; main_ode(27,35)"
+      ],
+      "cwd": "/work/exact-review",
+      "elapsed_s": 0.473,
+      "status": 0,
+      "stdout": "ODE order 27 at 35 verified\n",
+      "stderr": "",
+      "stdout_sha256": "66ccac62247d9a323b994967b51118648c4dd5c98e064070d9f13af17357d757",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "cmd": [
+        "/usr/bin/python3.10",
+        "fixed49.py",
+        "0",
+        "7.7"
+      ],
+      "cwd": "/work/exact-review",
+      "elapsed_s": 21.289,
+      "status": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/work/exact-review/fixed49.py\", line 35, in <module>\n    if len(sys.argv)==3: proof(int(sys.argv[1]),Q(sys.argv[2]))\n  File \"/work/exact-review/fixed49.py\", line 28, in proof\n    block(l,u)\n  File \"/work/exact-review/fixed49.py\", line 25, in block\n    block(a,mid);block(mid,b)\n  File \"/work/exact-review/fixed49.py\", line 25, in block\n    block(a,mid);block(mid,b)\n  File \"/work/exact-review/fixed49.py\", line 25, in block\n    block(a,mid);block(mid,b)\n  [Previous line repeated 5 more times]\n  File \"/work/exact-review/fixed49.py\", line 23, in block\n    raise ValueError((a,b,q))\nValueError: (Fraction(6051, 32), Fraction(193633, 1024), Decimal('-1.095957871316040283648956234232466234635514019897E-7'))\n",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "2945be464297b97eebe1a032d5116f8c0df2b0b19aee69443ba86cc0edb1d380"
+    }
+  ]
+}

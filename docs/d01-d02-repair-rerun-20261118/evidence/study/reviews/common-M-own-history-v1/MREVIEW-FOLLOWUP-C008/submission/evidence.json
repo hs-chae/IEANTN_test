@@ -1,0 +1,602 @@
+{
+  "replays": {
+    "verify.py--endpoint": {
+      "command": [
+        "/usr/bin/python3.10",
+        "verify.py",
+        "--endpoint"
+      ],
+      "cwd": "/work/c008",
+      "shell": "/bin/bash (non-login)",
+      "env": {
+        "LC_ALL": "C",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "status": 0,
+      "covered": "Quotient-compressed exact local counts; root bracket, Li anchor, old fixed closed meshes, nine tails, density constants",
+      "source_dependencies": {
+        "verify.py": "fa45edfd57034d731ea7754a6a959300de1857480aeb1cb2a9b1cf4d955393eb",
+        "count.py": "f13ec3bbbd9f7610de60f7b91ec351f6383bd97a1f4caee57e159568a2971b8e"
+      },
+      "receipt_inputs": {},
+      "stdout": {
+        "file": "verify.py--endpoint.stdout",
+        "sha256": "aa13b96d20d65af7f8eb23e5624117f1b6f28a978a941acc3fa9d1d7b891ae3f"
+      },
+      "stderr": {
+        "file": "verify.py--endpoint.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "candidate_log": "verify.log",
+      "byte_equal_to_candidate_log": true
+    },
+    "bridge.py": {
+      "command": [
+        "/usr/bin/python3.10",
+        "bridge.py"
+      ],
+      "cwd": "/work/c008",
+      "shell": "/bin/bash (non-login)",
+      "env": {
+        "LC_ALL": "C",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "status": 0,
+      "covered": "38358837683 through 100000000000, 61642 blocks, both odd streams, 2473381581 prime jumps",
+      "source_dependencies": {
+        "bridge.py": "b5563f87082a36e46e1a90687d76c6493c69faed21bee0e32f4f908966d49ac6",
+        "bridge.c": "1fad12fff6ccb4a03e6fdc051ea602f2b9604a64eba81806719f98cb75e94e4c",
+        "verify.py": "fa45edfd57034d731ea7754a6a959300de1857480aeb1cb2a9b1cf4d955393eb"
+      },
+      "receipt_inputs": {},
+      "stdout": {
+        "file": "bridge.py.stdout",
+        "sha256": "851290141c4007e7bf83a3df5bfa7969b319ebbdcacc48e390296c7604463f62"
+      },
+      "stderr": {
+        "file": "bridge.py.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "candidate_log": "bridge.log",
+      "byte_equal_to_candidate_log": false,
+      "additional": {
+        "build": [
+          "/usr/bin/gcc",
+          "-std=c11",
+          "-O3",
+          "/work/c008/bridge.c",
+          "-o",
+          "/work/bridge"
+        ],
+        "run": [
+          "/work/bridge"
+        ],
+        "stdout_note": "Same exact lines in different order due to redirected Python stdout buffering; C result line and counts identical.",
+        "generated_stdin": {
+          "path": "/work/bridge.logs",
+          "records": 61642,
+          "sha256": "53335e5130d62d606543d1823bfe5526e1c12a88b1127eeb3678bd8582322864"
+        },
+        "binary_sha256": "9bd6bd59e3284de561be44dd6e1a6c9c6eca4339bcc4a06932d7675287d715fd"
+      }
+    },
+    "general.py": {
+      "command": [
+        "/usr/bin/python3.10",
+        "general.py"
+      ],
+      "cwd": "/work/c008",
+      "shell": "/bin/bash (non-login)",
+      "env": {
+        "LC_ALL": "C",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "status": 0,
+      "covered": "Default P_n orders 20,24,32,48,64 with certified cutoffs",
+      "source_dependencies": {
+        "general.py": "e6350b5f9fde3575b39a43e565826160384e7bb06a1ed3968a42ac548f2b795a",
+        "verify.py": "fa45edfd57034d731ea7754a6a959300de1857480aeb1cb2a9b1cf4d955393eb"
+      },
+      "receipt_inputs": {},
+      "stdout": {
+        "file": "general.py.stdout",
+        "sha256": "bf455c5c05df8bc1907c18410fd878af33f3dc9da5a65654468667ddd9073274"
+      },
+      "stderr": {
+        "file": "general.py.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "candidate_log": "general.log",
+      "byte_equal_to_candidate_log": true
+    },
+    "early.py": {
+      "command": [
+        "/usr/bin/python3.10",
+        "early.py"
+      ],
+      "cwd": "/work/c008",
+      "shell": "/bin/bash (non-login)",
+      "env": {
+        "LC_ALL": "C",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "status": 0,
+      "covered": "From 2 (plus clipped onsets) through 2278383; both product-relative errors and both sums",
+      "source_dependencies": {
+        "early.py": "268b16ee048661db0c674553800079147322de3876d37689d8862f2842f8f3f3",
+        "verify.py": "fa45edfd57034d731ea7754a6a959300de1857480aeb1cb2a9b1cf4d955393eb"
+      },
+      "receipt_inputs": {},
+      "stdout": {
+        "file": "early.py.stdout",
+        "sha256": "a02a3ba13fa727a8348101e94d8a9424cf4e64410e50295a17af22f2d6dca03d"
+      },
+      "stderr": {
+        "file": "early.py.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "candidate_log": "early.log",
+      "byte_equal_to_candidate_log": true
+    },
+    "weighted.py": {
+      "command": [
+        "/usr/bin/python3.10",
+        "weighted.py"
+      ],
+      "cwd": "/work/c008",
+      "shell": "/bin/bash (non-login)",
+      "env": {
+        "LC_ALL": "C",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "status": 0,
+      "covered": "Weighted cells through 66000000, normalizer cutoff 25000000",
+      "source_dependencies": {
+        "weighted.py": "7318f6e3777962c973df4b269c3393047db671a5c34531895d4a3c276cdff1e6",
+        "early.py": "268b16ee048661db0c674553800079147322de3876d37689d8862f2842f8f3f3",
+        "verify.py": "fa45edfd57034d731ea7754a6a959300de1857480aeb1cb2a9b1cf4d955393eb"
+      },
+      "receipt_inputs": {},
+      "stdout": {
+        "file": "weighted.py.stdout",
+        "sha256": "7d38934ba615cde7c4d42b095bcace5bba3d874f2f9645a4e3c9b9b6deca26ea"
+      },
+      "stderr": {
+        "file": "weighted.py.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "candidate_log": "weighted.log",
+      "byte_equal_to_candidate_log": true
+    },
+    "smallprod.py": {
+      "command": [
+        "/usr/bin/python3.10",
+        "smallprod.py"
+      ],
+      "cwd": "/work/c008",
+      "shell": "/bin/bash (non-login)",
+      "env": {
+        "LC_ALL": "C",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "status": 0,
+      "covered": "Both products and reciprocal sum through 66000000, M normalizer through 2278383",
+      "source_dependencies": {
+        "smallprod.py": "3fce1513482f4ce400f762f3cadb0be14fe781e416f05cdf16ab95b507caf546",
+        "weighted.py": "7318f6e3777962c973df4b269c3393047db671a5c34531895d4a3c276cdff1e6",
+        "early.py": "268b16ee048661db0c674553800079147322de3876d37689d8862f2842f8f3f3",
+        "verify.py": "fa45edfd57034d731ea7754a6a959300de1857480aeb1cb2a9b1cf4d955393eb"
+      },
+      "receipt_inputs": {},
+      "stdout": {
+        "file": "smallprod.py.stdout",
+        "sha256": "68b6cce9afbcb93fb8384a6c45ac758f29a3051afe5d9a90ecb80b7ddf63a3f4"
+      },
+      "stderr": {
+        "file": "smallprod.py.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "candidate_log": "smallprod.log",
+      "byte_equal_to_candidate_log": true
+    },
+    "mverify.py": {
+      "command": [
+        "/usr/bin/python3.10",
+        "mverify.py"
+      ],
+      "cwd": "/work/c008",
+      "shell": "/bin/bash (non-login)",
+      "env": {
+        "LC_ALL": "C",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "status": 0,
+      "covered": "Old signed spectral envelope W, [14,17]/[17,29]/[29,58]/[58,189]/tail and crossings",
+      "source_dependencies": {
+        "mverify.py": "ccb1545d57ff93f94e312a7ef4e16a1222433fa44c5a4c0b812bb07d1565c83f",
+        "verify.py": "fa45edfd57034d731ea7754a6a959300de1857480aeb1cb2a9b1cf4d955393eb"
+      },
+      "receipt_inputs": {},
+      "stdout": {
+        "file": "mverify.py.stdout",
+        "sha256": "1db1d23d3fd1dc3cdb1c4063df9cd684ecaedba6d20814186e689927760c7ef4"
+      },
+      "stderr": {
+        "file": "mverify.py.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "candidate_log": "mverify.log",
+      "byte_equal_to_candidate_log": true
+    },
+    "tradeoff.py": {
+      "command": [
+        "/usr/bin/python3.10",
+        "tradeoff.py"
+      ],
+      "cwd": "/work/c008",
+      "shell": "/bin/bash (non-login)",
+      "env": {
+        "LC_ALL": "C",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "status": 0,
+      "covered": "EC-only unit bridge [60,269], six direct-D01 factorial tails and two direct Mertens constants",
+      "source_dependencies": {
+        "tradeoff.py": "dcee7eba186433a5d558d97c5df0fb1e3d7ccfb37c3cd4f3cf182aabb002cf29",
+        "verify.py": "fa45edfd57034d731ea7754a6a959300de1857480aeb1cb2a9b1cf4d955393eb"
+      },
+      "receipt_inputs": {},
+      "stdout": {
+        "file": "tradeoff.py.stdout",
+        "sha256": "ca181ab9b2b84eb36f1f7dbec64e80cbc76a36c429a10b224515a9ea244be5bf"
+      },
+      "stderr": {
+        "file": "tradeoff.py.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "candidate_log": "tradeoff.log",
+      "byte_equal_to_candidate_log": true
+    },
+    "receipts.py": {
+      "command": [
+        "/usr/bin/python3.10",
+        "receipts.py"
+      ],
+      "cwd": "/work/c008",
+      "shell": "/bin/bash (non-login)",
+      "env": {
+        "LC_ALL": "C",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "status": 0,
+      "covered": "Selected older matching finite threshold comparisons",
+      "source_dependencies": {
+        "receipts.py": "1f887855ca31a8da433296e6a2abdcf78266af453eba30c34efa641bc5967621"
+      },
+      "receipt_inputs": {
+        "smallprod.log": "68b6cce9afbcb93fb8384a6c45ac758f29a3051afe5d9a90ecb80b7ddf63a3f4",
+        "early.log": "a02a3ba13fa727a8348101e94d8a9424cf4e64410e50295a17af22f2d6dca03d",
+        "weighted.log": "7d38934ba615cde7c4d42b095bcace5bba3d874f2f9645a4e3c9b9b6deca26ea",
+        "bridge.log": "bb8f2be3ceb55886a9a5ab6f2f5e920c2f252a0b54194bc37737b1bf569a083f"
+      },
+      "stdout": {
+        "file": "receipts.py.stdout",
+        "sha256": "bed6d40f2c71ef53e0f4305a882b2bba390373fe6cefd1738e56e6fec5fba97b"
+      },
+      "stderr": {
+        "file": "receipts.py.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "candidate_log": null,
+      "byte_equal_to_candidate_log": null
+    },
+    "spectral_repair.py": {
+      "command": [
+        "/usr/bin/python3.10",
+        "spectral_repair.py"
+      ],
+      "cwd": "/work/c008",
+      "shell": "/bin/bash (non-login)",
+      "env": {
+        "LC_ALL": "C",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "status": 0,
+      "covered": "Sharper weights, Wstar bands and comparisons, density-free polynomial fallback from 230",
+      "source_dependencies": {
+        "spectral_repair.py": "928692241dd749636aea7e704d155f80ff6c187e854b93a4ef756d88c3330efd",
+        "verify.py": "fa45edfd57034d731ea7754a6a959300de1857480aeb1cb2a9b1cf4d955393eb"
+      },
+      "receipt_inputs": {
+        "smallprod.log": "68b6cce9afbcb93fb8384a6c45ac758f29a3051afe5d9a90ecb80b7ddf63a3f4",
+        "weighted.log": "7d38934ba615cde7c4d42b095bcace5bba3d874f2f9645a4e3c9b9b6deca26ea"
+      },
+      "stdout": {
+        "file": "spectral_repair.py.stdout",
+        "sha256": "0ff1f53499a751d2fb11edab1a73ed35d8774d51f09bae5711a2f724d9d8b55b"
+      },
+      "stderr": {
+        "file": "spectral_repair.py.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "candidate_log": "spectral_repair.log",
+      "byte_equal_to_candidate_log": true
+    },
+    "power_bridge.py": {
+      "command": [
+        "/usr/bin/python3.10",
+        "power_bridge.py"
+      ],
+      "cwd": "/work/c008",
+      "shell": "/bin/bash (non-login)",
+      "env": {
+        "LC_ALL": "C",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "status": 0,
+      "covered": "Finite power cells through composite 1202606 and normalization through 5000000",
+      "source_dependencies": {
+        "power_bridge.py": "40595490548e8663e507b472bf784001d57f7c6f626db03179c14b29491b4cda",
+        "smallprod.py": "3fce1513482f4ce400f762f3cadb0be14fe781e416f05cdf16ab95b507caf546",
+        "weighted.py": "7318f6e3777962c973df4b269c3393047db671a5c34531895d4a3c276cdff1e6",
+        "early.py": "268b16ee048661db0c674553800079147322de3876d37689d8862f2842f8f3f3",
+        "verify.py": "fa45edfd57034d731ea7754a6a959300de1857480aeb1cb2a9b1cf4d955393eb"
+      },
+      "receipt_inputs": {},
+      "stdout": {
+        "file": "power_bridge.py.stdout",
+        "sha256": "0c37dd01c23ec3d0f569f90962f3eed14f68cfbd4154981397d4d56ba8b3ef0a"
+      },
+      "stderr": {
+        "file": "power_bridge.py.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "candidate_log": "power_bridge.log",
+      "byte_equal_to_candidate_log": true
+    },
+    "gap_repair.py": {
+      "command": [
+        "/usr/bin/python3.10",
+        "gap_repair.py"
+      ],
+      "cwd": "/work/c008",
+      "shell": "/bin/bash (non-login)",
+      "env": {
+        "LC_ALL": "C",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "status": 0,
+      "covered": "19 older adaptive joins and 14 deeper factorial thresholds",
+      "source_dependencies": {
+        "gap_repair.py": "89869608ff81979aa5b990a5eb0f742ca5f58caceba2aaa556b2b7ead2f10270",
+        "spectral_repair.py": "928692241dd749636aea7e704d155f80ff6c187e854b93a4ef756d88c3330efd",
+        "verify.py": "fa45edfd57034d731ea7754a6a959300de1857480aeb1cb2a9b1cf4d955393eb"
+      },
+      "receipt_inputs": {
+        "smallprod.log": "68b6cce9afbcb93fb8384a6c45ac758f29a3051afe5d9a90ecb80b7ddf63a3f4",
+        "weighted.log": "7d38934ba615cde7c4d42b095bcace5bba3d874f2f9645a4e3c9b9b6deca26ea"
+      },
+      "stdout": {
+        "file": "gap_repair.py.stdout",
+        "sha256": "ccb273b3a5b5253fcce5ef7cb8031209238b5e97faaae29316c5d90b84f3a30d"
+      },
+      "stderr": {
+        "file": "gap_repair.py.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "candidate_log": "gap_repair.log",
+      "byte_equal_to_candidate_log": true
+    },
+    "optimize_d02.py": {
+      "command": [
+        "/usr/bin/python3.10",
+        "optimize_d02.py"
+      ],
+      "cwd": "/work/c008",
+      "shell": "/bin/bash (non-login)",
+      "env": {
+        "LC_ALL": "C",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "status": 0,
+      "covered": "38 reported directed factorial endpoints, two caps, selected m and k only",
+      "source_dependencies": {
+        "optimize_d02.py": "d266878621e602e9e74b2e03ffed74791b3e240ec7241475de24943b05345023",
+        "d02_cert.py": "bfecc9854582587ea9588a9612ccb07bd86b41249818525c317335162dd0fc3c",
+        "verify.py": "fa45edfd57034d731ea7754a6a959300de1857480aeb1cb2a9b1cf4d955393eb"
+      },
+      "receipt_inputs": {},
+      "stdout": {
+        "file": "optimize_d02.py.stdout",
+        "sha256": "fbe06f3e6edc579ca632d7e0b77b80fcb2db072b44ed9a90c93332e13879bc2b"
+      },
+      "stderr": {
+        "file": "optimize_d02.py.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "candidate_log": "optimized.log",
+      "byte_equal_to_candidate_log": true
+    },
+    "finite_d02.py": {
+      "command": [
+        "/usr/bin/python3.10",
+        "finite_d02.py"
+      ],
+      "cwd": "/work/c008",
+      "shell": "/bin/bash (non-login)",
+      "env": {
+        "LC_ALL": "C",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "status": 0,
+      "covered": "New polynomial/fractional joins through 66000000, N=66000000",
+      "source_dependencies": {
+        "finite_d02.py": "0366658a7582757900e84c59d022cf6f0ba7e4417118d138b81bd0ecd31466a4",
+        "d02_cert.py": "bfecc9854582587ea9588a9612ccb07bd86b41249818525c317335162dd0fc3c",
+        "verify.py": "fa45edfd57034d731ea7754a6a959300de1857480aeb1cb2a9b1cf4d955393eb",
+        "early.py": "268b16ee048661db0c674553800079147322de3876d37689d8862f2842f8f3f3",
+        "weighted.py": "7318f6e3777962c973df4b269c3393047db671a5c34531895d4a3c276cdff1e6",
+        "smallprod.py": "3fce1513482f4ce400f762f3cadb0be14fe781e416f05cdf16ab95b507caf546"
+      },
+      "receipt_inputs": {},
+      "stdout": {
+        "file": "finite_d02.py.stdout",
+        "sha256": "36825bd6616ce17ec7252085009a4cf99ef4a53bcd0cdfd0d6ffba66be5f7da0"
+      },
+      "stderr": {
+        "file": "finite_d02.py.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "candidate_log": "finite_d02.log",
+      "byte_equal_to_candidate_log": true
+    },
+    "finite_d02.py--extended": {
+      "command": [
+        "/usr/bin/python3.10",
+        "finite_d02.py",
+        "--extended"
+      ],
+      "cwd": "/work/c008",
+      "shell": "/bin/bash (non-login)",
+      "env": {
+        "LC_ALL": "C",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "status": 0,
+      "covered": "New polynomial joins through 300000000, N=66000000",
+      "source_dependencies": {
+        "finite_d02.py": "0366658a7582757900e84c59d022cf6f0ba7e4417118d138b81bd0ecd31466a4",
+        "d02_cert.py": "bfecc9854582587ea9588a9612ccb07bd86b41249818525c317335162dd0fc3c",
+        "verify.py": "fa45edfd57034d731ea7754a6a959300de1857480aeb1cb2a9b1cf4d955393eb",
+        "early.py": "268b16ee048661db0c674553800079147322de3876d37689d8862f2842f8f3f3",
+        "weighted.py": "7318f6e3777962c973df4b269c3393047db671a5c34531895d4a3c276cdff1e6",
+        "smallprod.py": "3fce1513482f4ce400f762f3cadb0be14fe781e416f05cdf16ab95b507caf546"
+      },
+      "receipt_inputs": {},
+      "stdout": {
+        "file": "finite_d02.py--extended.stdout",
+        "sha256": "e8608aba851af39025af422f0c60f2cda3a31e5c88c9210334956f0fd38fb287"
+      },
+      "stderr": {
+        "file": "finite_d02.py--extended.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "candidate_log": "finite_extended.log",
+      "byte_equal_to_candidate_log": true
+    },
+    "power_new.py": {
+      "command": [
+        "/usr/bin/python3.10",
+        "power_new.py"
+      ],
+      "cwd": "/work/c008",
+      "shell": "/bin/bash (non-login)",
+      "env": {
+        "LC_ALL": "C",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "status": 0,
+      "covered": "New power joins through 24154954; N=5000000; rightward fixed-point scaling",
+      "source_dependencies": {
+        "power_new.py": "3c2be3e0a7890c578e0d933d6e17c217bae3644ae074bddc41008762979780ff",
+        "d02_cert.py": "bfecc9854582587ea9588a9612ccb07bd86b41249818525c317335162dd0fc3c",
+        "verify.py": "fa45edfd57034d731ea7754a6a959300de1857480aeb1cb2a9b1cf4d955393eb",
+        "early.py": "268b16ee048661db0c674553800079147322de3876d37689d8862f2842f8f3f3",
+        "weighted.py": "7318f6e3777962c973df4b269c3393047db671a5c34531895d4a3c276cdff1e6",
+        "smallprod.py": "3fce1513482f4ce400f762f3cadb0be14fe781e416f05cdf16ab95b507caf546"
+      },
+      "receipt_inputs": {},
+      "stdout": {
+        "file": "power_new.py.stdout",
+        "sha256": "d770746760a0c388a196b1b2f05d8e3aa81ae20f0d3d71eb7e4c4b146be1c744"
+      },
+      "stderr": {
+        "file": "power_new.py.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "candidate_log": "power_new.log",
+      "byte_equal_to_candidate_log": true
+    },
+    "run_d02.py": {
+      "command": [
+        "/usr/bin/python3.10",
+        "run_d02.py"
+      ],
+      "cwd": "/work/c008",
+      "shell": "/bin/bash (non-login)",
+      "env": {
+        "LC_ALL": "C",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "status": 0,
+      "covered": "All new analytic cells and ray checks from submitted proof, and exact finite receipt joins",
+      "source_dependencies": {
+        "run_d02.py": "3bbf5c5409a6e538f460b94e32fcb39ebe21c6963343457f4dd981ab9c81620a",
+        "d02_cert.py": "bfecc9854582587ea9588a9612ccb07bd86b41249818525c317335162dd0fc3c",
+        "verify.py": "fa45edfd57034d731ea7754a6a959300de1857480aeb1cb2a9b1cf4d955393eb",
+        "early.py": "268b16ee048661db0c674553800079147322de3876d37689d8862f2842f8f3f3"
+      },
+      "receipt_inputs": {
+        "optimized.log": "fbe06f3e6edc579ca632d7e0b77b80fcb2db072b44ed9a90c93332e13879bc2b",
+        "finite_d02.log": "36825bd6616ce17ec7252085009a4cf99ef4a53bcd0cdfd0d6ffba66be5f7da0",
+        "finite_extended.log": "e8608aba851af39025af422f0c60f2cda3a31e5c88c9210334956f0fd38fb287",
+        "power_new.log": "d770746760a0c388a196b1b2f05d8e3aa81ae20f0d3d71eb7e4c4b146be1c744"
+      },
+      "stdout": {
+        "file": "run_d02.py.stdout",
+        "sha256": "082a81f8cc3c08f08de794d058a719e9805583185baa2ed2f315589056da7626"
+      },
+      "stderr": {
+        "file": "run_d02.py.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "candidate_log": "d02_checks.log",
+      "byte_equal_to_candidate_log": true
+    },
+    "ancillary.py": {
+      "command": [
+        "/usr/bin/python3.10",
+        "/work/submission/ancillary.py"
+      ],
+      "cwd": "/work/c008",
+      "shell": "/bin/bash (non-login)",
+      "env": {
+        "LC_ALL": "C",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "/work/c008"
+      },
+      "status": 0,
+      "covered": "Independent exact hash checks, endpoint and monotone-tail constants and joins; local comparison diagnostics",
+      "source_dependencies": {
+        "verify.py": "fa45edfd57034d731ea7754a6a959300de1857480aeb1cb2a9b1cf4d955393eb",
+        "d02_cert.py": "bfecc9854582587ea9588a9612ccb07bd86b41249818525c317335162dd0fc3c",
+        "ancillary.py": "e6772d774f117dfca9b38733220c5bf6157467045433ec3a6d098b5d95caf926"
+      },
+      "receipt_inputs": {},
+      "stdout": {
+        "file": "ancillary.py.stdout",
+        "sha256": "f75b6227b561ba0e57006ca6e42493b70157362fe807f759003d88a04f30955b"
+      },
+      "stderr": {
+        "file": "ancillary.py.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "candidate_log": null,
+      "byte_equal_to_candidate_log": null
+    }
+  },
+  "restore_command": [
+    "/usr/bin/python3.10",
+    "/task/RESTORE_CANDIDATE.py",
+    "--out",
+    "/work/c008"
+  ],
+  "build_runtime": "Python 3.10.12 / libmpdec 2.5.1; GCC 11.4.0; x86_64 glibc 2.35; ordinary assertions and interval arithmetic",
+  "failures_and_limits": [
+    "Initial cwd command: ls absent, exit 127; readability confirmed with Bash tests.",
+    "No PDF renderer executable; used source text of the pinned originals at physical LF and PDF page locators.",
+    "Did not replay inherited published long prime and zeta computations; retain literature trust.",
+    "No formal project supplied. Published finite computations are not certified C execution.",
+    "Author failed stronger P6 join and two bounded gap targets, weighted .057 at 60m, and .3 at 912559.997; not counterexamples."
+  ]
+}

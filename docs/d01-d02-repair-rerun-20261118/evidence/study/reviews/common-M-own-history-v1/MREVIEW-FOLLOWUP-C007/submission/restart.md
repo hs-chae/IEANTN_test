@@ -1,0 +1,1 @@
+Completed both-family written review and successful first-pass computations. Executor reset its writable layer; restored exact inputs and selected matched receipts and replayed selected fresh checks; reproducible scripts preserved. Compact index still has 1925 rows, including 772 exact own-history objects, two of those explicitly non-active. No remaining mathematical assessment.

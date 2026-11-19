@@ -1,0 +1,250 @@
+{
+  "status": "COMPLETE",
+  "restores": [
+    {
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "/task/RESTORE_CANDIDATE.py",
+        "--out",
+        "/work/c"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "f36833cc6088f91ea4c2e29b67e1eb00ce8002211e77d2be846cb9dd210a9a6f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "jobs": [
+    {
+      "job_id": "primecount-build",
+      "argv": [
+        "/usr/bin/g++",
+        "-std=c++17",
+        "-O3",
+        "primecount.cpp",
+        "-o",
+        "/work/repair-replay/pc"
+      ],
+      "cwd": "/work/c",
+      "exit_code": 0,
+      "seconds": 0.2415192760527134,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "sieve-build",
+      "argv": [
+        "/usr/bin/g++",
+        "-std=c++17",
+        "-O3",
+        "sieve.cpp",
+        "-o",
+        "/work/repair-replay/sieve"
+      ],
+      "cwd": "/work/c",
+      "exit_code": 0,
+      "seconds": 0.6229820810258389,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "endpoint",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "endpoint.py",
+        "/work/repair-replay/pc"
+      ],
+      "cwd": "/work/c",
+      "exit_code": 0,
+      "seconds": 0.42124985717236996,
+      "stdout_sha256": "b17f97425b3be59cbb3a5ea7c31760461bcaab5df4b39b201356d9d0cfb1e704",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "b17f97425b3be59cbb3a5ea7c31760461bcaab5df4b39b201356d9d0cfb1e704",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "repair-anchor",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "repair_anchor.py",
+        "/work/repair-replay/pc"
+      ],
+      "cwd": "/work/c",
+      "exit_code": 0,
+      "seconds": 0.38978188671171665,
+      "stdout_sha256": "ee20101248217e7787e2d0b7386d58f1132378f4568063645d906783bccab92b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "ee20101248217e7787e2d0b7386d58f1132378f4568063645d906783bccab92b",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "ramanujan",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "verify.py"
+      ],
+      "cwd": "/work/c",
+      "exit_code": 0,
+      "seconds": 95.21661180444062,
+      "stdout_sha256": "d2f010c40b6d42dc1efdae85bfb66d09b2b4cf9ad2da357f47bf039ca7f40a15",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "d2f010c40b6d42dc1efdae85bfb66d09b2b4cf9ad2da357f47bf039ca7f40a15",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "higher",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "higher.py"
+      ],
+      "cwd": "/work/c",
+      "exit_code": 0,
+      "seconds": 50.02743563055992,
+      "stdout_sha256": "0a66c12ccb6feca484dfb4aaba925b6ab7ebfa9c446040e9b9baf64877fe4579",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "0a66c12ccb6feca484dfb4aaba925b6ab7ebfa9c446040e9b9baf64877fe4579",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "mertens",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "mertens.py"
+      ],
+      "cwd": "/work/c",
+      "exit_code": 0,
+      "seconds": 29.23771322518587,
+      "stdout_sha256": "4e45f684e70c265c6d963146487376d6efd0daea824029d2b23f0d3a194bb332",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "4e45f684e70c265c6d963146487376d6efd0daea824029d2b23f0d3a194bb332",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "sieve",
+      "argv": [
+        "/work/repair-replay/sieve"
+      ],
+      "cwd": "/work/c",
+      "exit_code": 0,
+      "seconds": 9.240039717406034,
+      "stdout_sha256": "f4b27724bd5168884c98a68e441b3d7c466325791c5aa49db44957e3cc16f9be",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "f4b27724bd5168884c98a68e441b3d7c466325791c5aa49db44957e3cc16f9be",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "enhanced",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "enhanced.py"
+      ],
+      "cwd": "/work/c",
+      "exit_code": 0,
+      "seconds": 44.51556106470525,
+      "stdout_sha256": "e942173e7a76ec17dea08d82ee2f2994d3ea514dd937487fff12de980c6ca47a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "e942173e7a76ec17dea08d82ee2f2994d3ea514dd937487fff12de980c6ca47a",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "review-fixed",
+      "argv": [
+        "/bin/bash",
+        "--noprofile",
+        "--norc",
+        "-c",
+        "export PYTHONPATH=/work/c; exec /usr/bin/python3.10 -B /work/submission/audit_fixed.py"
+      ],
+      "cwd": "/work/c",
+      "exit_code": 0,
+      "seconds": 1.5546064991503954,
+      "stdout_sha256": "d89549e0a6a55204b4b55f0be4105166336a7d2e73ee2beb265ef988d107db2d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "d89549e0a6a55204b4b55f0be4105166336a7d2e73ee2beb265ef988d107db2d",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "original-pdf",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "own-pdf_exponent.py"
+      ],
+      "cwd": "/work/c",
+      "exit_code": 0,
+      "seconds": 0.016346758231520653,
+      "stdout_sha256": "45cb6068de98ab69a16e8b898481614c31b5bc755f36f755892bbc516ed2ca98",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "45cb6068de98ab69a16e8b898481614c31b5bc755f36f755892bbc516ed2ca98",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    }
+  ],
+  "external_scope_drain_pending": true,
+  "full_analytic_Lean": false,
+  "source_first_PV": false
+}

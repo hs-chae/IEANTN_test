@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "/data/ivy-final24-clean-analysis-xd3zs2rb/reproduction-work/frontiers/reproduce_analysis.py", line 23, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/data/ivy-final24-clean-analysis-xd3zs2rb/reproduction-work/frontiers/reproduce_analysis.py", line 19, in main
+    need(r.returncode==0,'SEQUENTIAL_REGENERATION_STOPPED '+cmd[0]+':'+r.stderr[-1000:])
+  File "/data/ivy-final24-clean-analysis-xd3zs2rb/reproduction-work/frontiers/collect.py", line 8, in need
+    if not ok: raise ValueError(msg)
+               ^^^^^^^^^^^^^^^^^^^^^
+ValueError: SEQUENTIAL_REGENERATION_STOPPED normalize.py:ead_bytes(p)).hexdigest()
+                                     ^^^^^^^^^^^^^
+  File "/data/ivy-final24-clean-analysis-xd3zs2rb/reproduction-work/frontiers/source_resolver.py", line 48, in read_bytes
+    def read_bytes(value):return source_path(value).read_bytes()
+                                 ^^^^^^^^^^^^^^^^^^
+  File "/data/ivy-final24-clean-analysis-xd3zs2rb/reproduction-work/frontiers/source_resolver.py", line 42, in source_path
+    need(not p.is_relative_to(ORIGINAL_WORKSPACE)and not str(p).startswith('/data/ivy-d01-d02-portable-'),'MISSING_EXACT_PUBLIC_SOURCE_MAPPING '+str(p))
+  File "/data/ivy-final24-clean-analysis-xd3zs2rb/reproduction-work/frontiers/source_resolver.py", line 13, in need
+    if not ok:raise ValueError(msg)
+              ^^^^^^^^^^^^^^^^^^^^^
+ValueError: MISSING_EXACT_PUBLIC_SOURCE_MAPPING /ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/coordinator-private/C008-PT-Cor2-center-addendum-v1/ROOT_SOURCE_CENTER_CORRIGENDUM.json
+

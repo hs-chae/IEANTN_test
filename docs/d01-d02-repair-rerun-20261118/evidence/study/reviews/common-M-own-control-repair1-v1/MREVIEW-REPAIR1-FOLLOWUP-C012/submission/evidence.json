@@ -1,0 +1,606 @@
+{
+  "records": [
+    {
+      "name": "primecount-build",
+      "cwd": "/work/c",
+      "argv": [
+        "/usr/bin/g++",
+        "-std=c++17",
+        "-O3",
+        "primecount.cpp",
+        "-o",
+        "/work/repair-replay/pc"
+      ],
+      "locale": "C",
+      "assertions_enabled": true,
+      "scope": "quotient prime counter",
+      "status": 0,
+      "run_seconds": null,
+      "stdout": "",
+      "stderr": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "sieve-build",
+      "cwd": "/work/c",
+      "argv": [
+        "/usr/bin/g++",
+        "-std=c++17",
+        "-O3",
+        "sieve.cpp",
+        "-o",
+        "/work/repair-replay/sieve"
+      ],
+      "locale": "C",
+      "assertions_enabled": true,
+      "scope": "finite Mertens sieve",
+      "status": 0,
+      "run_seconds": null,
+      "stdout": "",
+      "stderr": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "endpoint",
+      "cwd": "/work/c",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "endpoint.py",
+        "/work/repair-replay/pc"
+      ],
+      "locale": "C",
+      "assertions_enabled": true,
+      "scope": "[38358837682,38358837683], root at precision 1e-8",
+      "status": 0,
+      "run_seconds": null,
+      "stdout": "38358837682 1644673232\n38358837683 1644673232\n14111427770 632207037\ngap at a (-14736927.899860255, -14736927.899860255)\ngap at a+1 (52886500.270806946, 52886500.270806946)\nunique real zero between 3835883768221792636 3835883768221792637 divided by 10^8\n",
+      "stderr": "",
+      "stdout_sha256": "b17f97425b3be59cbb3a5ea7c31760461bcaab5df4b39b201356d9d0cfb1e704",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "repair-anchor",
+      "cwd": "/work/c",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "repair_anchor.py",
+        "/work/repair-replay/pc"
+      ],
+      "locale": "C",
+      "assertions_enabled": true,
+      "scope": "log 16,24,58; physical floors and signed comparison",
+      "status": 0,
+      "run_seconds": null,
+      "stdout": "anchor 16 exact count 595341 normalized signed radius enclosure (-0.0003961214221638621, -0.0003961214217345745)\nanchor 24 exact count 1154106844 normalized signed radius enclosure (-7.744627375358638e-06, -7.744627375142624e-06)\n58 transported cap False (3.1442099808481794e-11, 3.1442099808481794e-11)\n58 transported cap True (3.117717700655158e-11, 3.117717700655158e-11)\n",
+      "stderr": "",
+      "stdout_sha256": "ee20101248217e7787e2d0b7386d58f1132378f4568063645d906783bccab92b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "ramanujan",
+      "cwd": "/work/c",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "verify.py"
+      ],
+      "locale": "C",
+      "assertions_enabled": true,
+      "scope": "islands through 30.933; main closed cells through 320 and monotone endpoints beyond",
+      "status": 0,
+      "run_seconds": null,
+      "stdout": "Finite quantitative island 27.90 30.933 .010\nFinite quantitative island 27.91 30.933 .015\nFinite quantitative island 28 30.933 .069\nFinite quantitative island 28.88 30.933 .50\nFinite quantitative island 28.95 30.933 .53\nFinite quantitative island 29 30.933 .554\nFinite quantitative island 30 30.933 .88\nRamanujan mode 0 primary cells 5667\nRamanujan mode 1 primary cells 5660\n",
+      "stderr": "",
+      "stdout_sha256": "d2f010c40b6d42dc1efdae85bfb66d09b2b4cf9ad2da357f47bf039ca7f40a15",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "higher",
+      "cwd": "/work/c",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "higher.py"
+      ],
+      "locale": "C",
+      "assertions_enabled": true,
+      "scope": "28 high-order tail endpoints; order two [60,320] and infinite tail",
+      "status": 0,
+      "run_seconds": null,
+      "stdout": "higher whole ray 6 1500000 348 284\nhigher whole ray 7 18000000 385 312\nhigher whole ray 8 200000000 409 329\nhigher whole ray 9 2800000000 446 357\nhigher whole ray 10 37000000000 478 381\nhigher whole ray 11 500000000000 510 405\nhigher whole ray 7 19063832 390 315\nhigher whole ray 8 241691425 426 341\nhigher whole ray 9 3277187246 462 368\nhigher whole ray 10 47424796805 498 395\nhigher whole ray 11 730550160076 534 422\nhigher whole ray 12 11946592513217 571 449\nhigher whole ray 13 206824220948690 607 477\nhigher whole ray 14 3780755108724421 646 506\nmatched order-2 whole rays 0 [(60, Fraction(397, 20)), (202, Fraction(120, 1)), (217, Fraction(145, 1))]\nmatched order-2 whole rays 1 [(60, Fraction(409, 5)), (175, Fraction(120, 1)), (186, Fraction(145, 1))]\n",
+      "stderr": "",
+      "stdout_sha256": "0a66c12ccb6feca484dfb4aaba925b6ab7ebfa9c446040e9b9baf64877fe4579",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "mertens",
+      "cwd": "/work/c",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "mertens.py"
+      ],
+      "locale": "C",
+      "assertions_enabled": true,
+      "scope": "old power and pivot endpoints; log cells [16,320], finite menu overlap and late comparison",
+      "status": 0,
+      "run_seconds": null,
+      "stdout": "Mertens 0 140 .020\nMertens 0 170 .015\nMertens 0 190 .0132\nMertens 0 225 .0115\nMertens 0 320 .0095\nMertens 0 450 .0086\nMertens 0 800 .0077\nMertens 1 140 .359\nMertens 1 160 .286\nMertens 1 175 .254\nMertens 1 200 .222\nMertens 1 250 .189\nMertens 1 300 .172\nMertens 1 500 .146\nMertens 1 1000 .131\nearly power envelope 0 40 667/50000\nearly power envelope 1 40 533/2000\ncertified pure-log row 0 16 2 .194 .206\ncertified pure-log row 0 17 2 .130 .137\ncertified pure-log row 0 18 2 .086 .091\ncertified pure-log row 0 20 2 .038 .040\ncertified pure-log row 0 22 2 .0164 .0174\ncertified pure-log row 0 24 2 .0107 .0108\ncertified pure-log row 0 32 2 .0049 .005\ncertified pure-log row 0 40 2 .000216 .000217\ncertified pure-log row 0 40 4 .348 .349\ncertified pure-log row 0 55 2 4.01e-7 4.02e-7\ncertified pure-log row 0 65 2 3.65e-8 3.65e-8\ncertified pure-log row 0 55 4 .001267 .001268\ncertified pure-log row 0 55 6 44.07 44.10\ncertified pure-log row 0 200 6 11.61 11.61\ncertified pure-log row 0 40 8 1533000 1534000\ncertified pure-log row 1 65 2 2.97e-8 2.972e-8\ncertified pure-log row 1 55 4 .001216 .001220\ncertified pure-log row 1 65 4 .000843 .000843\ncertified pure-log row 1 55 6 23.89 23.90\ncertified pure-log row 1 175 6 10.14 10.15\ncertified pure-log row 1 200 6 .397 .397\ncertified pure-log row 1 40 8 898000 901000\ncertified pure-log row 1 55 8 678000 678000\ncertified pure-log row 1 175 8 311000 311000\ncertified pure-log row 1 200 8 15900 15900\n",
+      "stderr": "",
+      "stdout_sha256": "4e45f684e70c265c6d963146487376d6efd0daea824029d2b23f0d3a194bb332",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "sieve",
+      "cwd": "/work/c",
+      "argv": [
+        "/work/repair-replay/sieve"
+      ],
+      "locale": "C",
+      "assertions_enabled": true,
+      "scope": "inclusive Eratosthenes through 67000000, all 32 finite rows and 4 sliced onsets",
+      "status": 0,
+      "run_seconds": null,
+      "stdout": "source-onset boundary cell 3 912559 912581 1 sufficient final cell start 912559997526/1000000\nsource-onset boundary cell 0 2278379 2278421 1 sufficient final cell start 2278381578425/1000000\nsource-onset boundary cell 1 2278379 2278421 1 sufficient final cell start 2278381714012/1000000\nsource-onset boundary cell 2 2278379 2278421 1 sufficient final cell start 2278382179859/1000000\nprimes 3951767 scanned through 67000000\n12911611 5001809 2278421 1514831 624917 359837 96043 24317 \n12911611 5001809 2278421 1514831 624917 359837 96043 24317 \n12914903 5001809 2278421 1514831 624917 359837 96043 24317 \n18002111 7105289 3452179 1520747 912581 368359 155921 24571 \n",
+      "stderr": "",
+      "stdout_sha256": "f4b27724bd5168884c98a68e441b3d7c466325791c5aa49db44957e3cc16f9be",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "enhanced",
+      "cwd": "/work/c",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "enhanced.py"
+      ],
+      "locale": "C",
+      "assertions_enabled": true,
+      "scope": "new power endpoints/pivots; .05 early cells [10,40]; new log grids [16,320]; 1000/100000 continuous checks",
+      "status": 0,
+      "run_seconds": null,
+      "stdout": "sharper power 0 190 .01291\nsharper power 0 219 .0115\nsharper power 0 225 .01128\nsharper power 0 310 .0095\nsharper power 0 320 .009374\nsharper power 0 450 .008406\nsharper power 0 800 .007565\nsharper power 0 1000 .007375\nsharper power 0 2000 .007024\nsharper power 0 5000 .006831\nsharper power 1 140 .34621\nsharper power 1 160 .27855\nsharper power 1 172 .254\nsharper power 1 175 .24845\nsharper power 1 196 .222\nsharper power 1 200 .21726\nsharper power 1 250 .18519\nsharper power 1 288 .172\nsharper power 1 300 .16872\nsharper power 1 500 .14330\nsharper power 1 860 .131\nsharper power 1 1000 .12878\nsharper power 1 2000 .12259\nsharper power 1 5000 .11918\nearly continuous power 0 14 18597/100 659/50000\nearly continuous power 1 10 8397/50 653/2500\nearly B0 power from finite join 368359\ncontinuous far power 0 100000 27/4000\ncontinuous far power 1 100000 5913/50000\nsharper log 0 16 2 .194 .1958\nsharper log 0 17 2 .1292 .1303\nsharper log 0 18 2 .08584 .08655\nsharper log 0 20 2 .03731 .03759\nsharper log 0 22 2 .01621 .01632\nsharper log 0 24 2 .009626 .009649\nsharper log 0 32 2 .004129 .004142\nsharper log 0 40 2 .0001825 .0001830\nsharper log 0 40 4 .2934 .2942\nsharper log 0 55 2 4.005e-7 4.012e-7\nsharper log 0 65 2 3.627e-8 3.629e-8\nsharper log 0 55 4 .001257 .001257\nsharper log 0 55 6 43.502 43.526\nsharper log 0 200 6 10.997 11.003\nsharper log 0 40 8 1506607 1507417\nsharper log 1 65 2 2.956e-8 2.958e-8\nsharper log 1 55 4 .001216 .001218\nsharper log 1 65 4 .0008342 .0008347\nsharper log 1 55 6 23.545 23.559\nsharper log 1 175 6 9.544 9.550\nsharper log 1 200 6 .37390 .37409\nsharper log 1 40 8 758563 760494\nsharper log 1 55 8 664513 664909\nsharper log 1 175 8 292609 292776\nsharper log 1 200 8 14971 14979\n",
+      "stderr": "",
+      "stdout_sha256": "e942173e7a76ec17dea08d82ee2f2994d3ea514dd937487fff12de980c6ca47a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "review-fixed",
+      "cwd": "/work/c",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "/work/submission/audit_fixed.py"
+      ],
+      "locale": "C",
+      "assertions_enabled": true,
+      "scope": "fixed counterexample, failed sufficient test, zero mass, crossover and directional constants",
+      "status": 0,
+      "run_seconds": null,
+      "stdout": "exact interval: -7974586 < R(38358837682.1) < -7974585 (-7974585.0827904185, -7974585.0827904185)\npointwise sufficient-test diagnostic at L=31 (-8.975213985966334, -8.975208729682445)\noscillatory zero mass cap at U= 14 (0.08190478365663079, 0.08190478365663079)\noscillatory zero mass cap at U= 3000000000000 (5.91881453065533e-12, 5.91881453065533e-12)\nD_4(.77) (115.03648806162741, 115.03648806162741)\nscaled coarse B1 at 200 (0.23032781925370044, 0.23032781925370044)\nearly two-row crossover (95.57074778649327, 95.57074778649327)\nold simple B0 power row already beats original Dusart target strengths at and beyond L=40\nDusart directional asymptotic .1973 check at analytic onset passed\n",
+      "stderr": "",
+      "stdout_sha256": "d89549e0a6a55204b4b55f0be4105166336a7d2e73ee2beb265ef988d107db2d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "PYTHONPATH": "/work/c"
+    },
+    {
+      "name": "original-pdf",
+      "cwd": "/work/c",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "own-pdf_exponent.py"
+      ],
+      "locale": "C",
+      "assertions_enabled": true,
+      "scope": "pinned FiniteRH PDF p.4 typeset exponent",
+      "status": 0,
+      "run_seconds": null,
+      "stdout": "349 (;)Tj\n350 /R23 11.9552 Tf\n351 -270 -29.8801 Td\n352 [(j)-4.04955]TJ\n353 /R38 11.9552 Tf\n354 3.36016 0 Td\n355 [(\\x19)2.93761]TJ\n356 /R25 11.9552 Tf\n357 7.08008 0 Td\n358 [(\\\\()-1.42439]TJ\n359 /R38 11.9552 Tf\n360 4.56016 0 Td\n361 [(x)3.93724]TJ\n362 /R25 11.9552 Tf\n363 6.6 0 Td\n364 [(\\\\))-1.42439]TJ\n365 /R23 11.9552 Tf\n366 7.2 0 Td\n367 [(\\x00)4.11184]TJ\n368 /R25 11.9552 Tf\n369 12 0 Td\n370 [(li\\\\()-1.42337]TJ\n371 /R38 11.9552 Tf\n372 11.0398 0 Td\n373 [(x)3.93724]TJ\n374 /R25 11.9552 Tf\n375 6.6 0 Td\n376 [(\\\\))-1.42541]TJ\n377 /R23 11.9552 Tf\n378 4.56016 0 Td\n379 [(j)-285.094(\\x14)4.11286]TJ\n380 20.5199 16.8 Td\n381 [(p)-0.11436]TJ\n382 ET\n383 Q\n384 q 67.2 0 0 -4.8 2599.08 5319.48 cm\n385 BI\n386 /IM true\n387 /W 1\n388 /H 1\n389 /BPC 1\n390 ID \\x00\n391 EI Q\n392 q\n393 10 0 0 10 0 0 cm BT\n394 /R38 11.9552 Tf\n395 1 0 0 1 259.92 522.84 Tm\n396 [(x)3.93724]TJ\n397 ET\n398 Q\n399 q 166.8 0 0 -4.8 2499.48 5179.08 cm\n400 BI\n401 /IM true\n402 /W 1\n403 /H 1\n404 /BPC 1\n405 ID \\x00\n406 EI Q\n407 q\n408 10 0 0 10 0 0 cm BT\n409 /R25 11.9552 Tf\n410 1 0 0 1 251.76 506.52 Tm\n411 [(8)-2.83857]TJ\n412 /R38 11.9552 Tf\n413 5.88008 0 Td\n414 [(\\x19)2.93659]TJ\n415 /R25 11.9552 Tf\n416 12.1199 8.16016 Td\n417 [(lo)-2.83857(g)-2.83857]TJ\n418 /R31 7.97011 Tf\n419 15.1199 5.16016 Td\n420 [(2)4.03117]TJ\n421 /R38 11.9552 Tf\n422 6.71992 -5.16016 Td\n423 [(x)3.93724(;)]TJ\n424 /R25 11.9552 Tf\n425 23.8801 0 Td\n426 [(\\\\()-1.42541(2)-2.83652(6)-2.83857(5)-2.83857(7)-2.83857]TJ\n427 /R38 11.9552 Tf\n428 31.2 0 Td\n429 [(<)-282.907(x)3.93724]TJ\n430 /R23 11.9552 Tf\n431 22.4402 0 Td\n432 [(\\x14)4.11286]TJ\n433 /R25 11.9552 Tf\n434 12.6 0 Td\n435 [(2)-2.83857]TJ\n436 /R38 11.9552 Tf\n437 5.88008 0 Td\n438 (:)Tj\n439 /R25 11.9552 Tf\n440 3.23984 0 Td\n441 [(1)-2.83857(6)-2.83857(9)-2.83652]TJ\n442 /R23 11.9552 Tf\n443 20.2801 0 Td\n444 [(\\x01)-4.0516]TJ\n445 /R25 11.9552 Tf\n446 5.88008 0 Td\n",
+      "stderr": "",
+      "stdout_sha256": "45cb6068de98ab69a16e8b898481614c31b5bc755f36f755892bbc516ed2ca98",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "executable_hashes": {
+    "pc": "16ac164ffdc3293f4cc671eddef34a681eff66db801d6ea53caa1d56c3f89628",
+    "sieve": "83215593758be6df3b5bc1ae941760041a2e8644819f3613c9eda49c03688533"
+  },
+  "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+  "review_auxiliary_hashes": {
+    "audit_fixed.py": "261956b67b16fe2cac67b6980134fabf26ba5cbc9a210d1bd2140ce0133aba8c",
+    "replay.py": "e21a6ef4cee19392b6cc7e1de36c2d50d93cec2a8bf645db923df9bdcb8b1eb7"
+  },
+  "setup": [
+    {
+      "command": "pwd; Bash test -r loop over /task/INPUT_CONTRACT.json /task/RUNTIME_PATHS.json /task/CANDIDATE_INDEX.json",
+      "status": 0,
+      "note": "ls absent; successful Bash checks and Python reads after initial pwd"
+    },
+    {
+      "command": "/usr/bin/python3.10 /task/RESTORE_CANDIDATE.py --out /work/c",
+      "status": 0
+    },
+    {
+      "command": "LC_ALL=C /bin/bash --noprofile --norc /work/replay.sh",
+      "status": 0,
+      "note": "substituted only working directory cd /work/c for cd /work/submission in exact candidate replay_repair.sh; test programs unmodified"
+    },
+    {
+      "command": "cd /work/c; LC_ALL=C PYTHONPATH=/work/c /usr/bin/python3.10 -B /work/submission/audit_fixed.py; LC_ALL=C /usr/bin/python3.10 -B own-pdf_exponent.py",
+      "status": 0,
+      "note": "separately redirected streams for each command as recorded"
+    }
+  ],
+  "source_hash_verified": {
+    "schema": "COMMON_ORIGINAL_SOURCE_INDEX_V1",
+    "root": "/corpus/originals",
+    "sources": [
+      {
+        "source_id": "CH2",
+        "title": "Chirre and Helfgott: Optimal bounds for sums of non-negative arithmetic functions",
+        "identity": "arXiv:2512.15709v1",
+        "pdf": "CH2.pdf",
+        "pdf_sha256": "558f33421d8cbd31c969434c065375836dace5fa7248358542d7691c03138e31",
+        "text": "CH2.txt",
+        "text_sha256": "a70bfda18e7efbde379d202c1db98e8c1fb2c918310efe874f72ea390730dba8"
+      },
+      {
+        "source_id": "DudekPlatt2015",
+        "title": "Dudek and Platt: On Solving a Curious Inequality of Ramanujan",
+        "identity": "arXiv:1407.1901v1",
+        "pdf": "DudekPlatt1407.1901v1.pdf",
+        "pdf_sha256": "dfb317cdcd5bc5475caf35d82d265b1a1a0a228ce712003377e8af1d5003da04",
+        "text": "DudekPlatt1407.1901v1.txt",
+        "text_sha256": "7fa934a59755a8eca5a6caa566d9cdfc8e050a19e5243d7da358b06e1b46ae6f"
+      },
+      {
+        "source_id": "Dusart2018",
+        "title": "Dusart: Explicit estimates of some functions over primes",
+        "identity": "DOI:10.1007/s11139-016-9839-4",
+        "pdf": "Dusart2018.pdf",
+        "pdf_sha256": "fcd7cd1f7afcec97f6c73a2cbc540f7a56f0425987fa261c9f0d4925c2b31ebc",
+        "text": "Dusart2018.txt",
+        "text_sha256": "f3ad891eacfdbdb930a86c9fd246008de8f382b09473f5a30fc0d9eae9b3d867"
+      },
+      {
+        "source_id": "FKS",
+        "title": "Fiori, Kadiri and Swidinsky: Sharper bounds for the Chebyshev function psi(x)",
+        "identity": "arXiv:2204.02588v3",
+        "pdf": "FKS.pdf",
+        "pdf_sha256": "15eff02042f2c1ab4878d029ce52a0abd6c95d66995b183a2dbc689ce9af49a4",
+        "text": "FKS.txt",
+        "text_sha256": "93e4990f892d6b1c4a2d8fdeb5bff6a16d10705c37464d2f9843e4c2cb2e46ba"
+      },
+      {
+        "source_id": "OpenAIQRH",
+        "title": "OpenAI: The Quasi-Riemann Hypothesis",
+        "identity": "30 September 2026; pinned original",
+        "pdf": "OpenAIQRH.pdf",
+        "pdf_sha256": "8fe93046f8cf5ef1ba5969c89addc02d76311adc4ee907509ff9cd96f7ec99e7",
+        "text": "OpenAIQRH.txt",
+        "text_sha256": "2ea99ecb80f4a7b56b49c1d51dfc32b919f45965cc0dc8c979b055f480edb7ca"
+      },
+      {
+        "source_id": "PlattTrudgian2021",
+        "title": "Platt and Trudgian: The error term in the prime number theorem",
+        "identity": "arXiv:1809.03134v2",
+        "pdf": "PlattTrudgian1809.03134v2.pdf",
+        "pdf_sha256": "10e7587e4284b9f9130c8a17f888957c5adeed20d054f4d613067e25ea5f0973",
+        "text": "PlattTrudgian1809.03134v2.txt",
+        "text_sha256": "453d27bae5f9e736751528c08e6ff7471836834c160d38be0098c8036c1a0114"
+      },
+      {
+        "source_id": "PlattTrudgianFiniteRH",
+        "title": "Platt and Trudgian: The Riemann hypothesis is true up to 3*10^12",
+        "identity": "arXiv:2004.09765v1",
+        "pdf": "PlattTrudgianFiniteRH.pdf",
+        "pdf_sha256": "3362f66af9fa9373977eee70e2282ec33989d5d8b97e0852df9e32cc25b52885",
+        "text": "PlattTrudgianFiniteRH.txt",
+        "text_sha256": "1100741c2ecb758f913dc284c768c739987d7fc6a067c87e82a93a47a6110545"
+      }
+    ],
+    "reading": "PDFs are the originals; text files are searchable extractions. If extraction loses a symbol or layout, consult the corresponding original page."
+  },
+  "candidate_hash_verified": [
+    {
+      "packet_name": "CANDIDATE_001.json",
+      "original_name": "STAGE_STATUS.json",
+      "original_locked_payload_name": "STAGE_STATUS.json",
+      "bytes": 576,
+      "sha256": "016960c615ead8bb874a1757c39262e5702830b2e49091a9ab89b652dc5796c4"
+    },
+    {
+      "packet_name": "CANDIDATE_002.md",
+      "original_name": "candidate.md",
+      "original_locked_payload_name": "candidate.md",
+      "bytes": 3046,
+      "sha256": "b36192e365bf543b9f02fc5e19dbee6ce7292dc5eb90bb09551737a9e3994cf5"
+    },
+    {
+      "packet_name": "CANDIDATE_003.md",
+      "original_name": "common.md",
+      "original_locked_payload_name": "common.md",
+      "bytes": 7506,
+      "sha256": "1272f608d318203113bad76d2940d5cbfda19e70b9c510d9e4f703818e01c1fe"
+    },
+    {
+      "packet_name": "CANDIDATE_004.py",
+      "original_name": "endpoint.py",
+      "original_locked_payload_name": "endpoint.py",
+      "bytes": 721,
+      "sha256": "042118a4b7438d24ab0a1a818c4342cb6abefbbc5741c66af031dc28806d02a8"
+    },
+    {
+      "packet_name": "CANDIDATE_005.md",
+      "original_name": "enhanced.md",
+      "original_locked_payload_name": "enhanced.md",
+      "bytes": 14274,
+      "sha256": "c584d1d38d04b5168716cffb2790d1514be9eda299fb3668d566bf5e5700ea05"
+    },
+    {
+      "packet_name": "CANDIDATE_006.py",
+      "original_name": "enhanced.py",
+      "original_locked_payload_name": "enhanced.py",
+      "bytes": 7411,
+      "sha256": "2ddb276c67000814d2f8e90c7b32b30abda4aca1461f1c1433518e18a9df0301"
+    },
+    {
+      "packet_name": "CANDIDATE_007.txt",
+      "original_name": "evidence.txt",
+      "original_locked_payload_name": "evidence.txt",
+      "bytes": 2923,
+      "sha256": "19dffd39a738723bdda15b4e12e379582164f5a06065c13bb07847dd904af1f8"
+    },
+    {
+      "packet_name": "CANDIDATE_008.py",
+      "original_name": "higher.py",
+      "original_locked_payload_name": "higher.py",
+      "bytes": 3158,
+      "sha256": "f30128feb87d4a947ad931db9d6f1b0a3c0fb979b7b887e625df2862cd49e0b6"
+    },
+    {
+      "packet_name": "CANDIDATE_009.py",
+      "original_name": "interval.py",
+      "original_locked_payload_name": "interval.py",
+      "bytes": 2094,
+      "sha256": "85cc32f0fcdd6e1404e8e13b984d0d7becd1882d3a4e2a9ea08aa4e2a1890b8d"
+    },
+    {
+      "packet_name": "CANDIDATE_010.md",
+      "original_name": "mertens.md",
+      "original_locked_payload_name": "mertens.md",
+      "bytes": 15236,
+      "sha256": "5a233c774909559fa4622e0749807f25bb28f3559bd0c94bc2f58d6c46300dcc"
+    },
+    {
+      "packet_name": "CANDIDATE_011.py",
+      "original_name": "mertens.py",
+      "original_locked_payload_name": "mertens.py",
+      "bytes": 4025,
+      "sha256": "7885f8f7ce4ad1a75205743f766d484c7432771ab152859cc46f450512fb2129"
+    },
+    {
+      "packet_name": "CANDIDATE_012.py",
+      "original_name": "model.py",
+      "original_locked_payload_name": "model.py",
+      "bytes": 3574,
+      "sha256": "aa5aaa35f80413d241553495a024c4b21f9b9950c09c9daaa80eca58a8cb37c8"
+    },
+    {
+      "packet_name": "CANDIDATE_013.md",
+      "original_name": "notes.md",
+      "original_locked_payload_name": "notes.md",
+      "bytes": 5988,
+      "sha256": "ea656aeb99430430624964579afebe2a26a4272f486159b88e82f9e0edf4bb88"
+    },
+    {
+      "packet_name": "CANDIDATE_014.py",
+      "original_name": "own-pdf_exponent.py",
+      "original_locked_payload_name": "own-pdf_exponent.py",
+      "bytes": 725,
+      "sha256": "21b97cf7a5514a980975b37add3c647268f11173f924a6c7212bdeeab643dfd4"
+    },
+    {
+      "packet_name": "CANDIDATE_015.txt",
+      "original_name": "own-replay-evidence.txt",
+      "original_locked_payload_name": "own-replay-evidence.txt",
+      "bytes": 8801,
+      "sha256": "ca933c77d0b7614e1adcce7fdae63275d7f99ceddf54ed61a0f20532fa136c44"
+    },
+    {
+      "packet_name": "CANDIDATE_016.md",
+      "original_name": "own-review.md",
+      "original_locked_payload_name": "own-review.md",
+      "bytes": 29548,
+      "sha256": "ef806a0a4cac1808fa82504e8fbf61b4a41a47873f6e31858f5a81affded1732"
+    },
+    {
+      "packet_name": "CANDIDATE_017.txt",
+      "original_name": "own-source-ledger.txt",
+      "original_locked_payload_name": "own-source-ledger.txt",
+      "bytes": 3925,
+      "sha256": "2027cd0b1100185c5e49836bd0923a9186aa755a68c5fdbf641dbd07cd5cb572"
+    },
+    {
+      "packet_name": "CANDIDATE_018.cpp",
+      "original_name": "primecount.cpp",
+      "original_locked_payload_name": "primecount.cpp",
+      "bytes": 716,
+      "sha256": "01a4a9741862099174009432121dde42a237188b3660a33a847b023e370db665"
+    },
+    {
+      "packet_name": "CANDIDATE_019.json",
+      "original_name": "prior-STAGE_STATUS.json",
+      "original_locked_payload_name": "prior-STAGE_STATUS.json",
+      "bytes": 255,
+      "sha256": "b3c992d99fbef584df49849f29893cec131cc47afe5fc8d2d60132283bd33d60"
+    },
+    {
+      "packet_name": "CANDIDATE_020.md",
+      "original_name": "prior-candidate.md",
+      "original_locked_payload_name": "prior-candidate.md",
+      "bytes": 2683,
+      "sha256": "f6ef739941fcce2c0fadd52c9d8c3616aef5ba670721c8941e546bc897313466"
+    },
+    {
+      "packet_name": "CANDIDATE_021.py",
+      "original_name": "prior-model.py",
+      "original_locked_payload_name": "prior-model.py",
+      "bytes": 2477,
+      "sha256": "d1f438bdfc0ba22c282603adee1339ee57302cf2cc095c9266acd4be21cfebcb"
+    },
+    {
+      "packet_name": "CANDIDATE_022.md",
+      "original_name": "prior-ramanujan.md",
+      "original_locked_payload_name": "prior-ramanujan.md",
+      "bytes": 10705,
+      "sha256": "9f9b83d691700e64aa0e3cdddcd6097afe3572193615a42befa4bd019107ad2c"
+    },
+    {
+      "packet_name": "CANDIDATE_023.py",
+      "original_name": "prior-verify.py",
+      "original_locked_payload_name": "prior-verify.py",
+      "bytes": 3268,
+      "sha256": "7f6f39b2919fcb6c0b7eb20f65a3b28007e1e94a660d7188f3bc6823981066e0"
+    },
+    {
+      "packet_name": "CANDIDATE_024.md",
+      "original_name": "ramanujan.md",
+      "original_locked_payload_name": "ramanujan.md",
+      "bytes": 20180,
+      "sha256": "857f95c236b84569f75ec911c4f0bdf13f9a177f91d9c21d2999c47d8c69cc53"
+    },
+    {
+      "packet_name": "CANDIDATE_025.txt",
+      "original_name": "repair-evidence.txt",
+      "original_locked_payload_name": "repair-evidence.txt",
+      "bytes": 9848,
+      "sha256": "9b2f43dd08c9df5c0f2c303ba8af7c05650bf289ba8e24eef492dc7119643481"
+    },
+    {
+      "packet_name": "CANDIDATE_026.md",
+      "original_name": "repair.md",
+      "original_locked_payload_name": "repair.md",
+      "bytes": 9487,
+      "sha256": "f15184044f75816a27fa290991bae4c4e1c93deb9042a0662187019a808e6693"
+    },
+    {
+      "packet_name": "CANDIDATE_027.py",
+      "original_name": "repair_anchor.py",
+      "original_locked_payload_name": "repair_anchor.py",
+      "bytes": 939,
+      "sha256": "6f4d77ee3a6f761169520cd21d886c2408922a1fc80600465d9cf1424e07660f"
+    },
+    {
+      "packet_name": "CANDIDATE_028.sh",
+      "original_name": "replay_repair.sh",
+      "original_locked_payload_name": "replay_repair.sh",
+      "bytes": 1007,
+      "sha256": "0957575a6e192d495fcf7f7ff77c8476b8a95850db985eb8c6229bb54733e7e5"
+    },
+    {
+      "packet_name": "CANDIDATE_029.cpp",
+      "original_name": "sieve.cpp",
+      "original_locked_payload_name": "sieve.cpp",
+      "bytes": 5151,
+      "sha256": "0f45e65003a44e2bc98ad4cb42735ef3c3d301e3ce2684258643de9c3e069a3c"
+    },
+    {
+      "packet_name": "CANDIDATE_030.py",
+      "original_name": "verify.py",
+      "original_locked_payload_name": "verify.py",
+      "bytes": 3717,
+      "sha256": "54f91be31b07d093bb32ca79496b4d82951322b97aa83a8d4229526af24920a9"
+    },
+    {
+      "packet_name": "CANDIDATE_031.json",
+      "original_name": "OWN_PRIOR_M_001.json",
+      "original_locked_payload_name": "OWN_PRIOR_M_001.json",
+      "bytes": 368,
+      "sha256": "b3fe3d1cbb175335afa29d3eed9a7a302f7bbb327c8b4b10d9cee6cbeaebc445"
+    },
+    {
+      "packet_name": "CANDIDATE_032.txt",
+      "original_name": "OWN_PRIOR_M_002.txt",
+      "original_locked_payload_name": "OWN_PRIOR_M_002.txt",
+      "bytes": 1436,
+      "sha256": "71933dff562fab19b24ed8294b57e1580c7223153ac94b17cfb8206ff30ee362"
+    },
+    {
+      "packet_name": "CANDIDATE_033.py",
+      "original_name": "OWN_PRIOR_M_004.py",
+      "original_locked_payload_name": "OWN_PRIOR_M_004.py",
+      "bytes": 2921,
+      "sha256": "3c508f953ea5f97f7683e24646304cbcaaf257d03feacf6af1fdc569ca2d9f35"
+    },
+    {
+      "packet_name": "CANDIDATE_034.sh",
+      "original_name": "OWN_PRIOR_M_006.sh",
+      "original_locked_payload_name": "OWN_PRIOR_M_006.sh",
+      "bytes": 1127,
+      "sha256": "1c17464d08c20fcc1a2b20753b9ed2c9f37fa3b33957444b75c9a247df542783"
+    },
+    {
+      "packet_name": "CANDIDATE_035.json",
+      "original_name": "OWN_PRIOR_M_007.json",
+      "original_locked_payload_name": "OWN_PRIOR_M_007.json",
+      "bytes": 598008,
+      "sha256": "49a69c00f5ef4bc2eea087196d09dd6b79a7e4cc8c07e4d73fa4cf465a416f3d"
+    },
+    {
+      "packet_name": "CANDIDATE_036.json",
+      "original_name": "OWN_PRIOR_GAP_FEEDBACK.json",
+      "original_locked_payload_name": "OWN_PRIOR_GAP_FEEDBACK.json",
+      "bytes": 2878,
+      "sha256": "3e6221168b389d4cc36bb26a8ee8686c0d3a09b132d9d0e7a5a8ceb9f9a2bd42"
+    },
+    {
+      "packet_name": "CANDIDATE_037.json",
+      "original_name": "OWN_ORIGINAL_SOURCE_LOCK.json",
+      "original_locked_payload_name": "OWN_ORIGINAL_SOURCE_LOCK.json",
+      "bytes": 1395,
+      "sha256": "e999b5b917911fb7780e2bd75c832365cb2395c4d50c7ebfc1ec27553bbe4781"
+    },
+    {
+      "packet_name": "CANDIDATE_038.json",
+      "original_name": "OWN_PRIOR_REVIEW_SOURCE_LOCK.json",
+      "original_locked_payload_name": "OWN_PRIOR_REVIEW_SOURCE_LOCK.json",
+      "bytes": 933,
+      "sha256": "7a32552f359351f5cc83f2bb6991a372f60ccdac11517761336e5f90fb8dcd20"
+    },
+    {
+      "packet_name": "CANDIDATE_039.json",
+      "original_name": "OWN_PRIOR_QUALIFIED_FLOOR_INDEX.json",
+      "original_locked_payload_name": "OWN_PRIOR_QUALIFIED_FLOOR_INDEX.json",
+      "bytes": 86399,
+      "sha256": "86d4be755791681c881e8b668110887415169bb7ff86bfe89c9df677832ffd25"
+    },
+    {
+      "packet_name": "CANDIDATE_040.json",
+      "original_name": "OWN_PRIOR_SOURCE_AND_REVIEW_INDEX.json",
+      "original_locked_payload_name": "OWN_PRIOR_SOURCE_AND_REVIEW_INDEX.json",
+      "bytes": 13924,
+      "sha256": "3020c2b8f69d1cac181c1b6a14cdf35816cdf6536d902e2b9f76657b23b7cc23"
+    }
+  ],
+  "executed_shell_wrapper": {
+    "sha256": "e0c0b7e6a55bd49500354a7ff22a52444840766fec3b483121ca27061276f42f",
+    "byte_text": "#!/bin/bash\n# /bin/bash --noprofile --norc /work/submission/replay_repair.sh\nset -eu\nexport LC_ALL=C\ncd /work/c\nOUT=/work/repair-replay\n/usr/bin/python3.10 -B -c \"from pathlib import Path; Path('$OUT').mkdir(exist_ok=True)\"\nrecord() {\n local name=\"$1\"; shift\n printf 'command:'; printf ' %q' \"$@\"; printf '\\n'\n if \"$@\" >\"$OUT/$name.stdout\" 2>\"$OUT/$name.stderr\"; then\n  printf '%s status=0\\n' \"$name\"\n else\n  local code=\"$?\"\n  printf '%s status=%s\\n' \"$name\" \"$code\"\n  return \"$code\"\n fi\n}\nrecord primecount-build /usr/bin/g++ -std=c++17 -O3 primecount.cpp -o \"$OUT/pc\"\nrecord sieve-build /usr/bin/g++ -std=c++17 -O3 sieve.cpp -o \"$OUT/sieve\"\nrecord endpoint /usr/bin/python3.10 -B endpoint.py \"$OUT/pc\"\nrecord repair-anchor /usr/bin/python3.10 -B repair_anchor.py \"$OUT/pc\"\nrecord ramanujan /usr/bin/python3.10 -B verify.py\nrecord higher /usr/bin/python3.10 -B higher.py\nrecord mertens /usr/bin/python3.10 -B mertens.py\nrecord sieve \"$OUT/sieve\"\nrecord enhanced /usr/bin/python3.10 -B enhanced.py\n"
+  },
+  "compiler_version_readback": {
+    "argv": [
+      "/usr/bin/g++",
+      "--version"
+    ],
+    "status": 0,
+    "stdout": "g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0\nCopyright (C) 2021 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+    "stderr": ""
+  },
+  "arithmetic_dependencies": "Python stdlib Fraction/unbounded integer arithmetic; C++17 with GNU __int128 and ordinary standard library; no third-party numerical package read by proof checks.",
+  "source_readback_note": "Pinned PDF and extracted bytes hash checked. P4 FiniteRH object 112 /Contents 114 independently inspected by decoding the original PDF stream."
+}

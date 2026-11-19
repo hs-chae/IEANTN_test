@@ -1,0 +1,6 @@
+# Factual source and execution checkpoint
+
+- Scope: exact FOLLOWUP-C003 / D01, both families. All 37 locked candidate files and all 14 original PDF/text files matched packet hashes. No outside source or prior verdict consulted.
+- Premises read: OpenAIQRH Theorem 1.1; PT finite-RH p.2 Thm.1 and p.4 Cor.1 theta line; FKS first-block Table 8, (2.1), (2.17), (3.2), Tables 5–6 with strict theorem domain; Dusart §3.2, 4.2–4.5 and §5.1, Thms.5.6–5.9; CH2 Cor.1.2/1.3, Prop.9.1, Lemma 9.2, Cor.9.3; DP finite computation/theorems, PT source tails and Corollaries. Direct content readback is reproducible for selected CH2 formulas and the FKS parameter issue using source_readback.py. Source locators and limitations are in review.md and review.json.
+- Replay: unchanged Python sources, C++ builds with assertions enabled, entire event scans through 250M/2B/4B, directed analytic certificates, local counts, coefficient witnesses and auxiliary exact checks. Evidence records status/stdout/stderr and hashes. The old grid receipt differs in its final success label alone.
+- At literature trust, not pending assessment: published zero/sign checks and large published Ramanujan integer computation were not rerun. A formal or source-first PV claim is absent. Ancillary checks do not supply a new core proof or new parameter search.

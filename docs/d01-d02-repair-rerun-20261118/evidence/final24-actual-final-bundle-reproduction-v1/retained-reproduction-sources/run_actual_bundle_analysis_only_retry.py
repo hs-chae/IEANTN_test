@@ -1,0 +1,19 @@
+from pathlib import Path
+import hashlib,json,os,subprocess,sys,time
+sys.dont_write_bytecode=True
+T=Path(__file__).resolve().parents[1];B=T/'extracted';W='/ryu/hyunsik/playground/independence/codex/ivy'
+def need(v,m):
+ if not v:raise ValueError(m)
+def sha(p):
+ h=hashlib.sha256()
+ with p.open('rb')as f:
+  for b in iter(lambda:f.read(1048576),b''):h.update(b)
+ return h.hexdigest()
+def pin(p):return{'path':str(p),'sha256':sha(p),'bytes':p.stat().st_size}
+def main():
+ os.chdir(B);empty=T/'empty-original-workspace';need(empty.is_dir()and not any(empty.iterdir()),'same exact empty private-namespace mask');subprocess.run(['mount','--make-rprivate','/'],check=True);subprocess.run(['mount','--bind',str(empty),W],check=True);subprocess.run(['mount','-o','remount,bind,ro',W],check=True);out=T/'analysis-only-retry-evidence';out.mkdir(exist_ok=False);probes=[]
+ for flags in [[],['-I','-S']]:
+  code="try:\n open('/ryu/hyunsik/playground/independence/codex/ivy/AGENTS.md','rb').read()\nexcept (FileNotFoundError,PermissionError):\n print('PASS_ORIGINAL_WORKSPACE_MASK_DENIES_READ')\nelse:\n raise ValueError('ORIGINAL_WORKSPACE_WAS_READABLE')";argv=[sys.executable,'-B',*flags,'-c',code];r=subprocess.run(argv,capture_output=True,text=True);need(r.returncode==0 and r.stdout.strip()=='PASS_ORIGINAL_WORKSPACE_MASK_DENIES_READ','ordinary and isolated child old-workspace read denial');probes.append({'argv':argv,'returncode':r.returncode,'stdout':r.stdout,'stderr':r.stderr})
+ (out/'DENIAL_PROBES.json').write_text(json.dumps({'probes':probes,'mount_namespace':os.readlink('/proc/self/ns/mnt'),'original_workspace_mask_mountinfo':[s for s in Path('/proc/self/mountinfo').read_text().splitlines()if s.split()[4]==W]},indent=2)+'\n');work=B/'reproduction-work/frontiers';env=dict(os.environ,IEANTN_SOURCE_ROOT=str(B),IEANTN_SOURCE_MAP=str(B/'PUBLIC_SOURCE_MAP.json'),PYTHONDONTWRITEBYTECODE='1',PYTHONNOUSERSITE='1');env.pop('PYTHONPATH',None);argv=[sys.executable,'-B',str(work/'reproduce_analysis.py')];start=time.monotonic();r=subprocess.run(argv,cwd=B,env=env,capture_output=True,text=True);(out/'stdout.log').write_text(r.stdout);(out/'stderr.log').write_text(r.stderr);record={'argv':argv,'returncode':r.returncode,'elapsed_seconds':time.monotonic()-start,'stdout':pin(out/'stdout.log'),'stderr':pin(out/'stderr.log'),'denial_probes':pin(out/'DENIAL_PROBES.json')};(out/'PARTIAL.json').write_text(json.dumps(record,indent=2)+'\n');need(r.returncode==0,'analysis-only retry must complete all seven unchanged commands')
+ current=json.loads((work/'FINITE_EXPLICIT_FUNCTIONS.json').read_bytes())['bounds'];accepted=json.loads((B/'frontiers/FINITE_EXPLICIT_FUNCTIONS.json').read_bytes())['bounds'];need(current==accepted and len(current)==15861,'every15861 complete source function body unchanged');need((work/'ALL24_SOURCE_BOUND_OBJECTS.json').read_bytes()==(B/'frontiers/ALL24_SOURCE_BOUND_OBJECTS.json').read_bytes(),'entire11411 source collection byte-identical');pointer=json.loads((work/'ACTUAL_SEQUENTIAL_ANALYSIS_REGENERATION.json').read_bytes());pipeline=Path(pointer['receipt']['path']);j=json.loads(pipeline.read_bytes());need(len(j['commands'])==7 and all(x['returncode']==0 for x in j['commands']),'all seven actual child commands passed');record.update(status='PASS_ANALYSIS_ONLY_RETRY_ALL_SEVEN_COMMANDS_COMPLETE_ORIGINAL_WORKSPACE_MASKED_ALL15861_BODIES_IDENTICAL',source=pin(Path(__file__)),pipeline_receipt=pin(pipeline),all15861_complete_function_bodies_identical=True,all11411_source_collection_bytes_identical=True,original_failed_run_preserved=True,report_paper_ledger_rerun=False,new_ANT_workload_Lean_model_or_source_first_PV=False);(out/'RESULT.json').write_text(json.dumps(record,indent=2)+'\n');print(json.dumps({'status':record['status'],'receipt':pin(out/'RESULT.json')}))
+if __name__=='__main__':main()

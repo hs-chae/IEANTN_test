@@ -1,0 +1,9 @@
+# D02 cumulative arithmetic portfolio
+
+Start with ramanujan02.md and mertens02.md for the theorem portfolios, analytic02.md for the shared cap and integrated-zero arguments, and comparison02.md for exact baseline scope and whole-domain comparisons. INPUT_CONTRACT.json contains the sole additional hypothetical input. All validated D01 claims are inherited as indexed by OWN_D01_VALIDATED_FLOOR.json, including the original source-endpoint truth-target correction; the D01 proof scripts and outputs have not been overwritten by D02. The FKS page-locator correction is kept in the working inherited mertens.md. No full analytic Lean or source-first PV is claimed.
+
+With the exact original paper results and D02, the Ramanujan normalized lower bound now has 16 terms from \(\log x=530.1\) and 96 terms from 2732.5; growing-order profiles and a signed pointwise Li-model bound are proved on their stated real rays. For both Mertens products and \(\sum 1/p\), the normalized errors are bounded by \(.270x^{-5/32}/\log x\) from \(x=e^{20}\), with smaller tail constants and an explicit envelope; the weighted sum has the same bound without the final division by log. Many tighter finite and inverse-log joins are independently valid with original inputs alone. All stated domains and sign conventions are in the claim files.
+
+New exact replay: use /usr/bin/python3.10 -B replay02.py in this directory; by default it checks the analytic receipts and the bound corpus. Option --finite also recompiles and verifies the new long sieve. The original replay.py and old invariant receipts apply to the D01 evidence; D01 remains at its previous independent-review trust. Source trust includes the pinned original finite RH verification and the originally reported integer Ramanujan checks. The D02 stage itself is ready for independent mathematical review, not reported as externally reviewed.
+
+See restart.md for factual continuation state. LOCK.json lists exact payload hashes.

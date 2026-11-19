@@ -1,0 +1,1 @@
+Research in progress. Packet identities verified (all seven PDFs and all seven text files); initial command confirmed cwd, and ls was absent (exit 127); bash glob and Python recovered the read. No external calls.

@@ -1,0 +1,1366 @@
+{
+  "utc": "2026-11-18T08:19:34.898541+00:00",
+  "mode": "FOLLOWUP_FRESH_D01_RESEARCH",
+  "task_packet": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/protocol/packets-second-fresh-D01-v1/FRESH-R2-D01-PNT",
+  "prompt_sha256": "7f153106dd85e894c30a7563dcad189995ad547f70a1e2852af5fcf378bc01a9",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "service_tier": "default",
+  "source_sha256": "98295216807d7a0c53f9ef439158820b52b45615de12c6426f43ace6a02a4fc3",
+  "credentials_mounted_in_worker": false,
+  "private_reasoning_collected": false,
+  "limits": {
+    "packet_manifest": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/protocol/packets-second-fresh-D01-v1/FRESH-R2-D01-PNT.manifest.json",
+    "runtime": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-deep-tertiary-exposure-a-20261117/protocol/runtimes/PNT/runtime.json",
+    "out": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/runs/FRESH-R2-D01-PNT",
+    "lock": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/protocol/second-fresh-D01-research-v1/FRESH-R2-D01-PNT.lock.json",
+    "fixture": false,
+    "check": false,
+    "model": "gpt-6.2-sol",
+    "effort": "high",
+    "output": 500000,
+    "increment": 250000,
+    "memory_gib": 64,
+    "scratch_gib": 24,
+    "cpus": 8,
+    "phase": "FOLLOWUP_FRESH_D01_RESEARCH",
+    "packet": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/protocol/packets-second-fresh-D01-v1/FRESH-R2-D01-PNT",
+    "wall": 86400,
+    "operations": null,
+    "responses": null,
+    "fixture_hook_fault": false,
+    "fixture_artifact_name": "canary.txt",
+    "fixture_boundary_steps": 1,
+    "fixture_draft_at": 1,
+    "fixture_budget_prefix": false,
+    "per_response_max_output_tokens": null,
+    "paired_task_seed": 0,
+    "compiler": false,
+    "python_only": false,
+    "environment": "",
+    "python_optimization": 0
+  },
+  "initialize": {
+    "id": 1,
+    "result": {
+      "userAgent": "ieantn-qsl-study-controller/0.170.0 (Ubuntu 22.4.0; x86_64) unknown (ieantn-qsl-study-controller; 1)",
+      "codexHome": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/coordinator-private/controller-temp/ieantn-study-controller-lh0fbg5b/state",
+      "platformFamily": "unix",
+      "platformOs": "linux"
+    }
+  },
+  "environment_status": {
+    "id": 3,
+    "result": {
+      "status": "ready"
+    }
+  },
+  "model_catalog_observation": {
+    "fixture_provider": false,
+    "offered_ids": [
+      "gpt-6.2-sol",
+      "gpt-6.2-astra",
+      "gpt-6.1-terra",
+      "gpt-6.1-sol",
+      "gpt-6-astra",
+      "gpt-6-sol",
+      "gpt-6-luna",
+      "gpt-5.6-sol",
+      "gpt-5.6-terra",
+      "gpt-5.6-luna"
+    ]
+  },
+  "model_catalog_selection": {
+    "id": "gpt-6.2-sol",
+    "model": "gpt-6.2-sol",
+    "upgrade": null,
+    "upgradeInfo": null,
+    "availabilityNux": null,
+    "displayName": "GPT-6.2-Sol",
+    "description": "Fast, go-to model for coding and everyday work.",
+    "modelSpecialty": null,
+    "hidden": false,
+    "supportedReasoningEfforts": [
+      {
+        "reasoningEffort": "low",
+        "description": "Fast responses with lighter reasoning"
+      },
+      {
+        "reasoningEffort": "medium",
+        "description": "Balances speed and reasoning depth for everyday tasks"
+      },
+      {
+        "reasoningEffort": "high",
+        "description": "Greater reasoning depth for complex problems"
+      },
+      {
+        "reasoningEffort": "xhigh",
+        "description": "Extra high reasoning depth for complex problems"
+      },
+      {
+        "reasoningEffort": "max",
+        "description": "Maximum reasoning depth for the hardest problems"
+      },
+      {
+        "reasoningEffort": "ultra",
+        "description": "Maximum reasoning with automatic task delegation"
+      }
+    ],
+    "defaultReasoningEffort": "low",
+    "inputModalities": [
+      "text",
+      "image",
+      "audio"
+    ],
+    "supportsPersonality": false,
+    "multiAgentVersion": "v2",
+    "additionalSpeedTiers": [
+      "fast"
+    ],
+    "serviceTiers": [
+      {
+        "id": "priority",
+        "name": "Fast",
+        "description": "2x speed, increased usage"
+      }
+    ],
+    "defaultServiceTier": null,
+    "availableAccessPrograms": {
+      "cyber": [
+        "standard"
+      ]
+    },
+    "isDefault": true
+  },
+  "thread_start": {
+    "id": 5,
+    "result": {
+      "thread": {
+        "id": "01a1edbd-6836-72f1-87a9-84933fd1ad61",
+        "environments": [
+          {
+            "environmentId": "assigned-offline-runtime",
+            "cwd": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/coordinator-private/controller-temp/ieantn-study-controller-lh0fbg5b/cwd",
+            "runtimeWorkspaceRoots": [
+              "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/coordinator-private/controller-temp/ieantn-study-controller-lh0fbg5b/cwd",
+              "/work"
+            ]
+          }
+        ],
+        "extra": null,
+        "sessionId": "01a1edbd-6836-72f1-87a9-84933fd1ad61",
+        "forkedFromId": null,
+        "attachedToThreadId": null,
+        "parentThreadId": null,
+        "preview": "",
+        "ephemeral": true,
+        "section": null,
+        "sectionEnteredAt": null,
+        "projectId": null,
+        "historyMode": "paginated",
+        "modelProvider": "openai",
+        "model": "gpt-6.2-sol",
+        "reasoningEffort": null,
+        "createdAt": 1794989980,
+        "updatedAt": 1794989980,
+        "recencyAt": 1794989980,
+        "status": {
+          "type": "idle"
+        },
+        "path": null,
+        "cwd": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/coordinator-private/controller-temp/ieantn-study-controller-lh0fbg5b/cwd",
+        "cliVersion": "0.170.0",
+        "originator": "ieantn-qsl-study-controller",
+        "source": "vscode",
+        "canAcceptDirectInput": true,
+        "threadSource": null,
+        "agentNickname": null,
+        "agentRole": null,
+        "gitInfo": null,
+        "name": null,
+        "daybreakEnabled": null,
+        "turns": []
+      },
+      "model": "gpt-6.2-sol",
+      "modelProvider": "openai",
+      "serviceTier": "default",
+      "disabledPluginIds": [],
+      "cwd": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/coordinator-private/controller-temp/ieantn-study-controller-lh0fbg5b/cwd",
+      "runtimeWorkspaceRoots": [
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/coordinator-private/controller-temp/ieantn-study-controller-lh0fbg5b/cwd",
+        "/work"
+      ],
+      "instructionSources": [],
+      "approvalPolicy": "never",
+      "approvalsReviewer": "user",
+      "sandbox": {
+        "type": "dangerFullAccess"
+      },
+      "activePermissionProfile": null,
+      "reasoningEffort": null,
+      "multiAgentMode": "explicitRequestOnly"
+    }
+  },
+  "hooks": {
+    "id": 6,
+    "result": {
+      "data": [
+        {
+          "cwd": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/coordinator-private/controller-temp/ieantn-study-controller-lh0fbg5b/cwd",
+          "hooks": [
+            {
+              "key": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/coordinator-private/controller-temp/ieantn-study-controller-lh0fbg5b/state/hooks.json:pre_tool_use:0:0",
+              "eventName": "preToolUse",
+              "handlerType": "command",
+              "command": "/usr/bin/python3.10 -I -B -c '\"\"\"Reviewed generic tool gate. This contains no mathematical task information.\"\"\"\nimport json\nimport sys\n\ntry:\n    raw = sys.stdin.buffer.read(1024 * 1024 + 1)\n    if len(raw) > 1024 * 1024:\n        raise ValueError('\"'\"'oversized hook input'\"'\"')\n    value = json.loads(raw)\n    if not isinstance(value, dict) or value.get('\"'\"'hook_event_name'\"'\"') != '\"'\"'PreToolUse'\"'\"':\n        raise ValueError('\"'\"'unexpected hook event'\"'\"')\n    name = value.get('\"'\"'tool_name'\"'\"')\n    allowed = {'\"'\"'Bash'\"'\"', '\"'\"'apply_patch'\"'\"', '\"'\"'exec'\"'\"', '\"'\"'exec_command'\"'\"', '\"'\"'wait'\"'\"', '\"'\"'write_stdin'\"'\"'}\n    if isinstance(name, str) and name in allowed:\n        print('\"'\"'{}'\"'\"')\n    else:\n        print(json.dumps({'\"'\"'hookSpecificOutput'\"'\"': {'\"'\"'hookEventName'\"'\"': '\"'\"'PreToolUse'\"'\"',\n              '\"'\"'permissionDecision'\"'\"': '\"'\"'deny'\"'\"', '\"'\"'permissionDecisionReason'\"'\"':\n              '\"'\"'This tool is outside the authorized offline research runtime.'\"'\"'}}))\nexcept (ValueError, TypeError, UnicodeError):\n    sys.stderr.write('\"'\"'Malformed tool-policy input is denied.\\n'\"'\"')\n    raise SystemExit(2)\n'",
+              "async": false,
+              "matcher": ".*",
+              "timeoutSec": 30,
+              "statusMessage": null,
+              "additionalContextLimit": null,
+              "sourcePath": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/coordinator-private/controller-temp/ieantn-study-controller-lh0fbg5b/state/hooks.json",
+              "source": "user",
+              "pluginId": null,
+              "environmentId": null,
+              "displayOrder": 0,
+              "enabled": true,
+              "isManaged": false,
+              "currentHash": "sha256:a8e38c96e2a5a94bc620c70c73490505718bd03ed9b4e983a43e8f369c25a2cb",
+              "trustStatus": "trusted"
+            }
+          ],
+          "warnings": [],
+          "errors": []
+        }
+      ]
+    }
+  },
+  "mcp_registry": {
+    "id": 7,
+    "result": {
+      "data": [],
+      "nextCursor": null
+    }
+  },
+  "turn_start": {
+    "id": 8,
+    "result": {
+      "turn": {
+        "id": "01a1edbd-7cf5-7a31-8375-071e4dd34bbb",
+        "rootTurnId": "01a1edbd-7cf5-7a31-8375-071e4dd34bbb",
+        "items": [],
+        "itemsView": "notLoaded",
+        "status": "inProgress",
+        "error": null,
+        "startedAt": null,
+        "completedAt": null,
+        "durationMs": null
+      }
+    }
+  },
+  "interrupt_error": "native controller exited",
+  "candidate_frozen_elapsed_seconds": 1047.5130680948496,
+  "worker_quiescence": {
+    "status": "ASSIGNED_WORKER_COMMANDS_QUIESCED_BEFORE_EXPORT",
+    "stopped": [],
+    "private_init_and_execserver_retained": true
+  },
+  "artifact_export": {
+    "consistent": false,
+    "error": "executor unavailable",
+    "partial_files": []
+  },
+  "deadline_snapshot": {
+    "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+    "quiesced": true,
+    "atomic_directory_snapshot_claimed": false,
+    "files": [],
+    "skipped": [],
+    "mathematical_validity": "UNASSESSED",
+    "status": "PARTIAL_CHECKPOINT_PRESERVED",
+    "error_type": "RuntimeError",
+    "error": "executor unavailable",
+    "controller_locked_incomplete_candidate": true
+  },
+  "turn_completion_statuses": [],
+  "mechanical_submission_gate_passed": false,
+  "stop_reason": "EXTERNAL_INTERRUPTION_CHECKPOINT_PRESERVED",
+  "usage": [
+    {
+      "total": {
+        "totalTokens": 6950,
+        "inputTokens": 6905,
+        "cachedInputTokens": 4992,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 45,
+        "reasoningOutputTokens": 0
+      },
+      "last": {
+        "totalTokens": 6950,
+        "inputTokens": 6905,
+        "cachedInputTokens": 4992,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 45,
+        "reasoningOutputTokens": 0
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 14143,
+        "inputTokens": 14001,
+        "cachedInputTokens": 11776,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 142,
+        "reasoningOutputTokens": 0
+      },
+      "last": {
+        "totalTokens": 7193,
+        "inputTokens": 7096,
+        "cachedInputTokens": 6784,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 97,
+        "reasoningOutputTokens": 0
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 23100,
+        "inputTokens": 22794,
+        "cachedInputTokens": 18688,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 306,
+        "reasoningOutputTokens": 0
+      },
+      "last": {
+        "totalTokens": 8957,
+        "inputTokens": 8793,
+        "cachedInputTokens": 6912,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 164,
+        "reasoningOutputTokens": 0
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 36564,
+        "inputTokens": 36094,
+        "cachedInputTokens": 27136,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 470,
+        "reasoningOutputTokens": 0
+      },
+      "last": {
+        "totalTokens": 13464,
+        "inputTokens": 13300,
+        "cachedInputTokens": 8448,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 164,
+        "reasoningOutputTokens": 0
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 55750,
+        "inputTokens": 55145,
+        "cachedInputTokens": 40192,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 605,
+        "reasoningOutputTokens": 0
+      },
+      "last": {
+        "totalTokens": 19186,
+        "inputTokens": 19051,
+        "cachedInputTokens": 13056,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 135,
+        "reasoningOutputTokens": 0
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 80039,
+        "inputTokens": 79366,
+        "cachedInputTokens": 59136,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 673,
+        "reasoningOutputTokens": 0
+      },
+      "last": {
+        "totalTokens": 24289,
+        "inputTokens": 24221,
+        "cachedInputTokens": 18944,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 68,
+        "reasoningOutputTokens": 0
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 111188,
+        "inputTokens": 110065,
+        "cachedInputTokens": 83200,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 1123,
+        "reasoningOutputTokens": 372
+      },
+      "last": {
+        "totalTokens": 31149,
+        "inputTokens": 30699,
+        "cachedInputTokens": 24064,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 450,
+        "reasoningOutputTokens": 372
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 151405,
+        "inputTokens": 149924,
+        "cachedInputTokens": 113664,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 1481,
+        "reasoningOutputTokens": 651
+      },
+      "last": {
+        "totalTokens": 40217,
+        "inputTokens": 39859,
+        "cachedInputTokens": 30464,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 358,
+        "reasoningOutputTokens": 279
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 196530,
+        "inputTokens": 194669,
+        "cachedInputTokens": 153344,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 1861,
+        "reasoningOutputTokens": 908
+      },
+      "last": {
+        "totalTokens": 45125,
+        "inputTokens": 44745,
+        "cachedInputTokens": 39680,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 380,
+        "reasoningOutputTokens": 257
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 243635,
+        "inputTokens": 241506,
+        "cachedInputTokens": 197888,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 2129,
+        "reasoningOutputTokens": 1139
+      },
+      "last": {
+        "totalTokens": 47105,
+        "inputTokens": 46837,
+        "cachedInputTokens": 44544,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 268,
+        "reasoningOutputTokens": 231
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 294508,
+        "inputTokens": 292348,
+        "cachedInputTokens": 244480,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 2160,
+        "reasoningOutputTokens": 1139
+      },
+      "last": {
+        "totalTokens": 50873,
+        "inputTokens": 50842,
+        "cachedInputTokens": 46592,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 31,
+        "reasoningOutputTokens": 0
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 346898,
+        "inputTokens": 344711,
+        "cachedInputTokens": 295168,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 2187,
+        "reasoningOutputTokens": 1139
+      },
+      "last": {
+        "totalTokens": 52390,
+        "inputTokens": 52363,
+        "cachedInputTokens": 50688,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 27,
+        "reasoningOutputTokens": 0
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 401366,
+        "inputTokens": 398108,
+        "cachedInputTokens": 347392,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 3258,
+        "reasoningOutputTokens": 2096
+      },
+      "last": {
+        "totalTokens": 54468,
+        "inputTokens": 53397,
+        "cachedInputTokens": 52224,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 1071,
+        "reasoningOutputTokens": 957
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 457901,
+        "inputTokens": 452802,
+        "cachedInputTokens": 400640,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 5099,
+        "reasoningOutputTokens": 3874
+      },
+      "last": {
+        "totalTokens": 56535,
+        "inputTokens": 54694,
+        "cachedInputTokens": 53248,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 1841,
+        "reasoningOutputTokens": 1778
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 517940,
+        "inputTokens": 512345,
+        "cachedInputTokens": 455168,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 5595,
+        "reasoningOutputTokens": 4049
+      },
+      "last": {
+        "totalTokens": 60039,
+        "inputTokens": 59543,
+        "cachedInputTokens": 54528,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 496,
+        "reasoningOutputTokens": 175
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 578654,
+        "inputTokens": 572883,
+        "cachedInputTokens": 514560,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 5771,
+        "reasoningOutputTokens": 4196
+      },
+      "last": {
+        "totalTokens": 60714,
+        "inputTokens": 60538,
+        "cachedInputTokens": 59392,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 176,
+        "reasoningOutputTokens": 147
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 644940,
+        "inputTokens": 635411,
+        "cachedInputTokens": 574976,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 9529,
+        "reasoningOutputTokens": 7612
+      },
+      "last": {
+        "totalTokens": 66286,
+        "inputTokens": 62528,
+        "cachedInputTokens": 60416,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 3758,
+        "reasoningOutputTokens": 3416
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 711602,
+        "inputTokens": 701802,
+        "cachedInputTokens": 637184,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 9800,
+        "reasoningOutputTokens": 7612
+      },
+      "last": {
+        "totalTokens": 66662,
+        "inputTokens": 66391,
+        "cachedInputTokens": 62208,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 271,
+        "reasoningOutputTokens": 0
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 780608,
+        "inputTokens": 769005,
+        "cachedInputTokens": 703232,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 11603,
+        "reasoningOutputTokens": 9091
+      },
+      "last": {
+        "totalTokens": 69006,
+        "inputTokens": 67203,
+        "cachedInputTokens": 66048,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 1803,
+        "reasoningOutputTokens": 1479
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 851549,
+        "inputTokens": 838847,
+        "cachedInputTokens": 770304,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 12702,
+        "reasoningOutputTokens": 10040
+      },
+      "last": {
+        "totalTokens": 70941,
+        "inputTokens": 69842,
+        "cachedInputTokens": 67072,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 1099,
+        "reasoningOutputTokens": 949
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 923779,
+        "inputTokens": 910157,
+        "cachedInputTokens": 839936,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 13622,
+        "reasoningOutputTokens": 10781
+      },
+      "last": {
+        "totalTokens": 72230,
+        "inputTokens": 71310,
+        "cachedInputTokens": 69632,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 920,
+        "reasoningOutputTokens": 741
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 996669,
+        "inputTokens": 982501,
+        "cachedInputTokens": 911104,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 14168,
+        "reasoningOutputTokens": 11153
+      },
+      "last": {
+        "totalTokens": 72890,
+        "inputTokens": 72344,
+        "cachedInputTokens": 71168,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 546,
+        "reasoningOutputTokens": 372
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 1069934,
+        "inputTokens": 1055544,
+        "cachedInputTokens": 983808,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 14390,
+        "reasoningOutputTokens": 11306
+      },
+      "last": {
+        "totalTokens": 73265,
+        "inputTokens": 73043,
+        "cachedInputTokens": 72704,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 222,
+        "reasoningOutputTokens": 153
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 1069934,
+        "inputTokens": 1055544,
+        "cachedInputTokens": 983808,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 14390,
+        "reasoningOutputTokens": 11306
+      },
+      "last": {
+        "totalTokens": 73265,
+        "inputTokens": 73043,
+        "cachedInputTokens": 72704,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 222,
+        "reasoningOutputTokens": 153
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 1146315,
+        "inputTokens": 1128902,
+        "cachedInputTokens": 1057024,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 17413,
+        "reasoningOutputTokens": 13537
+      },
+      "last": {
+        "totalTokens": 76381,
+        "inputTokens": 73358,
+        "cachedInputTokens": 73216,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 3023,
+        "reasoningOutputTokens": 2231
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 1226099,
+        "inputTokens": 1205933,
+        "cachedInputTokens": 1130240,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 20166,
+        "reasoningOutputTokens": 14966
+      },
+      "last": {
+        "totalTokens": 79784,
+        "inputTokens": 77031,
+        "cachedInputTokens": 73216,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 2753,
+        "reasoningOutputTokens": 1429
+      },
+      "modelContextWindow": 475000
+    }
+  ],
+  "elapsed_seconds": 1047.5947028398514,
+  "operation_count": 33,
+  "operation_budget_exceeded": false,
+  "executor_rpc_counts": {
+    "initialize": 1,
+    "initialized": 1,
+    "environment/status": 1,
+    "fs/getMetadata": 25,
+    "fs/watchMissing": 1,
+    "environmentConfig/read": 2,
+    "process/start": 33,
+    "process/terminate": 33
+  },
+  "controller_cgroup": "0::/user.slice/user-1013.slice/user@1013.service/app.slice/ieantn-followup-97338d399d8c6d91.service\n",
+  "foreign_usage": [],
+  "planning_milestones": [
+    {
+      "fraction": 1.0,
+      "observed_generated_tokens": 20166,
+      "elapsed_seconds": 1047.5922178719193,
+      "mode": "FINAL_QUIESCED_SNAPSHOT_NO_MODEL_FEEDBACK",
+      "snapshot": {
+        "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+        "quiesced": true,
+        "atomic_directory_snapshot_claimed": false,
+        "files": [],
+        "skipped": [],
+        "mathematical_validity": "UNASSESSED",
+        "status": "PARTIAL_CHECKPOINT_PRESERVED",
+        "error_type": "RuntimeError",
+        "error": "executor unavailable"
+      }
+    }
+  ],
+  "checkpoints": [
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/runs/FRESH-R2-D01-PNT/checkpoint-00001",
+      "elapsed_seconds": 60.0563944503665,
+      "generated_tokens": 673,
+      "receipt": {
+        "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+        "quiesced": false,
+        "atomic_directory_snapshot_claimed": false,
+        "files": [],
+        "skipped": [],
+        "mathematical_validity": "UNASSESSED",
+        "listing": {
+          "error": {
+            "code": -32004,
+            "message": "No such file or directory (os error 2)"
+          },
+          "id": "trusted-export-1"
+        },
+        "status": "SUBMISSION_NOT_YET_AVAILABLE"
+      }
+    },
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/runs/FRESH-R2-D01-PNT/checkpoint-00002",
+      "elapsed_seconds": 120.12379762530327,
+      "generated_tokens": 2129,
+      "receipt": {
+        "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+        "quiesced": false,
+        "atomic_directory_snapshot_claimed": false,
+        "files": [],
+        "skipped": [],
+        "mathematical_validity": "UNASSESSED",
+        "listing": {
+          "error": {
+            "code": -32004,
+            "message": "No such file or directory (os error 2)"
+          },
+          "id": "trusted-export-2"
+        },
+        "status": "SUBMISSION_NOT_YET_AVAILABLE"
+      }
+    },
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/runs/FRESH-R2-D01-PNT/checkpoint-00003",
+      "elapsed_seconds": 180.1991127692163,
+      "generated_tokens": 3258,
+      "receipt": {
+        "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+        "quiesced": false,
+        "atomic_directory_snapshot_claimed": false,
+        "files": [],
+        "skipped": [],
+        "mathematical_validity": "UNASSESSED",
+        "listing": {
+          "id": "trusted-export-3",
+          "result": {
+            "entries": []
+          }
+        },
+        "status": "SAVED_ALL_AVAILABLE_FLAT_SOURCE_FILES"
+      }
+    },
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/runs/FRESH-R2-D01-PNT/checkpoint-00004",
+      "elapsed_seconds": 240.26414704881608,
+      "generated_tokens": 3258,
+      "receipt": {
+        "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+        "quiesced": false,
+        "atomic_directory_snapshot_claimed": false,
+        "files": [],
+        "skipped": [],
+        "mathematical_validity": "UNASSESSED",
+        "listing": {
+          "id": "trusted-export-4",
+          "result": {
+            "entries": []
+          }
+        },
+        "status": "SAVED_ALL_AVAILABLE_FLAT_SOURCE_FILES"
+      }
+    },
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/runs/FRESH-R2-D01-PNT/checkpoint-00005",
+      "elapsed_seconds": 300.33477297984064,
+      "generated_tokens": 5595,
+      "receipt": {
+        "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+        "quiesced": false,
+        "atomic_directory_snapshot_claimed": false,
+        "files": [],
+        "skipped": [],
+        "mathematical_validity": "UNASSESSED",
+        "listing": {
+          "id": "trusted-export-5",
+          "result": {
+            "entries": []
+          }
+        },
+        "status": "SAVED_ALL_AVAILABLE_FLAT_SOURCE_FILES"
+      }
+    },
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/runs/FRESH-R2-D01-PNT/checkpoint-00006",
+      "elapsed_seconds": 360.40366832725704,
+      "generated_tokens": 5771,
+      "receipt": {
+        "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+        "quiesced": false,
+        "atomic_directory_snapshot_claimed": false,
+        "files": [],
+        "skipped": [],
+        "mathematical_validity": "UNASSESSED",
+        "listing": {
+          "id": "trusted-export-6",
+          "result": {
+            "entries": []
+          }
+        },
+        "status": "SAVED_ALL_AVAILABLE_FLAT_SOURCE_FILES"
+      }
+    },
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/runs/FRESH-R2-D01-PNT/checkpoint-00007",
+      "elapsed_seconds": 420.47992875240743,
+      "generated_tokens": 5771,
+      "receipt": {
+        "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+        "quiesced": false,
+        "atomic_directory_snapshot_claimed": false,
+        "files": [],
+        "skipped": [],
+        "mathematical_validity": "UNASSESSED",
+        "listing": {
+          "id": "trusted-export-7",
+          "result": {
+            "entries": []
+          }
+        },
+        "status": "SAVED_ALL_AVAILABLE_FLAT_SOURCE_FILES"
+      }
+    },
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/runs/FRESH-R2-D01-PNT/checkpoint-00008",
+      "elapsed_seconds": 480.56295374035835,
+      "generated_tokens": 9529,
+      "receipt": {
+        "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+        "quiesced": false,
+        "atomic_directory_snapshot_claimed": false,
+        "files": [
+          {
+            "path": "count.cpp",
+            "bytes": 609,
+            "sha256": "2bafcdde969f8ef9050c9b285a4136469807c7c538f38f824d83f623115758f5"
+          }
+        ],
+        "skipped": [],
+        "mathematical_validity": "UNASSESSED",
+        "listing": {
+          "id": "trusted-export-8",
+          "result": {
+            "entries": [
+              {
+                "fileName": "count.cpp",
+                "isDirectory": false,
+                "isFile": true
+              }
+            ]
+          }
+        },
+        "status": "SAVED_ALL_AVAILABLE_FLAT_SOURCE_FILES"
+      }
+    },
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/runs/FRESH-R2-D01-PNT/checkpoint-00009",
+      "elapsed_seconds": 540.6476307678968,
+      "generated_tokens": 9800,
+      "receipt": {
+        "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+        "quiesced": false,
+        "atomic_directory_snapshot_claimed": false,
+        "files": [
+          {
+            "path": "count.cpp",
+            "bytes": 609,
+            "sha256": "2bafcdde969f8ef9050c9b285a4136469807c7c538f38f824d83f623115758f5"
+          }
+        ],
+        "skipped": [],
+        "mathematical_validity": "UNASSESSED",
+        "listing": {
+          "id": "trusted-export-11",
+          "result": {
+            "entries": [
+              {
+                "fileName": "count.cpp",
+                "isDirectory": false,
+                "isFile": true
+              }
+            ]
+          }
+        },
+        "status": "SAVED_ALL_AVAILABLE_FLAT_SOURCE_FILES"
+      }
+    },
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/runs/FRESH-R2-D01-PNT/checkpoint-00010",
+      "elapsed_seconds": 600.7275842148811,
+      "generated_tokens": 11603,
+      "receipt": {
+        "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+        "quiesced": false,
+        "atomic_directory_snapshot_claimed": false,
+        "files": [
+          {
+            "path": "count.cpp",
+            "bytes": 609,
+            "sha256": "2bafcdde969f8ef9050c9b285a4136469807c7c538f38f824d83f623115758f5"
+          }
+        ],
+        "skipped": [],
+        "mathematical_validity": "UNASSESSED",
+        "listing": {
+          "id": "trusted-export-14",
+          "result": {
+            "entries": [
+              {
+                "fileName": "count.cpp",
+                "isDirectory": false,
+                "isFile": true
+              }
+            ]
+          }
+        },
+        "status": "SAVED_ALL_AVAILABLE_FLAT_SOURCE_FILES"
+      }
+    },
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/runs/FRESH-R2-D01-PNT/checkpoint-00011",
+      "elapsed_seconds": 660.8085354454815,
+      "generated_tokens": 13622,
+      "receipt": {
+        "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+        "quiesced": false,
+        "atomic_directory_snapshot_claimed": false,
+        "files": [
+          {
+            "path": "count.cpp",
+            "bytes": 609,
+            "sha256": "2bafcdde969f8ef9050c9b285a4136469807c7c538f38f824d83f623115758f5"
+          }
+        ],
+        "skipped": [],
+        "mathematical_validity": "UNASSESSED",
+        "listing": {
+          "id": "trusted-export-17",
+          "result": {
+            "entries": [
+              {
+                "fileName": "count.cpp",
+                "isDirectory": false,
+                "isFile": true
+              }
+            ]
+          }
+        },
+        "status": "SAVED_ALL_AVAILABLE_FLAT_SOURCE_FILES"
+      }
+    },
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/runs/FRESH-R2-D01-PNT/checkpoint-00012",
+      "elapsed_seconds": 720.895680014044,
+      "generated_tokens": 14390,
+      "receipt": {
+        "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+        "quiesced": false,
+        "atomic_directory_snapshot_claimed": false,
+        "files": [
+          {
+            "path": "count.cpp",
+            "bytes": 609,
+            "sha256": "2bafcdde969f8ef9050c9b285a4136469807c7c538f38f824d83f623115758f5"
+          }
+        ],
+        "skipped": [],
+        "mathematical_validity": "UNASSESSED",
+        "listing": {
+          "id": "trusted-export-20",
+          "result": {
+            "entries": [
+              {
+                "fileName": "count.cpp",
+                "isDirectory": false,
+                "isFile": true
+              }
+            ]
+          }
+        },
+        "status": "SAVED_ALL_AVAILABLE_FLAT_SOURCE_FILES"
+      }
+    },
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/runs/FRESH-R2-D01-PNT/checkpoint-00013",
+      "elapsed_seconds": 780.988846546039,
+      "generated_tokens": 14390,
+      "receipt": {
+        "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+        "quiesced": false,
+        "atomic_directory_snapshot_claimed": false,
+        "files": [
+          {
+            "path": "count.cpp",
+            "bytes": 609,
+            "sha256": "2bafcdde969f8ef9050c9b285a4136469807c7c538f38f824d83f623115758f5"
+          }
+        ],
+        "skipped": [],
+        "mathematical_validity": "UNASSESSED",
+        "listing": {
+          "id": "trusted-export-23",
+          "result": {
+            "entries": [
+              {
+                "fileName": "count.cpp",
+                "isDirectory": false,
+                "isFile": true
+              }
+            ]
+          }
+        },
+        "status": "SAVED_ALL_AVAILABLE_FLAT_SOURCE_FILES"
+      }
+    },
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/runs/FRESH-R2-D01-PNT/checkpoint-00014",
+      "elapsed_seconds": 841.0775948688388,
+      "generated_tokens": 14390,
+      "receipt": {
+        "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+        "quiesced": false,
+        "atomic_directory_snapshot_claimed": false,
+        "files": [
+          {
+            "path": "count.cpp",
+            "bytes": 609,
+            "sha256": "2bafcdde969f8ef9050c9b285a4136469807c7c538f38f824d83f623115758f5"
+          }
+        ],
+        "skipped": [],
+        "mathematical_validity": "UNASSESSED",
+        "listing": {
+          "id": "trusted-export-26",
+          "result": {
+            "entries": [
+              {
+                "fileName": "count.cpp",
+                "isDirectory": false,
+                "isFile": true
+              }
+            ]
+          }
+        },
+        "status": "SAVED_ALL_AVAILABLE_FLAT_SOURCE_FILES"
+      }
+    },
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/runs/FRESH-R2-D01-PNT/checkpoint-00015",
+      "elapsed_seconds": 901.1636847853661,
+      "generated_tokens": 17413,
+      "receipt": {
+        "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+        "quiesced": false,
+        "atomic_directory_snapshot_claimed": false,
+        "files": [
+          {
+            "path": "LOCK.json",
+            "bytes": 218,
+            "sha256": "b9e32badb7affef8bd818b644a3883657b91988162eb72e4841d19a0695a9534"
+          },
+          {
+            "path": "work-notes.md",
+            "bytes": 841,
+            "sha256": "d4f39200b3170b647a19028fdbd48315b9381b38e3bd5e7a7874b57c43f4d2c9"
+          },
+          {
+            "path": "count.cpp",
+            "bytes": 609,
+            "sha256": "2bafcdde969f8ef9050c9b285a4136469807c7c538f38f824d83f623115758f5"
+          }
+        ],
+        "skipped": [],
+        "mathematical_validity": "UNASSESSED",
+        "listing": {
+          "id": "trusted-export-29",
+          "result": {
+            "entries": [
+              {
+                "fileName": "LOCK.json",
+                "isDirectory": false,
+                "isFile": true
+              },
+              {
+                "fileName": "work-notes.md",
+                "isDirectory": false,
+                "isFile": true
+              },
+              {
+                "fileName": "count.cpp",
+                "isDirectory": false,
+                "isFile": true
+              }
+            ]
+          }
+        },
+        "status": "SAVED_ALL_AVAILABLE_FLAT_SOURCE_FILES"
+      }
+    },
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/runs/FRESH-R2-D01-PNT/checkpoint-00016",
+      "elapsed_seconds": 961.2466932684183,
+      "generated_tokens": 17413,
+      "receipt": {
+        "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+        "quiesced": false,
+        "atomic_directory_snapshot_claimed": false,
+        "files": [
+          {
+            "path": "LOCK.json",
+            "bytes": 218,
+            "sha256": "b9e32badb7affef8bd818b644a3883657b91988162eb72e4841d19a0695a9534"
+          },
+          {
+            "path": "work-notes.md",
+            "bytes": 841,
+            "sha256": "d4f39200b3170b647a19028fdbd48315b9381b38e3bd5e7a7874b57c43f4d2c9"
+          },
+          {
+            "path": "count.cpp",
+            "bytes": 609,
+            "sha256": "2bafcdde969f8ef9050c9b285a4136469807c7c538f38f824d83f623115758f5"
+          }
+        ],
+        "skipped": [],
+        "mathematical_validity": "UNASSESSED",
+        "listing": {
+          "id": "trusted-export-36",
+          "result": {
+            "entries": [
+              {
+                "fileName": "LOCK.json",
+                "isDirectory": false,
+                "isFile": true
+              },
+              {
+                "fileName": "work-notes.md",
+                "isDirectory": false,
+                "isFile": true
+              },
+              {
+                "fileName": "count.cpp",
+                "isDirectory": false,
+                "isFile": true
+              }
+            ]
+          }
+        },
+        "status": "SAVED_ALL_AVAILABLE_FLAT_SOURCE_FILES"
+      }
+    },
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/runs/FRESH-R2-D01-PNT/checkpoint-00017",
+      "elapsed_seconds": 1021.3309539984912,
+      "generated_tokens": 20166,
+      "receipt": {
+        "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+        "quiesced": false,
+        "atomic_directory_snapshot_claimed": false,
+        "files": [
+          {
+            "path": "certlib.py",
+            "bytes": 3427,
+            "sha256": "1f50b9f3f970a5d7025f2d49014a8f6cb8a691e3c50239e9393661bc695dbf84"
+          },
+          {
+            "path": "LOCK.json",
+            "bytes": 218,
+            "sha256": "b9e32badb7affef8bd818b644a3883657b91988162eb72e4841d19a0695a9534"
+          },
+          {
+            "path": "work-notes.md",
+            "bytes": 841,
+            "sha256": "d4f39200b3170b647a19028fdbd48315b9381b38e3bd5e7a7874b57c43f4d2c9"
+          },
+          {
+            "path": "count.cpp",
+            "bytes": 609,
+            "sha256": "2bafcdde969f8ef9050c9b285a4136469807c7c538f38f824d83f623115758f5"
+          }
+        ],
+        "skipped": [],
+        "mathematical_validity": "UNASSESSED",
+        "listing": {
+          "id": "trusted-export-43",
+          "result": {
+            "entries": [
+              {
+                "fileName": "certlib.py",
+                "isDirectory": false,
+                "isFile": true
+              },
+              {
+                "fileName": "LOCK.json",
+                "isDirectory": false,
+                "isFile": true
+              },
+              {
+                "fileName": "work-notes.md",
+                "isDirectory": false,
+                "isFile": true
+              },
+              {
+                "fileName": "count.cpp",
+                "isDirectory": false,
+                "isFile": true
+              }
+            ]
+          }
+        },
+        "status": "SAVED_ALL_AVAILABLE_FLAT_SOURCE_FILES"
+      }
+    }
+  ],
+  "research_stage_submitted": false,
+  "assessment_status": "INTERRUPTED",
+  "milestone_is_hard_cap": false,
+  "generated_token_disqualification": false,
+  "operation_limit": null,
+  "response_limit": null,
+  "wall_admission_limit": null,
+  "mathematical_validity": "NOT_INFERRED_FROM_RESEARCH_SUBMISSION",
+  "native_stderr_metadata": {
+    "bytes": 638,
+    "sha256": "1eef9addedc25cf5803884f9a5bfa410b85a2bbb6444dfdaeaf9e0d76f053516"
+  },
+  "raw_program_transport_sha256": "bd5360f180d7ff61b3a32183cabb12e380a5f596bd094eaa966b1bb7490743a8",
+  "private_profile_removed": true
+}

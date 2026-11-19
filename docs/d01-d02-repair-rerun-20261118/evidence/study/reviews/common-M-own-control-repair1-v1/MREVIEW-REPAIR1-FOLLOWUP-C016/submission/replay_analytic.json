@@ -1,0 +1,223 @@
+{
+  "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+  "libmpdec": "2.5.1",
+  "environment_overrides": {
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "LC_ALL": "C"
+  },
+  "runs": [
+    {
+      "cmd": [
+        "/usr/bin/g++",
+        "--version"
+      ],
+      "cwd": "/work/exact-review",
+      "elapsed_s": 0.001,
+      "status": 0,
+      "stdout": "g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0\nCopyright (C) 2021 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+      "stderr": "",
+      "stdout_sha256": "9eaf9b7f4b11c2e84e2478c2ceb0e4f48f4ba88565bcfc832b3bce49847dda6d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "cmd": [
+        "/usr/bin/g++",
+        "-O3",
+        "-Wall",
+        "-Wextra",
+        "-std=c++17",
+        "pcount.cpp",
+        "-o",
+        "/work/pcount"
+      ],
+      "cwd": "/work/exact-review",
+      "elapsed_s": 0.14,
+      "status": 0,
+      "stdout": "",
+      "stderr": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "binary": "/work/pcount",
+      "sha256": "5cf7a87621be9538d52b563ca56e3691b5a7e63dc2da407dbf38ad895128e38c"
+    },
+    {
+      "cmd": [
+        "/usr/bin/python3.10",
+        "endpoint.py"
+      ],
+      "cwd": "/work/exact-review",
+      "elapsed_s": 0.59,
+      "status": 0,
+      "stdout": "38358837682 1644673232\n38358837683 1644673232\n14111427770 632207037\nN + 0 [-14736927.8998602545137494736040436017600104,-14736927.8998602545137494736040436017600097]\nN + 0.217926365 [-0.0097822515318033747705965367946070,-0.0097822515318033747705965367946060]\nN + 0.217926366 [0.0578411766388833557148060977743892,0.0578411766388833557148060977743899]\nN + 1 [52886500.2708069441962998095082066009165738,52886500.2708069441962998095082066009165749]\n",
+      "stderr": "",
+      "stdout_sha256": "bf77b32c2a3a7396c4693af73aee4329ea036978bdeae5aa9f07e54280545b44",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected": "endpoint_receipt.txt",
+      "expected_sha256": "bf77b32c2a3a7396c4693af73aee4329ea036978bdeae5aa9f07e54280545b44",
+      "byte_equal": true
+    },
+    {
+      "cmd": [
+        "/usr/bin/python3.10",
+        "ram_early.py"
+      ],
+      "cwd": "/work/exact-review",
+      "elapsed_s": 3.459,
+      "status": 0,
+      "stdout": "early [0] 3947/100 signed 5.504501761E-2\nearly [0] 397/10 absolute 1.186764361E-1\nearly [Fraction(1, 2)] 409/10 absolute 1.664598965E-2\nearly [Fraction(9, 10)] 213/5 absolute 3.876816382E-2\nearly [1] 216/5 absolute 2.749347720E-2\nearly [1, 14] 477/10 absolute 4.627149448E-3\nearly [1, 14, 78] 247/5 absolute 2.277424568E-3\n",
+      "stderr": "",
+      "stdout_sha256": "ffa558995f67e9715aac78259698452eb797994137290e309601eccea3916c46",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected": "early_receipt.txt",
+      "expected_sha256": "ffa558995f67e9715aac78259698452eb797994137290e309601eccea3916c46",
+      "byte_equal": true
+    },
+    {
+      "cmd": [
+        "/usr/bin/python3.10",
+        "cert.py"
+      ],
+      "cwd": "/work/exact-review",
+      "elapsed_s": 282.518,
+      "status": 0,
+      "stdout": "ODE order 27 at 34 verified\nfinite 0 [0] slack 1.81493951E-2 at 186/5\nfinite 0 [Fraction(1, 2)] slack 3.29912823E-2 at 77/2\nearly signed finite branch verified\nfinite 0 [0] slack 3.10504894E-2 at 397/10\nfinite 0 [0] slack 5.41122601E-2 at 159/4\ntail 0 L>= 240 leading residual degree 0\nfinite 0 [Fraction(1, 2)] slack 9.48224225E-3 at 409/10\nfinite 0 [Fraction(1, 2)] slack 4.05966027E-2 at 41\ntail 0 L>= 240 leading residual degree 0\nfinite 0 [Fraction(9, 10)] slack 1.72702161E-2 at 213/5\nfinite 0 [Fraction(9, 10)] slack 2.02306159E-2 at 341/8\ntail 0 L>= 240 leading residual degree 0\nfinite 0 [1] slack 9.44969242E-3 at 216/5\nfinite 0 [1] slack 1.52963082E-2 at 173/4\ntail 0 L>= 240 leading residual degree 1\nfinite 0 [1, 14] slack 1.21251312E-3 at 477/10\nfinite 0 [1, 14] slack 2.09302247E-4 at 1513/8\ntail 0 L>= 240 leading residual degree 2\nfinite 0 [1, 14, 5] slack 6.04823724E-3 at 48\nfinite 0 [1, 14, 5] slack 6.96981297E-5 at 1513/8\ntail 0 L>= 240 leading residual degree 2\nfinite 0 [1, 14, 7] slack 2.94293460E-2 at 247/5\nfinite 0 [1, 14, 7] slack 1.38564827E-5 at 1513/8\ntail 0 L>= 240 leading residual degree 2\nfinite 1 [1, 14, 78] slack 4.52710947E-4 at 247/5\nfinite 1 [1, 14, 78] slack 7.09699277E-5 at 1351/8\ntail 1 L>= 240 leading residual degree 2\nfinite 0 [1, 14, 100] slack 1.98474008E-5 at 2001/10\nfinite 0 [1, 14, 100] slack 2.15908793E-5 at 1601/8\ntail 0 L>= 250 leading residual degree 2\nfinite 1 [1, 14, 100] slack 4.16267025E-5 at 172\nfinite 1 [1, 14, 100] slack 6.92556919E-5 at 1377/8\ntail 1 L>= 230 leading residual degree 2\nfinite 0 [1, 14, 145] slack 5.23756023E-6 at 221\nfinite 0 [1, 14, 145] slack 6.79368459E-6 at 1769/8\ntail 0 L>= 270 leading residual degree 3\nfinite 1 [1, 14, 145] slack 7.92435775E-6 at 187\nfinite 1 [1, 14, 145] slack 1.12559972E-5 at 1497/8\ntail 1 L>= 240 leading residual degree 3\nfinite 0 [1, 14, 145, 1412] slack 6.68264001E-8 at 254\nfinite 0 [1, 14, 145, 1412] slack 1.07242422E-7 at 2033/8\ntail 0 L>= 310 leading residual degree 4\nfinite 1 [1, 14, 145, 1412] slack 2.21068740E-7 at 423/2\nfinite 1 [1, 14, 145, 1412] slack 3.27448301E-7 at 1693/8\ntail 1 L>= 270 leading residual degree 4\nfinite 0 [1, 14, 145, 1412, 13985] slack 3.36054084E-9 at 577/2\nfinite 0 [1, 14, 145, 1412, 13985] slack 4.20431584E-9 at 2309/8\ntail 0 L>= 335 leading residual degree 5\nfinite 1 [1, 14, 145, 1412, 13985] slack 9.20666544E-9 at 237\nfinite 1 [1, 14, 145, 1412, 13985] slack 1.20793869E-8 at 1897/8\ntail 1 L>= 300 leading residual degree 5\nfinite 0 [1, 14, 145, 1412, 13985, 145450] slack 8.06829549E-11 at 647/2\nfinite 0 [1, 14, 145, 1412, 13985, 145450] slack 9.66924942E-11 at 2589/8\ntail 0 L>= 380 leading residual degree 6\nfinite 1 [1, 14, 145, 1412, 13985, 145450] slack 2.79291763E-10 at 263\nfinite 1 [1, 14, 145, 1412, 13985, 145450] slack 3.49712938E-10 at 2105/8\ntail 1 L>= 320 leading residual degree 6\nhigh profile 10 359 579/2\nhigh profile 11 789/2 316\nhigh profile 12 430 685/2\nhigh profile 13 466 739/2\nhigh profile 14 1005/2 793/2\nhigh profile 15 1077/2 847/2\nhigh profile 16 575 901/2\nhigh profile 17 611 478\nhigh profile 18 1295/2 505\nhigh profile 19 684 1065/2\nhigh profile 20 1441/2 1119/2\nhigh profile 21 757 587\nhigh profile 22 1587/2 614\nhigh profile 23 830 1283/2\nhigh profile 24 1733/2 669\nhigh profile 25 903 1393/2\nhigh profile 26 1879/2 724\n",
+      "stderr": "",
+      "stdout_sha256": "b7cf8d543924a8631202cfcaf6cd1c03ad024546075a27c105735d8891a78af2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected": "ram_receipt.txt",
+      "expected_sha256": "b7cf8d543924a8631202cfcaf6cd1c03ad024546075a27c105735d8891a78af2",
+      "byte_equal": true
+    },
+    {
+      "cmd": [
+        "/usr/bin/python3.10",
+        "mertens.py"
+      ],
+      "cwd": "/work/exact-review",
+      "elapsed_s": 11.866,
+      "status": 0,
+      "stdout": "B0 early inverse-log coefficients from exp(21.41) to exp(200):\n299/10 4.646525594E-2 4.646514690E-2 4.772478260E-2\n58 3.509743801E-2 3.509741512E-2 3.421556582E-2\n190 1.213334042E-6 1.213334042E-6 1.203766007E-6\n200 2.965470959E-7 2.965470959E-7 2.950737341E-7\npure 0 155 .224 2.231934440E-1 2.231934440E-1 2.221811177E-1\npure 0 180 .026 2.568693514E-2 2.568693514E-2 2.566266461E-2\npure 0 190 .02053 2.052645368E-2 2.052645368E-2 2.052108426E-2\npure 0 200 .01880 1.879012248E-2 1.879012248E-2 1.878894390E-2\npure 0 240 .01650 1.649850306E-2 1.649850306E-2 1.649850050E-2\npure 0 300 .01491 1.490118668E-2 1.490118668E-2 1.490118668E-2\npure 0 500 .01292 1.291464217E-2 1.291464217E-2 1.291464217E-2\npure 0 1000 .01174 1.173272559E-2 1.173272559E-2 1.173272559E-2\npure 0 5000 .01097 1.096613280E-2 1.096613280E-2 1.096613280E-2\npure 1 155 .517 5.168626313E-1 5.168626313E-1 5.159436867E-1\npure 1 169 .327 3.261869593E-1 3.261869593E-1 3.260701054E-1\npure 1 180 .289 2.881724908E-1 2.881724908E-1 2.881493258E-1\npure 1 200 .260 2.597252703E-1 2.597252703E-1 2.597239736E-1\npure 1 240 .231 2.309930970E-1 2.309930970E-1 2.309930880E-1\npure 1 300 .209 2.083654055E-1 2.083654055E-1 2.083654055E-1\npure 1 500 .181 1.804558324E-1 1.804558324E-1 1.804558324E-1\npure 1 1000 .165 1.640222859E-1 1.640222859E-1 1.640222859E-1\npure 1 5000 .153 1.518757528E-1 1.518757528E-1 1.518757528E-1\nfixed-error onsets 0 190 186\nfixed-error onsets 1 170 167\nat 0 169 pointwise cert: 1.921884912E-13 1.921884912E-13 3.239535281E-11\nat 0 180 pointwise cert: 2.414426233E-14 2.414426233E-14 4.341860894E-12\nat 0 190 pointwise cert: 5.236804695E-15 5.236804695E-15 9.947326168E-13\nat 0 200 pointwise cert: 1.304780831E-15 1.304780831E-15 2.609397982E-13\nat 0 240 pointwise cert: 6.432782133E-18 6.432782133E-18 1.543867472E-15\nat 0 300 pointwise cert: 2.570730377E-21 2.570730377E-21 7.712191130E-19\nat 0 500 pointwise cert: 1.856552583E-32 1.856552583E-32 9.282762913E-30\nat 1 169 pointwise cert: 6.568878467E-15 6.568878467E-15 1.109742762E-12\nat 1 180 pointwise cert: 9.768946062E-16 9.768946062E-16 1.758268940E-13\nat 1 190 pointwise cert: 1.826086843E-16 1.826086843E-16 3.469495976E-14\nat 1 200 pointwise cert: 3.481622271E-17 3.481622271E-17 6.963209777E-15\nat 1 240 pointwise cert: 4.981322831E-20 4.981322831E-20 1.195517433E-17\nat 1 300 pointwise cert: 3.048951539E-24 3.048951539E-24 9.146854616E-22\nat 1 500 pointwise cert: 4.247608882E-38 4.247608882E-38 2.123804441E-35\n",
+      "stderr": "",
+      "stdout_sha256": "308637aa40813f51b97bd54ee230bd478022f397d6b3273cc518cc8d00c37ddf",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected": "mertens_receipt.txt",
+      "expected_sha256": "308637aa40813f51b97bd54ee230bd478022f397d6b3273cc518cc8d00c37ddf",
+      "byte_equal": true
+    },
+    {
+      "cmd": [
+        "/usr/bin/python3.10",
+        "anchor.py"
+      ],
+      "cwd": "/work/exact-review",
+      "elapsed_s": 44.039,
+      "status": 0,
+      "stdout": "anchor bridge from x=2e9 through L=23.3 2.212929608E-2 2.212927672E-2 2.107416093E-2\nfollowup through L= 299/10 2.194751108E-2 2.194749208E-2 2.211241113E-2\nfollowup through L= 58 1.101660370E-2 1.101660144E-2 1.007423106E-2\nfollowup through L= 190 1.212040088E-6 1.212040088E-6 1.202911211E-6\nfollowup through L= 200 2.963277383E-7 2.963277383E-7 2.949282043E-7\n",
+      "stderr": "",
+      "stdout_sha256": "2a8b6de5f04e93862c53c657cc201077a1aa34eb6d56d2f960a43af5da5fcf4e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected": "anchor_receipt.txt",
+      "expected_sha256": "2a8b6de5f04e93862c53c657cc201077a1aa34eb6d56d2f960a43af5da5fcf4e",
+      "byte_equal": true
+    },
+    {
+      "cmd": [
+        "/usr/bin/python3.10",
+        "bridge14.py"
+      ],
+      "cwd": "/work/exact-review",
+      "elapsed_s": 43.949,
+      "status": 0,
+      "stdout": "anchor bridge from x=2e9 through L=23.3 2.212929608E-2 2.212927672E-2 2.107416093E-2\nfollowup through L= 299/10 2.194751108E-2 2.194749208E-2 2.211241113E-2\nfollowup through L= 58 1.101660370E-2 1.101660144E-2 1.007423106E-2\nfollowup through L= 190 1.212040088E-6 1.212040088E-6 1.202911211E-6\nfollowup through L= 200 2.963277383E-7 2.963277383E-7 2.949282043E-7\n",
+      "stderr": "",
+      "stdout_sha256": "2a8b6de5f04e93862c53c657cc201077a1aa34eb6d56d2f960a43af5da5fcf4e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected": "bridge14_receipt.txt",
+      "expected_sha256": "2a8b6de5f04e93862c53c657cc201077a1aa34eb6d56d2f960a43af5da5fcf4e",
+      "byte_equal": true
+    },
+    {
+      "cmd": [
+        "/usr/bin/python3.10",
+        "bridge_opt.py"
+      ],
+      "cwd": "/work/exact-review",
+      "elapsed_s": 131.084,
+      "status": 0,
+      "stdout": "anchor bridge from x=2e9 through L=23.3 2.212929608E-2 2.212927672E-2 2.107416093E-2\nfollowup through L= 299/10 2.194751108E-2 2.194749208E-2 2.211241113E-2\nfollowup through L= 58 1.101660370E-2 1.101660144E-2 1.007423106E-2\nfollowup through L= 190 1.212040088E-6 1.212040088E-6 1.202911211E-6\nfollowup through L= 200 2.963277383E-7 2.963277383E-7 2.949282043E-7\nopt through 24 2.208381035E-2 2.208379103E-2 2.126524135E-2\nopt through 299/10 1.804439511E-2 1.804438334E-2 1.831255148E-2\nopt through 58 1.100797496E-2 1.100797270E-2 1.006896995E-2\nopt through 190 1.211824538E-6 1.211824538E-6 1.202768775E-6\nopt through 200 2.962911893E-7 2.962911893E-7 2.949039529E-7\n",
+      "stderr": "",
+      "stdout_sha256": "90ce18feec16df491ab4abfe5746d18b738c733191c4341c82f087fd956ed403",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected": "bridge_opt_receipt.txt",
+      "expected_sha256": "90ce18feec16df491ab4abfe5746d18b738c733191c4341c82f087fd956ed403",
+      "byte_equal": true
+    },
+    {
+      "cmd": [
+        "/usr/bin/python3.10",
+        "repair_ram.py"
+      ],
+      "cwd": "/work/exact-review",
+      "elapsed_s": 30.665,
+      "status": 0,
+      "stdout": "ODE order 70 at 95 verified\nprofile 26 1879/2 1447/2\nprofile 27 976 751\nprofile 30 1086 1667/2\nprofile 35 2539/2 971\nprofile 40 1453 2217/2\nprofile 45 3273/2 1246\nprofile 50 1820 2767/2\nprofile 55 4007/2 3043/2\nprofile 60 4375/2 1659\nprofile 65 4743/2 1797\nprofile 69 5037/2 1907\nmargin 100 B0 onset 3199/16 tail 403/2\nmargin 100 B1 onset 2749/16 tail 693/4\nmargin 145 B0 onset 3529/16 tail 221\nmargin 145 B1 onset 2987/16 tail 749/4\n",
+      "stderr": "",
+      "stdout_sha256": "ac3438bf0ba74e386926cf8f2f5f5638f3a6f018f067c3466ad45bef087c8841",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected": "repair_ram_receipt.txt",
+      "expected_sha256": "ac3438bf0ba74e386926cf8f2f5f5638f3a6f018f067c3466ad45bef087c8841",
+      "byte_equal": true
+    },
+    {
+      "cmd": [
+        "/usr/bin/python3.10",
+        "fixed49.py"
+      ],
+      "cwd": "/work/exact-review",
+      "elapsed_s": 74.61,
+      "status": 0,
+      "stdout": "fixed L>=49.1 0 15/2 slacks 3.14572353E-2 3.37098051E-2 1.51795338E-6\nfixed L>=49.1 1 799/10 slacks 1.44493964E-3 4.34006792E-3 4.44564637E-6\n",
+      "stderr": "",
+      "stdout_sha256": "6d8bf69a97a781ede0872ac6e298fba830a01a726eb4399ee11013a9b1962068",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected": "fixed49_receipt.txt",
+      "expected_sha256": "6d8bf69a97a781ede0872ac6e298fba830a01a726eb4399ee11013a9b1962068",
+      "byte_equal": true
+    },
+    {
+      "cmd": [
+        "/usr/bin/python3.10",
+        "m_tail_extra.py"
+      ],
+      "cwd": "/work/exact-review",
+      "elapsed_s": 1.22,
+      "status": 0,
+      "stdout": "clean 0 155 .22320\nclean 0 200 .018791\nfixed 0 first 1e-14 1485/8 9.951397783E-15\nfixed 0 weighted 1e-12 190 9.947326168E-13\nclean 1 155 .51687\nclean 1 169 .32619\nclean 1 200 .25973\nfixed 1 first 1e-14 2667/16 9.977919073E-15\nfixed 1 weighted 1e-12 1357/8 9.963036042E-13\n",
+      "stderr": "",
+      "stdout_sha256": "c45b57aa2465dd9018f39530513f6d86e3b34a454fcf639d6531f19e8dc92354",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected": "m_tail_extra_receipt.txt",
+      "expected_sha256": "c45b57aa2465dd9018f39530513f6d86e3b34a454fcf639d6531f19e8dc92354",
+      "byte_equal": true
+    },
+    {
+      "cmd": [
+        "/usr/bin/python3.10",
+        "cert.py",
+        "--high"
+      ],
+      "cwd": "/work/exact-review",
+      "elapsed_s": 27.679,
+      "status": 0,
+      "stdout": "high profile 10 359 579/2\nhigh profile 11 789/2 316\nhigh profile 12 430 685/2\nhigh profile 13 466 739/2\nhigh profile 14 1005/2 793/2\nhigh profile 15 1077/2 847/2\nhigh profile 16 575 901/2\nhigh profile 17 611 478\nhigh profile 18 1295/2 505\nhigh profile 19 684 1065/2\nhigh profile 20 1441/2 1119/2\nhigh profile 21 757 587\nhigh profile 22 1587/2 614\nhigh profile 23 830 1283/2\nhigh profile 24 1733/2 669\nhigh profile 25 903 1393/2\nhigh profile 26 1879/2 724\n",
+      "stderr": "",
+      "stdout_sha256": "b504df3f045b5d6e4d7872c1ab5c18b49572c95417e61d0b80c8f6362f25e25a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected": "high_receipt.txt",
+      "expected_sha256": "b504df3f045b5d6e4d7872c1ab5c18b49572c95417e61d0b80c8f6362f25e25a",
+      "byte_equal": true
+    }
+  ]
+}

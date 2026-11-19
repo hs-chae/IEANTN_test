@@ -1,0 +1,707 @@
+{
+  "status": "COMPLETE",
+  "restores": [
+    {
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "/task/RESTORE_CANDIDATE.py",
+        "--out",
+        "/work/reviewer_exact"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "f36833cc6088f91ea4c2e29b67e1eb00ce8002211e77d2be846cb9dd210a9a6f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "jobs": [
+    {
+      "job_id": "restore-own-prefixed-stages",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "-c",
+        "from pathlib import Path\nimport json\ns=Path('/work/reviewer_exact');i=json.loads(Path('/task/CANDIDATE_INDEX.json').read_text())['candidate_files']\n(s/'LOCK.json').write_text(json.dumps({'files':[{'path':r['original_name'],'sha256':r['sha256']}for r in i]}))\nr=Path('/work/portfolio-replay-hngjw5vx');r.mkdir()\nfor stage in ['D01','D02']:\n d=r/stage;d.mkdir()\n for f in s.glob(stage+'_*'):(d/f.name.split('_',1)[1]).write_bytes(f.read_bytes())\nprint('EXACT_ORIGINAL_PREFIX_STAGE_BYTES_RESTORED')\n"
+      ],
+      "cwd": "/work/reviewer_exact",
+      "exit_code": 0,
+      "seconds": 0.03174182400107384,
+      "stdout_sha256": "86942c70009e44f8cbcb5b156fd41237d2056e16de8c3edb785dc0af392d503a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "86942c70009e44f8cbcb5b156fd41237d2056e16de8c3edb785dc0af392d503a",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "gap_d02-py-base",
+      "argv": [
+        "/usr/bin/python3.10",
+        "gap_d02.py",
+        "base"
+      ],
+      "cwd": "/work/reviewer_exact",
+      "exit_code": 0,
+      "seconds": 27.461199497804046,
+      "stdout_sha256": "a13c018cd30f9fc0e18ddca0bd9a974eb19237a0fca4fbd799aa265186399cbe",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "a13c018cd30f9fc0e18ddca0bd9a974eb19237a0fca4fbd799aa265186399cbe",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "gap_d02-py-new",
+      "argv": [
+        "/usr/bin/python3.10",
+        "gap_d02.py",
+        "new"
+      ],
+      "cwd": "/work/reviewer_exact",
+      "exit_code": 0,
+      "seconds": 17.296266950666904,
+      "stdout_sha256": "100db25fe6dcdf05f5fdee783ef9bc5fcad54a9ad98752fcfce74edc3d92c693",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "100db25fe6dcdf05f5fdee783ef9bc5fcad54a9ad98752fcfce74edc3d92c693",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "gap_d02-py-high",
+      "argv": [
+        "/usr/bin/python3.10",
+        "gap_d02.py",
+        "high"
+      ],
+      "cwd": "/work/reviewer_exact",
+      "exit_code": 0,
+      "seconds": 20.684443587437272,
+      "stdout_sha256": "13cb38f90f5fa0b2fc929224678bf1f985672e12c73e5eb42d558a20c79aa456",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "13cb38f90f5fa0b2fc929224678bf1f985672e12c73e5eb42d558a20c79aa456",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "extra_gap-py-far",
+      "argv": [
+        "/usr/bin/python3.10",
+        "extra_gap.py",
+        "far"
+      ],
+      "cwd": "/work/reviewer_exact",
+      "exit_code": 0,
+      "seconds": 1.1197506450116634,
+      "stdout_sha256": "cd387c2f22743379a872f28427d17799db47eaff5f1c225671105205997bf021",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "cd387c2f22743379a872f28427d17799db47eaff5f1c225671105205997bf021",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "extra_gap-py-try",
+      "argv": [
+        "/usr/bin/python3.10",
+        "extra_gap.py",
+        "try"
+      ],
+      "cwd": "/work/reviewer_exact",
+      "exit_code": 0,
+      "seconds": 19.74885942041874,
+      "stdout_sha256": "50596bd5d6d1aee9eb127bd13be348f512cba2816bf465e40f4b3760f95bca03",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "50596bd5d6d1aee9eb127bd13be348f512cba2816bf465e40f4b3760f95bca03",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "mertens_d02-py-analytic",
+      "argv": [
+        "/usr/bin/python3.10",
+        "mertens_d02.py",
+        "analytic"
+      ],
+      "cwd": "/work/reviewer_exact",
+      "exit_code": 0,
+      "seconds": 2.419651633128524,
+      "stdout_sha256": "ab4d551db8ba526f52585ba282bd53ad83f8be632b423f171b577723213ac401",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "ab4d551db8ba526f52585ba282bd53ad83f8be632b423f171b577723213ac401",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "mertens_d02-py-log",
+      "argv": [
+        "/usr/bin/python3.10",
+        "mertens_d02.py",
+        "log"
+      ],
+      "cwd": "/work/reviewer_exact",
+      "exit_code": 0,
+      "seconds": 1.808222021907568,
+      "stdout_sha256": "31e7cc53f2ae8c44e2a00f87c960275980ea66118e5467da7ac203b6428bf37d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "31e7cc53f2ae8c44e2a00f87c960275980ea66118e5467da7ac203b6428bf37d",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "mertens_d02-py-weighted-root",
+      "argv": [
+        "/usr/bin/python3.10",
+        "mertens_d02.py",
+        "weighted-root"
+      ],
+      "cwd": "/work/reviewer_exact",
+      "exit_code": 0,
+      "seconds": 0.10514906048774719,
+      "stdout_sha256": "3a2e63aa0c7e6e30ef064960447d0a1f78aa76f6188e2bfc0b1c074378c5fd3e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "3a2e63aa0c7e6e30ef064960447d0a1f78aa76f6188e2bfc0b1c074378c5fd3e",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "mertens_d02-py-three-roots",
+      "argv": [
+        "/usr/bin/python3.10",
+        "mertens_d02.py",
+        "three-roots"
+      ],
+      "cwd": "/work/reviewer_exact",
+      "exit_code": 0,
+      "seconds": 0.21218819729983807,
+      "stdout_sha256": "52df0a6ef87121a906de5d1822cdf803074fb15db61db43218d7155e75044c9c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "52df0a6ef87121a906de5d1822cdf803074fb15db61db43218d7155e75044c9c",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "finite-119",
+      "argv": [
+        "/usr/bin/python3.10",
+        "mertens_d02.py",
+        "finite",
+        "119",
+        ".25665",
+        "unweighted"
+      ],
+      "cwd": "/work/reviewer_exact",
+      "exit_code": 0,
+      "seconds": 2.9886735565960407,
+      "stdout_sha256": "73e9386dea1a30e8cc7dc98165d4366d85b7c757263741e9bd085c2d5530513d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "73e9386dea1a30e8cc7dc98165d4366d85b7c757263741e9bd085c2d5530513d",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "finite-285",
+      "argv": [
+        "/usr/bin/python3.10",
+        "mertens_d02.py",
+        "finite",
+        "285",
+        ".25665"
+      ],
+      "cwd": "/work/reviewer_exact",
+      "exit_code": 0,
+      "seconds": 4.347910083830357,
+      "stdout_sha256": "735723036e3b784572a2c3c4c397cb4b7c6fa1081a3f00017983585dd83a9d7b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "735723036e3b784572a2c3c4c397cb4b7c6fa1081a3f00017983585dd83a9d7b",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "finite-200",
+      "argv": [
+        "/usr/bin/python3.10",
+        "mertens_d02.py",
+        "finite",
+        "200",
+        ".30"
+      ],
+      "cwd": "/work/reviewer_exact",
+      "exit_code": 0,
+      "seconds": 3.8115390427410603,
+      "stdout_sha256": "7adc856d3cc03c86b60b750b6903be159043c0a4a844397726da9c9f892ca00f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "7adc856d3cc03c86b60b750b6903be159043c0a4a844397726da9c9f892ca00f",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "compare",
+      "argv": [
+        "/usr/bin/python3.10",
+        "compare_d02.py"
+      ],
+      "cwd": "/work/reviewer_exact",
+      "exit_code": 0,
+      "seconds": 1.729021530598402,
+      "stdout_sha256": "d4f6ec45447dee313883c6ab8a88367ec90ea9ecfaa4c2b1e01c27da8b01ca6e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "d4f6ec45447dee313883c6ab8a88367ec90ea9ecfaa4c2b1e01c27da8b01ca6e",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "d01-check",
+      "argv": [
+        "/usr/bin/python3.10",
+        "check.py"
+      ],
+      "cwd": "/work/portfolio-replay-hngjw5vx/D01",
+      "exit_code": 0,
+      "seconds": 62.706712460145354,
+      "stdout_sha256": "3eb1e9c4e275c79437e3f675bfd5963bca5b51f08f3723aec1f977a787abac78",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "3eb1e9c4e275c79437e3f675bfd5963bca5b51f08f3723aec1f977a787abac78",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "d01-pi",
+      "argv": [
+        "/usr/bin/python3.10",
+        "pi_exact.py"
+      ],
+      "cwd": "/work/portfolio-replay-hngjw5vx/D01",
+      "exit_code": 0,
+      "seconds": 9.830541543662548,
+      "stdout_sha256": "b8e7c5a4360c1a66730dd160f580aeefdf5fa0115a598ee488859785adbf52d8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "b8e7c5a4360c1a66730dd160f580aeefdf5fa0115a598ee488859785adbf52d8",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "gcc-original",
+      "argv": [
+        "/usr/bin/gcc",
+        "-std=gnu11",
+        "-O3",
+        "-Wall",
+        "-Wextra",
+        "sieve.c",
+        "-o",
+        "/work/portfolio-replay-hngjw5vx/old-sieve"
+      ],
+      "cwd": "/work/portfolio-replay-hngjw5vx/D01",
+      "exit_code": 0,
+      "seconds": 0.2584317158907652,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "d01-sieve",
+      "argv": [
+        "/work/portfolio-replay-hngjw5vx/old-sieve"
+      ],
+      "cwd": "/work/portfolio-replay-hngjw5vx/D01",
+      "exit_code": 0,
+      "seconds": 7.294573048129678,
+      "stdout_sha256": "75be7d2a641a7cefbbaa9a4cec1d425118f28678cafd4b9b4db1c61a783ab169",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "75be7d2a641a7cefbbaa9a4cec1d425118f28678cafd4b9b4db1c61a783ab169",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "d01-endpoints",
+      "argv": [
+        "/usr/bin/python3.10",
+        "endpoints.py"
+      ],
+      "cwd": "/work/portfolio-replay-hngjw5vx/D01",
+      "exit_code": 0,
+      "seconds": 0.053905121982097626,
+      "stdout_sha256": "b110768a847668e134984ccb4956dab9ef88f7872c42e5b7f090867a50466806",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "b110768a847668e134984ccb4956dab9ef88f7872c42e5b7f090867a50466806",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "D02_cert-py",
+      "argv": [
+        "/usr/bin/python3.10",
+        "cert.py"
+      ],
+      "cwd": "/work/portfolio-replay-hngjw5vx/D02",
+      "exit_code": 0,
+      "seconds": 8.761124281212687,
+      "stdout_sha256": "f6381540331bf382f80ccb63417e1a9d240d09d32d4bfc05d7aaf99cd6987962",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "f6381540331bf382f80ccb63417e1a9d240d09d32d4bfc05d7aaf99cd6987962",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "D02_density-py",
+      "argv": [
+        "/usr/bin/python3.10",
+        "density.py"
+      ],
+      "cwd": "/work/portfolio-replay-hngjw5vx/D02",
+      "exit_code": 0,
+      "seconds": 4.075797006487846,
+      "stdout_sha256": "7bfb170d8c3a24665e9a733d5dc3a24a3011f8dca334a4890d736a2b2bd28dac",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "7bfb170d8c3a24665e9a733d5dc3a24a3011f8dca334a4890d736a2b2bd28dac",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "D02_mertens_tail-py",
+      "argv": [
+        "/usr/bin/python3.10",
+        "mertens_tail.py"
+      ],
+      "cwd": "/work/portfolio-replay-hngjw5vx/D02",
+      "exit_code": 0,
+      "seconds": 0.21526910737156868,
+      "stdout_sha256": "a073d5012a888d9ca52f5b639328b6ca111ea524b05081f40fd296f7de6b0f9c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "a073d5012a888d9ca52f5b639328b6ca111ea524b05081f40fd296f7de6b0f9c",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "D02_mertens_sieve-py",
+      "argv": [
+        "/usr/bin/python3.10",
+        "mertens_sieve.py"
+      ],
+      "cwd": "/work/portfolio-replay-hngjw5vx/D02",
+      "exit_code": 0,
+      "seconds": 173.345537584275,
+      "stdout_sha256": "e8878eeecdc0f3cca64100be02894a07ed41cf37f09b7c2c4442372bc3693e61",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "e8878eeecdc0f3cca64100be02894a07ed41cf37f09b7c2c4442372bc3693e61",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "D02_tertiary-py",
+      "argv": [
+        "/usr/bin/python3.10",
+        "tertiary.py"
+      ],
+      "cwd": "/work/portfolio-replay-hngjw5vx/D02",
+      "exit_code": 0,
+      "seconds": 0.03536166623234749,
+      "stdout_sha256": "9c41ab9fd1b7213b3f7ff4af6bd9dab40d95b5fd36f2a3c78a542a684a6245fc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "9c41ab9fd1b7213b3f7ff4af6bd9dab40d95b5fd36f2a3c78a542a684a6245fc",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "gcc-repaired",
+      "argv": [
+        "/usr/bin/gcc",
+        "-std=gnu11",
+        "-O3",
+        "-Wall",
+        "-Wextra",
+        "-fsanitize=undefined",
+        "-fno-sanitize-recover=undefined",
+        "sieve_repaired.c",
+        "-o",
+        "/work/portfolio-replay-hngjw5vx/mertens-fixed"
+      ],
+      "cwd": "/work/reviewer_exact",
+      "exit_code": 0,
+      "seconds": 0.5963949952274561,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "repaired",
+      "argv": [
+        "/work/portfolio-replay-hngjw5vx/mertens-fixed"
+      ],
+      "cwd": "/work/reviewer_exact",
+      "exit_code": 0,
+      "seconds": 9.120301423594356,
+      "stdout_sha256": "6c924cfd87d6dada59e3b431adec6cc384e289932b787e2f65acbac4de4adff8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "6c924cfd87d6dada59e3b431adec6cc384e289932b787e2f65acbac4de4adff8",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "endpoints_repaired",
+      "argv": [
+        "/usr/bin/python3.10",
+        "endpoints.py"
+      ],
+      "cwd": "/work/portfolio-replay-hngjw5vx/D01",
+      "exit_code": 0,
+      "seconds": 0.038486938923597336,
+      "stdout_sha256": "b110768a847668e134984ccb4956dab9ef88f7872c42e5b7f090867a50466806",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "b110768a847668e134984ccb4956dab9ef88f7872c42e5b7f090867a50466806",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "late",
+      "argv": [
+        "/usr/bin/python3.10",
+        "late.py"
+      ],
+      "cwd": "/work/reviewer_exact",
+      "exit_code": 0,
+      "seconds": 0.04956812039017677,
+      "stdout_sha256": "ce39dfc6e7787d3af0ee437a895c5ca682460aaa4636681dfa1e87865bf1d4ac",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "ce39dfc6e7787d3af0ee437a895c5ca682460aaa4636681dfa1e87865bf1d4ac",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "power",
+      "argv": [
+        "/usr/bin/python3.10",
+        "power.py"
+      ],
+      "cwd": "/work/reviewer_exact",
+      "exit_code": 0,
+      "seconds": 2.0507187116891146,
+      "stdout_sha256": "c829465f76b48b2c6df3d81e2b72b1218c50043921f17fba367dea6e6e6c7163",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "c829465f76b48b2c6df3d81e2b72b1218c50043921f17fba367dea6e6e6c7163",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "ram-base",
+      "argv": [
+        "/usr/bin/python3.10",
+        "ram.py"
+      ],
+      "cwd": "/work/reviewer_exact",
+      "exit_code": 0,
+      "seconds": 4.713439101353288,
+      "stdout_sha256": "6febc95e32041550bc87da6ca6f1d82c50a5811e70bca457a4ec3147ae332dd4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "6febc95e32041550bc87da6ca6f1d82c50a5811e70bca457a4ec3147ae332dd4",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "ram-sens",
+      "argv": [
+        "/usr/bin/python3.10",
+        "ram.py",
+        "sensitivity"
+      ],
+      "cwd": "/work/reviewer_exact",
+      "exit_code": 0,
+      "seconds": 3.0512890685349703,
+      "stdout_sha256": "9a2bd66586338847ef6e12384c381a4734758eb4e9f1d9715a64396bbbf3d474",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "9a2bd66586338847ef6e12384c381a4734758eb4e9f1d9715a64396bbbf3d474",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "mertens-new",
+      "argv": [
+        "/usr/bin/python3.10",
+        "mertens_new.py",
+        "/work/portfolio-replay-hngjw5vx/repaired.out"
+      ],
+      "cwd": "/work/reviewer_exact",
+      "exit_code": 0,
+      "seconds": 2.0521849263459444,
+      "stdout_sha256": "3dd94974b7bf54ef848db155f41af4a0dcd518ef4f38210a8417348499e84f05",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "3dd94974b7bf54ef848db155f41af4a0dcd518ef4f38210a8417348499e84f05",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "audit-1",
+      "argv": [
+        "/usr/bin/python3.10",
+        "/work/submission/audit.py",
+        "/work/reviewer_exact",
+        "local"
+      ],
+      "cwd": "/work/reviewer_exact",
+      "exit_code": 0,
+      "seconds": 1.7119630239903927,
+      "stdout_sha256": "f66b8e6c60771c3179e10db75abad6781fad1dfe689c70037f61ad32c85724cb",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "f66b8e6c60771c3179e10db75abad6781fad1dfe689c70037f61ad32c85724cb",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "audit-2",
+      "argv": [
+        "/usr/bin/python3.10",
+        "/work/submission/audit.py",
+        "/work/reviewer_exact",
+        "decimal"
+      ],
+      "cwd": "/work/reviewer_exact",
+      "exit_code": 0,
+      "seconds": 191.3710526395589,
+      "stdout_sha256": "140ad6dfdc7920b4dcbd669479fefe97ba2156444d816ce5b37e25b25ffcfb66",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "140ad6dfdc7920b4dcbd669479fefe97ba2156444d816ce5b37e25b25ffcfb66",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    }
+  ],
+  "external_scope_drain_pending": true,
+  "full_analytic_Lean": false,
+  "source_first_PV": false
+}

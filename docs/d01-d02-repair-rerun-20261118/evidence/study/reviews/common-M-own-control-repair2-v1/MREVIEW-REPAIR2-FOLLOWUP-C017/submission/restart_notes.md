@@ -1,0 +1,7 @@
+# Factual review checkpoints
+- Opened and read TASK, INPUT_CONTRACT, runtime and index, baseline/common permissions, schema and exact own-history disclosure. The first ls was absent; first restore command needed --out; recovered with Python and exact files are under /work/exact.
+- All seven sources have page-marked extracts. Source comparison and analytic walkthrough are in review.md. No other information requested or received.
+- Original PDFs and text hashes checked by replay of source_audit.py. Table checks directly locate each printed cell; the first check's giant FKS row exponent parsing failure is retained separately.
+- Candidate finite/analytic programs run under non-login /bin/bash and /usr/bin/python3.10 against unchanged restored objects, not historical statuses. Reproduction commands are in reproduce.sh. Certificate logs and artifact lock give source and evidence checkpoints.
+- Own history target metadata assists identity reconciliation only; math, statuses and evidence in this submission come from source/proof checks and local replays. Archive counterexample tests and old jump are independent checks of withdrawn assertions.
+- Readiness follow-up: converted all structured source locators to exact /task canonical packet names, preserving LF lines and hashes. The three archived historical claims have byte-identical canonical packet copies. This resolved the alias ambiguity locally without changing the mathematical dispositions or replay evidence.

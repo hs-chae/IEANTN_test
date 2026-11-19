@@ -1,0 +1,5 @@
+# Final restart record
+
+Both application portfolios, computations, and comparisons are ready for independent mathematical review. Begin with candidate.md, spectral.md, ramanujan.md and mertens.md. All proof claims use the original-paper tier and independently authored integer/interval algorithms, not optional Lean artifacts. See notes.md for the commands and remaining specific bottlenecks. The first command did run but lacked ls; Python 3.10 fallback successfully read the packet. All computations and files are offline under /work.
+
+Completed: real endpoint counts and bracket; squared-source order-27 ODE and connected sign join; finite and high-order B0/B1 margin table; Mertens exact-sieve joins to 2e9 with .0223 coefficient and anchored analytic continuation; all-ray spectral bounds with weighted cancellation, and matched premise comparisons. Remaining beyond the present claims: independent review, stronger local anchor/zero-density constants or verification at another trust tier. No blind baseline stage was performed here.

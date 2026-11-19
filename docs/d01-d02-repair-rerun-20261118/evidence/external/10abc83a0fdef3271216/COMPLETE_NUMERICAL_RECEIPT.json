@@ -1,0 +1,1399 @@
+{
+  "status": "ALL_CHILDREN_AND_FULL_ARTIFACTS_REPRODUCED_AWAITING_EXTERNAL_DRAIN",
+  "candidate_id": "FOLLOWUP-C020",
+  "jobs": [
+    {
+      "job_id": "restore-original-aliases",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "-c",
+        "from pathlib import Path\nfor d in ['/work/replay_setup','/work/exact']:\n for alias,orig in [('cert.py','d01_cert.py'),('analytic.py','d02_analytic.py'),('weights.txt','d01_weights.txt')]:\n  p=Path(d)/alias\n  if p.exists()or p.is_symlink():raise ValueError('fresh original alias')\n  p.symlink_to(orig)\nprint('EXACT_ORIGINAL_ALIASES_RESTORED')\n"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 0.019733229652047157,
+      "stdout_sha256": "a896f7bab1bcc7626887b52f6631c6844d8e8eeb6815700481835e758101859c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "a896f7bab1bcc7626887b52f6631c6844d8e8eeb6815700481835e758101859c",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "setup-01",
+      "argv": [
+        "/usr/bin/gcc",
+        "-O3",
+        "d01_endpoint.c",
+        "-o",
+        "d01_endpoint"
+      ],
+      "cwd": "/work/replay_setup",
+      "exit_code": 0,
+      "seconds": 0.06873700581490993,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "setup-02",
+      "argv": [
+        "/usr/bin/gcc",
+        "-O3",
+        "d01_sieve.c",
+        "-o",
+        "d01_sieve"
+      ],
+      "cwd": "/work/replay_setup",
+      "exit_code": 0,
+      "seconds": 0.24111990816891193,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "setup-03",
+      "argv": [
+        "/usr/bin/g++",
+        "-O3",
+        "-std=c++17",
+        "-pthread",
+        "d02_bridge.cpp",
+        "-o",
+        "d02_bridge"
+      ],
+      "cwd": "/work/replay_setup",
+      "exit_code": 0,
+      "seconds": 0.7368085142225027,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "setup-04",
+      "argv": [
+        "/usr/bin/g++",
+        "-O3",
+        "-std=c++17",
+        "-pthread",
+        "d02_count.cpp",
+        "-o",
+        "d02_count"
+      ],
+      "cwd": "/work/replay_setup",
+      "exit_code": 0,
+      "seconds": 0.5670791976153851,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "setup-05",
+      "argv": [
+        "/usr/bin/g++",
+        "-O3",
+        "-std=c++17",
+        "-pthread",
+        "d02_mexact.cpp",
+        "-o",
+        "d02_mexact"
+      ],
+      "cwd": "/work/replay_setup",
+      "exit_code": 0,
+      "seconds": 1.0123015474528074,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "setup-06",
+      "argv": [
+        "/usr/bin/g++",
+        "-O3",
+        "-std=c++17",
+        "-pthread",
+        "d02_mfinite.cpp",
+        "-o",
+        "d02_mfinite"
+      ],
+      "cwd": "/work/replay_setup",
+      "exit_code": 0,
+      "seconds": 0.7766792606562376,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "setup-07",
+      "argv": [
+        "/usr/bin/g++",
+        "-O3",
+        "-std=c++17",
+        "-pthread",
+        "m_coarse.cpp",
+        "-o",
+        "m_coarse"
+      ],
+      "cwd": "/work/replay_setup",
+      "exit_code": 0,
+      "seconds": 0.7712483126670122,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "setup-08",
+      "argv": [
+        "/usr/bin/g++",
+        "-O3",
+        "-std=c++17",
+        "-pthread",
+        "m_onset.cpp",
+        "-o",
+        "m_onset"
+      ],
+      "cwd": "/work/replay_setup",
+      "exit_code": 0,
+      "seconds": 0.7672229185700417,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "restore-exact-binary-bindings",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "-c",
+        "from pathlib import Path\nimport hashlib,json,shutil\nb=json.loads(Path('/replay/source-root/ieantn-d01-d02-repair-rerun-20261118/reviews/common-M-own-legacy-repair1-v1/MREVIEW-REPAIR1-FOLLOWUP-C020/submission/build_bindings.json').read_text())\nif b['identical_in_exact_and_replay_setup']is not True:raise ValueError('original build association')\nfor name,h in sorted(b['executables_sha256'].items()):\n p=Path('/work/replay_setup')/name\n if hashlib.sha256(p.read_bytes()).hexdigest()!=h:raise ValueError('original binary source/build identity')\n shutil.copyfile(p,Path('/work/exact')/name)\n (Path('/work/exact')/name).chmod(0o700)\nprint('EXACT_SOURCE_LINKED_BINARIES_RESTORED')\n"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 0.021081892773509026,
+      "stdout_sha256": "beafaea2b0f1333c3858ccc30b9feda412c2bb8c1366a78106152ed0a4999556",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "beafaea2b0f1333c3858ccc30b9feda412c2bb8c1366a78106152ed0a4999556",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "ram-00",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "ram_repair.py"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 40.96996472775936,
+      "stdout_sha256": "55b865c43b48321e62afca930059a9f630462584bf816973fc1816d5c8b56eb2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "55b865c43b48321e62afca930059a9f630462584bf816973fc1816d5c8b56eb2",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "ram-01",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "ram_high.py"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 0.8742765877395868,
+      "stdout_sha256": "aa1c1a1569cf63a0643c38c07efc9d0847a000c99dd37c47bbf39a210e66a9f3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "aa1c1a1569cf63a0643c38c07efc9d0847a000c99dd37c47bbf39a210e66a9f3",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "ram-02",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "d01_ram.py"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 6.0224884282797575,
+      "stdout_sha256": "a4a1df5b74db390084e50b9d7e72cdd68c372a39c1a8e14cabcaa214dd3ff76a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "a4a1df5b74db390084e50b9d7e72cdd68c372a39c1a8e14cabcaa214dd3ff76a",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "analytic-00",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "m_repair.py"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 0.4222183730453253,
+      "stdout_sha256": "f726d87e9c0a2c43120cab513308d397c2874eda91aa90bf4cd13fb018b0b0cd",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "f726d87e9c0a2c43120cab513308d397c2874eda91aa90bf4cd13fb018b0b0cd",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "analytic-01",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "m_postreview.py"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 0.5607910118997097,
+      "stdout_sha256": "93dd4285d9a14641a3306b3f790a8d59015b54d02083f5c681d92590d18c58a5",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "93dd4285d9a14641a3306b3f790a8d59015b54d02083f5c681d92590d18c58a5",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "analytic-02",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "d01_cert.py"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 2.7049206774681807,
+      "stdout_sha256": "8ad3c3bbeb52d3812659e1a069a739b7075e883f798f2f59f42c7bf127f2c1ce",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "8ad3c3bbeb52d3812659e1a069a739b7075e883f798f2f59f42c7bf127f2c1ce",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "analytic-03",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "d01_tails.py"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 2.0964508913457394,
+      "stdout_sha256": "f871ff20c7f3926cb7f9ac8a168e3c5a9cc2d912a5e6dbd0b7b5be7d9a549f50",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "f871ff20c7f3926cb7f9ac8a168e3c5a9cc2d912a5e6dbd0b7b5be7d9a549f50",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "analytic-04",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "d01_smooth.py"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 26.9301618039608,
+      "stdout_sha256": "9dfbe4ebc130d80daa4fe6eda98629367ea3793065360037fabca75608200f98",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "9dfbe4ebc130d80daa4fe6eda98629367ea3793065360037fabca75608200f98",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "analytic-05",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "d02_mcheck.py"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 16.609126465395093,
+      "stdout_sha256": "1343e5936ed23bfc6dafcf2953112d283188c971153eda0aa37fec1f8b7d1938",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "1343e5936ed23bfc6dafcf2953112d283188c971153eda0aa37fec1f8b7d1938",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "analytic-06",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "d02_analytic.py",
+        "./d02_count"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 0.7551374305039644,
+      "stdout_sha256": "604b63c65f397ce9bb16dc13459dd280996083492d9d59a31f7e3259c36beb16",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "604b63c65f397ce9bb16dc13459dd280996083492d9d59a31f7e3259c36beb16",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "checks-00",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "/work/submission/proof_checks.py"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 0.3390345871448517,
+      "stdout_sha256": "2c05aaeb9ef5c7410a3d220997340ad8331dce048cf01db07dc381b58cf200fa",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "2c05aaeb9ef5c7410a3d220997340ad8331dce048cf01db07dc381b58cf200fa",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "original_pdf-00",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "/replay/source-root/ieantn-d01-d02-repair-rerun-20261118/coordinator-private/portable-relocation-v2/expanded20-final-cases-preparation-v1/replay_historical_failure.py",
+        "--record",
+        "/replay/source-root/ieantn-d01-d02-repair-rerun-20261118/reviews/common-M-own-legacy-repair1-v1/MREVIEW-REPAIR1-FOLLOWUP-C020/submission/replay_original_pdf.jsonl",
+        "--record-sha",
+        "d482c352d1644042527071ef50522ee60f952f257a221a3534d0bfffcad07e34",
+        "--index",
+        "0",
+        "--jsonl",
+        "--swap-in",
+        "/work/submission/source_layout_attempt.py",
+        "--swap-in-sha",
+        "9dd68384f73548d7509577c1710f27c0daa96456f5351581e03fc3959d278d51",
+        "--swap-target",
+        "/work/submission/source_layout.py"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 0.044830646365880966,
+      "stdout_sha256": "247dddcb9f889213c54ea22196b1d1274bd655cd5bd2da81fc64b56ecc6cfa16",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "247dddcb9f889213c54ea22196b1d1274bd655cd5bd2da81fc64b56ecc6cfa16",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "original_pdf-01",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "/work/submission/source_layout.py"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 0.017623288556933403,
+      "stdout_sha256": "763cb1b42ee326ceaad566034d6532c23020e4669fa226d6749880d487b4363c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "763cb1b42ee326ceaad566034d6532c23020e4669fa226d6749880d487b4363c",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "failed_tests-00",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "/work/submission/failed_tests.py"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 0.5094342231750488,
+      "stdout_sha256": "460bdd74f88afc4df26c36bbe45172c266114cfa0e836cf50b7ce44a6d9232e8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "460bdd74f88afc4df26c36bbe45172c266114cfa0e836cf50b7ce44a6d9232e8",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "sign-00",
+      "argv": [
+        "./d01_endpoint"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 39.64868327230215,
+      "stdout_sha256": "a0cc26f42340f9350407152410b48eaeb4f00226ffee4516a560b27cc8e0b757",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "a0cc26f42340f9350407152410b48eaeb4f00226ffee4516a560b27cc8e0b757",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "sign-01",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "d01_endpoint.py",
+        "root.out"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 0.05208119750022888,
+      "stdout_sha256": "a43bd95c6497bc4ee4e5db14460e0bc6d54c702bbb5735481f12a7b5f54a055d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "a43bd95c6497bc4ee4e5db14460e0bc6d54c702bbb5735481f12a7b5f54a055d",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "sign-02",
+      "argv": [
+        "./d02_bridge",
+        "38358837683",
+        "46063982972"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 17.131411934271455,
+      "stdout_sha256": "ca5ae47eabd5cf3e0428d87f3f5d81438fffa05d9610360e2073737955b2965a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "ca5ae47eabd5cf3e0428d87f3f5d81438fffa05d9610360e2073737955b2965a",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "sign-03",
+      "argv": [
+        "./d02_bridge",
+        "46063982972",
+        "53769128262"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 18.382067885249853,
+      "stdout_sha256": "748e7d7a1935d0fae4f2b7a3b20f0890451d4b814baa80c6ce6f688b581002db",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "748e7d7a1935d0fae4f2b7a3b20f0890451d4b814baa80c6ce6f688b581002db",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "sign-04",
+      "argv": [
+        "./d02_bridge",
+        "53769128262",
+        "61474273551"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 17.11083534732461,
+      "stdout_sha256": "0d500c310d6f1940bc51a79e844d955484617c071af2386ab34e4c45a93c2815",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "0d500c310d6f1940bc51a79e844d955484617c071af2386ab34e4c45a93c2815",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "sign-05",
+      "argv": [
+        "./d02_bridge",
+        "61474273551",
+        "69179418841"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 16.536563955247402,
+      "stdout_sha256": "66d02d2a6d006ab506431e2c733163fa2c8257a4b0136a2385f168d471e2cc76",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "66d02d2a6d006ab506431e2c733163fa2c8257a4b0136a2385f168d471e2cc76",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "sign-06",
+      "argv": [
+        "./d02_bridge",
+        "69179418841",
+        "76884564131"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 15.49474740959704,
+      "stdout_sha256": "162ecf8e8a8b022db5430b93ffa745a85e8e2b54fc60af623b5e5f56775399e5",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "162ecf8e8a8b022db5430b93ffa745a85e8e2b54fc60af623b5e5f56775399e5",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "sign-07",
+      "argv": [
+        "./d02_bridge",
+        "76884564131",
+        "84589709420"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 18.84079012274742,
+      "stdout_sha256": "2e1a0dab84f7d48f13f02954e72a5a2fc622b2e3f151c72f7b613900f3b3823d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "2e1a0dab84f7d48f13f02954e72a5a2fc622b2e3f151c72f7b613900f3b3823d",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "sign-08",
+      "argv": [
+        "./d02_bridge",
+        "84589709420",
+        "92294854710"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 17.64655127376318,
+      "stdout_sha256": "0a69b820c92d6a146c350ecd19fb81a8d3de466110110e2518e93396ae2fa8e5",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "0a69b820c92d6a146c350ecd19fb81a8d3de466110110e2518e93396ae2fa8e5",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "sign-09",
+      "argv": [
+        "./d02_bridge",
+        "92294854710",
+        "100000000000"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 18.241487067192793,
+      "stdout_sha256": "bdbde51d5764e73ed23b58d655980f6ffacbc5d258cba6429a869cbdf9a67350",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "bdbde51d5764e73ed23b58d655980f6ffacbc5d258cba6429a869cbdf9a67350",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "smallfinite-00",
+      "argv": [
+        "./d01_sieve",
+        "1000",
+        "72004899338",
+        "2000",
+        "2000",
+        "2100",
+        "sqrt"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 207.20211759582162,
+      "stdout_sha256": "bf5c5fb67b0e3f372544e888b036626f3d74e98c04c98e1767093e4281da8300",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "bf5c5fb67b0e3f372544e888b036626f3d74e98c04c98e1767093e4281da8300",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "smallfinite-01",
+      "argv": [
+        "./d01_sieve",
+        "1000",
+        "1318815735",
+        "2000",
+        "2000",
+        "2000",
+        "sqrt"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 4.388702491298318,
+      "stdout_sha256": "d2f42e55f879cc98f17eae1ef6792e26ff84c17ce031deefb87650eb50b808bc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "d2f42e55f879cc98f17eae1ef6792e26ff84c17ce031deefb87650eb50b808bc",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "smallfinite-02",
+      "argv": [
+        "./d01_sieve",
+        "240000",
+        "3500000",
+        "500",
+        "500",
+        "500"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 0.15579179301857948,
+      "stdout_sha256": "d75afe1d7481b3190ff85a32092162f3df791ef925e0259926703860f7b01495",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "d75afe1d7481b3190ff85a32092162f3df791ef925e0259926703860f7b01495",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "smallfinite-03",
+      "argv": [
+        "./d01_sieve",
+        "3500000",
+        "13000000",
+        "199",
+        "199",
+        "230"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 0.17482369020581245,
+      "stdout_sha256": "194d2b9e2e267548875d445bb3641f1ccc2088416d024d1b17f4a6123903967e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "194d2b9e2e267548875d445bb3641f1ccc2088416d024d1b17f4a6123903967e",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "smallfinite-04",
+      "argv": [
+        "./d01_sieve",
+        "13000000",
+        "50000000",
+        "130",
+        "130",
+        "170"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 0.2903960794210434,
+      "stdout_sha256": "7469c2cd9e2aadbaafa9239b426b46b09577ced22a94af647df9cc88cb28a884",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "7469c2cd9e2aadbaafa9239b426b46b09577ced22a94af647df9cc88cb28a884",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "smallfinite-05",
+      "argv": [
+        "./d01_sieve",
+        "50000000",
+        "1318815735",
+        "100",
+        "100",
+        "150"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 3.9901608899235725,
+      "stdout_sha256": "dad1efd74da95a117f0b31c50b9b79353b6cde31367a38642797265b604ad79b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "dad1efd74da95a117f0b31c50b9b79353b6cde31367a38642797265b604ad79b",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "early-00",
+      "argv": [
+        "./d02_mexact",
+        "2278381730",
+        "2278382",
+        "20000"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 0.08121834509074688,
+      "stdout_sha256": "096421247a7fa377382a7e039f21f1b3db68bb4fd6af04978b0caaf62de2edb9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "096421247a7fa377382a7e039f21f1b3db68bb4fd6af04978b0caaf62de2edb9",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "early-01",
+      "argv": [
+        "./d02_mexact",
+        "2278381940",
+        "3500000",
+        "19998"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 0.3795990701764822,
+      "stdout_sha256": "212143689d55c3ed1633dc07d74bd6a1b905adb28084c81ba299ca6cef80b41c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "212143689d55c3ed1633dc07d74bd6a1b905adb28084c81ba299ca6cef80b41c",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "early-02",
+      "argv": [
+        "./d02_mexact",
+        "3500000000",
+        "5000000",
+        "18000"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 0.48363273590803146,
+      "stdout_sha256": "51acb6e49f792001ed0025467f2cc2adb1f42caca37df5625b4f2cf214684fee",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "51acb6e49f792001ed0025467f2cc2adb1f42caca37df5625b4f2cf214684fee",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "early-03",
+      "argv": [
+        "./d02_mexact",
+        "5000000000",
+        "18100000",
+        "16000"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 3.211913175880909,
+      "stdout_sha256": "36318d215fb32da74faf951dc433c47175609fc2d0d546e979e4ae67e0d76b8d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "36318d215fb32da74faf951dc433c47175609fc2d0d546e979e4ae67e0d76b8d",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "early-04",
+      "argv": [
+        "./d02_mexact",
+        "w",
+        "912561000",
+        "2278383",
+        "29998"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 0.3995243050158024,
+      "stdout_sha256": "a286b2b7162ec71a131d411d4c9beeee9722a4fb6aed91423f9a45193059589a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "a286b2b7162ec71a131d411d4c9beeee9722a4fb6aed91423f9a45193059589a",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "early-05",
+      "argv": [
+        "./m_onset",
+        "w",
+        "912559998",
+        "2278383",
+        "3000000"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 0.4149071238934994,
+      "stdout_sha256": "b883b904d62558f45bb9146abe4393dbf6b226124cbc780cf9fadd7e62c1be7a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "b883b904d62558f45bb9146abe4393dbf6b226124cbc780cf9fadd7e62c1be7a",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "early-06",
+      "argv": [
+        "./m_onset",
+        "w",
+        "912560000",
+        "2278383",
+        "2999999"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 0.3588929381221533,
+      "stdout_sha256": "35e2b41f64a53ad98e94099463a43ae1e3f953cd25c8083b73c905269d6b772a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "35e2b41f64a53ad98e94099463a43ae1e3f953cd25c8083b73c905269d6b772a",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "early-07",
+      "argv": [
+        "./d02_mfinite",
+        "100000000",
+        "100",
+        "18100000",
+        "40000"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 0.19666027277708054,
+      "stdout_sha256": "1523e5994055f40a7a45017c359586ed098b45b43e11d9a6458e9f7f11b9647f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "1523e5994055f40a7a45017c359586ed098b45b43e11d9a6458e9f7f11b9647f",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "early-08",
+      "argv": [
+        "./d02_mfinite",
+        "1500000000",
+        "60",
+        "111000000",
+        "40000"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 0.5073869079351425,
+      "stdout_sha256": "035478a8986f98e1a7fec1096bfefdf6fa580a357f3e03b32e8bb73d18baa546",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "035478a8986f98e1a7fec1096bfefdf6fa580a357f3e03b32e8bb73d18baa546",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "early-09",
+      "argv": [
+        "./d02_mfinite",
+        "2500000000",
+        "50",
+        "181000000",
+        "40000"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 0.7451392281800508,
+      "stdout_sha256": "aa1cdc2d2a764b65c7c899d1a6ae07db0675f787cb321132392f3ff876d70fde",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "aa1cdc2d2a764b65c7c899d1a6ae07db0675f787cb321132392f3ff876d70fde",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "early-10",
+      "argv": [
+        "./d02_mfinite",
+        "10000000000",
+        "30",
+        "1125000000",
+        "40000"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 2.275217715650797,
+      "stdout_sha256": "3869a80c122cdef7eed786c722b89532cc0cb7ccff10dd9ab581e9f0cfd9e506",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "3869a80c122cdef7eed786c722b89532cc0cb7ccff10dd9ab581e9f0cfd9e506",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "early-11",
+      "argv": [
+        "./d02_mfinite",
+        "10000000000",
+        "11",
+        "4200000000",
+        "8000000"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 11.593402093276381,
+      "stdout_sha256": "3f3e74e32f211339797cf505d14a6981152b6ff2dca965e8ac2630437ff0615d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "3f3e74e32f211339797cf505d14a6981152b6ff2dca965e8ac2630437ff0615d",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "coarse1-00",
+      "argv": [
+        "./m_coarse",
+        "9000000000",
+        "1100",
+        "3200000000",
+        "18000000"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 26.6262485999614,
+      "stdout_sha256": "5a3bdd0218381f20abfeefbc31e8c37ce95779a60f1641a6080262406b20275a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "5a3bdd0218381f20abfeefbc31e8c37ce95779a60f1641a6080262406b20275a",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "coarse1-01",
+      "argv": [
+        "./m_coarse",
+        "9000000000",
+        "1100",
+        "3000000000",
+        "5000000"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 9.54953502677381,
+      "stdout_sha256": "919562da134c38b93b12cd1ddae31bebc05dc6ae0db3a6b53975940d01c6452b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "919562da134c38b93b12cd1ddae31bebc05dc6ae0db3a6b53975940d01c6452b",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "coarse1-02",
+      "argv": [
+        "./m_coarse",
+        "11500000000",
+        "1000",
+        "4760000000",
+        "10000000"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 14.076811406761408,
+      "stdout_sha256": "5d224a0044b475ef8d7788103f341793a7b76322735eb9d92a1598da8aa358a9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "5d224a0044b475ef8d7788103f341793a7b76322735eb9d92a1598da8aa358a9",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "coarse1-03",
+      "argv": [
+        "./m_coarse",
+        "13000000000",
+        "900",
+        "8500000000",
+        "7000000"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 6.672807980328798,
+      "stdout_sha256": "0f45398a6badd3d5682c167a0131d568a2d91f7581e7f8905a5aa342c1507d20",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "0f45398a6badd3d5682c167a0131d568a2d91f7581e7f8905a5aa342c1507d20",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "coarse1-04",
+      "argv": [
+        "./m_coarse",
+        "18000000000",
+        "800",
+        "12000000000",
+        "6000000"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 7.432905212044716,
+      "stdout_sha256": "2eca45c69fdd4897cbd24c8feaf5e8fdf2622591f7340e0441244bde8df0725a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "2eca45c69fdd4897cbd24c8feaf5e8fdf2622591f7340e0441244bde8df0725a",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "coarse1-05",
+      "argv": [
+        "./m_coarse",
+        "26500000000",
+        "700",
+        "16000000000",
+        "5000000"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 9.497840074822307,
+      "stdout_sha256": "c94aab29b2d6b4ec1900f27b6650aabdd3df8353af8c058965f962074f81ae3c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "c94aab29b2d6b4ec1900f27b6650aabdd3df8353af8c058965f962074f81ae3c",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "coarse1-06",
+      "argv": [
+        "./m_coarse",
+        "35500000000",
+        "600",
+        "22000000000",
+        "5500000"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 11.566420920193195,
+      "stdout_sha256": "9b98728a501bab5093a1931b3d6299257e09d7af465b81e398101328da9d084e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "9b98728a501bab5093a1931b3d6299257e09d7af465b81e398101328da9d084e",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "coarse1-07",
+      "argv": [
+        "./m_coarse",
+        "61000000000",
+        "500",
+        "30000000000",
+        "5000000"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 17.528425568714738,
+      "stdout_sha256": "d9f14b741a016cf2207903f9a07196d494677100e91583904afb3b06b720c9b7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "d9f14b741a016cf2207903f9a07196d494677100e91583904afb3b06b720c9b7",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "coarse2-00",
+      "argv": [
+        "./m_coarse",
+        "90000000000",
+        "400",
+        "35000000000",
+        "10000000"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 32.366949712857604,
+      "stdout_sha256": "a2ef8ad724d935398b55f1da7e1af8c0dfa75c2e5fe1296f4250af0e2ac8896f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "a2ef8ad724d935398b55f1da7e1af8c0dfa75c2e5fe1296f4250af0e2ac8896f",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "coarse2-01",
+      "argv": [
+        "./m_coarse",
+        "170000000000",
+        "300",
+        "90000000000",
+        "12000000"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 47.30724293552339,
+      "stdout_sha256": "61bbea52f8aa3c96583eb82e8f7029e53d350ce06e3506bed77b80892369c9ae",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "61bbea52f8aa3c96583eb82e8f7029e53d350ce06e3506bed77b80892369c9ae",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "coarse2-02",
+      "argv": [
+        "./m_coarse",
+        "290000000000",
+        "240",
+        "140000000000",
+        "16000000"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 80.19765567779541,
+      "stdout_sha256": "988c1701a814380f5ac83b406bee12b929f9bc3952e09e15a29d24f274ee317f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "988c1701a814380f5ac83b406bee12b929f9bc3952e09e15a29d24f274ee317f",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "coarse2-03",
+      "argv": [
+        "./m_coarse",
+        "90000000000",
+        "400",
+        "50000000000",
+        "9000000"
+      ],
+      "cwd": "/work/exact",
+      "exit_code": 0,
+      "seconds": 26.426574371755123,
+      "stdout_sha256": "1f8b89d44c9349e77aa5920560a732b149188bf3f6a2519c4da04b400b51ec9b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "1f8b89d44c9349e77aa5920560a732b149188bf3f6a2519c4da04b400b51ec9b",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    }
+  ],
+  "concatenated_artifacts": [],
+  "execution_drained": null,
+  "reservation_released": null,
+  "model_calls": 0,
+  "full_analytic_Lean": false,
+  "source_first_PV": false
+}

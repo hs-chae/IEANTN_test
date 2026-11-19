@@ -1,0 +1,11 @@
+# Common mathematical permissions and conventions
+
+The only external analytic-number-theory literature premises are the exact seven original papers named by SOURCE_INDEX.json, at their original hypotheses, domains and trust tier. All these sources remain available cumulatively. An optional project environment can supply source, proofs and valid consequences of the permitted premises, but an imported proposition, stub, numerical table or outside citation is not automatically a new external mathematical premise. Justify a project result from the permitted sources or give a self-contained proof.
+
+Common foundational mathematics includes classical logic and elementary arithmetic/algebra; finite sums/products and unique factorization; elementary prime and valuation facts; ordinary real and complex analysis, limits, derivatives, integrals, series, justified convergence/interchange and contour/residue arguments with their hypotheses. New self-contained mathematical lemmas and computational algorithms are allowed equally.
+
+Conventions: pi(x) counts primes p<=x; theta(x)=sum log p over p<=x; psi(x)=sum log p over prime powers p^m<=x. All logarithms are natural. Unless explicitly restricted, a real-ray statement includes nonintegers. Preserve each original source's logarithmic-integral normalization and endpoint conventions.
+
+Lean is optional. Mathematical validity is distinct from formal verification. Kernel-only rational checks, native_decide, ordinary certificate checking and executable numerical replay are not source-first PV. A source-first PV claim needs actual C/C++/CUDA source correspondence to formal execution semantics, program correctness and linkage of its verified outputs to the endpoint theorem. Do not label unfinished analytic Lean implications as full formalization.
+
+Use the same generic offline computation tools as the other treatments. Treat published finite computations as inherited literature trust unless independently reverified. Do not add new numerical outputs as an unproved mathematical hypothesis. No external web/search, host tools, other workspaces, prior sessions, personal memory, connectors or worker-created subagents are authorized. Submit reproducible mathematical artifacts and factual work notes, not private reasoning transcripts.

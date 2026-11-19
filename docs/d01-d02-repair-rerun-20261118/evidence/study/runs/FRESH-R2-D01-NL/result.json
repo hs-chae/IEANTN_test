@@ -1,0 +1,1800 @@
+{
+  "utc": "2026-11-18T08:19:21.742067+00:00",
+  "mode": "FOLLOWUP_FRESH_D01_RESEARCH",
+  "task_packet": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/protocol/packets-second-fresh-D01-v1/FRESH-R2-D01-NL",
+  "prompt_sha256": "7f153106dd85e894c30a7563dcad189995ad547f70a1e2852af5fcf378bc01a9",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "service_tier": "default",
+  "source_sha256": "98295216807d7a0c53f9ef439158820b52b45615de12c6426f43ace6a02a4fc3",
+  "credentials_mounted_in_worker": false,
+  "private_reasoning_collected": false,
+  "limits": {
+    "packet_manifest": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/protocol/packets-second-fresh-D01-v1/FRESH-R2-D01-NL.manifest.json",
+    "runtime": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-deep-tertiary-exposure-a-20261117/protocol/runtimes/NL/runtime.json",
+    "out": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/runs/FRESH-R2-D01-NL",
+    "lock": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/protocol/second-fresh-D01-research-v1/FRESH-R2-D01-NL.lock.json",
+    "fixture": false,
+    "check": false,
+    "model": "gpt-6.2-sol",
+    "effort": "high",
+    "output": 500000,
+    "increment": 250000,
+    "memory_gib": 64,
+    "scratch_gib": 24,
+    "cpus": 8,
+    "phase": "FOLLOWUP_FRESH_D01_RESEARCH",
+    "packet": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/protocol/packets-second-fresh-D01-v1/FRESH-R2-D01-NL",
+    "wall": 86400,
+    "operations": null,
+    "responses": null,
+    "fixture_hook_fault": false,
+    "fixture_artifact_name": "canary.txt",
+    "fixture_boundary_steps": 1,
+    "fixture_draft_at": 1,
+    "fixture_budget_prefix": false,
+    "per_response_max_output_tokens": null,
+    "paired_task_seed": 0,
+    "compiler": false,
+    "python_only": false,
+    "environment": "",
+    "python_optimization": 0
+  },
+  "initialize": {
+    "id": 1,
+    "result": {
+      "userAgent": "ieantn-qsl-study-controller/0.170.0 (Ubuntu 22.4.0; x86_64) unknown (ieantn-qsl-study-controller; 1)",
+      "codexHome": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/coordinator-private/controller-temp/ieantn-study-controller-gn619_4b/state",
+      "platformFamily": "unix",
+      "platformOs": "linux"
+    }
+  },
+  "environment_status": {
+    "id": 3,
+    "result": {
+      "status": "ready"
+    }
+  },
+  "model_catalog_observation": {
+    "fixture_provider": false,
+    "offered_ids": [
+      "gpt-6.2-sol",
+      "gpt-6.2-astra",
+      "gpt-6.1-terra",
+      "gpt-6.1-sol",
+      "gpt-6-astra",
+      "gpt-6-sol",
+      "gpt-6-luna",
+      "gpt-5.6-sol",
+      "gpt-5.6-terra",
+      "gpt-5.6-luna"
+    ]
+  },
+  "model_catalog_selection": {
+    "id": "gpt-6.2-sol",
+    "model": "gpt-6.2-sol",
+    "upgrade": null,
+    "upgradeInfo": null,
+    "availabilityNux": null,
+    "displayName": "GPT-6.2-Sol",
+    "description": "Fast, go-to model for coding and everyday work.",
+    "modelSpecialty": null,
+    "hidden": false,
+    "supportedReasoningEfforts": [
+      {
+        "reasoningEffort": "low",
+        "description": "Fast responses with lighter reasoning"
+      },
+      {
+        "reasoningEffort": "medium",
+        "description": "Balances speed and reasoning depth for everyday tasks"
+      },
+      {
+        "reasoningEffort": "high",
+        "description": "Greater reasoning depth for complex problems"
+      },
+      {
+        "reasoningEffort": "xhigh",
+        "description": "Extra high reasoning depth for complex problems"
+      },
+      {
+        "reasoningEffort": "max",
+        "description": "Maximum reasoning depth for the hardest problems"
+      },
+      {
+        "reasoningEffort": "ultra",
+        "description": "Maximum reasoning with automatic task delegation"
+      }
+    ],
+    "defaultReasoningEffort": "low",
+    "inputModalities": [
+      "text",
+      "image",
+      "audio"
+    ],
+    "supportsPersonality": false,
+    "multiAgentVersion": "v2",
+    "additionalSpeedTiers": [
+      "fast"
+    ],
+    "serviceTiers": [
+      {
+        "id": "priority",
+        "name": "Fast",
+        "description": "2x speed, increased usage"
+      }
+    ],
+    "defaultServiceTier": null,
+    "availableAccessPrograms": {
+      "cyber": [
+        "standard"
+      ]
+    },
+    "isDefault": true
+  },
+  "thread_start": {
+    "id": 5,
+    "result": {
+      "thread": {
+        "id": "01a1edbd-340a-76d1-8056-fc4f4be4af59",
+        "environments": [
+          {
+            "environmentId": "assigned-offline-runtime",
+            "cwd": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/coordinator-private/controller-temp/ieantn-study-controller-gn619_4b/cwd",
+            "runtimeWorkspaceRoots": [
+              "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/coordinator-private/controller-temp/ieantn-study-controller-gn619_4b/cwd",
+              "/work"
+            ]
+          }
+        ],
+        "extra": null,
+        "sessionId": "01a1edbd-340a-76d1-8056-fc4f4be4af59",
+        "forkedFromId": null,
+        "attachedToThreadId": null,
+        "parentThreadId": null,
+        "preview": "",
+        "ephemeral": true,
+        "section": null,
+        "sectionEnteredAt": null,
+        "projectId": null,
+        "historyMode": "paginated",
+        "modelProvider": "openai",
+        "model": "gpt-6.2-sol",
+        "reasoningEffort": null,
+        "createdAt": 1794989967,
+        "updatedAt": 1794989967,
+        "recencyAt": 1794989967,
+        "status": {
+          "type": "idle"
+        },
+        "path": null,
+        "cwd": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/coordinator-private/controller-temp/ieantn-study-controller-gn619_4b/cwd",
+        "cliVersion": "0.170.0",
+        "originator": "ieantn-qsl-study-controller",
+        "source": "vscode",
+        "canAcceptDirectInput": true,
+        "threadSource": null,
+        "agentNickname": null,
+        "agentRole": null,
+        "gitInfo": null,
+        "name": null,
+        "daybreakEnabled": null,
+        "turns": []
+      },
+      "model": "gpt-6.2-sol",
+      "modelProvider": "openai",
+      "serviceTier": "default",
+      "disabledPluginIds": [],
+      "cwd": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/coordinator-private/controller-temp/ieantn-study-controller-gn619_4b/cwd",
+      "runtimeWorkspaceRoots": [
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/coordinator-private/controller-temp/ieantn-study-controller-gn619_4b/cwd",
+        "/work"
+      ],
+      "instructionSources": [],
+      "approvalPolicy": "never",
+      "approvalsReviewer": "user",
+      "sandbox": {
+        "type": "dangerFullAccess"
+      },
+      "activePermissionProfile": null,
+      "reasoningEffort": null,
+      "multiAgentMode": "explicitRequestOnly"
+    }
+  },
+  "hooks": {
+    "id": 6,
+    "result": {
+      "data": [
+        {
+          "cwd": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/coordinator-private/controller-temp/ieantn-study-controller-gn619_4b/cwd",
+          "hooks": [
+            {
+              "key": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/coordinator-private/controller-temp/ieantn-study-controller-gn619_4b/state/hooks.json:pre_tool_use:0:0",
+              "eventName": "preToolUse",
+              "handlerType": "command",
+              "command": "/usr/bin/python3.10 -I -B -c '\"\"\"Reviewed generic tool gate. This contains no mathematical task information.\"\"\"\nimport json\nimport sys\n\ntry:\n    raw = sys.stdin.buffer.read(1024 * 1024 + 1)\n    if len(raw) > 1024 * 1024:\n        raise ValueError('\"'\"'oversized hook input'\"'\"')\n    value = json.loads(raw)\n    if not isinstance(value, dict) or value.get('\"'\"'hook_event_name'\"'\"') != '\"'\"'PreToolUse'\"'\"':\n        raise ValueError('\"'\"'unexpected hook event'\"'\"')\n    name = value.get('\"'\"'tool_name'\"'\"')\n    allowed = {'\"'\"'Bash'\"'\"', '\"'\"'apply_patch'\"'\"', '\"'\"'exec'\"'\"', '\"'\"'exec_command'\"'\"', '\"'\"'wait'\"'\"', '\"'\"'write_stdin'\"'\"'}\n    if isinstance(name, str) and name in allowed:\n        print('\"'\"'{}'\"'\"')\n    else:\n        print(json.dumps({'\"'\"'hookSpecificOutput'\"'\"': {'\"'\"'hookEventName'\"'\"': '\"'\"'PreToolUse'\"'\"',\n              '\"'\"'permissionDecision'\"'\"': '\"'\"'deny'\"'\"', '\"'\"'permissionDecisionReason'\"'\"':\n              '\"'\"'This tool is outside the authorized offline research runtime.'\"'\"'}}))\nexcept (ValueError, TypeError, UnicodeError):\n    sys.stderr.write('\"'\"'Malformed tool-policy input is denied.\\n'\"'\"')\n    raise SystemExit(2)\n'",
+              "async": false,
+              "matcher": ".*",
+              "timeoutSec": 30,
+              "statusMessage": null,
+              "additionalContextLimit": null,
+              "sourcePath": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/coordinator-private/controller-temp/ieantn-study-controller-gn619_4b/state/hooks.json",
+              "source": "user",
+              "pluginId": null,
+              "environmentId": null,
+              "displayOrder": 0,
+              "enabled": true,
+              "isManaged": false,
+              "currentHash": "sha256:a8e38c96e2a5a94bc620c70c73490505718bd03ed9b4e983a43e8f369c25a2cb",
+              "trustStatus": "trusted"
+            }
+          ],
+          "warnings": [],
+          "errors": []
+        }
+      ]
+    }
+  },
+  "mcp_registry": {
+    "id": 7,
+    "result": {
+      "data": [],
+      "nextCursor": null
+    }
+  },
+  "turn_start": {
+    "id": 8,
+    "result": {
+      "turn": {
+        "id": "01a1edbd-48ca-78b3-bb9a-cd3f558f346e",
+        "rootTurnId": "01a1edbd-48ca-78b3-bb9a-cd3f558f346e",
+        "items": [],
+        "itemsView": "notLoaded",
+        "status": "inProgress",
+        "error": null,
+        "startedAt": null,
+        "completedAt": null,
+        "durationMs": null
+      }
+    }
+  },
+  "interrupt_error": "Connection lost",
+  "candidate_frozen_elapsed_seconds": 1060.637455092743,
+  "worker_quiescence": {
+    "status": "ASSIGNED_WORKER_COMMANDS_QUIESCED_BEFORE_EXPORT",
+    "stopped": [],
+    "private_init_and_execserver_retained": true
+  },
+  "artifact_export": {
+    "consistent": false,
+    "error": "executor unavailable",
+    "partial_files": []
+  },
+  "deadline_snapshot": {
+    "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+    "quiesced": true,
+    "atomic_directory_snapshot_claimed": false,
+    "files": [],
+    "skipped": [],
+    "mathematical_validity": "UNASSESSED",
+    "status": "PARTIAL_CHECKPOINT_PRESERVED",
+    "error_type": "RuntimeError",
+    "error": "executor unavailable",
+    "controller_locked_incomplete_candidate": true
+  },
+  "turn_completion_statuses": [],
+  "mechanical_submission_gate_passed": false,
+  "stop_reason": "EXTERNAL_INTERRUPTION_CHECKPOINT_PRESERVED",
+  "usage": [
+    {
+      "total": {
+        "totalTokens": 6950,
+        "inputTokens": 6903,
+        "cachedInputTokens": 0,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 47,
+        "reasoningOutputTokens": 0
+      },
+      "last": {
+        "totalTokens": 6950,
+        "inputTokens": 6903,
+        "cachedInputTokens": 0,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 47,
+        "reasoningOutputTokens": 0
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 14143,
+        "inputTokens": 13999,
+        "cachedInputTokens": 6784,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 144,
+        "reasoningOutputTokens": 0
+      },
+      "last": {
+        "totalTokens": 7193,
+        "inputTokens": 7096,
+        "cachedInputTokens": 6784,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 97,
+        "reasoningOutputTokens": 0
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 22170,
+        "inputTokens": 21895,
+        "cachedInputTokens": 13696,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 275,
+        "reasoningOutputTokens": 0
+      },
+      "last": {
+        "totalTokens": 8027,
+        "inputTokens": 7896,
+        "cachedInputTokens": 6912,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 131,
+        "reasoningOutputTokens": 0
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 34426,
+        "inputTokens": 34026,
+        "cachedInputTokens": 21376,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 400,
+        "reasoningOutputTokens": 0
+      },
+      "last": {
+        "totalTokens": 12256,
+        "inputTokens": 12131,
+        "cachedInputTokens": 7680,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 125,
+        "reasoningOutputTokens": 0
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 55327,
+        "inputTokens": 54711,
+        "cachedInputTokens": 33152,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 616,
+        "reasoningOutputTokens": 0
+      },
+      "last": {
+        "totalTokens": 20901,
+        "inputTokens": 20685,
+        "cachedInputTokens": 11776,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 216,
+        "reasoningOutputTokens": 0
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 87615,
+        "inputTokens": 86485,
+        "cachedInputTokens": 53632,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 1130,
+        "reasoningOutputTokens": 340
+      },
+      "last": {
+        "totalTokens": 32288,
+        "inputTokens": 31774,
+        "cachedInputTokens": 20480,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 514,
+        "reasoningOutputTokens": 340
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 124881,
+        "inputTokens": 123349,
+        "cachedInputTokens": 85120,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 1532,
+        "reasoningOutputTokens": 588
+      },
+      "last": {
+        "totalTokens": 37266,
+        "inputTokens": 36864,
+        "cachedInputTokens": 31488,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 402,
+        "reasoningOutputTokens": 248
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 165811,
+        "inputTokens": 163822,
+        "cachedInputTokens": 121728,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 1989,
+        "reasoningOutputTokens": 880
+      },
+      "last": {
+        "totalTokens": 40930,
+        "inputTokens": 40473,
+        "cachedInputTokens": 36608,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 457,
+        "reasoningOutputTokens": 292
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 209877,
+        "inputTokens": 207557,
+        "cachedInputTokens": 161920,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 2320,
+        "reasoningOutputTokens": 1084
+      },
+      "last": {
+        "totalTokens": 44066,
+        "inputTokens": 43735,
+        "cachedInputTokens": 40192,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 331,
+        "reasoningOutputTokens": 204
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 256466,
+        "inputTokens": 253245,
+        "cachedInputTokens": 205440,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 3221,
+        "reasoningOutputTokens": 1871
+      },
+      "last": {
+        "totalTokens": 46589,
+        "inputTokens": 45688,
+        "cachedInputTokens": 43520,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 901,
+        "reasoningOutputTokens": 787
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 304549,
+        "inputTokens": 299957,
+        "cachedInputTokens": 251008,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 4592,
+        "reasoningOutputTokens": 3017
+      },
+      "last": {
+        "totalTokens": 48083,
+        "inputTokens": 46712,
+        "cachedInputTokens": 45568,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 1371,
+        "reasoningOutputTokens": 1146
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 353777,
+        "inputTokens": 348318,
+        "cachedInputTokens": 251008,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 5459,
+        "reasoningOutputTokens": 3771
+      },
+      "last": {
+        "totalTokens": 49228,
+        "inputTokens": 48361,
+        "cachedInputTokens": 0,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 867,
+        "reasoningOutputTokens": 754
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 404029,
+        "inputTokens": 397642,
+        "cachedInputTokens": 297600,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 6387,
+        "reasoningOutputTokens": 4572
+      },
+      "last": {
+        "totalTokens": 50252,
+        "inputTokens": 49324,
+        "cachedInputTokens": 46592,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 928,
+        "reasoningOutputTokens": 801
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 454756,
+        "inputTokens": 448215,
+        "cachedInputTokens": 345728,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 6541,
+        "reasoningOutputTokens": 4622
+      },
+      "last": {
+        "totalTokens": 50727,
+        "inputTokens": 50573,
+        "cachedInputTokens": 48128,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 154,
+        "reasoningOutputTokens": 50
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 506323,
+        "inputTokens": 499064,
+        "cachedInputTokens": 396160,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 7259,
+        "reasoningOutputTokens": 5159
+      },
+      "last": {
+        "totalTokens": 51567,
+        "inputTokens": 50849,
+        "cachedInputTokens": 50432,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 718,
+        "reasoningOutputTokens": 537
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 559269,
+        "inputTokens": 550709,
+        "cachedInputTokens": 446848,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 8560,
+        "reasoningOutputTokens": 6287
+      },
+      "last": {
+        "totalTokens": 52946,
+        "inputTokens": 51645,
+        "cachedInputTokens": 50688,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 1301,
+        "reasoningOutputTokens": 1128
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 613237,
+        "inputTokens": 604417,
+        "cachedInputTokens": 498304,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 8820,
+        "reasoningOutputTokens": 6313
+      },
+      "last": {
+        "totalTokens": 53968,
+        "inputTokens": 53708,
+        "cachedInputTokens": 51456,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 260,
+        "reasoningOutputTokens": 26
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 670716,
+        "inputTokens": 660003,
+        "cachedInputTokens": 551808,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 10713,
+        "reasoningOutputTokens": 8054
+      },
+      "last": {
+        "totalTokens": 57479,
+        "inputTokens": 55586,
+        "cachedInputTokens": 53504,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 1893,
+        "reasoningOutputTokens": 1741
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 730740,
+        "inputTokens": 717560,
+        "cachedInputTokens": 607104,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 13180,
+        "reasoningOutputTokens": 8206
+      },
+      "last": {
+        "totalTokens": 60024,
+        "inputTokens": 57557,
+        "cachedInputTokens": 55296,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 2467,
+        "reasoningOutputTokens": 152
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 792629,
+        "inputTokens": 777675,
+        "cachedInputTokens": 664448,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 14954,
+        "reasoningOutputTokens": 8243
+      },
+      "last": {
+        "totalTokens": 61889,
+        "inputTokens": 60115,
+        "cachedInputTokens": 57344,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 1774,
+        "reasoningOutputTokens": 37
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 856434,
+        "inputTokens": 839691,
+        "cachedInputTokens": 724352,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 16743,
+        "reasoningOutputTokens": 8288
+      },
+      "last": {
+        "totalTokens": 63805,
+        "inputTokens": 62016,
+        "cachedInputTokens": 59904,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 1789,
+        "reasoningOutputTokens": 45
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 920496,
+        "inputTokens": 903648,
+        "cachedInputTokens": 786048,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 16848,
+        "reasoningOutputTokens": 8288
+      },
+      "last": {
+        "totalTokens": 64062,
+        "inputTokens": 63957,
+        "cachedInputTokens": 61696,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 105,
+        "reasoningOutputTokens": 0
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 984771,
+        "inputTokens": 967860,
+        "cachedInputTokens": 849792,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 16911,
+        "reasoningOutputTokens": 8288
+      },
+      "last": {
+        "totalTokens": 64275,
+        "inputTokens": 64212,
+        "cachedInputTokens": 63744,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 63,
+        "reasoningOutputTokens": 0
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 1049608,
+        "inputTokens": 1032213,
+        "cachedInputTokens": 913792,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 17395,
+        "reasoningOutputTokens": 8638
+      },
+      "last": {
+        "totalTokens": 64837,
+        "inputTokens": 64353,
+        "cachedInputTokens": 64000,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 484,
+        "reasoningOutputTokens": 350
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 1116506,
+        "inputTokens": 1098922,
+        "cachedInputTokens": 977792,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 17584,
+        "reasoningOutputTokens": 8792
+      },
+      "last": {
+        "totalTokens": 66898,
+        "inputTokens": 66709,
+        "cachedInputTokens": 64000,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 189,
+        "reasoningOutputTokens": 154
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 1184468,
+        "inputTokens": 1166030,
+        "cachedInputTokens": 1044352,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 18438,
+        "reasoningOutputTokens": 9377
+      },
+      "last": {
+        "totalTokens": 67962,
+        "inputTokens": 67108,
+        "cachedInputTokens": 66560,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 854,
+        "reasoningOutputTokens": 585
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 1253317,
+        "inputTokens": 1234071,
+        "cachedInputTokens": 1111168,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 19246,
+        "reasoningOutputTokens": 10150
+      },
+      "last": {
+        "totalTokens": 68849,
+        "inputTokens": 68041,
+        "cachedInputTokens": 66816,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 808,
+        "reasoningOutputTokens": 773
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 1323048,
+        "inputTokens": 1303544,
+        "cachedInputTokens": 1160320,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 19504,
+        "reasoningOutputTokens": 10234
+      },
+      "last": {
+        "totalTokens": 69731,
+        "inputTokens": 69473,
+        "cachedInputTokens": 49152,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 258,
+        "reasoningOutputTokens": 84
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 1394474,
+        "inputTokens": 1374125,
+        "cachedInputTokens": 1229440,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 20349,
+        "reasoningOutputTokens": 10259
+      },
+      "last": {
+        "totalTokens": 71426,
+        "inputTokens": 70581,
+        "cachedInputTokens": 69120,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 845,
+        "reasoningOutputTokens": 25
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 1466869,
+        "inputTokens": 1445631,
+        "cachedInputTokens": 1297280,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 21238,
+        "reasoningOutputTokens": 11013
+      },
+      "last": {
+        "totalTokens": 72395,
+        "inputTokens": 71506,
+        "cachedInputTokens": 67840,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 889,
+        "reasoningOutputTokens": 754
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 1541892,
+        "inputTokens": 1518069,
+        "cachedInputTokens": 1368448,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 23823,
+        "reasoningOutputTokens": 11966
+      },
+      "last": {
+        "totalTokens": 75023,
+        "inputTokens": 72438,
+        "cachedInputTokens": 71168,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 2585,
+        "reasoningOutputTokens": 953
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 1617473,
+        "inputTokens": 1593171,
+        "cachedInputTokens": 1438848,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 24302,
+        "reasoningOutputTokens": 12410
+      },
+      "last": {
+        "totalTokens": 75581,
+        "inputTokens": 75102,
+        "cachedInputTokens": 70400,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 479,
+        "reasoningOutputTokens": 444
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 1694077,
+        "inputTokens": 1669058,
+        "cachedInputTokens": 1513600,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 25019,
+        "reasoningOutputTokens": 13092
+      },
+      "last": {
+        "totalTokens": 76604,
+        "inputTokens": 75887,
+        "cachedInputTokens": 74752,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 717,
+        "reasoningOutputTokens": 682
+      },
+      "modelContextWindow": 475000
+    },
+    {
+      "total": {
+        "totalTokens": 1770793,
+        "inputTokens": 1745718,
+        "cachedInputTokens": 1589376,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 25075,
+        "reasoningOutputTokens": 13092
+      },
+      "last": {
+        "totalTokens": 76716,
+        "inputTokens": 76660,
+        "cachedInputTokens": 75776,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 56,
+        "reasoningOutputTokens": 0
+      },
+      "modelContextWindow": 475000
+    }
+  ],
+  "elapsed_seconds": 1060.720595439896,
+  "operation_count": 30,
+  "operation_budget_exceeded": false,
+  "executor_rpc_counts": {
+    "initialize": 1,
+    "initialized": 1,
+    "environment/status": 1,
+    "fs/getMetadata": 25,
+    "fs/watchMissing": 1,
+    "environmentConfig/read": 2,
+    "process/start": 30,
+    "process/terminate": 30
+  },
+  "controller_cgroup": "0::/user.slice/user-1013.slice/user@1013.service/app.slice/ieantn-followup-239d75e1db1e10f8.service\n",
+  "foreign_usage": [],
+  "planning_milestones": [
+    {
+      "fraction": 1.0,
+      "observed_generated_tokens": 25075,
+      "elapsed_seconds": 1060.7182076349854,
+      "mode": "FINAL_QUIESCED_SNAPSHOT_NO_MODEL_FEEDBACK",
+      "snapshot": {
+        "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+        "quiesced": true,
+        "atomic_directory_snapshot_claimed": false,
+        "files": [],
+        "skipped": [],
+        "mathematical_validity": "UNASSESSED",
+        "status": "PARTIAL_CHECKPOINT_PRESERVED",
+        "error_type": "RuntimeError",
+        "error": "executor unavailable"
+      }
+    }
+  ],
+  "checkpoints": [
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/runs/FRESH-R2-D01-NL/checkpoint-00001",
+      "elapsed_seconds": 60.05430000834167,
+      "generated_tokens": 616,
+      "receipt": {
+        "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+        "quiesced": false,
+        "atomic_directory_snapshot_claimed": false,
+        "files": [],
+        "skipped": [],
+        "mathematical_validity": "UNASSESSED",
+        "listing": {
+          "error": {
+            "code": -32004,
+            "message": "No such file or directory (os error 2)"
+          },
+          "id": "trusted-export-1"
+        },
+        "status": "SUBMISSION_NOT_YET_AVAILABLE"
+      }
+    },
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/runs/FRESH-R2-D01-NL/checkpoint-00002",
+      "elapsed_seconds": 120.10221905633807,
+      "generated_tokens": 1989,
+      "receipt": {
+        "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+        "quiesced": false,
+        "atomic_directory_snapshot_claimed": false,
+        "files": [],
+        "skipped": [],
+        "mathematical_validity": "UNASSESSED",
+        "listing": {
+          "error": {
+            "code": -32004,
+            "message": "No such file or directory (os error 2)"
+          },
+          "id": "trusted-export-2"
+        },
+        "status": "SUBMISSION_NOT_YET_AVAILABLE"
+      }
+    },
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/runs/FRESH-R2-D01-NL/checkpoint-00003",
+      "elapsed_seconds": 180.15554058365524,
+      "generated_tokens": 3221,
+      "receipt": {
+        "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+        "quiesced": false,
+        "atomic_directory_snapshot_claimed": false,
+        "files": [],
+        "skipped": [],
+        "mathematical_validity": "UNASSESSED",
+        "listing": {
+          "id": "trusted-export-3",
+          "result": {
+            "entries": []
+          }
+        },
+        "status": "SAVED_ALL_AVAILABLE_FLAT_SOURCE_FILES"
+      }
+    },
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/runs/FRESH-R2-D01-NL/checkpoint-00004",
+      "elapsed_seconds": 240.22164559178054,
+      "generated_tokens": 4592,
+      "receipt": {
+        "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+        "quiesced": false,
+        "atomic_directory_snapshot_claimed": false,
+        "files": [],
+        "skipped": [],
+        "mathematical_validity": "UNASSESSED",
+        "listing": {
+          "id": "trusted-export-4",
+          "result": {
+            "entries": []
+          }
+        },
+        "status": "SAVED_ALL_AVAILABLE_FLAT_SOURCE_FILES"
+      }
+    },
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/runs/FRESH-R2-D01-NL/checkpoint-00005",
+      "elapsed_seconds": 300.2752837073058,
+      "generated_tokens": 5459,
+      "receipt": {
+        "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+        "quiesced": false,
+        "atomic_directory_snapshot_claimed": false,
+        "files": [],
+        "skipped": [],
+        "mathematical_validity": "UNASSESSED",
+        "listing": {
+          "id": "trusted-export-5",
+          "result": {
+            "entries": []
+          }
+        },
+        "status": "SAVED_ALL_AVAILABLE_FLAT_SOURCE_FILES"
+      }
+    },
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/runs/FRESH-R2-D01-NL/checkpoint-00006",
+      "elapsed_seconds": 360.3422241639346,
+      "generated_tokens": 6541,
+      "receipt": {
+        "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+        "quiesced": false,
+        "atomic_directory_snapshot_claimed": false,
+        "files": [],
+        "skipped": [],
+        "mathematical_validity": "UNASSESSED",
+        "listing": {
+          "id": "trusted-export-6",
+          "result": {
+            "entries": []
+          }
+        },
+        "status": "SAVED_ALL_AVAILABLE_FLAT_SOURCE_FILES"
+      }
+    },
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/runs/FRESH-R2-D01-NL/checkpoint-00007",
+      "elapsed_seconds": 420.4148560408503,
+      "generated_tokens": 7259,
+      "receipt": {
+        "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+        "quiesced": false,
+        "atomic_directory_snapshot_claimed": false,
+        "files": [
+          {
+            "path": "LOCK.json",
+            "bytes": 112,
+            "sha256": "9480291dd77e259b2c80764b5ad2ffc23d4c5ee278685471457d7b0cbb857006"
+          },
+          {
+            "path": "notes.md",
+            "bytes": 336,
+            "sha256": "35de3b6de296afbf178e80940e75a2a8e5cb143be53120c4570fee984f59164d"
+          }
+        ],
+        "skipped": [],
+        "mathematical_validity": "UNASSESSED",
+        "listing": {
+          "id": "trusted-export-7",
+          "result": {
+            "entries": [
+              {
+                "fileName": "LOCK.json",
+                "isDirectory": false,
+                "isFile": true
+              },
+              {
+                "fileName": "notes.md",
+                "isDirectory": false,
+                "isFile": true
+              }
+            ]
+          }
+        },
+        "status": "SAVED_ALL_AVAILABLE_FLAT_SOURCE_FILES"
+      }
+    },
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/runs/FRESH-R2-D01-NL/checkpoint-00008",
+      "elapsed_seconds": 480.49015335179865,
+      "generated_tokens": 8820,
+      "receipt": {
+        "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+        "quiesced": false,
+        "atomic_directory_snapshot_claimed": false,
+        "files": [
+          {
+            "path": "LOCK.json",
+            "bytes": 112,
+            "sha256": "9480291dd77e259b2c80764b5ad2ffc23d4c5ee278685471457d7b0cbb857006"
+          },
+          {
+            "path": "notes.md",
+            "bytes": 336,
+            "sha256": "35de3b6de296afbf178e80940e75a2a8e5cb143be53120c4570fee984f59164d"
+          }
+        ],
+        "skipped": [],
+        "mathematical_validity": "UNASSESSED",
+        "listing": {
+          "id": "trusted-export-12",
+          "result": {
+            "entries": [
+              {
+                "fileName": "LOCK.json",
+                "isDirectory": false,
+                "isFile": true
+              },
+              {
+                "fileName": "notes.md",
+                "isDirectory": false,
+                "isFile": true
+              }
+            ]
+          }
+        },
+        "status": "SAVED_ALL_AVAILABLE_FLAT_SOURCE_FILES"
+      }
+    },
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/runs/FRESH-R2-D01-NL/checkpoint-00009",
+      "elapsed_seconds": 540.5629584267735,
+      "generated_tokens": 10713,
+      "receipt": {
+        "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+        "quiesced": false,
+        "atomic_directory_snapshot_claimed": false,
+        "files": [
+          {
+            "path": "source_receipt.json",
+            "bytes": 1279,
+            "sha256": "ceccfe53cacaba4fc67f555cc15a1c8ad7a8bf4da90b37a4d95497510ee09ea9"
+          },
+          {
+            "path": "LOCK.json",
+            "bytes": 112,
+            "sha256": "9480291dd77e259b2c80764b5ad2ffc23d4c5ee278685471457d7b0cbb857006"
+          },
+          {
+            "path": "notes.md",
+            "bytes": 336,
+            "sha256": "35de3b6de296afbf178e80940e75a2a8e5cb143be53120c4570fee984f59164d"
+          }
+        ],
+        "skipped": [],
+        "mathematical_validity": "UNASSESSED",
+        "listing": {
+          "id": "trusted-export-17",
+          "result": {
+            "entries": [
+              {
+                "fileName": "source_receipt.json",
+                "isDirectory": false,
+                "isFile": true
+              },
+              {
+                "fileName": "LOCK.json",
+                "isDirectory": false,
+                "isFile": true
+              },
+              {
+                "fileName": "notes.md",
+                "isDirectory": false,
+                "isFile": true
+              }
+            ]
+          }
+        },
+        "status": "SAVED_ALL_AVAILABLE_FLAT_SOURCE_FILES"
+      }
+    },
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/runs/FRESH-R2-D01-NL/checkpoint-00010",
+      "elapsed_seconds": 600.6338301878422,
+      "generated_tokens": 10713,
+      "receipt": {
+        "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+        "quiesced": false,
+        "atomic_directory_snapshot_claimed": false,
+        "files": [
+          {
+            "path": "source_receipt.json",
+            "bytes": 1279,
+            "sha256": "ceccfe53cacaba4fc67f555cc15a1c8ad7a8bf4da90b37a4d95497510ee09ea9"
+          },
+          {
+            "path": "LOCK.json",
+            "bytes": 112,
+            "sha256": "9480291dd77e259b2c80764b5ad2ffc23d4c5ee278685471457d7b0cbb857006"
+          },
+          {
+            "path": "notes.md",
+            "bytes": 336,
+            "sha256": "35de3b6de296afbf178e80940e75a2a8e5cb143be53120c4570fee984f59164d"
+          }
+        ],
+        "skipped": [],
+        "mathematical_validity": "UNASSESSED",
+        "listing": {
+          "id": "trusted-export-24",
+          "result": {
+            "entries": [
+              {
+                "fileName": "source_receipt.json",
+                "isDirectory": false,
+                "isFile": true
+              },
+              {
+                "fileName": "LOCK.json",
+                "isDirectory": false,
+                "isFile": true
+              },
+              {
+                "fileName": "notes.md",
+                "isDirectory": false,
+                "isFile": true
+              }
+            ]
+          }
+        },
+        "status": "SAVED_ALL_AVAILABLE_FLAT_SOURCE_FILES"
+      }
+    },
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/runs/FRESH-R2-D01-NL/checkpoint-00011",
+      "elapsed_seconds": 660.7193005234003,
+      "generated_tokens": 14954,
+      "receipt": {
+        "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+        "quiesced": false,
+        "atomic_directory_snapshot_claimed": false,
+        "files": [
+          {
+            "path": "certify.py",
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "path": "source_receipt.json",
+            "bytes": 1279,
+            "sha256": "ceccfe53cacaba4fc67f555cc15a1c8ad7a8bf4da90b37a4d95497510ee09ea9"
+          },
+          {
+            "path": "LOCK.json",
+            "bytes": 112,
+            "sha256": "9480291dd77e259b2c80764b5ad2ffc23d4c5ee278685471457d7b0cbb857006"
+          },
+          {
+            "path": "notes.md",
+            "bytes": 336,
+            "sha256": "35de3b6de296afbf178e80940e75a2a8e5cb143be53120c4570fee984f59164d"
+          }
+        ],
+        "skipped": [],
+        "mathematical_validity": "UNASSESSED",
+        "listing": {
+          "id": "trusted-export-31",
+          "result": {
+            "entries": [
+              {
+                "fileName": "certify.py",
+                "isDirectory": false,
+                "isFile": true
+              },
+              {
+                "fileName": "source_receipt.json",
+                "isDirectory": false,
+                "isFile": true
+              },
+              {
+                "fileName": "LOCK.json",
+                "isDirectory": false,
+                "isFile": true
+              },
+              {
+                "fileName": "notes.md",
+                "isDirectory": false,
+                "isFile": true
+              }
+            ]
+          }
+        },
+        "status": "SAVED_ALL_AVAILABLE_FLAT_SOURCE_FILES"
+      }
+    },
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/runs/FRESH-R2-D01-NL/checkpoint-00012",
+      "elapsed_seconds": 720.8067654650658,
+      "generated_tokens": 16911,
+      "receipt": {
+        "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+        "quiesced": false,
+        "atomic_directory_snapshot_claimed": false,
+        "files": [
+          {
+            "path": "certify.py",
+            "bytes": 3614,
+            "sha256": "d502177cc4c4747bf509cc5094be52fe2a0cac9c37f0d36977692a4a87ede9a0"
+          },
+          {
+            "path": "source_receipt.json",
+            "bytes": 1279,
+            "sha256": "ceccfe53cacaba4fc67f555cc15a1c8ad7a8bf4da90b37a4d95497510ee09ea9"
+          },
+          {
+            "path": "LOCK.json",
+            "bytes": 112,
+            "sha256": "9480291dd77e259b2c80764b5ad2ffc23d4c5ee278685471457d7b0cbb857006"
+          },
+          {
+            "path": "notes.md",
+            "bytes": 336,
+            "sha256": "35de3b6de296afbf178e80940e75a2a8e5cb143be53120c4570fee984f59164d"
+          }
+        ],
+        "skipped": [],
+        "mathematical_validity": "UNASSESSED",
+        "listing": {
+          "id": "trusted-export-40",
+          "result": {
+            "entries": [
+              {
+                "fileName": "certify.py",
+                "isDirectory": false,
+                "isFile": true
+              },
+              {
+                "fileName": "source_receipt.json",
+                "isDirectory": false,
+                "isFile": true
+              },
+              {
+                "fileName": "LOCK.json",
+                "isDirectory": false,
+                "isFile": true
+              },
+              {
+                "fileName": "notes.md",
+                "isDirectory": false,
+                "isFile": true
+              }
+            ]
+          }
+        },
+        "status": "SAVED_ALL_AVAILABLE_FLAT_SOURCE_FILES"
+      }
+    },
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/runs/FRESH-R2-D01-NL/checkpoint-00013",
+      "elapsed_seconds": 780.887344636023,
+      "generated_tokens": 18438,
+      "receipt": {
+        "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+        "quiesced": false,
+        "atomic_directory_snapshot_claimed": false,
+        "files": [
+          {
+            "path": "certify.py",
+            "bytes": 3614,
+            "sha256": "d502177cc4c4747bf509cc5094be52fe2a0cac9c37f0d36977692a4a87ede9a0"
+          },
+          {
+            "path": "source_receipt.json",
+            "bytes": 1279,
+            "sha256": "ceccfe53cacaba4fc67f555cc15a1c8ad7a8bf4da90b37a4d95497510ee09ea9"
+          },
+          {
+            "path": "LOCK.json",
+            "bytes": 112,
+            "sha256": "9480291dd77e259b2c80764b5ad2ffc23d4c5ee278685471457d7b0cbb857006"
+          },
+          {
+            "path": "notes.md",
+            "bytes": 336,
+            "sha256": "35de3b6de296afbf178e80940e75a2a8e5cb143be53120c4570fee984f59164d"
+          }
+        ],
+        "skipped": [
+          {
+            "name": "__pycache__",
+            "reason": "nonflat_path_retained_in_worker"
+          }
+        ],
+        "mathematical_validity": "UNASSESSED",
+        "listing": {
+          "id": "trusted-export-49",
+          "result": {
+            "entries": [
+              {
+                "fileName": "__pycache__",
+                "isDirectory": true,
+                "isFile": false
+              },
+              {
+                "fileName": "certify.py",
+                "isDirectory": false,
+                "isFile": true
+              },
+              {
+                "fileName": "source_receipt.json",
+                "isDirectory": false,
+                "isFile": true
+              },
+              {
+                "fileName": "LOCK.json",
+                "isDirectory": false,
+                "isFile": true
+              },
+              {
+                "fileName": "notes.md",
+                "isDirectory": false,
+                "isFile": true
+              }
+            ]
+          }
+        },
+        "status": "SAVED_WITH_EXPLICIT_FORMAT_RECOVERY_PENDING"
+      }
+    },
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/runs/FRESH-R2-D01-NL/checkpoint-00014",
+      "elapsed_seconds": 840.9664840083569,
+      "generated_tokens": 19504,
+      "receipt": {
+        "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+        "quiesced": false,
+        "atomic_directory_snapshot_claimed": false,
+        "files": [
+          {
+            "path": "certify.py",
+            "bytes": 3614,
+            "sha256": "d502177cc4c4747bf509cc5094be52fe2a0cac9c37f0d36977692a4a87ede9a0"
+          },
+          {
+            "path": "source_receipt.json",
+            "bytes": 1279,
+            "sha256": "ceccfe53cacaba4fc67f555cc15a1c8ad7a8bf4da90b37a4d95497510ee09ea9"
+          },
+          {
+            "path": "LOCK.json",
+            "bytes": 112,
+            "sha256": "9480291dd77e259b2c80764b5ad2ffc23d4c5ee278685471457d7b0cbb857006"
+          },
+          {
+            "path": "notes.md",
+            "bytes": 336,
+            "sha256": "35de3b6de296afbf178e80940e75a2a8e5cb143be53120c4570fee984f59164d"
+          }
+        ],
+        "skipped": [
+          {
+            "name": "__pycache__",
+            "reason": "nonflat_path_retained_in_worker"
+          }
+        ],
+        "mathematical_validity": "UNASSESSED",
+        "listing": {
+          "id": "trusted-export-58",
+          "result": {
+            "entries": [
+              {
+                "fileName": "__pycache__",
+                "isDirectory": true,
+                "isFile": false
+              },
+              {
+                "fileName": "certify.py",
+                "isDirectory": false,
+                "isFile": true
+              },
+              {
+                "fileName": "source_receipt.json",
+                "isDirectory": false,
+                "isFile": true
+              },
+              {
+                "fileName": "LOCK.json",
+                "isDirectory": false,
+                "isFile": true
+              },
+              {
+                "fileName": "notes.md",
+                "isDirectory": false,
+                "isFile": true
+              }
+            ]
+          }
+        },
+        "status": "SAVED_WITH_EXPLICIT_FORMAT_RECOVERY_PENDING"
+      }
+    },
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/runs/FRESH-R2-D01-NL/checkpoint-00015",
+      "elapsed_seconds": 901.0561917126179,
+      "generated_tokens": 21238,
+      "receipt": {
+        "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+        "quiesced": false,
+        "atomic_directory_snapshot_claimed": false,
+        "files": [
+          {
+            "path": "certify.py",
+            "bytes": 4458,
+            "sha256": "71dca2a0a40c51a4155dbcc7d2cc0bfd79bc6afe243b9a73be6118026829200b"
+          },
+          {
+            "path": "source_receipt.json",
+            "bytes": 1279,
+            "sha256": "ceccfe53cacaba4fc67f555cc15a1c8ad7a8bf4da90b37a4d95497510ee09ea9"
+          },
+          {
+            "path": "LOCK.json",
+            "bytes": 112,
+            "sha256": "9480291dd77e259b2c80764b5ad2ffc23d4c5ee278685471457d7b0cbb857006"
+          },
+          {
+            "path": "notes.md",
+            "bytes": 336,
+            "sha256": "35de3b6de296afbf178e80940e75a2a8e5cb143be53120c4570fee984f59164d"
+          }
+        ],
+        "skipped": [
+          {
+            "name": "__pycache__",
+            "reason": "nonflat_path_retained_in_worker"
+          }
+        ],
+        "mathematical_validity": "UNASSESSED",
+        "listing": {
+          "id": "trusted-export-67",
+          "result": {
+            "entries": [
+              {
+                "fileName": "__pycache__",
+                "isDirectory": true,
+                "isFile": false
+              },
+              {
+                "fileName": "certify.py",
+                "isDirectory": false,
+                "isFile": true
+              },
+              {
+                "fileName": "source_receipt.json",
+                "isDirectory": false,
+                "isFile": true
+              },
+              {
+                "fileName": "LOCK.json",
+                "isDirectory": false,
+                "isFile": true
+              },
+              {
+                "fileName": "notes.md",
+                "isDirectory": false,
+                "isFile": true
+              }
+            ]
+          }
+        },
+        "status": "SAVED_WITH_EXPLICIT_FORMAT_RECOVERY_PENDING"
+      }
+    },
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/runs/FRESH-R2-D01-NL/checkpoint-00016",
+      "elapsed_seconds": 961.1367506161332,
+      "generated_tokens": 21238,
+      "receipt": {
+        "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+        "quiesced": false,
+        "atomic_directory_snapshot_claimed": false,
+        "files": [
+          {
+            "path": "certify.py",
+            "bytes": 4458,
+            "sha256": "71dca2a0a40c51a4155dbcc7d2cc0bfd79bc6afe243b9a73be6118026829200b"
+          },
+          {
+            "path": "source_receipt.json",
+            "bytes": 1279,
+            "sha256": "ceccfe53cacaba4fc67f555cc15a1c8ad7a8bf4da90b37a4d95497510ee09ea9"
+          },
+          {
+            "path": "LOCK.json",
+            "bytes": 112,
+            "sha256": "9480291dd77e259b2c80764b5ad2ffc23d4c5ee278685471457d7b0cbb857006"
+          },
+          {
+            "path": "notes.md",
+            "bytes": 336,
+            "sha256": "35de3b6de296afbf178e80940e75a2a8e5cb143be53120c4570fee984f59164d"
+          }
+        ],
+        "skipped": [
+          {
+            "name": "__pycache__",
+            "reason": "nonflat_path_retained_in_worker"
+          }
+        ],
+        "mathematical_validity": "UNASSESSED",
+        "listing": {
+          "id": "trusted-export-76",
+          "result": {
+            "entries": [
+              {
+                "fileName": "__pycache__",
+                "isDirectory": true,
+                "isFile": false
+              },
+              {
+                "fileName": "certify.py",
+                "isDirectory": false,
+                "isFile": true
+              },
+              {
+                "fileName": "source_receipt.json",
+                "isDirectory": false,
+                "isFile": true
+              },
+              {
+                "fileName": "LOCK.json",
+                "isDirectory": false,
+                "isFile": true
+              },
+              {
+                "fileName": "notes.md",
+                "isDirectory": false,
+                "isFile": true
+              }
+            ]
+          }
+        },
+        "status": "SAVED_WITH_EXPLICIT_FORMAT_RECOVERY_PENDING"
+      }
+    },
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-d01-d02-repair-rerun-20261118/runs/FRESH-R2-D01-NL/checkpoint-00017",
+      "elapsed_seconds": 1021.2134965118021,
+      "generated_tokens": 24302,
+      "receipt": {
+        "schema": "FOLLOWUP_PASSIVE_SOURCE_SNAPSHOT_V1",
+        "quiesced": false,
+        "atomic_directory_snapshot_claimed": false,
+        "files": [
+          {
+            "path": "finite_result.txt",
+            "bytes": 909,
+            "sha256": "16fcb31bd1a2bde5ae3b6509c4423cf2944a846dbebcdfd8840bd41826a52fbf"
+          },
+          {
+            "path": "finite.cpp",
+            "bytes": 3530,
+            "sha256": "9cfc32de578fdc53a0c7c2cd960bafcdb6dfd55357ea321145ec6367d4bcc1ae"
+          },
+          {
+            "path": "certify.py",
+            "bytes": 4458,
+            "sha256": "71dca2a0a40c51a4155dbcc7d2cc0bfd79bc6afe243b9a73be6118026829200b"
+          },
+          {
+            "path": "source_receipt.json",
+            "bytes": 1279,
+            "sha256": "ceccfe53cacaba4fc67f555cc15a1c8ad7a8bf4da90b37a4d95497510ee09ea9"
+          },
+          {
+            "path": "LOCK.json",
+            "bytes": 112,
+            "sha256": "9480291dd77e259b2c80764b5ad2ffc23d4c5ee278685471457d7b0cbb857006"
+          },
+          {
+            "path": "notes.md",
+            "bytes": 336,
+            "sha256": "35de3b6de296afbf178e80940e75a2a8e5cb143be53120c4570fee984f59164d"
+          }
+        ],
+        "skipped": [
+          {
+            "name": "__pycache__",
+            "reason": "nonflat_path_retained_in_worker"
+          }
+        ],
+        "mathematical_validity": "UNASSESSED",
+        "listing": {
+          "id": "trusted-export-85",
+          "result": {
+            "entries": [
+              {
+                "fileName": "finite_result.txt",
+                "isDirectory": false,
+                "isFile": true
+              },
+              {
+                "fileName": "finite.cpp",
+                "isDirectory": false,
+                "isFile": true
+              },
+              {
+                "fileName": "__pycache__",
+                "isDirectory": true,
+                "isFile": false
+              },
+              {
+                "fileName": "certify.py",
+                "isDirectory": false,
+                "isFile": true
+              },
+              {
+                "fileName": "source_receipt.json",
+                "isDirectory": false,
+                "isFile": true
+              },
+              {
+                "fileName": "LOCK.json",
+                "isDirectory": false,
+                "isFile": true
+              },
+              {
+                "fileName": "notes.md",
+                "isDirectory": false,
+                "isFile": true
+              }
+            ]
+          }
+        },
+        "status": "SAVED_WITH_EXPLICIT_FORMAT_RECOVERY_PENDING"
+      }
+    }
+  ],
+  "research_stage_submitted": false,
+  "assessment_status": "INTERRUPTED",
+  "milestone_is_hard_cap": false,
+  "generated_token_disqualification": false,
+  "operation_limit": null,
+  "response_limit": null,
+  "wall_admission_limit": null,
+  "mathematical_validity": "NOT_INFERRED_FROM_RESEARCH_SUBMISSION",
+  "native_stderr_metadata": {
+    "bytes": 638,
+    "sha256": "3b0150eaac6a13b7e2296d69f5b4673527f3303658ba4956105e8cb31f13b563"
+  },
+  "raw_program_transport_sha256": "ea86acbb910b05326da41687b17640c71f66698c658c38b462ba56abdc384e63",
+  "private_profile_removed": true
+}

@@ -1,0 +1,13 @@
+# Alternative premise accounting: D01 can replace the zeta part of QRH
+
+This is separate from the stipulated cumulative comparison. Let B6 omit only OpenAIQRH. Over B6, D01 is **equivalent to the zeta assertion** \(\beta\le7/8\) for all nontrivial zeros. This does not assert anything about replacing the Dirichlet or Hecke conclusions.
+
+One implication is common.md (which needs only the zeta part of QRH). For the other, in \(\Re s>1\) the Euler product and partial summation give
+\[
+ -\zeta'(s)/\zeta(s)=s/(s-1)+s\int_1^\infty(\psi(x)-x)x^{-s-1}\,dx .
+\]
+Under D01 the integral is holomorphic on \(\Re s>7/8\), by locally uniform integral/derivative convergence (the finite initial segment is harmless and the log-square power is absorbed by any strict gap from the boundary). Meromorphic identity and the nonzero residues of log derivatives at zeros imply no zeros of zeta in this half-plane. Consequently all new zeta-only arithmetic estimates in this package also follow over B6+D01. This is a premise-substitution statement, not an improvement under B0+D01.
+
+For comparison, **direct** use of D01 without this zero-free deduction gives weaker envelopes. In the Mertens transforms, bound the local \(|u|\) and the tail absolutely at \(L\ge200\) by D01. For the sum with log p this gives \(e^{-L/8}(9L^2+128L+1024)/64+V\); for the log-product and reciprocal sum it gives \(e^{-L/8}(9L+72)/64+V/L\) by exact elementary integration. Including the product exponentiation loss, tradeoff.py verifies bounds .147 \(L e^{-L/8}\) for the products and reciprocal sum and .152 \(L^2 e^{-L/8}\) for the weighted sum. Each ratio after extracting the indicated scale decreases on this ray. Both are strictly weaker than the main B0 envelopes on the whole matched domain.
+
+For the gap a parallel direct use of the hypothetical psi bound gives the same fixed low margins through the EC and EF branches, but later high-order onsets than the density proof. Use the EC integral prefix through 200 (normalized by \(e^{200}\), it is less than \(4\cdot10^{-17}\)); replace the density triples in ED by \((1/8,1/64,2),(1/2,3,0)\), integrate from 200 using the same conservative logarithmic-derivative lower bounds .855 and .48, and add the same Li truncation. tradeoff.py replays the EC-only finite join [60,269], and the corresponding \(P_n\) tails \((n,a)=(4,269),(5,303),(6,338),(8,412),(12,562),(17,755)\). The same scaled loss derivatives as in ramanujan.md prove every tail for its entire ray. Numerically testing a late D01 onset without that analytic tail would not prove the connected ray. This route makes the direct-use loss quantitative; it does not supersede the stronger original-input derivation.

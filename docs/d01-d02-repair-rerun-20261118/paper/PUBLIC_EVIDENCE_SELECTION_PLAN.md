@@ -1,0 +1,13 @@
+# Final follow-up evidence selection and publication plan
+
+This is an implementation plan, not evidence of completion or upload. The requested population is all24 canonical follow-up stages and both final mathematical families, not a heuristic subset or the earlier17/20-case diagnostic snapshot.
+
+Publish one complete standalone HTML report, an accessible Markdown counterpart, a separate paper exposition, the complete final24 normalized/source-qualified comparison data and figures, all latest accepted mathematical floors/corrections with exact written identities, source/proof/domain audits, exact original-paper versions, and the complete portable numerical source collection with all24 full command recipes. Include the actual clean-run/readback/resource/verification receipts, output/binary hashes, source/dependency pins and clean-environment instructions. Compress large repetitive JSON and split the downloadable archive into bounded parts, preserving a full hash manifest and deterministic reconstruction/check commands. The requested final report must not require opening prior chat commentary.
+
+Exclude raw private controller events/transcripts, coordinator-only combined prompts, memory, authentication/account files and credentials, private model reasoning, installed caches, negative-fixture copies and unrelated checkouts. Inspect every nested source-archive member and actual selected result schema, rather than relying on a filename allowlist or a child agent completion statement. Preserve exact original metadata privately where a public source/resource summary omits nonessential private execution details. Do not silently replace data required by the actual source replay.
+
+The existing owner publication worktree is separate from the original mathematical checkout. Preview exact changed files/outgoing history; push only reviewed research changes through remote hschae to research/d01-d02-repair-rerun-20261118, without force/PR/merge. Verify the remote commit and actual downloaded artifact hashes.
+
+Deliver the actual report and reproducibility parts as file replies to the exact requesting Discord message1572517668211400745 in channel1565065141198790686. Verify attachment metadata, reply association and downloaded bytes. ATTACH text alone is not delivery evidence.
+
+Delete only verified-regenerable experiment-owned temporary copies/caches after complete recipes and essential evidence have been checked. Preview every deletion target, retain accepted sources/proofs/certificates/locks/original outcomes, and record actual reclaimed bytes. Numerical/source-formal trust stays explicit; this campaign does not establish full analytic Lean or source-first PV.

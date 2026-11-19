@@ -1,0 +1,589 @@
+{
+  "status": "COMPLETE",
+  "restores": [
+    {
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "/task/RESTORE_CANDIDATE.py",
+        "--out",
+        "/work/independent_replay/candidate"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "f36833cc6088f91ea4c2e29b67e1eb00ce8002211e77d2be846cb9dd210a9a6f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "jobs": [
+    {
+      "job_id": "compiler-version",
+      "argv": [
+        "/usr/bin/g++",
+        "--version"
+      ],
+      "cwd": "/work/independent_replay",
+      "exit_code": 0,
+      "seconds": 0.004209958016872406,
+      "stdout_sha256": "9eaf9b7f4b11c2e84e2478c2ceb0e4f48f4ba88565bcfc832b3bce49847dda6d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "9eaf9b7f4b11c2e84e2478c2ceb0e4f48f4ba88565bcfc832b3bce49847dda6d",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "small-end-build",
+      "argv": [
+        "/usr/bin/g++",
+        "-std=c++17",
+        "-O3",
+        "small_end.cpp",
+        "-o",
+        "/work/small_end"
+      ],
+      "cwd": "/work/independent_replay/candidate",
+      "exit_code": 0,
+      "seconds": 0.13923432677984238,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "main-02",
+      "argv": [
+        "/usr/bin/g++",
+        "-std=c++17",
+        "-O3",
+        "finite.cpp",
+        "-o",
+        "/work/independent_replay/finite"
+      ],
+      "cwd": "/work/independent_replay/candidate",
+      "exit_code": 0,
+      "seconds": 0.33262172527611256,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "main-03",
+      "argv": [
+        "/work/independent_replay/finite"
+      ],
+      "cwd": "/work/independent_replay/candidate",
+      "exit_code": 0,
+      "seconds": 26.79189920425415,
+      "stdout_sha256": "4f5b09814b8573e622b46654335c6d339a140899d816b76d7e91356e4033e2db",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "4f5b09814b8573e622b46654335c6d339a140899d816b76d7e91356e4033e2db",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "main-04",
+      "argv": [
+        "/usr/bin/g++",
+        "-std=c++17",
+        "-O2",
+        "-fsanitize=undefined",
+        "-fno-sanitize-recover=undefined",
+        "finite.cpp",
+        "-o",
+        "/work/independent_replay/finite_ubsan"
+      ],
+      "cwd": "/work/independent_replay/candidate",
+      "exit_code": 0,
+      "seconds": 0.45244722440838814,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "main-05",
+      "argv": [
+        "/work/independent_replay/finite_ubsan"
+      ],
+      "cwd": "/work/independent_replay/candidate",
+      "exit_code": 0,
+      "seconds": 41.595475640147924,
+      "stdout_sha256": "4f5b09814b8573e622b46654335c6d339a140899d816b76d7e91356e4033e2db",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "4f5b09814b8573e622b46654335c6d339a140899d816b76d7e91356e4033e2db",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "main-06",
+      "argv": [
+        "/usr/bin/g++",
+        "-std=c++17",
+        "-O3",
+        "finite_trials.cpp",
+        "-o",
+        "/work/independent_replay/finite_trials"
+      ],
+      "cwd": "/work/independent_replay/candidate",
+      "exit_code": 0,
+      "seconds": 0.31518034636974335,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "main-07",
+      "argv": [
+        "/work/independent_replay/finite_trials"
+      ],
+      "cwd": "/work/independent_replay/candidate",
+      "exit_code": 0,
+      "seconds": 11.880009520798922,
+      "stdout_sha256": "44a7fed41eae222fd745d253deeaeeaf09a7352ac57fbc960bb2ad6409e18a7c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "44a7fed41eae222fd745d253deeaeeaf09a7352ac57fbc960bb2ad6409e18a7c",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "main-08",
+      "argv": [
+        "/usr/bin/g++",
+        "-std=c++17",
+        "-O3",
+        "finite_frontier.cpp",
+        "-o",
+        "/work/independent_replay/frontier"
+      ],
+      "cwd": "/work/independent_replay/candidate",
+      "exit_code": 0,
+      "seconds": 0.3122060652822256,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "main-09",
+      "argv": [
+        "/work/independent_replay/frontier"
+      ],
+      "cwd": "/work/independent_replay/candidate",
+      "exit_code": 0,
+      "seconds": 13.303437072783709,
+      "stdout_sha256": "08b60c39cfe39ac7784658befc8afde68d0d2d1b0b56ed5f2db0e287688385ee",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "08b60c39cfe39ac7784658befc8afde68d0d2d1b0b56ed5f2db0e287688385ee",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "main-10",
+      "argv": [
+        "/usr/bin/g++",
+        "-std=c++17",
+        "-O2",
+        "-fsanitize=undefined",
+        "-fno-sanitize-recover=undefined",
+        "finite_frontier.cpp",
+        "-o",
+        "/work/independent_replay/frontier_ubsan"
+      ],
+      "cwd": "/work/independent_replay/candidate",
+      "exit_code": 0,
+      "seconds": 0.46790462359786034,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "main-11",
+      "argv": [
+        "/work/independent_replay/frontier_ubsan"
+      ],
+      "cwd": "/work/independent_replay/candidate",
+      "exit_code": 0,
+      "seconds": 17.918928613886237,
+      "stdout_sha256": "08b60c39cfe39ac7784658befc8afde68d0d2d1b0b56ed5f2db0e287688385ee",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "08b60c39cfe39ac7784658befc8afde68d0d2d1b0b56ed5f2db0e287688385ee",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "main-12",
+      "argv": [
+        "/usr/bin/python3.10",
+        "check.py"
+      ],
+      "cwd": "/work/independent_replay/candidate",
+      "exit_code": 0,
+      "seconds": 5.503420647233725,
+      "stdout_sha256": "d51ff66cdc13645edf1ea4c07c59e19cb11cb74734c87d5a9f31d8cb651c0c28",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "d51ff66cdc13645edf1ea4c07c59e19cb11cb74734c87d5a9f31d8cb651c0c28",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "main-13",
+      "argv": [
+        "/usr/bin/python3.10",
+        "check.py",
+        "--basic"
+      ],
+      "cwd": "/work/independent_replay/candidate",
+      "exit_code": 0,
+      "seconds": 6.109013624489307,
+      "stdout_sha256": "d51ff66cdc13645edf1ea4c07c59e19cb11cb74734c87d5a9f31d8cb651c0c28",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "d51ff66cdc13645edf1ea4c07c59e19cb11cb74734c87d5a9f31d8cb651c0c28",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "main-14",
+      "argv": [
+        "/usr/bin/python3.10",
+        "mertens_check.py"
+      ],
+      "cwd": "/work/independent_replay/candidate",
+      "exit_code": 0,
+      "seconds": 0.037870751693844795,
+      "stdout_sha256": "301c00c3d74b9d362a27f2d7f59e6ca0b6348f4dee5e8cb29204547e82786862",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "301c00c3d74b9d362a27f2d7f59e6ca0b6348f4dee5e8cb29204547e82786862",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "main-15",
+      "argv": [
+        "/usr/bin/python3.10",
+        "mertens_check.py",
+        "--basic"
+      ],
+      "cwd": "/work/independent_replay/candidate",
+      "exit_code": 0,
+      "seconds": 0.03071746602654457,
+      "stdout_sha256": "cff4acbc40ed1fb51e98259b165baff72f6cb54be80e405ab684df46ec4f2fdb",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "cff4acbc40ed1fb51e98259b165baff72f6cb54be80e405ab684df46ec4f2fdb",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "main-16",
+      "argv": [
+        "/usr/bin/python3.10",
+        "repair_check.py"
+      ],
+      "cwd": "/work/independent_replay/candidate",
+      "exit_code": 0,
+      "seconds": 11.294471990317106,
+      "stdout_sha256": "39f2cf9fbf8f208fe34e990a9a627944d33dd523101e02f673da90ca650efd1f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "39f2cf9fbf8f208fe34e990a9a627944d33dd523101e02f673da90ca650efd1f",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "main-17",
+      "argv": [
+        "/usr/bin/python3.10",
+        "repair_check.py",
+        "--basic"
+      ],
+      "cwd": "/work/independent_replay/candidate",
+      "exit_code": 0,
+      "seconds": 19.685987044125795,
+      "stdout_sha256": "ef1925e80784606a7be91f1d2027239ec76fc04e7d1f775d655f7c37c871deb8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "ef1925e80784606a7be91f1d2027239ec76fc04e7d1f775d655f7c37c871deb8",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "main-18",
+      "argv": [
+        "/usr/bin/python3.10",
+        "repair_mertens.py"
+      ],
+      "cwd": "/work/independent_replay/candidate",
+      "exit_code": 0,
+      "seconds": 4.534045664593577,
+      "stdout_sha256": "d048dbfbb49ccffa9600cc34d7eb0bf66ef6ec2aab59b8f3e7d93cdb42036f8a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "d048dbfbb49ccffa9600cc34d7eb0bf66ef6ec2aab59b8f3e7d93cdb42036f8a",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "main-19",
+      "argv": [
+        "/usr/bin/python3.10",
+        "source_audit.py"
+      ],
+      "cwd": "/work/independent_replay/candidate",
+      "exit_code": 0,
+      "seconds": 0.5994223318994045,
+      "stdout_sha256": "da1e28b8d8aef87bbc1ca8d621baed8462798a8f4a534068de30629aa16fa0ca",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "da1e28b8d8aef87bbc1ca8d621baed8462798a8f4a534068de30629aa16fa0ca",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "main-20",
+      "argv": [
+        "/work/small_end",
+        "38358837677",
+        "38358837682",
+        "38358837683",
+        "14111427770"
+      ],
+      "cwd": "/work/independent_replay/candidate",
+      "exit_code": 0,
+      "seconds": 0.4637455679476261,
+      "stdout_sha256": "7fe328bdcc6673b0107ea5ec410329daadd5255bd8512d25ce43a6c057f14900",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "7fe328bdcc6673b0107ea5ec410329daadd5255bd8512d25ce43a6c057f14900",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "main-21",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-c",
+        "import check; N=38358837682; x=check.I(N)+check.I('.1'); print(check.I(1).exp()*x*632207037/x.ln()-1644673232**2)"
+      ],
+      "cwd": "/work/independent_replay/candidate",
+      "exit_code": 0,
+      "seconds": 0.020674722269177437,
+      "stdout_sha256": "99e16287ae79596fcf583a3f11a9de3f84dedb297e9272964a6209df40d8157a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "99e16287ae79596fcf583a3f11a9de3f84dedb297e9272964a6209df40d8157a",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "historical-24",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "prior_check.py"
+      ],
+      "cwd": "/work/independent_replay/candidate",
+      "exit_code": 0,
+      "seconds": 5.708036234602332,
+      "stdout_sha256": "d51ff66cdc13645edf1ea4c07c59e19cb11cb74734c87d5a9f31d8cb651c0c28",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "d51ff66cdc13645edf1ea4c07c59e19cb11cb74734c87d5a9f31d8cb651c0c28",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "historical-25",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "prior_check.py",
+        "--basic"
+      ],
+      "cwd": "/work/independent_replay/candidate",
+      "exit_code": 0,
+      "seconds": 6.426924880594015,
+      "stdout_sha256": "d51ff66cdc13645edf1ea4c07c59e19cb11cb74734c87d5a9f31d8cb651c0c28",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "d51ff66cdc13645edf1ea4c07c59e19cb11cb74734c87d5a9f31d8cb651c0c28",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "full-d02-twelve-modes",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-Bu",
+        "d02_check.py",
+        "constants",
+        "centered",
+        "mertens",
+        "compact",
+        "tails",
+        "extra",
+        "early_compact",
+        "strip",
+        "smoothcheck",
+        "q2check",
+        "onsets",
+        "basic_mid"
+      ],
+      "cwd": "/work/independent_replay/candidate",
+      "exit_code": 0,
+      "seconds": 414.2705041281879,
+      "stdout_sha256": "f9caf40d57b5b64cff27cc38ca6c71a506b267a984bc5ec47f3f7e048e4c5adf",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "f9caf40d57b5b64cff27cc38ca6c71a506b267a984bc5ec47f3f7e048e4c5adf",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "ALL_RETAINED_COMPLETE_BLOCK_LINES_V1",
+        "historical_full_stdout_match_claimed": false,
+        "complete_retained_blocks": [
+          {
+            "name": "d02_basic_mid.txt",
+            "sha256": "b3abcc2c4a9fd1f5cbb013b34b22fbc4cf012a977a2d9555e3e2c173612711f8",
+            "physical_lines_required": 2,
+            "all_physical_lines_matched": true
+          },
+          {
+            "name": "d02_centered.txt",
+            "sha256": "3b3996b5c7492546cd8140d4fd83f59aaf170167c46a81cdb6b97e08a55be37b",
+            "physical_lines_required": 2,
+            "all_physical_lines_matched": true
+          },
+          {
+            "name": "d02_coeff.txt",
+            "sha256": "bb1f4c4a8afb459230bf4f2c254b731ebb90aef45eea440d58fd88502ecf1118",
+            "physical_lines_required": 35,
+            "all_physical_lines_matched": true
+          },
+          {
+            "name": "d02_earliest.txt",
+            "sha256": "8e4a8e99a6280b8353bed93f34b37922f1237649df1ddfc369984b7684d44457",
+            "physical_lines_required": 5,
+            "all_physical_lines_matched": true
+          },
+          {
+            "name": "d02_final_extras.txt",
+            "sha256": "b6b601687a9a5ad5bcfca10946c8b7ab2e8f4e8c0405441797fb43a78add7732",
+            "physical_lines_required": 37,
+            "all_physical_lines_matched": true
+          },
+          {
+            "name": "d02_rays.txt",
+            "sha256": "b69bd56795827870cf8016744629daf73ec1300c6d668b695e2ffa25c6ebc72a",
+            "physical_lines_required": 30,
+            "all_physical_lines_matched": true
+          },
+          {
+            "name": "d02_smooth.txt",
+            "sha256": "e8731fe4333e510402a2a0aa4d1642305feef2f32c96ad2b8d46d9aaf9c73477",
+            "physical_lines_required": 10,
+            "all_physical_lines_matched": true
+          }
+        ],
+        "whole_workload_execution_bound_by_literal_argv": true,
+        "passed": true
+      },
+      "passed": true
+    }
+  ],
+  "external_scope_drain_pending": true,
+  "full_analytic_Lean": false,
+  "source_first_PV": false
+}

@@ -1,0 +1,1013 @@
+{
+  "actual_commands": [
+    {
+      "name": "current-replay",
+      "command": [
+        "/bin/bash",
+        "/work/exact/repair_replay.sh"
+      ],
+      "cwd": "/work/exact",
+      "environment": "LC_ALL=C; assertions enabled",
+      "covered_domain": "Wrapper compiles d02finite_repair.cpp (GCC GNU __int128 extension under -std=c++17); defaults N=250000000, rate 1000000. Runs all five exact current scripts with -B -u, logs redirected per locked wrapper. This is the aggregate status.",
+      "dependencies": {
+        "repair_replay.sh": "4d2e0b4c26046068b03e0024835bb48a79b0a871f9412b7130a24769b32e411b",
+        "d02finite_repair.cpp": "6fde60299941ea2d3244a1f39d571f2e6596eba5c90183d9d4723b0c9d210844",
+        "d02ram.py": "0a05e3467e55b502f29659eeea99971e17dec1a5b99d885d35371c67bbd648b7",
+        "d02m.py": "d1fda8df827345339704c345bf026564f4e21d01471b7e1c1bc6447dc98e8aa7",
+        "d02secondary.py": "aab30a5f7b94a68dc26dbb52bda9f5d3cb0a63cb2e68b23995baeb5e8bde9e2e",
+        "endpoint_check.py": "06f6b115858ceea957ef4c6443302ad78ebe1fc8fd9987029829b16e1549ad51",
+        "repair_limits.py": "0dc3082f38c2f9b4ddf0ac721e5d83dd2f0483d6204962aacc7ce634a71db04d",
+        "d02screen.py": "77555d7ec073d90fee891da1b0813099f6f9595d79eb45059844e02de6e6113e",
+        "d02rigor.py": "9cf645f7413ee5c32ffb59a466818fe51f8d15dc8f07ca397433379fdb1f8d50",
+        "mertens_new.py": "0d965ba5c71a2c5b2a2fe0844981545d268407600e27e54dca8ac8aa1755f4d1",
+        "rigor.py": "94f40d72fdcfd8d02677a5c3902c083f1406bb44b85fdad79190d44b9fc8578d",
+        "portfolio_check.py": "2f0fbf37eb832989aad148c98de81fbe63d34e469f2efabe9b3df3891744d6c7",
+        "refine.py": "5ecf3c11ac34c37119137c85320e651ac0b2d1649760d5fede979befbf889c54",
+        "analytic_check.py": "e17ab958d413525a4ebc5515072a546f0308a63182ce435a1b8c85b3061c79a2",
+        "mertens_check.py": "3e8c6d0ba28c98e136e2b967ea7abf73baf7061fd7e435f3735e7fa80fd72c5b",
+        "ray_check.py": "cb6d428f6c3cd3305e3f7465cd09717cff98a6b75b18518c4492288544b2d02f",
+        "finite26.txt": "2a8f2db5843483d8aaeea0d55742b9dcd23f32204054ed5bb3a833681af0740b",
+        "finite20b.txt": "52cafe9d45b8d1d55936cba6a85a64d43d2d5a85a23ebc5b0532bc03b23aa593",
+        "d02finite_results.txt": "3a34fa609e8a8f2d9888bceee96edaff82b4c1db38cd8bac7ff1f8fb2aa66302",
+        "repair_tape.txt": "75f4d0a45a4054fe9967eb23989e1ef6d909403653f6c3470061ee94422ab429"
+      },
+      "stdout": "current-replay.stdout",
+      "stderr": "current-replay.stderr",
+      "status_file": "current-replay.status",
+      "status": 0
+    },
+    {
+      "name": "finite-opt-compile",
+      "command": [
+        "/usr/bin/g++",
+        "-O3",
+        "-std=c++17",
+        "finite_opt.cpp",
+        "-o",
+        "/work/review_finite_opt"
+      ],
+      "cwd": "/work/exact",
+      "environment": "LC_ALL=C; assertions enabled",
+      "covered_domain": "Compiler invocation",
+      "dependencies": {
+        "finite_opt.cpp": "45b40fb198959f4fee9d0a4f62526f6791a69179f65205f04b6a34e23b6090e6"
+      },
+      "stdout": "finite-opt-compile.stdout",
+      "stderr": "finite-opt-compile.stderr",
+      "status_file": "finite-opt-compile.status",
+      "status": 0
+    },
+    {
+      "name": "finite26",
+      "command": [
+        "/work/review_finite_opt"
+      ],
+      "cwd": "/work/exact",
+      "environment": "LC_ALL=C; assertions enabled",
+      "covered_domain": "[300000,195729609429], default rate 50000",
+      "dependencies": {
+        "finite_opt.cpp": "45b40fb198959f4fee9d0a4f62526f6791a69179f65205f04b6a34e23b6090e6"
+      },
+      "stdout": "finite26.stdout",
+      "stderr": "finite26.stderr",
+      "status_file": "finite26.status",
+      "status": 0
+    },
+    {
+      "name": "finite20b",
+      "command": [
+        "/work/review_finite_opt",
+        "20000000000",
+        "200000"
+      ],
+      "cwd": "/work/exact",
+      "environment": "LC_ALL=C; assertions enabled",
+      "covered_domain": "[300000,20000000000]",
+      "dependencies": {
+        "finite_opt.cpp": "45b40fb198959f4fee9d0a4f62526f6791a69179f65205f04b6a34e23b6090e6"
+      },
+      "stdout": "finite20b.stdout",
+      "stderr": "finite20b.stderr",
+      "status_file": "finite20b.status",
+      "status": 0
+    },
+    {
+      "name": "finite100m",
+      "command": [
+        "/work/review_finite_opt",
+        "100000000",
+        "1000000"
+      ],
+      "cwd": "/work/exact",
+      "environment": "LC_ALL=C; assertions enabled",
+      "covered_domain": "[300000,100000000]",
+      "dependencies": {
+        "finite_opt.cpp": "45b40fb198959f4fee9d0a4f62526f6791a69179f65205f04b6a34e23b6090e6"
+      },
+      "stdout": "finite100m.stdout",
+      "stderr": "finite100m.stderr",
+      "status_file": "finite100m.status",
+      "status": 0
+    },
+    {
+      "name": "old-007-compile",
+      "command": [
+        "/usr/bin/g++",
+        "-O3",
+        "-std=c++17",
+        "D01__SUBMITTED_007.cpp",
+        "-o",
+        "/work/review-old-007"
+      ],
+      "cwd": "/work/exact",
+      "environment": "LC_ALL=C; assertions enabled",
+      "covered_domain": "Compiler invocation",
+      "dependencies": {
+        "D01__SUBMITTED_007.cpp": "be1d1ab76d1f80cb213f801ef50f243b914acf878347460686b406c83f51037f"
+      },
+      "stdout": "old-007-compile.stdout",
+      "stderr": "old-007-compile.stderr",
+      "status_file": "old-007-compile.status",
+      "status": 0
+    },
+    {
+      "name": "old-007",
+      "command": [
+        "/work/review-old-007"
+      ],
+      "cwd": "/work/exact",
+      "environment": "LC_ALL=C; assertions enabled",
+      "covered_domain": "[300000,26489122130], closed cells, default rate 50000",
+      "dependencies": {
+        "D01__SUBMITTED_007.cpp": "be1d1ab76d1f80cb213f801ef50f243b914acf878347460686b406c83f51037f"
+      },
+      "stdout": "old-007.stdout",
+      "stderr": "old-007.stderr",
+      "status_file": "old-007.status",
+      "status": 0
+    },
+    {
+      "name": "old-005-compile",
+      "command": [
+        "/usr/bin/g++",
+        "-O3",
+        "-std=c++17",
+        "D01__SUBMITTED_005.cpp",
+        "-o",
+        "/work/review-old-005"
+      ],
+      "cwd": "/work/exact",
+      "environment": "LC_ALL=C; assertions enabled",
+      "covered_domain": "Compiler invocation",
+      "dependencies": {
+        "D01__SUBMITTED_005.cpp": "611f35ed40c2174fb5db619a47111ad53609a4e3d6231c7ae9feeef9736f130b"
+      },
+      "stdout": "old-005-compile.stdout",
+      "stderr": "old-005-compile.stderr",
+      "status_file": "old-005-compile.status",
+      "status": 0
+    },
+    {
+      "name": "old-005",
+      "command": [
+        "/work/review-old-005"
+      ],
+      "cwd": "/work/exact",
+      "environment": "LC_ALL=C; assertions enabled",
+      "covered_domain": "[300000,3584912847], rough historic closed cells, default rate 50000",
+      "dependencies": {
+        "D01__SUBMITTED_005.cpp": "611f35ed40c2174fb5db619a47111ad53609a4e3d6231c7ae9feeef9736f130b"
+      },
+      "stdout": "old-005.stdout",
+      "stderr": "old-005.stderr",
+      "status_file": "old-005.status",
+      "status": 0
+    },
+    {
+      "name": "portfolio_check",
+      "command": [
+        "/usr/bin/python3.10",
+        "-B",
+        "-u",
+        "portfolio_check.py"
+      ],
+      "cwd": "/work/exact",
+      "environment": "LC_ALL=C; assertions enabled",
+      "covered_domain": "D01 cells through 191 and all declared monotone tails; cap 7/8",
+      "dependencies": {
+        "portfolio_check.py": "2f0fbf37eb832989aad148c98de81fbe63d34e469f2efabe9b3df3891744d6c7",
+        "rigor.py": "94f40d72fdcfd8d02677a5c3902c083f1406bb44b85fdad79190d44b9fc8578d",
+        "refine.py": "5ecf3c11ac34c37119137c85320e651ac0b2d1649760d5fede979befbf889c54",
+        "analytic_check.py": "e17ab958d413525a4ebc5515072a546f0308a63182ce435a1b8c85b3061c79a2",
+        "ray_check.py": "cb6d428f6c3cd3305e3f7465cd09717cff98a6b75b18518c4492288544b2d02f",
+        "mertens_check.py": "3e8c6d0ba28c98e136e2b967ea7abf73baf7061fd7e435f3735e7fa80fd72c5b",
+        "extra_check.py": "5eb8fa5c44c57880c1cb83f479aac22401a7c8c542e51038a6a45111216fd430",
+        "endpoint_check.py": "06f6b115858ceea957ef4c6443302ad78ebe1fc8fd9987029829b16e1549ad51"
+      },
+      "stdout": "portfolio_check.stdout",
+      "stderr": "portfolio_check.stderr",
+      "status_file": "portfolio_check.status",
+      "status": 0
+    },
+    {
+      "name": "mertens_new",
+      "command": [
+        "/usr/bin/python3.10",
+        "-B",
+        "-u",
+        "mertens_new.py"
+      ],
+      "cwd": "/work/exact",
+      "environment": "LC_ALL=C; assertions enabled",
+      "covered_domain": "D01 closed log cells 18.42 through 59.5, analytic joins and shape tails, finite-band reweighting",
+      "dependencies": {
+        "mertens_new.py": "0d965ba5c71a2c5b2a2fe0844981545d268407600e27e54dca8ac8aa1755f4d1",
+        "rigor.py": "94f40d72fdcfd8d02677a5c3902c083f1406bb44b85fdad79190d44b9fc8578d",
+        "portfolio_check.py": "2f0fbf37eb832989aad148c98de81fbe63d34e469f2efabe9b3df3891744d6c7",
+        "refine.py": "5ecf3c11ac34c37119137c85320e651ac0b2d1649760d5fede979befbf889c54",
+        "analytic_check.py": "e17ab958d413525a4ebc5515072a546f0308a63182ce435a1b8c85b3061c79a2",
+        "ray_check.py": "cb6d428f6c3cd3305e3f7465cd09717cff98a6b75b18518c4492288544b2d02f",
+        "mertens_check.py": "3e8c6d0ba28c98e136e2b967ea7abf73baf7061fd7e435f3735e7fa80fd72c5b",
+        "extra_check.py": "5eb8fa5c44c57880c1cb83f479aac22401a7c8c542e51038a6a45111216fd430",
+        "endpoint_check.py": "06f6b115858ceea957ef4c6443302ad78ebe1fc8fd9987029829b16e1549ad51"
+      },
+      "stdout": "mertens_new.stdout",
+      "stderr": "mertens_new.stderr",
+      "status_file": "mertens_new.status",
+      "status": 0
+    },
+    {
+      "name": "prefix",
+      "command": [
+        "/usr/bin/python3.10",
+        "-B",
+        "-u",
+        "portfolio_check.py",
+        "--qrh-free-prefix"
+      ],
+      "cwd": "/work/exact",
+      "environment": "LC_ALL=C; assertions enabled",
+      "covered_domain": "D01 QRH-free closed cells through 180",
+      "dependencies": {
+        "portfolio_check.py": "2f0fbf37eb832989aad148c98de81fbe63d34e469f2efabe9b3df3891744d6c7",
+        "rigor.py": "94f40d72fdcfd8d02677a5c3902c083f1406bb44b85fdad79190d44b9fc8578d",
+        "refine.py": "5ecf3c11ac34c37119137c85320e651ac0b2d1649760d5fede979befbf889c54",
+        "analytic_check.py": "e17ab958d413525a4ebc5515072a546f0308a63182ce435a1b8c85b3061c79a2",
+        "ray_check.py": "cb6d428f6c3cd3305e3f7465cd09717cff98a6b75b18518c4492288544b2d02f",
+        "mertens_check.py": "3e8c6d0ba28c98e136e2b967ea7abf73baf7061fd7e435f3735e7fa80fd72c5b",
+        "extra_check.py": "5eb8fa5c44c57880c1cb83f479aac22401a7c8c542e51038a6a45111216fd430",
+        "endpoint_check.py": "06f6b115858ceea957ef4c6443302ad78ebe1fc8fd9987029829b16e1549ad51"
+      },
+      "stdout": "prefix.stdout",
+      "stderr": "prefix.stderr",
+      "status_file": "prefix.status",
+      "status": 0
+    },
+    {
+      "name": "ramDus",
+      "command": [
+        "/usr/bin/python3.10",
+        "-B",
+        "-u",
+        "portfolio_check.py",
+        "--dusart-only"
+      ],
+      "cwd": "/work/exact",
+      "environment": "LC_ALL=C; assertions enabled",
+      "covered_domain": "same, without FKS density Table 8",
+      "dependencies": {
+        "portfolio_check.py": "2f0fbf37eb832989aad148c98de81fbe63d34e469f2efabe9b3df3891744d6c7",
+        "rigor.py": "94f40d72fdcfd8d02677a5c3902c083f1406bb44b85fdad79190d44b9fc8578d",
+        "refine.py": "5ecf3c11ac34c37119137c85320e651ac0b2d1649760d5fede979befbf889c54",
+        "analytic_check.py": "e17ab958d413525a4ebc5515072a546f0308a63182ce435a1b8c85b3061c79a2",
+        "ray_check.py": "cb6d428f6c3cd3305e3f7465cd09717cff98a6b75b18518c4492288544b2d02f",
+        "mertens_check.py": "3e8c6d0ba28c98e136e2b967ea7abf73baf7061fd7e435f3735e7fa80fd72c5b",
+        "extra_check.py": "5eb8fa5c44c57880c1cb83f479aac22401a7c8c542e51038a6a45111216fd430",
+        "endpoint_check.py": "06f6b115858ceea957ef4c6443302ad78ebe1fc8fd9987029829b16e1549ad51"
+      },
+      "stdout": "ramDus.stdout",
+      "stderr": "ramDus.stderr",
+      "status_file": "ramDus.status",
+      "status": 0
+    },
+    {
+      "name": "mertensDus",
+      "command": [
+        "/usr/bin/python3.10",
+        "-B",
+        "-u",
+        "mertens_new.py",
+        "--dusart-only"
+      ],
+      "cwd": "/work/exact",
+      "environment": "LC_ALL=C; assertions enabled",
+      "covered_domain": "same, Dusart-only density",
+      "dependencies": {
+        "mertens_new.py": "0d965ba5c71a2c5b2a2fe0844981545d268407600e27e54dca8ac8aa1755f4d1",
+        "rigor.py": "94f40d72fdcfd8d02677a5c3902c083f1406bb44b85fdad79190d44b9fc8578d",
+        "portfolio_check.py": "2f0fbf37eb832989aad148c98de81fbe63d34e469f2efabe9b3df3891744d6c7",
+        "refine.py": "5ecf3c11ac34c37119137c85320e651ac0b2d1649760d5fede979befbf889c54",
+        "analytic_check.py": "e17ab958d413525a4ebc5515072a546f0308a63182ce435a1b8c85b3061c79a2",
+        "ray_check.py": "cb6d428f6c3cd3305e3f7465cd09717cff98a6b75b18518c4492288544b2d02f",
+        "mertens_check.py": "3e8c6d0ba28c98e136e2b967ea7abf73baf7061fd7e435f3735e7fa80fd72c5b",
+        "extra_check.py": "5eb8fa5c44c57880c1cb83f479aac22401a7c8c542e51038a6a45111216fd430",
+        "endpoint_check.py": "06f6b115858ceea957ef4c6443302ad78ebe1fc8fd9987029829b16e1549ad51"
+      },
+      "stdout": "mertensDus.stdout",
+      "stderr": "mertensDus.stderr",
+      "status_file": "mertensDus.status",
+      "status": 0
+    },
+    {
+      "name": "ray_check",
+      "command": [
+        "/usr/bin/python3.10",
+        "-B",
+        "-u",
+        "ray_check.py"
+      ],
+      "cwd": "/work/exact",
+      "environment": "LC_ALL=C; assertions enabled",
+      "covered_domain": "historical A-conditioned and QRH-free cells and tails as in original checker",
+      "dependencies": {
+        "ray_check.py": "cb6d428f6c3cd3305e3f7465cd09717cff98a6b75b18518c4492288544b2d02f",
+        "rigor.py": "94f40d72fdcfd8d02677a5c3902c083f1406bb44b85fdad79190d44b9fc8578d",
+        "portfolio_check.py": "2f0fbf37eb832989aad148c98de81fbe63d34e469f2efabe9b3df3891744d6c7",
+        "refine.py": "5ecf3c11ac34c37119137c85320e651ac0b2d1649760d5fede979befbf889c54",
+        "analytic_check.py": "e17ab958d413525a4ebc5515072a546f0308a63182ce435a1b8c85b3061c79a2",
+        "mertens_check.py": "3e8c6d0ba28c98e136e2b967ea7abf73baf7061fd7e435f3735e7fa80fd72c5b",
+        "extra_check.py": "5eb8fa5c44c57880c1cb83f479aac22401a7c8c542e51038a6a45111216fd430",
+        "endpoint_check.py": "06f6b115858ceea957ef4c6443302ad78ebe1fc8fd9987029829b16e1549ad51"
+      },
+      "stdout": "ray_check.stdout",
+      "stderr": "ray_check.stderr",
+      "status_file": "ray_check.status",
+      "status": 0
+    },
+    {
+      "name": "secondary_check",
+      "command": [
+        "/usr/bin/python3.10",
+        "-B",
+        "-u",
+        "secondary_check.py"
+      ],
+      "cwd": "/work/exact",
+      "environment": "LC_ALL=C; assertions enabled",
+      "covered_domain": "archived QRH-free rays, current D01 ancillary/tertiary comparisons and exact sign root",
+      "dependencies": {
+        "secondary_check.py": "868bd94702b227abb8d8bcb0682be78da1cfecf935cb41af94ebaf006060dc89",
+        "rigor.py": "94f40d72fdcfd8d02677a5c3902c083f1406bb44b85fdad79190d44b9fc8578d",
+        "portfolio_check.py": "2f0fbf37eb832989aad148c98de81fbe63d34e469f2efabe9b3df3891744d6c7",
+        "refine.py": "5ecf3c11ac34c37119137c85320e651ac0b2d1649760d5fede979befbf889c54",
+        "analytic_check.py": "e17ab958d413525a4ebc5515072a546f0308a63182ce435a1b8c85b3061c79a2",
+        "ray_check.py": "cb6d428f6c3cd3305e3f7465cd09717cff98a6b75b18518c4492288544b2d02f",
+        "mertens_check.py": "3e8c6d0ba28c98e136e2b967ea7abf73baf7061fd7e435f3735e7fa80fd72c5b",
+        "extra_check.py": "5eb8fa5c44c57880c1cb83f479aac22401a7c8c542e51038a6a45111216fd430",
+        "endpoint_check.py": "06f6b115858ceea957ef4c6443302ad78ebe1fc8fd9987029829b16e1549ad51"
+      },
+      "stdout": "secondary_check.stdout",
+      "stderr": "secondary_check.stderr",
+      "status_file": "secondary_check.status",
+      "status": 0
+    },
+    {
+      "name": "refine",
+      "command": [
+        "/usr/bin/python3.10",
+        "-B",
+        "-u",
+        "refine.py"
+      ],
+      "cwd": "/work/exact",
+      "environment": "LC_ALL=C; assertions enabled",
+      "covered_domain": "archived D01 screen coefficients, transition cells, Mertens and correlated interval guards",
+      "dependencies": {
+        "refine.py": "5ecf3c11ac34c37119137c85320e651ac0b2d1649760d5fede979befbf889c54",
+        "rigor.py": "94f40d72fdcfd8d02677a5c3902c083f1406bb44b85fdad79190d44b9fc8578d",
+        "portfolio_check.py": "2f0fbf37eb832989aad148c98de81fbe63d34e469f2efabe9b3df3891744d6c7",
+        "analytic_check.py": "e17ab958d413525a4ebc5515072a546f0308a63182ce435a1b8c85b3061c79a2",
+        "ray_check.py": "cb6d428f6c3cd3305e3f7465cd09717cff98a6b75b18518c4492288544b2d02f",
+        "mertens_check.py": "3e8c6d0ba28c98e136e2b967ea7abf73baf7061fd7e435f3735e7fa80fd72c5b",
+        "extra_check.py": "5eb8fa5c44c57880c1cb83f479aac22401a7c8c542e51038a6a45111216fd430",
+        "endpoint_check.py": "06f6b115858ceea957ef4c6443302ad78ebe1fc8fd9987029829b16e1549ad51"
+      },
+      "stdout": "refine.stdout",
+      "stderr": "refine.stderr",
+      "status_file": "refine.status",
+      "status": 0
+    },
+    {
+      "name": "extra_check",
+      "command": [
+        "/usr/bin/python3.10",
+        "-B",
+        "-u",
+        "extra_check.py"
+      ],
+      "cwd": "/work/exact",
+      "environment": "LC_ALL=C; assertions enabled",
+      "covered_domain": "archived .03/.004 and small signed QRH-free gap, historical .24 D02 extension",
+      "dependencies": {
+        "extra_check.py": "5eb8fa5c44c57880c1cb83f479aac22401a7c8c542e51038a6a45111216fd430",
+        "rigor.py": "94f40d72fdcfd8d02677a5c3902c083f1406bb44b85fdad79190d44b9fc8578d",
+        "portfolio_check.py": "2f0fbf37eb832989aad148c98de81fbe63d34e469f2efabe9b3df3891744d6c7",
+        "refine.py": "5ecf3c11ac34c37119137c85320e651ac0b2d1649760d5fede979befbf889c54",
+        "analytic_check.py": "e17ab958d413525a4ebc5515072a546f0308a63182ce435a1b8c85b3061c79a2",
+        "ray_check.py": "cb6d428f6c3cd3305e3f7465cd09717cff98a6b75b18518c4492288544b2d02f",
+        "mertens_check.py": "3e8c6d0ba28c98e136e2b967ea7abf73baf7061fd7e435f3735e7fa80fd72c5b",
+        "endpoint_check.py": "06f6b115858ceea957ef4c6443302ad78ebe1fc8fd9987029829b16e1549ad51"
+      },
+      "stdout": "extra_check.stdout",
+      "stderr": "extra_check.stderr",
+      "status_file": "extra_check.status",
+      "status": 0
+    },
+    {
+      "name": "audit_summaries",
+      "command": [
+        "/usr/bin/python3.10",
+        "-B",
+        "-u",
+        "audit_summaries.py"
+      ],
+      "cwd": "/work/exact",
+      "environment": "LC_ALL=C; assertions enabled",
+      "covered_domain": "read exact finite100m,20b,26 bands, onsets and their appropriate joins",
+      "dependencies": {
+        "audit_summaries.py": "7e338e3f2296977f35630db02157bf0d4183ba0dc0f4f41d594c7fd4a9988a61",
+        "rigor.py": "94f40d72fdcfd8d02677a5c3902c083f1406bb44b85fdad79190d44b9fc8578d",
+        "portfolio_check.py": "2f0fbf37eb832989aad148c98de81fbe63d34e469f2efabe9b3df3891744d6c7",
+        "refine.py": "5ecf3c11ac34c37119137c85320e651ac0b2d1649760d5fede979befbf889c54",
+        "analytic_check.py": "e17ab958d413525a4ebc5515072a546f0308a63182ce435a1b8c85b3061c79a2",
+        "ray_check.py": "cb6d428f6c3cd3305e3f7465cd09717cff98a6b75b18518c4492288544b2d02f",
+        "mertens_check.py": "3e8c6d0ba28c98e136e2b967ea7abf73baf7061fd7e435f3735e7fa80fd72c5b",
+        "extra_check.py": "5eb8fa5c44c57880c1cb83f479aac22401a7c8c542e51038a6a45111216fd430",
+        "endpoint_check.py": "06f6b115858ceea957ef4c6443302ad78ebe1fc8fd9987029829b16e1549ad51"
+      },
+      "stdout": "audit_summaries.stdout",
+      "stderr": "audit_summaries.stderr",
+      "status_file": "audit_summaries.status",
+      "status": 0
+    },
+    {
+      "name": "mertens_check",
+      "command": [
+        "/usr/bin/python3.10",
+        "-B",
+        "-u",
+        "mertens_check.py"
+      ],
+      "cwd": "/work/exact",
+      "environment": "LC_ALL=C; assertions enabled",
+      "covered_domain": "prime sieve to 10^8, 236784 closed cells and historical sharp states, exact constants",
+      "dependencies": {
+        "mertens_check.py": "3e8c6d0ba28c98e136e2b967ea7abf73baf7061fd7e435f3735e7fa80fd72c5b",
+        "rigor.py": "94f40d72fdcfd8d02677a5c3902c083f1406bb44b85fdad79190d44b9fc8578d",
+        "portfolio_check.py": "2f0fbf37eb832989aad148c98de81fbe63d34e469f2efabe9b3df3891744d6c7",
+        "refine.py": "5ecf3c11ac34c37119137c85320e651ac0b2d1649760d5fede979befbf889c54",
+        "analytic_check.py": "e17ab958d413525a4ebc5515072a546f0308a63182ce435a1b8c85b3061c79a2",
+        "ray_check.py": "cb6d428f6c3cd3305e3f7465cd09717cff98a6b75b18518c4492288544b2d02f",
+        "extra_check.py": "5eb8fa5c44c57880c1cb83f479aac22401a7c8c542e51038a6a45111216fd430",
+        "endpoint_check.py": "06f6b115858ceea957ef4c6443302ad78ebe1fc8fd9987029829b16e1549ad51"
+      },
+      "stdout": "mertens_check.stdout",
+      "stderr": "mertens_check.stderr",
+      "status_file": "mertens_check.status",
+      "status": 0
+    },
+    {
+      "name": "ancillary-initial",
+      "command": [
+        "/usr/bin/python3.10",
+        "-B",
+        "/work/submission/ancillary-initial.py",
+        "/work/submission/mertens_check.stdout"
+      ],
+      "cwd": "/work/exact",
+      "environment": "LC_ALL=C; assertions enabled",
+      "covered_domain": "Reviewer guard initially selected incorrect cutoff 30.8 for CH2 lower finite range, failing. Actual branch requires shifted argument <=29.9; 30.8 uses only upper theta sign. No candidate bytes altered.",
+      "dependencies": {},
+      "stdout": "ancillary-initial.stdout",
+      "stderr": "ancillary-initial.stderr",
+      "status_file": "ancillary-initial.status",
+      "status": 1
+    },
+    {
+      "name": "ancillary",
+      "command": [
+        "/usr/bin/python3.10",
+        "-B",
+        "/work/submission/ancillary.py",
+        "/work/submission/mertens_check.stdout"
+      ],
+      "cwd": "/work/exact",
+      "environment": "LC_ALL=C; assertions enabled",
+      "covered_domain": "Local exact endpoint counterexamples, every candidate/source hash, moment limits, earliest count domains, and same QRH-free K=60 cells. With PYTHONPATH=/work/exact.",
+      "dependencies": {
+        "d02screen.py": "77555d7ec073d90fee891da1b0813099f6f9595d79eb45059844e02de6e6113e",
+        "d02ram.py": "0a05e3467e55b502f29659eeea99971e17dec1a5b99d885d35371c67bbd648b7",
+        "endpoint_check.py": "06f6b115858ceea957ef4c6443302ad78ebe1fc8fd9987029829b16e1549ad51",
+        "mertens_check.py": "3e8c6d0ba28c98e136e2b967ea7abf73baf7061fd7e435f3735e7fa80fd72c5b",
+        "ray_check.py": "cb6d428f6c3cd3305e3f7465cd09717cff98a6b75b18518c4492288544b2d02f"
+      },
+      "stdout": "ancillary.stdout",
+      "stderr": "ancillary.stderr",
+      "status_file": "ancillary.status",
+      "status": 0
+    }
+  ],
+  "identical_replays": [
+    {
+      "stream": "finite26.stdout",
+      "identical_to": {
+        "file": "finite26.txt",
+        "physical_LF": 1,
+        "physical_LF_end": 1,
+        "sha256": "2a8f2db5843483d8aaeea0d55742b9dcd23f32204054ed5bb3a833681af0740b",
+        "packet_name": "CANDIDATE_126.txt"
+      },
+      "sha256": "2a8f2db5843483d8aaeea0d55742b9dcd23f32204054ed5bb3a833681af0740b"
+    },
+    {
+      "stream": "finite20b.stdout",
+      "identical_to": {
+        "file": "finite20b.txt",
+        "physical_LF": 1,
+        "physical_LF_end": 1,
+        "sha256": "52cafe9d45b8d1d55936cba6a85a64d43d2d5a85a23ebc5b0532bc03b23aa593",
+        "packet_name": "CANDIDATE_125.txt"
+      },
+      "sha256": "52cafe9d45b8d1d55936cba6a85a64d43d2d5a85a23ebc5b0532bc03b23aa593"
+    },
+    {
+      "stream": "finite100m.stdout",
+      "identical_to": {
+        "file": "finite100m.txt",
+        "physical_LF": 1,
+        "physical_LF_end": 1,
+        "sha256": "8c2903a67dda9abb98b6d573ef54f4a0e528250b92a4a7a4601dfff838b1bc97",
+        "packet_name": "CANDIDATE_124.txt"
+      },
+      "sha256": "8c2903a67dda9abb98b6d573ef54f4a0e528250b92a4a7a4601dfff838b1bc97"
+    },
+    {
+      "stream": "mertens_check.stdout",
+      "identical_to": {
+        "file": "mertens_results.txt",
+        "physical_LF": 1,
+        "physical_LF_end": 1,
+        "sha256": "690f25fba4c27cf6b8bd3cd4967ae90f2bb19bd22426e5be1e8f74121f784c6d",
+        "packet_name": "CANDIDATE_139.txt"
+      },
+      "sha256": "690f25fba4c27cf6b8bd3cd4967ae90f2bb19bd22426e5be1e8f74121f784c6d"
+    },
+    {
+      "stream": "old-007.stdout",
+      "identical_to": {
+        "file": "D01__SUBMITTED_008.txt",
+        "physical_LF": 1,
+        "physical_LF_end": 1,
+        "sha256": "3b689913df1df7e21d69f8a87743c24e5f94a6d0a3ce6e968af00d499c781a0a",
+        "packet_name": "CANDIDATE_064.txt"
+      },
+      "sha256": "3b689913df1df7e21d69f8a87743c24e5f94a6d0a3ce6e968af00d499c781a0a"
+    },
+    {
+      "stream": "old-005.stdout",
+      "identical_to": {
+        "file": "D01_M_REVIEW_older24.stdout",
+        "physical_LF": 1,
+        "physical_LF_end": 1,
+        "sha256": "1a63dad41fc151f7483852020a38b96dcb74a0fbe0c84d7fcde0bccc75b5e105",
+        "packet_name": "CANDIDATE_037.stdout"
+      },
+      "sha256": "1a63dad41fc151f7483852020a38b96dcb74a0fbe0c84d7fcde0bccc75b5e105"
+    },
+    {
+      "stream": "portfolio_check.stdout",
+      "identical_to": {
+        "file": "ram_replay.txt",
+        "physical_LF": 1,
+        "physical_LF_end": 1,
+        "sha256": "31e1b0e6fc5e4c342892e5cbeb599b3822a742109d0340bacf0f04371f9fd2ef",
+        "packet_name": "CANDIDATE_154.txt"
+      },
+      "sha256": "31e1b0e6fc5e4c342892e5cbeb599b3822a742109d0340bacf0f04371f9fd2ef"
+    },
+    {
+      "stream": "ramDus.stdout",
+      "identical_to": {
+        "file": "ram_dusart_replay.txt",
+        "physical_LF": 1,
+        "physical_LF_end": 1,
+        "sha256": "54f0407c47cfd4567f826878919185b05f3906ec5f92cb669759967a5b4e94b2",
+        "packet_name": "CANDIDATE_153.txt"
+      },
+      "sha256": "54f0407c47cfd4567f826878919185b05f3906ec5f92cb669759967a5b4e94b2"
+    },
+    {
+      "stream": "mertens_new.stdout",
+      "identical_to": {
+        "file": "mertens_replay.txt",
+        "physical_LF": 1,
+        "physical_LF_end": 1,
+        "sha256": "56169afd2fd2060986ca48faad0b1a2f814894bdff392fe632437fc8e96d0867",
+        "packet_name": "CANDIDATE_138.txt"
+      },
+      "sha256": "56169afd2fd2060986ca48faad0b1a2f814894bdff392fe632437fc8e96d0867"
+    },
+    {
+      "stream": "mertensDus.stdout",
+      "identical_to": {
+        "file": "mertens_dusart_replay.txt",
+        "physical_LF": 1,
+        "physical_LF_end": 1,
+        "sha256": "aa35eb181fadaccaf3a1aebc83c56f4d8601e058789418e3e7ad4d9cec64ca72",
+        "packet_name": "CANDIDATE_136.txt"
+      },
+      "sha256": "aa35eb181fadaccaf3a1aebc83c56f4d8601e058789418e3e7ad4d9cec64ca72"
+    },
+    {
+      "stream": "prefix.stdout",
+      "identical_to": {
+        "file": "prefix_replay.txt",
+        "physical_LF": 1,
+        "physical_LF_end": 1,
+        "sha256": "bac3a456dc62c502b71b58992d7d091122da5905fc71dfd38277fe21c85b99a4",
+        "packet_name": "CANDIDATE_142.txt"
+      },
+      "sha256": "bac3a456dc62c502b71b58992d7d091122da5905fc71dfd38277fe21c85b99a4"
+    },
+    {
+      "stream": "d02ram_repair_replay.out",
+      "identical_to": {
+        "file": "repair_r_results.txt",
+        "physical_LF": 1,
+        "physical_LF_end": 1,
+        "sha256": "cbd524797093d44389ed60be455ade9d782ed20e47dbf5e8796a4dd80066a781",
+        "packet_name": "CANDIDATE_163.txt"
+      },
+      "sha256": "cbd524797093d44389ed60be455ade9d782ed20e47dbf5e8796a4dd80066a781"
+    },
+    {
+      "stream": "d02m_repair_replay.out",
+      "identical_to": {
+        "file": "repair_m_results.txt",
+        "physical_LF": 1,
+        "physical_LF_end": 1,
+        "sha256": "395129b85aeff9adf6a29496b0177d21f57aecace4ce318839ba9803d861dcf2",
+        "packet_name": "CANDIDATE_162.txt"
+      },
+      "sha256": "395129b85aeff9adf6a29496b0177d21f57aecace4ce318839ba9803d861dcf2"
+    },
+    {
+      "stream": "d02secondary_repair_replay.out",
+      "identical_to": {
+        "file": "repair_secondary_results.txt",
+        "physical_LF": 1,
+        "physical_LF_end": 1,
+        "sha256": "b7ffbbbabcb6f75d83d597bc78c1ddabed1d0a9a80207d1eacffd1c95e25a20c",
+        "packet_name": "CANDIDATE_165.txt"
+      },
+      "sha256": "b7ffbbbabcb6f75d83d597bc78c1ddabed1d0a9a80207d1eacffd1c95e25a20c"
+    },
+    {
+      "stream": "endpoint_check_repair_replay.out",
+      "identical_to": {
+        "file": "repair_endpoint_results.txt",
+        "physical_LF": 1,
+        "physical_LF_end": 1,
+        "sha256": "eee302d05f9d82af3edea139e60d1b9b46f123f457b292262cc949099e6f5e3d",
+        "packet_name": "CANDIDATE_159.txt"
+      },
+      "sha256": "eee302d05f9d82af3edea139e60d1b9b46f123f457b292262cc949099e6f5e3d"
+    },
+    {
+      "stream": "repair_limits_repair_replay.out",
+      "identical_to": {
+        "file": "repair_limits_results.txt",
+        "physical_LF": 1,
+        "physical_LF_end": 1,
+        "sha256": "4f49c5c55e171e1721e6274e07f1545475f8e03c63e866388f2d7be608454ad8",
+        "packet_name": "CANDIDATE_161.txt"
+      },
+      "sha256": "4f49c5c55e171e1721e6274e07f1545475f8e03c63e866388f2d7be608454ad8"
+    },
+    {
+      "stream": "d02finite_replay.out",
+      "identical_to": {
+        "file": "repair_tape.txt",
+        "physical_LF": 1,
+        "physical_LF_end": 1,
+        "sha256": "75f4d0a45a4054fe9967eb23989e1ef6d909403653f6c3470061ee94422ab429",
+        "packet_name": "CANDIDATE_167.txt"
+      },
+      "sha256": "75f4d0a45a4054fe9967eb23989e1ef6d909403653f6c3470061ee94422ab429"
+    }
+  ],
+  "versions": {
+    "Python": "3.10.12",
+    "GCC": "11.4.0 Ubuntu 11.4.0-1ubuntu1~22.04.3"
+  },
+  "initial_shell": "pwd printed directory; bare ls and cat unavailable, exit 127 and locale warning, remedied via Python pathlib immediately; no mathematical data loss",
+  "current_wrapper_outputs": {
+    "d02finite_replay.out": "N=250000000, rate=1000000, full finite guard domains, original wrapper checks exact bytes",
+    "d02ram_repair_replay.out": "all early/transition/shift cells, 34 higher-order pairs, analytic tail constants",
+    "d02m_repair_replay.out": "closed compact bridges plus tail caps, three finite power joins, normalization and primorial",
+    "d02secondary_repair_replay.out": "all listed endpoint power reserve and correlated checks",
+    "endpoint_check_repair_replay.out": "exact [N,N+1], both floor counts, derivative and bracket",
+    "repair_limits_repair_replay.out": "failed certificate targets, full-height CH2 numeric caps and cutoff exploration"
+  },
+  "receipts": {
+    "ancillary-initial.status": {
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "bytes": 2
+    },
+    "ancillary-initial.stderr": {
+      "sha256": "b8f826b598cfe7d00a676803c78a2e7b7094f54b8afdbf00524afb7a91054d5e",
+      "bytes": 168
+    },
+    "ancillary-initial.stdout": {
+      "sha256": "b506ace63ac8374acc326cbf2d1b5fe3333756948b23aa84285a8e20cbaf3db7",
+      "bytes": 139
+    },
+    "ancillary.status": {
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    "ancillary.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "ancillary.stdout": {
+      "sha256": "0d1ee5d97d9d55abf16cf75f44f0538c95ba6bff8b515bf8e043d304d5639ebb",
+      "bytes": 583
+    },
+    "audit_summaries.status": {
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    "audit_summaries.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "audit_summaries.stdout": {
+      "sha256": "dc4e94d6c4b1b62ec76a5a33aa857b9b75963c6d54beee5397bec8737f460fb8",
+      "bytes": 48
+    },
+    "current-replay.status": {
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    "current-replay.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "current-replay.stdout": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "d02finite_replay.out": {
+      "sha256": "75f4d0a45a4054fe9967eb23989e1ef6d909403653f6c3470061ee94422ab429",
+      "bytes": 2812
+    },
+    "d02m_repair_replay.out": {
+      "sha256": "395129b85aeff9adf6a29496b0177d21f57aecace4ce318839ba9803d861dcf2",
+      "bytes": 4093
+    },
+    "d02ram_repair_replay.out": {
+      "sha256": "cbd524797093d44389ed60be455ade9d782ed20e47dbf5e8796a4dd80066a781",
+      "bytes": 6018
+    },
+    "d02secondary_repair_replay.out": {
+      "sha256": "b7ffbbbabcb6f75d83d597bc78c1ddabed1d0a9a80207d1eacffd1c95e25a20c",
+      "bytes": 674
+    },
+    "endpoint_check_repair_replay.out": {
+      "sha256": "eee302d05f9d82af3edea139e60d1b9b46f123f457b292262cc949099e6f5e3d",
+      "bytes": 171
+    },
+    "extra_check.status": {
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    "extra_check.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "extra_check.stdout": {
+      "sha256": "20d776f0d443c94c55f6ef9458c16df0430c0fcb96b1990795078007164f5e66",
+      "bytes": 213
+    },
+    "finite-opt-compile.status": {
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    "finite-opt-compile.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "finite-opt-compile.stdout": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "finite100m.status": {
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    "finite100m.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "finite100m.stdout": {
+      "sha256": "8c2903a67dda9abb98b6d573ef54f4a0e528250b92a4a7a4601dfff838b1bc97",
+      "bytes": 2181
+    },
+    "finite20b.status": {
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    "finite20b.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "finite20b.stdout": {
+      "sha256": "52cafe9d45b8d1d55936cba6a85a64d43d2d5a85a23ebc5b0532bc03b23aa593",
+      "bytes": 2675
+    },
+    "finite26.status": {
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    "finite26.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "finite26.stdout": {
+      "sha256": "2a8f2db5843483d8aaeea0d55742b9dcd23f32204054ed5bb3a833681af0740b",
+      "bytes": 2856
+    },
+    "mertensDus.status": {
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    "mertensDus.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "mertensDus.stdout": {
+      "sha256": "aa35eb181fadaccaf3a1aebc83c56f4d8601e058789418e3e7ad4d9cec64ca72",
+      "bytes": 1661
+    },
+    "mertens_check.status": {
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    "mertens_check.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "mertens_check.stdout": {
+      "sha256": "690f25fba4c27cf6b8bd3cd4967ae90f2bb19bd22426e5be1e8f74121f784c6d",
+      "bytes": 1509
+    },
+    "mertens_new.status": {
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    "mertens_new.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "mertens_new.stdout": {
+      "sha256": "56169afd2fd2060986ca48faad0b1a2f814894bdff392fe632437fc8e96d0867",
+      "bytes": 1661
+    },
+    "old-005-compile.status": {
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    "old-005-compile.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "old-005-compile.stdout": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "old-005.status": {
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    "old-005.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "old-005.stdout": {
+      "sha256": "1a63dad41fc151f7483852020a38b96dcb74a0fbe0c84d7fcde0bccc75b5e105",
+      "bytes": 2116
+    },
+    "old-007-compile.status": {
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    "old-007-compile.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "old-007-compile.stdout": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "old-007.status": {
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    "old-007.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "old-007.stdout": {
+      "sha256": "3b689913df1df7e21d69f8a87743c24e5f94a6d0a3ce6e968af00d499c781a0a",
+      "bytes": 2256
+    },
+    "portfolio_check.status": {
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    "portfolio_check.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "portfolio_check.stdout": {
+      "sha256": "31e1b0e6fc5e4c342892e5cbeb599b3822a742109d0340bacf0f04371f9fd2ef",
+      "bytes": 1376
+    },
+    "prefix.status": {
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    "prefix.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "prefix.stdout": {
+      "sha256": "bac3a456dc62c502b71b58992d7d091122da5905fc71dfd38277fe21c85b99a4",
+      "bytes": 44
+    },
+    "ramDus.status": {
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    "ramDus.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "ramDus.stdout": {
+      "sha256": "54f0407c47cfd4567f826878919185b05f3906ec5f92cb669759967a5b4e94b2",
+      "bytes": 1365
+    },
+    "ray_check.status": {
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    "ray_check.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "ray_check.stdout": {
+      "sha256": "cffc65b5422466473ec694bf6e8a765218c00a647dc1e64d70fe8c28ce920eef",
+      "bytes": 81
+    },
+    "refine.status": {
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    "refine.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "refine.stdout": {
+      "sha256": "f394086f058a5a5cdcd7a870820a49d4611d63a023cb135bbcb076268c33559f",
+      "bytes": 287
+    },
+    "repair_limits_repair_replay.out": {
+      "sha256": "4f49c5c55e171e1721e6274e07f1545475f8e03c63e866388f2d7be608454ad8",
+      "bytes": 1295
+    },
+    "secondary_check.status": {
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    "secondary_check.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "secondary_check.stdout": {
+      "sha256": "034f9c473a6293660484c4290584d35528e1d7e90f5710571d2c37ced80cb38a",
+      "bytes": 654
+    }
+  },
+  "trust": "Ordinary replay plus mathematical proof of the enclosures; not a source-first verification or replay of published prime/zero computations."
+}

@@ -1,0 +1,32 @@
+{
+  "probes": [
+    {
+      "argv": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-B",
+        "-c",
+        "try:\n open('/ryu/hyunsik/playground/independence/codex/ivy/AGENTS.md','rb').read()\nexcept (FileNotFoundError,PermissionError):\n print('PASS_ORIGINAL_WORKSPACE_MASK_DENIES_READ')\nelse:\n raise ValueError('ORIGINAL_WORKSPACE_WAS_READABLE')"
+      ],
+      "returncode": 0,
+      "stdout": "PASS_ORIGINAL_WORKSPACE_MASK_DENIES_READ\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-B",
+        "-I",
+        "-S",
+        "-c",
+        "try:\n open('/ryu/hyunsik/playground/independence/codex/ivy/AGENTS.md','rb').read()\nexcept (FileNotFoundError,PermissionError):\n print('PASS_ORIGINAL_WORKSPACE_MASK_DENIES_READ')\nelse:\n raise ValueError('ORIGINAL_WORKSPACE_WAS_READABLE')"
+      ],
+      "returncode": 0,
+      "stdout": "PASS_ORIGINAL_WORKSPACE_MASK_DENIES_READ\n",
+      "stderr": ""
+    }
+  ],
+  "mount_namespace": "mnt:[4026687433]",
+  "original_workspace_mask_mountinfo": [
+    "153912 73705 8:1 /ivy-final24-actual-bundle-repro-ldnkxgks/empty-original-workspace /ryu/hyunsik/playground/independence/codex/ivy ro,relatime - ext4 /dev/sda1 rw,stripe=64"
+  ]
+}

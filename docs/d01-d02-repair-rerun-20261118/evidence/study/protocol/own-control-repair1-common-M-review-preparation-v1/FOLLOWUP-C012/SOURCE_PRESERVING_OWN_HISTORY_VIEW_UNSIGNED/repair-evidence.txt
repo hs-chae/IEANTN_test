@@ -1,0 +1,288 @@
+Repair research receipts; independent own review receipts are in own-replay-evidence.txt.
+Final commands were run across separate non-login Bash invocations in /work/submission, not claimed as one aggregate process. Earlier exploratory failures and fixes are recorded in repair.md. Assertions enabled.
+
+[primecount-build] status=0
+/usr/bin/g++ -std=c++17 -O3 primecount.cpp -o /work/repair-replay/pc
+stdout SHA256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+stderr SHA256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+
+[sieve-build] status=0
+/usr/bin/g++ -std=c++17 -O3 sieve.cpp -o /work/repair-replay/sieve
+stdout SHA256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+stderr SHA256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+
+[endpoint] status=0
+/usr/bin/python3.10 -B endpoint.py /work/repair-replay/pc
+stdout SHA256: b17f97425b3be59cbb3a5ea7c31760461bcaab5df4b39b201356d9d0cfb1e704
+stderr SHA256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+38358837682 1644673232
+38358837683 1644673232
+14111427770 632207037
+gap at a (-14736927.899860255, -14736927.899860255)
+gap at a+1 (52886500.270806946, 52886500.270806946)
+unique real zero between 3835883768221792636 3835883768221792637 divided by 10^8
+
+[repair-anchor] status=0
+/usr/bin/python3.10 -B repair_anchor.py /work/repair-replay/pc
+stdout SHA256: ee20101248217e7787e2d0b7386d58f1132378f4568063645d906783bccab92b
+stderr SHA256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+anchor 16 exact count 595341 normalized signed radius enclosure (-0.0003961214221638621, -0.0003961214217345745)
+anchor 24 exact count 1154106844 normalized signed radius enclosure (-7.744627375358638e-06, -7.744627375142624e-06)
+58 transported cap False (3.1442099808481794e-11, 3.1442099808481794e-11)
+58 transported cap True (3.117717700655158e-11, 3.117717700655158e-11)
+
+[ramanujan] status=0
+/usr/bin/python3.10 -B verify.py
+stdout SHA256: d2f010c40b6d42dc1efdae85bfb66d09b2b4cf9ad2da357f47bf039ca7f40a15
+stderr SHA256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+Finite quantitative island 27.90 30.933 .010
+Finite quantitative island 27.91 30.933 .015
+Finite quantitative island 28 30.933 .069
+Finite quantitative island 28.88 30.933 .50
+Finite quantitative island 28.95 30.933 .53
+Finite quantitative island 29 30.933 .554
+Finite quantitative island 30 30.933 .88
+Ramanujan mode 0 primary cells 5667
+Ramanujan mode 1 primary cells 5660
+
+[higher] status=0
+/usr/bin/python3.10 -B higher.py
+stdout SHA256: 0a66c12ccb6feca484dfb4aaba925b6ab7ebfa9c446040e9b9baf64877fe4579
+stderr SHA256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+higher whole ray 6 1500000 348 284
+higher whole ray 7 18000000 385 312
+higher whole ray 8 200000000 409 329
+higher whole ray 9 2800000000 446 357
+higher whole ray 10 37000000000 478 381
+higher whole ray 11 500000000000 510 405
+higher whole ray 7 19063832 390 315
+higher whole ray 8 241691425 426 341
+higher whole ray 9 3277187246 462 368
+higher whole ray 10 47424796805 498 395
+higher whole ray 11 730550160076 534 422
+higher whole ray 12 11946592513217 571 449
+higher whole ray 13 206824220948690 607 477
+higher whole ray 14 3780755108724421 646 506
+matched order-2 whole rays 0 [(60, Fraction(397, 20)), (202, Fraction(120, 1)), (217, Fraction(145, 1))]
+matched order-2 whole rays 1 [(60, Fraction(409, 5)), (175, Fraction(120, 1)), (186, Fraction(145, 1))]
+
+[mertens] status=0
+/usr/bin/python3.10 -B mertens.py
+stdout SHA256: 4e45f684e70c265c6d963146487376d6efd0daea824029d2b23f0d3a194bb332
+stderr SHA256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+Mertens 0 140 .020
+Mertens 0 170 .015
+Mertens 0 190 .0132
+Mertens 0 225 .0115
+Mertens 0 320 .0095
+Mertens 0 450 .0086
+Mertens 0 800 .0077
+Mertens 1 140 .359
+Mertens 1 160 .286
+Mertens 1 175 .254
+Mertens 1 200 .222
+Mertens 1 250 .189
+Mertens 1 300 .172
+Mertens 1 500 .146
+Mertens 1 1000 .131
+early power envelope 0 40 667/50000
+early power envelope 1 40 533/2000
+certified pure-log row 0 16 2 .194 .206
+certified pure-log row 0 17 2 .130 .137
+certified pure-log row 0 18 2 .086 .091
+certified pure-log row 0 20 2 .038 .040
+certified pure-log row 0 22 2 .0164 .0174
+certified pure-log row 0 24 2 .0107 .0108
+certified pure-log row 0 32 2 .0049 .005
+certified pure-log row 0 40 2 .000216 .000217
+certified pure-log row 0 40 4 .348 .349
+certified pure-log row 0 55 2 4.01e-7 4.02e-7
+certified pure-log row 0 65 2 3.65e-8 3.65e-8
+certified pure-log row 0 55 4 .001267 .001268
+certified pure-log row 0 55 6 44.07 44.10
+certified pure-log row 0 200 6 11.61 11.61
+certified pure-log row 0 40 8 1533000 1534000
+certified pure-log row 1 65 2 2.97e-8 2.972e-8
+certified pure-log row 1 55 4 .001216 .001220
+certified pure-log row 1 65 4 .000843 .000843
+certified pure-log row 1 55 6 23.89 23.90
+certified pure-log row 1 175 6 10.14 10.15
+certified pure-log row 1 200 6 .397 .397
+certified pure-log row 1 40 8 898000 901000
+certified pure-log row 1 55 8 678000 678000
+certified pure-log row 1 175 8 311000 311000
+certified pure-log row 1 200 8 15900 15900
+
+[sieve] status=0
+/work/repair-replay/sieve
+stdout SHA256: f4b27724bd5168884c98a68e441b3d7c466325791c5aa49db44957e3cc16f9be
+stderr SHA256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+source-onset boundary cell 3 912559 912581 1 sufficient final cell start 912559997526/1000000
+source-onset boundary cell 0 2278379 2278421 1 sufficient final cell start 2278381578425/1000000
+source-onset boundary cell 1 2278379 2278421 1 sufficient final cell start 2278381714012/1000000
+source-onset boundary cell 2 2278379 2278421 1 sufficient final cell start 2278382179859/1000000
+primes 3951767 scanned through 67000000
+12911611 5001809 2278421 1514831 624917 359837 96043 24317 
+12911611 5001809 2278421 1514831 624917 359837 96043 24317 
+12914903 5001809 2278421 1514831 624917 359837 96043 24317 
+18002111 7105289 3452179 1520747 912581 368359 155921 24571 
+
+[enhanced] status=0
+/usr/bin/python3.10 -B enhanced.py
+stdout SHA256: e942173e7a76ec17dea08d82ee2f2994d3ea514dd937487fff12de980c6ca47a
+sharper power 0 190 .01291
+sharper power 0 219 .0115
+sharper power 0 225 .01128
+sharper power 0 310 .0095
+sharper power 0 320 .009374
+sharper power 0 450 .008406
+sharper power 0 800 .007565
+sharper power 0 1000 .007375
+sharper power 0 2000 .007024
+sharper power 0 5000 .006831
+sharper power 1 140 .34621
+sharper power 1 160 .27855
+sharper power 1 172 .254
+sharper power 1 175 .24845
+sharper power 1 196 .222
+sharper power 1 200 .21726
+sharper power 1 250 .18519
+sharper power 1 288 .172
+sharper power 1 300 .16872
+sharper power 1 500 .14330
+sharper power 1 860 .131
+sharper power 1 1000 .12878
+sharper power 1 2000 .12259
+sharper power 1 5000 .11918
+early continuous power 0 14 18597/100 659/50000
+early continuous power 1 10 8397/50 653/2500
+early B0 power from finite join 368359
+continuous far power 0 100000 27/4000
+continuous far power 1 100000 5913/50000
+sharper log 0 16 2 .194 .1958
+sharper log 0 17 2 .1292 .1303
+sharper log 0 18 2 .08584 .08655
+sharper log 0 20 2 .03731 .03759
+sharper log 0 22 2 .01621 .01632
+sharper log 0 24 2 .009626 .009649
+sharper log 0 32 2 .004129 .004142
+sharper log 0 40 2 .0001825 .0001830
+sharper log 0 40 4 .2934 .2942
+sharper log 0 55 2 4.005e-7 4.012e-7
+sharper log 0 65 2 3.627e-8 3.629e-8
+sharper log 0 55 4 .001257 .001257
+sharper log 0 55 6 43.502 43.526
+sharper log 0 200 6 10.997 11.003
+sharper log 0 40 8 1506607 1507417
+sharper log 1 65 2 2.956e-8 2.958e-8
+sharper log 1 55 4 .001216 .001218
+sharper log 1 65 4 .0008342 .0008347
+sharper log 1 55 6 23.545 23.559
+sharper log 1 175 6 9.544 9.550
+sharper log 1 200 6 .37390 .37409
+sharper log 1 40 8 758563 760494
+sharper log 1 55 8 664513 664909
+sharper log 1 175 8 292609 292776
+sharper log 1 200 8 14971 14979
+
+[pdf-exponent] status=0
+/usr/bin/python3.10 -B own-pdf_exponent.py
+stdout SHA256: 45cb6068de98ab69a16e8b898481614c31b5bc755f36f755892bbc516ed2ca98
+349 (;)Tj
+350 /R23 11.9552 Tf
+351 -270 -29.8801 Td
+352 [(j)-4.04955]TJ
+353 /R38 11.9552 Tf
+354 3.36016 0 Td
+355 [(\x19)2.93761]TJ
+356 /R25 11.9552 Tf
+357 7.08008 0 Td
+358 [(\\()-1.42439]TJ
+359 /R38 11.9552 Tf
+360 4.56016 0 Td
+361 [(x)3.93724]TJ
+362 /R25 11.9552 Tf
+363 6.6 0 Td
+364 [(\\))-1.42439]TJ
+365 /R23 11.9552 Tf
+366 7.2 0 Td
+367 [(\x00)4.11184]TJ
+368 /R25 11.9552 Tf
+369 12 0 Td
+370 [(li\\()-1.42337]TJ
+371 /R38 11.9552 Tf
+372 11.0398 0 Td
+373 [(x)3.93724]TJ
+374 /R25 11.9552 Tf
+375 6.6 0 Td
+376 [(\\))-1.42541]TJ
+377 /R23 11.9552 Tf
+378 4.56016 0 Td
+379 [(j)-285.094(\x14)4.11286]TJ
+380 20.5199 16.8 Td
+381 [(p)-0.11436]TJ
+382 ET
+383 Q
+384 q 67.2 0 0 -4.8 2599.08 5319.48 cm
+385 BI
+386 /IM true
+387 /W 1
+388 /H 1
+389 /BPC 1
+390 ID \x00
+391 EI Q
+392 q
+393 10 0 0 10 0 0 cm BT
+394 /R38 11.9552 Tf
+395 1 0 0 1 259.92 522.84 Tm
+396 [(x)3.93724]TJ
+397 ET
+398 Q
+399 q 166.8 0 0 -4.8 2499.48 5179.08 cm
+400 BI
+401 /IM true
+402 /W 1
+403 /H 1
+404 /BPC 1
+405 ID \x00
+406 EI Q
+407 q
+408 10 0 0 10 0 0 cm BT
+409 /R25 11.9552 Tf
+410 1 0 0 1 251.76 506.52 Tm
+411 [(8)-2.83857]TJ
+412 /R38 11.9552 Tf
+413 5.88008 0 Td
+414 [(\x19)2.93659]TJ
+415 /R25 11.9552 Tf
+416 12.1199 8.16016 Td
+417 [(lo)-2.83857(g)-2.83857]TJ
+418 /R31 7.97011 Tf
+419 15.1199 5.16016 Td
+420 [(2)4.03117]TJ
+421 /R38 11.9552 Tf
+422 6.71992 -5.16016 Td
+423 [(x)3.93724(;)]TJ
+424 /R25 11.9552 Tf
+425 23.8801 0 Td
+426 [(\\()-1.42541(2)-2.83652(6)-2.83857(5)-2.83857(7)-2.83857]TJ
+427 /R38 11.9552 Tf
+428 31.2 0 Td
+429 [(<)-282.907(x)3.93724]TJ
+430 /R23 11.9552 Tf
+431 22.4402 0 Td
+432 [(\x14)4.11286]TJ
+433 /R25 11.9552 Tf
+434 12.6 0 Td
+435 [(2)-2.83857]TJ
+436 /R38 11.9552 Tf
+437 5.88008 0 Td
+438 (:)Tj
+439 /R25 11.9552 Tf
+440 3.23984 0 Td
+441 [(1)-2.83857(6)-2.83857(9)-2.83652]TJ
+442 /R23 11.9552 Tf
+443 20.2801 0 Td
+444 [(\x01)-4.0516]TJ
+445 /R25 11.9552 Tf
+446 5.88008 0 Td

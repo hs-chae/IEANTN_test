@@ -1,0 +1,14 @@
+# Initial routes (incomplete until proved in candidate.md)
+- Ramanujan: published finite RH supplies the low range, CH2 Cor. 1.3 fills the range to about log x=200, and FKS Prop. 3.4 plus density and the strip beta<=7/8 fills the rest. A single constant from CH2 is inadequate on the entire ray. The original Platt–Trudgian finite interval and ray are retained.
+- Mertens: express log Q via sum Lambda(n)/(n log n) and the positive prime-power cut discrepancy; use the tail identity and a piecewise error for psi, and separately CH2's estimate of sum Lambda(n)/n. Consider finite exact enclosure up to an analytic crossover; no finite verification is assumed here.
+
+## Checkpoint to 50% (no mathematical feedback)
+Analytic ray and endpoint computations are now supported in candidate.md. The first finite Mertens pass to ceil(exp(22)) completed; coarse bins near the original lower endpoint can certify bounds above 0.2 because endpoint monotonicity overestimates a moving reference. Refining bins and extending the finite computation is in progress. That pass is not used as a premise of candidate.md. The original packet is the only source of its source-backed inputs.
+
+## Checkpoint 75% preservation
+The finite proof and completed 24-logarithm certificate are preserved in finite.md, finite24.cpp, finite24.txt. A wider/finer pass is still in progress, and the finer zero density grid needs cumulative-majorant monotonicization across Table 8 breakpoints (the raw upper constants can jump up). Those unfinalized ideas are not assumed in the current candidate.
+
+## Final activity / limitations
+- Proceeded after the first success: corrected the real Ramanujan onset using exact prime counts; built a smoothed Mertens formula; certified the finite range to ceil(exp(26)); refined the density grid and prime-count switch; derived the shifted gap, primorial extrema, and the 5/8-scale prime intervals.
+- The tempting direct use of the CH2 constant error on the full ray fails: its normalized contribution to the Ramanujan test grows like log^4 x. Using unsigned integration in Mertens unnecessarily multiplies the finite-RH contribution by about 3; smoothing the tail fixes this. The first raw refined density grid was not monotone across coefficient table breaks; taking a cumulative minimum fixes the weighted-density proof. Raw finite bins without exclusion of the right endpoint prime were too coarse at some baseline onsets. These are failures of sufficient bounds, not counterexamples to the target arithmetic estimates.
+- Full RH, a smaller exponent for the unsigned PNT error, and original finite RH / all low-range Ramanujan reruns are not claimed. No formal kernel claim. The 26-logarithm sieve and analytic scripts were executed on the assigned offline executor. Bibliography is limited to sources.md. No checkpoint evaluation feedback was provided.

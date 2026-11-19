@@ -1,0 +1,230 @@
+Observed with /bin/bash non-login, cwd /work/review-candidate for compile/replay.
+Restored exact bytes: /usr/bin/python3.10 /task/RESTORE_CANDIDATE.py --out /work/review-candidate (exit 0).
+Python 3.10.12 stdlib; g++ 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04.3). Locale warnings are emitted by initial shell, not assertions.
+Initial pwd succeeded; ls exit 127; Bash readability and Python thereafter. pdftotext/pdftoppm not installed; direct original content used for ambiguous exponent.
+Captured child streams in order (combined stdout/stderr, no unexpected stderr); to reproduce with separate streams see replay.sh. Original assertion statuses observed, not inferred from the candidate evidence.
+
+[primecount-build] /usr/bin/g++ -std=c++17 -O3 primecount.cpp -o /work/review-primecount
+Compiler, no special defines or FP tests
+Status 0; SHA256 of captured primecount-build.log: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+(empty stdout/stderr)
+
+[sieve-build] /usr/bin/g++ -std=c++17 -O3 sieve.cpp -o /work/review-sieve
+Compiler, no special defines or FP tests
+Status 0; SHA256 of captured sieve-build.log: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+(empty stdout/stderr)
+
+[endpoint-replay] /usr/bin/python3.10 -B endpoint.py /work/review-primecount
+Three integer counts, unit interval, bracket and signs
+Status 0; SHA256 of captured endpoint-replay.log: 5509a7945a46e31110f822b44c30116d72031a4e875f45b191ba605dba36d9d2
+38358837682 1644673232
+38358837683 1644673232
+14111427770 632207037
+gap at a (-14736927.899860255, -14736927.899860255)
+gap at a+1 (52886500.270806946, 52886500.270806946)
+unique real zero between 3835883768221792636 3835883768221792637 divided by 10^8
+
+status=0
+
+
+[verify-replay] /usr/bin/python3.10 -B verify.py
+Islands [28,29.9],[29,29.9]; original main intervals per row to 320 and tail start checks; original finite-pi input was not independently justified
+Status 0; SHA256 of captured verify-replay.log: c558a7a11fe009f2adf46648de770ad3df00c84614658ebb25423ea4f72587e9
+Finite quantitative island 28 29.9 0.015
+Finite quantitative island 29 29.9 0.53
+Ramanujan mode 0 primary cells 5661
+Ramanujan mode 1 primary cells 5660
+
+status=0
+
+
+[mertens-replay] /usr/bin/python3.10 -B mertens.py
+Power onsets, closed log cells [16,320] plus tail; pivots 186.11,168.07; pointwise comparisons at 170
+Status 0; SHA256 of captured mertens-replay.log: 27cf2f342ac67cad22c63daff04c291f91deb784f4a3021971ae401003a1e646
+Mertens 0 140 .020
+Mertens 0 170 .015
+Mertens 0 190 .0132
+Mertens 0 225 .0115
+Mertens 0 320 .0095
+Mertens 0 450 .0086
+Mertens 0 800 .0077
+Mertens 1 140 .359
+Mertens 1 160 .286
+Mertens 1 175 .254
+Mertens 1 200 .222
+Mertens 1 250 .189
+Mertens 1 300 .172
+Mertens 1 500 .146
+Mertens 1 1000 .131
+early power envelope 0 40 667/50000
+early power envelope 1 40 533/2000
+certified pure-log row 0 16 2 .194 .206
+certified pure-log row 0 17 2 .130 .137
+certified pure-log row 0 18 2 .086 .091
+certified pure-log row 0 20 2 .038 .040
+certified pure-log row 0 22 2 .0164 .0174
+certified pure-log row 0 24 2 .0107 .0108
+certified pure-log row 0 32 2 .0049 .005
+certified pure-log row 0 40 2 .000216 .000217
+certified pure-log row 0 40 4 .348 .349
+certified pure-log row 0 55 2 4.01e-7 4.02e-7
+certified pure-log row 0 65 2 3.65e-8 3.65e-8
+certified pure-log row 0 55 4 .001267 .001268
+certified pure-log row 0 55 6 44.07 44.10
+certified pure-log row 0 200 6 11.61 11.61
+certified pure-log row 0 40 8 1533000 1534000
+certified pure-log row 1 65 2 2.97e-8 2.972e-8
+certified pure-log row 1 55 4 .001216 .001220
+certified pure-log row 1 65 4 .000843 .000843
+certified pure-log row 1 55 6 23.89 23.90
+certified pure-log row 1 175 6 10.14 10.15
+certified pure-log row 1 200 6 .397 .397
+certified pure-log row 1 40 8 898000 901000
+certified pure-log row 1 55 8 678000 678000
+certified pure-log row 1 175 8 311000 311000
+certified pure-log row 1 200 8 15900 15900
+
+status=0
+
+
+[sieve-replay] /work/review-sieve
+Stream of gaps through 67000000, both sides of endpoint; normalizer and special gap enclosures
+Status 0; SHA256 of captured sieve-replay.log: 95cc20187076b7123ba91f4bb14f8d4058b0684195b37e9946fa5595d3f19344
+source-onset boundary cell 3 912559 912581 1 sufficient final cell start 912559997526/1000000
+source-onset boundary cell 0 2278379 2278421 1 sufficient final cell start 2278381578425/1000000
+source-onset boundary cell 1 2278379 2278421 1 sufficient final cell start 2278381714012/1000000
+source-onset boundary cell 2 2278379 2278421 1 sufficient final cell start 2278382179859/1000000
+primes 3951767 scanned through 67000000
+12911611 5001809 2278421 1514831 624917 359837 96043 24317 
+12911611 5001809 2278421 1514831 624917 359837 96043 24317 
+12914903 5001809 2278421 1514831 624917 359837 96043 24317 
+18002111 7105289 3452179 1520747 912581 368359 155921 24571 
+
+status=0
+
+
+[ramanujan-audit] PYTHONPATH=. /usr/bin/python3.10 -B /work/submission/ramanujan_audit.py /work/review-primecount
+Independent counterexample, anchors 16 and 58, [58,59] sign join, diagnostics at eight early onsets
+Status 0; SHA256 of captured ramanujan-audit.log: 2b76796154c2cc211de674ad5ecc9a3fb744c12dd18eccf7f4ae9c2e72e5a626
+real counterexample 383588376821/10 (-7974585.0827904185, -7974585.0827904185)
+16 anchor count 8886110 595341 signed normalized deviation (-0.0003961214221638621, -0.0003961214217345745) cap (0.003416994272914529, 0.003416994272914529)
+58 anchor valid normalized radius (3.1470810852120946e-11, 3.1470810852120946e-11) cap (3.404678848869844e-11, 3.404678848869844e-11)
+printed finite branch 0 0 36.984 0.001 ('failed sufficient test', '(Fraction(4623, 125), Fraction(1893581, 51200))')
+printed finite branch 0 0 37 0.009 ('failed sufficient test', '(Fraction(37, 1), Fraction(3031041, 81920))')
+printed finite branch 0 0 38 0.41 ('failed sufficient test', '(Fraction(38, 1), Fraction(3112961, 81920))')
+printed finite branch 0 0 40 0.92 ('failed sufficient test', '(Fraction(40, 1), Fraction(3276801, 81920))')
+printed finite branch 0 0 42 1 ('failed sufficient test', '(Fraction(42, 1), Fraction(3440641, 81920))')
+printed finite branch 0 1 43 4 ('failed sufficient test', '(Fraction(43, 1), Fraction(3522561, 81920))')
+printed finite branch 0 1 46 10 ('failed sufficient test', '(Fraction(46, 1), Fraction(3768321, 81920))')
+printed finite branch 0 1 55 14 ('failed sufficient test', '(Fraction(55, 1), Fraction(4505601, 81920))')
+sign join [58,59] ('passes',)
+
+status=0
+
+
+[pdf-audit] /usr/bin/python3.10 -B /work/submission/pdf_exponent.py
+FiniteRH original PDF page 4, including log exponent of pi display
+Status 0; SHA256 of captured pdf-audit.log: a25e6355fa9ac75462440cd228e45503e5d04e99e31ef93a6d44b571f89ef006
+349 (;)Tj
+350 /R23 11.9552 Tf
+351 -270 -29.8801 Td
+352 [(j)-4.04955]TJ
+353 /R38 11.9552 Tf
+354 3.36016 0 Td
+355 [(\x19)2.93761]TJ
+356 /R25 11.9552 Tf
+357 7.08008 0 Td
+358 [(\\()-1.42439]TJ
+359 /R38 11.9552 Tf
+360 4.56016 0 Td
+361 [(x)3.93724]TJ
+362 /R25 11.9552 Tf
+363 6.6 0 Td
+364 [(\\))-1.42439]TJ
+365 /R23 11.9552 Tf
+366 7.2 0 Td
+367 [(\x00)4.11184]TJ
+368 /R25 11.9552 Tf
+369 12 0 Td
+370 [(li\\()-1.42337]TJ
+371 /R38 11.9552 Tf
+372 11.0398 0 Td
+373 [(x)3.93724]TJ
+374 /R25 11.9552 Tf
+375 6.6 0 Td
+376 [(\\))-1.42541]TJ
+377 /R23 11.9552 Tf
+378 4.56016 0 Td
+379 [(j)-285.094(\x14)4.11286]TJ
+380 20.5199 16.8 Td
+381 [(p)-0.11436]TJ
+382 ET
+383 Q
+384 q 67.2 0 0 -4.8 2599.08 5319.48 cm
+385 BI
+386 /IM true
+387 /W 1
+388 /H 1
+389 /BPC 1
+390 ID \x00
+391 EI Q
+392 q
+393 10 0 0 10 0 0 cm BT
+394 /R38 11.9552 Tf
+395 1 0 0 1 259.92 522.84 Tm
+396 [(x)3.93724]TJ
+397 ET
+398 Q
+399 q 166.8 0 0 -4.8 2499.48 5179.08 cm
+400 BI
+401 /IM true
+402 /W 1
+403 /H 1
+404 /BPC 1
+405 ID \x00
+406 EI Q
+407 q
+408 10 0 0 10 0 0 cm BT
+409 /R25 11.9552 Tf
+410 1 0 0 1 251.76 506.52 Tm
+411 [(8)-2.83857]TJ
+412 /R38 11.9552 Tf
+413 5.88008 0 Td
+414 [(\x19)2.93659]TJ
+415 /R25 11.9552 Tf
+416 12.1199 8.16016 Td
+417 [(lo)-2.83857(g)-2.83857]TJ
+418 /R31 7.97011 Tf
+419 15.1199 5.16016 Td
+420 [(2)4.03117]TJ
+421 /R38 11.9552 Tf
+422 6.71992 -5.16016 Td
+423 [(x)3.93724(;)]TJ
+424 /R25 11.9552 Tf
+425 23.8801 0 Td
+426 [(\\()-1.42541(2)-2.83652(6)-2.83857(5)-2.83857(7)-2.83857]TJ
+427 /R38 11.9552 Tf
+428 31.2 0 Td
+429 [(<)-282.907(x)3.93724]TJ
+430 /R23 11.9552 Tf
+431 22.4402 0 Td
+432 [(\x14)4.11286]TJ
+433 /R25 11.9552 Tf
+434 12.6 0 Td
+435 [(2)-2.83857]TJ
+436 /R38 11.9552 Tf
+437 5.88008 0 Td
+438 (:)Tj
+439 /R25 11.9552 Tf
+440 3.23984 0 Td
+441 [(1)-2.83857(6)-2.83857(9)-2.83652]TJ
+442 /R23 11.9552 Tf
+443 20.2801 0 Td
+444 [(\x01)-4.0516]TJ
+445 /R25 11.9552 Tf
+446 5.88008 0 Td
+
+status=0
+
+SHA256 of locally compiled review-primecount: 16ac164ffdc3293f4cc671eddef34a681eff66db801d6ea53caa1d56c3f89628 (may vary by compiler)
+SHA256 of locally compiled review-sieve: 83215593758be6df3b5bc1ae941760041a2e8644819f3613c9eda49c03688533 (may vary by compiler)

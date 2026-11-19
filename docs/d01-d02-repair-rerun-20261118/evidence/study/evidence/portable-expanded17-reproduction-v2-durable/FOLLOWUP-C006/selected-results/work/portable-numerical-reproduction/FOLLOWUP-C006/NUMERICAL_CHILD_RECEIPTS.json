@@ -1,0 +1,63 @@
+{
+  "status": "COMPLETE",
+  "restores": [
+    {
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "/task/RESTORE_CANDIDATE.py",
+        "--out",
+        "/work/reviewcandidate"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "f36833cc6088f91ea4c2e29b67e1eb00ce8002211e77d2be846cb9dd210a9a6f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "jobs": [
+    {
+      "job_id": "replay",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "replay_repair.py"
+      ],
+      "cwd": "/work/reviewcandidate",
+      "exit_code": 0,
+      "seconds": 187.69681880809367,
+      "stdout_sha256": "51ad508e73c48a793dc33cc060c838c8df1c826fe7354900c5a9a65ffe1d004c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "51ad508e73c48a793dc33cc060c838c8df1c826fe7354900c5a9a65ffe1d004c",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "job_id": "ancillary",
+      "argv": [
+        "/usr/bin/python3.10",
+        "-B",
+        "/work/submission/ancillary.py",
+        "/work/reviewcandidate"
+      ],
+      "cwd": "/work/submission",
+      "exit_code": 0,
+      "seconds": 0.5723765417933464,
+      "stdout_sha256": "1b00d14d3241f0b2b55ae3640ddd5c2a31d497bad4763f1b98ee1a034f517495",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_contract_receipt": {
+        "actual_stdout_sha256": "1b00d14d3241f0b2b55ae3640ddd5c2a31d497bad4763f1b98ee1a034f517495",
+        "actual_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contract": "EXACT_HISTORICAL_FULL_STDOUT",
+        "passed": true
+      },
+      "passed": true
+    }
+  ],
+  "external_scope_drain_pending": true,
+  "full_analytic_Lean": false,
+  "source_first_PV": false
+}

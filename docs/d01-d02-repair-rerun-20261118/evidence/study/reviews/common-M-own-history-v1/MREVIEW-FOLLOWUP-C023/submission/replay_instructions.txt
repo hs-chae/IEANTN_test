@@ -1,0 +1,61 @@
+Independent executions from the assigned offline executor. Use non-login /bin/bash.
+The exact argv, cwd, stdout/stderr, receipt statuses and stdout/stderr
+SHA-256 for the inherited runs are each in replay_*.jsonl. For new
+scripts the combined stdout/stderr and status are under run_*.txt.
+Assertion failures in attempted checks are not automatically counterexamples.
+
+First input check: pwd; ls -l /task/{INPUT_CONTRACT,RUNTIME_PATHS,CANDIDATE_INDEX}.json
+pwd worked; unavailable ls exited 127. Recovered by bash [[ -r ]] and Path.
+The commands below used LC_ALL=C and PATH=/usr/bin at replay.
+Fresh file restore done twice:
+  /usr/bin/python3.10 /task/RESTORE_CANDIDATE.py --out /work/locked
+  /usr/bin/python3.10 /task/RESTORE_CANDIDATE.py --out /work/replay
+
+Current checks, cwd /work/locked, with -B and no -O:
+  /usr/bin/python3.10 -B audit_sources.py
+  /usr/bin/python3.10 -B d02_density_new.py
+  /usr/bin/python3.10 -B d02_ram_checks.py finite
+  /usr/bin/python3.10 -B d02_ram_checks.py
+  /usr/bin/python3.10 -B d02_variable.py
+  /usr/bin/python3.10 -B early_new.py
+  /usr/bin/python3.10 -B d02_m_checks.py
+audit_sources.py read/hash-checked all original PDF/text files, then exited 1
+on the unavailable old /task/OWN_SOURCE_INDEX.json path at LF24.
+Replacement audit and supplementary directed check:
+  cd /work/submission
+  /usr/bin/python3.10 -B -u supplement.py /work/locked
+  /usr/bin/python3.10 -B pdf_readback.py
+  cd /work/locked
+  /usr/bin/python3.10 D01_M_REVIEW_source_layout.py
+
+Inheritance: cwd /work/replay; aliases and products here only, not /task
+or /work/locked. These don't modify source bytes. Alias cert.py to
+d01_cert.py, analytic.py to d02_analytic.py, weights.txt to d01_weights.txt
+using pathlib.Path(alias).symlink_to(original). Then:
+  for f in d01_endpoint d01_sieve; do /usr/bin/gcc -O3 "$f.c" -o "$f" || exit; done
+  for f in d02_bridge d02_count d02_mexact d02_mfinite m_coarse m_onset; do
+    /usr/bin/g++ -O3 -std=c++17 -pthread "$f.cpp" -o "$f" || exit
+  done
+All builds succeeded without stdout/stderr. See built_hashes.json. Retain
+standard release integer operations, with Python/C assertions not disabled.
+Run the bound historical argv with the following replay groups (choose an
+empty output directory, as this runner appends):
+  for g in ram analytic checks sign early smallfinite coarse1 coarse2; do
+    REVIEW_RESTORED=/work/replay /usr/bin/python3.10 -B D01_M_REVIEW_replay.py "$g" /work/submission
+  done
+The actual execution ran those groups concurrently. Each C routine sieves
+in segments using a small base sieve and saves only summaries/checks, not
+a regenerable huge prime list. m_coarse stores per-block endpoints and counts,
+not all primes through the top. The legacy checks group fails status 2 due
+to old proof_checks.py name. The same bound file was then run as:
+  /usr/bin/python3.10 -B D01_M_REVIEW_proof_checks.py
+See anchor_checks.txt, status 0. All other historical groups completed
+with the expected number of cases. Whole domains covered by branches are
+in review.json; reads of the executable formulas and scope are in review.md.
+
+These commands do not regenerate any original-paper finite computation
+(e.g. PT verified RH or DP's published window). The program runs validate
+ordinary exact arithmetic evidence at stated trust, not Lean or source-first PV.
+
+Assemble registry from exact locked source, locators and receipts:
+  cd /work/submission; /usr/bin/python3.10 -B assemble_review.py /work/locked
