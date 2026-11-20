@@ -1,0 +1,120 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCExecute.lean:272:16: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCExecute.lean:281:51: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCExecute.lean:283:53: error: Application type mismatch: The argument
+  hs1
+has type
+  t1.env "sub" = some (Value.u64 sub)
+but is expected to have type
+  s.env "sub" = some (Value.u64 ?m.367)
+in the application
+  small_store_refines owned rep hv1 hvr ha1 hvLook hs1
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCExecute.lean:298:45: error: Application type mismatch: The argument
+  hn
+has type
+  ¬"sub" = "v"
+of sort `Prop` but is expected to have type
+  Env
+of sort `Type` in the application
+  @bind_other hn
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCExecute.lean:299:55: error: Application type mismatch: The argument
+  hn
+has type
+  ¬name = "v"
+of sort `Prop` but is expected to have type
+  Env
+of sort `Type` in the application
+  @bind_other hn
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCExecute.lean:299:69: error: Application type mismatch: The argument
+  hs
+has type
+  ¬name = "sub"
+of sort `Prop` but is expected to have type
+  Env
+of sort `Type` in the application
+  @bind_other hs
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCExecute.lean:299:6: error: unsolved goals
+case neg.none
+call : Service
+s : State
+sb lb r p v before : ℕ
+T : Tables
+owned : Owned s.heap
+rep : HeapRep s.heap sb lb r T
+hv1 : 1 ≤ v
+hvr : v ≤ r
+hp : 0 < p
+hvw : v < modulus
+hq1 : 1 ≤ v / p
+hqr : v / p ≤ r
+hsmall : s.env "small" = some (Value.ptr sb)
+hvalue : s.env "v" = some (Value.u64 v)
+hprime : s.env "p" = some (Value.u64 p)
+hbeforeEnv : s.env "before" = some (Value.u64 before)
+hfresh : s.env "sub" = none
+hbefore : before ≤ T.small (v / p)
+hdiff : T.small (v / p) - before ≤ T.small v
+sub : ℕ := T.small (v / p)
+block : Block
+hblock : s.heap sb = some block
+halign : sb % 8 = 0
+hindex : v / p < block.extent
+haddress : sb + 8 * (v / p) + 8 ≤ modulus
+hword : block.words (v / p) = T.small (v / p)
+hsub : T.small (v / p) < modulus
+hsubw : sub < modulus
+t1 : State := { env := QuotientCMachine.bind s.env "sub" (Value.u64 sub), heap := s.heap }
+hdecl :
+  Declare call [{ type := "uint64_t", name := "sub", value := some (index "small" (bin "/" (var "v") (var "p"))) }] s t1
+hs1 : t1.env "sub" = some (Value.u64 sub)
+hb1 : t1.env "before" = some (Value.u64 before)
+hvLook : t1.env "v" = some (Value.u64 v)
+ha1 : t1.env "small" = some (Value.ptr sb)
+hg1 : Eval call (bin "<" (var "sub") (var "before")) t1 t1 (Value.i32 0)
+hread7 : evalPure call t1.heap t1.env 7 (index "small" (var "v")) = some (Value.u64 (T.small v))
+hdiff7 : evalPure call t1.heap t1.env 7 subBefore = some (Value.u64 (sub - before))
+hg2 : Eval call (bin "<" (index "small" (var "v")) subBefore) t1 t1 (Value.i32 0)
+t2 : State
+hstore : Run ?m.361 (Stmt.eval (arraySubStore "small" "v")) s (LCMSourcePV.ASTLoops.Flow.continuing t2)
+henv2 : t2.env = s.env
+hown2 : Owned t2.heap
+hrep2 : HeapRep t2.heap sb lb r { small := Function.update T.small v (T.small v - (sub - before)), large := T.large }
+t3 : State := { env := QuotientCMachine.bind t2.env "v" (Value.u64 (v - 1)), heap := t2.heap }
+hd : Eval call (Expr.unary "--" (var "v")) t2 t3 (Value.u64 (v - 1))
+t : State := closeScope s t3
+name : String
+hn : ¬name = "v"
+hs : ¬name = "sub"
+h : s.env name = none
+⊢ none = QuotientCMachine.bind s.env "v" (Value.u64 (v - 1)) name
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCExecute.lean:312:43: error: Application type mismatch: The argument
+  hstore
+has type
+  Run ?m.361 (Stmt.eval (arraySubStore "small" "v")) s (LCMSourcePV.ASTLoops.Flow.continuing t2)
+but is expected to have type
+  LCMSourcePV.ASTLoops.StmtRun (Eval call) (Declare call) truth Scope
+    (Stmt.eval (bin "=" (index "small" (var "v")) (bin "-" (index "small" (var "v")) subBefore))) t1
+    (LCMSourcePV.ASTLoops.Flow.continuing t2)
+in the application
+  LCMSourcePV.ASTLoops.SeqRun.next hstore
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCExecute.lean:299:41: warning: This simp argument is unused:
+  t1
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [t, t3, closeScope, henv2, bind_other hn, bind_other hs]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCExecute.lean:300:39: warning: This simp argument is unused:
+  h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'RamanujanPV.QuotientCExecute.small_body_exec' depends on axioms: [propext, sorryAx]
+'RamanujanPV.QuotientCExecute.array_sub_store_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.QuotientCExecute.large_store_refines' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.QuotientCExecute.small_store_refines' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.QuotientCExecute.actual_large_body' depends on axioms: [propext]
+'RamanujanPV.QuotientCExecute.actual_small_body' depends on axioms: [propext]
+'RamanujanPV.QuotientCExecute.heap_large_update' depends on axioms: [propext, Quot.sound]
+'RamanujanPV.QuotientCExecute.heap_small_update' depends on axioms: [propext, Quot.sound]

@@ -1,0 +1,87 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCLarge.lean:33:37: warning: This simp argument is unused:
+  h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCLarge.lean:120:16: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCLarge.lean:127:16: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCLarge.lean:217:41: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCLarge.lean:224:32: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (largeLoop N r p before k T).large (k + 1)
+in the target expression
+  QuotientSieve.total p (N / (k + 1) / p) - QuotientSieve.total p (p - 1) ≤
+    (largeLoop N r p (QuotientSieve.total p (p - 1)) k T).large (k + 1)
+
+call : Service
+sb lb N r p before : ℕ
+T : Tables
+hN : N ≤ 2000000000000
+hr : r = N.sqrt
+hp : Nat.Prime p
+hpr : p ≤ r
+hbefore : before = QuotientSieve.total p (p - 1)
+hinit : Invariant N r p T
+hroot : N < (r + 1) * (r + 1)
+hNw : N < modulus
+hrN : r ≤ N
+fuel : ℕ
+ih :
+  ∀ k ≤ largeStop N r p,
+    largeStop N r p < k + fuel →
+      ∀ (s : State),
+        LoopEnv sb lb N r p before (largeStop N r p) s.env →
+          s.env "i" = some (Value.u64 (k + 1)) →
+            Owned s.heap →
+              HeapRep s.heap sb lb r (largeLoop N r p before k T) →
+                ∃ t,
+                  ForRun call (some largeGuard) largeIncrement largeBody s (LCMSourcePV.ASTLoops.Flow.continuing t) ∧
+                    t.env = QuotientCMachine.bind s.env "i" (Value.u64 (largeStop N r p + 1)) ∧
+                      Owned t.heap ∧ HeapRep t.heap sb lb r (largeLoop N r p before (largeStop N r p) T)
+k : ℕ
+hk : k ≤ largeStop N r p
+hf : largeStop N r p < k + (fuel + 1)
+s : State
+env : LoopEnv sb lb N r p before (largeStop N r p) s.env
+hi : s.env "i" = some (Value.u64 (k + 1))
+owned : Owned s.heap
+rep : HeapRep s.heap sb lb r (largeLoop N r p before k T)
+keep : k < largeStop N r p
+histop : k + 1 ≤ min r (N / (p * p))
+hir : k + 1 ≤ r
+hisquare : k + 1 ≤ N / (p * p)
+bounds :
+  p * p < 2 ^ 64 ∧
+    (k + 1) * p < 2 ^ 64 ∧
+      (k + 1) * p ≤ N ∧
+        k + 1 < (k + 1) * p ∧
+          p * p ≤ N / (k + 1) ∧
+            (r < (k + 1) * p → 1 ≤ N / ((k + 1) * p) ∧ N / ((k + 1) * p) ≤ r) ∧
+              ((k + 1) * p ≤ r → k + 1 < (k + 1) * p ∧ (k + 1) * p ≤ r)
+stage : BigStage N r p (k + 1) (largeLoop N r p before k T)
+readCorrect : largeRead N r p (k + 1) (largeLoop N r p before k T) = QuotientSieve.total p (N / (k + 1) / p)
+oldCorrect : (largeLoop N r p before k T).large (k + 1) = QuotientSieve.total p (N / (k + 1))
+guards :
+  QuotientSieve.total p (p - 1) ≤ QuotientSieve.total p (N / (k + 1) / p) ∧
+    QuotientSieve.total p (N / (k + 1) / p) - QuotientSieve.total p (p - 1) ≤ QuotientSieve.total p (N / (k + 1))
+guard1 : before ≤ largeRead N r p (k + 1) (largeLoop N r p before k T)
+⊢ QuotientSieve.total p (N / (k + 1) / p) - QuotientSieve.total p (p - 1) ≤
+    (largeLoop N r p (QuotientSieve.total p (p - 1)) k T).large (k + 1)
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCLarge.lean:248:20: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCLarge.lean:250:14: error: Type mismatch: After simplification, term
+  LCMSourcePV.ASTLoops.GuardRun.present test
+ has type
+  @LCMSourcePV.ASTLoops.GuardRun State Value (Eval call) truth (some largeGuard) s s (truth (Value.i32 1))
+but is expected to have type
+  @LCMSourcePV.ASTLoops.GuardRun State Value (Eval call) truth (some largeGuard) s s true
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCLarge.lean:259:20: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCLarge.lean:261:14: error: Type mismatch: After simplification, term
+  LCMSourcePV.ASTLoops.GuardRun.present test
+ has type
+  @LCMSourcePV.ASTLoops.GuardRun State Value (Eval call) truth (some largeGuard) s s (truth (Value.i32 0))
+but is expected to have type
+  @LCMSourcePV.ASTLoops.GuardRun State Value (Eval call) truth (some largeGuard) s s false
+'RamanujanPV.QuotientCLarge.large_for_remaining' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'RamanujanPV.QuotientCLarge.large_for_exec' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'RamanujanPV.QuotientCLarge.large_body_exec' depends on axioms: [propext, Classical.choice, Quot.sound]

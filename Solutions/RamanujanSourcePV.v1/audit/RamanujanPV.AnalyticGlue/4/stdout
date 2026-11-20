@@ -1,0 +1,36 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/AnalyticGlue.lean:31:8: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+'RamanujanPV.complete_certificate_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.final_ray_from_certificate_and_sandwiches' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.ramanujan_from_38358837683' depends on axioms: [propext, Classical.choice, Quot.sound]
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/AnalyticGlue.lean:132:26: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'RamanujanPV.assembled_actual_ray_pending_source_and_QRH_adapter' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/AnalyticGlue.lean:203:4: error: Tactic `apply` failed: could not unify the conclusion of `CellChain.cons`
+  CellChain (Cell.n ?c) ?stop (?c :: ?cs)
+with the goal
+  CellChain r.n stop (r.toCell eLo eHi :: List.map (fun r => r.toCell eLo eHi) rows)
+
+Note: The full type of `CellChain.cons` is
+  ∀ (c : Cell) {stop : ℕ} {cs : List Cell}, CellChain (c.m + 1) stop cs → CellChain c.n stop (c :: cs)
+
+case cons
+start stop✝ : ℕ
+rows✝ : List RawFactoredCell
+eLo eHi : ℕ
+r : RawFactoredCell
+stop : ℕ
+rows : List RawFactoredCell
+hn : r.n < r.next
+rest : RawCellChain r.next stop rows
+ih : CellChain r.next stop (List.map (fun r => r.toCell eLo eHi) rows)
+⊢ CellChain r.n stop (r.toCell eLo eHi :: List.map (fun r => r.toCell eLo eHi) rows)
+'RamanujanPV.complete_certificate_from_raw' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

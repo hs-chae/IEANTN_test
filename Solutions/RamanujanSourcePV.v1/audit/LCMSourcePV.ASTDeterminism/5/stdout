@@ -1,0 +1,489 @@
+@guard_deterministic : ∀ {State : Type u_1} {Value : Type u_2} {Eval : Expr → State → State → Value → Prop}
+  {truth : Value → Bool},
+  EvalDeterministic Eval →
+    ∀ {cond : Option Expr} {s t : State} {flag : Bool} {t' : State} {flag' : Bool},
+      GuardRun Eval truth cond s t flag → GuardRun Eval truth cond s t' flag' → t = t' ∧ flag = flag'
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:62:31: error: Invalid argument name `Eval` for function
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `hE`: h̲Ev̵a̵l̵
+  • `hD`: E̵v̵a̵l̵h̲D̲
+  • `hS`: E̵v̵a̵l̵h̲S̲
+  • `body`: E̵v̵a̵l̵b̲o̲d̲y̲
+  • `s`: E̵v̵a̵l̵s̲
+  • `out`: E̵v̵a̵l̵o̲u̲t̲
+  • `out'`: E̵v̵a̵l̵o̲u̲t̲'̲
+  • `h`: E̵v̵a̵l̵h̲
+  • `h'`: E̵v̵a̵l̵h̲'̲
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:66:37: error: Invalid argument name `Eval` for function
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `hE`: h̲Ev̵a̵l̵
+  • `hD`: E̵v̵a̵l̵h̲D̲
+  • `hS`: E̵v̵a̵l̵h̲S̲
+  • `body`: E̵v̵a̵l̵b̲o̲d̲y̲
+  • `s`: E̵v̵a̵l̵s̲
+  • `out`: E̵v̵a̵l̵o̲u̲t̲
+  • `out'`: E̵v̵a̵l̵o̲u̲t̲'̲
+  • `h`: E̵v̵a̵l̵h̲
+  • `h'`: E̵v̵a̵l̵h̲'̲
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:72:42: error: Invalid argument name `Eval` for function
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `hE`: h̲Ev̵a̵l̵
+  • `hD`: E̵v̵a̵l̵h̲D̲
+  • `hS`: E̵v̵a̵l̵h̲S̲
+  • `body`: E̵v̵a̵l̵b̲o̲d̲y̲
+  • `s`: E̵v̵a̵l̵s̲
+  • `out`: E̵v̵a̵l̵o̲u̲t̲
+  • `out'`: E̵v̵a̵l̵o̲u̲t̲'̲
+  • `h`: E̵v̵a̵l̵h̲
+  • `h'`: E̵v̵a̵l̵h̲'̲
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:78:31: error: Invalid argument name `Eval` for function
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `hE`: h̲Ev̵a̵l̵
+  • `hD`: E̵v̵a̵l̵h̲D̲
+  • `hS`: E̵v̵a̵l̵h̲S̲
+  • `body`: E̵v̵a̵l̵b̲o̲d̲y̲
+  • `s`: E̵v̵a̵l̵s̲
+  • `out`: E̵v̵a̵l̵o̲u̲t̲
+  • `out'`: E̵v̵a̵l̵o̲u̲t̲'̲
+  • `h`: E̵v̵a̵l̵h̲
+  • `h'`: E̵v̵a̵l̵h̲'̲
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:78:6: error: Tactic `cases` failed: major premise type is not an inductive type
+  ?m.1478
+
+Explanation: the `cases` tactic is for constructor-based reasoning as well as for applying custom cases principles with a 'using' clause or a registered '@[cases_eliminator]' theorem. The above type neither is an inductive type nor has a registered theorem.
+
+case forLoop.forInitialReturn
+State : Type u
+Value : Type v
+Eval : Expr → State → State → Value → Prop
+Declare : List Decl → State → State → Prop
+truth : Value → Bool
+Scope : State → Flow State Value → Flow State Value → Prop
+hE : EvalDeterministic Eval
+hD : DeclareDeterministic Declare
+hS : ScopeDeterministic Scope
+s : State
+out out' : Flow State Value
+init✝ : Stmt
+cond✝ : Option Expr
+step✝ : Expr
+body✝ : Stmt
+t✝¹ : State
+inner✝ : Flow State Value
+loop : ForRun Eval Declare truth Scope cond✝ step✝ body✝ t✝¹ inner✝
+init : StmtRun Eval Declare truth Scope init✝ s (Flow.continuing t✝¹)
+exit : Scope s inner✝ out
+t✝ : State
+value✝ : Value
+init' : StmtRun Eval Declare truth Scope init✝ s (Flow.returned t✝ value✝)
+exit' : Scope s (Flow.returned t✝ value✝) out'
+x✝ : ?m.1478
+⊢ out = out'
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:82:31: error: Invalid argument name `Eval` for function
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `hE`: h̲Ev̵a̵l̵
+  • `hD`: E̵v̵a̵l̵h̲D̲
+  • `hS`: E̵v̵a̵l̵h̲S̲
+  • `body`: E̵v̵a̵l̵b̲o̲d̲y̲
+  • `s`: E̵v̵a̵l̵s̲
+  • `out`: E̵v̵a̵l̵o̲u̲t̲
+  • `out'`: E̵v̵a̵l̵o̲u̲t̲'̲
+  • `h`: E̵v̵a̵l̵h̲
+  • `h'`: E̵v̵a̵l̵h̲'̲
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:82:6: error: Tactic `cases` failed: major premise type is not an inductive type
+  ?m.1687
+
+Explanation: the `cases` tactic is for constructor-based reasoning as well as for applying custom cases principles with a 'using' clause or a registered '@[cases_eliminator]' theorem. The above type neither is an inductive type nor has a registered theorem.
+
+case forInitialReturn.forLoop
+State : Type u
+Value : Type v
+Eval : Expr → State → State → Value → Prop
+Declare : List Decl → State → State → Prop
+truth : Value → Bool
+Scope : State → Flow State Value → Flow State Value → Prop
+hE : EvalDeterministic Eval
+hD : DeclareDeterministic Declare
+hS : ScopeDeterministic Scope
+s : State
+out out' : Flow State Value
+init✝ : Stmt
+cond✝ : Option Expr
+step✝ : Expr
+body✝ : Stmt
+t✝¹ : State
+value✝ : Value
+init : StmtRun Eval Declare truth Scope init✝ s (Flow.returned t✝¹ value✝)
+exit : Scope s (Flow.returned t✝¹ value✝) out
+t✝ : State
+inner✝ : Flow State Value
+loop' : ForRun Eval Declare truth Scope cond✝ step✝ body✝ t✝ inner✝
+init' : StmtRun Eval Declare truth Scope init✝ s (Flow.continuing t✝)
+exit' : Scope s inner✝ out'
+x✝ : ?m.1687
+⊢ out = out'
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:84:38: error: Invalid argument name `Eval` for function
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `hE`: h̲Ev̵a̵l̵
+  • `hD`: E̵v̵a̵l̵h̲D̲
+  • `hS`: E̵v̵a̵l̵h̲S̲
+  • `body`: E̵v̵a̵l̵b̲o̲d̲y̲
+  • `s`: E̵v̵a̵l̵s̲
+  • `out`: E̵v̵a̵l̵o̲u̲t̲
+  • `out'`: E̵v̵a̵l̵o̲u̲t̲'̲
+  • `h`: E̵v̵a̵l̵h̲
+  • `h'`: E̵v̵a̵l̵h̲'̲
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:89:51: error: Invalid argument name `Eval` for function
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `hE`: h̲Ev̵a̵l̵
+  • `hD`: E̵v̵a̵l̵h̲D̲
+  • `hS`: E̵v̵a̵l̵h̲S̲
+  • `cond`: E̵v̵a̵l̵c̲o̲n̲d̲
+  • `body`: E̵v̵a̵l̵b̲o̲d̲y̲
+  • `s`: E̵v̵a̵l̵s̲
+  • `out`: E̵v̵a̵l̵o̲u̲t̲
+  • `out'`: E̵v̵a̵l̵o̲u̲t̲'̲
+  • `h`: E̵v̵a̵l̵h̲
+  • `h'`: E̵v̵a̵l̵h̲'̲
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:101:38: error: Invalid argument name `Eval` for function
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `hE`: h̲Ev̵a̵l̵
+  • `hD`: E̵v̵a̵l̵h̲D̲
+  • `hS`: E̵v̵a̵l̵h̲S̲
+  • `body`: E̵v̵a̵l̵b̲o̲d̲y̲
+  • `s`: E̵v̵a̵l̵s̲
+  • `out`: E̵v̵a̵l̵o̲u̲t̲
+  • `out'`: E̵v̵a̵l̵o̲u̲t̲'̲
+  • `h`: E̵v̵a̵l̵h̲
+  • `h'`: E̵v̵a̵l̵h̲'̲
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:104:50: error: Invalid argument name `Eval` for function
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `hE`: h̲Ev̵a̵l̵
+  • `hD`: E̵v̵a̵l̵h̲D̲
+  • `hS`: E̵v̵a̵l̵h̲S̲
+  • `body`: E̵v̵a̵l̵b̲o̲d̲y̲
+  • `s`: E̵v̵a̵l̵s̲
+  • `out`: E̵v̵a̵l̵o̲u̲t̲
+  • `out'`: E̵v̵a̵l̵o̲u̲t̲'̲
+  • `h`: E̵v̵a̵l̵h̲
+  • `h'`: E̵v̵a̵l̵h̲'̲
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:104:25: error: Tactic `cases` failed: major premise type is not an inductive type
+  ?m.2376
+
+Explanation: the `cases` tactic is for constructor-based reasoning as well as for applying custom cases principles with a 'using' clause or a registered '@[cases_eliminator]' theorem. The above type neither is an inductive type nor has a registered theorem.
+
+case next.returned
+State : Type u
+Value : Type v
+Eval : Expr → State → State → Value → Prop
+Declare : List Decl → State → State → Prop
+truth : Value → Bool
+Scope : State → Flow State Value → Flow State Value → Prop
+hE : EvalDeterministic Eval
+hD : DeclareDeterministic Declare
+hS : ScopeDeterministic Scope
+s : State
+out : Flow State Value
+head✝ : Stmt
+tail✝ : List Stmt
+t✝¹ : State
+first : StmtRun Eval Declare truth Scope head✝ s (Flow.continuing t✝¹)
+rest : SeqRun Eval Declare truth Scope tail✝ t✝¹ out
+t✝ : State
+value✝ : Value
+first' : StmtRun Eval Declare truth Scope head✝ s (Flow.returned t✝ value✝)
+x✝ : ?m.2376
+⊢ out = Flow.returned t✝ value✝
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:107:52: error: Invalid argument name `Eval` for function
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `hE`: h̲Ev̵a̵l̵
+  • `hD`: E̵v̵a̵l̵h̲D̲
+  • `hS`: E̵v̵a̵l̵h̲S̲
+  • `body`: E̵v̵a̵l̵b̲o̲d̲y̲
+  • `s`: E̵v̵a̵l̵s̲
+  • `out`: E̵v̵a̵l̵o̲u̲t̲
+  • `out'`: E̵v̵a̵l̵o̲u̲t̲'̲
+  • `h`: E̵v̵a̵l̵h̲
+  • `h'`: E̵v̵a̵l̵h̲'̲
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:107:27: error: Tactic `cases` failed: major premise type is not an inductive type
+  ?m.2537
+
+Explanation: the `cases` tactic is for constructor-based reasoning as well as for applying custom cases principles with a 'using' clause or a registered '@[cases_eliminator]' theorem. The above type neither is an inductive type nor has a registered theorem.
+
+case returned.next
+State : Type u
+Value : Type v
+Eval : Expr → State → State → Value → Prop
+Declare : List Decl → State → State → Prop
+truth : Value → Bool
+Scope : State → Flow State Value → Flow State Value → Prop
+hE : EvalDeterministic Eval
+hD : DeclareDeterministic Declare
+hS : ScopeDeterministic Scope
+s : State
+out' : Flow State Value
+head✝ : Stmt
+tail✝ : List Stmt
+t✝¹ : State
+value✝ : Value
+first : StmtRun Eval Declare truth Scope head✝ s (Flow.returned t✝¹ value✝)
+t✝ : State
+first' : StmtRun Eval Declare truth Scope head✝ s (Flow.continuing t✝)
+rest' : SeqRun Eval Declare truth Scope tail✝ t✝ out'
+x✝ : ?m.2537
+⊢ Flow.returned t✝¹ value✝ = out'
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:108:50: error: Invalid argument name `Eval` for function
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `hE`: h̲Ev̵a̵l̵
+  • `hD`: E̵v̵a̵l̵h̲D̲
+  • `hS`: E̵v̵a̵l̵h̲S̲
+  • `body`: E̵v̵a̵l̵b̲o̲d̲y̲
+  • `s`: E̵v̵a̵l̵s̲
+  • `out`: E̵v̵a̵l̵o̲u̲t̲
+  • `out'`: E̵v̵a̵l̵o̲u̲t̲'̲
+  • `h`: E̵v̵a̵l̵h̲
+  • `h'`: E̵v̵a̵l̵h̲'̲
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:134:42: error: Invalid argument name `Eval` for function
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `hE`: h̲Ev̵a̵l̵
+  • `hD`: E̵v̵a̵l̵h̲D̲
+  • `hS`: E̵v̵a̵l̵h̲S̲
+  • `body`: E̵v̵a̵l̵b̲o̲d̲y̲
+  • `s`: E̵v̵a̵l̵s̲
+  • `out`: E̵v̵a̵l̵o̲u̲t̲
+  • `out'`: E̵v̵a̵l̵o̲u̲t̲'̲
+  • `h`: E̵v̵a̵l̵h̲
+  • `h'`: E̵v̵a̵l̵h̲'̲
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:140:31: error: Invalid argument name `Eval` for function
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `hE`: h̲Ev̵a̵l̵
+  • `hD`: E̵v̵a̵l̵h̲D̲
+  • `hS`: E̵v̵a̵l̵h̲S̲
+  • `body`: E̵v̵a̵l̵b̲o̲d̲y̲
+  • `s`: E̵v̵a̵l̵s̲
+  • `out`: E̵v̵a̵l̵o̲u̲t̲
+  • `out'`: E̵v̵a̵l̵o̲u̲t̲'̲
+  • `h`: E̵v̵a̵l̵h̲
+  • `h'`: E̵v̵a̵l̵h̲'̲
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:140:6: error: Tactic `cases` failed: major premise type is not an inductive type
+  ?m.3436
+
+Explanation: the `cases` tactic is for constructor-based reasoning as well as for applying custom cases principles with a 'using' clause or a registered '@[cases_eliminator]' theorem. The above type neither is an inductive type nor has a registered theorem.
+
+case next.returned
+State : Type u
+Value : Type v
+Eval : Expr → State → State → Value → Prop
+Declare : List Decl → State → State → Prop
+truth : Value → Bool
+Scope : State → Flow State Value → Flow State Value → Prop
+hE : EvalDeterministic Eval
+hD : DeclareDeterministic Declare
+hS : ScopeDeterministic Scope
+cond : Option Expr
+step : Expr
+body : Stmt
+s : State
+out : Flow State Value
+t✝ b✝¹ c✝ : State
+value✝¹ : Value
+inc : Eval step b✝¹ c✝ value✝¹
+iter : StmtRun Eval Declare truth Scope body t✝ (Flow.continuing b✝¹)
+test : GuardRun Eval truth cond s t✝ true
+rest : ForRun Eval Declare truth Scope cond step body c✝ out
+b✝ : State
+value✝ : Value
+right✝ : true = true
+iter' : StmtRun Eval Declare truth Scope body t✝ (Flow.returned b✝ value✝)
+test' : GuardRun Eval truth cond s t✝ true
+x✝ : ?m.3436
+⊢ out = Flow.returned b✝ value✝
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:148:31: error: Invalid argument name `Eval` for function
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `hE`: h̲Ev̵a̵l̵
+  • `hD`: E̵v̵a̵l̵h̲D̲
+  • `hS`: E̵v̵a̵l̵h̲S̲
+  • `body`: E̵v̵a̵l̵b̲o̲d̲y̲
+  • `s`: E̵v̵a̵l̵s̲
+  • `out`: E̵v̵a̵l̵o̲u̲t̲
+  • `out'`: E̵v̵a̵l̵o̲u̲t̲'̲
+  • `h`: E̵v̵a̵l̵h̲
+  • `h'`: E̵v̵a̵l̵h̲'̲
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:148:6: error: Tactic `cases` failed: major premise type is not an inductive type
+  ?m.3735
+
+Explanation: the `cases` tactic is for constructor-based reasoning as well as for applying custom cases principles with a 'using' clause or a registered '@[cases_eliminator]' theorem. The above type neither is an inductive type nor has a registered theorem.
+
+case returned.next
+State : Type u
+Value : Type v
+Eval : Expr → State → State → Value → Prop
+Declare : List Decl → State → State → Prop
+truth : Value → Bool
+Scope : State → Flow State Value → Flow State Value → Prop
+hE : EvalDeterministic Eval
+hD : DeclareDeterministic Declare
+hS : ScopeDeterministic Scope
+cond : Option Expr
+step : Expr
+body : Stmt
+s : State
+out' : Flow State Value
+t✝ b✝¹ : State
+value✝¹ : Value
+iter : StmtRun Eval Declare truth Scope body t✝ (Flow.returned b✝¹ value✝¹)
+test : GuardRun Eval truth cond s t✝ true
+b✝ c✝ : State
+value✝ : Value
+inc' : Eval step b✝ c✝ value✝
+rest' : ForRun Eval Declare truth Scope cond step body c✝ out'
+right✝ : true = true
+iter' : StmtRun Eval Declare truth Scope body t✝ (Flow.continuing b✝)
+test' : GuardRun Eval truth cond s t✝ true
+x✝ : ?m.3735
+⊢ Flow.returned b✝¹ value✝¹ = out'
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:151:31: error: Invalid argument name `Eval` for function
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `hE`: h̲Ev̵a̵l̵
+  • `hD`: E̵v̵a̵l̵h̲D̲
+  • `hS`: E̵v̵a̵l̵h̲S̲
+  • `body`: E̵v̵a̵l̵b̲o̲d̲y̲
+  • `s`: E̵v̵a̵l̵s̲
+  • `out`: E̵v̵a̵l̵o̲u̲t̲
+  • `out'`: E̵v̵a̵l̵o̲u̲t̲'̲
+  • `h`: E̵v̵a̵l̵h̲
+  • `h'`: E̵v̵a̵l̵h̲'̲
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:177:38: error: Invalid argument name `Eval` for function
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `hE`: h̲Ev̵a̵l̵
+  • `hD`: E̵v̵a̵l̵h̲D̲
+  • `hS`: E̵v̵a̵l̵h̲S̲
+  • `body`: E̵v̵a̵l̵b̲o̲d̲y̲
+  • `s`: E̵v̵a̵l̵s̲
+  • `out`: E̵v̵a̵l̵o̲u̲t̲
+  • `out'`: E̵v̵a̵l̵o̲u̲t̲'̲
+  • `h`: E̵v̵a̵l̵h̲
+  • `h'`: E̵v̵a̵l̵h̲'̲
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:182:31: error: Invalid argument name `Eval` for function
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `hE`: h̲Ev̵a̵l̵
+  • `hD`: E̵v̵a̵l̵h̲D̲
+  • `hS`: E̵v̵a̵l̵h̲S̲
+  • `body`: E̵v̵a̵l̵b̲o̲d̲y̲
+  • `s`: E̵v̵a̵l̵s̲
+  • `out`: E̵v̵a̵l̵o̲u̲t̲
+  • `out'`: E̵v̵a̵l̵o̲u̲t̲'̲
+  • `h`: E̵v̵a̵l̵h̲
+  • `h'`: E̵v̵a̵l̵h̲'̲
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:182:6: error: Tactic `cases` failed: major premise type is not an inductive type
+  ?m.4584
+
+Explanation: the `cases` tactic is for constructor-based reasoning as well as for applying custom cases principles with a 'using' clause or a registered '@[cases_eliminator]' theorem. The above type neither is an inductive type nor has a registered theorem.
+
+case next.returned
+State : Type u
+Value : Type v
+Eval : Expr → State → State → Value → Prop
+Declare : List Decl → State → State → Prop
+truth : Value → Bool
+Scope : State → Flow State Value → Flow State Value → Prop
+hE : EvalDeterministic Eval
+hD : DeclareDeterministic Declare
+hS : ScopeDeterministic Scope
+cond : Expr
+body : Stmt
+s : State
+out : Flow State Value
+t✝ b✝¹ : State
+value✝¹ : Value
+go : truth value✝¹ = true
+iter : StmtRun Eval Declare truth Scope body t✝ (Flow.continuing b✝¹)
+test : Eval cond s t✝ value✝¹
+rest : WhileRun Eval Declare truth Scope cond body b✝¹ out
+b✝ : State
+value✝ : Value
+iter' : StmtRun Eval Declare truth Scope body t✝ (Flow.returned b✝ value✝)
+go' : truth value✝¹ = true
+test' : Eval cond s t✝ value✝¹
+x✝ : ?m.4584
+⊢ out = Flow.returned b✝ value✝
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:190:31: error: Invalid argument name `Eval` for function
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `hE`: h̲Ev̵a̵l̵
+  • `hD`: E̵v̵a̵l̵h̲D̲
+  • `hS`: E̵v̵a̵l̵h̲S̲
+  • `body`: E̵v̵a̵l̵b̲o̲d̲y̲
+  • `s`: E̵v̵a̵l̵s̲
+  • `out`: E̵v̵a̵l̵o̲u̲t̲
+  • `out'`: E̵v̵a̵l̵o̲u̲t̲'̲
+  • `h`: E̵v̵a̵l̵h̲
+  • `h'`: E̵v̵a̵l̵h̲'̲
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:190:6: error: Tactic `cases` failed: major premise type is not an inductive type
+  ?m.4855
+
+Explanation: the `cases` tactic is for constructor-based reasoning as well as for applying custom cases principles with a 'using' clause or a registered '@[cases_eliminator]' theorem. The above type neither is an inductive type nor has a registered theorem.
+
+case returned.next
+State : Type u
+Value : Type v
+Eval : Expr → State → State → Value → Prop
+Declare : List Decl → State → State → Prop
+truth : Value → Bool
+Scope : State → Flow State Value → Flow State Value → Prop
+hE : EvalDeterministic Eval
+hD : DeclareDeterministic Declare
+hS : ScopeDeterministic Scope
+cond : Expr
+body : Stmt
+s : State
+out' : Flow State Value
+t✝ b✝¹ : State
+condition✝ value✝ : Value
+go : truth condition✝ = true
+iter : StmtRun Eval Declare truth Scope body t✝ (Flow.returned b✝¹ value✝)
+test : Eval cond s t✝ condition✝
+b✝ : State
+rest' : WhileRun Eval Declare truth Scope cond body b✝ out'
+iter' : StmtRun Eval Declare truth Scope body t✝ (Flow.continuing b✝)
+go' : truth condition✝ = true
+test' : Eval cond s t✝ condition✝
+x✝ : ?m.4855
+⊢ Flow.returned b✝¹ value✝ = out'
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:193:31: error: Invalid argument name `Eval` for function
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `hE`: h̲Ev̵a̵l̵
+  • `hD`: E̵v̵a̵l̵h̲D̲
+  • `hS`: E̵v̵a̵l̵h̲S̲
+  • `body`: E̵v̵a̵l̵b̲o̲d̲y̲
+  • `s`: E̵v̵a̵l̵s̲
+  • `out`: E̵v̵a̵l̵o̲u̲t̲
+  • `out'`: E̵v̵a̵l̵o̲u̲t̲'̲
+  • `h`: E̵v̵a̵l̵h̲
+  • `h'`: E̵v̵a̵l̵h̲'̲
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:90:1: warning: unused `termination_by`, function is not recursive
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:109:1: warning: unused `termination_by`, function is not recursive
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:152:1: warning: unused `termination_by`, function is not recursive
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:194:1: warning: unused `termination_by`, function is not recursive
+'LCMSourcePV.ASTLoops.stmt_deterministic' depends on axioms: [sorryAx]
+'LCMSourcePV.ASTLoops.seq_deterministic' depends on axioms: [sorryAx]
+'LCMSourcePV.ASTLoops.for_deterministic' depends on axioms: [sorryAx]
+'LCMSourcePV.ASTLoops.while_deterministic' depends on axioms: [propext, sorryAx]

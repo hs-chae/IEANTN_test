@@ -1,0 +1,42 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCRound.lean:111:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  evalPure call s.heap s.env (7 + 1) (Expr.binary "==" ((Expr.var "small").index (Expr.var "p")) previousExpr)
+in the target expression
+  (do
+      let __do_lift ← evalPure call s.heap s.env 8 detectionGuard
+      pure (s, __do_lift)) =
+    some (s, Value.i32 (if T.small p = T.small (p - 1) then 1 else 0))
+
+call : Service
+s : State
+sb lb r p : ℕ
+T : Tables
+rep : HeapRep s.heap sb lb r T
+hp2 : 2 ≤ p
+hpr : p ≤ r
+hpw : p < modulus
+ha : s.env "small" = some (Value.ptr sb)
+hp : s.env "p" = some (Value.u64 p)
+hpRead : evalPure call s.heap s.env 7 ((Expr.var "small").index (Expr.var "p")) = some (Value.u64 (T.small p))
+hmRead : evalPure call s.heap s.env (4 + 3) previousExpr = some (Value.u64 (T.small (p - 1)))
+hbinary :
+  binary "==" (Value.u64 (T.small p)) (Value.u64 (T.small (p - 1))) =
+    some (Value.i32 (if T.small p = T.small (p - 1) then 1 else 0))
+hresult :
+  evalPure call s.heap s.env (7 + 1) (Expr.binary "==" ((Expr.var "small").index (Expr.var "p")) previousExpr) =
+    some (Value.i32 (if T.small p = T.small (p - 1) then 1 else 0))
+⊢ (do
+      let __do_lift ← evalPure call s.heap s.env 8 detectionGuard
+      pure (s, __do_lift)) =
+    some (s, Value.i32 (if T.small p = T.small (p - 1) then 1 else 0))
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCRound.lean:208:41: warning: This simp argument is unused:
+  h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCRound.lean:232:29: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCRound.lean:242:29: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+'RamanujanPV.QuotientCRound.actual_round_body' depends on axioms: [propext]
+'RamanujanPV.QuotientCRound.active_exec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.QuotientCRound.round_exec' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

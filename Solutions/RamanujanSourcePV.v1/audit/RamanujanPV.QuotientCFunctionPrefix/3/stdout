@@ -1,0 +1,28 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCFunctionPrefix.lean:65:7: error: unsolved goals
+s : State
+sb lb N capacity : ℕ
+hN2 : 2 ≤ N
+hN : N ≤ 2000000000000
+hcap : N.sqrt < capacity
+owned : Owned s.heap
+buffers : QuotientCInit.Buffers s.heap sb lb N.sqrt
+hn : s.env "n" = some (Value.u64 N)
+hc : s.env "capacity" = some (Value.u64 capacity)
+hs : s.env "small" = some (Value.ptr sb)
+hl : s.env "large" = some (Value.ptr lb)
+freshR : s.env "r" = none
+freshI : s.env "i" = none
+hNw : N < modulus
+hrw : N.sqrt < modulus
+⊢ 1 < N
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCFunctionPrefix.lean:92:14: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCFunctionPrefix.lean:65:36: warning: This simp argument is unused:
+  show ¬N < 2 by omega
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [binary, Value.scalar]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'RamanujanPV.QuotientCFunctionPrefix.actual_prefix' depends on axioms: [propext]
+'RamanujanPV.QuotientCFunctionPrefix.helper_source_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.QuotientCFunctionPrefix.prefix_exec' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

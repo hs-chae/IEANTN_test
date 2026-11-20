@@ -1,0 +1,520 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean:76:67: warning: This simp argument is unused:
+  Option.bind_some
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [pure_binary, pure_var, pure_literal, hi, literal_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean:87:2: error: Type mismatch
+  sub_literal_one hq (LE.le.trans_lt (Nat.div_le_self N i) hNw)
+has type
+  binary "-" (Value.u64 (N / i)) (Value.i32 1) = some (Value.u64 (N / i - 1))
+but is expected to have type
+  (do
+      let __do_lift ←
+        do
+          let __do_lift ← some (Value.u64 N)
+          let __do_lift_1 ← some (Value.u64 i)
+          binary "/" __do_lift __do_lift_1
+      let __do_lift_1 ← some (Value.i32 1)
+      binary "-" __do_lift __do_lift_1) =
+    some (Value.u64 (N / i - 1))
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean:86:4: warning: This simp argument is unused:
+  Option.bind_some
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [pure_binary, pure_var, pure_literal, hn, hi, literal_one, binary_u64_div hi0 hNw]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean:86:22: warning: This simp argument is unused:
+  binary_u64_div hi0 hNw
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [pure_binary, pure_var, pure_literal, hn, hi, literal_one, Option.bind_some]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean:95:47: error: unsolved goals
+call : Service
+s : State
+after : Heap
+array : String
+base i value : ℕ
+rhs : Expr
+ha : s.env array = some (Value.ptr base)
+hi : s.env "i" = some (Value.u64 i)
+hrhs : evalPure call s.heap s.env 8 rhs = some (Value.u64 value)
+hvalue : value < modulus
+hw : write s.heap base i value = some after
+⊢ (do
+      let __x ← some (Value.ptr base)
+      match __x with
+        | Value.ptr address => do
+          let i ← some (Value.u64 i)
+          let __do_lift ← some (Value.u64 value)
+          let __x ← uint64 __do_lift
+          match __x with
+            | Value.u64 word => do
+              let __do_lift ←
+                match i with
+                  | Value.u64 n => some n
+                  | Value.i32 n => some n
+                  | Value.i64 n => some n
+                  | Value.ptr address => none
+              let heap ← write s.heap address __do_lift word
+              pure ({ env := s.env, heap := heap }, Value.u64 word)
+            | x => none
+        | x => none) =
+    some ({ env := s.env, heap := after }, Value.u64 value)
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean:98:37: warning: This simp argument is unused:
+  Option.bind_some
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [pure_var, ha, hi, hrhs, uint64_of_u64 hvalue, Value.scalar, hw]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean:98:55: warning: This simp argument is unused:
+  uint64_of_u64 hvalue
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [pure_var, ha, hi, hrhs, Option.bind_some, Value.scalar, hw]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean:99:18: warning: This simp argument is unused:
+  hw
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [pure_var, ha, hi, hrhs, Option.bind_some, uint64_of_u64 hvalue, Value.scalar]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean:158:8: error: Tactic `apply` failed: could not unify the conclusion of `read_of_block ?m.604 hSa ?m.605 hSaddr`
+  QuotientCMachine.read ?m.592 sb i =
+    some (Value.u64 ({ extent := S.extent, words := Function.update S.words i (i - 1) }.words i))
+with the goal
+  QuotientCMachine.read t2.heap sb i = some (Value.u64 (i - 1))
+
+Note: The full type of `read_of_block ?m.604 hSa ?m.605 hSaddr` is
+  { extent := S.extent, words := Function.update S.words i (i - 1) }.words i < modulus →
+    QuotientCMachine.read ?m.592 sb i =
+      some (Value.u64 ({ extent := S.extent, words := Function.update S.words i (i - 1) }.words i))
+
+case pos.left
+call : Service
+s : State
+sb lb N r i : ℕ
+owned : Owned s.heap
+hsmall : s.env "small" = some (Value.ptr sb)
+hlarge : s.env "large" = some (Value.ptr lb)
+hn : s.env "n" = some (Value.u64 N)
+hi : s.env "i" = some (Value.u64 i)
+hi1 : 1 ≤ i
+hir : i ≤ r
+hrN : r ≤ N
+hN : N ≤ 2000000000000
+hprefix0 : Prefix s.heap sb lb N i
+hne : sb ≠ lb
+S L : Block
+hS : s.heap sb = some S
+hL : s.heap lb = some L
+hrS : r < S.extent
+hrL : r < L.extent
+hiN : i ≤ N
+hNw : N < modulus
+hiw : i < modulus
+hq : 1 ≤ N / i
+hqw : N / i < modulus
+hsv : i - 1 < modulus
+hlv : N / i - 1 < modulus
+hSa : sb % 8 = 0
+hLa : lb % 8 = 0
+hSaddr : sb + 8 * i + 8 ≤ modulus
+hLaddr : lb + 8 * i + 8 ≤ modulus
+H1 : ℕ → Option Block := ⋯
+H2 : ℕ → Option Block := ⋯
+hw1 : write s.heap sb i (i - 1) = some H1
+hL1 : H1 lb = some L
+hw2 : write H1 lb i (N / i - 1) = some H2
+t1 : State := ⋯
+t2 : State := ⋯
+he1 :
+  Eval call (Expr.binary "=" ((Expr.var "small").index (Expr.var "i")) (Expr.binary "-" (Expr.var "i") (Expr.nat 1))) s
+    t1 (Value.u64 (i - 1))
+he2 :
+  Eval call
+    (Expr.binary "=" ((Expr.var "large").index (Expr.var "i"))
+      (Expr.binary "-" (Expr.binary "/" (Expr.var "n") (Expr.var "i")) (Expr.nat 1)))
+    t1 t2 (Value.u64 (N / i - 1))
+hj : 1 ≤ i
+hjnext : i < i + 1
+⊢ QuotientCMachine.read t2.heap sb i = some (Value.u64 (i - 1))
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean:161:8: error: Tactic `apply` failed: could not unify the conclusion of `read_of_block ?m.623 hLa ?m.624 hLaddr`
+  QuotientCMachine.read ?m.607 lb i =
+    some (Value.u64 ({ extent := L.extent, words := Function.update L.words i (N / i - 1) }.words i))
+with the goal
+  QuotientCMachine.read t2.heap lb i = some (Value.u64 (N / i - 1))
+
+Note: The full type of `read_of_block ?m.623 hLa ?m.624 hLaddr` is
+  { extent := L.extent, words := Function.update L.words i (N / i - 1) }.words i < modulus →
+    QuotientCMachine.read ?m.607 lb i =
+      some (Value.u64 ({ extent := L.extent, words := Function.update L.words i (N / i - 1) }.words i))
+
+case pos.right
+call : Service
+s : State
+sb lb N r i : ℕ
+owned : Owned s.heap
+hsmall : s.env "small" = some (Value.ptr sb)
+hlarge : s.env "large" = some (Value.ptr lb)
+hn : s.env "n" = some (Value.u64 N)
+hi : s.env "i" = some (Value.u64 i)
+hi1 : 1 ≤ i
+hir : i ≤ r
+hrN : r ≤ N
+hN : N ≤ 2000000000000
+hprefix0 : Prefix s.heap sb lb N i
+hne : sb ≠ lb
+S L : Block
+hS : s.heap sb = some S
+hL : s.heap lb = some L
+hrS : r < S.extent
+hrL : r < L.extent
+hiN : i ≤ N
+hNw : N < modulus
+hiw : i < modulus
+hq : 1 ≤ N / i
+hqw : N / i < modulus
+hsv : i - 1 < modulus
+hlv : N / i - 1 < modulus
+hSa : sb % 8 = 0
+hLa : lb % 8 = 0
+hSaddr : sb + 8 * i + 8 ≤ modulus
+hLaddr : lb + 8 * i + 8 ≤ modulus
+H1 : ℕ → Option Block := ⋯
+H2 : ℕ → Option Block := ⋯
+hw1 : write s.heap sb i (i - 1) = some H1
+hL1 : H1 lb = some L
+hw2 : write H1 lb i (N / i - 1) = some H2
+t1 : State := ⋯
+t2 : State := ⋯
+he1 :
+  Eval call (Expr.binary "=" ((Expr.var "small").index (Expr.var "i")) (Expr.binary "-" (Expr.var "i") (Expr.nat 1))) s
+    t1 (Value.u64 (i - 1))
+he2 :
+  Eval call
+    (Expr.binary "=" ((Expr.var "large").index (Expr.var "i"))
+      (Expr.binary "-" (Expr.binary "/" (Expr.var "n") (Expr.var "i")) (Expr.nat 1)))
+    t1 t2 (Value.u64 (N / i - 1))
+hj : 1 ≤ i
+hjnext : i < i + 1
+⊢ QuotientCMachine.read t2.heap lb i = some (Value.u64 (N / i - 1))
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean:159:14: error: `simp` made no progress
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean:159:68: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  k ≥ 0
+  j ≥ 0
+  h ≥ 0
+  h - j ≤ -1
+  g ≥ 0
+  f ≥ 0
+  f - k ≥ -1
+  e ≥ 0
+  e - 8*f - 8*h ≥ 16
+  e - 8*f - 8*j ≥ 16
+  e - f ≥ 2
+  e - g ≥ 2
+  d ≥ 0
+  c ≥ 0
+  0 ≤ b ≤ 2000000000000
+  b - e ≤ -1
+  b - f ≥ 1
+  a ≥ 0
+  a - b ≤ 0
+  a - c ≤ -1
+  a - d ≤ -1
+  a - f ≥ 1
+where
+ a := ↑r
+ b := ↑N
+ c := ↑S.extent
+ d := ↑L.extent
+ e := ↑modulus
+ f := ↑(i - 1)
+ g := ↑(N / i - 1)
+ h := ↑sb / 8
+ j := ↑lb / 8
+ k := ↑{ extent := S.extent, words := Function.update S.words i (i - 1) }.extent
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean:162:14: error: `simp` made no progress
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean:162:37: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  k ≥ 0
+  j ≥ 0
+  h ≥ 0
+  h - j ≤ -1
+  g ≥ 0
+  f ≥ 0
+  f - k ≥ -1
+  e ≥ 0
+  e - 8*f - 8*h ≥ 16
+  e - 8*f - 8*j ≥ 16
+  e - f ≥ 2
+  e - g ≥ 2
+  d ≥ 0
+  c ≥ 0
+  0 ≤ b ≤ 2000000000000
+  b - e ≤ -1
+  b - f ≥ 1
+  a ≥ 0
+  a - b ≤ 0
+  a - c ≤ -1
+  a - d ≤ -1
+  a - f ≥ 1
+where
+ a := ↑r
+ b := ↑N
+ c := ↑S.extent
+ d := ↑L.extent
+ e := ↑modulus
+ f := ↑(i - 1)
+ g := ↑(N / i - 1)
+ h := ↑sb / 8
+ j := ↑lb / 8
+ k := ↑{ extent := L.extent, words := Function.update L.words i (N / i - 1) }.extent
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean:174:41: warning: This simp argument is unused:
+  pure_literal
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Eval, initGuard, eval, pure_var, pure_binary, pure_index, hi, hr]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean:174:68: warning: This simp argument is unused:
+  pure_index
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Eval, initGuard, eval, pure_var, pure_literal, pure_binary, hi, hr]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean:198:19: error: don't know how to synthesize implicit argument `truth`
+  @GuardRun.present State Value (Eval ?m.111) ?m.106 initGuard s s (Value.i32 (if i ≤ r then 1 else 0))
+    (guard_eval hi hr)
+context:
+call : Service
+sb lb N r : ℕ
+hrN : r ≤ N
+hN : N ≤ 2000000000000
+s : State
+i : ℕ
+owned : Owned s.heap
+buffers : Buffers s.heap sb lb r
+hsmall : s.env "small" = some (Value.ptr sb)
+hlarge : s.env "large" = some (Value.ptr lb)
+hn : s.env "n" = some (Value.u64 N)
+hi : s.env "i" = some (Value.u64 i)
+hr : s.env "r" = some (Value.u64 r)
+hi1 : 1 ≤ i
+hcount : i + 0 = r + 1
+hprefix0 : Prefix s.heap sb lb N i
+hieq : i = r + 1
+⊢ Value → Bool
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean:198:19: error: don't know how to synthesize implicit argument `Eval`
+  @GuardRun.present State Value (Eval ?m.111) ?m.106 initGuard s s (Value.i32 (if i ≤ r then 1 else 0))
+    (guard_eval hi hr)
+context:
+call : Service
+sb lb N r : ℕ
+hrN : r ≤ N
+hN : N ≤ 2000000000000
+s : State
+i : ℕ
+owned : Owned s.heap
+buffers : Buffers s.heap sb lb r
+hsmall : s.env "small" = some (Value.ptr sb)
+hlarge : s.env "large" = some (Value.ptr lb)
+hn : s.env "n" = some (Value.u64 N)
+hi : s.env "i" = some (Value.u64 i)
+hr : s.env "r" = some (Value.u64 r)
+hi1 : 1 ≤ i
+hcount : i + 0 = r + 1
+hprefix0 : Prefix s.heap sb lb N i
+hieq : i = r + 1
+⊢ Expr → State → State → Value → Prop
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean:198:37: error: don't know how to synthesize implicit argument `call`
+  @guard_eval ?m.111 s i r hi hr
+context:
+call : Service
+sb lb N r : ℕ
+hrN : r ≤ N
+hN : N ≤ 2000000000000
+s : State
+i : ℕ
+owned : Owned s.heap
+buffers : Buffers s.heap sb lb r
+hsmall : s.env "small" = some (Value.ptr sb)
+hlarge : s.env "large" = some (Value.ptr lb)
+hn : s.env "n" = some (Value.u64 N)
+hi : s.env "i" = some (Value.u64 i)
+hr : s.env "r" = some (Value.u64 r)
+hi1 : 1 ≤ i
+hcount : i + 0 = r + 1
+hprefix0 : Prefix s.heap sb lb N i
+hieq : i = r + 1
+⊢ Service
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean:198:13: error: failed to infer `have` declaration type
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean:221:19: error: Application type mismatch: The argument
+  hrN
+has type
+  r ≤ N
+but is expected to have type
+  ?m.260 + k = r + 1
+in the application
+  ih howned hbuffers ?m.261 ?m.262 ?m.263 ?m.264 ?m.265 ?m.266 hrN
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean:219:12: error: `simp` made no progress
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean:215:13: error: Tactic `rcases` failed: `x✝ : ?m.268` is not an inductive datatype
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean:216:18: warning: This simp argument is unused:
+  step
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [QuotientCMachine.bind, henv, hsmall]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean:216:24: warning: This simp argument is unused:
+  QuotientCMachine.bind
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [step, henv, hsmall]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean:217:18: warning: This simp argument is unused:
+  step
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [QuotientCMachine.bind, henv, hlarge]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean:217:24: warning: This simp argument is unused:
+  QuotientCMachine.bind
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [step, henv, hlarge]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean:218:18: warning: This simp argument is unused:
+  step
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [QuotientCMachine.bind, henv, hn]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean:218:24: warning: This simp argument is unused:
+  QuotientCMachine.bind
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [step, henv, hn]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean:220:18: warning: This simp argument is unused:
+  step
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [QuotientCMachine.bind, henv, hr]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean:220:24: warning: This simp argument is unused:
+  QuotientCMachine.bind
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [step, henv, hr]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean:256:27: error: Tactic `rfl` failed: Expected the goal to be a binary relation
+
+Hint: Reflexivity tactics can only be used on goals of the form `x ~ x` or `R x x`
+
+case neg.none
+call : Service
+s : State
+sb lb N r : ℕ
+owned : Owned s.heap
+buffers : Buffers s.heap sb lb r
+hsmall : s.env "small" = some (Value.ptr sb)
+hlarge : s.env "large" = some (Value.ptr lb)
+hn : s.env "n" = some (Value.u64 N)
+hr : s.env "r" = some (Value.u64 r)
+hiFresh : s.env "i" = none
+hrN : r ≤ N
+hN : N ≤ 2000000000000
+first : State := { env := QuotientCMachine.bind s.env "i" (Value.u64 1), heap := s.heap }
+hdecl : Run call initDeclaration s (Flow.continuing first)
+last : State
+hloop : QuotientCMachine.ForRun call (some initGuard) initIncrement initBody first (Flow.continuing last)
+hlast : last.env = QuotientCMachine.bind first.env "i" (Value.u64 (r + 1))
+howned : Owned last.heap
+hbuffers : Buffers last.heap sb lb r
+hprefix : Prefix last.heap sb lb N (r + 1)
+final : State := closeScope s last
+name : String
+h : ¬name = "i"
+⊢ none = none → none = none
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean:256:27: error: Tactic `rfl` failed: Expected the goal to be a binary relation
+
+Hint: Reflexivity tactics can only be used on goals of the form `x ~ x` or `R x x`
+
+case neg.some
+call : Service
+s : State
+sb lb N r : ℕ
+owned : Owned s.heap
+buffers : Buffers s.heap sb lb r
+hsmall : s.env "small" = some (Value.ptr sb)
+hlarge : s.env "large" = some (Value.ptr lb)
+hn : s.env "n" = some (Value.u64 N)
+hr : s.env "r" = some (Value.u64 r)
+hiFresh : s.env "i" = none
+hrN : r ≤ N
+hN : N ≤ 2000000000000
+first : State := { env := QuotientCMachine.bind s.env "i" (Value.u64 1), heap := s.heap }
+hdecl : Run call initDeclaration s (Flow.continuing first)
+last : State
+hloop : QuotientCMachine.ForRun call (some initGuard) initIncrement initBody first (Flow.continuing last)
+hlast : last.env = QuotientCMachine.bind first.env "i" (Value.u64 (r + 1))
+howned : Owned last.heap
+hbuffers : Buffers last.heap sb lb r
+hprefix : Prefix last.heap sb lb N (r + 1)
+final : State := closeScope s last
+name : String
+h : ¬name = "i"
+val✝ : Value
+⊢ some val✝ = none → none = some val✝
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean:239:38: warning: This simp argument is unused:
+  initDeclaration
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Declare, declare_singleton, hiFresh, pure_var, pure_literal, pure_binary, pure_index, literal, uint64,
+    Value.scalar, modulus, first]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean:239:64: warning: This simp argument is unused:
+  pure_var
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Declare, declare_singleton, initDeclaration, hiFresh, pure_literal, pure_binary, pure_index, literal,
+    uint64, Value.scalar, modulus, first]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean:239:88: warning: This simp argument is unused:
+  pure_binary
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Declare, declare_singleton, initDeclaration, hiFresh, pure_var, pure_literal, pure_index, literal,
+    uint64, Value.scalar, modulus, first]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean:239:101: warning: This simp argument is unused:
+  pure_index
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Declare, declare_singleton, initDeclaration, hiFresh, pure_var, pure_literal, pure_binary, literal,
+    uint64, Value.scalar, modulus, first]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'RamanujanPV.QuotientCInit.actual_init_for' depends on axioms: [propext]
+'RamanujanPV.QuotientCInit.initialize_pair' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'RamanujanPV.QuotientCInit.initialization_loop' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

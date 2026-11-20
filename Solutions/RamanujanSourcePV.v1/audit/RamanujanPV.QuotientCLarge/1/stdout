@@ -1,0 +1,109 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCLarge.lean:33:37: warning: This simp argument is unused:
+  h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCLarge.lean:64:53: error: unsolved goals
+call : Service
+s : State
+sb lb N r p i before : ℕ
+T : Tables
+owned : Owned s.heap
+rep : HeapRep s.heap sb lb r T
+hi1 : 1 ≤ i
+hir : i ≤ r
+hip0 : 0 < i * p
+hipw : i * p < modulus
+hNw : N < modulus
+hreadIndex : if i * p ≤ r then 1 ≤ i * p else 1 ≤ N / (i * p) ∧ N / (i * p) ≤ r
+hn : s.env "n" = some (Value.u64 N)
+hr : s.env "r" = some (Value.u64 r)
+hp : s.env "p" = some (Value.u64 p)
+hi : s.env "i" = some (Value.u64 i)
+hsmall : s.env "small" = some (Value.ptr sb)
+hlarge : s.env "large" = some (Value.ptr lb)
+hb : s.env "before" = some (Value.u64 before)
+hfreshIp : s.env "ip" = none
+hfreshSub : s.env "sub" = none
+hbefore : before ≤ largeRead N r p i T
+hdiff : largeRead N r p i T - before ≤ T.large i
+sub : ℕ := largeRead N r p i T
+t1 : State := { env := QuotientCMachine.bind s.env "ip" (Value.u64 (i * p)), heap := s.heap }
+t2 : State := { env := QuotientCMachine.bind t1.env "sub" (Value.u64 0), heap := t1.heap }
+t3 : State := { env := QuotientCMachine.bind t2.env "sub" (Value.u64 sub), heap := t2.heap }
+hdeclIp : Declare call [{ type := "uint64_t", name := "ip", value := some (bin "*" (var "i") (var "p")) }] s t1
+hsubNone : t1.env "sub" = none
+⊢ Value.i32 0 = ?m.167
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCLarge.lean:65:7: error: unsolved goals
+call : Service
+s : State
+sb lb N r p i before : ℕ
+T : Tables
+owned : Owned s.heap
+rep : HeapRep s.heap sb lb r T
+hi1 : 1 ≤ i
+hir : i ≤ r
+hip0 : 0 < i * p
+hipw : i * p < modulus
+hNw : N < modulus
+hreadIndex : if i * p ≤ r then 1 ≤ i * p else 1 ≤ N / (i * p) ∧ N / (i * p) ≤ r
+hn : s.env "n" = some (Value.u64 N)
+hr : s.env "r" = some (Value.u64 r)
+hp : s.env "p" = some (Value.u64 p)
+hi : s.env "i" = some (Value.u64 i)
+hsmall : s.env "small" = some (Value.ptr sb)
+hlarge : s.env "large" = some (Value.ptr lb)
+hb : s.env "before" = some (Value.u64 before)
+hfreshIp : s.env "ip" = none
+hfreshSub : s.env "sub" = none
+hbefore : before ≤ largeRead N r p i T
+hdiff : largeRead N r p i T - before ≤ T.large i
+sub : ℕ := largeRead N r p i T
+t1 : State := { env := QuotientCMachine.bind s.env "ip" (Value.u64 (i * p)), heap := s.heap }
+t2 : State := { env := QuotientCMachine.bind t1.env "sub" (Value.u64 0), heap := t1.heap }
+t3 : State := { env := QuotientCMachine.bind t2.env "sub" (Value.u64 sub), heap := t2.heap }
+hdeclIp : Declare call [{ type := "uint64_t", name := "ip", value := some (bin "*" (var "i") (var "p")) }] s t1
+hsubNone : t1.env "sub" = none
+⊢ ((match ?m.167 with
+        | Value.u64 n => some n
+        | Value.i32 n => some n
+        | Value.i64 n => some n
+        | Value.ptr address => none).bind
+      fun __do_lift => some (Value.u64 (__do_lift % 18446744073709551616))) =
+    some (Value.u64 0)
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCLarge.lean:51:76: error: unsolved goals
+call : Service
+s : State
+sb lb N r p i before : ℕ
+T : Tables
+owned : Owned s.heap
+rep : HeapRep s.heap sb lb r T
+hi1 : 1 ≤ i
+hir : i ≤ r
+hip0 : 0 < i * p
+hipw : i * p < modulus
+hNw : N < modulus
+hreadIndex : if i * p ≤ r then 1 ≤ i * p else 1 ≤ N / (i * p) ∧ N / (i * p) ≤ r
+hn : s.env "n" = some (Value.u64 N)
+hr : s.env "r" = some (Value.u64 r)
+hp : s.env "p" = some (Value.u64 p)
+hi : s.env "i" = some (Value.u64 i)
+hsmall : s.env "small" = some (Value.ptr sb)
+hlarge : s.env "large" = some (Value.ptr lb)
+hb : s.env "before" = some (Value.u64 before)
+hfreshIp : s.env "ip" = none
+hfreshSub : s.env "sub" = none
+hbefore : before ≤ largeRead N r p i T
+hdiff : largeRead N r p i T - before ≤ T.large i
+sub : ℕ := largeRead N r p i T
+t1 : State := { env := QuotientCMachine.bind s.env "ip" (Value.u64 (i * p)), heap := s.heap }
+t2 : State := { env := QuotientCMachine.bind t1.env "sub" (Value.u64 0), heap := t1.heap }
+t3 : State := { env := QuotientCMachine.bind t2.env "sub" (Value.u64 sub), heap := t2.heap }
+hdeclIp : Declare call [{ type := "uint64_t", name := "ip", value := some (bin "*" (var "i") (var "p")) }] s t1
+hsubNone : t1.env "sub" = none
+⊢ ∃ t,
+    Run call largeBody s (LCMSourcePV.ASTLoops.Flow.continuing t) ∧
+      t.env = s.env ∧ Owned t.heap ∧ HeapRep t.heap sb lb r (largeStep N r p before i T)
+'RamanujanPV.QuotientCLarge.large_body_exec' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

@@ -1,0 +1,96 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientTables.lean:54:6: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientTables.lean:75:42: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientTables.lean:64:39: warning: Variable name `hir` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hir
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientTables.lean:97:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Function.update ?f ?a ?v ?a
+in the target expression
+  { small := T.small, large := Function.update T.large i (T.large i - (largeRead N r p i T - before)) }.large i =
+    if i < i + 1 then total (p + 1) (N / i) else total p (N / i)
+
+case pos
+N r p i before : ℕ
+T : Tables
+hp : Nat.Prime p
+hi : 1 ≤ i
+hir : i ≤ r
+hisquare : i ≤ N / (p * p)
+hroot : N < (r + 1) * (r + 1)
+hbefore : before = total p (p - 1)
+hstage : BigStage N r p i T
+hj : 1 ≤ i
+hjr : i ≤ r
+hs : p * p ≤ N / i
+hread : largeRead N r p i T = total p (N / i / p)
+⊢ { small := T.small, large := Function.update T.large i (T.large i - (largeRead N r p i T - before)) }.large i =
+    if i < i + 1 then total (p + 1) (N / i) else total p (N / i)
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientTables.lean:100:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Function.update ?f i ?v j
+in the target expression
+  { small := T.small, large := Function.update T.large i (T.large i - (largeRead N r p i T - before)) }.large j =
+    if j < i + 1 then total (p + 1) (N / j) else total p (N / j)
+
+case neg
+N r p i before : ℕ
+T : Tables
+hp : Nat.Prime p
+hi : 1 ≤ i
+hir : i ≤ r
+hisquare : i ≤ N / (p * p)
+hroot : N < (r + 1) * (r + 1)
+hbefore : before = total p (p - 1)
+hstage : BigStage N r p i T
+j : ℕ
+hj : 1 ≤ j
+hjr : j ≤ r
+hji : ¬j = i
+⊢ { small := T.small, large := Function.update T.large i (T.large i - (largeRead N r p i T - before)) }.large j =
+    if j < i + 1 then total (p + 1) (N / j) else total p (N / j)
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientTables.lean:143:65: error: unexpected token ')'; expected term
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientTables.lean:135:16: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientTables.lean:136:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientTables.lean:143:62: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat (Type ?u.111) 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type ?u.111
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientTables.lean:143:27: error: Type mismatch
+  Nat.div_lt_iff_lt_mul ?m.235
+has type
+  ?m.222 / ?m.221 < ?m.223 ↔ ?m.222 < ?m.223 * ?m.221
+but is expected to have type
+  N / i < p * p
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientTables.lean:143:54: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  k ≥ 0
+  g ≥ 0
+  f ≥ 0
+  e ≥ 0
+  e - j ≥ 1
+  d ≥ 1
+  d - e ≤ 0
+  d - g ≥ 1
+  d - j ≥ 1
+  c ≥ 0
+  b ≥ 0
+  b - k ≤ -1
+  a ≥ 0
+  a - b ≥ 1
+where
+ a := ↑(r + 1) * ↑(r + 1)
+ b := ↑N
+ c := ↑(total p (p - 1))
+ d := ↑i
+ e := ↑r
+ f := ↑(total p (N / i))
+ g := ↑(largeStop N r p)
+ j := ↑N / ↑(p * p)
+ k := ↑i * ↑(p * p)
+'RamanujanPV.QuotientTables.initial_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.QuotientTables.large_step_preserves' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

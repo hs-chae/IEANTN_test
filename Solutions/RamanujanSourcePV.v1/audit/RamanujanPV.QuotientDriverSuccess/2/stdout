@@ -1,0 +1,70 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientDriverSuccess.lean:108:10: error(lean.unknownIdentifier): Unknown identifier `after`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientDriverSuccess.lean:111:59: error: unsolved goals
+case fwrite
+layout : Layout
+token : ℕ
+s t : DriverState
+small : s.env "rpc_small" = some (DriverValue.core (Value.ptr layout.smallBase))
+large : s.env "rpc_large" = some (DriverValue.core (Value.ptr layout.largeBase))
+owned : Owned s.heap
+buffers : QuotientCInit.Buffers s.heap layout.smallBase layout.largeBase input.sqrt
+expressions✝ : List Expr
+arguments✝ : DriverState
+values✝ : List DriverValue
+address✝ : ℕ
+size✝ count✝ : Value
+returned✝ : ℕ
+world✝ : World
+actual :
+  values✝ =
+    [DriverValue.core (Value.ptr address✝), DriverValue.core size✝, DriverValue.core count✝,
+      DriverValue.core (Value.ptr token)]
+sizeCast : uint64 size✝ = some (Value.u64 8)
+countCast : uint64 count✝ = some (Value.u64 1)
+effect : Fwrite arguments✝.heap address✝ arguments✝.world world✝ returned✝
+he : counterCall = (Expr.var "fwrite").call expressions✝
+evaluated : DriverArgs token expressions✝ s arguments✝ values✝
+post : t = { env := arguments✝.env, locations := arguments✝.locations, heap := arguments✝.heap, world := world✝ }
+bad : "rpc_quotient_count" = "fwrite"
+⊢ DriverValue.core (Value.u64 returned✝) = DriverValue.core (Value.u64 input.primeCounting) ∧
+    t.env = s.env ∧ t.locations = s.locations ∧ t.world = s.world ∧ Owned t.heap
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientDriverSuccess.lean:114:40: error: unsolved goals
+case fflush
+layout : Layout
+token : ℕ
+s t : DriverState
+small : s.env "rpc_small" = some (DriverValue.core (Value.ptr layout.smallBase))
+large : s.env "rpc_large" = some (DriverValue.core (Value.ptr layout.largeBase))
+owned : Owned s.heap
+buffers : QuotientCInit.Buffers s.heap layout.smallBase layout.largeBase input.sqrt
+expressions✝ : List Expr
+arguments✝ : DriverState
+values✝ : List DriverValue
+returned✝ : ℤ
+world✝ : World
+actual : values✝ = [DriverValue.core (Value.ptr token)]
+effect : Fflush arguments✝.world world✝ returned✝
+he : counterCall = (Expr.var "fflush").call expressions✝
+evaluated : DriverArgs token expressions✝ s arguments✝ values✝
+post : t = { env := arguments✝.env, locations := arguments✝.locations, heap := arguments✝.heap, world := world✝ }
+bad : "rpc_quotient_count" = "fflush"
+⊢ DriverValue.signed returned✝ = DriverValue.core (Value.u64 input.primeCounting) ∧
+    t.env = s.env ∧ t.locations = s.locations ∧ t.world = s.world ∧ Owned t.heap
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientDriverSuccess.lean:147:75: warning: This simp argument is unused:
+  emptyEnv
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [reserveLocal, initialDriver, globalEnv, QuotientCMachine.bind]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientDriverSuccess.lean:148:75: warning: This simp argument is unused:
+  emptyEnv
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [reserveLocal, initialDriver, globalEnv, QuotientCMachine.bind]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'RamanujanPV.QuotientDriverSuccess.declaration_result' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

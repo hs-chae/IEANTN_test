@@ -1,0 +1,117 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCMachine.lean:122:4: warning: Variable name `fuel` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _fuel
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCMachine.lean:123:4: warning: Variable name `fuel` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _fuel
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCMachine.lean:227:56: error(lean.unknownIdentifier): Unknown identifier `n!`
+
+Note: It is not possible to treat `n!` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCMachine.lean:232:51: error: Application type mismatch: The argument
+  block.words index
+has type
+  ℕ
+but is expected to have type
+  Matroid ?m.32
+in the application
+  Matroid.IsStrictMinor (block.words index)
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCMachine.lean:232:70: error(lean.unknownIdentifier): Unknown identifier `odulus`
+
+Note: It is not possible to treat `odulus` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCMachine.lean:233:60: error: unsolved goals
+heap : Heap
+base index : ℕ
+block : Block
+hblock : heap base = some block
+halign : base % 8 = 0
+hindex : index < block.extent
+haddress : base + 8 * index + 8 ≤ modulus
+hword : sorry <m sorry
+⊢ block.words index < modulus
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCMachine.lean:234:43: warning: This simp argument is unused:
+  hword
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [read, hblock, halign, hindex, haddress]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCMachine.lean:238:51: error: Application type mismatch: The argument
+  value
+has type
+  ℕ
+but is expected to have type
+  Matroid ?m.32
+in the application
+  Matroid.IsStrictMinor value
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCMachine.lean:238:58: error(lean.unknownIdentifier): Unknown identifier `odulus`
+
+Note: It is not possible to treat `odulus` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCMachine.lean:240:77: error: unsolved goals
+heap : Heap
+base index value : ℕ
+block : Block
+hblock : heap base = some block
+halign : base % 8 = 0
+hindex : index < block.extent
+haddress : base + 8 * index + 8 ≤ modulus
+hword : sorry <m sorry
+⊢ value < modulus
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCMachine.lean:241:44: warning: This simp argument is unused:
+  hword
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [write, hblock, halign, hindex, haddress]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCMachine.lean:253:27: error: Application type mismatch: The argument
+  hold
+has type
+  before base = some old
+but is expected to have type
+  some old = some old
+in the application
+  And.intro hold
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCMachine.lean:283:4: error: Tactic `split` failed: Could not split an `if` or `match` expression in the type
+  (do
+      let block ← some block
+      if base % 8 = 0 ∧ index < block.extent ∧ base + 8 * index + 8 ≤ modulus ∧ value < modulus then
+          some
+            (Function.update heap base
+              (some { extent := block.extent, words := Function.update block.words index value }))
+        else none) =
+    some after
+of `written`
+
+Hint: Use `set_option trace.split.failure true` to display additional diagnostic information
+
+case some
+heap after : Heap
+base index value : ℕ
+owned : Owned heap
+block : Block
+hb : heap base = some block
+written :
+  (do
+      let block ← some block
+      if base % 8 = 0 ∧ index < block.extent ∧ base + 8 * index + 8 ≤ modulus ∧ value < modulus then
+          some
+            (Function.update heap base
+              (some { extent := block.extent, words := Function.update block.words index value }))
+        else none) =
+    some after
+⊢ Owned after
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCMachine.lean:282:18: warning: This simp argument is unused:
+  Option.bind_some
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hb] at written
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'RamanujanPV.QuotientCMachine.write_preserves_owned' depends on axioms: [propext, sorryAx]
+'RamanujanPV.QuotientCMachine.literal_two_trillion' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,81 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCRound.lean:103:17: error: don't know how to synthesize implicit argument `call`
+  @pure_previous 4 ?m.72 s.heap s.env sb p (T.small (p - 1)) ha hp
+    (Decidable.byContradiction fun a => detection_eval._proof_1_1 hp2 a) hpw
+    (rep.right.left (p - 1) (Decidable.byContradiction fun a => detection_eval._proof_1_2 hp2 a)
+      (Decidable.byContradiction fun a => detection_eval._proof_1_3 hp2 hpr a))
+context:
+call : Service
+s : State
+sb lb r p : ℕ
+T : Tables
+rep : HeapRep s.heap sb lb r T
+hp2 : 2 ≤ p
+hpr : p ≤ r
+hpw : p < modulus
+ha : s.env "small" = some (Value.ptr sb)
+hp : s.env "p" = some (Value.u64 p)
+hpRead : evalPure call s.heap s.env 7 ((Expr.var "small").index (Expr.var "p")) = some (Value.u64 (T.small p))
+⊢ Service
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCRound.lean:103:7: error: failed to infer `have` declaration type
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCRound.lean:98:88: error: unsolved goals
+call : Service
+s : State
+sb lb r p : ℕ
+T : Tables
+rep : HeapRep s.heap sb lb r T
+hp2 : 2 ≤ p
+hpr : p ≤ r
+hpw : p < modulus
+ha : s.env "small" = some (Value.ptr sb)
+hp : s.env "p" = some (Value.u64 p)
+hpRead : evalPure call s.heap s.env 7 ((Expr.var "small").index (Expr.var "p")) = some (Value.u64 (T.small p))
+⊢ Eval call detectionGuard s s (Value.i32 (if T.small p = T.small (p - 1) then 1 else 0))
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCRound.lean:208:41: warning: This simp argument is unused:
+  h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCRound.lean:226:17: error: don't know how to synthesize implicit argument `call`
+  @detection_eval ?m.60 s sb lb r p T rep hp2 hpr hpw env.small env.pValue
+context:
+call : Service
+s : State
+sb lb N r p : ℕ
+T : Tables
+hN : N ≤ 2000000000000
+hr : r = N.sqrt
+hp2 : 2 ≤ p
+hpr : p ≤ r
+hinit : Invariant N r p T
+owned : Owned s.heap
+rep : HeapRep s.heap sb lb r T
+env : RoundEnv sb lb N r p s.env
+hroot : r * r ≤ N
+hrN : r ≤ N
+hpw : p < modulus
+⊢ Service
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCRound.lean:226:7: error: failed to infer `have` declaration type
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCRound.lean:222:53: error: unsolved goals
+call : Service
+s : State
+sb lb N r p : ℕ
+T : Tables
+hN : N ≤ 2000000000000
+hr : r = N.sqrt
+hp2 : 2 ≤ p
+hpr : p ≤ r
+hinit : Invariant N r p T
+owned : Owned s.heap
+rep : HeapRep s.heap sb lb r T
+env : RoundEnv sb lb N r p s.env
+hroot : r * r ≤ N
+hrN : r ≤ N
+hpw : p < modulus
+⊢ ∃ t,
+    Run call roundBody s (Flow.continuing t) ∧
+      t.env = s.env ∧ Owned t.heap ∧ HeapRep t.heap sb lb r (primeRound N r p T)
+'RamanujanPV.QuotientCRound.actual_round_body' depends on axioms: [propext]
+'RamanujanPV.QuotientCRound.active_exec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.QuotientCRound.round_exec' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

@@ -1,0 +1,73 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCheckerMath.lean:42:20: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Decidable (Marked (k + 1) (lo + i))
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCheckerMath.lean:45:9: error: unsolved goals
+case zero
+lo i : ℕ
+h : ¬Marked 1 (lo + i)
+⊢ 1 = sorry ()
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCheckerMath.lean:48:14: error: unsolved goals
+case pos
+lo i k : ℕ
+ih : passes lo k i = sorry
+hm :
+  Marked (k + 1 + 1) (lo + i) ↔
+    Marked (k + 1) (lo + i) ∨ 2 ≤ k + 1 + 1 ∧ (k + 1 + 1) * (k + 1 + 1) ≤ lo + i ∧ k + 1 + 1 ∣ lo + i
+old : Marked (k + 1) (lo + i)
+new : (k + 2) * (k + 2) ≤ lo + i ∧ k + 2 ∣ lo + i
+⊢ 0 = sorry ()
+
+case pos
+lo i k : ℕ
+ih : passes lo k i = sorry
+hm :
+  Marked (k + 1 + 1) (lo + i) ↔
+    Marked (k + 1) (lo + i) ∨ 2 ≤ k + 1 + 1 ∧ (k + 1 + 1) * (k + 1 + 1) ≤ lo + i ∧ k + 1 + 1 ∣ lo + i
+old : ¬Marked (k + 1) (lo + i)
+new : (k + 2) * (k + 2) ≤ lo + i ∧ k + 2 ∣ lo + i
+⊢ 0 = sorry ()
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCheckerMath.lean:47:19: warning: This simp argument is unused:
+  h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [passes]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCheckerMath.lean:52:30: warning: This simp argument is unused:
+  hm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [passes, sweep, ih, old, new, show 2 ≤ k + 1 + 1 by omega]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCheckerMath.lean:52:33: warning: This simp argument is unused:
+  old
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [passes, sweep, ih, hm, new, show 2 ≤ k + 1 + 1 by omega]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCheckerMath.lean:52:41: warning: This simp argument is unused:
+  show 2 ≤ k + 1 + 1 by omega
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [passes, sweep, ih, hm, old, new]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCheckerMath.lean:77:8: warning: declaration uses `sorry`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCheckerMath.lean:82:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCheckerMath.lean:83:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCheckerMath.lean:82:2: warning: Unused tactic linter: `rw [marked_sqrt_iff_composite (by omega) hindex]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCheckerMath.lean:83:2: warning: Unused tactic linter: `(by_cases h : Nat.Prime (lo + i)) <;> simp [h]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'RamanujanPV.SegmentCheckerMath.final_flag' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'RamanujanPV.SegmentCheckerMath.primeCounting_increment' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.SegmentCheckerMath.first_minimal' depends on axioms: [propext, Classical.choice, Quot.sound]

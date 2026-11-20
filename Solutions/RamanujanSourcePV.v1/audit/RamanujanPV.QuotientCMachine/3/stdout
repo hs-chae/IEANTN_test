@@ -1,0 +1,29 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCMachine.lean:122:4: warning: Variable name `fuel` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _fuel
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCMachine.lean:123:4: warning: Variable name `fuel` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _fuel
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCMachine.lean:282:4: error: 'change' tactic failed, pattern
+  (if base % 8 = 0 ∧ index < block.extent ∧ base + 8 * index + 8 ≤ modulus ∧ value < modulus then
+      some
+        (Function.update heap base (some { extent := block.extent, words := Function.update block.words index value }))
+    else none) =
+    some after
+is not definitionally equal to target
+  (do
+      let block ← heap base
+      if base % 8 = 0 ∧ index < block.extent ∧ base + 8 * index + 8 ≤ modulus ∧ value < modulus then
+          some
+            (Function.update heap base
+              (some { extent := block.extent, words := Function.update block.words index value }))
+        else none) =
+    some after
+'RamanujanPV.QuotientCMachine.write_preserves_owned' depends on axioms: [propext, sorryAx]
+'RamanujanPV.QuotientCMachine.literal_two_trillion' depends on axioms: [propext, Classical.choice, Quot.sound]

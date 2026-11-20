@@ -1,0 +1,59 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientDriverExecution.lean:56:41: error: unsolved goals
+layout : Layout
+hp : layout.smallBase < 18446744073709551616 ∧ layout.largeBase < 18446744073709551616
+⊢ ((if layout.smallBase < 18446744073709551616 then some (Value.ptr layout.smallBase) else none).bind fun __do_lift =>
+      (if layout.largeBase < 18446744073709551616 then some (Value.ptr layout.largeBase) else none).bind
+        fun __do_lift_1 =>
+        some
+          (QuotientCMachine.bind
+            (QuotientCMachine.bind
+              (QuotientCMachine.bind (QuotientCMachine.bind emptyEnv "n" (Value.u64 38358837683)) "capacity"
+                (Value.u64 1500000))
+              "small" __do_lift)
+            "large" __do_lift_1)) =
+    some
+      (QuotientCMachine.bind
+        (QuotientCMachine.bind
+          (QuotientCMachine.bind (QuotientCMachine.bind emptyEnv "n" (Value.u64 38358837683)) "capacity"
+            (Value.u64 1500000))
+          "small" (Value.ptr layout.smallBase))
+        "large" (Value.ptr layout.largeBase))
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientDriverExecution.lean:76:16: error: don't know how to synthesize placeholder
+context:
+layout : Layout
+value : Value
+after✝ : State
+env✝ : Env
+function✝ : Function
+lookup : registry "rpc_quotient_count" = some function✝
+arguments :
+  parameters function✝.parameters
+      [Value.i64 input, Value.i32 capacity, Value.ptr layout.smallBase, Value.ptr layout.largeBase] emptyEnv =
+    some env✝
+body :
+  Run QuotientSqrtExecute.service function✝.body { env := env✝, heap := initializedHeap layout }
+    (Flow.returned after✝ value)
+⊢ Function
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientDriverExecution.lean:107:26: error: `simp` made no progress
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientDriverExecution.lean:107:57: error: unsolved goals
+heap : Heap
+address word : ℕ
+aligned : address % 8 = 0
+bounded : address + 8 ≤ modulus
+valid : word < modulus
+⊢ ?m.28 < Block.extent ?m.29
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientDriverExecution.lean:108:8: error: Type mismatch: After simplification, term
+  bounded
+ has type
+  address + 8 ≤ modulus
+but is expected to have type
+  address + 8 * ?m.28 + 8 ≤ modulus
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientDriverExecution.lean:147:2: error: Too many variable names provided at alternative `failed`: 4 provided, but 3 expected
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientDriverExecution.lean:147:35: error(lean.unknownIdentifier): Unknown identifier `nonzero`
+'RamanujanPV.QuotientDriverExecution.driver_call_correct' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'RamanujanPV.QuotientDriverExecution.allocated_local_read' depends on axioms: [propext, sorryAx]
+'RamanujanPV.QuotientDriverExecution.successful_fwrite' depends on axioms: [propext]
+'RamanujanPV.QuotientDriverExecution.successful_fflush' depends on axioms: [sorryAx]

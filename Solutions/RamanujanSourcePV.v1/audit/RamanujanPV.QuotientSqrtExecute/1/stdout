@@ -1,0 +1,158 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientSqrtExecute.lean:25:9: error(lean.unknownIdentifier): Unknown identifier `odulus`
+
+Note: It is not possible to treat `odulus` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientSqrtExecute.lean:25:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HAdd ℕ ℕ (Matroid ?m.7)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientSqrtExecute.lean:28:2: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  c ≥ 0
+  b ≥ 0
+  b - c ≥ 0
+  0 ≤ a ≤ 2000000000000
+  a - b ≥ 0
+where
+ a := ↑n
+ b := ↑n.sqrt
+ c := ↑r
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientSqrtExecute.lean:34:15: error: Application type mismatch: The argument
+  n
+has type
+  ℕ
+but is expected to have type
+  Matroid ?m.28
+in the application
+  Matroid.IsStrictMinor n
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientSqrtExecute.lean:34:18: error(lean.unknownIdentifier): Unknown identifier `odulus`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientSqrtExecute.lean:32:69: error: unsolved goals
+n r : ℕ
+bound : n ≤ 2000000000000
+before : r ≤ n.sqrt
+s : State
+readN : s.env "n" = some (Value.u64 n)
+readR : s.env "r" = some (Value.u64 r)
+word : r + 1 <m sorry
+⊢ Eval noCalls condition s s (Value.i32 (if r < n.sqrt then 1 else 0))
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientSqrtExecute.lean:53:20: error: Invalid simp theorem: Expected a proposition, but found
+  Env → String → Value → Env
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientSqrtExecute.lean:52:4: error: unsolved goals
+case pos
+name : String
+old new : Value
+env : Env
+heap : Heap
+present : { env := env, heap := heap }.env name = some old
+⊢ ¬env name = none
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientSqrtExecute.lean:54:12: error: Ambiguous term
+  bind
+Possible interpretations:
+  QuotientCMachine.bind : Env → String → Value → Env
+  
+  Bind.bind : ?m.62 ?m.64 → (?m.64 → ?m.62 ?m.65) → ?m.62 ?m.65
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientSqrtExecute.lean:55:23: error: Tactic `rfl` failed: Expected the goal to be a binary relation
+
+Hint: Reflexivity tactics can only be used on goals of the form `x ~ x` or `R x x`
+
+case neg.none
+name : String
+old new : Value
+env : Env
+heap : Heap
+present : { env := env, heap := heap }.env name = some old
+key : String
+eq : ¬key = name
+⊢ none = none → none = none
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientSqrtExecute.lean:55:23: error: Tactic `rfl` failed: Expected the goal to be a binary relation
+
+Hint: Reflexivity tactics can only be used on goals of the form `x ~ x` or `R x x`
+
+case neg.some
+name : String
+old new : Value
+env : Env
+heap : Heap
+present : { env := env, heap := heap }.env name = some old
+key : String
+eq : ¬key = name
+val✝ : Value
+⊢ some val✝ = none → none = some val✝
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientSqrtExecute.lean:53:12: warning: This simp argument is unused:
+  present
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [bind]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientSqrtExecute.lean:70:84: error: unsolved goals
+n : ℕ
+bound : n ≤ 2000000000000
+fuel : ℕ
+ih :
+  ∀ r ≤ n.sqrt,
+    n.sqrt < r + fuel →
+      ∀ (s : State),
+        s.env "n" = some (Value.u64 n) →
+          s.env "r" = some (Value.u64 r) →
+            ∃ t,
+              WhileRun noCalls condition iteration s (LCMSourcePV.ASTLoops.Flow.continuing t) ∧
+                t.env "r" = some (Value.u64 n.sqrt) ∧ t.heap = s.heap
+r : ℕ
+before : r ≤ n.sqrt
+budget : n.sqrt < r + (fuel + 1)
+s : State
+readN : s.env "n" = some (Value.u64 n)
+readR : s.env "r" = some (Value.u64 r)
+advance : r < n.sqrt
+next : State := { env := QuotientCMachine.bind s.env "r" (Value.u64 (r + 1)), heap := s.heap }
+word : r + 1 <m sorry
+⊢ QuotientCMachine.bind s.env "r" (Value.u64 ((r + 1) % modulus)) =
+      QuotientCMachine.bind s.env "r" (Value.u64 (r + 1)) ∧
+    (r + 1) % modulus = r + 1
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientSqrtExecute.lean:99:69: error: Invalid simp theorem: Expected a proposition, but found
+  Env → String → Value → Env
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientSqrtExecute.lean:107:2: error: unsolved goals
+case run.first
+n : ℕ
+bound : n ≤ 2000000000000
+heap : Heap
+initial : State := input n heap
+started : State := { env := QuotientCMachine.bind initial.env "r" (Value.u64 0), heap := initial.heap }
+declaration : Declare noCalls [{ type := "uint64_t", name := "r", value := some (Expr.nat 0) }] initial started
+t : State
+loop : WhileRun noCalls condition iteration started (LCMSourcePV.ASTLoops.Flow.continuing t)
+read : t.env "r" = some (Value.u64 n.sqrt)
+heapEq : t.heap = started.heap
+final : State := closeScope initial t
+⊢ t = ?run.t ∧ Value.u64 n.sqrt = ?run.value
+
+case run.t
+n : ℕ
+bound : n ≤ 2000000000000
+heap : Heap
+initial : State := ⋯
+started : State := ⋯
+declaration : Declare noCalls [{ type := "uint64_t", name := "r", value := some (Expr.nat 0) }] initial started
+t : State
+loop : WhileRun noCalls condition iteration started (LCMSourcePV.ASTLoops.Flow.continuing t)
+read : t.env "r" = some (Value.u64 n.sqrt)
+heapEq : t.heap = started.heap
+final : State := ⋯
+⊢ State
+
+case run.value
+n : ℕ
+bound : n ≤ 2000000000000
+heap : Heap
+initial : State := ⋯
+started : State := ⋯
+declaration : Declare noCalls [{ type := "uint64_t", name := "r", value := some (Expr.nat 0) }] initial started
+t : State
+loop : WhileRun noCalls condition iteration started (LCMSourcePV.ASTLoops.Flow.continuing t)
+read : t.env "r" = some (Value.u64 n.sqrt)
+heapEq : t.heap = started.heap
+final : State := ⋯
+⊢ Value
+'RamanujanPV.QuotientSqrtExecute.condition_eval' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'RamanujanPV.QuotientSqrtExecute.function_refines' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'RamanujanPV.QuotientSqrtExecute.service_closed' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

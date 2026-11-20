@@ -1,0 +1,171 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCInit.lean:69:7: error: unsolved goals
+call : Service
+s : State
+base length i : ℕ
+owned : Owned s.heap
+hflags : s.env "flags" = some (Value.ptr base)
+hi : s.env "i" = some (Value.u64 i)
+hil : i < length
+prior : Prefix s.heap base i
+block : Block
+hb : s.heap base = some block
+hextent : length ≤ block.extent
+halign : base % 8 = 0
+haddress : base + 8 * i + 8 ≤ modulus
+hone : 1 < modulus
+after : ℕ → Option Block :=
+  Function.update s.heap base (some { extent := block.extent, words := Function.update block.words i 1 })
+hw : write s.heap base i 1 = some after
+t : State := { env := s.env, heap := after }
+⊢ Value.i32 1 = ?m.133
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCInit.lean:70:7: error: unsolved goals
+call : Service
+s : State
+base length i : ℕ
+owned : Owned s.heap
+hflags : s.env "flags" = some (Value.ptr base)
+hi : s.env "i" = some (Value.u64 i)
+hil : i < length
+prior : Prefix s.heap base i
+block : Block
+hb : s.heap base = some block
+hextent : length ≤ block.extent
+halign : base % 8 = 0
+haddress : base + 8 * i + 8 ≤ modulus
+hone : 1 < modulus
+after : ℕ → Option Block :=
+  Function.update s.heap base (some { extent := block.extent, words := Function.update block.words i 1 })
+hw : write s.heap base i 1 = some after
+t : State := { env := s.env, heap := after }
+⊢ ((match ?m.133 with
+        | Value.u64 n => some n
+        | Value.i32 n => some n
+        | Value.i64 n => some n
+        | Value.ptr address => none).bind
+      fun __do_lift => some (Value.u64 (__do_lift % 18446744073709551616))) =
+    some (Value.u64 1)
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCInit.lean:107:26: error: Invalid simp theorem: Expected a proposition, but found
+  Env → String → Value → Env
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCInit.lean:108:14: error: Ambiguous term
+  bind
+Possible interpretations:
+  QuotientCMachine.bind : Env → String → Value → Env
+  
+  Bind.bind : ?m.124 ?m.126 → (?m.126 → ?m.124 ?m.127) → ?m.124 ?m.127
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCInit.lean:108:8: error: `simp` made no progress
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCInit.lean:121:41: error: Application type mismatch: The argument
+  hword
+has type
+  length < modulus
+but is expected to have type
+  i + 1 + k = length
+in the application
+  ih howned hbuffer ?m.268 ?m.269 ?m.270 hword
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCInit.lean:120:22: error: Ambiguous term
+  bind
+Possible interpretations:
+  QuotientCMachine.bind : Env → String → Value → Env
+  
+  Bind.bind : ?m.277 ?m.279 → (?m.279 → ?m.277 ?m.280) → ?m.277 ?m.280
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCInit.lean:120:59: error: Ambiguous term
+  bind
+Possible interpretations:
+  QuotientCMachine.bind : Env → String → Value → Env
+  
+  Bind.bind : ?m.277 ?m.279 → (?m.279 → ?m.277 ?m.280) → ?m.277 ?m.280
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCInit.lean:121:22: error: Ambiguous term
+  bind
+Possible interpretations:
+  QuotientCMachine.bind : Env → String → Value → Env
+  
+  Bind.bind : ?m.277 ?m.279 → (?m.279 → ?m.277 ?m.280) → ?m.277 ?m.280
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCInit.lean:118:11: error: Tactic `rcases` failed: `x✝ : ?m.273` is not an inductive datatype
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCInit.lean:149:23: error: Invalid simp theorem: Expected a proposition, but found
+  Env → String → Value → Env
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCInit.lean:149:55: error: Ambiguous term
+  bind
+Possible interpretations:
+  QuotientCMachine.bind : Env → String → Value → Env
+  
+  Bind.bind : ?m.48 ?m.50 → (?m.50 → ?m.48 ?m.51) → ?m.48 ?m.51
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCInit.lean:149:39: error: unsolved goals
+call : Service
+s : State
+base length : ℕ
+owned : Owned s.heap
+buffer : Buffer s.heap base length
+hflags : s.env "flags" = some (Value.ptr base)
+hlen : s.env "length" = some (Value.u64 length)
+hiFresh : s.env "i" = none
+hword : length < modulus
+first : State := { env := QuotientCMachine.bind s.env "i" (Value.u64 0), heap := s.heap }
+hdecl : Run call initDeclaration s (Flow.continuing first)
+⊢ 0 = ?m.39
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCInit.lean:150:23: error: Ambiguous term
+  bind
+Possible interpretations:
+  QuotientCMachine.bind : Env → String → Value → Env
+  
+  Bind.bind : ?m.49 ?m.51 → (?m.51 → ?m.49 ?m.52) → ?m.49 ?m.52
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCInit.lean:150:46: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  c ≥ 1
+  b ≥ 0
+  a ≥ 0
+  a - b ≥ 1
+where
+ a := ↑modulus
+ b := ↑length
+ c := ↑?m.39
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCInit.lean:159:22: error: Ambiguous term
+  bind
+Possible interpretations:
+  QuotientCMachine.bind : Env → String → Value → Env
+  
+  Bind.bind : ?m.179 ?m.181 → (?m.181 → ?m.179 ?m.182) → ?m.179 ?m.182
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCInit.lean:160:30: error: Tactic `rfl` failed: The left-hand side
+  if (some val✝).isSome = true then
+    QuotientCMachine.bind (QuotientCMachine.bind s.env "i" (Value.u64 0)) "i" (Value.u64 length) name
+  else none
+is not definitionally equal to the right-hand side
+  some val✝
+
+case neg.some
+call : Service
+s : State
+base length : ℕ
+owned : Owned s.heap
+buffer : Buffer s.heap base length
+hflags : s.env "flags" = some (Value.ptr base)
+hlen : s.env "length" = some (Value.u64 length)
+hiFresh : s.env "i" = none
+hword : length < modulus
+first : State := { env := QuotientCMachine.bind s.env "i" (Value.u64 0), heap := s.heap }
+hdecl : Run call initDeclaration s (Flow.continuing first)
+last : State
+hloop : QuotientCMachine.ForRun call (some initGuard) initIncrement initBody first (Flow.continuing last)
+hlast : last.env = QuotientCMachine.bind first.env "i" (Value.u64 length)
+howned : Owned last.heap
+hbuffer : Buffer last.heap base length
+hprefix : Prefix last.heap base length
+hshape : SameShape first.heap last.heap
+hframe : Frame first.heap last.heap base
+final : State := closeScope s last
+name : String
+h : ¬name = "i"
+val✝ : Value
+hs : s.env name = some val✝
+⊢ (if (some val✝).isSome = true then
+      QuotientCMachine.bind (QuotientCMachine.bind s.env "i" (Value.u64 0)) "i" (Value.u64 length) name
+    else none) =
+    some val✝
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCInit.lean:159:28: warning: This simp argument is unused:
+  Function.update_of_ne h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [first, bind]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'RamanujanPV.SegmentCInit.actual_init' depends on axioms: [propext]
+'RamanujanPV.SegmentCInit.initialize_one' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'RamanujanPV.SegmentCInit.initialization_loop' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

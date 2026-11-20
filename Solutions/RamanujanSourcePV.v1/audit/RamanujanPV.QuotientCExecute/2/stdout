@@ -1,0 +1,34 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCExecute.lean:112:4: error: Tactic `apply` failed: could not unify the conclusion of `read_of_block`
+  QuotientCMachine.read ?m.95 ?m.96 ?m.97 =
+    some (Value.u64 ({ extent := block.extent, words := Function.update block.words i value }.words ?m.97))
+with the goal
+  QuotientCMachine.read after base i = some (Value.u64 value)
+
+Note: The full type of `read_of_block` is
+  ?m.95 ?m.96 = some { extent := block.extent, words := Function.update block.words i value } →
+    ?m.96 % 8 = 0 →
+      ?m.97 < { extent := block.extent, words := Function.update block.words i value }.extent →
+        ?m.96 + 8 * ?m.97 + 8 ≤ modulus →
+          { extent := block.extent, words := Function.update block.words i value }.words ?m.97 < modulus →
+            QuotientCMachine.read ?m.95 ?m.96 ?m.97 =
+              some (Value.u64 ({ extent := block.extent, words := Function.update block.words i value }.words ?m.97))
+
+case refine_1
+heap : Heap
+base i old value : ℕ
+hread : QuotientCMachine.read heap base i = some (Value.u64 old)
+hv : value < modulus
+block : Block
+hb : heap base = some block
+halign : base % 8 = 0
+hi : i < block.extent
+haddr : base + 8 * i + 8 ≤ modulus
+hvalue : block.words i = old
+hold : old < modulus
+after : Heap :=
+  Function.update heap base (some { extent := block.extent, words := Function.update block.words i value })
+⊢ QuotientCMachine.read after base i = some (Value.u64 value)
+'RamanujanPV.QuotientCExecute.actual_large_body' depends on axioms: [propext]
+'RamanujanPV.QuotientCExecute.actual_small_body' depends on axioms: [propext]
+'RamanujanPV.QuotientCExecute.heap_large_update' depends on axioms: [propext, sorryAx, Quot.sound]
+'RamanujanPV.QuotientCExecute.heap_small_update' depends on axioms: [propext, sorryAx, Quot.sound]

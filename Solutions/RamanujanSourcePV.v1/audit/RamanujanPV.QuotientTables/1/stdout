@@ -1,0 +1,79 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientTables.lean:53:6: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientTables.lean:80:38: error: unexpected token '['; expected ')', ',' or ':'
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientTables.lean:74:42: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientTables.lean:80:33: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  j ≥ 0
+  h ≤ 0
+  h - j ≥ 0
+  g ≥ 0
+  f ≥ 1
+  e ≥ 0
+  e - g ≥ 0
+  d ≥ 0
+  d - e ≥ 1
+  b ≥ 0
+  b - f ≤ -1
+  b - h ≥ 0
+  a ≥ 1
+  a - b ≤ 0
+  a - c ≤ 0
+where
+ a := ↑i
+ b := ↑r
+ c := ↑N / ↑(p * p)
+ d := ↑(r + 1) * ↑(r + 1)
+ e := ↑N
+ f := ↑i * ↑p
+ g := ↑i * ↑(p * p)
+ h := ↑N / ↑(i * p)
+ j := ↑p
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientTables.lean:92:65: error: unexpected token ')'; expected term
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientTables.lean:92:62: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat (Type ?u.65) 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type ?u.65
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientTables.lean:92:27: error: Type mismatch
+  Nat.le_div_iff_mul_le ?m.102
+has type
+  ?m.89 ≤ ?m.90 / ?m.88 ↔ ?m.89 * ?m.88 ≤ ?m.90
+but is expected to have type
+  p * p ≤ N / i
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientTables.lean:92:54: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  f ≥ 0
+  e ≥ 0
+  d ≥ 0
+  d - e ≥ 1
+  b ≥ 0
+  a ≥ 1
+  a - b ≤ 0
+  a - c ≤ 0
+where
+ a := ↑i
+ b := ↑r
+ c := ↑N / ↑(p * p)
+ d := ↑(r + 1) * ↑(r + 1)
+ e := ↑N
+ f := ↑(total p (p - 1))
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientTables.lean:87:57: error: unsolved goals
+case neg
+N r p i before : ℕ
+T : Tables
+hp : Nat.Prime p
+hi : 1 ≤ i
+hir : i ≤ r
+hisquare : i ≤ N / (p * p)
+hroot : N < (r + 1) * (r + 1)
+hbefore : before = total p (p - 1)
+hstage : BigStage N r p i T
+j : ℕ
+hj : 1 ≤ j
+hjr : j ≤ r
+hji : ¬j = i
+⊢ (largeStep N r p before i T).large j = if j < i + 1 then total (p + 1) (N / j) else total p (N / j)
+'RamanujanPV.QuotientTables.initial_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.QuotientTables.large_step_preserves' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

@@ -1,0 +1,15 @@
+Summable.of_nonneg_of_le.{u_2} {β : Type u_2} {f g : β → ℝ} (hg : ∀ (b : β), 0 ≤ g b) (hgf : ∀ (b : β), g b ≤ f b)
+  (hf : Summable f) : Summable g
+Summable.of_norm_bounded.{u_1, u_3} {ι : Type u_1} {E : Type u_3} [SeminormedAddCommGroup E] [CompleteSpace E]
+  {f : ι → E} {g : ι → ℝ} (hg : Summable g) (h : ∀ (i : ι), ‖f i‖ ≤ g i) : Summable f
+Summable.tsum_le_tsum.{u_1, u_3} {ι : Type u_1} {α : Type u_3} {L : SummationFilter ι} [AddCommMonoid α] [Preorder α]
+  [IsOrderedAddMonoid α] [TopologicalSpace α] [OrderClosedTopology α] {f g : ι → α} [L.NeBot] (h : ∀ (i : ι), f i ≤ g i)
+  (hf : Summable f L) (hg : Summable g L) : ∑'[L] (i : ι), f i ≤ ∑'[L] (i : ι), g i
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/AnalyticTransition.lean:22:7: error(lean.unknownIdentifier): Unknown identifier `tsum_le_tsum`
+Summable.sum_add_tsum_nat_add.{u_2} {G : Type u_2} [AddCommGroup G] [TopologicalSpace G] [IsTopologicalAddGroup G]
+  [T2Space G] {f : ℕ → G} (k : ℕ) (h : Summable f) : ∑ i ∈ Finset.range k, f i + ∑' (i : ℕ), f (i + k) = ∑' (i : ℕ), f i
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/AnalyticTransition.lean:24:7: error(lean.unknownIdentifier): Unknown identifier `sum_le_tsum`
+hasSum_geometric_of_lt_one {r : ℝ} (h₁ : 0 ≤ r) (h₂ : r < 1) : HasSum (fun n => r ^ n) (1 - r)⁻¹
+le_geom {u : ℕ → ℝ} {c : ℝ} (hc : 0 ≤ c) (n : ℕ) (h : ∀ k < n, u (k + 1) ≤ c * u k) : u n ≤ c ^ n * u 0
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/AnalyticTransition.lean:27:7: error(lean.unknownIdentifier): Unknown constant `Real.hasSum_pow_div_factorial`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/AnalyticTransition.lean:28:7: error(lean.unknownIdentifier): Unknown constant `Real.hasSum_exp`

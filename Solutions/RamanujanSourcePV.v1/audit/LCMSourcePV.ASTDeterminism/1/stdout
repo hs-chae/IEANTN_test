@@ -1,0 +1,388 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:34:26: error(lean.unknownIdentifier): Unknown identifier `hE`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:34:13: error: Tactic `rcases` failed: `x✝ : ?m.301` is not an inductive datatype
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:63:31: error: Application type mismatch: The argument
+  hE
+has type
+  Eval ?m.964 ?m.965 ?m.966 ?m.967 → Eval ?m.964 ?m.965 ?m.968 ?m.969 → ?m.966 = ?m.968 ∧ ?m.967 = ?m.969
+but is expected to have type
+  StmtRun Eval Declare truth Scope ?m.960 ?m.961 ?m.962
+in the application
+  stmt_deterministic hE
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:67:37: error: Application type mismatch: The argument
+  hE
+has type
+  Eval ?m.1140 ?m.1141 ?m.1142 ?m.1143 → Eval ?m.1140 ?m.1141 ?m.1144 ?m.1145 → ?m.1142 = ?m.1144 ∧ ?m.1143 = ?m.1145
+but is expected to have type
+  SeqRun Eval Declare truth Scope ?m.1136 ?m.1137 ?m.1138
+in the application
+  seq_deterministic hE
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:73:42: error: Application type mismatch: The argument
+  hE
+has type
+  Eval ?m.1348 ?m.1349 ?m.1350 ?m.1351 → Eval ?m.1348 ?m.1349 ?m.1352 ?m.1353 → ?m.1350 = ?m.1352 ∧ ?m.1351 = ?m.1353
+but is expected to have type
+  StmtRun Eval Declare truth Scope ?m.1344 ?m.1345 ?m.1346
+in the application
+  stmt_deterministic hE
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:79:31: error: Application type mismatch: The argument
+  hE
+has type
+  Eval ?m.1436 ?m.1437 ?m.1438 ?m.1439 → Eval ?m.1436 ?m.1437 ?m.1440 ?m.1441 → ?m.1438 = ?m.1440 ∧ ?m.1439 = ?m.1441
+but is expected to have type
+  StmtRun Eval Declare truth Scope ?m.1432 ?m.1433 ?m.1434
+in the application
+  stmt_deterministic hE
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:79:6: error: Tactic `cases` failed: major premise type is not an inductive type
+  ?m.1447
+
+Explanation: the `cases` tactic is for constructor-based reasoning as well as for applying custom cases principles with a 'using' clause or a registered '@[cases_eliminator]' theorem. The above type neither is an inductive type nor has a registered theorem.
+
+case forLoop.forInitialReturn
+State : Type u
+Value : Type v
+Eval : Expr → State → State → Value → Prop
+Declare : List Decl → State → State → Prop
+truth : Value → Bool
+Scope : State → Flow State Value → Flow State Value → Prop
+hE : EvalDeterministic Eval
+hD : DeclareDeterministic Declare
+hS : ScopeDeterministic Scope
+s : State
+out out' : Flow State Value
+init✝ : Stmt
+cond✝ : Option Expr
+step✝ : Expr
+body✝ : Stmt
+t✝¹ : State
+inner✝ : Flow State Value
+loop : ForRun Eval Declare truth Scope cond✝ step✝ body✝ t✝¹ inner✝
+init : StmtRun Eval Declare truth Scope init✝ s (Flow.continuing t✝¹)
+exit : Scope s inner✝ out
+t✝ : State
+value✝ : Value
+init' : StmtRun Eval Declare truth Scope init✝ s (Flow.returned t✝ value✝)
+exit' : Scope s (Flow.returned t✝ value✝) out'
+x✝ : ?m.1447
+⊢ out = out'
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:83:31: error: Application type mismatch: The argument
+  hE
+has type
+  Eval ?m.1641 ?m.1642 ?m.1643 ?m.1644 → Eval ?m.1641 ?m.1642 ?m.1645 ?m.1646 → ?m.1643 = ?m.1645 ∧ ?m.1644 = ?m.1646
+but is expected to have type
+  StmtRun Eval Declare truth Scope ?m.1637 ?m.1638 ?m.1639
+in the application
+  stmt_deterministic hE
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:83:6: error: Tactic `cases` failed: major premise type is not an inductive type
+  ?m.1652
+
+Explanation: the `cases` tactic is for constructor-based reasoning as well as for applying custom cases principles with a 'using' clause or a registered '@[cases_eliminator]' theorem. The above type neither is an inductive type nor has a registered theorem.
+
+case forInitialReturn.forLoop
+State : Type u
+Value : Type v
+Eval : Expr → State → State → Value → Prop
+Declare : List Decl → State → State → Prop
+truth : Value → Bool
+Scope : State → Flow State Value → Flow State Value → Prop
+hE : EvalDeterministic Eval
+hD : DeclareDeterministic Declare
+hS : ScopeDeterministic Scope
+s : State
+out out' : Flow State Value
+init✝ : Stmt
+cond✝ : Option Expr
+step✝ : Expr
+body✝ : Stmt
+t✝¹ : State
+value✝ : Value
+init : StmtRun Eval Declare truth Scope init✝ s (Flow.returned t✝¹ value✝)
+exit : Scope s (Flow.returned t✝¹ value✝) out
+t✝ : State
+inner✝ : Flow State Value
+loop' : ForRun Eval Declare truth Scope cond✝ step✝ body✝ t✝ inner✝
+init' : StmtRun Eval Declare truth Scope init✝ s (Flow.continuing t✝)
+exit' : Scope s inner✝ out'
+x✝ : ?m.1652
+⊢ out = out'
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:85:38: error: Application type mismatch: The argument
+  hE
+has type
+  Eval ?m.1732 ?m.1733 ?m.1734 ?m.1735 → Eval ?m.1732 ?m.1733 ?m.1736 ?m.1737 → ?m.1734 = ?m.1736 ∧ ?m.1735 = ?m.1737
+but is expected to have type
+  StmtRun Eval Declare truth Scope ?m.1728 ?m.1729 ?m.1730
+in the application
+  stmt_deterministic hE
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:90:51: error: Application type mismatch: The argument
+  hE
+has type
+  Eval ?m.1916 ?m.1917 ?m.1918 ?m.1919 → Eval ?m.1916 ?m.1917 ?m.1920 ?m.1921 → ?m.1918 = ?m.1920 ∧ ?m.1919 = ?m.1921
+but is expected to have type
+  WhileRun Eval Declare truth Scope ?m.1911 ?m.1912 ?m.1913 ?m.1914
+in the application
+  while_deterministic hE
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:101:38: error: Application type mismatch: The argument
+  hE
+has type
+  Eval ?m.2234 ?m.2235 ?m.2236 ?m.2237 → Eval ?m.2234 ?m.2235 ?m.2238 ?m.2239 → ?m.2236 = ?m.2238 ∧ ?m.2237 = ?m.2239
+but is expected to have type
+  StmtRun Eval Declare truth Scope ?m.2230 ?m.2231 ?m.2232
+in the application
+  stmt_deterministic hE
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:104:50: error: Application type mismatch: The argument
+  hE
+has type
+  Eval ?m.2314 ?m.2315 ?m.2316 ?m.2317 → Eval ?m.2314 ?m.2315 ?m.2318 ?m.2319 → ?m.2316 = ?m.2318 ∧ ?m.2317 = ?m.2319
+but is expected to have type
+  StmtRun Eval Declare truth Scope ?m.2310 ?m.2311 ?m.2312
+in the application
+  stmt_deterministic hE
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:104:25: error: Tactic `cases` failed: major premise type is not an inductive type
+  ?m.2325
+
+Explanation: the `cases` tactic is for constructor-based reasoning as well as for applying custom cases principles with a 'using' clause or a registered '@[cases_eliminator]' theorem. The above type neither is an inductive type nor has a registered theorem.
+
+case next.returned
+State : Type u
+Value : Type v
+Eval : Expr → State → State → Value → Prop
+Declare : List Decl → State → State → Prop
+truth : Value → Bool
+Scope : State → Flow State Value → Flow State Value → Prop
+hE : EvalDeterministic Eval
+hD : DeclareDeterministic Declare
+hS : ScopeDeterministic Scope
+s : State
+out : Flow State Value
+head✝ : Stmt
+tail✝ : List Stmt
+t✝¹ : State
+first : StmtRun Eval Declare truth Scope head✝ s (Flow.continuing t✝¹)
+rest : SeqRun Eval Declare truth Scope tail✝ t✝¹ out
+t✝ : State
+value✝ : Value
+first' : StmtRun Eval Declare truth Scope head✝ s (Flow.returned t✝ value✝)
+x✝ : ?m.2325
+⊢ out = Flow.returned t✝ value✝
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:107:52: error: Application type mismatch: The argument
+  hE
+has type
+  Eval ?m.2471 ?m.2472 ?m.2473 ?m.2474 → Eval ?m.2471 ?m.2472 ?m.2475 ?m.2476 → ?m.2473 = ?m.2475 ∧ ?m.2474 = ?m.2476
+but is expected to have type
+  StmtRun Eval Declare truth Scope ?m.2467 ?m.2468 ?m.2469
+in the application
+  stmt_deterministic hE
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:107:27: error: Tactic `cases` failed: major premise type is not an inductive type
+  ?m.2482
+
+Explanation: the `cases` tactic is for constructor-based reasoning as well as for applying custom cases principles with a 'using' clause or a registered '@[cases_eliminator]' theorem. The above type neither is an inductive type nor has a registered theorem.
+
+case returned.next
+State : Type u
+Value : Type v
+Eval : Expr → State → State → Value → Prop
+Declare : List Decl → State → State → Prop
+truth : Value → Bool
+Scope : State → Flow State Value → Flow State Value → Prop
+hE : EvalDeterministic Eval
+hD : DeclareDeterministic Declare
+hS : ScopeDeterministic Scope
+s : State
+out' : Flow State Value
+head✝ : Stmt
+tail✝ : List Stmt
+t✝¹ : State
+value✝ : Value
+first : StmtRun Eval Declare truth Scope head✝ s (Flow.returned t✝¹ value✝)
+t✝ : State
+first' : StmtRun Eval Declare truth Scope head✝ s (Flow.continuing t✝)
+rest' : SeqRun Eval Declare truth Scope tail✝ t✝ out'
+x✝ : ?m.2482
+⊢ Flow.returned t✝¹ value✝ = out'
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:108:50: error: Application type mismatch: The argument
+  hE
+has type
+  Eval ?m.2553 ?m.2554 ?m.2555 ?m.2556 → Eval ?m.2553 ?m.2554 ?m.2557 ?m.2558 → ?m.2555 = ?m.2557 ∧ ?m.2556 = ?m.2558
+but is expected to have type
+  StmtRun Eval Declare truth Scope ?m.2549 ?m.2550 ?m.2551
+in the application
+  stmt_deterministic hE
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:118:44: error: Application type mismatch: The argument
+  hE
+has type
+  Eval ?m.2753 ?m.2754 ?m.2755 ?m.2756 → Eval ?m.2753 ?m.2754 ?m.2757 ?m.2758 → ?m.2755 = ?m.2757 ∧ ?m.2756 = ?m.2758
+but is expected to have type
+  GuardRun ?m.2745 ?m.2746 ?m.2747 ?m.2748 ?m.2749 ?m.2750
+in the application
+  guard_deterministic hE
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:118:13: error: Tactic `rcases` failed: `x✝ : ?m.2760` is not an inductive datatype
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:121:40: error: Application type mismatch: The argument
+  hE
+has type
+  Eval ?m.2841 ?m.2842 ?m.2843 ?m.2844 → Eval ?m.2841 ?m.2842 ?m.2845 ?m.2846 → ?m.2843 = ?m.2845 ∧ ?m.2844 = ?m.2846
+but is expected to have type
+  GuardRun ?m.2833 ?m.2834 ?m.2835 ?m.2836 ?m.2837 ?m.2838
+in the application
+  guard_deterministic hE
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:124:40: error: Application type mismatch: The argument
+  hE
+has type
+  Eval ?m.2924 ?m.2925 ?m.2926 ?m.2927 → Eval ?m.2924 ?m.2925 ?m.2928 ?m.2929 → ?m.2926 = ?m.2928 ∧ ?m.2927 = ?m.2929
+but is expected to have type
+  GuardRun ?m.2916 ?m.2917 ?m.2918 ?m.2919 ?m.2920 ?m.2921
+in the application
+  guard_deterministic hE
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:129:40: error: Application type mismatch: The argument
+  hE
+has type
+  Eval ?m.3096 ?m.3097 ?m.3098 ?m.3099 → Eval ?m.3096 ?m.3097 ?m.3100 ?m.3101 → ?m.3098 = ?m.3100 ∧ ?m.3099 = ?m.3101
+but is expected to have type
+  GuardRun ?m.3088 ?m.3089 ?m.3090 ?m.3091 ?m.3092 ?m.3093
+in the application
+  guard_deterministic hE
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:132:44: error: Application type mismatch: The argument
+  hE
+has type
+  Eval ?m.3177 ?m.3178 ?m.3179 ?m.3180 → Eval ?m.3177 ?m.3178 ?m.3181 ?m.3182 → ?m.3179 = ?m.3181 ∧ ?m.3180 = ?m.3182
+but is expected to have type
+  GuardRun ?m.3169 ?m.3170 ?m.3171 ?m.3172 ?m.3173 ?m.3174
+in the application
+  guard_deterministic hE
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:132:13: error: Tactic `rcases` failed: `x✝ : ?m.3184` is not an inductive datatype
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:138:44: error: Application type mismatch: The argument
+  hE
+has type
+  Eval ?m.3259 ?m.3260 ?m.3261 ?m.3262 → Eval ?m.3259 ?m.3260 ?m.3263 ?m.3264 → ?m.3261 = ?m.3263 ∧ ?m.3262 = ?m.3264
+but is expected to have type
+  GuardRun ?m.3251 ?m.3252 ?m.3253 ?m.3254 ?m.3255 ?m.3256
+in the application
+  guard_deterministic hE
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:138:13: error: Tactic `rcases` failed: `x✝ : ?m.3266` is not an inductive datatype
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:143:40: error: Application type mismatch: The argument
+  hE
+has type
+  Eval ?m.3432 ?m.3433 ?m.3434 ?m.3435 → Eval ?m.3432 ?m.3433 ?m.3436 ?m.3437 → ?m.3434 = ?m.3436 ∧ ?m.3435 = ?m.3437
+but is expected to have type
+  GuardRun ?m.3424 ?m.3425 ?m.3426 ?m.3427 ?m.3428 ?m.3429
+in the application
+  guard_deterministic hE
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:146:44: error: Application type mismatch: The argument
+  hE
+has type
+  Eval ?m.3513 ?m.3514 ?m.3515 ?m.3516 → Eval ?m.3513 ?m.3514 ?m.3517 ?m.3518 → ?m.3515 = ?m.3517 ∧ ?m.3516 = ?m.3518
+but is expected to have type
+  GuardRun ?m.3505 ?m.3506 ?m.3507 ?m.3508 ?m.3509 ?m.3510
+in the application
+  guard_deterministic hE
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:146:13: error: Tactic `rcases` failed: `x✝ : ?m.3520` is not an inductive datatype
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:149:44: error: Application type mismatch: The argument
+  hE
+has type
+  Eval ?m.3595 ?m.3596 ?m.3597 ?m.3598 → Eval ?m.3595 ?m.3596 ?m.3599 ?m.3600 → ?m.3597 = ?m.3599 ∧ ?m.3598 = ?m.3600
+but is expected to have type
+  GuardRun ?m.3587 ?m.3588 ?m.3589 ?m.3590 ?m.3591 ?m.3592
+in the application
+  guard_deterministic hE
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:149:13: error: Tactic `rcases` failed: `x✝ : ?m.3602` is not an inductive datatype
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:175:38: error: Application type mismatch: The argument
+  hE
+has type
+  Eval ?m.4218 ?m.4219 ?m.4220 ?m.4221 → Eval ?m.4218 ?m.4219 ?m.4222 ?m.4223 → ?m.4220 = ?m.4222 ∧ ?m.4221 = ?m.4223
+but is expected to have type
+  StmtRun Eval Declare truth Scope ?m.4214 ?m.4215 ?m.4216
+in the application
+  stmt_deterministic hE
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:180:31: error: Application type mismatch: The argument
+  hE
+has type
+  Eval ?m.4320 ?m.4321 ?m.4322 ?m.4323 → Eval ?m.4320 ?m.4321 ?m.4324 ?m.4325 → ?m.4322 = ?m.4324 ∧ ?m.4323 = ?m.4325
+but is expected to have type
+  StmtRun Eval Declare truth Scope ?m.4316 ?m.4317 ?m.4318
+in the application
+  stmt_deterministic hE
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:180:6: error: Tactic `cases` failed: major premise type is not an inductive type
+  ?m.4331
+
+Explanation: the `cases` tactic is for constructor-based reasoning as well as for applying custom cases principles with a 'using' clause or a registered '@[cases_eliminator]' theorem. The above type neither is an inductive type nor has a registered theorem.
+
+case next.returned
+State : Type u
+Value : Type v
+Eval : Expr → State → State → Value → Prop
+Declare : List Decl → State → State → Prop
+truth : Value → Bool
+Scope : State → Flow State Value → Flow State Value → Prop
+hE : EvalDeterministic Eval
+hD : DeclareDeterministic Declare
+hS : ScopeDeterministic Scope
+cond : Expr
+body : Stmt
+s : State
+out : Flow State Value
+t✝ b✝¹ : State
+value✝¹ : Value
+go : truth value✝¹ = true
+iter : StmtRun Eval Declare truth Scope body t✝ (Flow.continuing b✝¹)
+test : Eval cond s t✝ value✝¹
+rest : WhileRun Eval Declare truth Scope cond body b✝¹ out
+b✝ : State
+value✝ : Value
+iter' : StmtRun Eval Declare truth Scope body t✝ (Flow.returned b✝ value✝)
+go' : truth value✝¹ = true
+test' : Eval cond s t✝ value✝¹
+x✝ : ?m.4331
+⊢ out = Flow.returned b✝ value✝
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:188:31: error: Application type mismatch: The argument
+  hE
+has type
+  Eval ?m.4587 ?m.4588 ?m.4589 ?m.4590 → Eval ?m.4587 ?m.4588 ?m.4591 ?m.4592 → ?m.4589 = ?m.4591 ∧ ?m.4590 = ?m.4592
+but is expected to have type
+  StmtRun Eval Declare truth Scope ?m.4583 ?m.4584 ?m.4585
+in the application
+  stmt_deterministic hE
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:188:6: error: Tactic `cases` failed: major premise type is not an inductive type
+  ?m.4598
+
+Explanation: the `cases` tactic is for constructor-based reasoning as well as for applying custom cases principles with a 'using' clause or a registered '@[cases_eliminator]' theorem. The above type neither is an inductive type nor has a registered theorem.
+
+case returned.next
+State : Type u
+Value : Type v
+Eval : Expr → State → State → Value → Prop
+Declare : List Decl → State → State → Prop
+truth : Value → Bool
+Scope : State → Flow State Value → Flow State Value → Prop
+hE : EvalDeterministic Eval
+hD : DeclareDeterministic Declare
+hS : ScopeDeterministic Scope
+cond : Expr
+body : Stmt
+s : State
+out' : Flow State Value
+t✝ b✝¹ : State
+condition✝ value✝ : Value
+go : truth condition✝ = true
+iter : StmtRun Eval Declare truth Scope body t✝ (Flow.returned b✝¹ value✝)
+test : Eval cond s t✝ condition✝
+b✝ : State
+rest' : WhileRun Eval Declare truth Scope cond body b✝ out'
+iter' : StmtRun Eval Declare truth Scope body t✝ (Flow.continuing b✝)
+go' : truth condition✝ = true
+test' : Eval cond s t✝ condition✝
+x✝ : ?m.4598
+⊢ Flow.returned b✝¹ value✝ = out'
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:191:31: error: Application type mismatch: The argument
+  hE
+has type
+  Eval ?m.4691 ?m.4692 ?m.4693 ?m.4694 → Eval ?m.4691 ?m.4692 ?m.4695 ?m.4696 → ?m.4693 = ?m.4695 ∧ ?m.4694 = ?m.4696
+but is expected to have type
+  StmtRun Eval Declare truth Scope ?m.4687 ?m.4688 ?m.4689
+in the application
+  stmt_deterministic hE
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:91:1: warning: unused `termination_by`, function is not recursive
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:109:1: warning: unused `termination_by`, function is not recursive
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:151:1: warning: unused `termination_by`, function is not recursive
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:192:1: warning: unused `termination_by`, function is not recursive
+'LCMSourcePV.ASTLoops.stmt_deterministic' depends on axioms: [sorryAx]
+'LCMSourcePV.ASTLoops.seq_deterministic' depends on axioms: [sorryAx]
+'LCMSourcePV.ASTLoops.for_deterministic' depends on axioms: [sorryAx]
+'LCMSourcePV.ASTLoops.while_deterministic' depends on axioms: [propext, sorryAx]

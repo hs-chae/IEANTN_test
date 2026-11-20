@@ -1,0 +1,53 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCMachine.lean:122:4: warning: Variable name `fuel` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _fuel
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCMachine.lean:123:4: warning: Variable name `fuel` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _fuel
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCMachine.lean:357:2: error: Tactic `rfl` failed: The left-hand side
+  do
+    let s' ←
+      if ("uint64_t" != "uint64_t") = true then none
+        else
+          if (s.env name).isSome = true then none
+          else do
+            let expression ← some rhs
+            let v ← evalPure call s.heap s.env 100 expression
+            let word ← uint64 v
+            pure { env := bind s.env name word, heap := s.heap }
+    pure s'
+is not definitionally equal to the right-hand side
+  if (s.env name).isSome = true then none
+  else do
+    let v ← evalPure call s.heap s.env 100 rhs
+    let word ← uint64 v
+    pure { env := bind s.env name word, heap := s.heap }
+
+call : Service
+s : State
+name : String
+rhs : Expr
+⊢ (do
+      let s' ←
+        if ("uint64_t" != "uint64_t") = true then none
+          else
+            if (s.env name).isSome = true then none
+            else do
+              let expression ← some rhs
+              let v ← evalPure call s.heap s.env 100 expression
+              let word ← uint64 v
+              pure { env := bind s.env name word, heap := s.heap }
+      pure s') =
+    if (s.env name).isSome = true then none
+    else do
+      let v ← evalPure call s.heap s.env 100 rhs
+      let word ← uint64 v
+      pure { env := bind s.env name word, heap := s.heap }
+'RamanujanPV.QuotientCMachine.write_preserves_owned' depends on axioms: [propext]
+'RamanujanPV.QuotientCMachine.literal_two_trillion' depends on axioms: [propext, Classical.choice, Quot.sound]

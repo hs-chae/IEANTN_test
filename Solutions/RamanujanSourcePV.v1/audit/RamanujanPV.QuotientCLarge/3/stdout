@@ -1,0 +1,47 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCLarge.lean:33:37: warning: This simp argument is unused:
+  h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCLarge.lean:120:16: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCLarge.lean:127:16: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCLarge.lean:177:64: error: unexpected identifier; expected '}'
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCLarge.lean:177:8: error: Fields missing: `pValue`, `beforeValue`, `stopValue`, `small`, `large`, `ipFresh`, `subFresh`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCLarge.lean:204:25: error: unexpected token 'in'; expected term
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCLarge.lean:196:13: error: Application type mismatch: The argument
+  N
+has type
+  ℕ
+but is expected to have type
+  Matroid ?m.75
+in the application
+  Matroid.IsStrictMinor N
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCLarge.lean:196:16: error(lean.unknownIdentifier): Unknown identifier `odulus`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCLarge.lean:194:79: error: unsolved goals
+call : Service
+sb lb N r p before : ℕ
+T : Tables
+hN : N ≤ 2000000000000
+hr : r = N.sqrt
+hp : Nat.Prime p
+hpr : p ≤ r
+hbefore : before = QuotientSieve.total p (p - 1)
+hinit : Invariant N r p T
+hroot : N < (r + 1) * (r + 1)
+⊢ ∀ (fuel k : ℕ),
+    k ≤ largeStop N r p →
+      largeStop N r p < k + fuel →
+        ∀ (s : State),
+          LoopEnv sb lb N r p before (largeStop N r p) s.env →
+            s.env "i" = some (Value.u64 (k + 1)) →
+              Owned s.heap →
+                HeapRep s.heap sb lb r (largeLoop N r p before k T) →
+                  ∃ t,
+                    ForRun call (some largeGuard) largeIncrement largeBody s (LCMSourcePV.ASTLoops.Flow.continuing t) ∧
+                      t.env = QuotientCMachine.bind s.env "i" (Value.u64 (largeStop N r p + 1)) ∧
+                        Owned t.heap ∧ HeapRep t.heap sb lb r (largeLoop N r p before (largeStop N r p) T)
+'RamanujanPV.QuotientCLarge.large_for_remaining' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'RamanujanPV.QuotientCLarge.large_for_exec' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'RamanujanPV.QuotientCLarge.large_body_exec' depends on axioms: [propext, Classical.choice, Quot.sound]

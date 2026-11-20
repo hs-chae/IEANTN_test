@@ -1,0 +1,69 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientDriverSuccess.lean:78:6: error: Tactic `apply` failed: could not unify the conclusion of `read_of_block ?m.143 good.left good.right.left
+  good.right.right.left`
+  QuotientCMachine.read ?m.137 address index =
+    some (Value.u64 ({ extent := block.extent, words := Function.update block.words index word }.words index))
+with the goal
+  QuotientCMachine.read
+      (Function.update heap address (some { extent := block.extent, words := Function.update block.words index word }))
+      address index =
+    some (Value.u64 word)
+
+Note: The full type of `read_of_block ?m.143 good.left good.right.left good.right.right.left` is
+  { extent := block.extent, words := Function.update block.words index word }.words index < modulus →
+    QuotientCMachine.read ?m.137 address index =
+      some (Value.u64 ({ extent := block.extent, words := Function.update block.words index word }.words index))
+
+case some.isTrue
+heap : Heap
+address index word : ℕ
+block : Block
+hb : heap address = some block
+good : address % 8 = 0 ∧ index < block.extent ∧ address + 8 * index + 8 ≤ modulus ∧ word < modulus
+stored :
+  some
+      (Function.update heap address
+        (some { extent := block.extent, words := Function.update block.words index word })) =
+    some
+      (Function.update heap address (some { extent := block.extent, words := Function.update block.words index word }))
+⊢ QuotientCMachine.read
+      (Function.update heap address (some { extent := block.extent, words := Function.update block.words index word }))
+      address index =
+    some (Value.u64 word)
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientDriverSuccess.lean:79:12: error: `simp` made no progress
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientDriverSuccess.lean:96:22: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.i64` could not be determined
+
+Hint: Using `Value.i64 would be unambiguous:
+  [apply] `Value.i64`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientDriverSuccess.lean:96:33: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.i32` could not be determined
+
+Hint: Using `Value.i32 would be unambiguous:
+  [apply] `Value.i32`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientDriverSuccess.lean:96:47: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.ptr` could not be determined
+
+Hint: Using `Value.ptr would be unambiguous:
+  [apply] `Value.ptr`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientDriverSuccess.lean:96:69: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.ptr` could not be determined
+
+Hint: Using `Value.ptr would be unambiguous:
+  [apply] `Value.ptr`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientDriverSuccess.lean:92:2: error: Dependent elimination failed: Failed to solve equation
+  "rpc_quotient_count" = "fwrite"
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientDriverSuccess.lean:139:10: error(lean.unknownIdentifier): Unknown identifier `after`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientDriverSuccess.lean:130:75: warning: This simp argument is unused:
+  emptyEnv
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [reserveLocal, initialDriver, globalEnv, QuotientCMachine.bind]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientDriverSuccess.lean:131:75: warning: This simp argument is unused:
+  emptyEnv
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [reserveLocal, initialDriver, globalEnv, QuotientCMachine.bind]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'RamanujanPV.QuotientDriverSuccess.declaration_result' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,163 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCExecute.lean:92:18: error: Invalid simp theorem: Expected a proposition, but found
+  Heap → ℕ → ℕ → Option Value
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCExecute.lean:92:12: error: `simp` made no progress
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCExecute.lean:96:12: error: Ambiguous term
+  read
+Possible interpretations:
+  QuotientCMachine.read : Heap → ℕ → ℕ → Option Value
+  
+  MonadReader.read : ?m.117 ?m.116
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCExecute.lean:96:6: error: `simp` made no progress
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCExecute.lean:97:46: error: Ambiguous term
+  read
+Possible interpretations:
+  QuotientCMachine.read : Heap → ℕ → ℕ → Option Value
+  
+  MonadReader.read : ?m.121 ?m.120
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCExecute.lean:97:39: error: Type mismatch: After simplification, term
+  hread
+ has type
+  QuotientCMachine.read heap base i = some (Value.u64 old)
+but is expected to have type
+  block.words i = old
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCExecute.lean:98:17: error: Application type mismatch: The argument
+  hb
+has type
+  heap base = some block
+but is expected to have type
+  some block = some block
+in the application
+  And.intro hb
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCExecute.lean:112:28: error: `simp` made no progress
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCExecute.lean:112:62: error: `simp` made no progress
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCExecute.lean:114:15: error: Ambiguous term
+  read
+Possible interpretations:
+  QuotientCMachine.read : Heap → ℕ → ℕ → Option Value
+  
+  MonadReader.read : ?m.108 ?m.107
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCExecute.lean:113:2: error: unsolved goals
+case refine_2
+heap : Heap
+base i old value : ℕ
+hread : QuotientCMachine.read heap base i = some (Value.u64 old)
+hv : value < modulus
+block : Block
+hb : heap base = some block
+halign : base % 8 = 0
+hi : i < block.extent
+haddr : base + 8 * i + 8 ≤ modulus
+hvalue : block.words i = old
+hold : old < modulus
+after : Heap :=
+  Function.update heap base (some { extent := block.extent, words := Function.update block.words i value })
+other j : ℕ
+hother : other ≠ base
+⊢ QuotientCMachine.read
+      (Function.update heap base (some { extent := block.extent, words := Function.update block.words i value })) other
+      j =
+    QuotientCMachine.read heap other j
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCExecute.lean:116:10: error: Ambiguous term
+  read
+Possible interpretations:
+  QuotientCMachine.read : Heap → ℕ → ℕ → Option Value
+  
+  MonadReader.read : ?m.113 ?m.112
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCExecute.lean:115:2: error: unsolved goals
+case refine_3
+heap : Heap
+base i old value : ℕ
+hread : QuotientCMachine.read heap base i = some (Value.u64 old)
+hv : value < modulus
+block : Block
+hb : heap base = some block
+halign : base % 8 = 0
+hi : i < block.extent
+haddr : base + 8 * i + 8 ≤ modulus
+hvalue : block.words i = old
+hold : old < modulus
+after : Heap :=
+  Function.update heap base (some { extent := block.extent, words := Function.update block.words i value })
+j : ℕ
+hji : j ≠ i
+⊢ QuotientCMachine.read
+      (Function.update heap base (some { extent := block.extent, words := Function.update block.words i value })) base
+      j =
+    QuotientCMachine.read heap base j
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCExecute.lean:114:28: warning: This simp argument is unused:
+  Function.update_of_ne hother
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [read, after]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCExecute.lean:116:21: warning: This simp argument is unused:
+  hb
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [read, after, Function.update_of_ne hji]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCExecute.lean:116:24: warning: This simp argument is unused:
+  Function.update_of_ne hji
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [read, after, hb]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCExecute.lean:134:23: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Function.update ?f i ?v j
+in the target expression
+  QuotientCMachine.read heap lb j =
+    some (Value.u64 ({ small := T.small, large := Function.update T.large i value }.large j))
+
+case neg
+heap : Heap
+sb lb r i value : ℕ
+T : Tables
+owned : Owned heap
+rep : HeapRep heap sb lb r T
+hi : 1 ≤ i
+hir : i ≤ r
+hv : value < modulus
+after : Heap
+hw : write heap lb i value = some after
+hsame : QuotientCMachine.read after lb i = some (Value.u64 value)
+hother : ∀ (other j : ℕ), other ≠ lb → QuotientCMachine.read after other j = QuotientCMachine.read heap other j
+hindex : ∀ (j : ℕ), j ≠ i → QuotientCMachine.read after lb j = QuotientCMachine.read heap lb j
+j : ℕ
+hj : 1 ≤ j
+hjr : j ≤ r
+hji : ¬j = i
+⊢ QuotientCMachine.read heap lb j =
+    some (Value.u64 ({ small := T.small, large := Function.update T.large i value }.large j))
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCExecute.lean:148:23: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Function.update ?f i ?v j
+in the target expression
+  QuotientCMachine.read heap sb j =
+    some (Value.u64 ({ small := Function.update T.small i value, large := T.large }.small j))
+
+case neg
+heap : Heap
+sb lb r i value : ℕ
+T : Tables
+owned : Owned heap
+rep : HeapRep heap sb lb r T
+hi : 1 ≤ i
+hir : i ≤ r
+hv : value < modulus
+after : Heap
+hw : write heap sb i value = some after
+hsame : QuotientCMachine.read after sb i = some (Value.u64 value)
+hother : ∀ (other j : ℕ), other ≠ sb → QuotientCMachine.read after other j = QuotientCMachine.read heap other j
+hindex : ∀ (j : ℕ), j ≠ i → QuotientCMachine.read after sb j = QuotientCMachine.read heap sb j
+j : ℕ
+hj : 1 ≤ j
+hjr : j ≤ r
+hji : ¬j = i
+⊢ QuotientCMachine.read heap sb j =
+    some (Value.u64 ({ small := Function.update T.small i value, large := T.large }.small j))
+'RamanujanPV.QuotientCExecute.actual_large_body' depends on axioms: [propext]
+'RamanujanPV.QuotientCExecute.actual_small_body' depends on axioms: [propext]
+'RamanujanPV.QuotientCExecute.heap_large_update' depends on axioms: [propext, sorryAx, Quot.sound]
+'RamanujanPV.QuotientCExecute.heap_small_update' depends on axioms: [propext, sorryAx, Quot.sound]

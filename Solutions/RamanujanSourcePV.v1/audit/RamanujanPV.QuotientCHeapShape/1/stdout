@@ -1,0 +1,184 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCHeapShape.lean:26:74: error: Application type mismatch: The argument
+  value
+has type
+  ℕ
+but is expected to have type
+  Matroid ?m.77
+in the application
+  Matroid.IsStrictMinor value
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCHeapShape.lean:26:81: error(lean.unknownIdentifier): Unknown identifier `odulus`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCHeapShape.lean:36:63: error: unsolved goals
+case h_1
+call : Service
+s t : State
+value : Value
+x✝ : Expr
+name✝ : String
+rhs✝ : Expr
+run :
+  (do
+      let v ← evalPure call s.heap s.env 8 rhs✝
+      let env ← assign s.env name✝ v
+      let word ← env name✝
+      pure ({ env := env, heap := s.heap }, word)) =
+    some (t, value)
+⊢ SameShape s.heap t.heap
+
+case h_2
+call : Service
+s t : State
+value : Value
+x✝ base✝ index✝ rhs✝ : Expr
+run :
+  (do
+      let __x ← evalPure call s.heap s.env 8 base✝
+      match __x with
+        | Value.ptr address => do
+          let i ← evalPure call s.heap s.env 8 index✝
+          let __do_lift ← evalPure call s.heap s.env 8 rhs✝
+          let __x ← uint64 __do_lift
+          match __x with
+            | Value.u64 word => do
+              let __do_lift ← i.scalar
+              let heap ← write s.heap address __do_lift word
+              pure ({ env := s.env, heap := heap }, Value.u64 word)
+            | x => none
+        | x => none) =
+    some (t, value)
+⊢ SameShape s.heap t.heap
+
+case h_3
+call : Service
+s t : State
+value : Value
+x✝ : Expr
+name✝ : String
+run :
+  (do
+      let __x ← s.env name✝
+      match __x with
+        | Value.u64 old =>
+          have v := (old + 1) % modulus;
+          pure ({ env := QuotientCMachine.bind s.env name✝ (Value.u64 v), heap := s.heap }, Value.u64 v)
+        | x => none) =
+    some (t, value)
+⊢ SameShape s.heap t.heap
+
+case h_4
+call : Service
+s t : State
+value : Value
+x✝ : Expr
+name✝ : String
+run :
+  (do
+      let __x ← s.env name✝
+      match __x with
+        | Value.u64 old =>
+          have v := (old + modulus - 1) % modulus;
+          pure ({ env := QuotientCMachine.bind s.env name✝ (Value.u64 v), heap := s.heap }, Value.u64 v)
+        | x => none) =
+    some (t, value)
+⊢ SameShape s.heap t.heap
+
+case h_5
+call : Service
+e : Expr
+s t : State
+value : Value
+x✝⁴ : Expr
+x✝³ : ∀ (name : String) (rhs : Expr), e = Expr.binary "=" (Expr.var name) rhs → False
+x✝² : ∀ (base index rhs : Expr), e = Expr.binary "=" (base.index index) rhs → False
+x✝¹ : ∀ (name : String), e = Expr.unary "++" (Expr.var name) → False
+x✝ : ∀ (name : String), e = Expr.unary "--" (Expr.var name) → False
+run :
+  (do
+      let __do_lift ← evalPure call s.heap s.env 8 e
+      pure (s, __do_lift)) =
+    some (t, value)
+⊢ SameShape s.heap t.heap
+case h_1
+call : Service
+s t : State
+value : Value
+x✝ : Expr
+name✝ : String
+rhs✝ : Expr
+run :
+  (do
+      let v ← evalPure call s.heap s.env 8 rhs✝
+      let env ← assign s.env name✝ v
+      let word ← env name✝
+      pure ({ env := env, heap := s.heap }, word)) =
+    some (t, value)
+⊢ SameShape s.heap t.heap
+case h_2
+call : Service
+s t : State
+value : Value
+x✝ base✝ index✝ rhs✝ : Expr
+run :
+  (do
+      let __x ← evalPure call s.heap s.env 8 base✝
+      match __x with
+        | Value.ptr address => do
+          let i ← evalPure call s.heap s.env 8 index✝
+          let __do_lift ← evalPure call s.heap s.env 8 rhs✝
+          let __x ← uint64 __do_lift
+          match __x with
+            | Value.u64 word => do
+              let __do_lift ← i.scalar
+              let heap ← write s.heap address __do_lift word
+              pure ({ env := s.env, heap := heap }, Value.u64 word)
+            | x => none
+        | x => none) =
+    some (t, value)
+⊢ SameShape s.heap t.heap
+case h_3
+call : Service
+s t : State
+value : Value
+x✝ : Expr
+name✝ : String
+run :
+  (do
+      let __x ← s.env name✝
+      match __x with
+        | Value.u64 old =>
+          have v := (old + 1) % modulus;
+          pure ({ env := QuotientCMachine.bind s.env name✝ (Value.u64 v), heap := s.heap }, Value.u64 v)
+        | x => none) =
+    some (t, value)
+⊢ SameShape s.heap t.heap
+case h_4
+call : Service
+s t : State
+value : Value
+x✝ : Expr
+name✝ : String
+run :
+  (do
+      let __x ← s.env name✝
+      match __x with
+        | Value.u64 old =>
+          have v := (old + modulus - 1) % modulus;
+          pure ({ env := QuotientCMachine.bind s.env name✝ (Value.u64 v), heap := s.heap }, Value.u64 v)
+        | x => none) =
+    some (t, value)
+⊢ SameShape s.heap t.heap
+case h_5
+call : Service
+e : Expr
+s t : State
+value : Value
+x✝⁴ : Expr
+x✝³ : ∀ (name : String) (rhs : Expr), e = Expr.binary "=" (Expr.var name) rhs → False
+x✝² : ∀ (base index rhs : Expr), e = Expr.binary "=" (base.index index) rhs → False
+x✝¹ : ∀ (name : String), e = Expr.unary "++" (Expr.var name) → False
+x✝ : ∀ (name : String), e = Expr.unary "--" (Expr.var name) → False
+run :
+  (do
+      let __do_lift ← evalPure call s.heap s.env 8 e
+      pure (s, __do_lift)) =
+    some (t, value)
+⊢ SameShape s.heap t.heap

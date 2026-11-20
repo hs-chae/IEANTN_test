@@ -1,0 +1,169 @@
+{
+  "status": "Primary sources directly inspected; conditional mathematical deductions written; no Lean closure or source-first PV claim.",
+  "source_identity_correction": {
+    "requested": "Axler, On Ramanujan inequality, Section5",
+    "actual_section5": "Axler, Estimates for pi(x) for large values of x and Ramanujan prime counting inequality, Integers18(2018)A61,pp11-12",
+    "arxiv_preprint": "1703.02407v2 pp8-9; different numbering",
+    "different_2022_paper": "On Ramanujan prime counting inequality,2207.02486v2; not the requested Section5"
+  },
+  "locked_target": {
+    "lower_inclusive": 38358837683,
+    "formula_latex": "\\pi(x)^2<\\frac{ex}{\\log x}\\pi(x/e)",
+    "actual_function": "Number of primes p<=x; transport to floor-extension of Nat.primeCounting required."
+  },
+  "axler2018": {
+    "url": "https://math.colgate.edu/~integers/s61/s61.pdf",
+    "theorem_locator": "Theorem3 p4",
+    "proof_locator": "Section5 pp11-12",
+    "finite_closed": [
+      38358837683,
+      1620000000000
+    ],
+    "analytic_closed": [
+      1620000000000,
+      10000000000000000000
+    ],
+    "inputs": [
+      {
+        "locator": "Section5 Eq5.1 pp11-12, citing Buthe2018Thm2",
+        "formula_latex": "\\pi(t)<\\operatorname{li}(t)\\quad(2\\le t\\le10^{19})"
+      },
+      {
+        "locator": "Section5 p12, citing Buthe2018Thm2",
+        "formula_latex": "\\pi(t)>\\operatorname{li}(t)-2.1204\\frac{\\sqrt t}{\\log t}\\quad(5.94\\cdot10^{11}\\le t\\le10^{19})"
+      },
+      {
+        "locator": "IntroductionEq1.7 p2; Section5 p12; citing Axler2016Cor3.5",
+        "formula_latex": "\\pi(t)>\\frac{t}{\\log t-1-1/\\log t}\\quad(t\\ge468049)"
+      }
+    ],
+    "printed_typo": {
+      "locator": "Section5 p12 displayed definition of Ram",
+      "printed_last_term_latex": "-\\operatorname{li}(x^2)\\frac{\\log x}{ex}",
+      "required_last_term_latex": "-\\operatorname{li}(x)^2\\frac{\\log x}{ex}",
+      "evidence": "Visually inspected publisher page12; derivation from pi<li and derivativeEq5.2 both require square of li(x). Reconstruct correct envelope rather than trust printed definition."
+    },
+    "correct_envelope_latex": "R_c(x)=\\operatorname{li}(x/e)-c\\frac{\\sqrt{x/e}}{\\log x-1}-\\operatorname{li}(x)^2\\frac{\\log x}{ex}",
+    "derivative_latex": "R_c^{\\prime}(x)=\\frac{(\\operatorname{li}(x)(\\log x-1)-x)^2}{ex^2(\\log x-1)}-\\frac{c(\\log x-3)}{2e(\\log x-1)^2\\sqrt{x/e}}",
+    "derivative_positive_closed": [
+      1060000000000,
+      10000000000000000000
+    ],
+    "endpoint_source_bound_latex": "R_{2.1204}(1.62\\cdot10^{12})>85.86",
+    "domain_guard": "Both x and x/e must satisfy their respective source ranges. For constant2.1204 need x>=e*5.94e11, not merely positive envelope."
+  },
+  "buthe_final": {
+    "url": "https://arxiv.org/pdf/1511.02032v2",
+    "locator": "Theorem2 p2, Eqs1.7,1.9,1.10",
+    "formulae_latex": [
+      "x-\\vartheta(x)>0.05\\sqrt x\\quad(1\\le x\\le10^{19})",
+      "0<\\operatorname{li}(x)-\\pi(x)\\le\\frac{\\sqrt x}{\\log x}\\left(1.95+\\frac{3.9}{\\log x}+\\frac{19.5}{\\log^2x}\\right)\\quad(2\\le x\\le10^{19})"
+    ],
+    "version_guard": "v1 coefficients1.94,3.88,27.57 must not be used as finalv2 coefficients1.95,3.9,19.5.",
+    "trust": "Computer-assisted published finite bounds. Retaining these as explicit literature-supported unformalized hypotheses does not verify the underlying zero computation."
+  },
+  "dudek_platt": {
+    "url": "https://arxiv.org/pdf/1407.1901v1",
+    "locators": [
+      "Theorem1.3 p2",
+      "Section3.1 and Lemma3.3 pp8-9",
+      "Table1 p9",
+      "Lemma3.4 p10"
+    ],
+    "computed_closed": [
+      100000000000,
+      11500000000000000
+    ],
+    "historical_prefix": "Paper attributes largest prime failure below1e11 to Galway and states integer counterexample38358837682; full source-first replacement must prove its own prefix from38358837683.",
+    "original_step_latex": "\\epsilon=\\sqrt{\\pi(x_0)^2-f(x_0)}-\\pi(x_0)",
+    "original_step_cautions": [
+      "The displayed proof uses pi(x0+epsilon)<=pi(x0)+epsilon, valid for integerx0 with epsilon>=0 but not arbitrary realx0.",
+      "Solving to equality supplies a non-strict upper endpoint through the displayed bound. Use a strict rational inequality for a closed target interval rather than literal equality-step statement."
+    ],
+    "sieve_grid": [
+      [
+        10000000000,
+        100000000000,
+        1000
+      ],
+      [
+        100000000000,
+        1000000000000,
+        10000
+      ],
+      [
+        1000000000000,
+        10000000000000,
+        100000
+      ],
+      [
+        10000000000000,
+        100000000000000,
+        1000000
+      ],
+      [
+        100000000000000,
+        1000000000000000,
+        10000000
+      ],
+      [
+        1000000000000000,
+        10000000000000000,
+        100000000
+      ],
+      [
+        10000000000000000,
+        11500000000000000,
+        1000000000
+      ]
+    ],
+    "published_cost": "About300CPUhours for prime tables; under5minutes on one core for about5.3e8 stepping checks. This is historical published performance, not a new measurement."
+  },
+  "johnston": {
+    "url": "https://arxiv.org/pdf/2109.02249v2",
+    "locator": "Theorem5.1 p10; proofp11",
+    "statement_closed": [
+      38358837683,
+      "exp(103)"
+    ],
+    "not_needed": "The Axler2018 theorem already covers target exp40 and optionalexp43, both below1e19.",
+    "endpoint_caution": "Proofp11 says38358837682<x<=exp43 while citing Axler; Axler establishes38358837683<=x. Retain theorem stated683 endpoint; do not import stronger open682 interval.",
+    "grid_first": [
+      43,
+      59,
+      "delta=5e-8"
+    ],
+    "grid_second": [
+      59,
+      69,
+      "delta=2.5e-8"
+    ],
+    "method": "Monotone analytic f(z),g(z); source proves f(z0)>g(z0+delta) then covers between endpoints. Uses pi-li finiteRH bounds; source algorithm Python. No source-firstPV claim."
+  },
+  "sufficient_source_first_checker_contract": {
+    "inputs": "Integers0<n<=m, certified integer prime-count upperP>=pi(m), lowerQ<=pi(floor(n/Ehi)); rational0<Elo<=e<=Ehi, positive rationalLhi>=logn; n>e.",
+    "check_latex": "P^2 L_{\\rm hi}< E_{\\rm lo}\\,n\\,Q",
+    "conclusion_latex": "\\forall x\\in[n,m],\\quad\\pi(x)^2<\\frac{ex}{\\log x}\\pi(x/e)",
+    "proof": "For realx between endpoints, pi(x)<=pi(m)<=P; floor(n/Ehi)<=n/e<=x/e givesQ<=pi(x/e). Monotonicx/logx forn>e yields Elo*n/Lhi<=e*n/logn<=e*x/logx. Strict integer/rational check gives target, including both endpoints.",
+    "integer_cross_multiplied": "IfElo=enum/eden andLhi=lnum/lden, requireP*P*lnum*eden<enum*n*Q*lden, with all products modeled using unbounded integers or proved machine overflow bounds.",
+    "coverage": "Finite row list starts at38358837683; consecutive end>=nextstart; finalend>=analyticstart. Prove every real point belongs to some row.",
+    "prime_soundness": "Prime counts must come from fully verified sieve/count or sound source-first checker with actual primality/compositeness/completeness proofs. Do not assume supplied table correctness.",
+    "program_evolution": "Endpointprime-countP replaces DPunit-densityworst-case pi(n)+(m-n), allowing longer steps with same theorem/premises; observed cost/coverage requires actual benchmark."
+  },
+  "open_obligations": [
+    "Obtain sound numerical endpoint/transcendental certificates, not mpmath approximate roots.",
+    "Formalize analytic derivation and actual pi transport.",
+    "Source-to-AST correspondence, executable semantics, execution theorem, actual completed certificate run and final consumer remain parent implementation work.",
+    "REPORT11/12 named paths not located by this source-only subtask."
+  ],
+  "axler2016": {
+    "url": "https://math.colgate.edu/~integers/q22/q22.pdf",
+    "locator": "Corollary3.5 p10, finalcolumn a=b=c=d=0,x0=468049",
+    "formula_latex": "\\pi(x)>\\frac{x}{\\log x-1-1/\\log x}\\quad(x\\ge468049)",
+    "proof_status": "Published proof compares toThm1.4 forx>=1332479531 and computer-checks smallerx. This external analytic input has a numerical provenance dependency.",
+    "corrigendum": {
+      "locator": "Onepage,Jan18,2018, obtained official journal POSTq22=errata",
+      "scope": "OnlyCor3.4p8 lowerendpoint5.43 corrected to2634800823. Cor3.5 usedhere unchanged."
+    }
+  }
+}

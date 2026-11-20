@@ -1,0 +1,39 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientDriverExecution.lean:79:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  parameters QuotientCSourceV2.countFunction.parameters
+    [Value.i64 input, Value.i32 capacity, Value.ptr layout.smallBase, Value.ptr layout.largeBase] emptyEnv
+in the target expression
+  parameters function✝.parameters
+      [Value.i64 input, Value.i32 capacity, Value.ptr layout.smallBase, Value.ptr layout.largeBase] emptyEnv =
+    some env✝
+
+case execute
+layout : Layout
+value : Value
+after✝ : State
+env✝ : Env
+function✝ : Function
+lookup :
+  (if "rpc_quotient_count" = QuotientCSourceV2.countFunction.name then some QuotientCSourceV2.countFunction
+    else
+      if "rpc_quotient_count" = QuotientCSourceV2.sqrtFunction.name then some QuotientCSourceV2.sqrtFunction
+      else none) =
+    some function✝
+arguments :
+  parameters function✝.parameters
+      [Value.i64 input, Value.i32 capacity, Value.ptr layout.smallBase, Value.ptr layout.largeBase] emptyEnv =
+    some env✝
+body :
+  Run QuotientSqrtExecute.service function✝.body { env := env✝, heap := initializedHeap layout }
+    (Flow.returned after✝ value)
+he :
+  parameters QuotientCSourceV2.countFunction.parameters
+      [Value.i64 input, Value.i32 capacity, Value.ptr layout.smallBase, Value.ptr layout.largeBase] emptyEnv =
+    some (QuotientCFunctionPrefix.input input capacity layout.smallBase layout.largeBase (initializedHeap layout)).env
+⊢ value = Value.u64 input.primeCounting ∧ Owned after✝.heap
+'RamanujanPV.QuotientDriverExecution.driver_call_correct' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'RamanujanPV.QuotientDriverExecution.allocated_local_read' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.QuotientDriverExecution.successful_fwrite' depends on axioms: [propext]
+'RamanujanPV.QuotientDriverExecution.successful_fflush' does not depend on any axioms

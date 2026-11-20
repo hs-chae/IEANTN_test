@@ -1,0 +1,86 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientSieve.lean:200:6: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a =>
+    (if _a then insert p (Finset.filter (Survives p) (Finset.Icc 2 (p - 1)))
+        else Finset.filter (Survives p) (Finset.Icc 2 (p - 1))).card =
+      (Finset.filter (Survives p) (Finset.Icc 2 (p - 1))).card + if Nat.Prime p then 1 else 0
+Error: Application type mismatch: The argument
+  instDecidableSurvives p p
+has type
+  Decidable (Survives p p)
+but is expected to have type
+  Decidable _a
+in the application
+  @ite (Finset ℕ) _a (instDecidableSurvives p p)
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+p : ℕ
+hp : 2 ≤ p
+interval : Finset.Icc 2 p = insert p (Finset.Icc 2 (p - 1))
+absent : p ∉ survivors p (p - 1)
+⊢ (if Survives p p then insert p (Finset.filter (Survives p) (Finset.Icc 2 (p - 1)))
+      else Finset.filter (Survives p) (Finset.Icc 2 (p - 1))).card =
+    (Finset.filter (Survives p) (Finset.Icc 2 (p - 1))).card + if Nat.Prime p then 1 else 0
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientSieve.lean:215:2: error: Tactic `apply` failed: could not unify the conclusion of `Finset.Subset.antisymm (survivors_step_subset p v)`
+  survivors (p + 1) v = survivors p v
+with the goal
+  p + 1 = p
+
+Note: The full type of `Finset.Subset.antisymm (survivors_step_subset p v)` is
+  survivors p v ⊆ survivors (p + 1) v → survivors (p + 1) v = survivors p v
+
+case e_p
+p v : ℕ
+hp : ¬Nat.Prime p
+⊢ p + 1 = p
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientSieve.lean:230:2: error: Tactic `apply` failed: could not unify the conclusion of `Finset.Subset.antisymm (survivors_step_subset p v)`
+  survivors (p + 1) v = survivors p v
+with the goal
+  p + 1 = p
+
+Note: The full type of `Finset.Subset.antisymm (survivors_step_subset p v)` is
+  survivors p v ⊆ survivors (p + 1) v → survivors (p + 1) v = survivors p v
+
+case e_p
+p v : ℕ
+square : v < p * p
+⊢ p + 1 = p
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientSieve.lean:272:49: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  f ≥ 0
+  e ≥ 0
+  e - f ≥ 1
+  d ≥ 0
+  c ≥ 0
+  c - d ≥ 1
+  b ≥ 0
+  b - c ≥ 0
+  a ≥ 2
+where
+ a := ↑p
+ b := ↑v
+ c := ↑p * ↑p
+ d := ↑?m.78
+ e := ↑(total p (p - 1))
+ f := ↑(total p p)
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientSieve.lean:272:4: error: unsolved goals
+case neg
+p v : ℕ
+hp : 2 ≤ p
+prime : Nat.Prime p
+detected : total p p ≠ total p (p - 1)
+square : ¬v < p * p
+⊢ total (p + 1) v = total p v - (total p (v / p) - total p (p - 1))
+'RamanujanPV.QuotientSieve.total_prime_detection' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'RamanujanPV.QuotientSieve.total_skip_composite' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'RamanujanPV.QuotientSieve.total_skip_below_square' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'RamanujanPV.QuotientSieve.total_final' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.QuotientSieve.total_update' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'RamanujanPV.QuotientSieve.removed_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.QuotientSieve.total_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.QuotientSieve.minFac_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.QuotientSieve.dropped_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.QuotientSieve.survives_self_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.QuotientSieve.total_initial' depends on axioms: [propext, Classical.choice, Quot.sound]

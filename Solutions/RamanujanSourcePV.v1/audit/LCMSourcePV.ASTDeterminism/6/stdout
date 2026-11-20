@@ -1,0 +1,13 @@
+@guard_deterministic : ∀ {State : Type u_1} {Value : Type u_2} {Eval : Expr → State → State → Value → Prop}
+  {truth : Value → Bool},
+  EvalDeterministic Eval →
+    ∀ {cond : Option Expr} {s t : State} {flag : Bool} {t' : State} {flag' : Bool},
+      GuardRun Eval truth cond s t flag → GuardRun Eval truth cond s t' flag' → t = t' ∧ flag = flag'
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean:36:0: error: failed to infer structural recursion:
+Cannot use parameters h of LCMSourcePV.ASTLoops.stmt_deterministic, h of LCMSourcePV.ASTLoops.while_deterministic, h of LCMSourcePV.ASTLoops.for_deterministic, and h of LCMSourcePV.ASTLoops.seq_deterministic:
+  failed to eliminate recursive application
+    stmt_deterministic hE hD hS body body'
+'LCMSourcePV.ASTLoops.stmt_deterministic' depends on axioms: [sorryAx]
+'LCMSourcePV.ASTLoops.seq_deterministic' depends on axioms: [sorryAx]
+'LCMSourcePV.ASTLoops.for_deterministic' depends on axioms: [sorryAx]
+'LCMSourcePV.ASTLoops.while_deterministic' depends on axioms: [sorryAx]

@@ -1,0 +1,30 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCheckerMath.lean:171:43: warning: Variable name `hd` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hd
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCheckerMath.lean:201:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCheckerMath.lean:249:33: error: unsolved goals
+case neg
+lo hi d n : ℕ
+hd : 0 < d
+hlo : lo ≤ n
+hhi : n ≤ hi
+flags : ℕ → ℕ
+cases :
+  (Visited (firstMultiple lo d) d (markCount lo hi d) n →
+      erasePrefix lo (firstMultiple lo d) d (markCount lo hi d) flags (n - lo) = 0) ∧
+    (¬Visited (firstMultiple lo d) d (markCount lo hi d) n →
+      erasePrefix lo (firstMultiple lo d) d (markCount lo hi d) flags (n - lo) = flags (n - lo))
+equiv : Visited (firstMultiple lo d) d (markCount lo hi d) n ↔ d * d ≤ n ∧ d ∣ n
+erased : ¬(d * d ≤ n ∧ d ∣ n)
+⊢ erasePrefix lo (firstMultiple lo d) d (markCount lo hi d) flags (n - lo) = sweep lo d flags (n - lo)
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCheckerMath.lean:292:2: error: No goals to be solved
+'RamanujanPV.SegmentCheckerMath.final_flag' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.SegmentCheckerMath.primeCounting_increment' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.SegmentCheckerMath.first_minimal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.SegmentCheckerMath.erased_segment_is_sweep' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

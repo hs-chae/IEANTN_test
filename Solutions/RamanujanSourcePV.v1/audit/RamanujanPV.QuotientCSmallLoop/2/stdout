@@ -1,0 +1,32 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCSmallLoop.lean:49:31: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCSmallLoop.lean:50:67: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCSmallLoop.lean:106:12: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCSmallLoop.lean:196:6: error: Type mismatch: After simplification, term
+  hbody
+ has type
+  Run call
+    (Stmt.sequence [Stmt.declare [{ type := "uint64_t", name := "v", value := some (Expr.var "r") }], smallWhile]) s
+    (Flow.continuing final)
+but is expected to have type
+  StmtRun (Eval call) (Declare call) truth Scope
+    (if (1 != 0) = true then
+      Stmt.sequence [Stmt.declare [{ type := "uint64_t", name := "v", value := some (Expr.var "r") }], smallWhile]
+    else Stmt.skip)
+    s (Flow.continuing final)
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCSmallLoop.lean:207:6: error: Type mismatch: After simplification, term
+  StmtRun.skip s
+ has type
+  @StmtRun State Value (Eval call) (Declare call) truth Scope Stmt.skip s (Flow.continuing s)
+but is expected to have type
+  @StmtRun State Value (Eval call) (Declare call) truth Scope
+    (if (0 != 0) = true then
+      Stmt.sequence [Stmt.declare [{ type := "uint64_t", name := "v", value := some (Expr.var "r") }], smallWhile]
+    else Stmt.skip)
+    s (Flow.continuing s)
+'RamanujanPV.QuotientCSmallLoop.actual_small_while' depends on axioms: [propext]
+'RamanujanPV.QuotientCSmallLoop.stage_guards' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.QuotientCSmallLoop.small_while_exec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.QuotientCSmallLoop.actual_small_branch' depends on axioms: [propext]
+'RamanujanPV.QuotientCSmallLoop.small_branch_exec' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

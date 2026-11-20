@@ -1,0 +1,125 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientDriverSuccess.lean:147:75: warning: This simp argument is unused:
+  emptyEnv
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [reserveLocal, initialDriver, globalEnv, QuotientCMachine.bind]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientDriverSuccess.lean:148:75: warning: This simp argument is unused:
+  emptyEnv
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [reserveLocal, initialDriver, globalEnv, QuotientCMachine.bind]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientDriverSuccess.lean:290:22: error: don't know how to synthesize implicit argument `after`
+  @successful_fwrite s.heap address input.primeCounting ?m.393
+    { buffered := World.buffered ?m.393 ++ wordBytes word✝, committed := World.committed ?m.393 } read
+    (Fwrite.complete other)
+context:
+token : ℕ
+world : World
+s t : DriverState
+value : DriverValue
+rep : ResultRep token world s
+success : driverTruth value = false
+hraw : literal 1 = some (Value.i32 1)
+rhs : DriverEval token (Expr.nat 1) t t (DriverValue.core (Value.i32 1))
+address : ℕ
+found : location s "result" = some address
+read : QuotientCMachine.read s.heap address 0 = some (Value.u64 input.primeCounting)
+word✝ : ℕ
+other : QuotientCMachine.read s.heap address 0 = some (Value.u64 word✝)
+post :
+  t =
+    { env := s.env, locations := s.locations, heap := s.heap,
+      world := { buffered := s.world.buffered ++ wordBytes word✝, committed := s.world.committed } }
+lhs : DriverEval token writeCall s t (DriverValue.core (Value.u64 1))
+compared : notEqual (DriverValue.core (Value.u64 1)) (DriverValue.core (Value.i32 1)) = some value
+eq : value = DriverValue.core (Value.i32 0)
+⊢ World
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientDriverSuccess.lean:290:22: error: don't know how to synthesize implicit argument `before`
+  @successful_fwrite s.heap address input.primeCounting ?m.393
+    { buffered := World.buffered ?m.393 ++ wordBytes word✝, committed := World.committed ?m.393 } read
+    (Fwrite.complete other)
+context:
+token : ℕ
+world : World
+s t : DriverState
+value : DriverValue
+rep : ResultRep token world s
+success : driverTruth value = false
+hraw : literal 1 = some (Value.i32 1)
+rhs : DriverEval token (Expr.nat 1) t t (DriverValue.core (Value.i32 1))
+address : ℕ
+found : location s "result" = some address
+read : QuotientCMachine.read s.heap address 0 = some (Value.u64 input.primeCounting)
+word✝ : ℕ
+other : QuotientCMachine.read s.heap address 0 = some (Value.u64 word✝)
+post :
+  t =
+    { env := s.env, locations := s.locations, heap := s.heap,
+      world := { buffered := s.world.buffered ++ wordBytes word✝, committed := s.world.committed } }
+lhs : DriverEval token writeCall s t (DriverValue.core (Value.u64 1))
+compared : notEqual (DriverValue.core (Value.u64 1)) (DriverValue.core (Value.i32 1)) = some value
+eq : value = DriverValue.core (Value.i32 0)
+⊢ World
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientDriverSuccess.lean:290:46: error: don't know how to synthesize implicit argument `before`
+  @Fwrite.complete s.heap address ?m.393 word✝ other
+context:
+token : ℕ
+world : World
+s t : DriverState
+value : DriverValue
+rep : ResultRep token world s
+success : driverTruth value = false
+hraw : literal 1 = some (Value.i32 1)
+rhs : DriverEval token (Expr.nat 1) t t (DriverValue.core (Value.i32 1))
+address : ℕ
+found : location s "result" = some address
+read : QuotientCMachine.read s.heap address 0 = some (Value.u64 input.primeCounting)
+word✝ : ℕ
+other : QuotientCMachine.read s.heap address 0 = some (Value.u64 word✝)
+post :
+  t =
+    { env := s.env, locations := s.locations, heap := s.heap,
+      world := { buffered := s.world.buffered ++ wordBytes word✝, committed := s.world.committed } }
+lhs : DriverEval token writeCall s t (DriverValue.core (Value.u64 1))
+compared : notEqual (DriverValue.core (Value.u64 1)) (DriverValue.core (Value.i32 1)) = some value
+eq : value = DriverValue.core (Value.i32 0)
+⊢ World
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientDriverSuccess.lean:290:11: error: failed to infer `have` declaration type
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientDriverSuccess.lean:317:4: error: Too many variable names provided at alternative `failed`: 4 provided, but 3 expected
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientDriverSuccess.lean:318:48: error: Application type mismatch: The argument
+  code
+has type
+  code✝ ≠ 0
+of sort `Prop` but is expected to have type
+  ℤ
+of sort `Type` in the application
+  DriverValue.signed code
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientDriverSuccess.lean:319:64: error(lean.unknownIdentifier): Unknown identifier `nonzero`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientDriverSuccess.lean:318:96: error: unsolved goals
+token : ℕ
+s t : DriverState
+value : DriverValue
+stdout : s.env "stdout" = some (DriverValue.core (Value.ptr token))
+success : driverTruth value = false
+hraw : literal 0 = some (Value.i32 0)
+rhs : DriverEval token (Expr.nat 0) t t (DriverValue.core (Value.i32 0))
+code✝ : ℤ
+next : World
+post : t = { env := s.env, locations := s.locations, heap := s.heap, world := next }
+lhs : DriverEval token flushCall s t (DriverValue.signed code✝)
+compared : notEqual (DriverValue.signed code✝) (DriverValue.core (Value.i32 0)) = some value
+code : code✝ ≠ 0
+⊢ ¬sorry () = 0
+'RamanujanPV.QuotientDriverSuccess.write_test_success' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'RamanujanPV.QuotientDriverSuccess.flush_test_success' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'RamanujanPV.QuotientDriverSuccess.declaration_result' depends on axioms: [propext, Classical.choice, Quot.sound]
