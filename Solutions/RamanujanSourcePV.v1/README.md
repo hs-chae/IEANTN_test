@@ -8,6 +8,19 @@ Read the offline [research report](reports/RAMANUJAN_SOURCE_FIRST_PV_REPORT.html
 [proof diagram](reports/PROOF_DEPENDENCIES.svg), and [handoff](HANDOFF.md).
 The report embeds its licensed math font and needs no network renderer.
 
+The [packed-provider addendum](reports/PACKED_SIEVE_SOURCE_PROVIDER_ADDENDUM.html)
+describes a second completed proof of the same local interval and margin.
+`PackedSieveResult` retains all six exact C source/AST bindings. Its numerical
+provider uses kernel-checked bitmasks and disjoint byte slices instead of the
+old local primality-certificate proofs. The source-first component remains the
+actual verified C checker/counter/e/log/cell chain; no new native packed C
+implementation or physical input loader is claimed. See
+[clean reproduction](REPRODUCE_PACKED_MILLION.md) and the separate independent
+packets under `evidence/packed-sieve-million-independent-v1/` and
+`evidence/packed-sieve-joint-independent-v1/`. The new 549-source clean replay
+has its own acceptance receipt only after it finishes; it must not be confused
+with the completed historical or generic replays.
+
 ## Accepted conclusions
 
 * `FiniteGuardedResult.source_linked_real_interval` proves strict Ramanujan

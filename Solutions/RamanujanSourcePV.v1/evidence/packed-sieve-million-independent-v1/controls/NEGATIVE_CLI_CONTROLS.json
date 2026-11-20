@@ -1,0 +1,54 @@
+{
+  "status": "PASS_SIX_ACTUAL_REJECTIONS_ALL_OPTIMIZATIONS",
+  "controller_sha256": "12495146a5944c7dcfc5ad1ef1c1825fb99da83e52e5bd938573e62b043790f4",
+  "records": [
+    {
+      "case": "wrong-source-hash",
+      "mode": "normal",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/data/ivy-ramanujan-source-pv-20261119/packed-sieve-million-independent-audit-v1/seal.py\", line 32, in <module>\n    audit=audited(a.audit_dir/'RUN.json');need(audit['source_sha256']=='01413622f373a3b3adf0ff51cbb0ca1a235d391aa8d838b2fb0ff7184f1b65c5','independently fixed audit bytes')\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/ivy-ramanujan-source-pv-20261119/packed-sieve-million-independent-audit-v1/seal.py\", line 24, in audited\n    source=Path(source or r['source']);need(sha(source)==r['source_sha256'],'current exact source')\n                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/ivy-ramanujan-source-pv-20261119/packed-sieve-million-independent-audit-v1/seal.py\", line 11, in need\n    if not x:raise ValueError(m)\n             ^^^^^^^^^^^^^^^^^^^\nValueError: current exact source\n",
+      "no_acceptance_receipt": true
+    },
+    {
+      "case": "wrong-source-hash",
+      "mode": "O",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/data/ivy-ramanujan-source-pv-20261119/packed-sieve-million-independent-audit-v1/seal.py\", line 32, in <module>\n    audit=audited(a.audit_dir/'RUN.json');need(audit['source_sha256']=='01413622f373a3b3adf0ff51cbb0ca1a235d391aa8d838b2fb0ff7184f1b65c5','independently fixed audit bytes')\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/ivy-ramanujan-source-pv-20261119/packed-sieve-million-independent-audit-v1/seal.py\", line 24, in audited\n    source=Path(source or r['source']);need(sha(source)==r['source_sha256'],'current exact source')\n                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/ivy-ramanujan-source-pv-20261119/packed-sieve-million-independent-audit-v1/seal.py\", line 11, in need\n    if not x:raise ValueError(m)\n             ^^^^^^^^^^^^^^^^^^^\nValueError: current exact source\n",
+      "no_acceptance_receipt": true
+    },
+    {
+      "case": "wrong-source-hash",
+      "mode": "OO",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/data/ivy-ramanujan-source-pv-20261119/packed-sieve-million-independent-audit-v1/seal.py\", line 32, in <module>\n    audit=audited(a.audit_dir/'RUN.json');need(audit['source_sha256']=='01413622f373a3b3adf0ff51cbb0ca1a235d391aa8d838b2fb0ff7184f1b65c5','independently fixed audit bytes')\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/ivy-ramanujan-source-pv-20261119/packed-sieve-million-independent-audit-v1/seal.py\", line 24, in audited\n    source=Path(source or r['source']);need(sha(source)==r['source_sha256'],'current exact source')\n                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/ivy-ramanujan-source-pv-20261119/packed-sieve-million-independent-audit-v1/seal.py\", line 11, in need\n    if not x:raise ValueError(m)\n             ^^^^^^^^^^^^^^^^^^^\nValueError: current exact source\n",
+      "no_acceptance_receipt": true
+    },
+    {
+      "case": "duplicate-key",
+      "mode": "normal",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/data/ivy-ramanujan-source-pv-20261119/packed-sieve-million-independent-audit-v1/seal.py\", line 32, in <module>\n    audit=audited(a.audit_dir/'RUN.json');need(audit['source_sha256']=='01413622f373a3b3adf0ff51cbb0ca1a235d391aa8d838b2fb0ff7184f1b65c5','independently fixed audit bytes')\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/ivy-ramanujan-source-pv-20261119/packed-sieve-million-independent-audit-v1/seal.py\", line 21, in audited\n    p=Path(p);r=read(p);need(r['status']=='COMPILED'and r['returncode']==0,'actual successful compiler receipt')\n                ^^^^^^^\n  File \"/data/ivy-ramanujan-source-pv-20261119/packed-sieve-million-independent-audit-v1/seal.py\", line 18, in read\n    def read(p):return json.loads(Path(p).read_text(),object_pairs_hook=pairs,parse_constant=reject)\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/__init__.py\", line 359, in loads\n    return cls(**kw).decode(s)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 337, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 353, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/ivy-ramanujan-source-pv-20261119/packed-sieve-million-independent-audit-v1/seal.py\", line 15, in pairs\n    for k,v in xs:need(k not in d,'duplicate JSON key');d[k]=v\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/ivy-ramanujan-source-pv-20261119/packed-sieve-million-independent-audit-v1/seal.py\", line 11, in need\n    if not x:raise ValueError(m)\n             ^^^^^^^^^^^^^^^^^^^\nValueError: duplicate JSON key\n",
+      "no_acceptance_receipt": true
+    },
+    {
+      "case": "duplicate-key",
+      "mode": "O",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/data/ivy-ramanujan-source-pv-20261119/packed-sieve-million-independent-audit-v1/seal.py\", line 32, in <module>\n    audit=audited(a.audit_dir/'RUN.json');need(audit['source_sha256']=='01413622f373a3b3adf0ff51cbb0ca1a235d391aa8d838b2fb0ff7184f1b65c5','independently fixed audit bytes')\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/ivy-ramanujan-source-pv-20261119/packed-sieve-million-independent-audit-v1/seal.py\", line 21, in audited\n    p=Path(p);r=read(p);need(r['status']=='COMPILED'and r['returncode']==0,'actual successful compiler receipt')\n                ^^^^^^^\n  File \"/data/ivy-ramanujan-source-pv-20261119/packed-sieve-million-independent-audit-v1/seal.py\", line 18, in read\n    def read(p):return json.loads(Path(p).read_text(),object_pairs_hook=pairs,parse_constant=reject)\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/__init__.py\", line 359, in loads\n    return cls(**kw).decode(s)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 337, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 353, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/ivy-ramanujan-source-pv-20261119/packed-sieve-million-independent-audit-v1/seal.py\", line 15, in pairs\n    for k,v in xs:need(k not in d,'duplicate JSON key');d[k]=v\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/ivy-ramanujan-source-pv-20261119/packed-sieve-million-independent-audit-v1/seal.py\", line 11, in need\n    if not x:raise ValueError(m)\n             ^^^^^^^^^^^^^^^^^^^\nValueError: duplicate JSON key\n",
+      "no_acceptance_receipt": true
+    },
+    {
+      "case": "duplicate-key",
+      "mode": "OO",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/data/ivy-ramanujan-source-pv-20261119/packed-sieve-million-independent-audit-v1/seal.py\", line 32, in <module>\n    audit=audited(a.audit_dir/'RUN.json');need(audit['source_sha256']=='01413622f373a3b3adf0ff51cbb0ca1a235d391aa8d838b2fb0ff7184f1b65c5','independently fixed audit bytes')\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/ivy-ramanujan-source-pv-20261119/packed-sieve-million-independent-audit-v1/seal.py\", line 21, in audited\n    p=Path(p);r=read(p);need(r['status']=='COMPILED'and r['returncode']==0,'actual successful compiler receipt')\n                ^^^^^^^\n  File \"/data/ivy-ramanujan-source-pv-20261119/packed-sieve-million-independent-audit-v1/seal.py\", line 18, in read\n    def read(p):return json.loads(Path(p).read_text(),object_pairs_hook=pairs,parse_constant=reject)\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/__init__.py\", line 359, in loads\n    return cls(**kw).decode(s)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 337, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 353, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/ivy-ramanujan-source-pv-20261119/packed-sieve-million-independent-audit-v1/seal.py\", line 15, in pairs\n    for k,v in xs:need(k not in d,'duplicate JSON key');d[k]=v\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/ivy-ramanujan-source-pv-20261119/packed-sieve-million-independent-audit-v1/seal.py\", line 11, in need\n    if not x:raise ValueError(m)\n             ^^^^^^^^^^^^^^^^^^^\nValueError: duplicate JSON key\n",
+      "no_acceptance_receipt": true
+    }
+  ]
+}

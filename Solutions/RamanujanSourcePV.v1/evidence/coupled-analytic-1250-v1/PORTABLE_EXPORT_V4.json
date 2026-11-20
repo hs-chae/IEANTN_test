@@ -1,0 +1,297 @@
+{
+  "status": "PASS_ALL18_ACTUAL_NORMAL_O_OO_PORTABLE_EXPORT_AND_NEGATIVE_CONTROLS",
+  "rows": [
+    {
+      "mode": "normal",
+      "route": "exact-export-check",
+      "expected_acceptance": true,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py",
+        "--check",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"PASS_EXACT_EXPORTED_SOURCE_AND_EVIDENCE_BYTES\", \"files\": 1039}\n",
+      "stderr": ""
+    },
+    {
+      "mode": "normal",
+      "route": "portable-source-plan",
+      "expected_acceptance": true,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_coupled_analytic.py",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/coupled-portable-plan-normal-v4",
+        "--plan-only",
+        "--jobs",
+        "2",
+        "--cpus",
+        "8,9",
+        "--aggregate-gib",
+        "96"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"modules\": 673, \"out\": \"/data/ivy-ramanujan-source-pv-20261119/coupled-portable-plan-normal-v4\", \"status\": \"PLANNED_EXACT_SELECTED_SOURCE_CLOSURE\"}\n",
+      "stderr": ""
+    },
+    {
+      "mode": "normal",
+      "route": "duplicate",
+      "expected_acceptance": false,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/coupled-export-v4-controls/normal-duplicate"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 154, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 74, in main\n    result = verify(args.check.resolve())\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 57, in verify\n    manifest = read(root / 'EXPORT_MANIFEST.json')\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 45, in read\n    return json.loads(path.read_text(), object_pairs_hook=pairs,\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/__init__.py\", line 359, in loads\n    return cls(**kw).decode(s)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 337, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 353, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 36, in pairs\n    need(key not in result, 'duplicate JSON key')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 25, in need\n    raise ValueError(text)\nValueError: duplicate JSON key\n"
+    },
+    {
+      "mode": "normal",
+      "route": "nan",
+      "expected_acceptance": false,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/coupled-export-v4-controls/normal-nan"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 154, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 74, in main\n    result = verify(args.check.resolve())\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 57, in verify\n    manifest = read(root / 'EXPORT_MANIFEST.json')\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 45, in read\n    return json.loads(path.read_text(), object_pairs_hook=pairs,\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/__init__.py\", line 359, in loads\n    return cls(**kw).decode(s)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 337, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 353, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 44, in invalid\n    raise ValueError('nonfinite JSON constant ' + text)\nValueError: nonfinite JSON constant NaN\n"
+    },
+    {
+      "mode": "normal",
+      "route": "infinite_exponent",
+      "expected_acceptance": false,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/coupled-export-v4-controls/normal-infinite_exponent"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 154, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 74, in main\n    result = verify(args.check.resolve())\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 57, in verify\n    manifest = read(root / 'EXPORT_MANIFEST.json')\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 45, in read\n    return json.loads(path.read_text(), object_pairs_hook=pairs,\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/__init__.py\", line 359, in loads\n    return cls(**kw).decode(s)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 337, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 353, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 41, in finite\n    need(math.isfinite(value), 'finite JSON number')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 25, in need\n    raise ValueError(text)\nValueError: finite JSON number\n"
+    },
+    {
+      "mode": "normal",
+      "route": "omitted_members",
+      "expected_acceptance": false,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/coupled-export-v4-controls/normal-omitted_members"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 154, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 74, in main\n    result = verify(args.check.resolve())\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 59, in verify\n    lock = read(root / 'reproduction/network/Solutions/RamanujanSourcePV.v1/'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 45, in read\n    return json.loads(path.read_text(), object_pairs_hook=pairs,\n                      ^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/pathlib.py\", line 1058, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/pathlib.py\", line 1044, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/data/ivy-ramanujan-source-pv-20261119/coupled-export-v4-controls/normal-omitted_members/reproduction/network/Solutions/RamanujanSourcePV.v1/evidence/coupled-analytic-1250-v1/SOURCE_LOCK.json'\n"
+    },
+    {
+      "mode": "O",
+      "route": "exact-export-check",
+      "expected_acceptance": true,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py",
+        "--check",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"PASS_EXACT_EXPORTED_SOURCE_AND_EVIDENCE_BYTES\", \"files\": 1039}\n",
+      "stderr": ""
+    },
+    {
+      "mode": "O",
+      "route": "portable-source-plan",
+      "expected_acceptance": true,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_coupled_analytic.py",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/coupled-portable-plan-O-v4",
+        "--plan-only",
+        "--jobs",
+        "2",
+        "--cpus",
+        "8,9",
+        "--aggregate-gib",
+        "96"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"modules\": 673, \"out\": \"/data/ivy-ramanujan-source-pv-20261119/coupled-portable-plan-O-v4\", \"status\": \"PLANNED_EXACT_SELECTED_SOURCE_CLOSURE\"}\n",
+      "stderr": ""
+    },
+    {
+      "mode": "O",
+      "route": "duplicate",
+      "expected_acceptance": false,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/coupled-export-v4-controls/O-duplicate"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 154, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 74, in main\n    result = verify(args.check.resolve())\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 57, in verify\n    manifest = read(root / 'EXPORT_MANIFEST.json')\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 45, in read\n    return json.loads(path.read_text(), object_pairs_hook=pairs,\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/__init__.py\", line 359, in loads\n    return cls(**kw).decode(s)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 337, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 353, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 36, in pairs\n    need(key not in result, 'duplicate JSON key')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 25, in need\n    raise ValueError(text)\nValueError: duplicate JSON key\n"
+    },
+    {
+      "mode": "O",
+      "route": "nan",
+      "expected_acceptance": false,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/coupled-export-v4-controls/O-nan"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 154, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 74, in main\n    result = verify(args.check.resolve())\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 57, in verify\n    manifest = read(root / 'EXPORT_MANIFEST.json')\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 45, in read\n    return json.loads(path.read_text(), object_pairs_hook=pairs,\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/__init__.py\", line 359, in loads\n    return cls(**kw).decode(s)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 337, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 353, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 44, in invalid\n    raise ValueError('nonfinite JSON constant ' + text)\nValueError: nonfinite JSON constant NaN\n"
+    },
+    {
+      "mode": "O",
+      "route": "infinite_exponent",
+      "expected_acceptance": false,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/coupled-export-v4-controls/O-infinite_exponent"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 154, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 74, in main\n    result = verify(args.check.resolve())\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 57, in verify\n    manifest = read(root / 'EXPORT_MANIFEST.json')\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 45, in read\n    return json.loads(path.read_text(), object_pairs_hook=pairs,\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/__init__.py\", line 359, in loads\n    return cls(**kw).decode(s)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 337, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 353, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 41, in finite\n    need(math.isfinite(value), 'finite JSON number')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 25, in need\n    raise ValueError(text)\nValueError: finite JSON number\n"
+    },
+    {
+      "mode": "O",
+      "route": "omitted_members",
+      "expected_acceptance": false,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/coupled-export-v4-controls/O-omitted_members"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 154, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 74, in main\n    result = verify(args.check.resolve())\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 59, in verify\n    lock = read(root / 'reproduction/network/Solutions/RamanujanSourcePV.v1/'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 45, in read\n    return json.loads(path.read_text(), object_pairs_hook=pairs,\n                      ^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/pathlib.py\", line 1058, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/pathlib.py\", line 1044, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/data/ivy-ramanujan-source-pv-20261119/coupled-export-v4-controls/O-omitted_members/reproduction/network/Solutions/RamanujanSourcePV.v1/evidence/coupled-analytic-1250-v1/SOURCE_LOCK.json'\n"
+    },
+    {
+      "mode": "OO",
+      "route": "exact-export-check",
+      "expected_acceptance": true,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py",
+        "--check",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"PASS_EXACT_EXPORTED_SOURCE_AND_EVIDENCE_BYTES\", \"files\": 1039}\n",
+      "stderr": ""
+    },
+    {
+      "mode": "OO",
+      "route": "portable-source-plan",
+      "expected_acceptance": true,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_coupled_analytic.py",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/coupled-portable-plan-OO-v4",
+        "--plan-only",
+        "--jobs",
+        "2",
+        "--cpus",
+        "8,9",
+        "--aggregate-gib",
+        "96"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"modules\": 673, \"out\": \"/data/ivy-ramanujan-source-pv-20261119/coupled-portable-plan-OO-v4\", \"status\": \"PLANNED_EXACT_SELECTED_SOURCE_CLOSURE\"}\n",
+      "stderr": ""
+    },
+    {
+      "mode": "OO",
+      "route": "duplicate",
+      "expected_acceptance": false,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/coupled-export-v4-controls/OO-duplicate"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 154, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 74, in main\n    result = verify(args.check.resolve())\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 57, in verify\n    manifest = read(root / 'EXPORT_MANIFEST.json')\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 45, in read\n    return json.loads(path.read_text(), object_pairs_hook=pairs,\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/__init__.py\", line 359, in loads\n    return cls(**kw).decode(s)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 337, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 353, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 36, in pairs\n    need(key not in result, 'duplicate JSON key')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 25, in need\n    raise ValueError(text)\nValueError: duplicate JSON key\n"
+    },
+    {
+      "mode": "OO",
+      "route": "nan",
+      "expected_acceptance": false,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/coupled-export-v4-controls/OO-nan"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 154, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 74, in main\n    result = verify(args.check.resolve())\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 57, in verify\n    manifest = read(root / 'EXPORT_MANIFEST.json')\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 45, in read\n    return json.loads(path.read_text(), object_pairs_hook=pairs,\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/__init__.py\", line 359, in loads\n    return cls(**kw).decode(s)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 337, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 353, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 44, in invalid\n    raise ValueError('nonfinite JSON constant ' + text)\nValueError: nonfinite JSON constant NaN\n"
+    },
+    {
+      "mode": "OO",
+      "route": "infinite_exponent",
+      "expected_acceptance": false,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/coupled-export-v4-controls/OO-infinite_exponent"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 154, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 74, in main\n    result = verify(args.check.resolve())\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 57, in verify\n    manifest = read(root / 'EXPORT_MANIFEST.json')\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 45, in read\n    return json.loads(path.read_text(), object_pairs_hook=pairs,\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/__init__.py\", line 359, in loads\n    return cls(**kw).decode(s)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 337, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 353, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 41, in finite\n    need(math.isfinite(value), 'finite JSON number')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 25, in need\n    raise ValueError(text)\nValueError: finite JSON number\n"
+    },
+    {
+      "mode": "OO",
+      "route": "omitted_members",
+      "expected_acceptance": false,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/coupled-export-v4-controls/OO-omitted_members"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 154, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 74, in main\n    result = verify(args.check.resolve())\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 59, in verify\n    lock = read(root / 'reproduction/network/Solutions/RamanujanSourcePV.v1/'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4/reproduction/network/Solutions/RamanujanSourcePV.v1/scripts/export_coupled_analytic_evidence.py\", line 45, in read\n    return json.loads(path.read_text(), object_pairs_hook=pairs,\n                      ^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/pathlib.py\", line 1058, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/pathlib.py\", line 1044, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/data/ivy-ramanujan-source-pv-20261119/coupled-export-v4-controls/OO-omitted_members/reproduction/network/Solutions/RamanujanSourcePV.v1/evidence/coupled-analytic-1250-v1/SOURCE_LOCK.json'\n"
+    }
+  ],
+  "archive": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/artifacts/COUPLED_ANALYTIC_1250_EVIDENCE_v4.tar.gz",
+  "sha256": "c629063c60830c4c6ef9a9fa964cd684f518ee75703184ac0068d29835ade87a",
+  "archive_bytes": 2624098,
+  "archive_members": 1040,
+  "source_modules": 673,
+  "original_v1_v2_v3_archives_and_receipts_preserved": true,
+  "full_cold_replay_is_separate_pending": true
+}

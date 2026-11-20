@@ -106,3 +106,32 @@ branch. Verify every staged blob, remote SHA and original main; save publication
 receipts. Never force/merge/PR or publish private context, transcripts, memory,
 prompts, API metadata or copyrighted paper PDFs. Deliver artifacts with actual
 attachment metadata and downloaded-byte verification.
+# Packed-provider checkpoint (2026-11-20)
+
+The new `PackedSieveMillion` certificate, real-interval theorem and uniform
+gap theorem are compiled and independently audited. `PackedSieveResult`
+packages the same conclusions with all six exact C source/AST bindings.
+The interval is `[38358837683,38359837684)` and the strict gap is `501901`.
+These are alternative proofs of the original local result, not a stronger
+mathematical bound. No old local-primality/classifier proof provider or native
+execution axiom occurs in the selected new closures. Exactly 45 incidental
+legacy raw-data modules remain imported to preserve the original row source.
+
+Read `REPRODUCE_PACKED_MILLION.md`, the packed HTML addendum, and the independent
+pure/joint packets before extending this path. Numerical mask evaluation is
+kernel-only; the source-first chain consumes it through the unchanged C
+segmented checker and existing count/scalar programs. Physical input loading
+and native caller/output association remain outside these function contracts.
+Source-only copies of 32 accepted numerical/scalar modules are versioned;
+approximately 954 MB of original generated source data regenerate from the
+preserved recipe. The selected source locks contain 548 pure or 549 joint
+application modules. The clean default replay has a separate final receipt;
+an active controller or preparation checkpoint is not acceptance.
+
+The full threshold theorem remains open. The independent 1.49-trillion
+endpoint campaign proves one count only if its entire verification finishes;
+it does not establish all finite-prefix count requests. Supplemental split and
+grouped proof-evaluation controls preserve the original data and baseline and
+must be reported separately. None of this work is a request to fill unrelated
+IEANTN proof gaps or to promote an official network node.
+

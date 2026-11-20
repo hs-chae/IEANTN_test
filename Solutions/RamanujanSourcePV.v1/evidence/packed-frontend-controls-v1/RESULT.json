@@ -1,0 +1,401 @@
+{
+  "status": "PASS_ALL27_ACTUAL_NORMAL_O_OO_STAGING_AND_COMPLETED_SCOPE_CONTROLS",
+  "frontend_sha256": "0ad8681429c16644245bc377257c048180b42037cfac2c5fee443bc32ebe2a8d",
+  "test_script_sha256": "b01151f6513d791062424f3c2b7cf2c8cbee9b0aebe614a7e4c376568ca33af7",
+  "rows": [
+    {
+      "mode": "normal",
+      "case": "bound549-source-only",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-frontend-controls-final-v3/normal-staging",
+        "--prepared-root",
+        "/data/ivy-ramanujan-source-pv-20261119/portable-local-full-generation-v1",
+        "--bound-result",
+        "--plan-only",
+        "--jobs",
+        "2",
+        "--cpus",
+        "10,11"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"LOCKED_SOURCE_BYTES_ONLY_NOT_PROOF_ACCEPTANCE\", \"modules\": 549}\n",
+      "stderr": ""
+    },
+    {
+      "mode": "normal",
+      "case": "unrelated_backend",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-frontend-controls-final-v3/normal-unrelated_backend"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 261, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 72, in main\n    need(plan['targets'] == [lock['root']] and plan['selected_theorems'] == lock['theorems'],\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 33, in need\n    raise ValueError(message)\nValueError: actual final consumer and complete theorem population\n"
+    },
+    {
+      "mode": "normal",
+      "case": "forged_modules",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-frontend-controls-final-v3/normal-forged_modules"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 261, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 60, in main\n    need(type(modules) is int and modules in [548, 549], 'exact completed mathematical population')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 33, in need\n    raise ValueError(message)\nValueError: exact completed mathematical population\n"
+    },
+    {
+      "mode": "normal",
+      "case": "forged_lock",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-frontend-controls-final-v3/normal-forged_lock"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 261, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 63, in main\n    need(streamed_sha(lock_path) == result['source_lock_sha256'], 'exact preserved source lock')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 33, in need\n    raise ValueError(message)\nValueError: exact preserved source lock\n"
+    },
+    {
+      "mode": "normal",
+      "case": "forged_frontend",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-frontend-controls-final-v3/normal-forged_frontend"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 261, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 64, in main\n    need(sha(directory / 'frontend.py') == result['script_sha256'] == sha(Path(__file__)),\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 33, in need\n    raise ValueError(message)\nValueError: current and executed frontend source identity\n"
+    },
+    {
+      "mode": "normal",
+      "case": "forged_helper",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-frontend-controls-final-v3/normal-forged_helper"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 261, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 66, in main\n    need(result['helper_sha256'] == sha(backend) == sha(directory / 'build/controller.py'),\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 33, in need\n    raise ValueError(message)\nValueError: current and executed proof acceptance backend\n"
+    },
+    {
+      "mode": "normal",
+      "case": "forged_module_census",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-frontend-controls-final-v3/normal-forged_module_census"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 261, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 77, in main\n    need(len(expected) == len(actual) == len(plan['modules']) == modules and actual == expected,\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 33, in need\n    raise ValueError(message)\nValueError: every exact locked application module and source\n"
+    },
+    {
+      "mode": "normal",
+      "case": "duplicate_json",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-frontend-controls-final-v3/normal-duplicate_json"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 261, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 57, in main\n    result = strict_json(directory / 'RESULT.json')\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 57, in strict_json\n    return strict_json_text(Path(path).read_text())\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 53, in strict_json_text\n    return json.loads(data, object_pairs_hook=pairs, parse_constant=invalid, parse_float=finite)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/__init__.py\", line 359, in loads\n    return cls(**kw).decode(s)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 337, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 353, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 44, in pairs\n    need(key not in result, 'duplicate JSON key')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 33, in need\n    raise ValueError(message)\nValueError: duplicate JSON key\n"
+    },
+    {
+      "mode": "normal",
+      "case": "nonfinite_json",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-frontend-controls-final-v3/normal-nonfinite_json"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 261, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 57, in main\n    result = strict_json(directory / 'RESULT.json')\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 57, in strict_json\n    return strict_json_text(Path(path).read_text())\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 53, in strict_json_text\n    return json.loads(data, object_pairs_hook=pairs, parse_constant=invalid, parse_float=finite)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/__init__.py\", line 359, in loads\n    return cls(**kw).decode(s)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 337, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 353, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 51, in finite\n    need(math.isfinite(parsed), 'nonfinite JSON number')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 33, in need\n    raise ValueError(message)\nValueError: nonfinite JSON number\n"
+    },
+    {
+      "mode": "O",
+      "case": "bound549-source-only",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-frontend-controls-final-v3/O-staging",
+        "--prepared-root",
+        "/data/ivy-ramanujan-source-pv-20261119/portable-local-full-generation-v1",
+        "--bound-result",
+        "--plan-only",
+        "--jobs",
+        "2",
+        "--cpus",
+        "10,11"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"LOCKED_SOURCE_BYTES_ONLY_NOT_PROOF_ACCEPTANCE\", \"modules\": 549}\n",
+      "stderr": ""
+    },
+    {
+      "mode": "O",
+      "case": "unrelated_backend",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-frontend-controls-final-v3/O-unrelated_backend"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 261, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 72, in main\n    need(plan['targets'] == [lock['root']] and plan['selected_theorems'] == lock['theorems'],\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 33, in need\n    raise ValueError(message)\nValueError: actual final consumer and complete theorem population\n"
+    },
+    {
+      "mode": "O",
+      "case": "forged_modules",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-frontend-controls-final-v3/O-forged_modules"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 261, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 60, in main\n    need(type(modules) is int and modules in [548, 549], 'exact completed mathematical population')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 33, in need\n    raise ValueError(message)\nValueError: exact completed mathematical population\n"
+    },
+    {
+      "mode": "O",
+      "case": "forged_lock",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-frontend-controls-final-v3/O-forged_lock"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 261, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 63, in main\n    need(streamed_sha(lock_path) == result['source_lock_sha256'], 'exact preserved source lock')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 33, in need\n    raise ValueError(message)\nValueError: exact preserved source lock\n"
+    },
+    {
+      "mode": "O",
+      "case": "forged_frontend",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-frontend-controls-final-v3/O-forged_frontend"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 261, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 64, in main\n    need(sha(directory / 'frontend.py') == result['script_sha256'] == sha(Path(__file__)),\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 33, in need\n    raise ValueError(message)\nValueError: current and executed frontend source identity\n"
+    },
+    {
+      "mode": "O",
+      "case": "forged_helper",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-frontend-controls-final-v3/O-forged_helper"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 261, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 66, in main\n    need(result['helper_sha256'] == sha(backend) == sha(directory / 'build/controller.py'),\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 33, in need\n    raise ValueError(message)\nValueError: current and executed proof acceptance backend\n"
+    },
+    {
+      "mode": "O",
+      "case": "forged_module_census",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-frontend-controls-final-v3/O-forged_module_census"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 261, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 77, in main\n    need(len(expected) == len(actual) == len(plan['modules']) == modules and actual == expected,\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 33, in need\n    raise ValueError(message)\nValueError: every exact locked application module and source\n"
+    },
+    {
+      "mode": "O",
+      "case": "duplicate_json",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-frontend-controls-final-v3/O-duplicate_json"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 261, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 57, in main\n    result = strict_json(directory / 'RESULT.json')\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 57, in strict_json\n    return strict_json_text(Path(path).read_text())\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 53, in strict_json_text\n    return json.loads(data, object_pairs_hook=pairs, parse_constant=invalid, parse_float=finite)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/__init__.py\", line 359, in loads\n    return cls(**kw).decode(s)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 337, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 353, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 44, in pairs\n    need(key not in result, 'duplicate JSON key')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 33, in need\n    raise ValueError(message)\nValueError: duplicate JSON key\n"
+    },
+    {
+      "mode": "O",
+      "case": "nonfinite_json",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-frontend-controls-final-v3/O-nonfinite_json"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 261, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 57, in main\n    result = strict_json(directory / 'RESULT.json')\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 57, in strict_json\n    return strict_json_text(Path(path).read_text())\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 53, in strict_json_text\n    return json.loads(data, object_pairs_hook=pairs, parse_constant=invalid, parse_float=finite)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/__init__.py\", line 359, in loads\n    return cls(**kw).decode(s)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 337, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 353, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 51, in finite\n    need(math.isfinite(parsed), 'nonfinite JSON number')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 33, in need\n    raise ValueError(message)\nValueError: nonfinite JSON number\n"
+    },
+    {
+      "mode": "OO",
+      "case": "bound549-source-only",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-frontend-controls-final-v3/OO-staging",
+        "--prepared-root",
+        "/data/ivy-ramanujan-source-pv-20261119/portable-local-full-generation-v1",
+        "--bound-result",
+        "--plan-only",
+        "--jobs",
+        "2",
+        "--cpus",
+        "10,11"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"LOCKED_SOURCE_BYTES_ONLY_NOT_PROOF_ACCEPTANCE\", \"modules\": 549}\n",
+      "stderr": ""
+    },
+    {
+      "mode": "OO",
+      "case": "unrelated_backend",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-frontend-controls-final-v3/OO-unrelated_backend"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 261, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 72, in main\n    need(plan['targets'] == [lock['root']] and plan['selected_theorems'] == lock['theorems'],\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 33, in need\n    raise ValueError(message)\nValueError: actual final consumer and complete theorem population\n"
+    },
+    {
+      "mode": "OO",
+      "case": "forged_modules",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-frontend-controls-final-v3/OO-forged_modules"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 261, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 60, in main\n    need(type(modules) is int and modules in [548, 549], 'exact completed mathematical population')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 33, in need\n    raise ValueError(message)\nValueError: exact completed mathematical population\n"
+    },
+    {
+      "mode": "OO",
+      "case": "forged_lock",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-frontend-controls-final-v3/OO-forged_lock"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 261, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 63, in main\n    need(streamed_sha(lock_path) == result['source_lock_sha256'], 'exact preserved source lock')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 33, in need\n    raise ValueError(message)\nValueError: exact preserved source lock\n"
+    },
+    {
+      "mode": "OO",
+      "case": "forged_frontend",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-frontend-controls-final-v3/OO-forged_frontend"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 261, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 64, in main\n    need(sha(directory / 'frontend.py') == result['script_sha256'] == sha(Path(__file__)),\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 33, in need\n    raise ValueError(message)\nValueError: current and executed frontend source identity\n"
+    },
+    {
+      "mode": "OO",
+      "case": "forged_helper",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-frontend-controls-final-v3/OO-forged_helper"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 261, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 66, in main\n    need(result['helper_sha256'] == sha(backend) == sha(directory / 'build/controller.py'),\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 33, in need\n    raise ValueError(message)\nValueError: current and executed proof acceptance backend\n"
+    },
+    {
+      "mode": "OO",
+      "case": "forged_module_census",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-frontend-controls-final-v3/OO-forged_module_census"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 261, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 77, in main\n    need(len(expected) == len(actual) == len(plan['modules']) == modules and actual == expected,\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 33, in need\n    raise ValueError(message)\nValueError: every exact locked application module and source\n"
+    },
+    {
+      "mode": "OO",
+      "case": "duplicate_json",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-frontend-controls-final-v3/OO-duplicate_json"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 261, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 57, in main\n    result = strict_json(directory / 'RESULT.json')\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 57, in strict_json\n    return strict_json_text(Path(path).read_text())\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 53, in strict_json_text\n    return json.loads(data, object_pairs_hook=pairs, parse_constant=invalid, parse_float=finite)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/__init__.py\", line 359, in loads\n    return cls(**kw).decode(s)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 337, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 353, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 44, in pairs\n    need(key not in result, 'duplicate JSON key')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 33, in need\n    raise ValueError(message)\nValueError: duplicate JSON key\n"
+    },
+    {
+      "mode": "OO",
+      "case": "nonfinite_json",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-frontend-controls-final-v3/OO-nonfinite_json"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 261, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_packed_million.py\", line 57, in main\n    result = strict_json(directory / 'RESULT.json')\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 57, in strict_json\n    return strict_json_text(Path(path).read_text())\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 53, in strict_json_text\n    return json.loads(data, object_pairs_hook=pairs, parse_constant=invalid, parse_float=finite)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/__init__.py\", line 359, in loads\n    return cls(**kw).decode(s)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 337, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 353, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 51, in finite\n    need(math.isfinite(parsed), 'nonfinite JSON number')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_guarded_coupled_closure.py\", line 33, in need\n    raise ValueError(message)\nValueError: nonfinite JSON number\n"
+    }
+  ],
+  "full_fresh_positive_check_is_separate": true
+}
