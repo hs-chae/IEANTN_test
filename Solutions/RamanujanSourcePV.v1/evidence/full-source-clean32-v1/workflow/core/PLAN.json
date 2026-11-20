@@ -1,0 +1,924 @@
+{
+  "targets": [
+    "RamanujanPV.FullFiniteSourcePV"
+  ],
+  "selected_theorems": [
+    "RamanujanPV.FullFiniteSourcePV.row_source"
+  ],
+  "modules": [
+    {
+      "module": "LCMSourcePV.RestrictedC",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/RestrictedC.lean",
+      "source_sha256": "4442a24f59ff243f36649903767beb444b8099753532528f86df55efa388ef88",
+      "imports": [
+        "Mathlib"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.CSource",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/CSource.lean",
+      "source_sha256": "afb812a02fafe273230c1808c13a098f4b5d1abfdc7cc62f294c6087bd352ce0",
+      "imports": [
+        "LCMSourcePV.RestrictedC"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "WitnessCGrammar",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/WitnessCGrammar.lean",
+      "source_sha256": "57fcfa86a5e443cc6989ea65e92e6284657e24a7f62726b4dda048281c5d8b8b",
+      "imports": [
+        "LCMSourcePV.RestrictedC"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "LCMSourcePV.ASTLoops",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTLoops.lean",
+      "source_sha256": "e496bf461b8878b2d29e4b679287cf2bdf3237eb78b70ff5f4811d0103eca78c",
+      "imports": [
+        "WitnessCGrammar"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.CArithmetic",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/CArithmetic.lean",
+      "source_sha256": "a43eaa29da61ef83506088fd97807070fada57739c4e66d77b92bb4e04d4a9fa",
+      "imports": [
+        "RamanujanPV.CSource",
+        "LCMSourcePV.ASTLoops",
+        "Mathlib.NumberTheory.PrimeCounting"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientCMachine",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCMachine.lean",
+      "source_sha256": "e63f5fddead284ad07b2a8568af3b9cf0d44f2d8ca42da2c118603944ab4edab",
+      "imports": [
+        "RamanujanPV.CArithmetic",
+        "Mathlib.Logic.Function.Basic"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientCSourceV2",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCSourceV2.lean",
+      "source_sha256": "0118e1c63aaeb80457ff5c21bc06e30896586797a6c2e7df1a48d137efc6dbcb",
+      "imports": [
+        "LCMSourcePV.ASTLoops"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.PrimeCount",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/PrimeCount.lean",
+      "source_sha256": "fb70b77baf77e18cb0ef080d455619848e1a9be889bbb3b7148917f687ea8628",
+      "imports": [
+        "RamanujanPV.CArithmetic"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientSieve",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientSieve.lean",
+      "source_sha256": "890b104df8bac9b4fecab2be313415ed973a458534f784d25a05a6d6aa617b3a",
+      "imports": [
+        "RamanujanPV.PrimeCount"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientTables",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientTables.lean",
+      "source_sha256": "977185de118b66216fa3c80faaac34c14a257ce6e26d92cd5d80931351b91e25",
+      "imports": [
+        "RamanujanPV.QuotientSieve",
+        "Mathlib.Logic.Function.Basic"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientCInit",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCInit.lean",
+      "source_sha256": "4ddacb9ed3387e9e73161f5da83a1996adb45f0e80256b557cf4bbb09ac04f17",
+      "imports": [
+        "RamanujanPV.QuotientCMachine",
+        "RamanujanPV.QuotientCSourceV2",
+        "RamanujanPV.QuotientTables"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientCSource",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCSource.lean",
+      "source_sha256": "b0818abe21527e9aefa59166ca08e241b8c62e7c7d1bbe48c0650abe6bda976e",
+      "imports": [
+        "RamanujanPV.QuotientCSourceV2"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientSqrtExecute",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientSqrtExecute.lean",
+      "source_sha256": "2d02ee478feb8c22f5eae4fde1e727c5618bb3e795902fd97d0b4b5d6603a6b2",
+      "imports": [
+        "RamanujanPV.QuotientCMachine",
+        "RamanujanPV.QuotientCSource"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientWordBounds",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientWordBounds.lean",
+      "source_sha256": "e2ece772129aaee5b913aaae644ad048e3cc22f50ce58dc24b84f4d893f8d1d8",
+      "imports": [
+        "RamanujanPV.QuotientSieve"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientCExecute",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCExecute.lean",
+      "source_sha256": "f33630b2c8d0c668df345e15ef8247f6a1ef8deb3c51d89b71dcb5749ec1f23f",
+      "imports": [
+        "RamanujanPV.QuotientCMachine",
+        "RamanujanPV.QuotientCSourceV2",
+        "RamanujanPV.QuotientTables",
+        "RamanujanPV.QuotientWordBounds"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientCFunctionPrefix",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCFunctionPrefix.lean",
+      "source_sha256": "4aa21bd64d1d821e96f135188f8485597a68a46b71f0fef76da6afda1092c191",
+      "imports": [
+        "RamanujanPV.QuotientCInit",
+        "RamanujanPV.QuotientSqrtExecute",
+        "RamanujanPV.QuotientCExecute"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientCLarge",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCLarge.lean",
+      "source_sha256": "f4bad60d75c50184282b7d3f7ab2b6acf34dfa587c5a041de9e7d25ef494379d",
+      "imports": [
+        "RamanujanPV.QuotientCExecute"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientCSmallLoop",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCSmallLoop.lean",
+      "source_sha256": "cfd96197cdc23d71a60a8c6358973b04d918a6643d72010aba8a6c15353eabff",
+      "imports": [
+        "RamanujanPV.QuotientCExecute"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientCRound",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCRound.lean",
+      "source_sha256": "a46de7cd30e33df2544e7ccac8608609d922c50d405bee62ad1981b118e1eaa1",
+      "imports": [
+        "RamanujanPV.QuotientCLarge",
+        "RamanujanPV.QuotientCSmallLoop",
+        "RamanujanPV.QuotientCInit"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientCWhole",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCWhole.lean",
+      "source_sha256": "82704a9581a67167215223a5de0bb0a245c33d34c4bb809627aee2e2824fa8d5",
+      "imports": [
+        "RamanujanPV.QuotientCRound",
+        "RamanujanPV.QuotientCLarge"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "LCMSourcePV.ASTDeterminism",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean",
+      "source_sha256": "ca942c44520448fc52eca0b83e5e1769929e6b71a93b0776306089ebca70e74f",
+      "imports": [
+        "LCMSourcePV.ASTLoops"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientCDeterminism",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCDeterminism.lean",
+      "source_sha256": "6f851fa5c9007f8f41e4743882a13ca3439b867bbafceba111e6f262dd27b771",
+      "imports": [
+        "RamanujanPV.QuotientCMachine",
+        "LCMSourcePV.ASTDeterminism"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientCFunction",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCFunction.lean",
+      "source_sha256": "f2d1cbc98edaa36a9458c5d9b49951c256bd837defe76f5e45f1f266ae2bc095",
+      "imports": [
+        "RamanujanPV.QuotientCFunctionPrefix",
+        "RamanujanPV.QuotientCWhole",
+        "RamanujanPV.QuotientCDeterminism"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "IEANTN.Vocabulary.PrimeCounting",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/IEANTN/Vocabulary/PrimeCounting.lean",
+      "source_sha256": "2863183b4c78aa1abd3be714dceeef534d6f3141c20a8df10c47b13aa38731d5",
+      "imports": [
+        "Mathlib.NumberTheory.PrimeCounting",
+        "Mathlib.MeasureTheory.Integral.Bochner.Set",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.Intervals",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/Intervals.lean",
+      "source_sha256": "fa6c22921bd2b3fdce2cf174f4e188c9185e5c2693a014a83b3e4ff3fc343121",
+      "imports": [
+        "Mathlib",
+        "IEANTN.Vocabulary.PrimeCounting"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "IEANTN.Nodes.DudekPlatt.v3.Conclusions",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/IEANTN/Nodes/DudekPlatt/v3/Conclusions.lean",
+      "source_sha256": "e30db1a432e6f90700e55212583e560deca0e006b7c46eea5dc4e38f7fae318c",
+      "imports": [
+        "IEANTN.Vocabulary.PrimeCounting"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "IEANTN.Nodes.DudekPlattNumerics.v6.Conclusions",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/IEANTN/Nodes/DudekPlattNumerics/v6/Conclusions.lean",
+      "source_sha256": "cb9978a273bf1514ad605b52740854254389d4aa1e591bb07d528cecc606aea1",
+      "imports": [
+        "IEANTN.Nodes.DudekPlatt.v3.Conclusions"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuantitativeTail",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuantitativeTail.lean",
+      "source_sha256": "9ab8cba2f93ff2f712f59c5f43685f8e9bb7b8ed866a1328115b0a39cd547e13",
+      "imports": [
+        "Mathlib",
+        "RamanujanPV.Intervals",
+        "IEANTN.Nodes.DudekPlatt.v3.Conclusions",
+        "IEANTN.Nodes.DudekPlattNumerics.v6.Conclusions"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.AnalyticTransition",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/AnalyticTransition.lean",
+      "source_sha256": "b0f55eab34c6a8009f24a09e31c428a3e6c7ddf4168a63c166b9a0d4a276c3c9",
+      "imports": [
+        "Mathlib",
+        "RamanujanPV.QuantitativeTail"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.AnalyticGlue",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/AnalyticGlue.lean",
+      "source_sha256": "916a019f79ef53f2b579bb3fe9bcf272e35358868fcbd41658d78416ea81a479",
+      "imports": [
+        "RamanujanPV.Intervals",
+        "RamanujanPV.AnalyticTransition"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientCCell",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCCell.lean",
+      "source_sha256": "721bd27bc032f572eadd6feb5a5777cbe49af94ad94b16d8ca92fa07541ed74a",
+      "imports": [
+        "RamanujanPV.QuotientCFunction",
+        "RamanujanPV.AnalyticGlue"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientDriverSource",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientDriverSource.lean",
+      "source_sha256": "63f555c2785856562fb4762ea464c3736cddafde63db5e69cc25745d4bcfff8f",
+      "imports": [
+        "RamanujanPV.QuotientCSourceV2"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientDriverInit",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientDriverInit.lean",
+      "source_sha256": "8b0018fc8efb2ad5223385ed14df8a25cb00251a9b8892c0b903943872af0a38",
+      "imports": [
+        "RamanujanPV.QuotientDriverSource",
+        "RamanujanPV.QuotientCMachine"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientCountRealization",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCountRealization.lean",
+      "source_sha256": "502c3867e07c59712d801f87d745d88afd83bb0154c65f090ee86fd38bbd2b98",
+      "imports": [
+        "RamanujanPV.QuotientCCell",
+        "RamanujanPV.QuotientDriverInit"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientAlgorithm",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientAlgorithm.lean",
+      "source_sha256": "904fd8729d29c57f7c0599707d48787ae74a1e912755556e7bf1dee77a296595",
+      "imports": [
+        "RamanujanPV.QuotientSieve"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientTreeCheck",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientTreeCheck.lean",
+      "source_sha256": "ad56ded1a0dab45882676177f31f89e11b6eec5448b2ab7ff2ce0f3140744daa",
+      "imports": [
+        "RamanujanPV.QuotientAlgorithm",
+        "Lean.Data.RArray"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientCertificateCode",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientCertificateCode.lean",
+      "source_sha256": "dc235a883aa063bfa8d9b5975654a7a2688fc9050f78fa65a27cc6e6419fb0f7",
+      "imports": [
+        "Lean.Data.RArray"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientDemandCheck",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientDemandCheck.lean",
+      "source_sha256": "01839254e99d9ad5b35fbfbe7cab7261a9e201d227e23b188a2669fa2fbd641a",
+      "imports": [
+        "RamanujanPV.QuotientTreeCheck",
+        "RamanujanPV.QuotientCertificateCode"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.LocalWindowCode",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/LocalWindowCode.lean",
+      "source_sha256": "f8d1b0affa7c0902d49a8291c1fc3a1091165f98f99e87e451d6a75adb7c2704",
+      "imports": [
+        "RamanujanPV.QuotientCertificateCode"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.PrimeWindow",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/PrimeWindow.lean",
+      "source_sha256": "e5a5d504eb788bd45076171bba431914649caa1ac20d8c215c22677124e9455b",
+      "imports": [
+        "RamanujanPV.QuotientCountRealization",
+        "RamanujanPV.QuotientDemandCheck",
+        "RamanujanPV.LocalWindowCode"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.WindowCells",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/WindowCells.lean",
+      "source_sha256": "f3c497fa5f08350e516d09d0b034161f5627e3265cf473d8361f49a54ec2a66c",
+      "imports": [
+        "RamanujanPV.PrimeWindow",
+        "RamanujanPV.AnalyticGlue",
+        "RamanujanPV.AnalyticTransition"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.FullFiniteScalars",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FullFiniteScalars.lean",
+      "source_sha256": "97c5116e68efbf3f22c570350e6ebc54ff20cd09170ee06341e20fbdce42b915",
+      "imports": [
+        "RamanujanPV.WindowCells"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.WideScalar",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/WideScalar.lean",
+      "source_sha256": "d2a7cdb5d13ece248a477b4d95c2b6499076e680c82b7873747d38301954c361",
+      "imports": [
+        "LCMSourcePV.RestrictedC"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.FiniteScalarMachine",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarMachine.lean",
+      "source_sha256": "c39483b851be2479e36edbd4b7728b1872bf616d71a02be893d3b71677cf23c9",
+      "imports": [
+        "RamanujanPV.WideScalar",
+        "LCMSourcePV.ASTLoops",
+        "LCMSourcePV.ASTDeterminism"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.FiniteScalarWords",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarWords.lean",
+      "source_sha256": "749bc38f0e466f6b2ced238a309e7feb4309728887be7e9309ad3dbed96aeb57",
+      "imports": [
+        "RamanujanPV.FiniteScalarMachine"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.FiniteScalarRules",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarRules.lean",
+      "source_sha256": "c1d1d0486362375424b0576f5f230d808ed7b6246f25c2b6449c8629a79e269d",
+      "imports": [
+        "RamanujanPV.FiniteScalarWords"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.FiniteLogSource",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogSource.lean",
+      "source_sha256": "d68705d028e0fd22d3b026691f9b7f88dd8407fb709a6daddf81d374bd83dae3",
+      "imports": [
+        "LCMSourcePV.ASTLoops"
+      ],
+      "memory_limit_bytes": 103079215104
+    },
+    {
+      "module": "RamanujanPV.FiniteLogBounds",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogBounds.lean",
+      "source_sha256": "6a2b48c0fe8dc30fb5fbae77a43a745d5c07ab857ea110733033e453b54eb04f",
+      "imports": [
+        "RamanujanPV.AnalyticTransition"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.FiniteLogNormalizationBounds",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogNormalizationBounds.lean",
+      "source_sha256": "5af5019947a1b06b1c6a826d64e2540aa1d25e0ad3a59e62d3b3f5965e9fc5cc",
+      "imports": [
+        "RamanujanPV.FiniteLogBounds"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.FiniteLogNormalize",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogNormalize.lean",
+      "source_sha256": "50e1f5109e1938942ba64fee645ea7298e204d240efc0e0330bca49048a8a6de",
+      "imports": [
+        "RamanujanPV.FiniteScalarRules",
+        "RamanujanPV.FiniteLogSource",
+        "RamanujanPV.FiniteLogNormalizationBounds"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.FiniteLogCeil",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogCeil.lean",
+      "source_sha256": "cfdd6be9f8cfaf9b00c98cc4f8ca25920b9364f007dea8d48f06ba1f83593995",
+      "imports": [
+        "RamanujanPV.FiniteScalarRules",
+        "RamanujanPV.FiniteLogSource",
+        "RamanujanPV.AnalyticTransition"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.FiniteLogServices",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogServices.lean",
+      "source_sha256": "961dca3ab91295a750d4872d39d11d942ef110e0df9687d40187f531ea72b3c8",
+      "imports": [
+        "RamanujanPV.FiniteLogCeil"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.FiniteCellWords",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellWords.lean",
+      "source_sha256": "daae98928a9ae7802edfa185d908ddfa28ecfc25e8560955d99ab69a17710422",
+      "imports": [
+        "RamanujanPV.FiniteScalarRules"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.FiniteLogSeriesRules",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogSeriesRules.lean",
+      "source_sha256": "f4a98a12283d2034c9c23684f2b3b51c2885c5d77c54b36b7b1f60933d9be282",
+      "imports": [
+        "RamanujanPV.FiniteLogServices",
+        "RamanujanPV.FiniteCellWords"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.FiniteLogUpperPrefix",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogUpperPrefix.lean",
+      "source_sha256": "b0d19d1d1e6280ab803c96e3dd5953e84896e758ca962c723fc6c41e921fa2f2",
+      "imports": [
+        "RamanujanPV.FiniteLogNormalize",
+        "RamanujanPV.FiniteLogSeriesRules"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.FiniteLogNormalizationUnique",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogNormalizationUnique.lean",
+      "source_sha256": "b60c98014cd33557b53cceedca312d867798ef50a035c30d22852a32c903a61d",
+      "imports": [
+        "RamanujanPV.FiniteLogNormalize"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.FinitePredicateBounds",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FinitePredicateBounds.lean",
+      "source_sha256": "8d3aeb35642aa05d85d1a2075769d4cd0ad46f32715c0769ee8d7601c6825eb6",
+      "imports": [
+        "Mathlib.Data.Nat.Basic",
+        "Mathlib.Tactic"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.FiniteLogSeriesInit",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogSeriesInit.lean",
+      "source_sha256": "72a02f09ff8cc749a0b4cd0f85db412d838349f5f4291d14c79ffc9100139108",
+      "imports": [
+        "RamanujanPV.FiniteLogSeriesRules",
+        "RamanujanPV.FiniteLogBounds",
+        "RamanujanPV.FinitePredicateBounds"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.FiniteLogSeriesReturn",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogSeriesReturn.lean",
+      "source_sha256": "6bc5ed2ea542a2dea7d5ce6aa1053a2acea0193a50d8267174dd59fd4e2fb9a5",
+      "imports": [
+        "RamanujanPV.FiniteLogSeriesInit"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.FiniteLogSeriesLoop",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogSeriesLoop.lean",
+      "source_sha256": "bceaf6bdbca91fa675da1c0b1ca527dc1ab705c7734aa79492bc8e82a472f6b5",
+      "imports": [
+        "RamanujanPV.FiniteLogServices",
+        "RamanujanPV.FiniteLogNormalize",
+        "RamanujanPV.FiniteLogBounds",
+        "RamanujanPV.FiniteCellWords"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.FiniteLogSeriesExecute",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogSeriesExecute.lean",
+      "source_sha256": "d712090373df8b6d10ee884537cf76ca4868e1799fcdf81829ec2a4f0116eaea",
+      "imports": [
+        "RamanujanPV.FiniteLogSeriesReturn",
+        "RamanujanPV.FiniteLogSeriesLoop"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.FiniteLogUpperExecute",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogUpperExecute.lean",
+      "source_sha256": "f9a9da814a7e5b9da37583e14c2f2f5e991f076b4cebe3b5eb33f879442a2702",
+      "imports": [
+        "RamanujanPV.FiniteLogUpperPrefix",
+        "RamanujanPV.FiniteLogNormalizationUnique",
+        "RamanujanPV.FiniteLogSeriesExecute"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.FiniteScalarEval",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean",
+      "source_sha256": "2aa70e3abf7c642d913ef31a80743e6fe6abc75a1e95991fdf583273eee82322",
+      "imports": [
+        "RamanujanPV.FiniteScalarMachine"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.FiniteExpSource",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteExpSource.lean",
+      "source_sha256": "d7cc7a9d14f9503128c16192144f9db8569896a1721d9c85838b3dde39e59a4b",
+      "imports": [
+        "LCMSourcePV.ASTLoops"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.FiniteWideExpExecute",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteWideExpExecute.lean",
+      "source_sha256": "cd0b869bea38dae81a85753ea6951786028312608980d5cc7cc732becb967115",
+      "imports": [
+        "RamanujanPV.FiniteScalarEval",
+        "RamanujanPV.FiniteExpSource",
+        "RamanujanPV.AnalyticTransition"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.FiniteWideExpLinked",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteWideExpLinked.lean",
+      "source_sha256": "64a6de4f9fcce1f3f9edb69f295b625fd1d0d220b1d8cf041d04d0ce3f95ecb6",
+      "imports": [
+        "RamanujanPV.FiniteWideExpExecute"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.FiniteWideExpEnclosures",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteWideExpEnclosures.lean",
+      "source_sha256": "9d4578d9767a48e8a283061d24e1694045df9621ee16e24116cd442e0803411a",
+      "imports": [
+        "RamanujanPV.FiniteWideExpLinked",
+        "RamanujanPV.WindowCells"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.FiniteCellSource",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellSource.lean",
+      "source_sha256": "5d2597bda5804630dea3842564f3ce039f313524bef5faeea52d431161ae0006",
+      "imports": [
+        "RamanujanPV.FiniteLogSource",
+        "RamanujanPV.FiniteExpSource"
+      ],
+      "memory_limit_bytes": 103079215104
+    },
+    {
+      "module": "RamanujanPV.FiniteLogExecution",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogExecution.lean",
+      "source_sha256": "02bf943e032a2293c6cf0dfeb77ce3a97c360dac68fb03c281cb20c6bae02b8e",
+      "imports": [
+        "RamanujanPV.FiniteScalarEval",
+        "RamanujanPV.FiniteLogServices"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.FiniteCellExecution",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellExecution.lean",
+      "source_sha256": "79dc02c2fe1a04692158947dd02acfc38b2e2edd95443ee5ceb9d3129b6114bb",
+      "imports": [
+        "RamanujanPV.FiniteCellSource",
+        "RamanujanPV.FiniteLogExecution",
+        "RamanujanPV.FiniteWideExpLinked",
+        "RamanujanPV.WindowCells"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.FiniteCellProtected",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellProtected.lean",
+      "source_sha256": "dc05c4e5bc527373b39fa4c2fa9b87957d4d14503f2a3bf0dbfb49f2bb1263a5",
+      "imports": [
+        "RamanujanPV.FiniteCellExecution",
+        "RamanujanPV.FinitePredicateBounds",
+        "RamanujanPV.FiniteScalarRules",
+        "RamanujanPV.FiniteCellWords"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.FullFiniteSourceApp",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FullFiniteSourceApp.lean",
+      "source_sha256": "2056d575f15956dd3c62bf662ef9516cbf1d0de72ba94e1c273327854d7f0f9a",
+      "imports": [
+        "RamanujanPV.FullFiniteScalars",
+        "RamanujanPV.FiniteLogUpperExecute",
+        "RamanujanPV.FiniteWideExpEnclosures",
+        "RamanujanPV.FiniteCellProtected"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.FiniteCellGeneric",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellGeneric.lean",
+      "source_sha256": "1ba02a899301b6c873b1a68b741d4e36d689af62aaa52668f04792f231578af9",
+      "imports": [
+        "RamanujanPV.FiniteCellProtected",
+        "RamanujanPV.FiniteLogUpperExecute"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.FirstCriticalCell",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FirstCriticalCell.lean",
+      "source_sha256": "0cbddbcaa4c1eaf775c6d85b0c2a8124e0491e83ae668536f5cc653866b20645",
+      "imports": [
+        "RamanujanPV.QuotientCountRealization",
+        "RamanujanPV.AnalyticTransition"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.RecoveredMargin",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/RecoveredMargin.lean",
+      "source_sha256": "35828cda2a0979086696d0e6e318715c802c203068a930403b25b80854e7a18f",
+      "imports": [
+        "RamanujanPV.FirstCriticalCell"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.WindowMargin",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/WindowMargin.lean",
+      "source_sha256": "9a0ce2bb079f76a2c72bb88254d2f41dc30931b82abb4ddaa676780f2087490b",
+      "imports": [
+        "RamanujanPV.WindowCells",
+        "RamanujanPV.RecoveredMargin"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.CertificateMargin",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/CertificateMargin.lean",
+      "source_sha256": "be43d463408062f4259d51e3759f1c7b3cc9ba798150f462ed2fafe575e49691",
+      "imports": [
+        "RamanujanPV.WindowMargin"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.FullFiniteSourcePV",
+      "root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+      "source": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FullFiniteSourcePV.lean",
+      "source_sha256": "0bd53a880c22828ee31adfa7bf7b8b14fcd2fdddc95cd3e887f1ff4b23eafcab",
+      "imports": [
+        "RamanujanPV.FullFiniteSourceApp",
+        "RamanujanPV.FiniteCellGeneric",
+        "RamanujanPV.CertificateMargin"
+      ],
+      "memory_limit_bytes": 51539607552
+    }
+  ],
+  "compiler": "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+  "compiler_sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+  "context": "/data/ivy-ramanujan-source-pv-20261119/full-source-clean-profile32-v1/CONTEXT.json",
+  "context_sha256": "3148c6d2b1f566d91139606886ed9974a64ca96fa1bb60ab469a448bf18accd6",
+  "script_sha256": "ca34b6a525d03218a9410acae3010e87095771cbc61a5ce397ea2cdda55f5ee8",
+  "generic_libraries": [
+    "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/mathlib/.lake/build/lib/lean",
+    "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/plausible/.lake/build/lib/lean",
+    "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/LeanSearchClient/.lake/build/lib/lean",
+    "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/importGraph/.lake/build/lib/lean",
+    "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/proofwidgets/.lake/build/lib/lean",
+    "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/aesop/.lake/build/lib/lean",
+    "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/Qq/.lake/build/lib/lean",
+    "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/batteries/.lake/build/lib/lean",
+    "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/lib/lean"
+  ],
+  "old_application_objects_used": false,
+  "max_parallel_workers": 4,
+  "aggregate_memory_ceiling_bytes": 322122547200,
+  "memory_ceiling_bytes": 103079215104,
+  "host_reserve_bytes": 549755813888,
+  "resource_profile": {
+    "exact": {
+      "RamanujanPV.FiniteLogSource": 96,
+      "RamanujanPV.FiniteCellSource": 96
+    },
+    "prefix": {}
+  },
+  "default_memory_gib": 48,
+  "final_audit_memory_limit_bytes": 51539607552,
+  "host_memavailable_before_bytes": 1419830968320,
+  "cpus": [
+    52,
+    53,
+    54,
+    55
+  ],
+  "payloads": [
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/c/verified_finite_cell.c",
+      "sha256": "f291fb2062a1879a7d1aaea852eee803ba470455bb3f3fe505f9e1c5136637a9"
+    },
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/c/verified_finite_exp.c",
+      "sha256": "27a2ea53ced1d46ff681aac7e8ce10a18622af0b93a49eee0cfa1ca5874f4022"
+    },
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/c/verified_finite_log.c",
+      "sha256": "a22ee045b69b971a6fd3156ba745b3bebf7109ed98db43bf0064244e538b246c"
+    },
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/c/verified_primecount.c",
+      "sha256": "a2569a2cc2ae7a0b327c8fd7da4c2640acfb68701798a767c1b7783c08ff3c23"
+    },
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/c/verified_quotient_count.c",
+      "sha256": "85326ecb93d86c693d980352ebde59a350eef89b4f367c88b65fa88f58d991dd"
+    },
+    {
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/c/verified_quotient_driver_n0.c",
+      "sha256": "51e4121a8c0750a06ac238c5cd455f991b4dcdf194fa2e3dc2a19bf4e5fdae72"
+    }
+  ]
+}

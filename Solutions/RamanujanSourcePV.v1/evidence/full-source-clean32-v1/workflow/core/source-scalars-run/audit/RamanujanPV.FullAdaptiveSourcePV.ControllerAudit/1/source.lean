@@ -1,0 +1,4 @@
+import RamanujanPV.FullAdaptiveSourcePV.Final
+example : RamanujanPV.FullFiniteSourcePV.SourceMarginCertificate 38358837683 38358853591 9005 (RamanujanPV.FullFiniteScalars.rawRows RamanujanPV.FullAdaptiveScalars.Block0000.rows RamanujanPV.FullAdaptiveScalars.Block0000.count) := RamanujanPV.FullAdaptiveSourcePV.all_source_margins
+#print axioms RamanujanPV.FullAdaptiveSourcePV.all_source_margins
+#print axioms RamanujanPV.FullAdaptiveSourcePV.all_source_scalars

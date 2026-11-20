@@ -1,0 +1,37 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/AnalyticMargin.lean:41:2: error: linarith failed to find a contradiction
+pi li : ℝ → ℝ
+hseries : LogIntegralSeriesIdentity li
+hderiv : LogIntegralDerivative li
+hlower : AxlerLiLower li
+hpi0 : ∀ x ∈ Icc 1490000000000 10000000000000000000, 0 ≤ pi x
+hpiU : ∀ x ∈ Icc 1490000000000 10000000000000000000, pi x ≤ upperPi li x
+hpiL :
+  ∀ x ∈ Icc 1490000000000 10000000000000000000,
+    li (x / rexp 1) - 1061 / 500 * √(x / rexp 1) / (log x - 1) ≤ pi (x / rexp 1)
+x : ℝ
+hx : x ∈ Icc 1490000000000 10000000000000000000
+hx0 : 0 < x
+hL : 0 < log x
+hLhi : log x ≤ 44
+he : 1 ≤ rexp 1
+heX : x ≤ rexp 1 * x
+hR : 90 < li (x / rexp 1) - 1061 / 500 * √(x / rexp 1) / (log x - 1) - upperPi li x ^ 2 * log x / (rexp 1 * x)
+hsq : pi x ^ 2 ≤ upperPi li x ^ 2
+hterm : pi x ^ 2 * log x / (rexp 1 * x) ≤ upperPi li x ^ 2 * log x / (rexp 1 * x)
+hlow : li (x / rexp 1) - 1061 / 500 * √(x / rexp 1) / (log x - 1) ≤ pi (x / rexp 1)
+hnorm : 90 + pi x ^ 2 * log x / (rexp 1 * x) < pi (x / rexp 1)
+hden : 0 < rexp 1 * x
+hscaled : 90 * (rexp 1 * x) + pi x ^ 2 * log x < pi (x / rexp 1) * (rexp 1 * x)
+hcancel : pi x ^ 2 * log x / (rexp 1 * x) * (rexp 1 * x) = pi x ^ 2 * log x
+a✝ : rexp 1 * x * pi (x / rexp 1) ≤ (9005 + pi x ^ 2) * log x
+⊢ False
+failed
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/AnalyticMargin.lean:51:34: error: Type mismatch
+  (div_le_iff₀ ?m.141).mp hp
+has type
+  log x ^ 8 ≤ x * 40320
+but is expected to have type
+  log x ^ 8 ≤ 40320 * x
+'RamanujanPV.AnalyticMargin.bridge_gap' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'RamanujanPV.AnalyticMargin.quantitative_expression' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'RamanujanPV.AnalyticMargin.actual_bridge_gap' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

@@ -54,10 +54,10 @@ PY
 python3 scripts/generate_full_scalar_certificate.py \
   --run /data/replay-rpv/native-study/evidence/finite-actual-1490000000000/RUN.json \
   --certificates /data/replay-rpv/native/ivy-ramanujan-source-pv-20261119/finite-actual-1490000000000 \
-  --out /data/replay-rpv/full-scalars --name FullAdaptiveScalars \
+  --out /data/replay-rpv/core/full-scalars --name FullAdaptiveScalars \
   --rows-per-block 4096 --proof-chunk 512
 python3 scripts/execute_full_scalar_certificate.py \
-  --manifest /data/replay-rpv/full-scalars/PROPOSAL.json \
+  --manifest /data/replay-rpv/core/full-scalars/PROPOSAL.json \
   --native-run /data/replay-rpv/native-study/evidence/finite-actual-1490000000000/RUN.json \
   --context /data/replay-rpv/core/CONTEXT.json \
   --out /data/replay-rpv/core/full-scalars-run \

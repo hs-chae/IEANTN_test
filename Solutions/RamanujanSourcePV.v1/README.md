@@ -86,14 +86,41 @@ All1,755,663 original scalar cells now also have completed kernel proofs of the
 strict integer predicate, real e/log enclosures and exact adjacency through
 1,490,000,000,001:859 generated modules plus an independent audit,1548.30seconds,
 18,284.03 selected CPU-seconds, largest worker RSS6.96GiB, zero worker failures.
-This is **not source-first PV by itself and does not prove prime-count truth**.
-An additive actual-C scalar extension is separate from that accepted result.
+This first kernel-only stage is preserved separately. The additive actual-C
+source-scalar stage has now **also passed for every original row**:429 blocks,
+final and independent exact-type gate,305.50seconds; largest worker RSS6.585GiB.
+It independently checks the missing seven word bounds, count-size guards and
+exact floor identity, constructs all actual e/log/cell executions, and retains
+a separate kernel-only9,005 arithmetic margin from those source-associated row
+inputs/products. The C cell returns the strict Boolean; the9,005 number is an
+additional mathematical deduction, not a new native output.
+
+`FullSourceResult.all_scalar_programs` retains the exact C/AST bindings and that
+full source-scalar certificate. `AnalyticMargin.analytic_ray_gap9005` proves the
+same9,005 actual gap on the analytic ray, under the same24 inputs.
+`FullSourceResult.all_real_gap9005_if_counts_completed` compiles the stronger
+all-real consumer but explicitly REQUIRES `RemainingCountExecutions`. It has
+not constructed that missing witness. Its independent full dependency audit
+checks both closures,33/49 required paths,20 named shortcut exclusions and11
+whole prior-local-result namespace exclusions; only standard3 axioms occur.
+
+The original full certificate requests3,511,326 count sites at3,511,322 distinct
+arguments. This ordinary census is not a proof of any requested count. Generic
+C counter correctness and native observations do not prove every concrete table
+entry or supply all its actual source-run witnesses to the Lean consumer.
 
 At the full-height count1,490,000,000,000, actual proposal generation produced
 90,670,946 demand records in1410.88seconds/43GiB RSS. An independent all-record
 native audit passed in784.01seconds/3.55GiB RSS. Its count55,206,486,339 is not a
 Lean theorem: none of the larger3,464-module count proof has been kernel-accepted.
 All generated input/receipts are retained; original mathematics is unchanged.
+The original692 raw modules, gap-data and aggregate have since compiled, followed
+by the exact first32,768 numerical predicates (88.019s/13.22GiB; axiom-free).
+This remains a partial frontier: it proves neither all90.7m entries nor pi(1.49T).
+Object size and resident RAM are different:41.46GB of raw objects were imported
+lazily with0.633GiB measured aggregate-process RSS. See the original-frontier
+reproduction guide and receipts. A later full-sized chunk is being profiled
+before an exhaustive same-data count study; no full count success is inferred.
 
 The matched unit-increment baseline uses46348626 cells. Actual prime changes
 reduce certificate size26.40-fold, with similar wall time because enumeration
@@ -192,10 +219,14 @@ protected. See `evidence/storage-cleanup-v1/`.
 
 [Full scalar regeneration](REPRODUCE_FULL_SCALARS.md) records the exact accepted
 mathematical scope, commands and artifact identities. [Local million regeneration](REPRODUCE_LOCAL_MILLION.md)
-and `scripts/reproduce_finite_scalar_source.sh` give the count and actual-C overlay
-procedures. A fresh full overlay run is separately pending; commands and completed
-partial checks are not described as a finished clean reproduction.
+and [scalar-source reproduction](REPRODUCE_SCALAR_SOURCE_PV.md) give the count and actual-C overlay
+procedures. A whole clean32-row control passed, including all64 numerical files byte-identical,
+78 genuinely fresh models and32 fresh math/source rows. The full-population
+combined clean proof repeat and full local-million scalar overlay remain separate
+open reproduction stages; no larger clean repeat is inferred from that control.
 
 **Still open:** formal prime-count evidence for all full-prefix cells, the full
 concrete finite witness and complete combined source-linked interval execution
-through1.49trillion, and full C++ generator/caller source association. The million-unit theorem and the analytic ray do not meet across that gap.
+through1.49trillion. The C++ generator/caller is an explicit excluded scope;
+the mathematical theorem can be completed by soundly checking its outputs
+without verifying that permitted untrusted generator. The million-unit theorem and the analytic ray do not meet across that gap.

@@ -1,0 +1,457 @@
+{
+  "status": "PASS_PROFILED_RESUME_ACTUAL_NORMAL_O_OO_WEIGHTED_RESOURCE_AND_READBACK_CONTROLS",
+  "controller_sha256": "54110a89c4da4f0b29e68acc738301617486c727ed8c9e7113a8ee55ad83fbae",
+  "harness_sha256": "667112bd24e330d728952471ffac031d034156b30209d7a22cf1849b1234ae18",
+  "controller": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/resume_profiled_source_closure.py",
+  "routes": [
+    {
+      "mode": "normal",
+      "case": "readback-only",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/resume_profiled_source_closure.py",
+        "--run-root",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/normal-good-fixture",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/normal-good-fixture/resume-profiled-preview",
+        "--jobs",
+        "4",
+        "--cpus",
+        "8,9,10,11",
+        "--memory-gib",
+        "48",
+        "--aggregate-gib",
+        "300",
+        "--host-reserve-gib",
+        "512",
+        "--profile-json",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/PROFILE.json",
+        "--readback-only"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "1ec5b298dd994ece16b077526a25924d5c28e56775dce51c6a5e87bbfc51860d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "mode": "normal",
+      "case": "fresh-weighted",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/resume_profiled_source_closure.py",
+        "--run-root",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/normal-good-fixture",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/normal-good-fixture/resume-profiled-test",
+        "--jobs",
+        "4",
+        "--cpus",
+        "8,9,10,11",
+        "--memory-gib",
+        "48",
+        "--aggregate-gib",
+        "300",
+        "--host-reserve-gib",
+        "512",
+        "--profile-json",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/PROFILE.json"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "08f4a21492d06af704868c33b5981e1b92ef153a3b42237dfb4ba117ed3ffbdd",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "mode": "normal",
+      "case": "readback-complete",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/resume_profiled_source_closure.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/normal-good-fixture/resume-profiled-test"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "7fa5ef920e1c367ea4761d60483a72abe7845b540224940bc5cc0d0134a8380e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "mode": "normal",
+      "case": "reject-aggregate301",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/resume_profiled_source_closure.py",
+        "--run-root",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/normal-negative-fixture",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/normal-negative-fixture/resume-profiled-bad",
+        "--jobs",
+        "4",
+        "--cpus",
+        "8,9,10,11",
+        "--aggregate-gib",
+        "301"
+      ],
+      "exit_code": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "c737f27f0afa1bf6fe95ac1447b0cc2a1f4dee3504b7eb4344279df530d7be80"
+    },
+    {
+      "mode": "normal",
+      "case": "reject-profile301",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/resume_profiled_source_closure.py",
+        "--run-root",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/normal-negative-fixture",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/normal-negative-fixture/resume-profiled-bad",
+        "--jobs",
+        "4",
+        "--cpus",
+        "8,9,10,11",
+        "--profile-json",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/BAD_PROFILE.json"
+      ],
+      "exit_code": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "bebf77b34f43ca4e9a377e5d4253a8eb00e6b19be64a5e569ff22660acfc3c26"
+    },
+    {
+      "mode": "normal",
+      "case": "reject-reused-artifact",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/resume_profiled_source_closure.py",
+        "--run-root",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/normal-negative-fixture",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/normal-negative-fixture/resume-profiled-bad",
+        "--jobs",
+        "4",
+        "--cpus",
+        "8,9,10,11"
+      ],
+      "exit_code": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "12106784071aed29f18430c811519485c9a43d703b243844a3158734d91680d6"
+    },
+    {
+      "mode": "normal",
+      "case": "reject-weight-journal",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/resume_profiled_source_closure.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/normal-good-fixture/rejected-journal-copy"
+      ],
+      "exit_code": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "dcc067c3dc1adbf75f45680ad4786fee1ff13cd9c1934d4d7affdb8177d5a358"
+    },
+    {
+      "mode": "O",
+      "case": "readback-only",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/resume_profiled_source_closure.py",
+        "--run-root",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/O-good-fixture",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/O-good-fixture/resume-profiled-preview",
+        "--jobs",
+        "4",
+        "--cpus",
+        "8,9,10,11",
+        "--memory-gib",
+        "48",
+        "--aggregate-gib",
+        "300",
+        "--host-reserve-gib",
+        "512",
+        "--profile-json",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/PROFILE.json",
+        "--readback-only"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "1ec5b298dd994ece16b077526a25924d5c28e56775dce51c6a5e87bbfc51860d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "mode": "O",
+      "case": "fresh-weighted",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/resume_profiled_source_closure.py",
+        "--run-root",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/O-good-fixture",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/O-good-fixture/resume-profiled-test",
+        "--jobs",
+        "4",
+        "--cpus",
+        "8,9,10,11",
+        "--memory-gib",
+        "48",
+        "--aggregate-gib",
+        "300",
+        "--host-reserve-gib",
+        "512",
+        "--profile-json",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/PROFILE.json"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "9d213683b1e95b8cb4abfb1243c92f221e5d302e1a4c40af9a11a4f3f18cc22b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "mode": "O",
+      "case": "readback-complete",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/resume_profiled_source_closure.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/O-good-fixture/resume-profiled-test"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "74a51a24ceed2eb2e5aeefe6e2b99a6329454b4fcdf70f354bcb4db145d62cfa",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "mode": "O",
+      "case": "reject-aggregate301",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/resume_profiled_source_closure.py",
+        "--run-root",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/O-negative-fixture",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/O-negative-fixture/resume-profiled-bad",
+        "--jobs",
+        "4",
+        "--cpus",
+        "8,9,10,11",
+        "--aggregate-gib",
+        "301"
+      ],
+      "exit_code": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "c737f27f0afa1bf6fe95ac1447b0cc2a1f4dee3504b7eb4344279df530d7be80"
+    },
+    {
+      "mode": "O",
+      "case": "reject-profile301",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/resume_profiled_source_closure.py",
+        "--run-root",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/O-negative-fixture",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/O-negative-fixture/resume-profiled-bad",
+        "--jobs",
+        "4",
+        "--cpus",
+        "8,9,10,11",
+        "--profile-json",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/BAD_PROFILE.json"
+      ],
+      "exit_code": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "bebf77b34f43ca4e9a377e5d4253a8eb00e6b19be64a5e569ff22660acfc3c26"
+    },
+    {
+      "mode": "O",
+      "case": "reject-reused-artifact",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/resume_profiled_source_closure.py",
+        "--run-root",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/O-negative-fixture",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/O-negative-fixture/resume-profiled-bad",
+        "--jobs",
+        "4",
+        "--cpus",
+        "8,9,10,11"
+      ],
+      "exit_code": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "12106784071aed29f18430c811519485c9a43d703b243844a3158734d91680d6"
+    },
+    {
+      "mode": "O",
+      "case": "reject-weight-journal",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/resume_profiled_source_closure.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/O-good-fixture/rejected-journal-copy"
+      ],
+      "exit_code": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "dcc067c3dc1adbf75f45680ad4786fee1ff13cd9c1934d4d7affdb8177d5a358"
+    },
+    {
+      "mode": "OO",
+      "case": "readback-only",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/resume_profiled_source_closure.py",
+        "--run-root",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/OO-good-fixture",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/OO-good-fixture/resume-profiled-preview",
+        "--jobs",
+        "4",
+        "--cpus",
+        "8,9,10,11",
+        "--memory-gib",
+        "48",
+        "--aggregate-gib",
+        "300",
+        "--host-reserve-gib",
+        "512",
+        "--profile-json",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/PROFILE.json",
+        "--readback-only"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "1ec5b298dd994ece16b077526a25924d5c28e56775dce51c6a5e87bbfc51860d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "mode": "OO",
+      "case": "fresh-weighted",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/resume_profiled_source_closure.py",
+        "--run-root",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/OO-good-fixture",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/OO-good-fixture/resume-profiled-test",
+        "--jobs",
+        "4",
+        "--cpus",
+        "8,9,10,11",
+        "--memory-gib",
+        "48",
+        "--aggregate-gib",
+        "300",
+        "--host-reserve-gib",
+        "512",
+        "--profile-json",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/PROFILE.json"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "a485804e6b813d4ac04a2cc8ffc2e811ed687ebf0de5e0ba3431fd6b6330a830",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "mode": "OO",
+      "case": "readback-complete",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/resume_profiled_source_closure.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/OO-good-fixture/resume-profiled-test"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "4662e06de1debb76c3deaef10b347b0bb97c07de869b43b466c9f98e4804e5b2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "mode": "OO",
+      "case": "reject-aggregate301",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/resume_profiled_source_closure.py",
+        "--run-root",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/OO-negative-fixture",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/OO-negative-fixture/resume-profiled-bad",
+        "--jobs",
+        "4",
+        "--cpus",
+        "8,9,10,11",
+        "--aggregate-gib",
+        "301"
+      ],
+      "exit_code": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "c737f27f0afa1bf6fe95ac1447b0cc2a1f4dee3504b7eb4344279df530d7be80"
+    },
+    {
+      "mode": "OO",
+      "case": "reject-profile301",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/resume_profiled_source_closure.py",
+        "--run-root",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/OO-negative-fixture",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/OO-negative-fixture/resume-profiled-bad",
+        "--jobs",
+        "4",
+        "--cpus",
+        "8,9,10,11",
+        "--profile-json",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/BAD_PROFILE.json"
+      ],
+      "exit_code": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "bebf77b34f43ca4e9a377e5d4253a8eb00e6b19be64a5e569ff22660acfc3c26"
+    },
+    {
+      "mode": "OO",
+      "case": "reject-reused-artifact",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/resume_profiled_source_closure.py",
+        "--run-root",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/OO-negative-fixture",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/OO-negative-fixture/resume-profiled-bad",
+        "--jobs",
+        "4",
+        "--cpus",
+        "8,9,10,11"
+      ],
+      "exit_code": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "12106784071aed29f18430c811519485c9a43d703b243844a3158734d91680d6"
+    },
+    {
+      "mode": "OO",
+      "case": "reject-weight-journal",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/resume_profiled_source_closure.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/profiled467-controller-public-cli-v1/OO-good-fixture/rejected-journal-copy"
+      ],
+      "exit_code": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "dcc067c3dc1adbf75f45680ad4786fee1ff13cd9c1934d4d7affdb8177d5a358"
+    }
+  ],
+  "fixtures_are_synthetic_not_research_outcomes": true,
+  "all_fresh_routes_real_Lean_compilation": true,
+  "observed_process_caps_gib": [
+    192,
+    96,
+    48
+  ],
+  "maximum_actual_reserved_gib": 288,
+  "timestamp": "2026-11-20T04:31:22.954354+00:00"
+}

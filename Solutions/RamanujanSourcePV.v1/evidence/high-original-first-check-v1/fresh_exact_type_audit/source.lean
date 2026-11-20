@@ -1,0 +1,7 @@
+import RamanujanPV.HighTransitionCount.Check0000
+namespace RamanujanPV.HighFirstCheckIndependentAudit
+open QuotientDemandCheck
+theorem first_original_chunk_verified : allFrom (checkEntry HighTransitionCount.nodes HighTransitionCount.gaps HighTransitionCount.gapCount) 0 32768 = true := HighTransitionCount.part_0000
+#print axioms first_original_chunk_verified
+#print axioms HighTransitionCount.part_0000
+end RamanujanPV.HighFirstCheckIndependentAudit

@@ -1,0 +1,99 @@
+{
+  "schema": "RAMANUJAN_GENERIC_LOG_NATIVE_OBSERVATION_V1",
+  "status": "THREE_NATIVE_BOUNDARY_RUNS_AND_24_ACTUAL_CLI_CONTROLS_PASS",
+  "script": "scripts/observe_generic_finite_log.py",
+  "script_sha256": "040a1deb64eb3b23fed26ddee7eaf4e20332b17e33fd26e48e14eb95f2460ba1",
+  "seed_hex": "0x51524852414D414E",
+  "generator": "SplitMix64 with exact constants and query construction preserved in source",
+  "queries_per_run": 417,
+  "upper_queries": 254,
+  "series_queries": 163,
+  "coverage": "Binary powers and neighbors;N0/J0/T/2T;deterministic random upper inputs;uint64 series denominators near2^64 with num=0,1,half and half-1;deterministic random normalized series inputs.",
+  "formal_claim": false,
+  "native_observation_only": true,
+  "formal_source_proof": "RamanujanPV.FiniteLogUpperExecute.source_execution_from_math/source_log_upper_sound; independent from this observer",
+  "reproduce": [
+    "python3 scripts/observe_generic_finite_log.py --out ABSOLUTE_FRESH_OUTPUT --cpu AVAILABLE_CPU",
+    "python3 -O scripts/observe_generic_finite_log.py --out ANOTHER_FRESH_OUTPUT --cpu AVAILABLE_CPU",
+    "python3 -OO scripts/observe_generic_finite_log.py --out THIRD_FRESH_OUTPUT --cpu AVAILABLE_CPU",
+    "python3 scripts/observe_generic_finite_log.py --check ABSOLUTE_FRESH_OUTPUT"
+  ],
+  "actual_C_source": "c/verified_finite_log.c",
+  "actual_C_source_changed": false,
+  "compiler_flags": [
+    "-std=c11",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-Wno-empty-body"
+  ],
+  "empty_body_flag_reason": "Canonical frozen source uses explicit else ;. Disabling that style warning preserves actual C bytes and semantics.",
+  "controls": {
+    "positive_readback_routes": 9,
+    "negative_routes": 15,
+    "modes": [
+      "normal",
+      "-O",
+      "-OO"
+    ],
+    "actual_CLI_receipt_sha256": "c2b3bb9307f703b969c71c6610468eac1bd5d5ae9626e4438cf7d9bba11f0f4d",
+    "negative_cases": [
+      "wrong query count",
+      "missing artifact",
+      "Boolean exit code",
+      "duplicate JSON key",
+      "nonfinite JSON value"
+    ]
+  },
+  "runs": [
+    {
+      "python_mode": "normal",
+      "result_sha256": "45adace352bc3b3db7903141216f6aa2f4f26f6bfbd9bbc9071b472799793fa8",
+      "source_sha256": "a22ee045b69b971a6fd3156ba745b3bebf7109ed98db43bf0064244e538b246c",
+      "compiler_sha256": "821af3c74506283c179ca413bb33e6b528805a4dd8a5c09df125e5ad560a9e89",
+      "compiler_version": "x86_64-linux-gnu-gcc-11 (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0\nCopyright (C) 2021 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+      "compiler_target": "x86_64-linux-gnu",
+      "compile_seconds": 0.08900211192667484,
+      "execute_seconds": 0.004421645775437355,
+      "compile_peak_RSS_bytes": 23236608,
+      "execute_peak_RSS_bytes": 1757184,
+      "output_sha256": "3afb62a7f9fd04f6386e20f3aa6bcb9d894b4c34d7ff6d37f76ec852af1bf31b",
+      "query_file_sha256": "05f748483e2e7fc1992bed741807f9e2447dd6fe8aec65b8f1e391902c461964",
+      "disk_bytes_before_result": 98186,
+      "new_PV_claim": false
+    },
+    {
+      "python_mode": "O",
+      "result_sha256": "3d07de0c2f28e66423eb2df75b0ffc764b207f002040dcf60cef30a62065c3d9",
+      "source_sha256": "a22ee045b69b971a6fd3156ba745b3bebf7109ed98db43bf0064244e538b246c",
+      "compiler_sha256": "821af3c74506283c179ca413bb33e6b528805a4dd8a5c09df125e5ad560a9e89",
+      "compiler_version": "x86_64-linux-gnu-gcc-11 (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0\nCopyright (C) 2021 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+      "compiler_target": "x86_64-linux-gnu",
+      "compile_seconds": 0.09151601605117321,
+      "execute_seconds": 0.005173739045858383,
+      "compile_peak_RSS_bytes": 23117824,
+      "execute_peak_RSS_bytes": 1699840,
+      "output_sha256": "3afb62a7f9fd04f6386e20f3aa6bcb9d894b4c34d7ff6d37f76ec852af1bf31b",
+      "query_file_sha256": "05f748483e2e7fc1992bed741807f9e2447dd6fe8aec65b8f1e391902c461964",
+      "disk_bytes_before_result": 98145,
+      "new_PV_claim": false
+    },
+    {
+      "python_mode": "OO",
+      "result_sha256": "da96f211dbfa92d279d6f6392231413060111d090abe93a7e7b36c14338489f6",
+      "source_sha256": "a22ee045b69b971a6fd3156ba745b3bebf7109ed98db43bf0064244e538b246c",
+      "compiler_sha256": "821af3c74506283c179ca413bb33e6b528805a4dd8a5c09df125e5ad560a9e89",
+      "compiler_version": "x86_64-linux-gnu-gcc-11 (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0\nCopyright (C) 2021 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+      "compiler_target": "x86_64-linux-gnu",
+      "compile_seconds": 0.08919976651668549,
+      "execute_seconds": 0.005256107077002525,
+      "compile_peak_RSS_bytes": 23146496,
+      "execute_peak_RSS_bytes": 1703936,
+      "output_sha256": "3afb62a7f9fd04f6386e20f3aa6bcb9d894b4c34d7ff6d37f76ec852af1bf31b",
+      "query_file_sha256": "05f748483e2e7fc1992bed741807f9e2447dd6fe8aec65b8f1e391902c461964",
+      "disk_bytes_before_result": 98153,
+      "new_PV_claim": false
+    }
+  ]
+}

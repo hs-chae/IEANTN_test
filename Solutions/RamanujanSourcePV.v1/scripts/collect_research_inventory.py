@@ -39,6 +39,11 @@ SELECTED = {
     "FiniteGuardedResult": ["FiniteGuardedResult.actual_source_bindings", "FiniteGuardedResult.source_linked_uniform_gap", "FiniteGuardedResult.source_linked_real_interval"],
     "FiniteLogSeriesExecute": ["FiniteLogSeriesExecute.function_executes", "FiniteLogSeriesExecute.completed_correct", "FiniteLogSeriesExecute.service_closed"],
     "FiniteLogUpperExecute": ["FiniteLogUpperExecute.function_executes", "FiniteLogUpperExecute.completed_correct", "FiniteLogUpperExecute.source_execution_from_math", "FiniteLogUpperExecute.source_log_upper_sound"],
+    "FiniteCellGeneric": ["FiniteCellGeneric.reference_run", "FiniteCellGeneric.service_closed", "FiniteCellGeneric.source_execution_from_math", "FiniteCellGeneric.positive_implies_strict"],
+    "FullFiniteSourcePV": ["FullFiniteSourcePV.row_source", "FullFiniteSourcePV.checked_block_source", "FullFiniteSourcePV.complete_from_source_counts", "FullFiniteSourcePV.gap_from_source_counts"],
+    "AnalyticMargin": ["AnalyticMargin.bridge_gap", "AnalyticMargin.quantitative_expression", "AnalyticMargin.actual_bridge_gap", "AnalyticMargin.analytic_ray_gap9005"],
+    "SourceGlobalAssembly": ["SourceGlobalAssembly.all_real_gap9005_from_completed_counts"],
+    "FullSourceResult": ["FullSourceResult.actual_program_bindings", "FullSourceResult.all_scalar_programs", "FullSourceResult.all_real_gap9005_if_counts_completed"],
 }
 
 
@@ -116,10 +121,14 @@ def main():
         "full_finite_source_first_execution": "OPEN",
         "target_universe": "Every real x >= 38358837683, actual IEANTN primeCounting; finite witness through1490000000001 and explicit analytic ray thereafter.",
         "selection_coverage": "Selected integration claims only. The full finite witness is absent. This inventory does not prove a census of all source-attributed declarations, all551 generated local proofs, or all655 historical QRH dependency declarations.",
-        "unresolved_obligations": ["Full finite prime-count evidence for every required certificate cell through1490000000001", "Full finite certificate and actual source-linked interval-checker execution", "Full C++ generator/caller source association; completed C scalar execution currently covers the selected million-window theorem"],
+        "unresolved_obligations": ["Full finite prime-count evidence for every required certificate cell through1490000000001", "Full finite certificate and actual source-linked interval-checker execution", "All actual full-prefix count executions and the concrete complete finite mathematical witness; full scalar source executions are now closed"],
         "completed_local_source_chain": "FiniteGuardedResult: all counter/segment/e/log/cell source executions and every real x in[38358837683,38359837684), gap>501901; no supplied counts or analytic premises",
-        "completed_full_scalar_mathematics": "All1755663 original rows: exact coverage/strict predicate/real e-log enclosures; excludes prime-count truth and is not C source-PV by itself",
+        "completed_full_scalar_mathematics": "All1755663 original rows: exact coverage/strict predicate/real e-log enclosures, followed by separately accepted actual C scalar executions, extra word/guard/floor facts and separate kernel-only9005 margin; no count-truth claim",
         "original_IEANTN_results_modified": False,
+        "full_scalar_source_execution": "CLOSED_ALL1755663_ROWS",
+        "full_scalar_margin_kind": "Additional kernel-only arithmetic deduction from source-associated row inputs and products; C strict checker returns Boolean only",
+        "large_prime_counts": "OPEN; 3511326 requested sites at3511322 distinct arguments",
+        "unverified_generator": "Explicitly permitted untrusted producer; its verification is not needed if all outputs are soundly checked. Full native caller proof is outside the declared function contracts.",
         "distinctions": ["Source-function correctness is not a proved concrete numerical value.", "Kernel certificates alone are not source-first PV.", "A conditional certificate consumer does not construct its finite certificate.", "Named analytic hypotheses remain theorem inputs, not new axioms."],
     }
     args.out.parent.mkdir(parents=True, exist_ok=True)

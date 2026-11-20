@@ -1,0 +1,12 @@
+import RamanujanPV.SegmentCFunction
+import RamanujanPV.SegmentLocal1000
+import RamanujanPV.SegmentDependencyAudit
+#print axioms RamanujanPV.SegmentCFunction.correct_claims_execution
+#print axioms RamanujanPV.SegmentCFunction.incorrect_claims_execution
+#print axioms RamanujanPV.SegmentCFunction.positive_output_sound
+#print axioms RamanujanPV.SegmentLocal1000.p_source_execution
+#print axioms RamanujanPV.SegmentLocal1000.q_source_execution
+#print axioms RamanujanPV.SegmentRamanujan1000.p_provider
+#print axioms RamanujanPV.SegmentRamanujan1000.q_provider
+#print axioms RamanujanPV.SegmentRamanujan1000.complete_certificate
+#print axioms RamanujanPV.SegmentRamanujan1000.first_1001_real_interval

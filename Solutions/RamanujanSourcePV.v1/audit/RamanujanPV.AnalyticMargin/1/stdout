@@ -1,0 +1,39 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/AnalyticMargin.lean:34:19: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  MulLeftStrictMono ℝ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/AnalyticMargin.lean:19:54: error: unsolved goals
+pi li : ℝ → ℝ
+hseries : LogIntegralSeriesIdentity li
+hderiv : LogIntegralDerivative li
+hlower : AxlerLiLower li
+hpi0 : ∀ x ∈ Icc 1490000000000 10000000000000000000, 0 ≤ pi x
+hpiU : ∀ x ∈ Icc 1490000000000 10000000000000000000, pi x ≤ upperPi li x
+hpiL :
+  ∀ x ∈ Icc 1490000000000 10000000000000000000,
+    li (x / rexp 1) - 1061 / 500 * √(x / rexp 1) / (log x - 1) ≤ pi (x / rexp 1)
+x : ℝ
+hx : x ∈ Icc 1490000000000 10000000000000000000
+hx0 : 0 < x
+hL : 0 < log x
+hLhi : log x ≤ 44
+he : 1 ≤ rexp 1
+heX : x ≤ rexp 1 * x
+hR : 90 < li (x / rexp 1) - 1061 / 500 * √(x / rexp 1) / (log x - 1) - upperPi li x ^ 2 * log x / (rexp 1 * x)
+hsq : pi x ^ 2 ≤ upperPi li x ^ 2
+hterm : pi x ^ 2 * log x / (rexp 1 * x) ≤ upperPi li x ^ 2 * log x / (rexp 1 * x)
+hlow : li (x / rexp 1) - 1061 / 500 * √(x / rexp 1) / (log x - 1) ≤ pi (x / rexp 1)
+hnorm : 90 + pi x ^ 2 * log x / (rexp 1 * x) < pi (x / rexp 1)
+hden : 0 < rexp 1 * x
+⊢ 9005 < rexp 1 * x / log x * pi (x / rexp 1) - pi x ^ 2
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/AnalyticMargin.lean:48:43: error: Application type mismatch: The argument
+  ?m.86
+has type
+  0 ≤ log x
+of sort `Prop` but is expected to have type
+  ℝ
+of sort `Type` in the application
+  pow_div_factorial_le_exp ?m.86
+'RamanujanPV.AnalyticMargin.bridge_gap' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'RamanujanPV.AnalyticMargin.quantitative_expression' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'RamanujanPV.AnalyticMargin.actual_bridge_gap' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

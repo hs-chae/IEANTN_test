@@ -1,0 +1,29 @@
+name = "IEANTN"
+version = "0.1.0"
+keywords = ["math"]
+defaultTargets = ["IEANTN"]
+
+[leanOptions]
+pp.unicode.fun = true # pretty-prints `fun a ↦ b`
+autoImplicit = false
+relaxedAutoImplicit = false
+weak.linter.mathlibStandardSet = true
+maxSynthPendingDepth = 3
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+
+[[lean_lib]]
+name = "IEANTN"
+
+# Not in defaultTargets: the core build must stay fast, and this is only needed when computing
+# statement fingerprints.
+[[lean_exe]]
+name = "ieantn_hash"
+root = "Tools.Hash"
+
+# Not in defaultTargets either: only needed when generating a Palomar spin-off.
+[[lean_exe]]
+name = "ieantn_spinoff"
+root = "Tools.Spinoff"

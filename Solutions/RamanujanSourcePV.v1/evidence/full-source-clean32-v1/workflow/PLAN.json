@@ -1,0 +1,190 @@
+{
+  "status": "PLANNED_CLEAN_SOURCE_SCALAR_REPRODUCTION",
+  "commands": [
+    {
+      "label": "native_data",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_numerics.py",
+        "--scratch",
+        "/data/ivy-ramanujan-source-pv-20261119/full-source-clean-profile32-v1/native/ivy-ramanujan-source-pv-20261119",
+        "--study",
+        "/data/ivy-ramanujan-source-pv-20261119/full-source-clean-profile32-v1/native-study",
+        "--skip-exhaustive-count-check"
+      ]
+    },
+    {
+      "label": "ordinary_native_count_challenge",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/check_finite_independent.py",
+        "--study",
+        "/data/ivy-ramanujan-source-pv-20261119/full-source-clean-profile32-v1/native-study",
+        "--scratch",
+        "/data/ivy-ramanujan-source-pv-20261119/full-source-clean-profile32-v1/native/ivy-ramanujan-source-pv-20261119",
+        "--run",
+        "finite-actual-1490000000000",
+        "--workers",
+        "8"
+      ]
+    },
+    {
+      "label": "fresh_all_source_models",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_profiled_closure.py",
+        "--context",
+        "/data/ivy-ramanujan-source-pv-20261119/full-source-clean-profile32-v1/CONTEXT.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/full-source-clean-profile32-v1/core",
+        "--profile-json",
+        "/data/ivy-ramanujan-source-pv-20261119/full-source-clean-profile32-v1/MODEL_MEMORY_PROFILES.json",
+        "--root",
+        "RamanujanPV.FullFiniteSourcePV",
+        "--theorem",
+        "RamanujanPV.FullFiniteSourcePV.row_source",
+        "--memory-gib",
+        "48",
+        "--aggregate-gib",
+        "300",
+        "--jobs",
+        "4",
+        "--cpus",
+        "52,53,54,55"
+      ]
+    },
+    {
+      "label": "original_exact_scalar_inputs",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/generate_full_scalar_certificate.py",
+        "--run",
+        "/data/ivy-ramanujan-source-pv-20261119/full-source-clean-profile32-v1/native-study/evidence/finite-actual-1490000000000/RUN.json",
+        "--certificates",
+        "/data/ivy-ramanujan-source-pv-20261119/full-source-clean-profile32-v1/native/ivy-ramanujan-source-pv-20261119/finite-actual-1490000000000",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/full-source-clean-profile32-v1/core/original-scalars",
+        "--name",
+        "FullAdaptiveScalars",
+        "--rows-per-block",
+        "4096",
+        "--proof-chunk",
+        "512",
+        "--limit-rows",
+        "32"
+      ]
+    },
+    {
+      "label": "original_kernel_math",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_full_scalar_certificate.py",
+        "--manifest",
+        "/data/ivy-ramanujan-source-pv-20261119/full-source-clean-profile32-v1/core/original-scalars/PROPOSAL.json",
+        "--native-run",
+        "/data/ivy-ramanujan-source-pv-20261119/full-source-clean-profile32-v1/native-study/evidence/finite-actual-1490000000000/RUN.json",
+        "--context",
+        "/data/ivy-ramanujan-source-pv-20261119/full-source-clean-profile32-v1/CONTEXT.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/full-source-clean-profile32-v1/core/original-scalars-run",
+        "--jobs",
+        "4",
+        "--memory-gib",
+        "24",
+        "--cpus",
+        "52,53,54,55",
+        "--allow-profile"
+      ]
+    },
+    {
+      "label": "source_row_proposal",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/generate_full_source_rows.py",
+        "--original-manifest",
+        "/data/ivy-ramanujan-source-pv-20261119/full-source-clean-profile32-v1/core/original-scalars/PROPOSAL.json",
+        "--original-result",
+        "/data/ivy-ramanujan-source-pv-20261119/full-source-clean-profile32-v1/core/original-scalars-run/RESULT.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/full-source-clean-profile32-v1/core/source-scalars",
+        "--name",
+        "FullAdaptiveSourcePV",
+        "--context",
+        "/data/ivy-ramanujan-source-pv-20261119/full-source-clean-profile32-v1/CONTEXT.json",
+        "--allow-profile"
+      ]
+    },
+    {
+      "label": "all_actual_C_row_sources",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_full_source_rows.py",
+        "--manifest",
+        "/data/ivy-ramanujan-source-pv-20261119/full-source-clean-profile32-v1/core/source-scalars/PROPOSAL.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/full-source-clean-profile32-v1/core/source-scalars-run",
+        "--context",
+        "/data/ivy-ramanujan-source-pv-20261119/full-source-clean-profile32-v1/CONTEXT.json",
+        "--jobs",
+        "4",
+        "--memory-gib",
+        "24",
+        "--cpus",
+        "52,53,54,55",
+        "--allow-profile"
+      ]
+    },
+    {
+      "label": "final_readback_normal",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_full_source_rows.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/full-source-clean-profile32-v1/core/source-scalars-run/RESULT.json"
+      ]
+    },
+    {
+      "label": "final_readback_opt",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_full_source_rows.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/full-source-clean-profile32-v1/core/source-scalars-run/RESULT.json"
+      ]
+    },
+    {
+      "label": "final_readback_oo",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_full_source_rows.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/full-source-clean-profile32-v1/core/source-scalars-run/RESULT.json"
+      ]
+    },
+    {
+      "label": "actual_CLI_controls",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/test_full_source_cli.py",
+        "--result",
+        "/data/ivy-ramanujan-source-pv-20261119/full-source-clean-profile32-v1/core/source-scalars-run/RESULT.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/full-source-clean-profile32-v1/core/source-cli-controls"
+      ]
+    }
+  ],
+  "profile32": true,
+  "original_numeric_target_unchanged": true,
+  "prime_counts_formally_proved_here": false,
+  "source_generator_random_seeds": null,
+  "source_root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1",
+  "controller_sha256": "7967a14fd0ef7d04d70c44c9098d16c0dce981833f31f3e378973b818e06e634",
+  "input_context_sha256": "ec6d58374b2cb046044bdfd319782c2153456ba54ac0d0dbe05a582f037829e8",
+  "context": "/data/ivy-ramanujan-source-pv-20261119/full-source-clean-profile32-v1/CONTEXT.json",
+  "new_application_bank": "/data/ivy-ramanujan-source-pv-20261119/full-source-clean-profile32-v1/core/lean",
+  "old_application_objects_used": false,
+  "original_math_source_out": "/data/ivy-ramanujan-source-pv-20261119/full-source-clean-profile32-v1/core/original-scalars",
+  "source_scalar_out": "/data/ivy-ramanujan-source-pv-20261119/full-source-clean-profile32-v1/core/source-scalars"
+}

@@ -1,0 +1,3 @@
+import RamanujanPV.FullAdaptiveScalars.Final
+example : RamanujanPV.FullFiniteScalars.ScalarCertificate 38358837683 38358853591 RamanujanPV.FullAdaptiveScalars.allRows := RamanujanPV.FullAdaptiveScalars.all_scalars
+#print axioms RamanujanPV.FullAdaptiveScalars.all_scalars
