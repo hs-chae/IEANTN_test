@@ -25,6 +25,16 @@ results retain their separate scope and trust boundaries.
 Read the standalone offline report in
 `evidence/coupled-final-independent-v2/REPORT.html` for rendered equations,
 primary-source locators and the independent type/dependency audit. The new
+stronger-margin derivation is rendered separately in
+`evidence/coupled-large-margin-independent-v1/REPORT.html`.
+The downloadable portable evidence archive contains both reports and every
+pinned application source under `reproduction/network/`. Its
+`EXPORT_MANIFEST.json` records every exported byte. To use that source snapshot,
+start in `reproduction/network/`, obtain the pinned generic libraries, then
+enter `Solutions/RamanujanSourcePV.v1/` for the commands below. No original
+application object files are packaged.
+
+The new
 explicit literature input is at
 [arXiv1511.02032v2, page 2, Theorem 2, equation (1.6)](https://arxiv.org/pdf/1511.02032v2).
 Its pinned PDF SHA-256 is
@@ -55,7 +65,7 @@ python3 scripts/reproduce_coupled_analytic.py \
 ```
 
 Choose fresh output/context filenames. The script checks every one of the 673
-original source hashes before dispatch. It rebuilds the entire selected
+pinned source hashes before dispatch. It rebuilds the entire selected
 application closure into a fresh private object bank, including the independent
 exact-25-input type audit, the shorter conditional finite-certificate assembly
 and the stronger analytic margin. Only pinned generic libraries are reused;
