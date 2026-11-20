@@ -1,0 +1,159 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/CoupledActualPi.lean:27:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  IntervalIntegrable (-fun t => (Chebyshev.theta t - t) / (t * log t ^ 2)) volume a x
+but is expected to have type
+  IntervalIntegrable weight volume a x
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/CoupledActualPi.lean:43:2: error: linarith failed to find a contradiction
+case h1
+x : ℝ
+hx : 2 ≤ x
+hoffset : Middle.LiOffsetIdentity
+h :
+  IEANTN.primeCounting x - IEANTN.Li x =
+    (Chebyshev.theta x - x) / log x + 2 / log 2 + ∫ (t : ℝ) in 2..x, (Chebyshev.theta t - t) / (t * log t ^ 2)
+he : sharedIntegral x = -∫ (t : ℝ) in 2..x, (Chebyshev.theta t - t) / (t * log t ^ 2)
+a✝ :
+  IEANTN.primeCounting x <
+    IEANTN.Li x + IEANTN.li 2 + (2 / log 2 - IEANTN.li 2) - (x - Chebyshev.theta x) / log x -
+      -∫ (t : ℝ) in 2..x, (Chebyshev.theta t - t) / (t * log t ^ 2)
+⊢ False
+failed
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/CoupledActualPi.lean:54:42: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat (Graph ?m.17 ?m.18) 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Graph ?m.17 ?m.18
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/CoupledActualPi.lean:54:45: error(lean.unknownIdentifier): Unknown identifier `haredIntegral`
+
+Note: It is not possible to treat `haredIntegral` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/CoupledActualPi.lean:75:69: error: No goals to be solved
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/CoupledActualPi.lean:75:40: error: unsolved goals
+a y c : ℝ
+ha : 1 < a
+hay : a ≤ y
+hc : 0 ≤ c
+hθ : ∀ t ∈ Icc a y, deficit t ≤ c * √t
+t : ℝ
+ht : t ∈ Icc a y
+ht1 : 1 < t
+this : 0 ≤ t
+⊢ 0 ≤ t * log t ^ 2
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/CoupledActualPi.lean:87:69: error: No goals to be solved
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/CoupledActualPi.lean:87:40: error: unsolved goals
+a y c : ℝ
+ha : 1 < a
+hay : a ≤ y
+hc : 0 ≤ c
+hθ : ∀ t ∈ Icc a y, c * √t ≤ deficit t
+t : ℝ
+ht : t ∈ Icc a y
+ht1 : 1 < t
+this : 0 ≤ t
+⊢ 0 ≤ t * log t ^ 2
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/CoupledActualPi.lean:97:4: error(lean.unknownIdentifier): Unknown identifier `li`
+
+Note: It is not possible to treat `li` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/CoupledActualPi.lean:98:27: error(lean.unknownIdentifier): Unknown identifier `li`
+
+Note: It is not possible to treat `li` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/CoupledActualPi.lean:106:18: error: linarith failed to find a contradiction
+case left
+x y b c J : ℝ
+hy : 2 ≤ y
+hyx : y ≤ x
+hoffset : Middle.LiOffsetIdentity
+hθy : deficit y ≤ c * √y
+hθx : b * √x ≤ deficit x
+hJ : J ≤ ∫ (t : ℝ) in y..x, weight t
+hylog : 0 < log y
+hxlog : 0 < log x
+hpY : IEANTN.primeCounting y = IEANTN.li y + initialConstant - deficit y / log y - sharedIntegral y
+hpX : IEANTN.primeCounting x = IEANTN.li x + initialConstant - deficit x / log x - sharedIntegral x
+hsplit : sharedIntegral x = sharedIntegral y + ∫ (t : ℝ) in y..x, weight t
+hY : deficit y / log y ≤ c * √y / log y
+hX : b * √x / log x ≤ deficit x / log x
+a✝ : IEANTN.primeCounting y < sorry + initialConstant - c * √y / log y - sharedIntegral y
+⊢ False
+failed
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/CoupledActualPi.lean:106:18: error: linarith failed to find a contradiction
+case right
+x y b c J : ℝ
+hy : 2 ≤ y
+hyx : y ≤ x
+hoffset : Middle.LiOffsetIdentity
+hθy : deficit y ≤ c * √y
+hθx : b * √x ≤ deficit x
+hJ : J ≤ ∫ (t : ℝ) in y..x, weight t
+hylog : 0 < log y
+hxlog : 0 < log x
+hpY : IEANTN.primeCounting y = IEANTN.li y + initialConstant - deficit y / log y - sharedIntegral y
+hpX : IEANTN.primeCounting x = IEANTN.li x + initialConstant - deficit x / log x - sharedIntegral x
+hsplit : sharedIntegral x = sharedIntegral y + ∫ (t : ℝ) in y..x, weight t
+hY : deficit y / log y ≤ c * √y / log y
+hX : b * √x / log x ≤ deficit x / log x
+a✝ : sorry + initialConstant - b * √x / log x - J - sharedIntegral y < IEANTN.primeCounting x
+⊢ False
+failed
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/CoupledActualPi.lean:114:4: error: Application type mismatch: The argument
+  sharedIntegral a
+has type
+  ℝ
+of sort `Type` but is expected to have type
+  Type ?u.31
+of sort `Type (?u.31 + 1)` in the application
+  @InitialSeg (sharedIntegral a)
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/CoupledActualPi.lean:114:22: error(lean.unknownIdentifier): Unknown identifier `nitialConstant`
+
+Note: It is not possible to treat `nitialConstant` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/CoupledActualPi.lean:120:2: error: linarith failed to find a contradiction
+a : ℝ
+ha : 2 ≤ a
+hau : a ≤ 10000000000000000000
+hloga : log a = 15
+hoffset : Middle.LiOffsetIdentity
+hbuthe : ButhePiLower IEANTN.primeCounting IEANTN.li
+hθ : 1 / 20 * √a ≤ deficit a
+hp : IEANTN.primeCounting a = IEANTN.li a + initialConstant - deficit a / 15 - sharedIntegral a
+hpi : IEANTN.li a ≤ IEANTN.primeCounting a + √a / 15 * (689 / 300)
+hdiv : 1 / 20 * √a / 15 ≤ deficit a / 15
+⊢ False
+failed
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/CoupledActualPi.lean:130:4: error: Application type mismatch: The argument
+  sharedIntegral y
+has type
+  ℝ
+of sort `Type` but is expected to have type
+  Type ?u.54
+of sort `Type (?u.54 + 1)` in the application
+  @InitialSeg (sharedIntegral y)
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/CoupledActualPi.lean:130:22: error(lean.unknownIdentifier): Unknown identifier `nitialConstant`
+
+Note: It is not possible to treat `nitialConstant` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/CoupledActualPi.lean:130:22: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HAdd ℝ ℝ (Type ?u.53)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/CoupledActualPi.lean:132:14: error(lean.unknownIdentifier): Unknown identifier `shared_anchor`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/CoupledActualPi.lean:131:47: error: unsolved goals
+a y : ℝ
+ha : 2 ≤ a
+hay : a ≤ y
+hyu : y ≤ 10000000000000000000
+hloga : log a = 15
+hoffset : Middle.LiOffsetIdentity
+hbuthe : ButhePiLower IEANTN.primeCounting IEANTN.li
+hθa : 1 / 20 * √a ≤ deficit a
+hθ : ∀ t ∈ Icc a y, deficit t ≤ 39 / 20 * √t
+⊢ InitialSeg (fun x1 x2 => sorry) fun x1 x2 => sorry
+'RamanujanPV.CoupledActualPi.actual_pi_identity' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'RamanujanPV.CoupledActualPi.shared_split' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/CoupledActualPi.lean:143:14: error(lean.unknownIdentifier): Unknown constant `shared_nonneg`
+'RamanujanPV.CoupledActualPi.counts_with_shared_integral' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/CoupledActualPi.lean:145:14: error(lean.unknownIdentifier): Unknown constant `shared_anchor`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/CoupledActualPi.lean:146:14: error(lean.unknownIdentifier): Unknown constant `shared_upper`

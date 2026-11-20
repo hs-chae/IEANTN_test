@@ -1,0 +1,249 @@
+{
+  "status": "PASS_SOURCE_POST_CURRENT_NORMAL_O_OO_ACTUAL_CONTROLS",
+  "source_script_sha256": "1e32606ee37b6d1b75a255e6270f4bd96c7a917ceff49c3007914c525428e891",
+  "positive_existing_critical_instances": [
+    {
+      "mode": "normal",
+      "result": "/data/ivy-ramanujan-source-pv-20261119/high-source-finalizer-control-normal-v1/RESULT.json",
+      "sha256": "54e0fb0bc1485b55009b413926fb9430f81820bcbe204c754f4b250de19c49ea",
+      "seconds": 101.48811979964375,
+      "N": 38358837683,
+      "value": 1644673232,
+      "source_result_only_existing_critical": true
+    },
+    {
+      "mode": "O",
+      "result": "/data/ivy-ramanujan-source-pv-20261119/high-source-finalizer-control-O-v1/RESULT.json",
+      "sha256": "352f5c4a69e747f3daa7f4796b2b6f7c99eac6528bf0ffba98e3ea858c4bc4ff",
+      "seconds": 122.4840822480619,
+      "N": 38358837683,
+      "value": 1644673232,
+      "source_result_only_existing_critical": true
+    },
+    {
+      "mode": "OO",
+      "result": "/data/ivy-ramanujan-source-pv-20261119/high-source-finalizer-control-OO-v1/RESULT.json",
+      "sha256": "949a03be50b9d2eabd64ea64f040952e0da7f8a6e9155d0075ad9cce3858ffac",
+      "seconds": 124.0656521115452,
+      "N": 38358837683,
+      "value": 1644673232,
+      "source_result_only_existing_critical": true
+    }
+  ],
+  "actual_negative_routes": [
+    {
+      "mode": "Normal",
+      "case": "partial-kernel",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/finalize_high_source_count.py",
+        "--kernel-result",
+        "/data/ivy-ramanujan-source-pv-20261119/high-transition-raw-data-full-v1/run-v1/RESULT.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-source-finalizer-negative-controls-v1/Normal-partial-kernel",
+        "--cpus",
+        "96"
+      ],
+      "returncode": 1,
+      "stderr_sha256": "b2cbdd5d00f33077aede5db3c91fe306b09c583855672d9c0d6cb6a78350bcbf",
+      "source_instance_accepted": false
+    },
+    {
+      "mode": "Normal",
+      "case": "control-plus-kernel",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/finalize_high_source_count.py",
+        "--control",
+        "--kernel-result",
+        "/data/ivy-ramanujan-source-pv-20261119/high-transition-raw-data-full-v1/run-v1/RESULT.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-source-finalizer-negative-controls-v1/Normal-control-plus-kernel",
+        "--cpus",
+        "96"
+      ],
+      "returncode": 1,
+      "stderr_sha256": "a1e1be51d6af0d9dcedd529352e28b25d78536e1ac10e45bd71f996d9212fc03",
+      "source_instance_accepted": false
+    },
+    {
+      "mode": "Normal",
+      "case": "missing-kernel",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/finalize_high_source_count.py",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-source-finalizer-negative-controls-v1/Normal-missing-kernel",
+        "--cpus",
+        "96"
+      ],
+      "returncode": 1,
+      "stderr_sha256": "a1e1be51d6af0d9dcedd529352e28b25d78536e1ac10e45bd71f996d9212fc03",
+      "source_instance_accepted": false
+    },
+    {
+      "mode": "Normal",
+      "case": "over300",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/finalize_high_source_count.py",
+        "--control",
+        "--memory-gib",
+        "301",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-source-finalizer-negative-controls-v1/Normal-over300",
+        "--cpus",
+        "96"
+      ],
+      "returncode": 1,
+      "stderr_sha256": "33127bf383ee7381e85c3a45a6106e339ee9e1f234bf3f43b6b19e63cd6e3a55",
+      "source_instance_accepted": false
+    },
+    {
+      "mode": "O",
+      "case": "partial-kernel",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/finalize_high_source_count.py",
+        "--kernel-result",
+        "/data/ivy-ramanujan-source-pv-20261119/high-transition-raw-data-full-v1/run-v1/RESULT.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-source-finalizer-negative-controls-v1/O-partial-kernel",
+        "--cpus",
+        "96"
+      ],
+      "returncode": 1,
+      "stderr_sha256": "b2cbdd5d00f33077aede5db3c91fe306b09c583855672d9c0d6cb6a78350bcbf",
+      "source_instance_accepted": false
+    },
+    {
+      "mode": "O",
+      "case": "control-plus-kernel",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/finalize_high_source_count.py",
+        "--control",
+        "--kernel-result",
+        "/data/ivy-ramanujan-source-pv-20261119/high-transition-raw-data-full-v1/run-v1/RESULT.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-source-finalizer-negative-controls-v1/O-control-plus-kernel",
+        "--cpus",
+        "96"
+      ],
+      "returncode": 1,
+      "stderr_sha256": "a1e1be51d6af0d9dcedd529352e28b25d78536e1ac10e45bd71f996d9212fc03",
+      "source_instance_accepted": false
+    },
+    {
+      "mode": "O",
+      "case": "missing-kernel",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/finalize_high_source_count.py",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-source-finalizer-negative-controls-v1/O-missing-kernel",
+        "--cpus",
+        "96"
+      ],
+      "returncode": 1,
+      "stderr_sha256": "a1e1be51d6af0d9dcedd529352e28b25d78536e1ac10e45bd71f996d9212fc03",
+      "source_instance_accepted": false
+    },
+    {
+      "mode": "O",
+      "case": "over300",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/finalize_high_source_count.py",
+        "--control",
+        "--memory-gib",
+        "301",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-source-finalizer-negative-controls-v1/O-over300",
+        "--cpus",
+        "96"
+      ],
+      "returncode": 1,
+      "stderr_sha256": "33127bf383ee7381e85c3a45a6106e339ee9e1f234bf3f43b6b19e63cd6e3a55",
+      "source_instance_accepted": false
+    },
+    {
+      "mode": "OO",
+      "case": "partial-kernel",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/finalize_high_source_count.py",
+        "--kernel-result",
+        "/data/ivy-ramanujan-source-pv-20261119/high-transition-raw-data-full-v1/run-v1/RESULT.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-source-finalizer-negative-controls-v1/OO-partial-kernel",
+        "--cpus",
+        "96"
+      ],
+      "returncode": 1,
+      "stderr_sha256": "b2cbdd5d00f33077aede5db3c91fe306b09c583855672d9c0d6cb6a78350bcbf",
+      "source_instance_accepted": false
+    },
+    {
+      "mode": "OO",
+      "case": "control-plus-kernel",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/finalize_high_source_count.py",
+        "--control",
+        "--kernel-result",
+        "/data/ivy-ramanujan-source-pv-20261119/high-transition-raw-data-full-v1/run-v1/RESULT.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-source-finalizer-negative-controls-v1/OO-control-plus-kernel",
+        "--cpus",
+        "96"
+      ],
+      "returncode": 1,
+      "stderr_sha256": "a1e1be51d6af0d9dcedd529352e28b25d78536e1ac10e45bd71f996d9212fc03",
+      "source_instance_accepted": false
+    },
+    {
+      "mode": "OO",
+      "case": "missing-kernel",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/finalize_high_source_count.py",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-source-finalizer-negative-controls-v1/OO-missing-kernel",
+        "--cpus",
+        "96"
+      ],
+      "returncode": 1,
+      "stderr_sha256": "a1e1be51d6af0d9dcedd529352e28b25d78536e1ac10e45bd71f996d9212fc03",
+      "source_instance_accepted": false
+    },
+    {
+      "mode": "OO",
+      "case": "over300",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/finalize_high_source_count.py",
+        "--control",
+        "--memory-gib",
+        "301",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-source-finalizer-negative-controls-v1/OO-over300",
+        "--cpus",
+        "96"
+      ],
+      "returncode": 1,
+      "stderr_sha256": "33127bf383ee7381e85c3a45a6106e339ee9e1f234bf3f43b6b19e63cd6e3a55",
+      "source_instance_accepted": false
+    }
+  ],
+  "high_kernel_and_source_instance_completed": false,
+  "qualification": "These controls prove only the existingcritical numericalinstance under sourceC. Real highmode rejects incomplete or absentkernelRESULT and has notrun yet."
+}

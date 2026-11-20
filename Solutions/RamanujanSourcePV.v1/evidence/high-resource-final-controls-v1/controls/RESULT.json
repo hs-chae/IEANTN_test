@@ -1,0 +1,1148 @@
+{
+  "status": "PASS_HIGH_RESOURCE_CURRENT_BYTE_ALL_OPTIMIZATION_CONTROLS",
+  "controller": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+  "controller_sha256": "ff9f23a4832c105e368f7cfe3c5ae400dbd5e4cec32c04a4c2135ea972d5ef63",
+  "actual_final_runs": [
+    {
+      "path": "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-run-Normal/RESULT.json",
+      "sha256": "513cebc4894c75dc785f2173293c32367826fc4a0fa3fc5a52d0b67f6e3a3318"
+    },
+    {
+      "path": "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-run-O/RESULT.json",
+      "sha256": "4f0ae037af7a1ca1a8a0590d40e30263a91423d7d81ac1d48852636ac69564f6"
+    },
+    {
+      "path": "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-run-OO/RESULT.json",
+      "sha256": "48cb608d177f60b88e5f5ed0dfce62999288ead218a054db4a4ca7cf7cb73f85"
+    }
+  ],
+  "routes": [
+    {
+      "mode": "Normal",
+      "name": "valid-readback",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-run-Normal/RESULT.json"
+      ],
+      "returncode": 0,
+      "seconds": 0.06439776346087456,
+      "expected_acceptance": true,
+      "stdout_sha256": "fcde37163f98009de457fe062068864e6fa4ca1edff0dad39751d0637144ef9b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "mode": "Normal",
+      "name": "per-run301",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--control",
+        "--manifest",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/proposal-Normal/PROPOSAL.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/Normal-never-dispatched",
+        "--expected-pi",
+        "1000=168",
+        "--expected-pi",
+        "367=73",
+        "--import-audit",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/data-Normal/audit",
+        "--memory-gib",
+        "301"
+      ],
+      "returncode": 1,
+      "seconds": 0.04538583941757679,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "32a33610387e916e1a9d43265799d52a00a10f460cf900a6963f0496b86c87ed"
+    },
+    {
+      "mode": "Normal",
+      "name": "aggregate769",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--control",
+        "--manifest",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/proposal-Normal/PROPOSAL.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/Normal-never-dispatched",
+        "--expected-pi",
+        "1000=168",
+        "--expected-pi",
+        "367=73",
+        "--import-audit",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/data-Normal/audit",
+        "--aggregate-gib",
+        "769"
+      ],
+      "returncode": 1,
+      "seconds": 0.04466925375163555,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "32a33610387e916e1a9d43265799d52a00a10f460cf900a6963f0496b86c87ed"
+    },
+    {
+      "mode": "Normal",
+      "name": "duplicate-cpus",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--control",
+        "--manifest",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/proposal-Normal/PROPOSAL.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/Normal-never-dispatched",
+        "--expected-pi",
+        "1000=168",
+        "--expected-pi",
+        "367=73",
+        "--import-audit",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/data-Normal/audit",
+        "--cpus",
+        "112,112,114,115,116,117,118,119"
+      ],
+      "returncode": 1,
+      "seconds": 0.04454454220831394,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "d30aa4f46323d2c5c73ea45dadc107bfbf77aaf43437b78a2ba339e1c74879c0"
+    },
+    {
+      "mode": "Normal",
+      "name": "wrong-import-count",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--control",
+        "--manifest",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/proposal-Normal/PROPOSAL.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/Normal-never-dispatched",
+        "--expected-pi",
+        "1000=168",
+        "--expected-pi",
+        "367=73",
+        "--import-audit",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/data-Normal/audit",
+        "--expected-import-count",
+        "5"
+      ],
+      "returncode": 1,
+      "seconds": 0.05137171596288681,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "5bf8226307335ff545deac4f6dc8e8814d92312577b6fc75705e124bbdded17d"
+    },
+    {
+      "mode": "Normal",
+      "name": "scratch-forecast300",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--control",
+        "--manifest",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/proposal-Normal/PROPOSAL.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/Normal-never-dispatched",
+        "--expected-pi",
+        "1000=168",
+        "--expected-pi",
+        "367=73",
+        "--import-audit",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/data-Normal/audit",
+        "--scratch-estimate-gib",
+        "300"
+      ],
+      "returncode": 1,
+      "seconds": 0.49269276671111584,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "247cdbe568cc5c76da41e0c56cbf030d3333752f1377356e41a132508891341d"
+    },
+    {
+      "mode": "Normal",
+      "name": "wrong-owned-root",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--control",
+        "--manifest",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/proposal-Normal/PROPOSAL.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/Normal-never-dispatched",
+        "--expected-pi",
+        "1000=168",
+        "--expected-pi",
+        "367=73",
+        "--import-audit",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/data-Normal/audit",
+        "--owned-scratch-root",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1"
+      ],
+      "returncode": 1,
+      "seconds": 0.04896745644509792,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "df40e3825b03943c19a24f0be25a194c13b851ceb74b6bb58ef52e2861dd3dca"
+    },
+    {
+      "mode": "Normal",
+      "name": "duplicate-json",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/Normal-duplicate-json.json"
+      ],
+      "returncode": 1,
+      "seconds": 0.04602076858282089,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "4fac894f9e26dd8d9cb8e734ec1fa78a0fcb1f84ec8108bde06a3005a0a9720a"
+    },
+    {
+      "mode": "Normal",
+      "name": "nan-json",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/Normal-nan-json.json"
+      ],
+      "returncode": 1,
+      "seconds": 0.047087546437978745,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "cbf2ec51d08fbd836a7ef1468008f10a4451e905af9a6c4b3b3816b737fdce5f"
+    },
+    {
+      "mode": "Normal",
+      "name": "infinite-json",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/Normal-infinite-json.json"
+      ],
+      "returncode": 1,
+      "seconds": 0.044707803055644035,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "3dfe5e3e903e2d79da168828260fc30989ecf049219d40a481057411300e1bbf"
+    },
+    {
+      "mode": "Normal",
+      "name": "partial-status",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/Normal-partial-status.json"
+      ],
+      "returncode": 1,
+      "seconds": 0.047135304659605026,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "c827065a821427ea49cdf181e696219b942cc6a2e39f7ae58f8e43b5876d164f"
+    },
+    {
+      "mode": "Normal",
+      "name": "missing-module",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/Normal-missing-module.json"
+      ],
+      "returncode": 1,
+      "seconds": 0.049586597830057144,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "5b86bc48d842b6bca5abdc8c0c236bb08558fbc5b3b9471cb29cd224b28e61aa"
+    },
+    {
+      "mode": "Normal",
+      "name": "wrong-object-proof",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/Normal-wrong-object-proof.json"
+      ],
+      "returncode": 1,
+      "seconds": 0.04880634322762489,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "fecdd0cb21b8947fa1bcb7e22a229fef3ae0a2e2ea8375650185e21cee2912c4"
+    },
+    {
+      "mode": "Normal",
+      "name": "self-consistent-halved-journal",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/Normal-halved-journal.json"
+      ],
+      "returncode": 1,
+      "seconds": 0.06306561268866062,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "a9cf4f9671148e2aad9f830f6d5f5877da22f8542539abb1fa66d7ce88634aeb"
+    },
+    {
+      "mode": "Normal",
+      "name": "wrong-auditor-cap",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/Normal-bad-auditor-cap.json"
+      ],
+      "returncode": 1,
+      "seconds": 0.061703067272901535,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "5c2a5eaf63adf389827fcd5dd58106fb4526eeaf73b2a0624fb7499572c2c531"
+    },
+    {
+      "mode": "Normal",
+      "name": "source-hash",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--control",
+        "--manifest",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/Normal-source-hash-manifest.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/Normal-never-dispatched",
+        "--expected-pi",
+        "1000=168",
+        "--expected-pi",
+        "367=73",
+        "--import-audit",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/data-Normal/audit"
+      ],
+      "returncode": 1,
+      "seconds": 0.04775545559823513,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "aa9ac9219072ad20bfadf597bdf585df0a6ab915ecb5759778f800755c60b98e"
+    },
+    {
+      "mode": "Normal",
+      "name": "packed-hash",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--control",
+        "--manifest",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/Normal-packed-hash-manifest.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/Normal-never-dispatched",
+        "--expected-pi",
+        "1000=168",
+        "--expected-pi",
+        "367=73",
+        "--import-audit",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/data-Normal/audit"
+      ],
+      "returncode": 1,
+      "seconds": 0.04806799255311489,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "af59c102e9b342b3ed0d7700d9bd50efa96c07296911ad5aa4cd4fc8f31b4357"
+    },
+    {
+      "mode": "Normal",
+      "name": "boolean-records",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--control",
+        "--manifest",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/Normal-boolean-records-manifest.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/Normal-never-dispatched",
+        "--expected-pi",
+        "1000=168",
+        "--expected-pi",
+        "367=73",
+        "--import-audit",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/data-Normal/audit"
+      ],
+      "returncode": 1,
+      "seconds": 0.04601168818771839,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "9c3123f2f198334fba0c190f8f4a0585b5cb9a13178884d25190402c557221ba"
+    },
+    {
+      "mode": "O",
+      "name": "valid-readback",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-run-O/RESULT.json"
+      ],
+      "returncode": 0,
+      "seconds": 0.06142725609242916,
+      "expected_acceptance": true,
+      "stdout_sha256": "bb9256bb84696c656c80e6d52af93616c2955ae347d7f4aa3534d281ce09181e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "mode": "O",
+      "name": "per-run301",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--control",
+        "--manifest",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/proposal-O/PROPOSAL.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/O-never-dispatched",
+        "--expected-pi",
+        "1000=168",
+        "--expected-pi",
+        "367=73",
+        "--import-audit",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/data-O/audit",
+        "--memory-gib",
+        "301"
+      ],
+      "returncode": 1,
+      "seconds": 0.04562638886272907,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "32a33610387e916e1a9d43265799d52a00a10f460cf900a6963f0496b86c87ed"
+    },
+    {
+      "mode": "O",
+      "name": "aggregate769",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--control",
+        "--manifest",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/proposal-O/PROPOSAL.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/O-never-dispatched",
+        "--expected-pi",
+        "1000=168",
+        "--expected-pi",
+        "367=73",
+        "--import-audit",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/data-O/audit",
+        "--aggregate-gib",
+        "769"
+      ],
+      "returncode": 1,
+      "seconds": 0.04439413174986839,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "32a33610387e916e1a9d43265799d52a00a10f460cf900a6963f0496b86c87ed"
+    },
+    {
+      "mode": "O",
+      "name": "duplicate-cpus",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--control",
+        "--manifest",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/proposal-O/PROPOSAL.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/O-never-dispatched",
+        "--expected-pi",
+        "1000=168",
+        "--expected-pi",
+        "367=73",
+        "--import-audit",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/data-O/audit",
+        "--cpus",
+        "112,112,114,115,116,117,118,119"
+      ],
+      "returncode": 1,
+      "seconds": 0.04410768300294876,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "d30aa4f46323d2c5c73ea45dadc107bfbf77aaf43437b78a2ba339e1c74879c0"
+    },
+    {
+      "mode": "O",
+      "name": "wrong-import-count",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--control",
+        "--manifest",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/proposal-O/PROPOSAL.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/O-never-dispatched",
+        "--expected-pi",
+        "1000=168",
+        "--expected-pi",
+        "367=73",
+        "--import-audit",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/data-O/audit",
+        "--expected-import-count",
+        "5"
+      ],
+      "returncode": 1,
+      "seconds": 0.051097191870212555,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "5bf8226307335ff545deac4f6dc8e8814d92312577b6fc75705e124bbdded17d"
+    },
+    {
+      "mode": "O",
+      "name": "scratch-forecast300",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--control",
+        "--manifest",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/proposal-O/PROPOSAL.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/O-never-dispatched",
+        "--expected-pi",
+        "1000=168",
+        "--expected-pi",
+        "367=73",
+        "--import-audit",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/data-O/audit",
+        "--scratch-estimate-gib",
+        "300"
+      ],
+      "returncode": 1,
+      "seconds": 0.4870004039257765,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "247cdbe568cc5c76da41e0c56cbf030d3333752f1377356e41a132508891341d"
+    },
+    {
+      "mode": "O",
+      "name": "wrong-owned-root",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--control",
+        "--manifest",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/proposal-O/PROPOSAL.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/O-never-dispatched",
+        "--expected-pi",
+        "1000=168",
+        "--expected-pi",
+        "367=73",
+        "--import-audit",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/data-O/audit",
+        "--owned-scratch-root",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1"
+      ],
+      "returncode": 1,
+      "seconds": 0.047975778579711914,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "df40e3825b03943c19a24f0be25a194c13b851ceb74b6bb58ef52e2861dd3dca"
+    },
+    {
+      "mode": "O",
+      "name": "duplicate-json",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/O-duplicate-json.json"
+      ],
+      "returncode": 1,
+      "seconds": 0.04510169290006161,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "4fac894f9e26dd8d9cb8e734ec1fa78a0fcb1f84ec8108bde06a3005a0a9720a"
+    },
+    {
+      "mode": "O",
+      "name": "nan-json",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/O-nan-json.json"
+      ],
+      "returncode": 1,
+      "seconds": 0.04644600301980972,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "cbf2ec51d08fbd836a7ef1468008f10a4451e905af9a6c4b3b3816b737fdce5f"
+    },
+    {
+      "mode": "O",
+      "name": "infinite-json",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/O-infinite-json.json"
+      ],
+      "returncode": 1,
+      "seconds": 0.04743786156177521,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "3dfe5e3e903e2d79da168828260fc30989ecf049219d40a481057411300e1bbf"
+    },
+    {
+      "mode": "O",
+      "name": "partial-status",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/O-partial-status.json"
+      ],
+      "returncode": 1,
+      "seconds": 0.044986652210354805,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "c827065a821427ea49cdf181e696219b942cc6a2e39f7ae58f8e43b5876d164f"
+    },
+    {
+      "mode": "O",
+      "name": "missing-module",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/O-missing-module.json"
+      ],
+      "returncode": 1,
+      "seconds": 0.04890347644686699,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "5b86bc48d842b6bca5abdc8c0c236bb08558fbc5b3b9471cb29cd224b28e61aa"
+    },
+    {
+      "mode": "O",
+      "name": "wrong-object-proof",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/O-wrong-object-proof.json"
+      ],
+      "returncode": 1,
+      "seconds": 0.048448096960783005,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "fecdd0cb21b8947fa1bcb7e22a229fef3ae0a2e2ea8375650185e21cee2912c4"
+    },
+    {
+      "mode": "O",
+      "name": "self-consistent-halved-journal",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/O-halved-journal.json"
+      ],
+      "returncode": 1,
+      "seconds": 0.0617325808852911,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "a9cf4f9671148e2aad9f830f6d5f5877da22f8542539abb1fa66d7ce88634aeb"
+    },
+    {
+      "mode": "O",
+      "name": "wrong-auditor-cap",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/O-bad-auditor-cap.json"
+      ],
+      "returncode": 1,
+      "seconds": 0.061969954520463943,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "5c2a5eaf63adf389827fcd5dd58106fb4526eeaf73b2a0624fb7499572c2c531"
+    },
+    {
+      "mode": "O",
+      "name": "source-hash",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--control",
+        "--manifest",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/O-source-hash-manifest.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/O-never-dispatched",
+        "--expected-pi",
+        "1000=168",
+        "--expected-pi",
+        "367=73",
+        "--import-audit",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/data-O/audit"
+      ],
+      "returncode": 1,
+      "seconds": 0.04847597889602184,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e90ffed68cbc7456f72f0ab63b3e8a84d76c9139e9b230e6bfd8c692460905d7"
+    },
+    {
+      "mode": "O",
+      "name": "packed-hash",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--control",
+        "--manifest",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/O-packed-hash-manifest.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/O-never-dispatched",
+        "--expected-pi",
+        "1000=168",
+        "--expected-pi",
+        "367=73",
+        "--import-audit",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/data-O/audit"
+      ],
+      "returncode": 1,
+      "seconds": 0.048713771626353264,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "af59c102e9b342b3ed0d7700d9bd50efa96c07296911ad5aa4cd4fc8f31b4357"
+    },
+    {
+      "mode": "O",
+      "name": "boolean-records",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--control",
+        "--manifest",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/O-boolean-records-manifest.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/O-never-dispatched",
+        "--expected-pi",
+        "1000=168",
+        "--expected-pi",
+        "367=73",
+        "--import-audit",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/data-O/audit"
+      ],
+      "returncode": 1,
+      "seconds": 0.04605455882847309,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "9c3123f2f198334fba0c190f8f4a0585b5cb9a13178884d25190402c557221ba"
+    },
+    {
+      "mode": "OO",
+      "name": "valid-readback",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-run-OO/RESULT.json"
+      ],
+      "returncode": 0,
+      "seconds": 0.06416657008230686,
+      "expected_acceptance": true,
+      "stdout_sha256": "639fa0d1cc4592a77bf60d57700b0c6869849fe7aa472a2260f57615cc0e66c3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "mode": "OO",
+      "name": "per-run301",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--control",
+        "--manifest",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/proposal-OO/PROPOSAL.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/OO-never-dispatched",
+        "--expected-pi",
+        "1000=168",
+        "--expected-pi",
+        "367=73",
+        "--import-audit",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/data-OO/audit",
+        "--memory-gib",
+        "301"
+      ],
+      "returncode": 1,
+      "seconds": 0.04501616954803467,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "32a33610387e916e1a9d43265799d52a00a10f460cf900a6963f0496b86c87ed"
+    },
+    {
+      "mode": "OO",
+      "name": "aggregate769",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--control",
+        "--manifest",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/proposal-OO/PROPOSAL.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/OO-never-dispatched",
+        "--expected-pi",
+        "1000=168",
+        "--expected-pi",
+        "367=73",
+        "--import-audit",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/data-OO/audit",
+        "--aggregate-gib",
+        "769"
+      ],
+      "returncode": 1,
+      "seconds": 0.04427058808505535,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "32a33610387e916e1a9d43265799d52a00a10f460cf900a6963f0496b86c87ed"
+    },
+    {
+      "mode": "OO",
+      "name": "duplicate-cpus",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--control",
+        "--manifest",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/proposal-OO/PROPOSAL.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/OO-never-dispatched",
+        "--expected-pi",
+        "1000=168",
+        "--expected-pi",
+        "367=73",
+        "--import-audit",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/data-OO/audit",
+        "--cpus",
+        "112,112,114,115,116,117,118,119"
+      ],
+      "returncode": 1,
+      "seconds": 0.045774251222610474,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "d30aa4f46323d2c5c73ea45dadc107bfbf77aaf43437b78a2ba339e1c74879c0"
+    },
+    {
+      "mode": "OO",
+      "name": "wrong-import-count",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--control",
+        "--manifest",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/proposal-OO/PROPOSAL.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/OO-never-dispatched",
+        "--expected-pi",
+        "1000=168",
+        "--expected-pi",
+        "367=73",
+        "--import-audit",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/data-OO/audit",
+        "--expected-import-count",
+        "5"
+      ],
+      "returncode": 1,
+      "seconds": 0.04919936880469322,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "5bf8226307335ff545deac4f6dc8e8814d92312577b6fc75705e124bbdded17d"
+    },
+    {
+      "mode": "OO",
+      "name": "scratch-forecast300",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--control",
+        "--manifest",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/proposal-OO/PROPOSAL.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/OO-never-dispatched",
+        "--expected-pi",
+        "1000=168",
+        "--expected-pi",
+        "367=73",
+        "--import-audit",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/data-OO/audit",
+        "--scratch-estimate-gib",
+        "300"
+      ],
+      "returncode": 1,
+      "seconds": 0.4874693099409342,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "247cdbe568cc5c76da41e0c56cbf030d3333752f1377356e41a132508891341d"
+    },
+    {
+      "mode": "OO",
+      "name": "wrong-owned-root",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--control",
+        "--manifest",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/proposal-OO/PROPOSAL.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/OO-never-dispatched",
+        "--expected-pi",
+        "1000=168",
+        "--expected-pi",
+        "367=73",
+        "--import-audit",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/data-OO/audit",
+        "--owned-scratch-root",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1"
+      ],
+      "returncode": 1,
+      "seconds": 0.047195978462696075,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "df40e3825b03943c19a24f0be25a194c13b851ceb74b6bb58ef52e2861dd3dca"
+    },
+    {
+      "mode": "OO",
+      "name": "duplicate-json",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/OO-duplicate-json.json"
+      ],
+      "returncode": 1,
+      "seconds": 0.04535113647580147,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "4fac894f9e26dd8d9cb8e734ec1fa78a0fcb1f84ec8108bde06a3005a0a9720a"
+    },
+    {
+      "mode": "OO",
+      "name": "nan-json",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/OO-nan-json.json"
+      ],
+      "returncode": 1,
+      "seconds": 0.04624965041875839,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "cbf2ec51d08fbd836a7ef1468008f10a4451e905af9a6c4b3b3816b737fdce5f"
+    },
+    {
+      "mode": "OO",
+      "name": "infinite-json",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/OO-infinite-json.json"
+      ],
+      "returncode": 1,
+      "seconds": 0.04540617577731609,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "3dfe5e3e903e2d79da168828260fc30989ecf049219d40a481057411300e1bbf"
+    },
+    {
+      "mode": "OO",
+      "name": "partial-status",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/OO-partial-status.json"
+      ],
+      "returncode": 1,
+      "seconds": 0.04605217091739178,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "c827065a821427ea49cdf181e696219b942cc6a2e39f7ae58f8e43b5876d164f"
+    },
+    {
+      "mode": "OO",
+      "name": "missing-module",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/OO-missing-module.json"
+      ],
+      "returncode": 1,
+      "seconds": 0.047127895057201385,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "5b86bc48d842b6bca5abdc8c0c236bb08558fbc5b3b9471cb29cd224b28e61aa"
+    },
+    {
+      "mode": "OO",
+      "name": "wrong-object-proof",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/OO-wrong-object-proof.json"
+      ],
+      "returncode": 1,
+      "seconds": 0.04747680015861988,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "fecdd0cb21b8947fa1bcb7e22a229fef3ae0a2e2ea8375650185e21cee2912c4"
+    },
+    {
+      "mode": "OO",
+      "name": "self-consistent-halved-journal",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/OO-halved-journal.json"
+      ],
+      "returncode": 1,
+      "seconds": 0.06084316410124302,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "a9cf4f9671148e2aad9f830f6d5f5877da22f8542539abb1fa66d7ce88634aeb"
+    },
+    {
+      "mode": "OO",
+      "name": "wrong-auditor-cap",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/OO-bad-auditor-cap.json"
+      ],
+      "returncode": 1,
+      "seconds": 0.06005413085222244,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "5c2a5eaf63adf389827fcd5dd58106fb4526eeaf73b2a0624fb7499572c2c531"
+    },
+    {
+      "mode": "OO",
+      "name": "source-hash",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--control",
+        "--manifest",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/OO-source-hash-manifest.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/OO-never-dispatched",
+        "--expected-pi",
+        "1000=168",
+        "--expected-pi",
+        "367=73",
+        "--import-audit",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/data-OO/audit"
+      ],
+      "returncode": 1,
+      "seconds": 0.04705461300909519,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "c9b43f805186df1780663f7e61ab432d634bf08c4a6357464a7b9cbca099ea09"
+    },
+    {
+      "mode": "OO",
+      "name": "packed-hash",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--control",
+        "--manifest",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/OO-packed-hash-manifest.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/OO-never-dispatched",
+        "--expected-pi",
+        "1000=168",
+        "--expected-pi",
+        "367=73",
+        "--import-audit",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/data-OO/audit"
+      ],
+      "returncode": 1,
+      "seconds": 0.04755470156669617,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "af59c102e9b342b3ed0d7700d9bd50efa96c07296911ad5aa4cd4fc8f31b4357"
+    },
+    {
+      "mode": "OO",
+      "name": "boolean-records",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py",
+        "--control",
+        "--manifest",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/OO-boolean-records-manifest.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/final-controls-ff9/OO-never-dispatched",
+        "--expected-pi",
+        "1000=168",
+        "--expected-pi",
+        "367=73",
+        "--import-audit",
+        "/data/ivy-ramanujan-source-pv-20261119/high-budget-controller-controls-v1/data-OO/audit"
+      ],
+      "returncode": 1,
+      "seconds": 0.045449258759617805,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "9c3123f2f198334fba0c190f8f4a0585b5cb9a13178884d25190402c557221ba"
+    }
+  ],
+  "route_count": 54,
+  "qualification": "Tiny actual kernel proofs exercise compilation, import, final exact type/root/axiom audit and resource reservations; no original high research pool launched. These controls do not prove arbitrary programs or numerical claims."
+}

@@ -1,0 +1,8 @@
+from pathlib import Path
+import html,shutil
+O=Path('/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/evidence/coupled-final-independent-v1');p=O/'REPORT.html';old=p.read_text();shutil.copyfile(p,Path(__file__).parent/'REPORT-before-allowance-derivation.html')
+def math(t):return '<math display="block"><mtext>'+html.escape(t)+'</mtext></math>'
+needle='</div><p>The same I(y) occurs in both count estimates.'
+addition='''</div><p>The source anchor uses the same paper’s <a href="https://arxiv.org/pdf/1511.02032v2#page=2">Theorem2, equations(1.7) and(1.9)</a>. Their displayed statements are:</p><div class="formula">'''+math('x − θ(x) > 0.05√x,    1 ≤ x ≤ 10¹⁹')+math('li(x) − π(x) ≤ (√x/logx)(1.95 + 3.9/logx + 19.5/log²x),    2 ≤ x ≤ 10¹⁹')+'''</div><p>The application weakens the strict lower bound to a non-strict one on[2,10¹⁹]. At a=exp(15), every added term follows explicitly:</p><div class="formula">'''+math('I(a) = C₀ + li(a) − π(a) − D(a)/15')+math('I(a) ≤ C₀ + [1.95/15 + 3.9/225 + 19.5/3375 − 0.05/15]√a')+math('I(a) ≤ C₀ + (337/2250)√a')+math('I(y) − I(a) ≤ (39/20)(15/11)[2√y/log²y − 2√a/225]')+math('I(y) − I(a) ≤ (117/22)√y/log²y − (13/550)√a')+math('337/2250 − 13/550 = 1561/12375')+math('[li(y)+C₀−1.95√y/logy] − [C₀+U] = li(y)−1.95√y/logy−U')+math('[li(x)+C₀−q/20] − [C₀+U] = li(x)−q/20−U')+'''</div><p>The same I(y) occurs in both count estimates.'''
+if needle not in old:raise ValueError('single correct insertion locus')
+p.write_text(old.replace(needle,addition));shutil.copyfile(__file__,O/'augment_report.py')

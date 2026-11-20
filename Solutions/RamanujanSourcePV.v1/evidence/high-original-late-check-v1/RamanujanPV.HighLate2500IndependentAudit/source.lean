@@ -1,0 +1,7 @@
+import RamanujanPV.HighTransitionCount.Check2500
+namespace RamanujanPV.HighLate2500IndependentAudit
+open QuotientDemandCheck
+theorem full_original_late_chunk_verified : allFrom (checkEntry HighTransitionCount.nodes HighTransitionCount.gaps HighTransitionCount.gapCount) 81920000 32768 = true := HighTransitionCount.part_2500
+#print axioms full_original_late_chunk_verified
+#print axioms HighTransitionCount.part_2500
+end RamanujanPV.HighLate2500IndependentAudit

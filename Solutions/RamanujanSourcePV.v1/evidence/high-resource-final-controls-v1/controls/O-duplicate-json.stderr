@@ -1,0 +1,32 @@
+Traceback (most recent call last):
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py", line 259, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py", line 161, in main
+    if a.check is not None:need(a.manifest is None and a.out is None and not a.plan_only and a.approved_plan is None,'read-only result-check route');print(json.dumps(check_result(a.check)));return
+                                                                                                                                                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py", line 144, in check_result
+    path=Path(path).resolve();r=read(path);need(r['status']=='COMPLETE_HIGH_RESOURCE_KERNEL_CERTIFICATE_NOT_SOURCE_PV','complete acceptance, never checkpoint');cfg=r['configuration'];need(type(cfg['jobs'])is int and 1<=cfg['jobs']<=32 and type(cfg['aggregate_gib'])is int and type(cfg['control'])is bool and cfg['stage']=='all' and all(type(cfg[k])is int and 1<=cfg[k]<=300 for k in ['memory_gib','gap_memory_gib','final_memory_gib'])and max(cfg['jobs']*cfg['memory_gib'],cfg['gap_memory_gib'],cfg['final_memory_gib'])<=cfg['aggregate_gib']<=768 and cfg['host_reserve_gib']==512 and cfg['min_available_gib']==1024,'complete fixed resource policy');need(sha(r['plan'])==r['plan_sha256']and read(r['plan'])['configuration']==cfg,'exact unchanged concrete plan');study=Study(cfg['manifest'],cfg['context'],cfg['expected_pi'],cfg['control']);need(cfg['controller_sha256']==sha(__file__)and cfg['compiler_helper_sha256']==sha(S/'scripts/compile_lean.py')and cfg['validation_helper_sha256']==sha(S/'scripts/execute_demand_manifest_parallel.py'),'current exact acceptance code');need(cfg['manifest_sha256']==sha(study.manifest)and cfg['context_sha256']==study.context_hash and cfg['compiler_sha256']==study.compiler_hash and cfg['scientific_source_sha256']==study.scientific,'exact scientific/compiler configuration');need(cfg['packed_sha256']==study.d['packed_sha256']and cfg['original_high_identity_lock_sha256']==(HIGH_LOCK_SHA if not cfg['control']else None),'exact published packed/source identity configuration');need(cfg['owned_scratch_root']==str(study.scratch)and cfg['min_disk_free_gib']==1024 and cfg['max_owned_scratch_gib']==300 and cfg['disk_poll_measurement_max_age_seconds']==5,'independent exact disk/scratch policy');need(r['completed']==cfg['total']==len(study.names)and len(r['records'])==len(study.names),'entire exact source universe');names=[]
+                                ^^^^^^^^^^
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py", line 28, in read
+    def read(path):return strict_text(Path(path).read_text())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py", line 26, in strict_text
+    return json.loads(text,object_pairs_hook=pairs,parse_float=finite,parse_constant=lambda _:(_ for _ in()).throw(ValueError('nonfinite JSON')))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/__init__.py", line 359, in loads
+    return cls(**kw).decode(s)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py", line 22, in pairs
+    for key,value in items:need(key not in result,'duplicate JSON key');result[key]=value
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_manifest_parallel.py", line 9, in need
+    if not value: raise ValueError(message)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: duplicate JSON key

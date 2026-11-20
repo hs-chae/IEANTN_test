@@ -230,3 +230,17 @@ concrete finite witness and complete combined source-linked interval execution
 through1.49trillion. The C++ generator/caller is an explicit excluded scope;
 the mathematical theorem can be completed by soundly checking its outputs
 without verifying that permitted untrusted generator. The million-unit theorem and the analytic ray do not meet across that gap.
+
+## Supplemental verification after the delivered report
+
+The delivered report and bundle are pinned to commit a5cf4050. New runs are
+recorded separately in [SUPPLEMENTAL_COUNT_STATUS.json](evidence/SUPPLEMENTAL_COUNT_STATUS.json)
+and the [high-resource reproduction guide](REPRODUCE_HIGH_RESOURCE_COUNT.md).
+The unchanged 90,670,946-record endpoint certificate is being checked in full;
+its completed gap check and partial numerical chunks do not yet prove the count.
+The original failed command startup is preserved separately from the corrected
+run. A new common-integral argument now proves the actual Ramanujan gap exceeds
+6 trillion on the entire closed ray from 1.25 trillion, under the original 24
+inputs plus one exact published Büthe theta upper bound. Its independent
+input/type/dependency audit passed. The original 24-input theorem is preserved.
+No original network node or experimental outcome has been replaced.

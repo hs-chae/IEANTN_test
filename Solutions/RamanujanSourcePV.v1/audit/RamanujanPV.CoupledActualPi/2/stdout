@@ -1,0 +1,62 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/CoupledActualPi.lean:63:33: error: `dsimp` made no progress
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/CoupledActualPi.lean:74:64: warning: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/CoupledActualPi.lean:87:64: warning: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/CoupledActualPi.lean:106:29: error(lean.unknownIdentifier): Unknown identifier `li`
+
+Note: It is not possible to treat `li` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/CoupledActualPi.lean:114:18: error: linarith failed to find a contradiction
+case right
+x y b c J : ℝ
+hy : 2 ≤ y
+hyx : y ≤ x
+hoffset : Middle.LiOffsetIdentity
+hθy : deficit y ≤ c * √y
+hθx : b * √x ≤ deficit x
+hJ : J ≤ ∫ (t : ℝ) in y..x, weight t
+hylog : 0 < log y
+hxlog : 0 < log x
+hpY : IEANTN.primeCounting y = IEANTN.li y + initialConstant - deficit y / log y - sharedIntegral y
+hpX : IEANTN.primeCounting x = IEANTN.li x + initialConstant - deficit x / log x - sharedIntegral x
+hsplit : sharedIntegral x = sharedIntegral y + ∫ (t : ℝ) in y..x, weight t
+hY : deficit y / log y ≤ c * √y / log y
+hX : b * √x / log x ≤ deficit x / log x
+a✝ : sorry + initialConstant - b * √x / log x - J - sharedIntegral y < IEANTN.primeCounting x
+⊢ False
+failed
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/CoupledActualPi.lean:147:2: error: linarith failed to find a contradiction
+a y : ℝ
+ha : 2 ≤ a
+hay : a ≤ y
+hyu : y ≤ 10000000000000000000
+hloga : log a = 15
+hoffset : Middle.LiOffsetIdentity
+hbuthe : ButhePiLower IEANTN.primeCounting IEANTN.li
+hθa : 1 / 20 * √a ≤ deficit a
+hθ : ∀ t ∈ Icc a y, deficit t ≤ 39 / 20 * √t
+han : sharedIntegral a ≤ initialConstant + 337 / 2250 * √a
+htail : ∫ (t : ℝ) in a..y, weight t ≤ 39 / 20 * ∫ (t : ℝ) in a..y, kernel t
+hkernel : ∫ (t : ℝ) in a..y, kernel t ≤ 15 / 11 * (phi y - phi a)
+hmul : 39 / 20 * ∫ (t : ℝ) in a..y, kernel t ≤ 39 / 20 * (15 / 11 * (2 * √y / log y ^ 2 - 2 * √a / 15 ^ 2))
+hsplit : sharedIntegral y = sharedIntegral a + ∫ (t : ℝ) in a..y, weight t
+a✝ : initialConstant + 1561 / 12375 * √a + 117 / 22 * √y / log y ^ 2 < sharedIntegral y
+⊢ False
+failed
+'RamanujanPV.CoupledActualPi.actual_pi_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.CoupledActualPi.shared_split' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.CoupledActualPi.shared_nonneg' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'RamanujanPV.CoupledActualPi.counts_with_shared_integral' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'RamanujanPV.CoupledActualPi.shared_anchor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.CoupledActualPi.shared_upper' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

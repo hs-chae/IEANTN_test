@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py", line 259, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py", line 164, in main
+    study=Study(a.manifest,a.context,expected,a.control);need(a.owned_scratch_root is None or a.owned_scratch_root.resolve()==study.scratch,'owned scratch root is the actual entire experiment');need(0<=a.scratch_estimate_gib<=300,'bounded explicit scratch estimate');need(a.expected_import_count is None or a.expected_import_count>=0,'nonnegative enumerated import count');need(a.control or a.expected_import_count is not None,'real research plans require explicit independently expected import count');records=imported_records(study,a.import_audit);imported=len(records)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py", line 80, in __init__
+    self.expected=[tuple(x)for x in expected];need(len(self.expected)==len(set(n for n,v in self.expected))and all(type(n)is int and type(v)is int and n>=0 and v>=0 for n,v in self.expected),'unique exact integer locked queries');need(d['queries']==[n for n,v in self.expected]and [(r['N'],r['value'])for r in d['results']]==self.expected,'exact independently supplied queries and counts');need(sha(d['packed_file'])==d['packed_sha256'],'every original packed-data byte');need(Path(d['packed_file']).stat().st_size==d['packed_bytes']==d['records']*41 and d['packed_bits']==324 and d['packed_bytes_per_record']==41,'exact original word layout');need(d['packed_widths']==[2,22,42,42,32,32,32,32,22,22,22,22],'all original twelve fields')
+                                                                                                                                                                                                                                                                                                                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_manifest_parallel.py", line 9, in need
+    if not value: raise ValueError(message)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: every original packed-data byte

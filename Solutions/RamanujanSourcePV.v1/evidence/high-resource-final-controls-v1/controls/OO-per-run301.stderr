@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py", line 259, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_high_resource.py", line 162, in main
+    need(a.manifest is not None and a.out is not None and a.expected_pi,'manifest/output/independent expected queries required');need(1<=a.jobs<=32 and 1<=a.memory_gib<=300 and 1<=a.gap_memory_gib<=300 and 1<=a.final_memory_gib<=300 and max(a.jobs*a.memory_gib,a.gap_memory_gib,a.final_memory_gib)<=a.aggregate_gib<=768,'individual<=300GiB; weighted aggregate<=768GiB');cpus=[int(x)for x in a.cpus.split(',')];need(len(cpus)==len(set(cpus))and len(cpus)>=a.jobs and set(cpus)<=os.sched_getaffinity(0),'distinct available worker CPUs');cpus=cpus[:a.jobs];expected=[]
+                                                                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/execute_demand_manifest_parallel.py", line 9, in need
+    if not value: raise ValueError(message)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: individual<=300GiB; weighted aggregate<=768GiB

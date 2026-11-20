@@ -1,0 +1,20 @@
+/- GENERATED ONLY AFTER COMPLETE ACCEPTED HighTransitionCount.Final.
+This is a pending integration template, not an accepted numerical theorem. -/
+import RamanujanPV.HighCountSourceTransport
+import RamanujanPV.HighTransitionCount.Final
+namespace RamanujanPV.HighSourceOutputs
+
+theorem source_execution :
+    QuotientCCell.SourceExecution 1490000000000 55206486339 :=
+  HighCountSourceTransport.from_exact_count HighTransitionCount.pi_1490000000000
+
+theorem source_linked_output :
+    LCMSourcePV.RestrictedC.SourceCorresponds
+      QuotientCSource.render QuotientCSource.actualSource () ∧
+    QuotientCCell.SourceExecution 1490000000000 55206486339 :=
+  HighCountSourceTransport.source_linked_from_exact_count
+    HighTransitionCount.pi_1490000000000
+
+#print axioms source_execution
+#print axioms source_linked_output
+end RamanujanPV.HighSourceOutputs
