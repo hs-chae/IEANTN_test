@@ -1,0 +1,189 @@
+recursor LCMSourcePV.ASTLoops.StmtRun.rec.{u, v} : ∀ {State : Type u} {Value : Type v}
+  {Eval : LCMSourcePV.Witness.C.Expr → State → State → Value → Prop}
+  {Declare : List LCMSourcePV.Witness.C.Decl → State → State → Prop} {truth : Value → Bool}
+  {Scope : State → LCMSourcePV.ASTLoops.Flow State Value → LCMSourcePV.ASTLoops.Flow State Value → Prop}
+  {motive_1 :
+    (a : LCMSourcePV.Witness.C.Stmt) →
+      (a_1 : State) →
+        (a_2 : LCMSourcePV.ASTLoops.Flow State Value) →
+          LCMSourcePV.ASTLoops.StmtRun Eval Declare truth Scope a a_1 a_2 → Prop}
+  {motive_2 :
+    (a : List LCMSourcePV.Witness.C.Stmt) →
+      (a_1 : State) →
+        (a_2 : LCMSourcePV.ASTLoops.Flow State Value) →
+          LCMSourcePV.ASTLoops.SeqRun Eval Declare truth Scope a a_1 a_2 → Prop}
+  {motive_3 :
+    (a : Option LCMSourcePV.Witness.C.Expr) →
+      (a_1 : LCMSourcePV.Witness.C.Expr) →
+        (a_2 : LCMSourcePV.Witness.C.Stmt) →
+          (a_3 : State) →
+            (a_4 : LCMSourcePV.ASTLoops.Flow State Value) →
+              LCMSourcePV.ASTLoops.ForRun Eval Declare truth Scope a a_1 a_2 a_3 a_4 → Prop}
+  {motive_4 :
+    (a : LCMSourcePV.Witness.C.Expr) →
+      (a_1 : LCMSourcePV.Witness.C.Stmt) →
+        (a_2 : State) →
+          (a_3 : LCMSourcePV.ASTLoops.Flow State Value) →
+            LCMSourcePV.ASTLoops.WhileRun Eval Declare truth Scope a a_1 a_2 a_3 → Prop},
+  (∀ (s : State), motive_1 LCMSourcePV.Witness.C.Stmt.skip s (LCMSourcePV.ASTLoops.Flow.continuing s) ⋯) →
+    (∀ {e : LCMSourcePV.Witness.C.Expr} {s t : State} {value : Value} (run : Eval e s t value),
+        motive_1 (LCMSourcePV.Witness.C.Stmt.eval e) s (LCMSourcePV.ASTLoops.Flow.continuing t) ⋯) →
+      (∀ {decls : List LCMSourcePV.Witness.C.Decl} {s t : State} (run : Declare decls s t),
+          motive_1 (LCMSourcePV.Witness.C.Stmt.declare decls) s (LCMSourcePV.ASTLoops.Flow.continuing t) ⋯) →
+        (∀ {e : LCMSourcePV.Witness.C.Expr} {s t : State} {value : Value} (run : Eval e s t value),
+            motive_1 (LCMSourcePV.Witness.C.Stmt.returnStmt e) s (LCMSourcePV.ASTLoops.Flow.returned t value) ⋯) →
+          (∀ {e : LCMSourcePV.Witness.C.Expr} {yes no : LCMSourcePV.Witness.C.Stmt} {s t : State} {value : Value}
+              {result : LCMSourcePV.ASTLoops.Flow State Value} (test : Eval e s t value)
+              (body :
+                LCMSourcePV.ASTLoops.StmtRun Eval Declare truth Scope (if truth value = true then yes else no) t
+                  result),
+              motive_1 (if truth value = true then yes else no) t result body →
+                motive_1 (LCMSourcePV.Witness.C.Stmt.branch e yes no) s result ⋯) →
+            (∀ {body : List LCMSourcePV.Witness.C.Stmt} {s : State}
+                {inner result : LCMSourcePV.ASTLoops.Flow State Value}
+                (run : LCMSourcePV.ASTLoops.SeqRun Eval Declare truth Scope body s inner)
+                (exitScope : Scope s inner result),
+                motive_2 body s inner run → motive_1 (LCMSourcePV.Witness.C.Stmt.sequence body) s result ⋯) →
+              (∀ {init : LCMSourcePV.Witness.C.Stmt} {cond : Option LCMSourcePV.Witness.C.Expr}
+                  {step : LCMSourcePV.Witness.C.Expr} {body : LCMSourcePV.Witness.C.Stmt} {s t : State}
+                  {inner result : LCMSourcePV.ASTLoops.Flow State Value}
+                  (initialization :
+                    LCMSourcePV.ASTLoops.StmtRun Eval Declare truth Scope init s
+                      (LCMSourcePV.ASTLoops.Flow.continuing t))
+                  (loop : LCMSourcePV.ASTLoops.ForRun Eval Declare truth Scope cond step body t inner)
+                  (exitScope : Scope s inner result),
+                  motive_1 init s (LCMSourcePV.ASTLoops.Flow.continuing t) initialization →
+                    motive_3 cond step body t inner loop → motive_1 (init.forLoop cond step body) s result ⋯) →
+                (∀ {init : LCMSourcePV.Witness.C.Stmt} {cond : Option LCMSourcePV.Witness.C.Expr}
+                    {step : LCMSourcePV.Witness.C.Expr} {body : LCMSourcePV.Witness.C.Stmt} {s t : State}
+                    {value : Value} {result : LCMSourcePV.ASTLoops.Flow State Value}
+                    (initialization :
+                      LCMSourcePV.ASTLoops.StmtRun Eval Declare truth Scope init s
+                        (LCMSourcePV.ASTLoops.Flow.returned t value))
+                    (exitScope : Scope s (LCMSourcePV.ASTLoops.Flow.returned t value) result),
+                    motive_1 init s (LCMSourcePV.ASTLoops.Flow.returned t value) initialization →
+                      motive_1 (init.forLoop cond step body) s result ⋯) →
+                  (∀ {cond : LCMSourcePV.Witness.C.Expr} {body : LCMSourcePV.Witness.C.Stmt} {s : State}
+                      {result : LCMSourcePV.ASTLoops.Flow State Value}
+                      (loop : LCMSourcePV.ASTLoops.WhileRun Eval Declare truth Scope cond body s result),
+                      motive_4 cond body s result loop →
+                        motive_1 (LCMSourcePV.Witness.C.Stmt.whileLoop cond body) s result ⋯) →
+                    (∀ (s : State), motive_2 [] s (LCMSourcePV.ASTLoops.Flow.continuing s) ⋯) →
+                      (∀ {head : LCMSourcePV.Witness.C.Stmt} {tail : List LCMSourcePV.Witness.C.Stmt} {s t : State}
+                          {result : LCMSourcePV.ASTLoops.Flow State Value}
+                          (first :
+                            LCMSourcePV.ASTLoops.StmtRun Eval Declare truth Scope head s
+                              (LCMSourcePV.ASTLoops.Flow.continuing t))
+                          (rest : LCMSourcePV.ASTLoops.SeqRun Eval Declare truth Scope tail t result),
+                          motive_1 head s (LCMSourcePV.ASTLoops.Flow.continuing t) first →
+                            motive_2 tail t result rest → motive_2 (head :: tail) s result ⋯) →
+                        (∀ {head : LCMSourcePV.Witness.C.Stmt} {tail : List LCMSourcePV.Witness.C.Stmt} {s t : State}
+                            {value : Value}
+                            (first :
+                              LCMSourcePV.ASTLoops.StmtRun Eval Declare truth Scope head s
+                                (LCMSourcePV.ASTLoops.Flow.returned t value)),
+                            motive_1 head s (LCMSourcePV.ASTLoops.Flow.returned t value) first →
+                              motive_2 (head :: tail) s (LCMSourcePV.ASTLoops.Flow.returned t value) ⋯) →
+                          (∀ {cond : Option LCMSourcePV.Witness.C.Expr} {step : LCMSourcePV.Witness.C.Expr}
+                              {body : LCMSourcePV.Witness.C.Stmt} {s t : State}
+                              (test : LCMSourcePV.ASTLoops.GuardRun Eval truth cond s t false),
+                              motive_3 cond step body s (LCMSourcePV.ASTLoops.Flow.continuing t) ⋯) →
+                            (∀ {cond : Option LCMSourcePV.Witness.C.Expr} {step : LCMSourcePV.Witness.C.Expr}
+                                {body : LCMSourcePV.Witness.C.Stmt} {s t b c : State} {value : Value}
+                                {result : LCMSourcePV.ASTLoops.Flow State Value}
+                                (test : LCMSourcePV.ASTLoops.GuardRun Eval truth cond s t true)
+                                (iteration :
+                                  LCMSourcePV.ASTLoops.StmtRun Eval Declare truth Scope body t
+                                    (LCMSourcePV.ASTLoops.Flow.continuing b))
+                                (increment : Eval step b c value)
+                                (rest : LCMSourcePV.ASTLoops.ForRun Eval Declare truth Scope cond step body c result),
+                                motive_1 body t (LCMSourcePV.ASTLoops.Flow.continuing b) iteration →
+                                  motive_3 cond step body c result rest → motive_3 cond step body s result ⋯) →
+                              (∀ {cond : Option LCMSourcePV.Witness.C.Expr} {step : LCMSourcePV.Witness.C.Expr}
+                                  {body : LCMSourcePV.Witness.C.Stmt} {s t b : State} {value : Value}
+                                  (test : LCMSourcePV.ASTLoops.GuardRun Eval truth cond s t true)
+                                  (iteration :
+                                    LCMSourcePV.ASTLoops.StmtRun Eval Declare truth Scope body t
+                                      (LCMSourcePV.ASTLoops.Flow.returned b value)),
+                                  motive_1 body t (LCMSourcePV.ASTLoops.Flow.returned b value) iteration →
+                                    motive_3 cond step body s (LCMSourcePV.ASTLoops.Flow.returned b value) ⋯) →
+                                (∀ {cond : LCMSourcePV.Witness.C.Expr} {body : LCMSourcePV.Witness.C.Stmt} {s t : State}
+                                    {value : Value} (test : Eval cond s t value) (stop : truth value = false),
+                                    motive_4 cond body s (LCMSourcePV.ASTLoops.Flow.continuing t) ⋯) →
+                                  (∀ {cond : LCMSourcePV.Witness.C.Expr} {body : LCMSourcePV.Witness.C.Stmt}
+                                      {s t b : State} {value : Value} {result : LCMSourcePV.ASTLoops.Flow State Value}
+                                      (test : Eval cond s t value) (keepGoing : truth value = true)
+                                      (iteration :
+                                        LCMSourcePV.ASTLoops.StmtRun Eval Declare truth Scope body t
+                                          (LCMSourcePV.ASTLoops.Flow.continuing b))
+                                      (rest :
+                                        LCMSourcePV.ASTLoops.WhileRun Eval Declare truth Scope cond body b result),
+                                      motive_1 body t (LCMSourcePV.ASTLoops.Flow.continuing b) iteration →
+                                        motive_4 cond body b result rest → motive_4 cond body s result ⋯) →
+                                    (∀ {cond : LCMSourcePV.Witness.C.Expr} {body : LCMSourcePV.Witness.C.Stmt}
+                                        {s t b : State} {condition value : Value} (test : Eval cond s t condition)
+                                        (keepGoing : truth condition = true)
+                                        (iteration :
+                                          LCMSourcePV.ASTLoops.StmtRun Eval Declare truth Scope body t
+                                            (LCMSourcePV.ASTLoops.Flow.returned b value)),
+                                        motive_1 body t (LCMSourcePV.ASTLoops.Flow.returned b value) iteration →
+                                          motive_4 cond body s (LCMSourcePV.ASTLoops.Flow.returned b value) ⋯) →
+                                      ∀ {a : LCMSourcePV.Witness.C.Stmt} {a_1 : State}
+                                        {a_2 : LCMSourcePV.ASTLoops.Flow State Value}
+                                        (t : LCMSourcePV.ASTLoops.StmtRun Eval Declare truth Scope a a_1 a_2),
+                                        motive_1 a a_1 a_2 t
+number of parameters: 6
+number of indices: 3
+number of motives: 4
+number of minors: 18
+rules:
+for LCMSourcePV.ASTLoops.StmtRun.skip (1 fields): fun {State} {Value} Eval Declare truth Scope motive_1 motive_2
+    motive_3 motive_4 skip evaluate declare returnValue branch sequence forLoop forInitialReturn whileLoop nil next
+    returned done next_1 returned_1 done_1 next_2 returned_2 s =>
+  skip s
+for LCMSourcePV.ASTLoops.StmtRun.evaluate (5 fields): fun {State} {Value} Eval Declare truth Scope motive_1 motive_2
+    motive_3 motive_4 skip evaluate declare returnValue branch sequence forLoop forInitialReturn whileLoop nil next
+    returned done next_1 returned_1 done_1 next_2 returned_2 {e} {s t} {value} run =>
+  evaluate run
+for LCMSourcePV.ASTLoops.StmtRun.declare (4 fields): fun {State} {Value} Eval Declare truth Scope motive_1 motive_2
+    motive_3 motive_4 skip evaluate declare returnValue branch sequence forLoop forInitialReturn whileLoop nil next
+    returned done next_1 returned_1 done_1 next_2 returned_2 {decls} {s t} run =>
+  declare run
+for LCMSourcePV.ASTLoops.StmtRun.returnValue (5 fields): fun {State} {Value} Eval Declare truth Scope motive_1 motive_2
+    motive_3 motive_4 skip evaluate declare returnValue branch sequence forLoop forInitialReturn whileLoop nil next
+    returned done next_1 returned_1 done_1 next_2 returned_2 {e} {s t} {value} run =>
+  returnValue run
+for LCMSourcePV.ASTLoops.StmtRun.branch (9 fields): fun {State} {Value} Eval Declare truth Scope motive_1 motive_2
+    motive_3 motive_4 skip evaluate declare returnValue branch sequence forLoop forInitialReturn whileLoop nil next
+    returned done next_1 returned_1 done_1 next_2 returned_2 {e} {yes no} {s t} {value} {result} test body =>
+  branch test body
+    (LCMSourcePV.ASTLoops.StmtRun.rec skip evaluate declare returnValue branch sequence forLoop forInitialReturn
+      whileLoop nil next returned done next_1 returned_1 done_1 next_2 returned_2 body)
+for LCMSourcePV.ASTLoops.StmtRun.sequence (6 fields): fun {State} {Value} Eval Declare truth Scope motive_1 motive_2
+    motive_3 motive_4 skip evaluate declare returnValue branch sequence forLoop forInitialReturn whileLoop nil next
+    returned done next_1 returned_1 done_1 next_2 returned_2 {body} {s} {inner result} run exitScope =>
+  sequence run exitScope
+    (LCMSourcePV.ASTLoops.SeqRun.rec skip evaluate declare returnValue branch sequence forLoop forInitialReturn
+      whileLoop nil next returned done next_1 returned_1 done_1 next_2 returned_2 run)
+for LCMSourcePV.ASTLoops.StmtRun.forLoop (11 fields): fun {State} {Value} Eval Declare truth Scope motive_1 motive_2
+    motive_3 motive_4 skip evaluate declare returnValue branch sequence forLoop forInitialReturn whileLoop nil next
+    returned done next_1 returned_1 done_1 next_2 returned_2 {init} {cond} {step} {body} {s t} {inner result}
+    initialization loop exitScope =>
+  forLoop initialization loop exitScope
+    (LCMSourcePV.ASTLoops.StmtRun.rec skip evaluate declare returnValue branch sequence forLoop forInitialReturn
+      whileLoop nil next returned done next_1 returned_1 done_1 next_2 returned_2 initialization)
+    (LCMSourcePV.ASTLoops.ForRun.rec skip evaluate declare returnValue branch sequence forLoop forInitialReturn
+      whileLoop nil next returned done next_1 returned_1 done_1 next_2 returned_2 loop)
+for LCMSourcePV.ASTLoops.StmtRun.forInitialReturn (10 fields): fun {State} {Value} Eval Declare truth Scope motive_1
+    motive_2 motive_3 motive_4 skip evaluate declare returnValue branch sequence forLoop forInitialReturn whileLoop nil
+    next returned done next_1 returned_1 done_1 next_2 returned_2 {init} {cond} {step} {body} {s t} {value} {result}
+    initialization exitScope =>
+  forInitialReturn initialization exitScope
+    (LCMSourcePV.ASTLoops.StmtRun.rec skip evaluate declare returnValue branch sequence forLoop forInitialReturn
+      whileLoop nil next returned done next_1 returned_1 done_1 next_2 returned_2 initialization)
+for LCMSourcePV.ASTLoops.StmtRun.whileLoop (5 fields): fun {State} {Value} Eval Declare truth Scope motive_1 motive_2
+    motive_3 motive_4 skip evaluate declare returnValue branch sequence forLoop forInitialReturn whileLoop nil next
+    returned done next_1 returned_1 done_1 next_2 returned_2 {cond} {body} {s} {result} loop =>
+  whileLoop loop
+    (LCMSourcePV.ASTLoops.WhileRun.rec skip evaluate declare returnValue branch sequence forLoop forInitialReturn
+      whileLoop nil next returned done next_1 returned_1 done_1 next_2 returned_2 loop)

@@ -1,0 +1,21 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientPartition.lean:13:21: error: Tactic `rfl` failed: The left-hand side
+  allFrom check i (0 + m)
+is not definitionally equal to the right-hand side
+  allFrom check i 0 && allFrom check (i + 0) m
+
+case zero
+check : Nat → Bool
+m i : Nat
+⊢ allFrom check i (0 + m) = (allFrom check i 0 && allFrom check (i + 0) m)
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientPartition.lean:18:8: error: Type mismatch
+  congrArg (allFrom check i) (Nat.succ_add n m)
+has type
+  allFrom check i (n.succ + m) = allFrom check i (n + m).succ
+but is expected to have type
+  (decide (allFrom check i (n + 1 + m) = check i) && allFrom check (i + 1) (n + m)) = true
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientPartition.lean:19:6: error: invalid 'calc' step, left-hand side is
+  decide (?m.53 = check i) && (allFrom check (i + 1) n && allFrom check (i + 1 + n) m) : Bool
+but previous right-hand side is
+  true : Bool
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/QuotientPartition.lean:28:36: error(lean.unknownIdentifier): Unknown identifier `congrArg₂`
+'RamanujanPV.QuotientPartition.append_checked' depends on axioms: [sorryAx]

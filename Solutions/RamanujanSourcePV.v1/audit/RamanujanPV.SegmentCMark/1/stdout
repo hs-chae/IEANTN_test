@@ -1,0 +1,75 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCMark.lean:42:77: error: unexpected identifier; expected '}'
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCMark.lean:42:8: error: Fields missing: `dValue`, `firstValue`, `flagsValue`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCMark.lean:61:49: error: unsolved goals
+call : Service
+s : State
+base lo m length : ℕ
+flags : ℕ → ℕ
+owned : Owned s.heap
+rep : FlagsRep s.heap base length flags
+hflags : s.env "flags" = some (Value.ptr base)
+hm : s.env "m" = some (Value.u64 m)
+hlo : s.env "lo" = some (Value.u64 lo)
+hlower : lo ≤ m
+hindex : m - lo < length
+hword : m < modulus
+after : Heap
+written : write s.heap base (m - lo) 0 = some after
+ownedAfter : Owned after
+repAfter : FlagsRep after base length (Function.update flags (m - lo) 0)
+shape : SameShape s.heap after
+other : ∀ (other j : ℕ), other ≠ base → QuotientCMachine.read after other j = QuotientCMachine.read s.heap other j
+⊢ Value.i32 0 = ?m.121
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCMark.lean:62:5: error: unsolved goals
+call : Service
+s : State
+base lo m length : ℕ
+flags : ℕ → ℕ
+owned : Owned s.heap
+rep : FlagsRep s.heap base length flags
+hflags : s.env "flags" = some (Value.ptr base)
+hm : s.env "m" = some (Value.u64 m)
+hlo : s.env "lo" = some (Value.u64 lo)
+hlower : lo ≤ m
+hindex : m - lo < length
+hword : m < modulus
+after : Heap
+written : write s.heap base (m - lo) 0 = some after
+ownedAfter : Owned after
+repAfter : FlagsRep after base length (Function.update flags (m - lo) 0)
+shape : SameShape s.heap after
+other : ∀ (other j : ℕ), other ≠ base → QuotientCMachine.read after other j = QuotientCMachine.read s.heap other j
+⊢ ((match ?m.121 with
+        | Value.u64 n => some n
+        | Value.i32 n => some n
+        | Value.i64 n => some n
+        | Value.ptr address => none).bind
+      fun __do_lift => some (Value.u64 (__do_lift % 18446744073709551616))) =
+    some (Value.u64 0)
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCMark.lean:53:113: error: unsolved goals
+case run
+call : Service
+s : State
+base lo m length : ℕ
+flags : ℕ → ℕ
+owned : Owned s.heap
+rep : FlagsRep s.heap base length flags
+hflags : s.env "flags" = some (Value.ptr base)
+hm : s.env "m" = some (Value.u64 m)
+hlo : s.env "lo" = some (Value.u64 lo)
+hlower : lo ≤ m
+hindex : m - lo < length
+hword : m < modulus
+after : Heap
+written : write s.heap base (m - lo) 0 = some after
+ownedAfter : Owned after
+repAfter : FlagsRep after base length (Function.update flags (m - lo) 0)
+shape : SameShape s.heap after
+other : ∀ (other j : ℕ), other ≠ base → QuotientCMachine.read after other j = QuotientCMachine.read s.heap other j
+⊢ Eval call (Expr.binary "=" ((Expr.var "flags").index (Expr.binary "-" (Expr.var "m") (Expr.var "lo"))) (Expr.nat 0)) s
+    { env := s.env, heap := after } (Value.u64 0)
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCMark.lean:100:30: error(lean.unknownIdentifier): Unknown identifier `mark_end_gt`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCMark.lean:114:19: error(lean.unknownIdentifier): Unknown identifier `mark_member_upper`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCMark.lean:154:14: error(lean.unknownIdentifier): Unknown identifier `first_upper`
+'RamanujanPV.SegmentCMark.actual_mark_for' depends on axioms: [propext]
+'RamanujanPV.SegmentCMark.mark_for_exec' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

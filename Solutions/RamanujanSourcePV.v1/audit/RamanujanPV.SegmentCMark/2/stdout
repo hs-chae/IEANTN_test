@@ -1,0 +1,118 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCMark.lean:132:87: error: unsolved goals
+case e_a
+call : Service
+lo hi d base : ℕ
+initialFlags : ℕ → ℕ
+hd : 0 < d
+hlo : lo ≤ hi
+hsquare : d * d ≤ hi
+hhi : hi ≤ 2000000000000
+hdhi : d ≤ hi
+hhw : hi < modulus
+remaining : ℕ
+ih :
+  ∀ {s : State} {processed : ℕ},
+    Owned s.heap →
+      FlagsRep s.heap base (hi - lo + 1) (erasePrefix lo (firstMultiple lo d) d processed initialFlags) →
+        MarkEnv lo hi d (firstMultiple lo d) base s.env →
+          s.env "m" = some (Value.u64 (firstMultiple lo d + processed * d)) →
+            processed + remaining = markCount lo hi d →
+              ∃ t,
+                QuotientCMachine.ForRun call (some markGuard) markIncrement markBody s (Flow.continuing t) ∧
+                  t.env = QuotientCMachine.bind s.env "m" (Value.u64 (firstMultiple lo d + markCount lo hi d * d)) ∧
+                    Owned t.heap ∧
+                      FlagsRep t.heap base (hi - lo + 1)
+                          (erasePrefix lo (firstMultiple lo d) d (markCount lo hi d) initialFlags) ∧
+                        ∀ (other j : ℕ),
+                          other ≠ base → QuotientCMachine.read t.heap other j = QuotientCMachine.read s.heap other j
+s : State
+processed : ℕ
+owned : Owned s.heap
+rep : FlagsRep s.heap base (hi - lo + 1) (erasePrefix lo (firstMultiple lo d) d processed initialFlags)
+env : MarkEnv lo hi d (firstMultiple lo d) base s.env
+hm : s.env "m" = some (Value.u64 (firstMultiple lo d + processed * d))
+hcount : processed + (remaining + 1) = markCount lo hi d
+hp : processed < markCount lo hi d
+hmhi : firstMultiple lo d + processed * d ≤ hi
+hmlow : lo ≤ firstMultiple lo d + processed * d
+hindex : firstMultiple lo d + processed * d - lo < hi - lo + 1
+hmw : firstMultiple lo d + processed * d < modulus
+body : State
+hbody : Run ?m.320 markBody s (Flow.continuing body)
+henv : body.env = s.env
+howned : Owned body.heap
+hrep :
+  FlagsRep body.heap base (hi - lo + 1)
+    (Function.update (erasePrefix lo (firstMultiple lo d) d processed initialFlags)
+      (firstMultiple lo d + processed * d - lo) 0)
+hframe : ∀ (other j : ℕ), other ≠ base → QuotientCMachine.read body.heap other j = QuotientCMachine.read s.heap other j
+hnextw : firstMultiple lo d + processed * d + d < modulus
+next : State :=
+  { env := QuotientCMachine.bind body.env "m" (Value.u64 (firstMultiple lo d + processed * d + d)), heap := body.heap }
+step : Eval call markIncrement body next (Value.u64 (firstMultiple lo d + processed * d + d))
+repNext : FlagsRep next.heap base (hi - lo + 1) (erasePrefix lo (firstMultiple lo d) d (processed + 1) initialFlags)
+envNext : MarkEnv lo hi d (firstMultiple lo d) base next.env
+⊢ firstMultiple lo d + processed * d = firstMultiple lo d
+
+case e_a
+call : Service
+lo hi d base : ℕ
+initialFlags : ℕ → ℕ
+hd : 0 < d
+hlo : lo ≤ hi
+hsquare : d * d ≤ hi
+hhi : hi ≤ 2000000000000
+hdhi : d ≤ hi
+hhw : hi < modulus
+remaining : ℕ
+ih :
+  ∀ {s : State} {processed : ℕ},
+    Owned s.heap →
+      FlagsRep s.heap base (hi - lo + 1) (erasePrefix lo (firstMultiple lo d) d processed initialFlags) →
+        MarkEnv lo hi d (firstMultiple lo d) base s.env →
+          s.env "m" = some (Value.u64 (firstMultiple lo d + processed * d)) →
+            processed + remaining = markCount lo hi d →
+              ∃ t,
+                QuotientCMachine.ForRun call (some markGuard) markIncrement markBody s (Flow.continuing t) ∧
+                  t.env = QuotientCMachine.bind s.env "m" (Value.u64 (firstMultiple lo d + markCount lo hi d * d)) ∧
+                    Owned t.heap ∧
+                      FlagsRep t.heap base (hi - lo + 1)
+                          (erasePrefix lo (firstMultiple lo d) d (markCount lo hi d) initialFlags) ∧
+                        ∀ (other j : ℕ),
+                          other ≠ base → QuotientCMachine.read t.heap other j = QuotientCMachine.read s.heap other j
+s : State
+processed : ℕ
+owned : Owned s.heap
+rep : FlagsRep s.heap base (hi - lo + 1) (erasePrefix lo (firstMultiple lo d) d processed initialFlags)
+env : MarkEnv lo hi d (firstMultiple lo d) base s.env
+hm : s.env "m" = some (Value.u64 (firstMultiple lo d + processed * d))
+hcount : processed + (remaining + 1) = markCount lo hi d
+hp : processed < markCount lo hi d
+hmhi : firstMultiple lo d + processed * d ≤ hi
+hmlow : lo ≤ firstMultiple lo d + processed * d
+hindex : firstMultiple lo d + processed * d - lo < hi - lo + 1
+hmw : firstMultiple lo d + processed * d < modulus
+body : State
+hbody : Run ?m.320 markBody s (Flow.continuing body)
+henv : body.env = s.env
+howned : Owned body.heap
+hrep :
+  FlagsRep body.heap base (hi - lo + 1)
+    (Function.update (erasePrefix lo (firstMultiple lo d) d processed initialFlags)
+      (firstMultiple lo d + processed * d - lo) 0)
+hframe : ∀ (other j : ℕ), other ≠ base → QuotientCMachine.read body.heap other j = QuotientCMachine.read s.heap other j
+hnextw : firstMultiple lo d + processed * d + d < modulus
+next : State :=
+  { env := QuotientCMachine.bind body.env "m" (Value.u64 (firstMultiple lo d + processed * d + d)), heap := body.heap }
+step : Eval call markIncrement body next (Value.u64 (firstMultiple lo d + processed * d + d))
+repNext : FlagsRep next.heap base (hi - lo + 1) (erasePrefix lo (firstMultiple lo d) d (processed + 1) initialFlags)
+envNext : MarkEnv lo hi d (firstMultiple lo d) base next.env
+⊢ d = (processed + 1) * d
+'RamanujanPV.SegmentCMark.actual_mark_for' depends on axioms: [propext]
+'RamanujanPV.SegmentCMark.mark_for_exec' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
