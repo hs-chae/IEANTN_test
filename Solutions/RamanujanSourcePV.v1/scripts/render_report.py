@@ -85,10 +85,10 @@ def box(x,y,w,h,title,lines,status='good'):
  for i,line in enumerate(lines):svg.append('<text x="'+str(x+12)+'" y="'+str(y+50+i*20)+'" font-family="sans-serif" font-size="14" fill="#344d63">'+esc(line)+'</text>')
 arrow('M190,110 V155');arrow('M190,265 V310 H320 V350')
 arrow('M570,125 V165');arrow('M570,290 V350')
-arrow('M445,455 V500');arrow('M445,610 V655')
+arrow('M445,455 V500');arrow('M445,610 V655',True)
 arrow('M995,140 V255');arrow('M995,390 H1190 V850 H1170')
 arrow('M190,265 V310 H790 V480 H805')
-arrow('M810,480 H775 V710 H745')
+arrow('M810,480 H775 V710 H745',True)
 arrow('M955,710 V770 H450 V850',True);arrow('M445,765 V850',True)
 box(20,20,340,90,'Actual complete C source',['Counter, segment, e, log, strict cell','Plus the fixed-input count driver'])
 box(20,160,340,105,'Exact AST / typed C execution',['Complete loops, helper bodies, scopes','Arithmetic, ownership, initialization','Every completed modeled run sound'])
@@ -96,14 +96,14 @@ box(400,20,340,105,'Untrusted proposals',['Actual generators and packed records'
 box(400,170,340,120,'Accepted kernel numerical evidence',['9,676,151 base-count records','116,176 local prime proofs; 285 cells','Every type and arithmetic leaf audited'])
 box(250,355,490,100,'Actual source executions with exact outputs',['Requires BOTH source semantics and numerical facts','Local count providers actually consume the C checker'])
 box(250,505,490,105,'Closed local finite certificate',['Actual study’s original CompleteCertificate; all real points','[38,358,837,683, 38,359,837,684)','All five numerical C families consumed; G > 501,901'])
-box(250,660,490,105,'Full required finite certificate: OPEN',['Required half-open stop: 1,490,000,000,001','Generic consumer compiled; concrete witness absent','The local certificate cannot establish this range'],'pending')
-box(810,20,370,120,'Explicit analytic source inputs',['16 original QRH / density inputs','CH2 / Dusart / Buthe / Axler','Special-function identities disclosed'])
-box(810,260,370,130,'Closed analytic branch',['All real x from1,490,000,000,000','Quantitative margin from exp40','Original655-source closure rebuilt','Standard logical axioms only'])
+box(250,660,490,105,'Shorter required finite certificate: OPEN',['Required half-open stop: 1,250,000,000,001','Original scalar certificate extends through1.49trillion','Concrete full prime-count witness remains absent'],'pending')
+box(810,20,370,120,'25 explicit analytic source inputs',['16 original QRH / density inputs','CH2 / Dusart / Buthe / Axler','Includes new Buthe theta upper bound'])
+box(810,260,370,130,'Closed stronger analytic branch',['All real x from1,250,000,000,000','Gap > 6,000,000,000,000','Exact25-input independent audit passed','Fresh673-source replay still pending'])
 box(810,425,370,120,'Full-prefix C scalar execution proof',['All1,755,663 original rows','Actual e / log / strict C executions','Extra guards/floor; kernel9,005 margin'])
 box(810,590,370,120,'Full-prefix C scalars + native counts',['All1,755,663 scalar C runs proved','9,005 retained margin and coverage','Full formal prime-count gate absent'],'pending')
 box(250,855,930,120,'Full all-real theorem from38,358,837,683: NOT CLOSED',['Final assembly requires BOTH the full finite witness and the analytic ray','Source-function correctness, a local theorem or a native return code cannot replace that witness','Dashed arrows identify the remaining full-range obligations'],'pending')
 svg.append('</svg>');(a.out.parent/'PROOF_DEPENDENCIES.svg').write_text(''.join(svg))
-branches=[('Source branch: complete for the listed functions','Actual optimized C counter and segmented checker → exact typed AST → complete operational correctness for actual prime counts.','good'),('Numerical branch: full prefix open','Untrusted proposals → checked numerical facts. The critical counts and million window are closed. All full-prefix scalar C runs, guards, enclosures and retained margin are closed; full-prefix prime-count facts remain open.','pending'),('Analytic branch: complete under explicit inputs','Original16 QRH inputs and named literature/normalization inputs → full analytic ray and quantitative height40 bound.','good')]
+branches=[('Source branch: complete for the listed functions','Actual optimized C counter and segmented checker → exact typed AST → complete operational correctness for actual prime counts.','good'),('Numerical branch: full prefix open','Untrusted proposals → checked numerical facts. The critical counts and million window are closed. All full-prefix scalar C runs, guards, enclosures and retained margin are closed; full-prefix prime-count facts remain open.','pending'),('Analytic branch: complete under25 explicit inputs','Original QRH and named literature/normalization inputs plus the published theta upper bound → actual gap above6trillion for all real x from1.25trillion. Fresh673-source replay is pending.','good')]
 flow='<div class="grid">'+''.join('<div class="flowstep '+status+'"><strong>'+esc(title)+'</strong><span>'+esc(sub)+'</span></div>'for title,sub,status in branches)+'</div>'
 flow+='<div class="flowstep pending"><strong>Source-linked numerical output requires BOTH the source and numerical branches.</strong><span>Every finite row then needs exact arithmetic, actual real enclosures and adjacency. The completed finite certificate joins the analytic branch in the final theorem.</span></div>'
 b+=[flow,text('The separately supplied SVG shows the actual converging proof branches. Dashed arrows mark unresolved witnesses, not an inference from native output. The native full generator and independent sieve supply ordinary evidence and untrusted proposals; their successful return codes do not bypass kernel checking or source execution.')]
