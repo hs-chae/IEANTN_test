@@ -1,0 +1,63 @@
+/data/ivy-ramanujan-source-pv-20261119/high-check0006-split-pilot-v1/source/RamanujanPV/HighCheck0006SplitPilot/Bridge.lean:8:38: error: Tactic `rfl` failed: The left-hand side
+  false && false && decide (false = false) && (false && false)
+is not definitionally equal to the right-hand side
+  true
+
+case false.false.false
+⊢ (false && false && decide (false = false) && (false && false)) = true
+/data/ivy-ramanujan-source-pv-20261119/high-check0006-split-pilot-v1/source/RamanujanPV/HighCheck0006SplitPilot/Bridge.lean:8:38: error: Tactic `rfl` failed: The left-hand side
+  false && false && decide (true = false) && (false && true)
+is not definitionally equal to the right-hand side
+  true
+
+case false.false.true
+⊢ (false && false && decide (true = false) && (false && true)) = true
+/data/ivy-ramanujan-source-pv-20261119/high-check0006-split-pilot-v1/source/RamanujanPV/HighCheck0006SplitPilot/Bridge.lean:8:38: error: Tactic `rfl` failed: The left-hand side
+  false && true && decide (false = false) && (true && false)
+is not definitionally equal to the right-hand side
+  true
+
+case false.true.false
+⊢ (false && true && decide (false = false) && (true && false)) = true
+/data/ivy-ramanujan-source-pv-20261119/high-check0006-split-pilot-v1/source/RamanujanPV/HighCheck0006SplitPilot/Bridge.lean:8:38: error: Tactic `rfl` failed: The left-hand side
+  false && true && decide (true = false) && (true && true)
+is not definitionally equal to the right-hand side
+  true
+
+case false.true.true
+⊢ (false && true && decide (true = false) && (true && true)) = true
+/data/ivy-ramanujan-source-pv-20261119/high-check0006-split-pilot-v1/source/RamanujanPV/HighCheck0006SplitPilot/Bridge.lean:8:38: error: Tactic `rfl` failed: The left-hand side
+  true && false && decide (false = true) && (false && false)
+is not definitionally equal to the right-hand side
+  true
+
+case true.false.false
+⊢ (true && false && decide (false = true) && (false && false)) = true
+/data/ivy-ramanujan-source-pv-20261119/high-check0006-split-pilot-v1/source/RamanujanPV/HighCheck0006SplitPilot/Bridge.lean:8:38: error: Tactic `rfl` failed: The left-hand side
+  true && false && decide (true = true) && (false && true)
+is not definitionally equal to the right-hand side
+  true
+
+case true.false.true
+⊢ (true && false && decide (true = true) && (false && true)) = true
+/data/ivy-ramanujan-source-pv-20261119/high-check0006-split-pilot-v1/source/RamanujanPV/HighCheck0006SplitPilot/Bridge.lean:8:38: error: Tactic `rfl` failed: The left-hand side
+  true && true && decide (false = true) && (true && false)
+is not definitionally equal to the right-hand side
+  true
+
+case true.true.false
+⊢ (true && true && decide (false = true) && (true && false)) = true
+/data/ivy-ramanujan-source-pv-20261119/high-check0006-split-pilot-v1/source/RamanujanPV/HighCheck0006SplitPilot/Bridge.lean:27:10: error: Application type mismatch: The argument
+  congrArg (fun b => check i && allFrom check (i + 1) n && b) (congrArg (fun j => allFrom check j m) address)
+has type
+  (check i && allFrom check (i + 1) n && allFrom check (i + 1 + n) m) =
+    (check i && allFrom check (i + 1) n && allFrom check (i + (n + 1)) m)
+but is expected to have type
+  (check i && allFrom check (i + 1) n && decide (allFrom check (i + 1 + n) m = check i) &&
+      (allFrom check (i + 1) n && allFrom check (i + 1 + n) m)) =
+    ?m.133
+in the application
+  Eq.trans (Eq.symm (and_assoc_pure (check i) (allFrom check (i + 1) n) (allFrom check (i + 1 + n) m)))
+    (congrArg (fun b => check i && allFrom check (i + 1) n && b) (congrArg (fun j => allFrom check j m) address))
+'RamanujanPV.HighCheck0006SplitPilot.append' depends on axioms: [sorryAx]
+'RamanujanPV.HighCheck0006SplitPilot.append_checked' depends on axioms: [sorryAx]

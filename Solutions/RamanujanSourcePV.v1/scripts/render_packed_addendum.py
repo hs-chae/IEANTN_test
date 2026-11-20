@@ -94,7 +94,12 @@ def main():
     body.append(card('Why every bit represents primality',
         '<p>Take an integer window starting at ℓ ≥ 2 with length m &gt; 0. Each divisor mask marks exactly its '
         'multiples at or above its square. Taking their bitwise union marks every composite and no prime. '
-        'The generic proof uses least prime divisors; it assumes no prime list or supplied classification. '
+        'The actual Lean <code>PackedSieveKernel.compositeMask</code> first builds a smaller '
+        'composite bitmap and uses it to skip composite divisors. The displayed union over all '
+        'divisors is an equivalent mathematical characterization, not a claim that the Lean '
+        'implementation evaluates every large divisor mask. The C checker itself visits all '
+        'divisors in its source loop. The generic proof uses least prime divisors and assumes no '
+        'unverified prime list or supplied classification. '
         'For the source instances, the upper integer is at most 2 trillion and the length fits the '
         'fixed 1,500,000-word storage.</p>' +
         eq(r'M_d=\sum_{\substack{0\le i<m\\d^2\le\ell+i\\d\mid\ell+i}}2^i,'

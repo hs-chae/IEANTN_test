@@ -4,9 +4,21 @@
 finite theorem and the analytic continuation separately. It does not prove the
 inequality for every real input above38,358,837,683.
 
-Read the offline [research report](reports/RAMANUJAN_SOURCE_FIRST_PV_REPORT.html),
+Read the consolidated offline [full research report](reports/RAMANUJAN_FULL_RESEARCH_CHECKPOINT.html),
 [proof diagram](reports/PROOF_DEPENDENCIES.svg), and [handoff](HANDOFF.md).
 The report embeds its licensed math font and needs no network renderer.
+Earlier [main report](reports/RAMANUJAN_SOURCE_FIRST_PV_REPORT.html) and addendum
+bytes remain preserved as historical checkpoints. The consolidated report fixes
+their dated frontier descriptions and includes the successful and negative scouts.
+
+The latest combined alternative, `PrimeBaseCombinedResult`, proves the SAME
+local interval and margin using a closed certified prime list and balanced DATA.
+All 285 source-count pairs were reconnected to C executions, with new P-prefix
+checks and reused Q proofs; the full independent audit passed.
+These list/codec computations are kernel providers; the source-first component
+is the unchanged actual C proof chain. See
+[combined consumer reproduction](REPRODUCE_PRIME_BASE_COMBINED_CONSUMER.md).
+No stronger ANT theorem or full cold runtime improvement is inferred from it.
 
 The [packed-provider addendum](reports/PACKED_SIEVE_SOURCE_PROVIDER_ADDENDUM.html)
 describes a second completed proof of the same local interval and margin.
@@ -125,15 +137,17 @@ entry or supply all its actual source-run witnesses to the Lean consumer.
 At the full-height count1,490,000,000,000, actual proposal generation produced
 90,670,946 demand records in1410.88seconds/43GiB RSS. An independent all-record
 native audit passed in784.01seconds/3.55GiB RSS. Its count55,206,486,339 is not a
-Lean theorem: none of the larger3,464-module count proof has been kernel-accepted.
+Lean theorem: its larger3,464-module count proof is not complete.
 All generated input/receipts are retained; original mathematics is unchanged.
 The original692 raw modules, gap-data and aggregate have since compiled, followed
 by the exact first32,768 numerical predicates (88.019s/13.22GiB; axiom-free).
 This remains a partial frontier: it proves neither all90.7m entries nor pi(1.49T).
 Object size and resident RAM are different:41.46GB of raw objects were imported
 lazily with0.633GiB measured aggregate-process RSS. See the original-frontier
-reproduction guide and receipts. A later full-sized chunk is being profiled
-before an exhaustive same-data count study; no full count success is inferred.
+reproduction guide and receipts. The exhaustive original-source count study is
+active at the consolidated report's dated checkpoint; its full numerical and
+final-consumer acceptance remains pending. Additional exact proof-decomposition
+controls passed separately. No full count success is inferred from them.
 
 The matched unit-increment baseline uses46348626 cells. Actual prime changes
 reduce certificate size26.40-fold, with similar wall time because enumeration

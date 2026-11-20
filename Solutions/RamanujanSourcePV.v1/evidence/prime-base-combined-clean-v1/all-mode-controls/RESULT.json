@@ -1,0 +1,597 @@
+{
+  "status": "PASS_ACTUAL_ALL_MODE_SOURCE_GENERATION_PLAN_READBACK_AND_REJECTIONS",
+  "frontend_sha256": "2724c41d8bfff7dd0dc1464351ff9a851bb9c42489ea214d4f61326507a0b3cd",
+  "test_script_sha256": "4e09571280a84f9606fd91e2204b3db0c65b440008dca02d704f11eac9547ab3",
+  "source_lock_sha256": "55d3856aca4e5e493feec9fb562a2d2bda74ffc5f008819af893a4150845932e",
+  "routes": [
+    {
+      "name": "positive-plan-normal",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check-plan",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/run-normal-final"
+      ],
+      "exit_code": 0,
+      "expected_accept": true,
+      "stdout_sha256": "924e292cf6c2478cf63a0d1ad121effe47ab38c79129ec8776638d163a596fa6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "plan-is-not-proof-normal",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/run-normal-final"
+      ],
+      "exit_code": 1,
+      "expected_accept": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "9622e2e8c97f5386e0c77abcfafebb2754773fac5c0aa91bc4b3d79f76e38736"
+    },
+    {
+      "name": "mixed-modes-normal",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check-plan",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/run-normal-final",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/actual-allmode-controls/unused"
+      ],
+      "exit_code": 1,
+      "expected_accept": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "9c2d165a1224a15575723fba634df2b9135962a451882ff6cae22fb3169ffa02"
+    },
+    {
+      "name": "population-rejected-normal",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check-plan",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/run-normal-final"
+      ],
+      "exit_code": 1,
+      "expected_accept": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "1a52a459cdfbee236ff83690a69d3b900ff9732343ebfb4445710c096cf5e702"
+    },
+    {
+      "name": "lock-rejected-normal",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check-plan",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/run-normal-final"
+      ],
+      "exit_code": 1,
+      "expected_accept": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "be36c5937e25f6046be7e529ed2cc74ae7fbec057306ebad6e0cf66f89ceb5ce"
+    },
+    {
+      "name": "frontend-rejected-normal",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check-plan",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/run-normal-final"
+      ],
+      "exit_code": 1,
+      "expected_accept": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "76a5f06dc7c99529fa9c84c4ecfebaad6664f3a313764b94dca1565c75627d57"
+    },
+    {
+      "name": "theorem-rejected-normal",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check-plan",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/run-normal-final"
+      ],
+      "exit_code": 1,
+      "expected_accept": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "ee7b8223023a6ef7a10e022f6c88b2ae8443f5c64ce2dd226e43d8339d833047"
+    },
+    {
+      "name": "empty-pins-rejected-normal",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check-plan",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/run-normal-final"
+      ],
+      "exit_code": 1,
+      "expected_accept": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "f4e4b932b75866a27b0e0e9a3101c81ae8c74e15023ba8d96067f9e1a2ed249b"
+    },
+    {
+      "name": "empty-commands-rejected-normal",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check-plan",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/run-normal-final"
+      ],
+      "exit_code": 1,
+      "expected_accept": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "38725020a07684f496d8e44cd7e5c49a7b1b6689a4bffb61f8cb334eb37750bc"
+    },
+    {
+      "name": "backend-command-rejected-normal",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check-plan",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/run-normal-final"
+      ],
+      "exit_code": 1,
+      "expected_accept": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "ce04ad3bab72c7e09aa20325ebb60b4b6edb67859cb8527b6586622f3a6076a2"
+    },
+    {
+      "name": "nonfinite-rejected-normal",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check-plan",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/run-normal-final"
+      ],
+      "exit_code": 1,
+      "expected_accept": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "971dcb5c20bbab2d7e13531811841f055c712be7ea2151438ced7062dfc9a1aa"
+    },
+    {
+      "name": "duplicate-rejected-normal",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check-plan",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/run-normal-final"
+      ],
+      "exit_code": 1,
+      "expected_accept": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "52fe64392913759b2c1821d0b776e17774e102426564f616acebddf1113038a3"
+    },
+    {
+      "name": "restored-positive-normal",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check-plan",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/run-normal-final"
+      ],
+      "exit_code": 0,
+      "expected_accept": true,
+      "stdout_sha256": "924e292cf6c2478cf63a0d1ad121effe47ab38c79129ec8776638d163a596fa6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "generate-O",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--context",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/BUILD_CONTEXT.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/actual-allmode-controls/generated-O",
+        "--plan-only",
+        "--prepared-root",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/run-normal-final/original-sources/prepared-baseline",
+        "--jobs",
+        "1",
+        "--cpus",
+        "10,11"
+      ],
+      "exit_code": 0,
+      "expected_accept": true,
+      "stdout_sha256": "94a875212be7cfde1df15e6e7cb91b86b0bbe1c2f7dd3befec9317497c956cd6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "positive-plan-O",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check-plan",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/actual-allmode-controls/generated-O"
+      ],
+      "exit_code": 0,
+      "expected_accept": true,
+      "stdout_sha256": "924e292cf6c2478cf63a0d1ad121effe47ab38c79129ec8776638d163a596fa6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "plan-is-not-proof-O",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/actual-allmode-controls/generated-O"
+      ],
+      "exit_code": 1,
+      "expected_accept": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "2b0cb991edc00ddb3b738514c0f2abd63d3f5e3c0c4d67a7034dcd9260cfec3e"
+    },
+    {
+      "name": "mixed-modes-O",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check-plan",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/actual-allmode-controls/generated-O",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/actual-allmode-controls/unused"
+      ],
+      "exit_code": 1,
+      "expected_accept": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "9c2d165a1224a15575723fba634df2b9135962a451882ff6cae22fb3169ffa02"
+    },
+    {
+      "name": "population-rejected-O",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check-plan",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/actual-allmode-controls/generated-O"
+      ],
+      "exit_code": 1,
+      "expected_accept": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "1a52a459cdfbee236ff83690a69d3b900ff9732343ebfb4445710c096cf5e702"
+    },
+    {
+      "name": "lock-rejected-O",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check-plan",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/actual-allmode-controls/generated-O"
+      ],
+      "exit_code": 1,
+      "expected_accept": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "be36c5937e25f6046be7e529ed2cc74ae7fbec057306ebad6e0cf66f89ceb5ce"
+    },
+    {
+      "name": "frontend-rejected-O",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check-plan",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/actual-allmode-controls/generated-O"
+      ],
+      "exit_code": 1,
+      "expected_accept": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "76a5f06dc7c99529fa9c84c4ecfebaad6664f3a313764b94dca1565c75627d57"
+    },
+    {
+      "name": "theorem-rejected-O",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check-plan",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/actual-allmode-controls/generated-O"
+      ],
+      "exit_code": 1,
+      "expected_accept": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "ee7b8223023a6ef7a10e022f6c88b2ae8443f5c64ce2dd226e43d8339d833047"
+    },
+    {
+      "name": "empty-pins-rejected-O",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check-plan",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/actual-allmode-controls/generated-O"
+      ],
+      "exit_code": 1,
+      "expected_accept": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "f4e4b932b75866a27b0e0e9a3101c81ae8c74e15023ba8d96067f9e1a2ed249b"
+    },
+    {
+      "name": "empty-commands-rejected-O",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check-plan",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/actual-allmode-controls/generated-O"
+      ],
+      "exit_code": 1,
+      "expected_accept": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "38725020a07684f496d8e44cd7e5c49a7b1b6689a4bffb61f8cb334eb37750bc"
+    },
+    {
+      "name": "backend-command-rejected-O",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check-plan",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/actual-allmode-controls/generated-O"
+      ],
+      "exit_code": 1,
+      "expected_accept": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "ce04ad3bab72c7e09aa20325ebb60b4b6edb67859cb8527b6586622f3a6076a2"
+    },
+    {
+      "name": "nonfinite-rejected-O",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check-plan",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/actual-allmode-controls/generated-O"
+      ],
+      "exit_code": 1,
+      "expected_accept": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "971dcb5c20bbab2d7e13531811841f055c712be7ea2151438ced7062dfc9a1aa"
+    },
+    {
+      "name": "duplicate-rejected-O",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check-plan",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/actual-allmode-controls/generated-O"
+      ],
+      "exit_code": 1,
+      "expected_accept": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "52fe64392913759b2c1821d0b776e17774e102426564f616acebddf1113038a3"
+    },
+    {
+      "name": "restored-positive-O",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check-plan",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/actual-allmode-controls/generated-O"
+      ],
+      "exit_code": 0,
+      "expected_accept": true,
+      "stdout_sha256": "924e292cf6c2478cf63a0d1ad121effe47ab38c79129ec8776638d163a596fa6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "generate-OO",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--context",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/BUILD_CONTEXT.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/actual-allmode-controls/generated-OO",
+        "--plan-only",
+        "--prepared-root",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/run-normal-final/original-sources/prepared-baseline",
+        "--jobs",
+        "1",
+        "--cpus",
+        "10,11"
+      ],
+      "exit_code": 0,
+      "expected_accept": true,
+      "stdout_sha256": "94a875212be7cfde1df15e6e7cb91b86b0bbe1c2f7dd3befec9317497c956cd6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "positive-plan-OO",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check-plan",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/actual-allmode-controls/generated-OO"
+      ],
+      "exit_code": 0,
+      "expected_accept": true,
+      "stdout_sha256": "924e292cf6c2478cf63a0d1ad121effe47ab38c79129ec8776638d163a596fa6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "plan-is-not-proof-OO",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/actual-allmode-controls/generated-OO"
+      ],
+      "exit_code": 1,
+      "expected_accept": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "9e3bd8e1b8997261759df046879bcf2681c91ae683f5910ed5443d3f8ae0dd91"
+    },
+    {
+      "name": "mixed-modes-OO",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check-plan",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/actual-allmode-controls/generated-OO",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/actual-allmode-controls/unused"
+      ],
+      "exit_code": 1,
+      "expected_accept": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "9c2d165a1224a15575723fba634df2b9135962a451882ff6cae22fb3169ffa02"
+    },
+    {
+      "name": "population-rejected-OO",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check-plan",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/actual-allmode-controls/generated-OO"
+      ],
+      "exit_code": 1,
+      "expected_accept": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "1a52a459cdfbee236ff83690a69d3b900ff9732343ebfb4445710c096cf5e702"
+    },
+    {
+      "name": "lock-rejected-OO",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check-plan",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/actual-allmode-controls/generated-OO"
+      ],
+      "exit_code": 1,
+      "expected_accept": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "be36c5937e25f6046be7e529ed2cc74ae7fbec057306ebad6e0cf66f89ceb5ce"
+    },
+    {
+      "name": "frontend-rejected-OO",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check-plan",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/actual-allmode-controls/generated-OO"
+      ],
+      "exit_code": 1,
+      "expected_accept": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "76a5f06dc7c99529fa9c84c4ecfebaad6664f3a313764b94dca1565c75627d57"
+    },
+    {
+      "name": "theorem-rejected-OO",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check-plan",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/actual-allmode-controls/generated-OO"
+      ],
+      "exit_code": 1,
+      "expected_accept": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "ee7b8223023a6ef7a10e022f6c88b2ae8443f5c64ce2dd226e43d8339d833047"
+    },
+    {
+      "name": "empty-pins-rejected-OO",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check-plan",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/actual-allmode-controls/generated-OO"
+      ],
+      "exit_code": 1,
+      "expected_accept": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "f4e4b932b75866a27b0e0e9a3101c81ae8c74e15023ba8d96067f9e1a2ed249b"
+    },
+    {
+      "name": "empty-commands-rejected-OO",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check-plan",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/actual-allmode-controls/generated-OO"
+      ],
+      "exit_code": 1,
+      "expected_accept": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "38725020a07684f496d8e44cd7e5c49a7b1b6689a4bffb61f8cb334eb37750bc"
+    },
+    {
+      "name": "backend-command-rejected-OO",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check-plan",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/actual-allmode-controls/generated-OO"
+      ],
+      "exit_code": 1,
+      "expected_accept": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "ce04ad3bab72c7e09aa20325ebb60b4b6edb67859cb8527b6586622f3a6076a2"
+    },
+    {
+      "name": "nonfinite-rejected-OO",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check-plan",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/actual-allmode-controls/generated-OO"
+      ],
+      "exit_code": 1,
+      "expected_accept": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "971dcb5c20bbab2d7e13531811841f055c712be7ea2151438ced7062dfc9a1aa"
+    },
+    {
+      "name": "duplicate-rejected-OO",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check-plan",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/actual-allmode-controls/generated-OO"
+      ],
+      "exit_code": 1,
+      "expected_accept": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "52fe64392913759b2c1821d0b776e17774e102426564f616acebddf1113038a3"
+    },
+    {
+      "name": "restored-positive-OO",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/reproduce_prime_base_combined.py",
+        "--check-plan",
+        "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/actual-allmode-controls/generated-OO"
+      ],
+      "exit_code": 0,
+      "expected_accept": true,
+      "stdout_sha256": "924e292cf6c2478cf63a0d1ad121effe47ab38c79129ec8776638d163a596fa6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "normal_generation": "/data/ivy-ramanujan-source-pv-20261119/combined-clean-controls-v1/run-normal-final",
+  "normal_generation_separate_actual_execution": true,
+  "full_fresh_combined_proof_execution_run": false,
+  "scope": "Actual normal default source generation; O/OO regenerate combined support and stage/hash-check exact original source reused from that run. No proof objects or new Lean proof run."
+}

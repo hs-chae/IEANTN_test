@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/tooling/project/source/scripts/reproduce_profiled_closure.py", line 383, in <module>
+    main()
+  File "/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/tooling/project/source/scripts/reproduce_profiled_closure.py", line 152, in main
+    print(json.dumps(validate(args.check.resolve()), sort_keys=True))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/tooling/project/source/scripts/reproduce_profiled_closure.py", line 77, in validate
+    result = strict_json(directory / 'RESULT.json')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/tooling/project/source/scripts/reproduce_profiled_closure.py", line 54, in strict_json
+    return strict_json_text(Path(path).read_text())
+                            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/pathlib.py", line 1058, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/pathlib.py", line 1044, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NotADirectoryError: [Errno 20] Not a directory: '/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/kernel/RESULT.json/RESULT.json'
+Traceback (most recent call last):
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/evidence/packed-mask-balanced-data-v1/reproduce.py", line 37, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/evidence/packed-mask-balanced-data-v1/reproduce.py", line 35, in main
+    subprocess.run([sys.executable,*flags,str(tooling/'scripts/reproduce_profiled_closure.py'),'--check',str(out/'kernel/RESULT.json')],check=True)
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3', '/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/tooling/project/source/scripts/reproduce_profiled_closure.py', '--check', '/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/kernel/RESULT.json']' returned non-zero exit status 1.

@@ -1,0 +1,208 @@
+{
+  "targets": [
+    "RamanujanPV.PackedMaskDataEncoding.W4096DataOnly.ProviderCheck"
+  ],
+  "selected_theorems": [
+    "RamanujanPV.PackedMaskDataEncoding.W4096DataOnly.primitive_program_matches_data",
+    "RamanujanPV.PackedMaskDataEncoding.W4096DataOnly.original_program_matches_data"
+  ],
+  "modules": [
+    {
+      "module": "LCMSourcePV.RestrictedC",
+      "root": "/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/application-source",
+      "source": "/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/application-source/LCMSourcePV/RestrictedC.lean",
+      "source_sha256": "4442a24f59ff243f36649903767beb444b8099753532528f86df55efa388ef88",
+      "imports": [
+        "Mathlib"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.CSource",
+      "root": "/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/application-source",
+      "source": "/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/application-source/RamanujanPV/CSource.lean",
+      "source_sha256": "afb812a02fafe273230c1808c13a098f4b5d1abfdc7cc62f294c6087bd352ce0",
+      "imports": [
+        "LCMSourcePV.RestrictedC"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "WitnessCGrammar",
+      "root": "/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/application-source",
+      "source": "/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/application-source/WitnessCGrammar.lean",
+      "source_sha256": "57fcfa86a5e443cc6989ea65e92e6284657e24a7f62726b4dda048281c5d8b8b",
+      "imports": [
+        "LCMSourcePV.RestrictedC"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "LCMSourcePV.ASTLoops",
+      "root": "/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/application-source",
+      "source": "/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/application-source/LCMSourcePV/ASTLoops.lean",
+      "source_sha256": "e496bf461b8878b2d29e4b679287cf2bdf3237eb78b70ff5f4811d0103eca78c",
+      "imports": [
+        "WitnessCGrammar"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.CArithmetic",
+      "root": "/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/application-source",
+      "source": "/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/application-source/RamanujanPV/CArithmetic.lean",
+      "source_sha256": "a43eaa29da61ef83506088fd97807070fada57739c4e66d77b92bb4e04d4a9fa",
+      "imports": [
+        "RamanujanPV.CSource",
+        "LCMSourcePV.ASTLoops",
+        "Mathlib.NumberTheory.PrimeCounting"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientCMachine",
+      "root": "/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/application-source",
+      "source": "/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/application-source/RamanujanPV/QuotientCMachine.lean",
+      "source_sha256": "e63f5fddead284ad07b2a8568af3b9cf0d44f2d8ca42da2c118603944ab4edab",
+      "imports": [
+        "RamanujanPV.CArithmetic",
+        "Mathlib.Logic.Function.Basic"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.SegmentCheckerSource",
+      "root": "/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/application-source",
+      "source": "/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/application-source/RamanujanPV/SegmentCheckerSource.lean",
+      "source_sha256": "3d236802b99159c26d66a6d3c867fe9ecf38db3533584148458a6724f33a28b9",
+      "imports": [
+        "RamanujanPV.QuotientCMachine"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.PrimeCount",
+      "root": "/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/application-source",
+      "source": "/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/application-source/RamanujanPV/PrimeCount.lean",
+      "source_sha256": "fb70b77baf77e18cb0ef080d455619848e1a9be889bbb3b7148917f687ea8628",
+      "imports": [
+        "RamanujanPV.CArithmetic"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientSieve",
+      "root": "/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/application-source",
+      "source": "/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/application-source/RamanujanPV/QuotientSieve.lean",
+      "source_sha256": "890b104df8bac9b4fecab2be313415ed973a458534f784d25a05a6d6aa617b3a",
+      "imports": [
+        "RamanujanPV.PrimeCount"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.SegmentCheckerMath",
+      "root": "/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/application-source",
+      "source": "/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/application-source/RamanujanPV/SegmentCheckerMath.lean",
+      "source_sha256": "dffbb3003dcd3aaf1de9e7790a87ed2a72bb11591a72e9b4b0e2eda1d2ecda77",
+      "imports": [
+        "RamanujanPV.SegmentCheckerSource",
+        "RamanujanPV.QuotientSieve"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.PackedSieveKernel",
+      "root": "/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/application-source",
+      "source": "/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/application-source/RamanujanPV/PackedSieveKernel.lean",
+      "source_sha256": "2fe25de67e873ebd2a341adb1bb28b4cb052b642f7d8313a1f76ef71c7bf166a",
+      "imports": [
+        "RamanujanPV.SegmentCheckerMath",
+        "Mathlib.Data.Nat.Bitwise"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.PackedSievePrimitiveBits",
+      "root": "/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/application-source",
+      "source": "/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/application-source/RamanujanPV/PackedSievePrimitiveBits.lean",
+      "source_sha256": "ab89e93f48d1535d730d094d7385c57b4eea91a59b2560cb4a3f364e32830df3",
+      "imports": [
+        "RamanujanPV.PackedSieveKernel"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.PackedMaskEncodingCodec",
+      "root": "/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/application-source",
+      "source": "/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/application-source/RamanujanPV/PackedMaskEncodingCodec.lean",
+      "source_sha256": "d92fce10a8e27a232d77722f4cda0a1e8c330bdd9b72af4ec923418802110968",
+      "imports": [
+        "RamanujanPV.PackedSieveKernel"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.PackedMaskDataEncoding.W4096DataOnly.Data",
+      "root": "/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/generated/source",
+      "source": "/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/generated/source/RamanujanPV/PackedMaskDataEncoding/W4096DataOnly/Data.lean",
+      "source_sha256": "f688cf5f7cfcdff82579286e778fe5691b5993454c55988221497c0f2b9571c5",
+      "imports": [
+        "RamanujanPV.PackedMaskEncodingCodec"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.PackedMaskDataEncoding.W4096DataOnly.ProviderCheck",
+      "root": "/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/generated/source",
+      "source": "/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/generated/source/RamanujanPV/PackedMaskDataEncoding/W4096DataOnly/ProviderCheck.lean",
+      "source_sha256": "e781e3e16007ae0078d3736c42d07940513a95a35c923dcc9fed183bcc2078a4",
+      "imports": [
+        "RamanujanPV.PackedSievePrimitiveBits",
+        "RamanujanPV.PackedMaskDataEncoding.W4096DataOnly.Data"
+      ],
+      "memory_limit_bytes": 51539607552
+    }
+  ],
+  "compiler": "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+  "compiler_sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+  "context": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/BUILD_CONTEXT.json",
+  "context_sha256": "ec6d58374b2cb046044bdfd319782c2153456ba54ac0d0dbe05a582f037829e8",
+  "script_sha256": "ca34b6a525d03218a9410acae3010e87095771cbc61a5ce397ea2cdda55f5ee8",
+  "generic_libraries": [
+    "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/mathlib/.lake/build/lib/lean",
+    "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/plausible/.lake/build/lib/lean",
+    "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/LeanSearchClient/.lake/build/lib/lean",
+    "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/importGraph/.lake/build/lib/lean",
+    "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/proofwidgets/.lake/build/lib/lean",
+    "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/aesop/.lake/build/lib/lean",
+    "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/Qq/.lake/build/lib/lean",
+    "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/batteries/.lake/build/lib/lean",
+    "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/lib/lean"
+  ],
+  "old_application_objects_used": false,
+  "max_parallel_workers": 1,
+  "aggregate_memory_ceiling_bytes": 51539607552,
+  "memory_ceiling_bytes": 51539607552,
+  "host_reserve_bytes": 549755813888,
+  "resource_profile": {
+    "exact": {},
+    "prefix": {}
+  },
+  "default_memory_gib": 48,
+  "final_audit_memory_limit_bytes": 51539607552,
+  "host_memavailable_before_bytes": 1369873526784,
+  "cpus": [
+    32
+  ],
+  "payloads": [
+    {
+      "path": "/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/application-source/c/verified_primecount.c",
+      "sha256": "a2569a2cc2ae7a0b327c8fd7da4c2640acfb68701798a767c1b7783c08ff3c23"
+    },
+    {
+      "path": "/data/ivy-ramanujan-source-pv-20261119/balanced-mask-clean-replay-v1/application-source/c/verified_segment_checker.c",
+      "sha256": "7689437a39f22d151b0d793b7a91fe766f26d91de89b5894a3e67afdd54a6959"
+    }
+  ]
+}

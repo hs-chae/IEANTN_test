@@ -1,0 +1,17 @@
+du: cannot access '/data/ivy-ramanujan-source-pv-20261119/high-transition-full-count-campaign-v1/retry-v2/run-v1/RUN_STATE.pending': No such file or directory
+Traceback (most recent call last):
+  File "/data/ivy-ramanujan-source-pv-20261119/high-grouped-four-pilot-v1/run_grouped.py", line 70, in <module>
+    sample=dict(t=time.monotonic()-started,RSS_bytes=rss,PSS_bytes=pss,active=len(active));samples.append(sample);trace.write(json.dumps(sample)+'\n');policy=allowed()
+                                                                                                                                                              ^^^^^^^^^
+  File "/data/ivy-ramanujan-source-pv-20261119/high-grouped-four-pilot-v1/run_grouped.py", line 23, in allowed
+    m,owned,free=resources(fresh);return m>=1024**4 and m>=512*GiB+cap*(len(active)+add)and free>=1024**4 and owned+8*GiB<=300*GiB
+                 ^^^^^^^^^^^^^^^^
+  File "/data/ivy-ramanujan-source-pv-20261119/high-grouped-four-pilot-v1/run_grouped.py", line 20, in resources
+    owned=int(subprocess.check_output(['du','-sx','-B1',str(D)],text=True).split()[0]);v=os.statvfs(D);disk=(time.monotonic(),owned,v.f_bavail*v.f_frsize)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['du', '-sx', '-B1', '/data/ivy-ramanujan-source-pv-20261119']' returned non-zero exit status 1.

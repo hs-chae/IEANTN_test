@@ -78,7 +78,7 @@ Commit: COMMIT
 Repository: https://github.com/hs-chae/IEANTN_test.git
 Branch: research/ramanujan-source-first-pv-20261119
 
-Open Solutions/RamanujanSourcePV.v1/reports/RAMANUJAN_SOURCE_FIRST_PV_REPORT.html.
+Open Solutions/RamanujanSourcePV.v1/reports/RAMANUJAN_FULL_RESEARCH_CHECKPOINT.html.
 The embedded font and static MathML work offline. Read README.md and HANDOFF.md
 in that same solution for exact theorem scope and remaining obligations.
 
