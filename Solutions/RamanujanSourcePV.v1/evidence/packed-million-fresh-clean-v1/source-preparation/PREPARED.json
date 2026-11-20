@@ -1,0 +1,147 @@
+{
+  "status": "PREPARED_ONLY_NO_LEAN_REPLAY_OR_MATH_ACCEPTANCE",
+  "mode": "full",
+  "commands": [
+    {
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-million-clean-full-v1/prepared-baseline/network/Solutions/RamanujanSourcePV.v1/scripts/generate_demand_certificate_resources.py",
+        "--queries",
+        "38358837683,14111427770",
+        "--name",
+        "DemandCriticalPair",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-million-clean-full-v1/prepared-baseline/proposals/critical-raw",
+        "--data-chunk",
+        "131072",
+        "--proof-chunk",
+        "32768",
+        "--max-records",
+        "100000000",
+        "--cpus",
+        "84,85,86,87",
+        "--memory-gib",
+        "128"
+      ],
+      "returncode": 0,
+      "seconds": 106.66736509278417,
+      "stdout": "/data/ivy-ramanujan-source-pv-20261119/packed-million-clean-full-v1/prepared-baseline/commands/00.stdout",
+      "stdout_sha256": "7f7d3024dcf658c4e0c47f91b25d664ae153aad82b2e45b4613a8d6c8731e0b3",
+      "stderr": "/data/ivy-ramanujan-source-pv-20261119/packed-million-clean-full-v1/prepared-baseline/commands/00.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-million-clean-full-v1/prepared-baseline/network/Solutions/RamanujanSourcePV.v1/scripts/partition_demand_proofs_context.py",
+        "--owned-root",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-million-clean-full-v1/prepared-baseline",
+        "--manifest",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-million-clean-full-v1/prepared-baseline/proposals/critical-raw/PROPOSAL.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-million-clean-full-v1/prepared-baseline/proposals/critical",
+        "--subchunk",
+        "4096",
+        "--preserve-chunk",
+        "0",
+        "--preserve-chunk",
+        "250"
+      ],
+      "returncode": 0,
+      "seconds": 2.105450065806508,
+      "stdout": "/data/ivy-ramanujan-source-pv-20261119/packed-million-clean-full-v1/prepared-baseline/commands/01.stdout",
+      "stdout_sha256": "607403bf51fec2563d56de9688d7018c98d4f662a78abef26808d0a33d6e9a08",
+      "stderr": "/data/ivy-ramanujan-source-pv-20261119/packed-million-clean-full-v1/prepared-baseline/commands/01.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-million-clean-full-v1/prepared-baseline/network/Solutions/RamanujanSourcePV.v1/scripts/generate_local_prime_window.py",
+        "--width",
+        "1000",
+        "--name",
+        "LocalWindow1000B",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-million-clean-full-v1/prepared-baseline/proposals/control",
+        "--prime-chunk",
+        "128",
+        "--data-chunk",
+        "256",
+        "--check-chunk",
+        "256"
+      ],
+      "returncode": 0,
+      "seconds": 0.07787366397678852,
+      "stdout": "/data/ivy-ramanujan-source-pv-20261119/packed-million-clean-full-v1/prepared-baseline/commands/02.stdout",
+      "stdout_sha256": "a8a51fea75bf83af5ef670986651d687ab7691a6d296e19897a04a4d9de58a70",
+      "stderr": "/data/ivy-ramanujan-source-pv-20261119/packed-million-clean-full-v1/prepared-baseline/commands/02.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-million-clean-full-v1/prepared-baseline/network/Solutions/RamanujanSourcePV.v1/scripts/generate_window_cells.py",
+        "--local-manifest",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-million-clean-full-v1/prepared-baseline/proposals/control/PROPOSAL.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-million-clean-full-v1/prepared-baseline/proposals/control-cells",
+        "--namespace",
+        "RamanujanPV.LocalCells1000",
+        "--check-chunk",
+        "64"
+      ],
+      "returncode": 0,
+      "seconds": 0.04222381114959717,
+      "stdout": "/data/ivy-ramanujan-source-pv-20261119/packed-million-clean-full-v1/prepared-baseline/commands/03.stdout",
+      "stdout_sha256": "0b0bb6282f1b1af3b94080bf4b9987b328bed3180011394a3c5976a0b3f7f184",
+      "stderr": "/data/ivy-ramanujan-source-pv-20261119/packed-million-clean-full-v1/prepared-baseline/commands/03.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-million-clean-full-v1/prepared-baseline/network/Solutions/RamanujanSourcePV.v1/scripts/generate_local_prime_window.py",
+        "--width",
+        "1000000",
+        "--name",
+        "LocalWindowMillion",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-million-clean-full-v1/prepared-baseline/proposals/million",
+        "--prime-chunk",
+        "256",
+        "--data-chunk",
+        "32768",
+        "--check-chunk",
+        "32768"
+      ],
+      "returncode": 0,
+      "seconds": 11.130975894629955,
+      "stdout": "/data/ivy-ramanujan-source-pv-20261119/packed-million-clean-full-v1/prepared-baseline/commands/04.stdout",
+      "stdout_sha256": "087b1554e1eecbe0be8206a4cf31d6bccfd4904758421dc8baa49899e65fc737",
+      "stderr": "/data/ivy-ramanujan-source-pv-20261119/packed-million-clean-full-v1/prepared-baseline/commands/04.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-million-clean-full-v1/prepared-baseline/network/Solutions/RamanujanSourcePV.v1/scripts/generate_window_cells.py",
+        "--local-manifest",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-million-clean-full-v1/prepared-baseline/proposals/million/PROPOSAL.json",
+        "--out",
+        "/data/ivy-ramanujan-source-pv-20261119/packed-million-clean-full-v1/prepared-baseline/proposals/million-cells",
+        "--namespace",
+        "RamanujanPV.LocalCellsMillion",
+        "--check-chunk",
+        "64"
+      ],
+      "returncode": 0,
+      "seconds": 1.1521020587533712,
+      "stdout": "/data/ivy-ramanujan-source-pv-20261119/packed-million-clean-full-v1/prepared-baseline/commands/05.stdout",
+      "stdout_sha256": "0fed92cf11f05393d70de8bd7dde64f7f0b36158ed1cd3b92d476b2aaf7ebe18",
+      "stderr": "/data/ivy-ramanujan-source-pv-20261119/packed-million-clean-full-v1/prepared-baseline/commands/05.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "seconds": 125.44424553960562
+}

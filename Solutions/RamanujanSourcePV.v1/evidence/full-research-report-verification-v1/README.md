@@ -1,3 +1,5 @@
+Historical checkpoint: commit15736504218c1e971691c63ee367dfd56c1ccbab, reportSHA cf4b7ce884773800f448bf201b778a8cb13fe4d20e89a6629499fcbb47d4c5e8. Reproduce these exact earlier checks from that commit. Current final report verification is in ../full-research-report-verification-v2/.
+
 # Actual offline report checks
 
 The canonical HTML passed all70 statically rendered MathML expressions at390px and1280px, with its embedded STIX font, no scripts/network requests, and keyboard scrolling for every overflowing table. Mobile tables show instructions and readable first/numerical columns. Exact Playwright/Chromium versions and measured widths/heights are in BROWSER_RESULT.json.

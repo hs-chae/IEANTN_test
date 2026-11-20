@@ -29,9 +29,11 @@ actual verified C checker/counter/e/log/cell chain; no new native packed C
 implementation or physical input loader is claimed. See
 [clean reproduction](REPRODUCE_PACKED_MILLION.md) and the separate independent
 packets under `evidence/packed-sieve-million-independent-v1/` and
-`evidence/packed-sieve-joint-independent-v1/`. The new 549-source clean replay
-has its own acceptance receipt only after it finishes; it must not be confused
-with the completed historical or generic replays.
+`evidence/packed-sieve-joint-independent-v1/`. The frozen 549-source clean replay
+now passed all550 compiler invocations and normal/-O/-OO completed readbacks,
+with default numerical regeneration and no old application objects. Its exact
+receipts are in `evidence/packed-million-fresh-clean-v1/`; it is separate from
+the completed historical/generic replays and the new554-source combined recipe.
 
 ## Accepted conclusions
 

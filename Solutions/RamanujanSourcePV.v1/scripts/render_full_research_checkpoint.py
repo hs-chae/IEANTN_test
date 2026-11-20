@@ -64,6 +64,33 @@ def main():
     need(report.count('</main>') == addendum.count('<main>') == addendum.count('</main>') == 1,
          'exact standalone source reports')
     supplement = addendum.split('<main>', 1)[1].split('</main>', 1)[0]
+    fresh = read_json(S / 'evidence/packed-million-fresh-clean-v1/RESULT.json')
+    need(fresh['status'] == 'COMPLETE_DEFAULT_REGENERATION_FRESH549_APPS_PLUS_AUDIT_AND_ALLMODE_POSITIVE_READBACK'
+         and fresh['app_modules'] == 549
+         and fresh['actual_successful_compilers_including_final_audit'] == 550
+         and fresh['old_application_objects_used'] is False
+         and fresh['prepared_source_reused'] is False
+         and fresh['all3_actual_completed_frontend_readbacks_pass'] is True,
+         'actual complete default source-regeneration and fresh proof replay')
+    old_pending = ('At this checkpoint, the complete new 549-source fresh replay is not yet accepted.')
+    need(supplement.count(old_pending) == 1, 'exact historical pending statement')
+    supplement = supplement.replace(old_pending,
+        'The complete frozen 549-source replay has now passed all 550 compiler invocations '
+        'including the final audit, followed by normal, optimized and twice-optimized completed-result '
+        'readbacks. It regenerated its numerical sources by default and reused no old application '
+        'proof objects. Total frontend time was 9,285.671 seconds; the backend invocation took '
+        '9,136.740 seconds and its proof scheduler recorded 8,957.427 seconds. Maximum measured '
+        'compiler-worker RSS was 32,291,508,224 bytes; aggregate RSS/PSS was not measured. '
+        'The final whole generator/replay directory occupied 10,280,724,279 logical bytes '
+        '(10,305,310,720 allocated); its isolated proof output was 5,879,483,597 bytes. '
+        'The observed shared experiment disk peak of 145,467,936,768 bytes includes other '
+        'concurrent studies and is not a peak attributed solely to this replay. There were zero '
+        'compiler failures or recorded compiler OOM/SIGKILL events. Two scratch-measurement errors '
+        'temporarily paused dispatch; no low-memory failure was recorded and no deeper cause '
+        'is inferred. This is the original packed local consumer, separate from the newer '
+        '554-source combined recipe whose full fresh proof run remains unexecuted. '
+        '<a href="https://github.com/hs-chae/IEANTN_test/tree/research/ramanujan-source-first-pv-20261119/Solutions/RamanujanSourcePV.v1/evidence/packed-million-fresh-clean-v1">'
+        'All 550 compiler receipts, default regeneration, resource measurements and final readbacks</a>.')
     supplement = supplement.replace('<h2>', '<h3>').replace('</h2>', '</h3>')
     supplement = supplement.replace(
         '<h1>A different numerical provider for the same verified Ramanujan interval</h1>',
@@ -223,6 +250,8 @@ selected mathematical closures contain only Lean's standard logical axioms and n
                  '</a>. This is an explicitly selected research inventory, not an exhaustive IEANTN '
                  'source-claim census.</p></article>')
     report = report.replace('</main>', supplement + appendix + '</main>')
+    report = report.replace('The complete full-population combined clean repeat is not claimed.',
+                            'The complete 1,755,663-row mathematical/source clean repeat is not claimed.')
     report = report.replace('</style>',
         '.scroll-hint{display:none}.scroll:focus-visible{outline:2px solid #135c9a;outline-offset:3px}'
         '@media(max-width:600px){table{min-width:620px}th,td{white-space:normal;max-width:300px}'

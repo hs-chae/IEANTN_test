@@ -60,6 +60,11 @@ in the publication readbacks. Do not force-push or merge.
 From a clean pinned Linux checkout, install the exact toolchain, run the root
 `lake exe cache get`, then use `scripts/bootstrap_context.py` to locate only
 same-pin clean generic libraries. README gives the dependency/command order.
+For a different scratch location, use the clean-clone metadata-only relocation
+of BOTH contexts documented in REPRODUCE_PRIME_BASE_COMBINED_CLEAN.md. The
+frozen backend reads the canonical checkout context for its ownership root;
+changing only a separate supplied context is insufficient. Keep the live
+research checkout's context unchanged.
 Lean4.34.0-rc2 executable SHA and all8 generic revisions are in BUILD_CONTEXT.json.
 A codec-only ZIP contains source/data regeneration and a fresh application replay
 recipe AFTER supplying that pinned generic environment; it does not provision
@@ -96,15 +101,25 @@ Dated live state is recorded outside the publishable source in RESEARCH_STATE.js
 and per-run RUN_STATE/RESULT files. On the research host scratch root
 /data/ivy-ramanujan-source-pv-20261119, inspect:
 
-* packed-million-clean-full-v1: actual default regeneration plus fresh549
-  application sources and final audit. Detached readback watcher405263 performs
-  the actual normal/-O/-OO final frontend checks only AFTER successful completion.
+* packed-million-clean-full-v1 is COMPLETE: default regeneration, fresh549
+  application sources plus final audit, all3 actual normal/-O/-OO readbacks.
+  Frontend/backend/watcher405263 are finished. Public exact packet is
+  evidence/packed-million-fresh-clean-v1/. Total9285.671s; max compiler-worker
+  RSS32,291,508,224B; aggregateRSS/PSS unmeasured. No compiler/OOM failures;
+  two dispatch pauses record scratch-measurement errors, not lowRAM.
 * coupled-analytic-cold-v1: separate fresh673 application modules plus audit.
 * high-transition-full-count-campaign-v1/retry-v2/run-v1: original unchanged
   arithmetic campaign. Post-watcher3741763 waits for COMPLETE kernel acceptance
   before source-execution instantiation. Neither watcher is acceptance by itself.
-* balanced-mask-clean-replay-v1: recommended small codec replay, separately
-  launched from the exact documented sealed packet.
+* balanced-mask-clean-replay-v1 and balanced-mask-clean-replay-corrected-v2
+  are finished; both mathematical banks passed. Only the corrected frontend
+  completed its redundant final readback. See the separate public codec packet.
+
+The completed combined-plan/control duplicate cleanup removed8262 exact
+regenerable copies (14,321,664,878logical bytes), after every target and retained
+copy was rehashed. Code, accepted proofs, receipts, active inputs and8unmatched
+copies remain. Historical --check-plan paths need regeneration of their deleted
+numerical copies. Full preview/results are in evidence/combined-plan-duplicate-cleanup-v1/.
 
 Check live PIDs and exact final receipts before describing any study as running
 or complete. Do not edit frozen source locks, frontend/helper bytes or original
