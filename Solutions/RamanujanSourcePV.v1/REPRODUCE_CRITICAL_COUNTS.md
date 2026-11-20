@@ -1,0 +1,99 @@
+Portable numerical reproduction (current source-first study)
+
+This describes ordinary kernel numerical verification. It is a component of the
+separately proved C source/AST/execution-to-application chain, not by itself PV.
+No completed full finite Ramanujan theorem is claimed here.
+
+1. From a clean same-pin clone obtain Elan/toolchain and generic caches as in the
+   package README, then run scripts/bootstrap_context.py --out CLEAN_CONTEXT.json.
+   Do not update the pinned manifest. The following helpers accept this context
+   explicitly; their numerical objects never use BUILD_CONTEXT's old app cache.
+
+2. Choose one fresh large WORK directory and build the application dependencies:
+   python3 scripts/reproduce_numerical_core.py --context CLEAN_CONTEXT.json \
+     --out WORK/application --memory-gib 24 --cpus 16 \
+     --root RamanujanPV --root RamanujanPV.QuotientDemandCheck \
+     --root RamanujanPV.QuotientPartition
+   Each application dependency is rebuilt from source into WORK/application/lean.
+   Source snapshots, object hashes, dependency versions and actual resource logs
+   are retained. The numerical driver verifies the resulting fresh-build record.
+
+3. Generate the exact untrusted critical-pair data (no seed):
+   python3 scripts/generate_demand_certificate.py \
+     --queries 38358837683,14111427770 --name DemandCriticalPair \
+     --out WORK/application/base-proposal --data-chunk 131072 --proof-chunk 32768
+   python3 scripts/partition_demand_proofs_context.py \
+     --owned-root WORK/application \
+     --manifest WORK/application/base-proposal/PROPOSAL.json \
+     --out WORK/application/certificate --subchunk 4096 \
+     --preserve-chunk 0 --preserve-chunk 250
+   These preserve all9,676,151 records, all12 integer fields, all17,643 gaps and
+   all296 outer proof ranges. Packed SHA256 must be
+   e1f2b251c983748338936c0dfeff68e518576c476cc75f0241d5b0a99716acee.
+   Every generated Lean source payload should match the accepted V3 manifest by
+   (module, SHA256); machine-dependent absolute paths and timing metadata differ.
+
+4. Run execute_demand_manifest_context.py with all of the following common args:
+   --context CLEAN_CONTEXT.json --application-build WORK/application
+   --manifest WORK/application/certificate/PROPOSAL.json
+   --expected-pi 38358837683=1644673232 --expected-pi 14111427770=632207037
+   The independent evidence/query-locks/CRITICAL_QUERIES.json lock is mandatory
+   for this namespace. It does not assume the candidate mathematical values.
+   First use --out WORK/application/data-run --stage data --jobs 32
+   --memory-gib 9 --cpus 16,17,...,47 (write the actual comma-separated list).
+   This is a288GiB combined ceiling, not32 times an unbounded default.
+
+5. The exact historical V3 source preserves two larger original proof chunks.
+   Compile Check0000 and Check0250 separately using scripts/compile_lean_context.py,
+   each with --context WORK/application/NUMERICAL_CONTEXT.json,
+   --source-root WORK/application/certificate/source,
+   --audit-root WORK/application/large-profile-audit, --memory-gib 96 and distinct
+   available CPUs. At most two such profiles run together (192GiB ceiling).
+   Compile GapCheck separately once with the same context/source/audit options
+   but --memory-gib 192, after both96GiB profiles drain. Its17,643 gap checks
+   contain about178,000 proper-divisor checks; the original15GiB attempt
+   exhausted address space and is preserved as a resource failure. This is
+   not a Linux OOM kill or a mathematical rejection.
+   Then execute the context driver with --out WORK/application/check-run
+   --stage checks --jobs 18 --memory-gib 15 --cpus 20,21,...,37
+   --import-audit WORK/application/data-run/audit
+   --import-audit WORK/application/large-profile-audit.
+   This270GiB worker pool must not overlap another pool exceeding the300GiB
+   combined numerical allowance. The other294 checks use4,096-row proof
+   declarations and exact axiom-free Boolean composition inside the same modules.
+
+6. After checks finish, execute the same context driver with --stage all
+   --out WORK/application/final-run --jobs 1 --memory-gib 192 --cpus 16,
+   importing both audit directories from step5 and the check-run/audit tree.
+   It compiles Final and a new controller-written Lean module checking the exact
+   types and actual dependencies of every required check and both final pi_N
+   constants. Success is a kernel numerical receipt, not an isolation receipt.
+   The final source-program consumer must then be compiled as a separate root;
+   Root integration owns that module and its source/driver/application audit.
+
+Actual checked portability test:
+  /data/ivy-ramanujan-source-pv-20261119/numeric-portable-clean-test-v1
+  Fresh12-module core; paired190-record data regeneration, subdivision, numerical
+  checks, final consumer and independently generated theorem-type audit passed.
+  All21 actual portable controller and compiler-leaf CLI routes passed under
+  normal Python, -O and -OO, including wrong/missing query identities, resource
+  maxima and duplicate-JSON rejection. This is a same-host fresh application test,
+  not a claim of a separately provisioned clean machine or isolated workflow.
+
+Required resources are checked separately: genuinely available RAM, per-worker
+address space, aggregate worker ceilings,512GiB host reserve and actual free disk.
+All source and numerical claims stay fixed. Resource failures are preserved and
+never promoted into mathematical successes. No native_decide or new axiom is used.
+
+The earlier paired-million source-output control is separate from the critical pair:
+
+```sh
+python3 scripts/generate_demand_certificate.py \
+  --queries 1000000,367879 --name DemandMillionPair \
+  --out /fresh/owned/paired-million --data-chunk 8192 --proof-chunk 2048
+```
+
+See evidence/demand-million-pair-v1/PROPOSAL.json for every exact module and packed
+SHA. Use the same fresh numerical core and context driver, with expected queries
+1000000=78498 and367879=31377, to compile all12 modules before the source-output
+consumer MillionSourceOutputs. No subdivision of these small checks is needed.

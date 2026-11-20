@@ -1,0 +1,68 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellProtected.lean:78:58: warning: The syntax is now `structure S : Type extends P` rather than `structure S extends P : Type`
+
+Note: The purpose of this change is to accommodate `structure S extends toP : P` syntax for naming parent projections.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellProtected.lean:111:2: error: unsolved goals
+case pos
+a b : Value
+env : Env
+hlo : { env := env }.env "lo" = none
+hhi : { env := env }.env "hi" = none
+⊢ (if (env "lo").isSome = true then some a else none) = env "lo"
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellProtected.lean:113:4: error: unsolved goals
+case pos
+a b : Value
+env : Env
+hlo : { env := env }.env "lo" = none
+hhi : { env := env }.env "hi" = none
+lo : ¬"hi" = "lo"
+⊢ (if (env "hi").isSome = true then some b else none) = env "hi"
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellProtected.lean:115:6: error: Tactic `generalize` failed: result is not type correct
+  ∀ (x : Option Value), (if x.isSome = true then x else none) = x
+
+case neg
+a b : Value
+env : Env
+hlo : { env := env }.env "lo" = none
+hhi : { env := env }.env "hi" = none
+name : String
+lo : ¬name = "lo"
+hi : ¬name = "hi"
+⊢ (if (env name).isSome = true then env name else none) = env name
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellProtected.lean:111:22: warning: This simp argument is unused:
+  closeScope
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [FiniteScalarMachine.bind, hlo]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellProtected.lean:111:58: warning: This simp argument is unused:
+  hlo
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [closeScope, FiniteScalarMachine.bind]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellProtected.lean:113:24: warning: This simp argument is unused:
+  closeScope
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [FiniteScalarMachine.bind, hhi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellProtected.lean:113:60: warning: This simp argument is unused:
+  hhi
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [closeScope, FiniteScalarMachine.bind]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellProtected.lean:114:17: warning: This simp argument is unused:
+  closeScope
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [FiniteScalarMachine.bind, Function.update_of_ne lo, Function.update_of_ne hi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'RamanujanPV.FiniteCellProtected.actual_body' does not depend on any axioms
+'RamanujanPV.FiniteCellProtected.input_fields' does not depend on any axioms
+'RamanujanPV.FiniteCellProtected.final_scope' depends on axioms: [sorryAx, Quot.sound]

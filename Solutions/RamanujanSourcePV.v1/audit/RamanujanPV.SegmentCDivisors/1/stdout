@@ -1,0 +1,42 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCDivisors.lean:143:5: error: unsolved goals
+call : Service
+s : State
+lo hi d base : ℕ
+flags : ℕ → ℕ
+hd : 0 < d
+hlo : lo ≤ hi
+hsquare : d * d ≤ hi
+hhi : hi ≤ 2000000000000
+owned : Owned s.heap
+rep : FlagsRep s.heap base (hi - lo + 1) flags
+env : DivisorEnv lo hi d base s.env
+hdhi : d ≤ hi
+hhw : hi < modulus
+hlw : lo < modulus
+hpp : d * d < modulus
+initial : ℕ := lo / d * d
+hib : initial ≤ lo
+hiss : initial + d < modulus
+first : State := { env := QuotientCMachine.bind s.env "first" (Value.u64 initial), heap := s.heap }
+declaration : Declare call [{ type := "uint64_t", name := "first", value := some baseExpr }] s first
+lower : State
+hlower : Run ?m.167 lowerBranch first (Flow.continuing lower)
+heLower :
+  lower.env = QuotientCMachine.bind first.env "first" (Value.u64 (if initial < lo then initial + d else initial))
+hhLower : lower.heap = first.heap
+⊢ (if initial < lo then initial + d else initial) = ?m.222
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCDivisors.lean:150:82: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.u64` could not be determined
+
+Hint: Using `Value.u64 would be unambiguous:
+  [apply] `Value.u64`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCDivisors.lean:150:6: error: Type mismatch: After simplification, term
+  congrArg (fun n => some ?m.276) hf
+ has type
+  ?m.277
+      (if (if lo / d * d < lo then lo / d * d + d else lo / d * d) < d * d then d * d
+      else if lo / d * d < lo then lo / d * d + d else lo / d * d) =
+    ?m.277 (firstMultiple lo d)
+but is expected to have type
+  (if ?m.222 < d * d then d * d else ?m.222) = firstMultiple lo d
+'RamanujanPV.SegmentCDivisors.actual_divisor_for' depends on axioms: [propext]
+'RamanujanPV.SegmentCDivisors.divisor_for_exec' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

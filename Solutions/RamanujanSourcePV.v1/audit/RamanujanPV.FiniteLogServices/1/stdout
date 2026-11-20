@@ -1,0 +1,69 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogServices.lean:46:27: error: unexpected token 'at'; expected '⟩'
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogServices.lean:46:12: error: Unexpected syntax
+  failed to pretty print term (use 'set_option pp.rawOnError true' for raw representation)
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogServices.lean:42:14: error: unsolved goals
+case pos.cons.cons.nil.isFalse
+answer a b : Value
+h✝ :
+  ¬(a.type = u128 ∧
+      b.type = u128 ∧
+        0 ≤ a.number ∧
+          0 < b.number ∧
+            a.number < 2 ^ 128 ∧
+              b.number < 2 ^ 128 ∧ AnalyticTransition.sourceCeilDiv a.number.toNat b.number.toNat < 2 ^ 64)
+response : none = some answer
+⊢ "rpc_log_ceildiv" = "rpc_log_ceildiv" ∧
+    ∃ t,
+      Run FiniteLogCeil.prototypes FiniteLogCeil.noCalls FiniteLogSource.ceilFunction.body (sourceInput [a, b])
+        (LCMSourcePV.ASTLoops.Flow.returned t answer)
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogServices.lean:31:49: error: unsolved goals
+case neg
+name : String
+args : List Value
+answer : Value
+response : ceilService name args = some answer
+hn : ¬name = "rpc_log_ceildiv"
+⊢ name = "rpc_log_ceildiv" ∧
+    ∃ t,
+      Run FiniteLogCeil.prototypes FiniteLogCeil.noCalls FiniteLogSource.ceilFunction.body (sourceInput args)
+        (LCMSourcePV.ASTLoops.Flow.returned t answer)
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogServices.lean:90:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  WideScalar.cast u128 left
+in the target expression
+  (do
+      let prototype ← some { result := u64, arguments := [u128, u128] }
+      let converted ← convertArguments prototype.arguments [left, right]
+      let result ← ceilService "rpc_log_ceildiv" converted
+      WideScalar.cast prototype.result result) =
+    some (word64 (AnalyticTransition.sourceCeilDiv a b))
+
+a b : ℕ
+left right : Value
+ca : WideScalar.cast u128 left = some (word128 a)
+cb : WideScalar.cast u128 right = some (word128 b)
+ha : a < 2 ^ 128
+hb : b < 2 ^ 128
+hb0 : 0 < b
+hr : AnalyticTransition.sourceCeilDiv a b < 2 ^ 64
+an : 0 ≤ ↑a
+bn : 0 < ↑b
+ar : ↑a < 2 ^ 128
+br : ↑b < 2 ^ 128
+castOut :
+  WideScalar.cast u64 (word64 (AnalyticTransition.sourceCeilDiv a b)) =
+    some (word64 (AnalyticTransition.sourceCeilDiv a b))
+⊢ (do
+      let prototype ← some { result := u64, arguments := [u128, u128] }
+      let converted ← convertArguments prototype.arguments [left, right]
+      let result ← ceilService "rpc_log_ceildiv" converted
+      WideScalar.cast prototype.result result) =
+    some (word64 (AnalyticTransition.sourceCeilDiv a b))
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogServices.lean:89:56: warning: This simp argument is unused:
+  convertArguments
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [invoke, FiniteLogCeil.prototypes, ↓reduceIte]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'RamanujanPV.FiniteLogServices.ceil_service_closed' depends on axioms: [propext, sorryAx]
+'RamanujanPV.FiniteLogServices.invoke_ceil' depends on axioms: [propext, sorryAx, Quot.sound]

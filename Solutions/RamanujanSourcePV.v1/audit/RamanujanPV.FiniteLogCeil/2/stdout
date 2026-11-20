@@ -1,0 +1,88 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogCeil.lean:99:82: error: unexpected token '('; expected ')', ',' or ':'
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogCeil.lean:55:4: error: Type mismatch: After simplification, term
+  divResult
+ has type
+  @Eq (Option WideScalar.Value) (WideScalar.binary "/" { type := u128, number := ↑a } { type := u128, number := ↑b })
+    (some { type := unsignedType 128, number := ↑a / ↑b })
+but is expected to have type
+  @Eq (Option WideScalar.Value) (WideScalar.binary "/" { type := u128, number := ↑a } { type := u128, number := ↑b })
+    (some { type := u128, number := ↑a / ↑b })
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogCeil.lean:57:4: error: Type mismatch: After simplification, term
+  modResult
+ has type
+  @Eq (Option WideScalar.Value) (WideScalar.binary "%" { type := u128, number := ↑a } { type := u128, number := ↑b })
+    (some { type := unsignedType 128, number := ↑a % ↑b })
+but is expected to have type
+  @Eq (Option WideScalar.Value) (WideScalar.binary "%" { type := u128, number := ↑a } { type := u128, number := ↑b })
+    (some { type := u128, number := ↑a % ↑b })
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogCeil.lean:60:4: error: Type mismatch: After simplification, term
+  neqResult
+ has type
+  WideScalar.binary "!=" { type := u128, number := ↑a % ↑b } { type := { signed := true, width := 32 }, number := 0 } =
+    some (WideScalar.boolean (↑a % ↑b != 0))
+but is expected to have type
+  WideScalar.binary "!=" { type := u128, number := ↑a % ↑b } { type := { signed := true, width := 32 }, number := 0 } =
+    some (WideScalar.boolean (a % b != 0))
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogCeil.lean:99:12: error: invalid `do` notation, expected type is not a monad application
+  Prop
+You can use the `do` notation in pure code by writing `Id.run do` instead of `do`, where `Id` is the identity monad.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogCeil.lean:43:81: error: unsolved goals
+a b : ℕ
+ha : a < 2 ^ 128
+hb : b < 2 ^ 128
+hb0 : 0 < b
+hresult : AnalyticTransition.sourceCeilDiv a b < 2 ^ 64
+hbInt : 0 < ↑b
+divResult :
+  WideScalar.binary "/" (word128 a) (word128 b) = some (scalarWord 128 ((word128 a).number / (word128 b).number))
+modResult :
+  WideScalar.binary "%" (word128 a) (word128 b) = some (scalarWord 128 ((word128 a).number % (word128 b).number))
+modBound : a % b < 2 ^ 128
+quotientBound : a / b < 2 ^ 128
+neqResult :
+  WideScalar.binary "!=" (word128 (a % b)) (i32 0) =
+    some (WideScalar.boolean ((word128 (a % b)).number != (i32 0).number))
+guardResult :
+  WideScalar.binary "==" (word128 b) (i32 0) = some (WideScalar.boolean ((word128 b).number == (i32 0).number))
+castResult :
+  WideScalar.cast u64 (word128 (AnalyticTransition.sourceCeilDiv a b)) =
+    some (word64 (AnalyticTransition.sourceCeilDiv a b))
+quotientOp : WideScalar.binary "/" (word128 a) (word128 b) = some (word128 (a / b))
+remainderOp : WideScalar.binary "%" (word128 a) (word128 b) = some (word128 (a % b))
+neqOp : WideScalar.binary "!=" (word128 (a % b)) (i32 0) = some (WideScalar.boolean (a % b != 0))
+incEq : (WideScalar.boolean (a % b != 0)).number = ↑(if a % b = 0 then 0 else 1)
+sumEq : (word128 (a / b)).number + (WideScalar.boolean (a % b != 0)).number = ↑(AnalyticTransition.sourceCeilDiv a b)
+sumRange : Range 128 ((word128 (a / b)).number + (WideScalar.boolean (a % b != 0)).number)
+addOp :
+  WideScalar.binary "+" (word128 (a / b)) (WideScalar.boolean (a % b != 0)) =
+    some (word128 (AnalyticTransition.sourceCeilDiv a b))
+qEval :
+  FiniteScalarMachine.pure prototypes noCalls (input a b).env 6 (Expr.binary "/" (Expr.var "a") (Expr.var "b")) =
+    some (word128 (a / b))
+mEval :
+  FiniteScalarMachine.pure prototypes noCalls (input a b).env 5 (Expr.binary "%" (Expr.var "a") (Expr.var "b")) =
+    some (word128 (a % b))
+nEval :
+  FiniteScalarMachine.pure prototypes noCalls (input a b).env 6
+      (Expr.binary "!=" (Expr.binary "%" (Expr.var "a") (Expr.var "b")) (Expr.nat 0)) =
+    some (WideScalar.boolean (a % b != 0))
+sEval :
+  FiniteScalarMachine.pure prototypes noCalls (input a b).env 7
+      (Expr.binary "+" (Expr.binary "/" (Expr.var "a") (Expr.var "b"))
+        (Expr.binary "!=" (Expr.binary "%" (Expr.var "a") (Expr.var "b")) (Expr.nat 0))) =
+    some (word128 (AnalyticTransition.sourceCeilDiv a b))
+rEval :
+  FiniteScalarMachine.pure prototypes noCalls (input a b).env (7 + 1)
+      (Expr.cast "uint64_t"
+        (Expr.binary "+" (Expr.binary "/" (Expr.var "a") (Expr.var "b"))
+          (Expr.binary "!=" (Expr.binary "%" (Expr.var "a") (Expr.var "b")) (Expr.nat 0)))) =
+    some (word64 (AnalyticTransition.sourceCeilDiv a b))
+retEval :
+  Eval prototypes noCalls
+    (Expr.cast "uint64_t"
+      (Expr.binary "+" (Expr.binary "/" (Expr.var "a") (Expr.var "b"))
+        (Expr.binary "!=" (Expr.binary "%" (Expr.var "a") (Expr.var "b")) (Expr.nat 0))))
+    (input a b) (input a b) (word64 (AnalyticTransition.sourceCeilDiv a b))
+⊢ Run prototypes noCalls FiniteLogSource.ceilFunction.body (input a b)
+    (LCMSourcePV.ASTLoops.Flow.returned (input a b) (word64 (AnalyticTransition.sourceCeilDiv a b)))
+'RamanujanPV.FiniteLogCeil.function_executes' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

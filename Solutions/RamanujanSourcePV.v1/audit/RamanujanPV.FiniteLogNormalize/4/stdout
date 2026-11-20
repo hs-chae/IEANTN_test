@@ -1,0 +1,70 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogNormalize.lean:118:10: warning: This simp argument is unused:
+  closeScope
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [nextState, middle, FiniteScalarMachine.bind, ht, hk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogNormalize.lean:118:66: warning: This simp argument is unused:
+  hk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [closeScope, nextState, middle, FiniteScalarMachine.bind, ht]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogNormalize.lean:121:10: warning: This simp argument is unused:
+  closeScope
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [nextState, middle, FiniteScalarMachine.bind, ht, hk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogNormalize.lean:121:63: warning: This simp argument is unused:
+  ht
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [closeScope, nextState, middle, FiniteScalarMachine.bind, hk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogNormalize.lean:125:34: warning: This simp argument is unused:
+  nextState
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [middle, FiniteScalarMachine.bind, Function.update, nt, nk, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogNormalize.lean:157:11: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  WideScalar.binary "+" (word64 k) (i32 1)
+in the target expression
+  (do
+      let old ← some (word64 k)
+      let value ← WideScalar.binary "+" old (i32 1)
+      let converted ← WideScalar.cast old.type value
+      Pure.pure ({ env := FiniteScalarMachine.bind (middle s two).env "k" converted }, converted)) =
+    some (nextState s two k, word64 (k + 1))
+
+p : Prototypes
+c : Service
+s : State
+two k : ℕ
+ht : s.env "two" = some (word64 two)
+hk : s.env "k" = some (word64 k)
+tb : two < 2 ^ 64
+kb : k < 2 ^ 64
+tn : two * 2 < 2 ^ 64
+kn : k + 1 < 2 ^ 64
+product : FiniteScalarMachine.pure p c s.env 8 (Expr.binary "*" (Expr.var "two") (Expr.nat 2)) = some (word64 (two * 2))
+store :
+  Eval p c (Expr.binary "=" (Expr.var "two") (Expr.binary "*" (Expr.var "two") (Expr.nat 2))) s (middle s two)
+    (word64 (two * 2))
+hm : (middle s two).env "k" = some (word64 k)
+⊢ (do
+      let old ← some (word64 k)
+      let value ← WideScalar.binary "+" old (i32 1)
+      let converted ← WideScalar.cast old.type value
+      Pure.pure ({ env := FiniteScalarMachine.bind (middle s two).env "k" converted }, converted)) =
+    some (nextState s two k, word64 (k + 1))
+'RamanujanPV.FiniteLogNormalize.body_exec' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'RamanujanPV.FiniteLogNormalize.normalization_exec' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'RamanujanPV.FiniteLogNormalize.actual_source_subtree' depends on axioms: [propext]
+'RamanujanPV.FiniteLogNormalize.condition_eval' depends on axioms: [propext, Classical.choice, Quot.sound]

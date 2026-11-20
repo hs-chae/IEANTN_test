@@ -1,0 +1,37 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FullFiniteScalars.lean:81:24: error: unexpected token '→'; expected term
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FullFiniteScalars.lean:81:21: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat (Type ?u.63) 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type ?u.63
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FullFiniteScalars.lean:73:41: error: unsolved goals
+case strict
+start stop count : ℕ
+rows : Lean.RArray Entry
+positive : 0 < count
+checked : allFrom (checkOne start stop count rows) 0 count = true
+each :
+  ∀ i < count,
+    Spec (rows.get i) ∧
+      (i = 0 → (rows.get i).row.n = start) ∧
+        if i + 1 < count then (rows.get i).row.next = (rows.get (i + 1)).row.n else (rows.get i).row.next = stop
+extended : ℕ → RawFactoredCell := fun i => if i < count then (rows.get i).row else boundaryRow stop
+⊢ ?m.82 → InitialSeg (fun x1 x2 => sorry) fun x1 x2 => sorry
+
+start stop count : ℕ
+rows : Lean.RArray Entry
+positive : 0 < count
+checked : allFrom (checkOne start stop count rows) 0 count = true
+each :
+  ∀ i < count,
+    Spec (rows.get i) ∧
+      (i = 0 → (rows.get i).row.n = start) ∧
+        if i + 1 < count then (rows.get i).row.next = (rows.get (i + 1)).row.n else (rows.get i).row.next = stop
+extended : ℕ → RawFactoredCell := fun i => if i < count then (rows.get i).row else boundaryRow stop
+strict : ?m.82 → InitialSeg (fun x1 x2 => sorry) fun x1 x2 => sorry
+⊢ RawCellChain start stop (rawRows rows count) ∧
+    ∀ r ∈ rawRows rows count, (r.toCell eLo eHi).FixedPredicate ∧ (r.toCell eLo eHi).Enclosures
+'RamanujanPV.FullFiniteScalars.scalar_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.FullFiniteScalars.checked_block' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

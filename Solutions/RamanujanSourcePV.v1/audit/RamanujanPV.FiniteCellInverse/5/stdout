@@ -1,0 +1,71 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellInverse.lean:15:58: warning: The syntax is now `structure S : Type extends P` rather than `structure S extends P : Type`
+
+Note: The purpose of this change is to accommodate `structure S extends toP : P` syntax for naming parent projections.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellInverse.lean:85:8: error: unsolved goals
+case none
+p : Prototypes
+c : Service
+name : String
+types : List CIntType
+args : List Value
+out : Value
+prototype : p name = some { result := u64, arguments := types }
+converted : convertArguments types args = none
+response : none = some out
+⊢ ∃ n < 2 ^ 64, out = word64 n
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellInverse.lean:90:10: error: unsolved goals
+case some.none
+p : Prototypes
+c : Service
+name : String
+types : List CIntType
+args : List Value
+out : Value
+prototype : p name = some { result := u64, arguments := types }
+arguments : List Value
+converted : convertArguments types args = some arguments
+returned : c name arguments = none
+response : none = some out
+⊢ ∃ n < 2 ^ 64, out = word64 n
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellInverse.lean:90:32: warning: This simp argument is unused:
+  Option.bind
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [returned] at response
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellInverse.lean:93:17: warning: This simp argument is unused:
+  Option.bind
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only at response
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellInverse.lean:125:82: error: unexpected identifier; expected ')', ',' or ':'
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellInverse.lean:125:14: error: invalid `do` notation, expected type is not a monad application
+  Prop
+You can use the `do` notation in pure code by writing `Id.run do` instead of `do`, where `Id` is the identity monad.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellInverse.lean:117:8: error: unsolved goals
+case none
+r : RawFactoredCell
+s t : State
+fits : WordFits r
+fields : Inputs r s.env
+guard : FalseCondition FiniteCellExecution.prototypes FiniteCellExecution.service g7 s t
+response : invoke FiniteCellExecution.prototypes FiniteCellExecution.service "rpc_log_upper" [word64 r.n] = none
+missingCall :
+  FiniteScalarMachine.pure FiniteCellExecution.prototypes FiniteCellExecution.service s.env 7
+      ((LCMSourcePV.Witness.C.Expr.var "rpc_log_upper").call [LCMSourcePV.Witness.C.Expr.var "n"]) =
+    none
+missingComparison :
+  FiniteScalarMachine.pure FiniteCellExecution.prototypes FiniteCellExecution.service s.env 8 g7 = none
+missingEval : eval FiniteCellExecution.prototypes FiniteCellExecution.service s g7 = none
+⊢ t = s ∧ none = some (word64 r.Lu)
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellInverse.lean:115:2: error: Alternative `some` has not been provided
+'RamanujanPV.FiniteCellInverse.cast64_result' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.FiniteCellInverse.invoke64_result' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'RamanujanPV.FiniteCellInverse.log_response_of_guard' depends on axioms: [propext, sorryAx]
+'RamanujanPV.FiniteCellInverse.positive_domain' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'RamanujanPV.FiniteCellInverse.positive_fixed' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'RamanujanPV.FiniteCellInverse.trace_prefix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.FiniteCellInverse.positive_prefix' depends on axioms: [propext, Classical.choice, Quot.sound]

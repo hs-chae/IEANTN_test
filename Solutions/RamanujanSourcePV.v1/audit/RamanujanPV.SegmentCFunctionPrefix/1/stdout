@@ -1,0 +1,61 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCFunctionPrefix.lean:57:39: error(lean.unknownIdentifier): Unknown identifier `odulus`
+
+Note: It is not possible to treat `odulus` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCFunctionPrefix.lean:57:30: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HAdd ℕ ℕ (Matroid ?m.9)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCFunctionPrefix.lean:61:54: error: Application type mismatch: The argument
+  binary_u64_sub horder
+has type
+  hi < modulus → binary "-" (Value.u64 hi) (Value.u64 lo) = some (Value.u64 (hi - lo))
+but is expected to have type
+  binary ?m.54 (Value.u64 hi) (Value.u64 lo) = some ?m.59
+in the application
+  pure_binary_of (Eq.trans (pure_var call s.heap s.env 5 "hi") hhi) (Eq.trans (pure_var call s.heap s.env 5 "lo") hlo)
+    (binary_u64_sub horder)
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCFunctionPrefix.lean:59:23: error: Invalid argument name `raw` for function `pure_binary_of`
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `call`: r̵a̵w̵c̲a̲l̲l̲
+  • `heap`: r̵a̵w̵h̲e̲a̲p̲
+  • `env`: r̵a̵w̵e̲n̲v̲
+  • `fuel`: r̵a̵w̵f̲u̲e̲l̲
+  • `op`: r̵a̵w̵o̲p̲
+  • `a`: r̵aw̵
+  • `b`: r̵a̵w̵b̲
+  • `va`: r̵a̵w̵v̲a̲
+  • `result`: ra̵w̵e̲s̲u̲l̲t̲
+  • `ha`: r̵a̵w̵h̲a̲
+  • `hb`: r̵a̵w̵h̲b̲
+  • `hresult`: r̵a̵w̵h̲r̲e̲s̲u̲l̲t̲
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCFunctionPrefix.lean:63:2: error: No goals to be solved
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCFunctionPrefix.lean:78:16: error: Application type mismatch: The argument
+  hi
+has type
+  ℕ
+but is expected to have type
+  Matroid ?m.81
+in the application
+  Matroid.IsStrictMinor hi
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCFunctionPrefix.lean:78:20: error(lean.unknownIdentifier): Unknown identifier `odulus`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCFunctionPrefix.lean:77:45: error: unsolved goals
+call : Service
+s : State
+lo hi capacity cb fb : ℕ
+claims : ℕ → ℕ
+hlo : 2 ≤ lo
+horder : lo ≤ hi
+hhi : hi ≤ 2000000000000
+hcapacity : hi - lo + 1 ≤ capacity
+disjoint : cb ≠ fb
+owned : Owned s.heap
+buffer : SegmentCInit.Buffer s.heap fb (hi - lo + 1)
+claimRep : FlagsRep s.heap cb (hi - lo + 1) claims
+env : Inputs lo hi capacity cb fb s.env
+⊢ ∃ t,
+    QuotientCMachine.SeqRun call prefixStatements s (Flow.continuing t) ∧
+      t.env = QuotientCMachine.bind s.env "length" (Value.u64 (hi - lo + 1)) ∧
+        Owned t.heap ∧ FlagsRep t.heap fb (hi - lo + 1) (finalFlags lo hi) ∧ FlagsRep t.heap cb (hi - lo + 1) claims
+'RamanujanPV.SegmentCFunctionPrefix.actual_prefix' depends on axioms: [propext]
+'RamanujanPV.SegmentCFunctionPrefix.prefix_exec' depends on axioms: [propext, sorryAx]

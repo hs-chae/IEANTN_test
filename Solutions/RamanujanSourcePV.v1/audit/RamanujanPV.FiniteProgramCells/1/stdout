@@ -1,0 +1,70 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteProgramCells.lean:31:50: error: Invalid projection: Projections extract constructor fields for one-constructor inductive types. The expression
+  h.pUpper
+has type `r.next.le (pBase + pCount + 1)` which is not a one-constructor inductive type.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteProgramCells.lean:31:56: error: Invalid projection: Projections extract constructor fields for one-constructor inductive types. The expression
+  h.pUpper
+has type `r.next.le (pBase + pCount + 1)` which is not a one-constructor inductive type.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteProgramCells.lean:31:64: error: Invalid projection: Projections extract constructor fields for one-constructor inductive types. The expression
+  h.pUpper
+has type `r.next.le (pBase + pCount + 1)` which is not a one-constructor inductive type.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteProgramCells.lean:31:74: error: Invalid projection: Projections extract constructor fields for one-constructor inductive types. The expression
+  h.pUpper
+has type `r.next.le (pBase + pCount + 1)` which is not a one-constructor inductive type.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteProgramCells.lean:31:86: error: Invalid projection: Projections extract constructor fields for one-constructor inductive types. The expression
+  h.pUpper
+has type `r.next.le (pBase + pCount + 1)` which is not a one-constructor inductive type.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteProgramCells.lean:127:20: error: unexpected token '→'; expected term
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteProgramCells.lean:127:17: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat (Type ?u.75) 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type ?u.75
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteProgramCells.lean:117:91: error: unsolved goals
+case step
+pBase qBase pCount qCount pValue qValue stop count : ℕ
+pEntries qEntries : Lean.RArray PrimeWindow.Entry
+rows : Lean.RArray RawFactoredCell
+p : CountProvider pBase pCount pValue pEntries
+q : CountProvider qBase qCount qValue qEntries
+checked : checkLayout pBase qBase pCount qCount pValue qValue stop count pEntries qEntries rows = true
+domains : Domains rows count
+actual : Executions rows count
+logs : Logs rows count
+parts :
+  0 < count ∧
+    allFrom (checkIndex pBase qBase pCount qCount pValue qValue stop count pEntries qEntries rows) 0 count = true
+each :
+  ∀ i < count,
+    IndexSpec pBase qBase pCount qCount pValue qValue pEntries qEntries (rows.get i) ∧
+      (i = 0 → (rows.get i).n = pBase) ∧
+        if i + 1 < count then (rows.get i).next = (rows.get (i + 1)).n else (rows.get i).next = stop
+extended : ℕ → RawFactoredCell := fun i => if i < count then rows.get i else boundaryRow stop
+⊢ ?m.106 → InitialSeg (fun x1 x2 => sorry) fun x1 x2 => sorry
+
+pBase qBase pCount qCount pValue qValue stop count : ℕ
+pEntries qEntries : Lean.RArray PrimeWindow.Entry
+rows : Lean.RArray RawFactoredCell
+p : CountProvider pBase pCount pValue pEntries
+q : CountProvider qBase qCount qValue qEntries
+checked : checkLayout pBase qBase pCount qCount pValue qValue stop count pEntries qEntries rows = true
+domains : Domains rows count
+actual : Executions rows count
+logs : Logs rows count
+parts :
+  0 < count ∧
+    allFrom (checkIndex pBase qBase pCount qCount pValue qValue stop count pEntries qEntries rows) 0 count = true
+each :
+  ∀ i < count,
+    IndexSpec pBase qBase pCount qCount pValue qValue pEntries qEntries (rows.get i) ∧
+      (i = 0 → (rows.get i).n = pBase) ∧
+        if i + 1 < count then (rows.get i).next = (rows.get (i + 1)).n else (rows.get i).next = stop
+extended : ℕ → RawFactoredCell := fun i => if i < count then rows.get i else boundaryRow stop
+step : ?m.106 → InitialSeg (fun x1 x2 => sorry) fun x1 x2 => sorry
+⊢ CompleteCertificate pBase stop (List.map (fun r => r.toCell eLo eHi) (rawList rows count))
+'RamanujanPV.FiniteProgramCells.row_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.FiniteProgramCells.complete_certificate' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

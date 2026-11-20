@@ -91,6 +91,7 @@ def main():
     parser.add_argument('--scratch', type=Path, required=True)
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--cpu', type=int, default=9)
+    parser.add_argument('--case', type=int, nargs=2, action='append', metavar=('LO', 'HI'))
     args = parser.parse_args()
     out = args.out.resolve()
     need(not out.exists(), 'fresh experiment output required')
@@ -126,8 +127,11 @@ def main():
     (out / 'link-stderr').write_bytes(build.stderr)
     need(build.returncode == 0, 'native link failed')
     commands.append(command)
-    cases = [(2, 1000001), (38358837683, 38358837683 + 1048575),
-             (1490000000000 - 1048575, 1490000000000)]
+    cases = args.case or [(2, 1000001), (38358837683, 38358837683 + 1048575),
+                          (1490000000000 - 1048575, 1490000000000)]
+    for lo, hi in cases:
+        need(2 <= lo <= hi <= 2000000000000 and hi-lo <= 16777216,
+             'exact native driver domain and bounded input stream')
     records = []
     for index, (lo, hi) in enumerate(cases):
         case = out / str(index)
@@ -165,7 +169,7 @@ def main():
         records.append(result)
     receipt = {'status': 'ORDINARY_NATIVE_SEGMENT_CHECKER_DIFFERENTIAL_RUNS_PASS',
                'source_first_PV_complete': False,
-               'remaining': 'Actual source loop/execution refinement and numerical output closure are still required.',
+               'remaining': 'This numerical receipt alone does not prove source execution, caller initialization, or physical source/build/run association; those are separate obligations.',
                'parameters': cases, 'random_seed': None, 'records': records,
                'c_checker_source_sha256': sha(S / 'c/verified_segment_checker.c'),
                'quotient_source_sha256': sha(S / 'c/verified_quotient_count.c'),

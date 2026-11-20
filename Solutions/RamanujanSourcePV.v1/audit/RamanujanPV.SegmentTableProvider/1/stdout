@@ -1,0 +1,47 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentTableProvider.lean:35:13: error: Ambiguous term
+  checkEntry
+Possible interpretations:
+  PrimeWindow.checkEntry : ℕ → Lean.RArray ℕ → ℕ → Lean.RArray PrimeWindow.Entry → ℕ → Bool
+  
+  QuotientDemandCheck.checkEntry : Lean.RArray QuotientDemandCheck.Entry → Lean.RArray Gap → ℕ → ℕ → Bool
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentTableProvider.lean:35:6: error: Type mismatch: After simplification, term
+  entry
+ has type
+  PrimeWindow.checkEntry base primes primeCount entries offset = true
+but is expected to have type
+  (if (entries.get offset).isPrime = true then
+      (entries.get offset).witness < primeCount ∧ primes.get (entries.get offset).witness = base + offset + 1
+    else
+      2 ≤ (entries.get offset).witness ∧
+        (entries.get offset).witness ≤ base + offset ∧ (base + offset + 1) % (entries.get offset).witness = 0) ∧
+    (entries.get offset).cumulative =
+      (if offset = 0 then 0 else (entries.get (offset - 1)).cumulative) +
+        if (entries.get offset).isPrime = true then 1 else 0
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentTableProvider.lean:69:39: error: unexpected token ';'; expected term
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentTableProvider.lean:93:50: error: Type mismatch: After simplification, term
+  scratch
+ has type
+  SegmentCInit.Buffer (inputHeap entries) canonicalLayout.largeBase count
+but is expected to have type
+  SegmentCInit.Buffer s.heap canonicalLayout.largeBase count
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentTableProvider.lean:94:8: error: Type mismatch: After simplification, term
+  claims
+ has type
+  FlagsRep (inputHeap entries) canonicalLayout.smallBase count (flags entries)
+but is expected to have type
+  FlagsRep s.heap canonicalLayout.smallBase count (flags entries)
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentTableProvider.lean:110:10: error: Type mismatch: After simplification, term
+  scratch
+ has type
+  SegmentCInit.Buffer (inputHeap entries) canonicalLayout.largeBase count
+but is expected to have type
+  SegmentCInit.Buffer s.heap canonicalLayout.largeBase count
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentTableProvider.lean:110:44: error: Type mismatch: After simplification, term
+  claims
+ has type
+  FlagsRep (inputHeap entries) canonicalLayout.smallBase count (flags entries)
+but is expected to have type
+  FlagsRep s.heap canonicalLayout.smallBase count (flags entries)
+'RamanujanPV.SegmentTableProvider.sum_flags_offset' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'RamanujanPV.SegmentTableProvider.input_owned' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.SegmentTableProvider.source_provider' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

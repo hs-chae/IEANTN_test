@@ -1,0 +1,247 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellWords.lean:36:28: error: Expected type must not contain free variables
+  common (word64 a).type (signedWord 32 b).type = unsignedType 64
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellWords.lean:36:28: error: Expected type must not contain free variables
+  common (word64 a).type (signedWord 64 b).type = unsignedType 64
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellWords.lean:46:7: error: Expected type must not contain free variables
+  common (word128 a).type (word64 b).type = unsignedType 128
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellWords.lean:55:28: error: Expected type must not contain free variables
+  common (word128 a).type (signedWord 32 b).type = unsignedType 128
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellWords.lean:55:28: error: Expected type must not contain free variables
+  common (word128 a).type (signedWord 64 b).type = unsignedType 128
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellWords.lean:59:14: error(lean.unknownIdentifier): Unknown constant `Int.natCast_lt`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellWords.lean:59:2: error: Type mismatch: After simplification, term
+  lt (of_decide_eq_true (id (Eq.refl true))) (operands64 ha hb)
+ has type
+  binary "<" (word64 a) (word64 b) = some (boolean (decide ((word64 a).number < (word64 b).number)))
+but is expected to have type
+  binary "<" (word64 a) (word64 b) = some (boolean (decide (a < b)))
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellWords.lean:62:14: error(lean.unknownIdentifier): Unknown constant `Int.natCast_le`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellWords.lean:62:2: error: Type mismatch: After simplification, term
+  le (of_decide_eq_true (id (Eq.refl true))) (operands64 ha hb)
+ has type
+  binary "<=" (word64 a) (word64 b) = some (boolean (decide ((word64 a).number ≤ (word64 b).number)))
+but is expected to have type
+  binary "<=" (word64 a) (word64 b) = some (boolean (decide (a ≤ b)))
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellWords.lean:66:44: error(lean.unknownIdentifier): Unknown constant `Int.natCast_lt`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellWords.lean:64:81: error: unsolved goals
+a b : ℕ
+ha : a < 2 ^ 64
+hb : b < 2 ^ 64
+⊢ (if (">" == "+") = true then make (unsignedType 64) ((word64 a).number + (word64 b).number)
+    else
+      if (">" == "-") = true then make (unsignedType 64) ((word64 a).number - (word64 b).number)
+      else
+        if (">" == "*") = true then make (unsignedType 64) ((word64 a).number * (word64 b).number)
+        else
+          if (">" == "/") = true then
+            if (word64 b).number = 0 then none else make (unsignedType 64) ((word64 a).number.tdiv (word64 b).number)
+          else
+            if (">" == "%") = true then
+              if (word64 b).number = 0 then none else make (unsignedType 64) ((word64 a).number.tmod (word64 b).number)
+            else
+              if (">" == "<") = true then some (boolean (decide ((word64 a).number < (word64 b).number)))
+              else
+                if (">" == "<=") = true then some (boolean (decide ((word64 a).number ≤ (word64 b).number)))
+                else
+                  if (">" == ">") = true then some (boolean (decide ((word64 a).number > (word64 b).number)))
+                  else
+                    if (">" == ">=") = true then some (boolean (decide ((word64 a).number ≥ (word64 b).number)))
+                    else
+                      if (">" == "==") = true then some (boolean ((word64 a).number == (word64 b).number))
+                      else
+                        if (">" == "!=") = true then some (boolean ((word64 a).number != (word64 b).number))
+                        else none) =
+    some (boolean (decide (b < a)))
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellWords.lean:66:23: warning: This simp argument is unused:
+  reduceBEq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [operation, ↓reduceIte, Int.natCast_lt]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellWords.lean:66:33: warning: This simp argument is unused:
+  ↓reduceIte
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [operation, reduceBEq, Int.natCast_lt]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellWords.lean:69:2: error: Type mismatch: After simplification, term
+  eq (of_decide_eq_true (id (Eq.refl true))) (operands64 ha hb)
+ has type
+  binary "==" (word64 a) (word64 b) = some (boolean ((word64 a).number == (word64 b).number))
+but is expected to have type
+  binary "==" (word64 a) (word64 b) = some (boolean (decide (a = b)))
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellWords.lean:72:2: error: Type mismatch: After simplification, term
+  ne (of_decide_eq_true (id (Eq.refl true))) (operands64 ha hb)
+ has type
+  binary "!=" (word64 a) (word64 b) = some (boolean ((word64 a).number != (word64 b).number))
+but is expected to have type
+  binary "!=" (word64 a) (word64 b) = some (boolean (decide (a ≠ b)))
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellWords.lean:76:14: error(lean.unknownIdentifier): Unknown constant `Int.natCast_lt`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellWords.lean:76:2: error: Type mismatch: After simplification, term
+  lt (of_decide_eq_true (id (Eq.refl true))) (operands64signed ha hw hb)
+ has type
+  binary "<" (word64 a) (signedWord w b) = some (boolean (decide ((word64 a).number < (signedWord w b).number)))
+but is expected to have type
+  binary "<" (word64 a) (signedWord w b) = some (boolean (decide (a < b)))
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellWords.lean:80:44: error(lean.unknownIdentifier): Unknown constant `Int.natCast_lt`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellWords.lean:78:87: error: unsolved goals
+a b w : ℕ
+ha : a < 2 ^ 64
+hw : w = 32 ∨ w = 64
+hb : b < 2 ^ (w - 1)
+⊢ (if (">" == "+") = true then make (unsignedType 64) ((word64 a).number + (signedWord w b).number)
+    else
+      if (">" == "-") = true then make (unsignedType 64) ((word64 a).number - (signedWord w b).number)
+      else
+        if (">" == "*") = true then make (unsignedType 64) ((word64 a).number * (signedWord w b).number)
+        else
+          if (">" == "/") = true then
+            if (signedWord w b).number = 0 then none
+            else make (unsignedType 64) ((word64 a).number.tdiv (signedWord w b).number)
+          else
+            if (">" == "%") = true then
+              if (signedWord w b).number = 0 then none
+              else make (unsignedType 64) ((word64 a).number.tmod (signedWord w b).number)
+            else
+              if (">" == "<") = true then some (boolean (decide ((word64 a).number < (signedWord w b).number)))
+              else
+                if (">" == "<=") = true then some (boolean (decide ((word64 a).number ≤ (signedWord w b).number)))
+                else
+                  if (">" == ">") = true then some (boolean (decide ((word64 a).number > (signedWord w b).number)))
+                  else
+                    if (">" == ">=") = true then some (boolean (decide ((word64 a).number ≥ (signedWord w b).number)))
+                    else
+                      if (">" == "==") = true then some (boolean ((word64 a).number == (signedWord w b).number))
+                      else
+                        if (">" == "!=") = true then some (boolean ((word64 a).number != (signedWord w b).number))
+                        else none) =
+    some (boolean (decide (b < a)))
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellWords.lean:80:23: warning: This simp argument is unused:
+  reduceBEq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [operation, ↓reduceIte, Int.natCast_lt]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellWords.lean:80:33: warning: This simp argument is unused:
+  ↓reduceIte
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [operation, reduceBEq, Int.natCast_lt]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellWords.lean:83:2: error: Type mismatch: After simplification, term
+  eq (of_decide_eq_true (id (Eq.refl true))) (operands64signed ha hw hb)
+ has type
+  binary "==" (word64 a) (signedWord w b) = some (boolean ((word64 a).number == (signedWord w b).number))
+but is expected to have type
+  binary "==" (word64 a) (signedWord w b) = some (boolean (decide (a = b)))
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellWords.lean:88:4: error: Application type mismatch: The argument
+  range_nat (LE.le.trans_lt (Nat.sub_le a 1) ha)
+has type
+  Range 64 ↑(a - 1)
+but is expected to have type
+  Range 64 ((word64 a).number - (signedWord 32 1).number)
+in the application
+  sub ?m.35 (operands64signed ha (Or.inl rfl) ?m.70) (range_nat (LE.le.trans_lt (Nat.sub_le a 1) ha))
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellWords.lean:89:2: error: Type mismatch: After simplification, term
+  result
+ has type
+  binary "-" (word64 a) (signedWord 32 1) = some (scalarWord 64 ((word64 a).number - (signedWord 32 1).number))
+but is expected to have type
+  binary "-" (word64 a) (i32 1) = some (word64 (a - 1))
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellWords.lean:93:2: error: Type mismatch: After simplification, term
+  mul (of_decide_eq_true (id (Eq.refl true))) (operands128_64 ha hb) (range_nat hab)
+ has type
+  @Eq (Option WideScalar.Value) (binary "*" (word128 a) (word64 b))
+    (some (scalarWord 128 ((word128 a).number * (word64 b).number)))
+but is expected to have type
+  @Eq (Option WideScalar.Value) (binary "*" (word128 a) (word64 b)) (some (word128 (a * b)))
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellWords.lean:97:2: error: Type mismatch: After simplification, term
+  mul (of_decide_eq_true (id (Eq.refl true))) (operands128signed ha hw hb) (range_nat hab)
+ has type
+  @Eq (Option WideScalar.Value) (binary "*" (word128 a) (signedWord w b))
+    (some (scalarWord 128 ((word128 a).number * (signedWord w b).number)))
+but is expected to have type
+  @Eq (Option WideScalar.Value) (binary "*" (word128 a) (signedWord w b)) (some (word128 (a * b)))
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellWords.lean:101:8: error: mod_cast has type
+  (0 : ℕ) < b
+but is expected to have type
+  (0 : ℤ) < (word64 b).number
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellWords.lean:104:14: error(lean.unknownIdentifier): Unknown constant `Int.natCast_lt`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellWords.lean:104:2: error: Type mismatch: After simplification, term
+  lt (of_decide_eq_true (id (Eq.refl true))) (operands128 ha hb)
+ has type
+  binary "<" (word128 a) (word128 b) = some (boolean (decide ((word128 a).number < (word128 b).number)))
+but is expected to have type
+  binary "<" (word128 a) (word128 b) = some (boolean (decide (a < b)))
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellWords.lean:108:44: error(lean.unknownIdentifier): Unknown constant `Int.natCast_lt`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellWords.lean:106:83: error: unsolved goals
+a b : ℕ
+ha : a < 2 ^ 128
+hb : b < 2 ^ 128
+⊢ (if (">" == "+") = true then make (unsignedType 128) ((word128 a).number + (word128 b).number)
+    else
+      if (">" == "-") = true then make (unsignedType 128) ((word128 a).number - (word128 b).number)
+      else
+        if (">" == "*") = true then make (unsignedType 128) ((word128 a).number * (word128 b).number)
+        else
+          if (">" == "/") = true then
+            if (word128 b).number = 0 then none
+            else make (unsignedType 128) ((word128 a).number.tdiv (word128 b).number)
+          else
+            if (">" == "%") = true then
+              if (word128 b).number = 0 then none
+              else make (unsignedType 128) ((word128 a).number.tmod (word128 b).number)
+            else
+              if (">" == "<") = true then some (boolean (decide ((word128 a).number < (word128 b).number)))
+              else
+                if (">" == "<=") = true then some (boolean (decide ((word128 a).number ≤ (word128 b).number)))
+                else
+                  if (">" == ">") = true then some (boolean (decide ((word128 a).number > (word128 b).number)))
+                  else
+                    if (">" == ">=") = true then some (boolean (decide ((word128 a).number ≥ (word128 b).number)))
+                    else
+                      if (">" == "==") = true then some (boolean ((word128 a).number == (word128 b).number))
+                      else
+                        if (">" == "!=") = true then some (boolean ((word128 a).number != (word128 b).number))
+                        else none) =
+    some (boolean (decide (b < a)))
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellWords.lean:108:23: warning: This simp argument is unused:
+  reduceBEq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [operation, ↓reduceIte, Int.natCast_lt]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellWords.lean:108:33: warning: This simp argument is unused:
+  ↓reduceIte
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [operation, reduceBEq, Int.natCast_lt]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellWords.lean:111:2: error: Type mismatch: After simplification, term
+  ne (of_decide_eq_true (id (Eq.refl true))) (operands128 ha hb)
+ has type
+  binary "!=" (word128 a) (word128 b) = some (boolean ((word128 a).number != (word128 b).number))
+but is expected to have type
+  binary "!=" (word128 a) (word128 b) = some (boolean (decide (a ≠ b)))
+'RamanujanPV.FiniteCellWords.u64_signed_lt' depends on axioms: [propext, sorryAx]
+'RamanujanPV.FiniteCellWords.u64_minus_one' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'RamanujanPV.FiniteCellWords.u128_mul64' depends on axioms: [propext, sorryAx]
+'RamanujanPV.FiniteCellWords.u128_div64' depends on axioms: [propext, sorryAx]
+'RamanujanPV.FiniteCellWords.u128_lt' depends on axioms: [propext, sorryAx]
+'RamanujanPV.FiniteCellWords.boolean_eq_one' does not depend on any axioms

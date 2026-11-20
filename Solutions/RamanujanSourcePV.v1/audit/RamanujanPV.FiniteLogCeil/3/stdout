@@ -1,0 +1,58 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogCeil.lean:64:6: error: unsolved goals
+case neg
+a b : ℕ
+ha : a < 2 ^ 128
+hb : b < 2 ^ 128
+hb0 : 0 < b
+hresult : AnalyticTransition.sourceCeilDiv a b < 2 ^ 64
+hbInt : 0 < ↑b
+divResult :
+  WideScalar.binary "/" (word128 a) (word128 b) = some (scalarWord 128 ((word128 a).number / (word128 b).number))
+modResult :
+  WideScalar.binary "%" (word128 a) (word128 b) = some (scalarWord 128 ((word128 a).number % (word128 b).number))
+modBound : a % b < 2 ^ 128
+quotientBound : a / b < 2 ^ 128
+neqResult :
+  WideScalar.binary "!=" (word128 (a % b)) (i32 0) =
+    some (WideScalar.boolean ((word128 (a % b)).number != (i32 0).number))
+guardResult :
+  WideScalar.binary "==" (word128 b) (i32 0) = some (WideScalar.boolean ((word128 b).number == (i32 0).number))
+castResult :
+  WideScalar.cast u64 (word128 (AnalyticTransition.sourceCeilDiv a b)) =
+    some (word64 (AnalyticTransition.sourceCeilDiv a b))
+quotientOp : WideScalar.binary "/" (word128 a) (word128 b) = some (word128 (a / b))
+remainderOp : WideScalar.binary "%" (word128 a) (word128 b) = some (word128 (a % b))
+h : ¬a % b = 0
+hh : ↑(a % b) ≠ 0
+⊢ (↑a % ↑b != 0) = (a % b != 0)
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogCeil.lean:66:4: error: Type mismatch: After simplification, term
+  neqResult
+ has type
+  WideScalar.binary "!=" { type := u128, number := ↑a % ↑b } { type := { signed := true, width := 32 }, number := ↑0 } =
+    some (WideScalar.boolean (↑a % ↑b != ↑0))
+but is expected to have type
+  WideScalar.binary "!=" { type := u128, number := ↑a % ↑b } { type := { signed := true, width := 32 }, number := ↑0 } =
+    some (WideScalar.boolean (a % b != 0))
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogCeil.lean:113:4: error: Type mismatch: After simplification, term
+  guardResult
+ has type
+  WideScalar.binary "==" { type := u128, number := ↑b } { type := { signed := true, width := 32 }, number := 0 } =
+    some (WideScalar.boolean (↑b == 0))
+but is expected to have type
+  WideScalar.binary "==" { type := u128, number := ↑b } { type := { signed := true, width := 32 }, number := 0 } =
+    some (WideScalar.boolean false)
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogCeil.lean:65:14: warning: This simp argument is unused:
+  h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hh]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogCeil.lean:65:16: warning: This simp argument is unused:
+  hh
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'RamanujanPV.FiniteLogCeil.function_executes' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

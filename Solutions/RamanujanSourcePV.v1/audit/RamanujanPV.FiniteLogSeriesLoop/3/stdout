@@ -1,0 +1,66 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogSeriesLoop.lean:83:73: warning: This simp argument is unused:
+  Option.bind
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [FiniteScalarMachine.pure, List.mapM_cons, List.mapM_nil, hl, hr, Option.pure_def]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogSeriesLoop.lean:96:32: warning: This simp argument is unused:
+  h.read_k
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [nextState, bodyState, sumState, FiniteScalarMachine.bind, Function.update, h.read_F, h.read_z,
+    h.read_z2]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogSeriesLoop.lean:181:2: error: unsolved goals
+case neg.none
+s : State
+z z2 k : ℕ
+h✝ : Reads s z z2 k
+name : String
+np : ¬name = "power"
+ns : ¬name = "sum"
+same : (bodyState s z z2 k).env name = s.env name
+h : s.env name = none
+⊢ none = FiniteScalarMachine.bind (sumState s z z2 k).env "power" (word64 (log20Power F z z2 (k + 1))) name
+
+case neg.some
+s : State
+z z2 k : ℕ
+h✝ : Reads s z z2 k
+name : String
+np : ¬name = "power"
+ns : ¬name = "sum"
+same : (bodyState s z z2 k).env name = s.env name
+val✝ : Value
+h : s.env name = some val✝
+⊢ some val✝ = FiniteScalarMachine.bind (sumState s z z2 k).env "power" (word64 (log20Power F z z2 (k + 1))) name
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogSeriesLoop.lean:177:10: warning: This simp argument is unused:
+  closeScope
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [bodyState, sumState, FiniteScalarMachine.bind, h.read_power]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogSeriesLoop.lean:180:10: warning: This simp argument is unused:
+  closeScope
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [bodyState, sumState, FiniteScalarMachine.bind, h.read_sum]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogSeriesLoop.lean:185:34: warning: This simp argument is unused:
+  h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'RamanujanPV.FiniteLogSeriesLoop.actual_source_subtree' depends on axioms: [propext]
+'RamanujanPV.FiniteLogSeriesLoop.prefix_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.FiniteLogSeriesLoop.pure_call_two' depends on axioms: [propext, Quot.sound]
+'RamanujanPV.FiniteLogSeriesLoop.next_reads' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.FiniteLogSeriesLoop.term_pure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.FiniteLogSeriesLoop.power_pure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.FiniteLogSeriesLoop.body_exec' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

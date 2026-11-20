@@ -1,0 +1,705 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:30:4: warning: Variable name `fuel` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _fuel
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:31:4: warning: Variable name `fuel` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _fuel
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:34:4: warning: Variable name `fuel` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _fuel
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:36:4: warning: Variable name `fuel` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _fuel
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:52:4: warning: Variable name `fuel` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _fuel
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:95:37: warning: This simp argument is unused:
+  Option.bind_some
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [guard, evaluated, Option.some.injEq, Prod.mk.injEq] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:95:54: warning: This simp argument is unused:
+  Option.some.injEq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [guard, evaluated, Option.bind_some, Prod.mk.injEq] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:95:72: warning: This simp argument is unused:
+  Prod.mk.injEq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [guard, evaluated, Option.bind_some, Option.some.injEq] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:120:14: error: Tactic `subst` failed: did not find equation for eliminating 'result'
+
+case succ.statement.eval.some
+p : Prototypes
+c : Service
+fuel : ℕ
+ih :
+  ∀ (control : Control) (s : State) (result : FiniteScalarMachine.Flow),
+    execute p c fuel control s = some result → Judgment p c control s result
+s : State
+result : FiniteScalarMachine.Flow
+expression : Expr
+t : State
+value : Value
+evaluated : eval p c s expression = some (t, value)
+accepted :
+  (do
+      let __x ← some (t, value)
+      Pure.pure (Flow.continuing __x.1)) =
+    some result
+⊢ Judgment p c (Control.statement (Stmt.eval expression)) s result
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:127:14: error: Tactic `subst` failed: did not find equation for eliminating 'result'
+
+case succ.statement.declare.some
+p : Prototypes
+c : Service
+fuel : ℕ
+ih :
+  ∀ (control : Control) (s : State) (result : FiniteScalarMachine.Flow),
+    execute p c fuel control s = some result → Judgment p c control s result
+s : State
+result : FiniteScalarMachine.Flow
+declarations : List Decl
+t : State
+declared : declare p c declarations s = some t
+accepted :
+  (do
+      let __do_lift ← some t
+      Pure.pure (Flow.continuing __do_lift)) =
+    some result
+⊢ Judgment p c (Control.statement (Stmt.declare declarations)) s result
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:135:14: error: Tactic `subst` failed: did not find equation for eliminating 'result'
+
+case succ.statement.returnStmt.some
+p : Prototypes
+c : Service
+fuel : ℕ
+ih :
+  ∀ (control : Control) (s : State) (result : FiniteScalarMachine.Flow),
+    execute p c fuel control s = some result → Judgment p c control s result
+s : State
+result : FiniteScalarMachine.Flow
+expression : Expr
+t : State
+value : Value
+evaluated : eval p c s expression = some (t, value)
+accepted :
+  (do
+      let __x ← some (t, value)
+      Pure.pure (Flow.returned __x.1 __x.2)) =
+    some result
+⊢ Judgment p c (Control.statement (Stmt.returnStmt expression)) s result
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:149:14: error: Tactic `subst` failed: did not find equation for eliminating 'result'
+
+case succ.statement.sequence.some
+p : Prototypes
+c : Service
+fuel : ℕ
+ih :
+  ∀ (control : Control) (s : State) (result : FiniteScalarMachine.Flow),
+    execute p c fuel control s = some result → Judgment p c control s result
+s : State
+result : FiniteScalarMachine.Flow
+body : List Stmt
+out : FiniteScalarMachine.Flow
+inner : execute p c fuel (Control.sequence body) s = some out
+accepted :
+  (do
+      let __do_lift ← some out
+      Pure.pure (closeFlow s __do_lift)) =
+    some result
+⊢ Judgment p c (Control.statement (Stmt.sequence body)) s result
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:158:16: error: Tactic `subst` failed: did not find equation for eliminating 'result'
+
+case succ.statement.forLoop.some.returned
+p : Prototypes
+c : Service
+fuel : ℕ
+ih :
+  ∀ (control : Control) (s : State) (result : FiniteScalarMachine.Flow),
+    execute p c fuel control s = some result → Judgment p c control s result
+s : State
+result : FiniteScalarMachine.Flow
+initial : Stmt
+condition : Option Expr
+step : Expr
+body : Stmt
+t : State
+value : Value
+first : execute p c fuel (Control.statement initial) s = some (Flow.returned t value)
+accepted :
+  (do
+      let first ← some (Flow.returned t value)
+      match first with
+        | Flow.returned t value => Pure.pure (closeFlow s (Flow.returned t value))
+        | Flow.continuing t => do
+          let __do_lift ← execute p c fuel (Control.forLoop condition step body) t
+          Pure.pure (closeFlow s __do_lift)) =
+    some result
+⊢ Judgment p c (Control.statement (initial.forLoop condition step body)) s result
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:165:20: error: Tactic `subst` failed: did not find equation for eliminating 'result'
+
+case succ.statement.forLoop.some.continuing.some
+p : Prototypes
+c : Service
+fuel : ℕ
+ih :
+  ∀ (control : Control) (s : State) (result : FiniteScalarMachine.Flow),
+    execute p c fuel control s = some result → Judgment p c control s result
+s : State
+result : FiniteScalarMachine.Flow
+initial : Stmt
+condition : Option Expr
+step : Expr
+body : Stmt
+t : State
+first : execute p c fuel (Control.statement initial) s = some (Flow.continuing t)
+out : FiniteScalarMachine.Flow
+loop : execute p c fuel (Control.forLoop condition step body) t = some out
+accepted :
+  (do
+      let first ← some (Flow.continuing t)
+      match first with
+        | Flow.returned t value => Pure.pure (closeFlow s (Flow.returned t value))
+        | Flow.continuing t => do
+          let __do_lift ← execute p c fuel (Control.forLoop condition step body) t
+          Pure.pure (closeFlow s __do_lift)) =
+    some result
+⊢ Judgment p c (Control.statement (initial.forLoop condition step body)) s result
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:182:16: error: Tactic `subst` failed: did not find equation for eliminating 'result'
+
+case succ.sequence.cons.some.returned
+p : Prototypes
+c : Service
+fuel : ℕ
+ih :
+  ∀ (control : Control) (s : State) (result : FiniteScalarMachine.Flow),
+    execute p c fuel control s = some result → Judgment p c control s result
+s : State
+result : FiniteScalarMachine.Flow
+head : Stmt
+tail : List Stmt
+t : State
+value : Value
+first : execute p c fuel (Control.statement head) s = some (Flow.returned t value)
+accepted :
+  (do
+      let first ← some (Flow.returned t value)
+      match first with
+        | Flow.returned t value => Pure.pure (Flow.returned t value)
+        | Flow.continuing t => execute p c fuel (Control.sequence tail) t) =
+    some result
+⊢ Judgment p c (Control.sequence (head :: tail)) s result
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:195:14: error: Tactic `subst` failed: did not find equation for eliminating 'result'
+
+case succ.forLoop.some.false
+p : Prototypes
+c : Service
+fuel : ℕ
+ih :
+  ∀ (control : Control) (s : State) (result : FiniteScalarMachine.Flow),
+    execute p c fuel control s = some result → Judgment p c control s result
+s : State
+result : FiniteScalarMachine.Flow
+condition : Option Expr
+step : Expr
+body : Stmt
+t : State
+tested : guard p c condition s = some (t, false)
+accepted :
+  (do
+      let __x ← some (t, false)
+      if __x.2 = true then do
+          let result ← execute p c fuel (Control.statement body) __x.1
+          match result with
+            | Flow.returned b value => Pure.pure (Flow.returned b value)
+            | Flow.continuing b => do
+              let __x ← eval p c b step
+              execute p c fuel (Control.forLoop condition step body) __x.1
+        else Pure.pure (Flow.continuing __x.1)) =
+    some result
+⊢ Judgment p c (Control.forLoop condition step body) s result
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:204:20: error: Tactic `subst` failed: did not find equation for eliminating 'result'
+
+case succ.forLoop.some.true.some.returned
+p : Prototypes
+c : Service
+fuel : ℕ
+ih :
+  ∀ (control : Control) (s : State) (result : FiniteScalarMachine.Flow),
+    execute p c fuel control s = some result → Judgment p c control s result
+s : State
+result : FiniteScalarMachine.Flow
+condition : Option Expr
+step : Expr
+body : Stmt
+t : State
+tested : guard p c condition s = some (t, true)
+b : State
+value : Value
+iteration : execute p c fuel (Control.statement body) t = some (Flow.returned b value)
+accepted :
+  (do
+      let __x ← some (t, true)
+      if __x.2 = true then do
+          let result ← execute p c fuel (Control.statement body) __x.1
+          match result with
+            | Flow.returned b value => Pure.pure (Flow.returned b value)
+            | Flow.continuing b => do
+              let __x ← eval p c b step
+              execute p c fuel (Control.forLoop condition step body) __x.1
+        else Pure.pure (Flow.continuing __x.1)) =
+    some result
+⊢ Judgment p c (Control.forLoop condition step body) s result
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:212:104: error: Application type mismatch: The argument
+  accepted
+has type
+  (do
+      let __x ← some (t, true)
+      if __x.2 = true then do
+          let result ← execute p c fuel (Control.statement body) __x.1
+          match result with
+            | Flow.returned b value => Pure.pure (Flow.returned b value)
+            | Flow.continuing b => do
+              let __x ← eval p c b step
+              execute p c fuel (Control.forLoop condition step body) __x.1
+        else Pure.pure (Flow.continuing __x.1)) =
+    some result
+but is expected to have type
+  execute p c fuel ?m.966 ?m.967 = some ?m.968
+in the application
+  ih ?m.966 ?m.967 ?m.968 accepted
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:221:14: error: Tactic `subst` failed: did not find equation for eliminating 'result'
+
+case succ.whileLoop.some.false
+p : Prototypes
+c : Service
+fuel : ℕ
+ih :
+  ∀ (control : Control) (s : State) (result : FiniteScalarMachine.Flow),
+    execute p c fuel control s = some result → Judgment p c control s result
+s : State
+result : FiniteScalarMachine.Flow
+condition : Expr
+body : Stmt
+t : State
+value : Value
+tested : eval p c s condition = some (t, value)
+keep : WideScalar.truth value = false
+accepted :
+  (do
+      let __x ← some (t, value)
+      if WideScalar.truth __x.2 = true then do
+          let result ← execute p c fuel (Control.statement body) __x.1
+          match result with
+            | Flow.returned b value => Pure.pure (Flow.returned b value)
+            | Flow.continuing b => execute p c fuel (Control.whileLoop condition body) b
+        else Pure.pure (Flow.continuing __x.1)) =
+    some result
+⊢ Judgment p c (Control.whileLoop condition body) s result
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:230:20: error: Tactic `subst` failed: did not find equation for eliminating 'result'
+
+case succ.whileLoop.some.true.some.returned
+p : Prototypes
+c : Service
+fuel : ℕ
+ih :
+  ∀ (control : Control) (s : State) (result : FiniteScalarMachine.Flow),
+    execute p c fuel control s = some result → Judgment p c control s result
+s : State
+result : FiniteScalarMachine.Flow
+condition : Expr
+body : Stmt
+t : State
+value : Value
+tested : eval p c s condition = some (t, value)
+keep : WideScalar.truth value = true
+b : State
+answer : Value
+iteration : execute p c fuel (Control.statement body) t = some (Flow.returned b answer)
+accepted :
+  (do
+      let __x ← some (t, value)
+      if WideScalar.truth __x.2 = true then do
+          let result ← execute p c fuel (Control.statement body) __x.1
+          match result with
+            | Flow.returned b value => Pure.pure (Flow.returned b value)
+            | Flow.continuing b => execute p c fuel (Control.whileLoop condition body) b
+        else Pure.pure (Flow.continuing __x.1)) =
+    some result
+⊢ Judgment p c (Control.whileLoop condition body) s result
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:234:83: error: Application type mismatch: The argument
+  accepted
+has type
+  (do
+      let __x ← some (t, value)
+      if WideScalar.truth __x.2 = true then do
+          let result ← execute p c fuel (Control.statement body) __x.1
+          match result with
+            | Flow.returned b value => Pure.pure (Flow.returned b value)
+            | Flow.continuing b => execute p c fuel (Control.whileLoop condition body) b
+        else Pure.pure (Flow.continuing __x.1)) =
+    some result
+but is expected to have type
+  execute p c fuel ?m.1160 ?m.1161 = some ?m.1162
+in the application
+  ih ?m.1160 ?m.1161 ?m.1162 accepted
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:119:43: warning: This simp argument is unused:
+  Option.bind_some
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, evaluated, Option.some.injEq] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:119:60: warning: This simp argument is unused:
+  Option.some.injEq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, evaluated, Option.bind_some] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:126:42: warning: This simp argument is unused:
+  Option.bind_some
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, declared, Option.some.injEq] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:126:59: warning: This simp argument is unused:
+  Option.some.injEq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, declared, Option.bind_some] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:134:43: warning: This simp argument is unused:
+  Option.bind_some
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, evaluated, Option.some.injEq] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:134:60: warning: This simp argument is unused:
+  Option.some.injEq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, evaluated, Option.bind_some] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:142:43: warning: This simp argument is unused:
+  Option.bind_some
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, evaluated] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:148:39: warning: This simp argument is unused:
+  Option.bind_some
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, inner, Option.some.injEq] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:148:56: warning: This simp argument is unused:
+  Option.some.injEq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, inner, Option.bind_some] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:157:41: warning: This simp argument is unused:
+  Option.bind_some
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, first, Option.some.injEq] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:157:58: warning: This simp argument is unused:
+  Option.some.injEq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, first, Option.bind_some] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:164:45: warning: This simp argument is unused:
+  loop
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, first, Option.bind_some, Option.some.injEq] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:164:50: warning: This simp argument is unused:
+  Option.bind_some
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, first, loop, Option.some.injEq] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:164:67: warning: This simp argument is unused:
+  Option.some.injEq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, first, loop, Option.bind_some] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:181:41: warning: This simp argument is unused:
+  Option.bind_some
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, first, Option.some.injEq] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:181:58: warning: This simp argument is unused:
+  Option.some.injEq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, first, Option.bind_some] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:185:41: warning: This simp argument is unused:
+  Option.bind_some
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, first] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:194:40: warning: This simp argument is unused:
+  Option.bind_some
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, tested, Bool.false_eq_true, ite_false, Option.some.injEq] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:194:57: warning: This simp argument is unused:
+  Bool.false_eq_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, tested, Option.bind_some, ite_false, Option.some.injEq] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:194:76: warning: This simp argument is unused:
+  ite_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, tested, Option.bind_some, Bool.false_eq_true, Option.some.injEq] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:194:86: warning: This simp argument is unused:
+  Option.some.injEq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, tested, Option.bind_some, Bool.false_eq_true, ite_false] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:203:46: warning: This simp argument is unused:
+  iteration
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, tested, Option.bind_some, ite_true, Option.some.injEq] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:203:56: warning: This simp argument is unused:
+  Option.bind_some
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, tested, iteration, ite_true, Option.some.injEq] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:203:73: warning: This simp argument is unused:
+  ite_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, tested, iteration, Option.bind_some, Option.some.injEq] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:203:82: warning: This simp argument is unused:
+  Option.some.injEq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, tested, iteration, Option.bind_some, ite_true] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:211:50: warning: This simp argument is unused:
+  iteration
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, tested, increment, Option.bind_some, ite_true] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:211:60: warning: This simp argument is unused:
+  increment
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, tested, iteration, Option.bind_some, ite_true] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:211:70: warning: This simp argument is unused:
+  Option.bind_some
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, tested, iteration, increment, ite_true] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:211:87: warning: This simp argument is unused:
+  ite_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, tested, iteration, increment, Option.bind_some] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:220:40: warning: This simp argument is unused:
+  keep
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, tested, Option.bind_some, Bool.false_eq_true, ite_false, Option.some.injEq] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:220:45: warning: This simp argument is unused:
+  Option.bind_some
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, tested, keep, Bool.false_eq_true, ite_false, Option.some.injEq] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:220:62: warning: This simp argument is unused:
+  Bool.false_eq_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, tested, keep, Option.bind_some, ite_false, Option.some.injEq] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:220:81: warning: This simp argument is unused:
+  ite_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, tested, keep, Option.bind_some, Bool.false_eq_true, Option.some.injEq] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:220:91: warning: This simp argument is unused:
+  Option.some.injEq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, tested, keep, Option.bind_some, Bool.false_eq_true, ite_false] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:229:46: warning: This simp argument is unused:
+  keep
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, tested, iteration, Option.bind_some, ite_true, Option.some.injEq] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:229:51: warning: This simp argument is unused:
+  iteration
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, tested, keep, Option.bind_some, ite_true, Option.some.injEq] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:229:61: warning: This simp argument is unused:
+  Option.bind_some
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, tested, keep, iteration, ite_true, Option.some.injEq] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:229:78: warning: This simp argument is unused:
+  ite_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, tested, keep, iteration, Option.bind_some, Option.some.injEq] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:229:87: warning: This simp argument is unused:
+  Option.some.injEq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, tested, keep, iteration, Option.bind_some, ite_true] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:233:46: warning: This simp argument is unused:
+  keep
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, tested, iteration, Option.bind_some, ite_true] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:233:51: warning: This simp argument is unused:
+  iteration
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, tested, keep, Option.bind_some, ite_true] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:233:61: warning: This simp argument is unused:
+  Option.bind_some
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, tested, keep, iteration, ite_true] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:233:78: warning: This simp argument is unused:
+  ite_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [execute, tested, keep, iteration, Option.bind_some] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:260:10: error: Tactic `subst` failed: did not find equation for eliminating 'value'
+
+case some.returned
+p : Prototypes
+c : Service
+fuel : ℕ
+body : Stmt
+s : State
+value : Value
+t : State
+answer : Value
+actual : statement p c fuel body s = some (Flow.returned t answer)
+accepted :
+  (do
+      let __do_lift ← some (Flow.returned t answer)
+      match __do_lift with
+        | Flow.returned state value => some value
+        | Flow.continuing state => none) =
+    some value
+⊢ ∃ t, Run p c body s (Flow.returned t value)
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:259:42: warning: This simp argument is unused:
+  Option.bind_some
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [returnedValue, actual, Option.some.injEq] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarEval.lean:259:59: warning: This simp argument is unused:
+  Option.some.injEq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [returnedValue, actual, Option.bind_some] at accepted
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'RamanujanPV.FiniteScalarEval.sound' depends on axioms: [propext, sorryAx, Quot.sound]
+'RamanujanPV.FiniteScalarEval.returned_value_sound' depends on axioms: [propext, sorryAx]

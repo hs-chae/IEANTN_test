@@ -1,0 +1,300 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogCeil.lean:28:82: error: failed to synthesize
+  Decidable (Range 128 (i32 0).number)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogCeil.lean:36:49: error: failed to synthesize
+  Decidable (Range 128 (WideScalar.boolean false).number)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogCeil.lean:36:49: error: failed to synthesize
+  Decidable (Range 128 (WideScalar.boolean true).number)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogCeil.lean:59:31: warning: Possibly looping simp theorem: `← Int.natCast_mod`
+
+Note: Possibly caused by: `Int.natCast_emod`
+
+Hint: You can disable a simp theorem from the default simp set by passing `- theoremName` to `simp`.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogCeil.lean:59:6: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogCeil.lean:76:52: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogCeil.lean:80:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  WideScalar.binary "!=" { type := u128, number := ↑a % ↑b } (i32 0)
+in the target expression
+  (match
+      match namedType "uint64_t", fun type =>
+        match
+          match WideScalar.binary "!=" { type := unsignedType 128, number := ↑a % ↑b } (i32 0), fun __do_lift =>
+            WideScalar.binary "+" { type := unsignedType 128, number := ↑a / ↑b } __do_lift with
+          | none, x => none
+          | some a, f => f a,
+          fun __do_lift => WideScalar.cast type __do_lift with
+        | none, x => none
+        | some a, f => f a with
+      | none, x => none
+      | some a, f => f a,
+      fun __do_lift =>
+      Pure.pure
+        ({
+            env := fun name =>
+              if name = "a" then some { type := u128, number := ↑a }
+              else if name = "b" then some { type := u128, number := ↑b } else none },
+          __do_lift) with
+    | none, x => none
+    | some a, f => f a) =
+    some
+      ({
+          env := fun name =>
+            if name = "a" then some { type := u128, number := ↑a }
+            else if name = "b" then some { type := u128, number := ↑b } else none },
+        word64 (AnalyticTransition.sourceCeilDiv a b))
+
+a b : ℕ
+ha : a < 2 ^ 128
+hb : b < 2 ^ 128
+hb0 : 0 < b
+hresult : AnalyticTransition.sourceCeilDiv a b < 2 ^ 64
+hbInt : 0 < ↑b
+divResult :
+  WideScalar.binary "/" (word128 a) (word128 b) = some (scalarWord 128 ((word128 a).number / (word128 b).number))
+modResult :
+  WideScalar.binary "%" (word128 a) (word128 b) = some (scalarWord 128 ((word128 a).number % (word128 b).number))
+modBound : a % b < 2 ^ 128
+quotientBound : a / b < 2 ^ 128
+neqResult :
+  WideScalar.binary "!=" { type := u128, number := ↑a % ↑b } (i32 0) =
+    some (WideScalar.boolean (↑a % ↑b != (i32 0).number))
+guardResult :
+  WideScalar.binary "==" (word128 b) (i32 0) = some (WideScalar.boolean ((word128 b).number == (i32 0).number))
+castResult :
+  WideScalar.cast u64 (word128 (AnalyticTransition.sourceCeilDiv a b)) =
+    some (word64 (AnalyticTransition.sourceCeilDiv a b))
+incEq : (WideScalar.boolean (↑a % ↑b != 0)).number = ↑(if a % b = 0 then 0 else 1)
+sumEq : (word128 (a / b)).number + (WideScalar.boolean (↑a % ↑b != 0)).number = ↑(AnalyticTransition.sourceCeilDiv a b)
+sumRange : Range 128 ((word128 (a / b)).number + (WideScalar.boolean (↑a % ↑b != 0)).number)
+addResult :
+  WideScalar.binary "+" { type := u128, number := ↑a / ↑b } (WideScalar.boolean (↑a % ↑b != 0)) =
+    some { type := unsignedType 128, number := ↑a / ↑b + (WideScalar.boolean (↑a % ↑b != 0)).number }
+⊢ (match
+      match namedType "uint64_t", fun type =>
+        match
+          match WideScalar.binary "!=" { type := unsignedType 128, number := ↑a % ↑b } (i32 0), fun __do_lift =>
+            WideScalar.binary "+" { type := unsignedType 128, number := ↑a / ↑b } __do_lift with
+          | none, x => none
+          | some a, f => f a,
+          fun __do_lift => WideScalar.cast type __do_lift with
+        | none, x => none
+        | some a, f => f a with
+      | none, x => none
+      | some a, f => f a,
+      fun __do_lift =>
+      Pure.pure
+        ({
+            env := fun name =>
+              if name = "a" then some { type := u128, number := ↑a }
+              else if name = "b" then some { type := u128, number := ↑b } else none },
+          __do_lift) with
+    | none, x => none
+    | some a, f => f a) =
+    some
+      ({
+          env := fun name =>
+            if name = "a" then some { type := u128, number := ↑a }
+            else if name = "b" then some { type := u128, number := ↑b } else none },
+        word64 (AnalyticTransition.sourceCeilDiv a b))
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogCeil.lean:90:17: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogCeil.lean:91:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  WideScalar.binary "==" (word128 b) (i32 0)
+in the target expression
+  (match Expr.binary "==" (Expr.var "b") (Expr.nat 0) with
+    | Expr.binary "=" (Expr.var name) rhs =>
+      match if name = "a" then some (word128 a) else if name = "b" then some (word128 b) else none, fun old =>
+        match
+          FiniteScalarMachine.pure prototypes noCalls
+            (fun name => if name = "a" then some (word128 a) else if name = "b" then some (word128 b) else none) 8 rhs,
+          fun value =>
+          match WideScalar.cast old.type value, fun converted =>
+            Pure.pure
+              ({
+                  env :=
+                    FiniteScalarMachine.bind
+                      (fun name =>
+                        if name = "a" then some (word128 a) else if name = "b" then some (word128 b) else none)
+                      name converted },
+                converted) with
+          | none, x => none
+          | some a, f => f a with
+        | none, x => none
+        | some a, f => f a with
+      | none, x => none
+      | some a, f => f a
+    | Expr.unary "++" (Expr.var name) =>
+      match if name = "a" then some (word128 a) else if name = "b" then some (word128 b) else none, fun old =>
+        match WideScalar.binary "+" old (i32 1), fun incremented =>
+          match WideScalar.cast old.type incremented, fun converted =>
+            Pure.pure
+              ({
+                  env :=
+                    FiniteScalarMachine.bind
+                      (fun name =>
+                        if name = "a" then some (word128 a) else if name = "b" then some (word128 b) else none)
+                      name converted },
+                converted) with
+          | none, x => none
+          | some a, f => f a with
+        | none, x => none
+        | some a, f => f a with
+      | none, x => none
+      | some a, f => f a
+    | e =>
+      match
+        FiniteScalarMachine.pure prototypes noCalls
+          (fun name => if name = "a" then some (word128 a) else if name = "b" then some (word128 b) else none) 8 e,
+        fun __do_lift =>
+        Pure.pure
+          ({
+              env := fun name =>
+                if name = "a" then some (word128 a) else if name = "b" then some (word128 b) else none },
+            __do_lift) with
+      | none, x => none
+      | some a, f => f a) =
+    some
+      ({ env := fun name => if name = "a" then some (word128 a) else if name = "b" then some (word128 b) else none },
+        WideScalar.boolean false)
+
+a b : ℕ
+ha : a < 2 ^ 128
+hb : b < 2 ^ 128
+hb0 : 0 < b
+hresult : AnalyticTransition.sourceCeilDiv a b < 2 ^ 64
+hbInt : 0 < ↑b
+divResult :
+  WideScalar.binary "/" (word128 a) (word128 b) = some (scalarWord 128 ((word128 a).number / (word128 b).number))
+modResult :
+  WideScalar.binary "%" (word128 a) (word128 b) = some (scalarWord 128 ((word128 a).number % (word128 b).number))
+modBound : a % b < 2 ^ 128
+quotientBound : a / b < 2 ^ 128
+neqResult :
+  WideScalar.binary "!=" (word128 (a % b)) (i32 0) =
+    some (WideScalar.boolean ((word128 (a % b)).number != (i32 0).number))
+guardResult :
+  WideScalar.binary "==" (word128 b) (i32 0) = some (WideScalar.boolean ((word128 b).number == (i32 0).number))
+castResult :
+  WideScalar.cast u64 (word128 (AnalyticTransition.sourceCeilDiv a b)) =
+    some (word64 (AnalyticTransition.sourceCeilDiv a b))
+incEq : (WideScalar.boolean (↑a % ↑b != 0)).number = ↑(if a % b = 0 then 0 else 1)
+sumEq : (word128 (a / b)).number + (WideScalar.boolean (↑a % ↑b != 0)).number = ↑(AnalyticTransition.sourceCeilDiv a b)
+sumRange : Range 128 ((word128 (a / b)).number + (WideScalar.boolean (↑a % ↑b != 0)).number)
+addResult :
+  WideScalar.binary "+" (word128 (a / b)) (WideScalar.boolean (↑a % ↑b != 0)) =
+    some (scalarWord 128 ((word128 (a / b)).number + (WideScalar.boolean (↑a % ↑b != 0)).number))
+retEval :
+  Eval prototypes noCalls
+    (Expr.cast "uint64_t"
+      (Expr.binary "+" (Expr.binary "/" (Expr.var "a") (Expr.var "b"))
+        (Expr.binary "!=" (Expr.binary "%" (Expr.var "a") (Expr.var "b")) (Expr.nat 0))))
+    (input a b) (input a b) (word64 (AnalyticTransition.sourceCeilDiv a b))
+⊢ (match Expr.binary "==" (Expr.var "b") (Expr.nat 0) with
+    | Expr.binary "=" (Expr.var name) rhs =>
+      match if name = "a" then some (word128 a) else if name = "b" then some (word128 b) else none, fun old =>
+        match
+          FiniteScalarMachine.pure prototypes noCalls
+            (fun name => if name = "a" then some (word128 a) else if name = "b" then some (word128 b) else none) 8 rhs,
+          fun value =>
+          match WideScalar.cast old.type value, fun converted =>
+            Pure.pure
+              ({
+                  env :=
+                    FiniteScalarMachine.bind
+                      (fun name =>
+                        if name = "a" then some (word128 a) else if name = "b" then some (word128 b) else none)
+                      name converted },
+                converted) with
+          | none, x => none
+          | some a, f => f a with
+        | none, x => none
+        | some a, f => f a with
+      | none, x => none
+      | some a, f => f a
+    | Expr.unary "++" (Expr.var name) =>
+      match if name = "a" then some (word128 a) else if name = "b" then some (word128 b) else none, fun old =>
+        match WideScalar.binary "+" old (i32 1), fun incremented =>
+          match WideScalar.cast old.type incremented, fun converted =>
+            Pure.pure
+              ({
+                  env :=
+                    FiniteScalarMachine.bind
+                      (fun name =>
+                        if name = "a" then some (word128 a) else if name = "b" then some (word128 b) else none)
+                      name converted },
+                converted) with
+          | none, x => none
+          | some a, f => f a with
+        | none, x => none
+        | some a, f => f a with
+      | none, x => none
+      | some a, f => f a
+    | e =>
+      match
+        FiniteScalarMachine.pure prototypes noCalls
+          (fun name => if name = "a" then some (word128 a) else if name = "b" then some (word128 b) else none) 8 e,
+        fun __do_lift =>
+        Pure.pure
+          ({
+              env := fun name =>
+                if name = "a" then some (word128 a) else if name = "b" then some (word128 b) else none },
+            __do_lift) with
+      | none, x => none
+      | some a, f => f a) =
+    some
+      ({ env := fun name => if name = "a" then some (word128 a) else if name = "b" then some (word128 b) else none },
+        WideScalar.boolean false)
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogCeil.lean:101:13: error(lean.unknownIdentifier): Unknown identifier `«_».returned`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogCeil.lean:76:52: warning: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [show literal 0 = some (i32 0) from rfl, show ("b" = "a") = False from by decide, ↓reduceIte,
+    Bind.bind, Option.bind]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogCeil.lean:88:25: warning: This simp argument is unused:
+  FiniteScalarMachine.pure
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Eval, eval, input]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogCeil.lean:89:15: warning: This simp argument is unused:
+  show literal 0 = some (i32 0) from rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [show ("b" = "a") = False from by decide, ↓reduceIte, if_pos rfl, Bind.bind, Option.bind]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogCeil.lean:89:52: warning: This simp argument is unused:
+  show ("b" = "a") = False from by decide
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [show literal 0 = some (i32 0) from rfl, ↓reduceIte, if_pos rfl, Bind.bind, Option.bind]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogCeil.lean:90:6: warning: This simp argument is unused:
+  ↓reduceIte
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [show literal 0 = some (i32 0) from rfl, show ("b" = "a") = False from by decide, if_pos rfl,
+    Bind.bind, Option.bind]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogCeil.lean:90:17: warning: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [show literal 0 = some (i32 0) from rfl, show ("b" = "a") = False from by decide, ↓reduceIte,
+    Bind.bind, Option.bind]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'RamanujanPV.FiniteLogCeil.function_executes' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

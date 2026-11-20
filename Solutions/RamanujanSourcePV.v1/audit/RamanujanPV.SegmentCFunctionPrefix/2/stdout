@@ -1,0 +1,96 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCFunctionPrefix.lean:58:69: error: unsolved goals
+call : Service
+s : State
+lo hi : ℕ
+hlo : s.env "lo" = some (Value.u64 lo)
+hhi : s.env "hi" = some (Value.u64 hi)
+horder : lo ≤ hi
+hhiWord : hi < modulus
+hword : hi - lo + 1 < modulus
+⊢ packArithmetic (Value.u64 (hi - lo)) (Value.i32 1) (hi - lo + 1) = some (Value.u64 (hi - lo + 1))
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCFunctionPrefix.lean:63:28: warning: This simp argument is unused:
+  Nat.mod_eq_of_lt hword
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [binary, Value.scalar]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCFunctionPrefix.lean:89:14: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCFunctionPrefix.lean:117:66: error: unsolved goals
+call : Service
+s : State
+lo hi capacity cb fb : ℕ
+claims : ℕ → ℕ
+hlo : 2 ≤ lo
+horder : lo ≤ hi
+hhi : hi ≤ 2000000000000
+hcapacity : hi - lo + 1 ≤ capacity
+disjoint : cb ≠ fb
+owned : Owned s.heap
+buffer : SegmentCInit.Buffer s.heap fb (hi - lo + 1)
+claimRep : FlagsRep s.heap cb (hi - lo + 1) claims
+env : Inputs lo hi capacity cb fb s.env
+hiWord : hi < modulus
+lenWord : hi - lo + 1 < modulus
+lowerEval : Eval call (Expr.binary "<" (Expr.var "lo") (Expr.nat 2)) s s (Value.i32 0)
+orderEval : Eval call (Expr.binary "<" (Expr.var "hi") (Expr.var "lo")) s s (Value.i32 0)
+upperEval : Eval call (Expr.binary ">" (Expr.var "hi") (Expr.nat 2000000000000)) s s (Value.i32 0)
+lowerRun : Run call lowerGuard s (Flow.continuing s)
+orderRun : Run call orderGuard s (Flow.continuing s)
+upperRun : Run call upperGuard s (Flow.continuing s)
+started : State := { env := QuotientCMachine.bind s.env "length" (Value.u64 (hi - lo + 1)), heap := s.heap }
+declaration : Declare call [{ type := "uint64_t", name := "length", value := some lengthExpr }] s started
+⊢ hi - lo + 1 = ?m.401
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCFunctionPrefix.lean:118:14: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCFunctionPrefix.lean:143:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  initialized.heap cb
+in the target expression
+  QuotientCMachine.read initialized.heap cb i = some (Value.u64 (claims i))
+
+case refine_2
+call : Service
+s : State
+lo hi capacity cb fb : ℕ
+claims : ℕ → ℕ
+hlo : 2 ≤ lo
+horder : lo ≤ hi
+hhi : hi ≤ 2000000000000
+hcapacity : hi - lo + 1 ≤ capacity
+disjoint : cb ≠ fb
+owned : Owned s.heap
+buffer : SegmentCInit.Buffer s.heap fb (hi - lo + 1)
+claimRep : FlagsRep s.heap cb (hi - lo + 1) claims
+env : Inputs lo hi capacity cb fb s.env
+hiWord : hi < modulus
+lenWord : hi - lo + 1 < modulus
+lowerEval : Eval call (Expr.binary "<" (Expr.var "lo") (Expr.nat 2)) s s (Value.i32 0)
+orderEval : Eval call (Expr.binary "<" (Expr.var "hi") (Expr.var "lo")) s s (Value.i32 0)
+upperEval : Eval call (Expr.binary ">" (Expr.var "hi") (Expr.nat 2000000000000)) s s (Value.i32 0)
+lowerRun : Run call lowerGuard s (Flow.continuing s)
+orderRun : Run call orderGuard s (Flow.continuing s)
+upperRun : Run call upperGuard s (Flow.continuing s)
+started : State := { env := QuotientCMachine.bind s.env "length" (Value.u64 (hi - lo + 1)), heap := s.heap }
+declaration : Declare call [{ type := "uint64_t", name := "length", value := some lengthExpr }] s started
+capEval : Eval call (Expr.binary "<" (Expr.var "capacity") (Expr.var "length")) started started (Value.i32 0)
+capRun : Run call capacityGuard started (Flow.continuing started)
+initialized : State
+hinit : Run call SegmentCInit.initFor started (Flow.continuing initialized)
+heInit : initialized.env = started.env
+ownedInit : Owned initialized.heap
+bufferInit : SegmentCInit.Buffer initialized.heap fb (hi - lo + 1)
+onesInit : SegmentCInit.Prefix initialized.heap fb (hi - lo + 1)
+shapeInit : SameShape started.heap initialized.heap
+frameInit : SegmentCInit.Frame started.heap initialized.heap fb
+ones : FlagsRep initialized.heap fb (hi - lo + 1) fun x => 1
+last : State
+hdiv : Run call SegmentCDivisors.divisorFor initialized (Flow.continuing last)
+heDiv : last.env = initialized.env
+ownedDiv : Owned last.heap
+repDiv : FlagsRep last.heap fb (hi - lo + 1) (finalFlags lo hi)
+frameDiv :
+  ∀ (other j : ℕ), other ≠ fb → QuotientCMachine.read last.heap other j = QuotientCMachine.read initialized.heap other j
+i : ℕ
+hiIndex : i < hi - lo + 1
+⊢ QuotientCMachine.read initialized.heap cb i = some (Value.u64 (claims i))
+'RamanujanPV.SegmentCFunctionPrefix.actual_prefix' depends on axioms: [propext]
+'RamanujanPV.SegmentCFunctionPrefix.prefix_exec' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

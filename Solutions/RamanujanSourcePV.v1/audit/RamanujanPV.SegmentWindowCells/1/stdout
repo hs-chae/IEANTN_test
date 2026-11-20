@@ -1,0 +1,49 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentWindowCells.lean:62:22: error: unexpected token '→'; expected term
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentWindowCells.lean:62:19: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat (Type ?u.72) 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type ?u.72
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentWindowCells.lean:51:91: error: unsolved goals
+case strict
+pBase qBase pCount qCount pValue qValue stop count : ℕ
+pEntries qEntries : Lean.RArray PrimeWindow.Entry
+rows : Lean.RArray RawFactoredCell
+p : CountProvider pBase pCount pValue pEntries
+q : CountProvider qBase qCount qValue qEntries
+checked : checkRows pBase qBase pCount qCount pValue qValue stop count pEntries qEntries rows = true
+parts :
+  0 < count ∧
+    allFrom (checkRow pBase qBase pCount qCount pValue qValue stop count pEntries qEntries rows) 0 count = true
+each :
+  ∀ i < count,
+    RowSpec pBase qBase pCount qCount pValue qValue pEntries qEntries (rows.get i) ∧
+      (i = 0 → (rows.get i).n = pBase) ∧
+        if i + 1 < count then (rows.get i).next = (rows.get (i + 1)).n else (rows.get i).next = stop
+extended : ℕ → RawFactoredCell := fun i => if i < count then rows.get i else boundaryRow stop
+⊢ ?m.106 → InitialSeg (fun x1 x2 => sorry) fun x1 x2 => sorry
+
+pBase qBase pCount qCount pValue qValue stop count : ℕ
+pEntries qEntries : Lean.RArray PrimeWindow.Entry
+rows : Lean.RArray RawFactoredCell
+p : CountProvider pBase pCount pValue pEntries
+q : CountProvider qBase qCount qValue qEntries
+checked : checkRows pBase qBase pCount qCount pValue qValue stop count pEntries qEntries rows = true
+parts :
+  0 < count ∧
+    allFrom (checkRow pBase qBase pCount qCount pValue qValue stop count pEntries qEntries rows) 0 count = true
+each :
+  ∀ i < count,
+    RowSpec pBase qBase pCount qCount pValue qValue pEntries qEntries (rows.get i) ∧
+      (i = 0 → (rows.get i).n = pBase) ∧
+        if i + 1 < count then (rows.get i).next = (rows.get (i + 1)).n else (rows.get i).next = stop
+extended : ℕ → RawFactoredCell := fun i => if i < count then rows.get i else boundaryRow stop
+strict : ?m.106 → InitialSeg (fun x1 x2 => sorry) fun x1 x2 => sorry
+⊢ CompleteCertificate pBase stop (List.map (fun r => r.toCell eLo eHi) (rawList rows count))
+'RamanujanPV.SegmentWindowCells.complete_certificate' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'RamanujanPV.SegmentWindowCells.holds_window' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

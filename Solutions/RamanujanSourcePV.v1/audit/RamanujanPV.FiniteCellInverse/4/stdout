@@ -1,0 +1,51 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellInverse.lean:15:58: warning: The syntax is now `structure S : Type extends P` rather than `structure S extends P : Type`
+
+Note: The purpose of this change is to accommodate `structure S extends toP : P` syntax for naming parent projections.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellInverse.lean:88:10: error: unsolved goals
+case some.none
+p : Prototypes
+c : Service
+name : String
+types : List CIntType
+args : List Value
+out : Value
+prototype : p name = some { result := u64, arguments := types }
+arguments : List Value
+converted : convertArguments types args = some arguments
+returned : c name arguments = none
+response : ((convertArguments types args).bind fun a => (c name a).bind fun a => WideScalar.cast u64 a) = some out
+⊢ ∃ n < 2 ^ 64, out = word64 n
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellInverse.lean:91:26: error: Application type mismatch: The argument
+  response
+has type
+  (do
+      let prototype ← some { result := u64, arguments := types }
+      let converted ← convertArguments prototype.arguments args
+      let result ← c name converted
+      WideScalar.cast prototype.result result) =
+    some out
+but is expected to have type
+  WideScalar.cast u64 ?m.113 = some out
+in the application
+  cast64_result response
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellInverse.lean:88:18: warning: This simp argument is unused:
+  returned
+
+Hint: Omit it from the simp argument list.
+  [apply] simp at response
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellInverse.lean:93:8: error: (kernel) deep recursion detected, use `set_option maxRecDepth <num>` to increase the limit
+'RamanujanPV.FiniteCellInverse.cast64_result' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.FiniteCellInverse.invoke64_result' depends on axioms: [propext, sorryAx, Quot.sound]
+'RamanujanPV.FiniteCellInverse.log_response_of_guard' depends on axioms: [propext, log_response_of_guard]
+'RamanujanPV.FiniteCellInverse.positive_domain' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ log_response_of_guard]
+'RamanujanPV.FiniteCellInverse.positive_fixed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ log_response_of_guard]
+'RamanujanPV.FiniteCellInverse.trace_prefix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.FiniteCellInverse.positive_prefix' depends on axioms: [propext, Classical.choice, Quot.sound]

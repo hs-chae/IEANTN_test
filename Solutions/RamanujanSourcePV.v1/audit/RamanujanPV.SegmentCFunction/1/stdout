@@ -1,0 +1,49 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCFunction.lean:45:51: error: unsolved goals
+call : Service
+s : State
+count : ℕ
+hcount : s.env "count" = some (Value.u64 count)
+hword : count + 1 < modulus
+⊢ Value.i32 1 = ?m.43
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCFunction.lean:46:7: error: unsolved goals
+call : Service
+s : State
+count : ℕ
+hcount : s.env "count" = some (Value.u64 count)
+hword : count + 1 < modulus
+⊢ ((match ?m.43 with
+        | Value.u64 n => some n
+        | Value.i32 n => some n
+        | Value.i64 n => some n
+        | Value.ptr address => none).bind
+      fun y => some (Value.u64 ((count + y) % modulus))) =
+    some (Value.u64 (count + 1))
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCFunction.lean:46:66: warning: This simp argument is unused:
+  Nat.mod_eq_of_lt hword
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [binary, Value.scalar, packArithmetic, unsignedCommon]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCFunction.lean:69:19: error: unexpected token 'prefix'; expected rcasesPat
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCFunction.lean:69:25: error: unexpected token ','; expected ':'
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCFunction.lean:105:29: error: unexpected token '('; expected ':'
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCFunction.lean:122:19: error: unexpected token 'prefix'; expected rcasesPat
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCFunction.lean:122:25: error: unexpected token ','; expected ':'
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCFunction.lean:142:27: error: unexpected token '('; expected ':'
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCFunction.lean:179:6: error: Type mismatch: After simplification, term
+  same
+ has type
+  ∃ x, ∃ (_ : x < hi - lo + 1), ¬claims x = finalFlags lo hi x
+but is expected to have type
+  ∃ i < hi - lo + 1, claims i ≠ finalFlags lo hi i
+'RamanujanPV.SegmentCFunction.source_shape' does not depend on any axioms
+'RamanujanPV.SegmentCFunction.correct_claims_execution' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'RamanujanPV.SegmentCFunction.incorrect_claims_execution' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'RamanujanPV.SegmentCFunction.positive_output_sound' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

@@ -1,0 +1,58 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCClaims.lean:86:2: error: unsolved goals
+case pos
+old value : ℕ
+env : Env
+heap : Heap
+hc : { env := env, heap := heap }.env "count" = some (Value.u64 old)
+⊢ ¬env "count" = none
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCClaims.lean:89:4: error: Tactic `generalize` failed: result is not type correct
+  ∀ (x : Option Value), (if x.isSome = true then x else none) = x
+
+case neg
+old value : ℕ
+env : Env
+heap : Heap
+hc : { env := env, heap := heap }.env "count" = some (Value.u64 old)
+name : String
+h : ¬name = "count"
+⊢ (if (env name).isSome = true then env name else none) = env name
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCClaims.lean:87:10: warning: This simp argument is unused:
+  closeScope
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [QuotientCMachine.bind, hc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCClaims.lean:87:45: warning: This simp argument is unused:
+  hc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [closeScope, QuotientCMachine.bind]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCClaims.lean:88:15: warning: This simp argument is unused:
+  closeScope
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [QuotientCMachine.bind, Function.update_of_ne h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCClaims.lean:113:15: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.continuing` could not be determined
+
+Hint: Using `Flow.continuing would be unambiguous:
+  [apply] `Flow.continuing`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/SegmentCClaims.lean:127:15: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.returned` could not be determined
+
+Hint: Using one of these would be unambiguous:
+  [apply] `Flow.returned`
+  [apply] `ForRun.returned`
+  [apply] `SeqRun.returned`
+  [apply] `WhileRun.returned`
+  [apply] `ForRun.below.returned`
+  [apply] `SeqRun.below.returned`
+  [apply] `WhileRun.below.returned`
+'RamanujanPV.SegmentCClaims.actual_claims' depends on axioms: [propext]
+'RamanujanPV.SegmentCClaims.prefixSum_eq_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.SegmentCClaims.body_pass' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'RamanujanPV.SegmentCClaims.body_reject' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'RamanujanPV.SegmentCClaims.matching_loop' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

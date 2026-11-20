@@ -1,0 +1,130 @@
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellInverse.lean:14:58: warning: The syntax is now `structure S : Type extends P` rather than `structure S extends P : Type`
+
+Note: The purpose of this change is to accommodate `structure S extends toP : P` syntax for naming parent projections.
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellInverse.lean:81:2: error: `simp` made no progress
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellInverse.lean:103:4: error: Tactic `contradiction` failed
+
+case none
+r : RawFactoredCell
+s t : State
+fits : WordFits r
+fields : Inputs r s.env
+response : invoke FiniteCellExecution.prototypes FiniteCellExecution.service "rpc_log_upper" [word64 r.n] = none
+v : Value
+evaluated :
+  (match
+      LCMSourcePV.Witness.C.Expr.binary "!=" (LCMSourcePV.Witness.C.Expr.var "Lu")
+        ((LCMSourcePV.Witness.C.Expr.var "rpc_log_upper").call [LCMSourcePV.Witness.C.Expr.var "n"]) with
+    | LCMSourcePV.Witness.C.Expr.binary "=" (LCMSourcePV.Witness.C.Expr.var name) rhs =>
+      match s.env name, fun old =>
+        match FiniteScalarMachine.pure FiniteCellExecution.prototypes FiniteCellExecution.service s.env 8 rhs,
+          fun value =>
+          match WideScalar.cast old.type value, fun converted =>
+            some ({ env := FiniteScalarMachine.bind s.env name converted }, converted) with
+          | none, x => none
+          | some a, f => f a with
+        | none, x => none
+        | some a, f => f a with
+      | none, x => none
+      | some a, f => f a
+    | LCMSourcePV.Witness.C.Expr.unary "++" (LCMSourcePV.Witness.C.Expr.var name) =>
+      match s.env name, fun old =>
+        match WideScalar.binary "+" old (i32 1), fun incremented =>
+          match WideScalar.cast old.type incremented, fun converted =>
+            some ({ env := FiniteScalarMachine.bind s.env name converted }, converted) with
+          | none, x => none
+          | some a, f => f a with
+        | none, x => none
+        | some a, f => f a with
+      | none, x => none
+      | some a, f => f a
+    | e =>
+      match FiniteScalarMachine.pure FiniteCellExecution.prototypes FiniteCellExecution.service s.env 8 e,
+        fun __do_lift => some (s, __do_lift) with
+      | none, x => none
+      | some a, f => f a) =
+    some (t, v)
+stop : WideScalar.truth v = false
+⊢ t = s ∧ none = some (word64 r.Lu)
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellInverse.lean:113:20: error: Application type mismatch: The argument
+  response
+has type
+  invoke FiniteCellExecution.prototypes FiniteCellExecution.service "rpc_log_upper" [word64 r.n] = some (word64 r.Lu)
+but is expected to have type
+  some answer = some (word64 r.Lu)
+in the application
+  ⟨result.left, response⟩
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellInverse.lean:101:28: warning: This simp argument is unused:
+  FiniteScalarMachine.pure
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Eval, eval, g7, List.mapM, List.mapM.loop, List.reverse, List.reverseAux, fields.luValue,
+    fields.nValue, Option.bind, Bind.bind, Pure.pure, response] at evaluated
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellInverse.lean:101:53: warning: This simp argument is unused:
+  List.mapM
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Eval, eval, g7, FiniteScalarMachine.pure, List.mapM.loop, List.reverse, List.reverseAux,
+    fields.luValue, fields.nValue, Option.bind, Bind.bind, Pure.pure, response] at evaluated
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellInverse.lean:101:63: warning: This simp argument is unused:
+  List.mapM.loop
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Eval, eval, g7, FiniteScalarMachine.pure, List.mapM, List.reverse, List.reverseAux, fields.luValue,
+    fields.nValue, Option.bind, Bind.bind, Pure.pure, response] at evaluated
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellInverse.lean:102:6: warning: This simp argument is unused:
+  List.reverse
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Eval, eval, g7, FiniteScalarMachine.pure, List.mapM, List.mapM.loop, List.reverseAux,
+    fields.luValue, fields.nValue, Option.bind, Bind.bind, Pure.pure, response] at evaluated
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellInverse.lean:102:19: warning: This simp argument is unused:
+  List.reverseAux
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Eval, eval, g7, FiniteScalarMachine.pure, List.mapM, List.mapM.loop, List.reverse, fields.luValue,
+    fields.nValue, Option.bind, Bind.bind, Pure.pure, response] at evaluated
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellInverse.lean:102:35: warning: This simp argument is unused:
+  fields.luValue
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Eval, eval, g7, FiniteScalarMachine.pure, List.mapM, List.mapM.loop, List.reverse, List.reverseAux,
+    fields.nValue, Option.bind, Bind.bind, Pure.pure, response] at evaluated
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellInverse.lean:102:50: warning: This simp argument is unused:
+  fields.nValue
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Eval, eval, g7, FiniteScalarMachine.pure, List.mapM, List.mapM.loop, List.reverse, List.reverseAux,
+    fields.luValue, Option.bind, Bind.bind, Pure.pure, response] at evaluated
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellInverse.lean:102:96: warning: This simp argument is unused:
+  response
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Eval, eval, g7, FiniteScalarMachine.pure, List.mapM, List.mapM.loop, List.reverse, List.reverseAux,
+    fields.luValue, fields.nValue, Option.bind, Bind.bind, Pure.pure] at evaluated
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'RamanujanPV.FiniteCellInverse.cast64_result' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.FiniteCellInverse.invoke64_result' depends on axioms: [propext, sorryAx]
+'RamanujanPV.FiniteCellInverse.log_response_of_guard' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'RamanujanPV.FiniteCellInverse.positive_domain' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'RamanujanPV.FiniteCellInverse.positive_fixed' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'RamanujanPV.FiniteCellInverse.trace_prefix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RamanujanPV.FiniteCellInverse.positive_prefix' depends on axioms: [propext, Classical.choice, Quot.sound]
