@@ -1,0 +1,29 @@
+{
+  "status": "OBSERVED_PINNED_LP64_ABI_AND_COMPILER_RUNTIME_CONTRACT_APPLICABILITY",
+  "compiler": "/usr/bin/x86_64-linux-gnu-gcc-11",
+  "compiler_sha256": "821af3c74506283c179ca413bb33e6b528805a4dd8a5c09df125e5ad560a9e89",
+  "architecture": "x86_64",
+  "required_predefines": {
+    "__CHAR_BIT__": "8",
+    "__SIZEOF_INT__": "4",
+    "__SIZEOF_LONG__": "8",
+    "__SIZEOF_LONG_LONG__": "8",
+    "__SIZEOF_INT128__": "16",
+    "__LP64__": "1"
+  },
+  "uint64_type": "long unsigned int",
+  "predefines_sha256": "3f59652ae507d8bb33dd55222bcf7f67bf58c1659b22fd6cdc41c9ab8d1b5798",
+  "library_sha256": "76dc64fc761d57b4a8c0302c4217a8a4b2f2054dbc97226d9edca492f1080018",
+  "undefined_symbols": [
+    "                 w _ITM_deregisterTMCloneTable",
+    "                 w _ITM_registerTMCloneTable",
+    "                 w __cxa_finalize",
+    "                 w __gmon_start__"
+  ],
+  "boundary": "The formal selected C subset has signed32/64 and unsigned64/128 arithmetic. These measured ABI facts make it applicable to this compiler/target. GCC lowering, libgcc128-bit division/modulo helpers, dynamic loader/ctypes ABI, OS and hardware remain generic trusted contracts; their internals are not formalized. Actual application source/loops/calls/arithmetic and mathematical output links are separate Lean obligations.",
+  "locally_linked_wide_division_helpers": [
+    "0000000000001620 t __udivmodti4",
+    "0000000000001520 t __udivti3"
+  ],
+  "all_symbols_sha256": "81e3c4cad75601a69a27b6ba899131f0f825f5b5b4bf1ee609031dd28c7a0434"
+}

@@ -1,0 +1,328 @@
+{
+  "status": "PASS_CONTEXT_RELOCATION_EXACT_GENERATORS_AND_NATIVE_OBSERVER_ALL_OPTIMIZATIONS",
+  "context": "/data/ivy-scalar-relocation-check-20261120-v1/CONTEXT.json",
+  "context_sha256": "64d69050c4cbdd8a3648c0092a0d29b4ac5a8289d8c16a3d19f86101e8b24449",
+  "scratch_root_outside_original_fixed_root": "/data/ivy-scalar-relocation-check-20261120-v1",
+  "scripts": {
+    "generate_scalar_pv_rows.py": "dc66f8feb94265efec5807425c34cd59c3c07e179246b4177b145af790e58e42",
+    "generate_scalar_pv_final.py": "437cbbfe848194512f48d02f08e7de698bf11125e26b5ae1a73c85923e8a5e3e",
+    "generate_cell_source_rows.py": "644eb72ad5d5cf7a03b7348bc9e14d0e22c00d3388f60f33a1ce6c897d8f16e6",
+    "generate_cell_domains.py": "f1650e7f6c678c23927158b11ccbc6ec3c3b844a9050538bc0d74dcef02bb628",
+    "observe_finite_scalars_native.py": "90be82fec213d3e0726ae56cee8e71bc943b5133d079275b281933b0fd23201f"
+  },
+  "test_driver_sha256": "6648b9d51d967622079937c027abc49007f873e37e3a879f2c2d3a4bc7a0b112",
+  "routes": [
+    {
+      "mode": "normal",
+      "exact_proof_source_modules": 30,
+      "native_receipt": "/data/ivy-scalar-relocation-check-20261120-v1/normal/native/RESULT.json",
+      "native_receipt_sha256": "d6a719de63cf9fa5b8742f813e7ec5232877bbb77601e52b8cbb46a82bf25f91"
+    },
+    {
+      "mode": "O",
+      "exact_proof_source_modules": 30,
+      "native_receipt": "/data/ivy-scalar-relocation-check-20261120-v1/O/native/RESULT.json",
+      "native_receipt_sha256": "0967390a931fab2228ae6db96a5d1d88b572595795f042e353ccbaed6e621522"
+    },
+    {
+      "mode": "OO",
+      "exact_proof_source_modules": 30,
+      "native_receipt": "/data/ivy-scalar-relocation-check-20261120-v1/OO/native/RESULT.json",
+      "native_receipt_sha256": "9d776e5f5d5e7504972530c256dda77cae48b77766d9a57f2897a239793d6cee"
+    }
+  ],
+  "commands": [
+    {
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/generate_scalar_pv_rows.py",
+        "--out",
+        "/data/ivy-scalar-relocation-check-20261120-v1/normal/log",
+        "--rows-source",
+        "/data/ivy-ramanujan-source-pv-20261119/local-cells-million-v1/source/RamanujanPV/LocalCellsMillion/Data.lean",
+        "--rows-sha256",
+        "054ad58fe66e6b22ef91c06e19c1492fd24c7636c0fc241cba7c3fe760b5294e",
+        "--context",
+        "/data/ivy-scalar-relocation-check-20261120-v1/CONTEXT.json"
+      ],
+      "returncode": 0,
+      "stdout_sha256": "fe62d755ca95a05a8330d1b4ab895a2e447913bd65c3d34ec352792493a676f3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/generate_scalar_pv_final.py",
+        "--proposal",
+        "/data/ivy-scalar-relocation-check-20261120-v1/normal/log/PROPOSAL.json",
+        "--context",
+        "/data/ivy-scalar-relocation-check-20261120-v1/CONTEXT.json"
+      ],
+      "returncode": 0,
+      "stdout_sha256": "2f29f3bf63e3b367d7c991d935c4c5cb3075f80f3cb3459e9c9214b4407ccb15",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/generate_cell_source_rows.py",
+        "--out",
+        "/data/ivy-scalar-relocation-check-20261120-v1/normal/cell",
+        "--original-log-proposal",
+        "/data/ivy-scalar-relocation-check-20261120-v1/normal/log/PROPOSAL.json",
+        "--context",
+        "/data/ivy-scalar-relocation-check-20261120-v1/CONTEXT.json"
+      ],
+      "returncode": 0,
+      "stdout_sha256": "d37c16f9f457a13369155451dc8bfebcce2a55c80ba6ea94ffa0d5f0a3083369",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/generate_cell_domains.py",
+        "--out",
+        "/data/ivy-scalar-relocation-check-20261120-v1/normal/domain",
+        "--original-log-proposal",
+        "/data/ivy-scalar-relocation-check-20261120-v1/normal/log/PROPOSAL.json",
+        "--context",
+        "/data/ivy-scalar-relocation-check-20261120-v1/CONTEXT.json"
+      ],
+      "returncode": 0,
+      "stdout_sha256": "b7a787c366052df308d751b09fec16d1bb8e2764be830c48024e832010bb17cd",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/observe_finite_scalars_native.py",
+        "--out",
+        "/data/ivy-scalar-relocation-check-20261120-v1/normal/native",
+        "--rows-source",
+        "/data/ivy-ramanujan-source-pv-20261119/local-cells-million-v1/source/RamanujanPV/LocalCellsMillion/Data.lean",
+        "--rows-sha256",
+        "054ad58fe66e6b22ef91c06e19c1492fd24c7636c0fc241cba7c3fe760b5294e",
+        "--context",
+        "/data/ivy-scalar-relocation-check-20261120-v1/CONTEXT.json"
+      ],
+      "returncode": 0,
+      "stdout_sha256": "7563597b38c46005de2570979fef4733c400f4a078b00112711aa659d33f4f3e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/observe_finite_scalars_native.py",
+        "--out",
+        "/data/ivy-scalar-relocation-check-20261120-v1/normal/native-bad",
+        "--rows-source",
+        "/data/ivy-ramanujan-source-pv-20261119/local-cells-million-v1/source/RamanujanPV/LocalCellsMillion/Data.lean",
+        "--rows-sha256",
+        "0000000000000000000000000000000000000000000000000000000000000000",
+        "--context",
+        "/data/ivy-scalar-relocation-check-20261120-v1/CONTEXT.json"
+      ],
+      "returncode": 1,
+      "expected_rejection": true
+    },
+    {
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/generate_scalar_pv_rows.py",
+        "--out",
+        "/data/ivy-scalar-relocation-check-20261120-v1/O/log",
+        "--rows-source",
+        "/data/ivy-ramanujan-source-pv-20261119/local-cells-million-v1/source/RamanujanPV/LocalCellsMillion/Data.lean",
+        "--rows-sha256",
+        "054ad58fe66e6b22ef91c06e19c1492fd24c7636c0fc241cba7c3fe760b5294e",
+        "--context",
+        "/data/ivy-scalar-relocation-check-20261120-v1/CONTEXT.json"
+      ],
+      "returncode": 0,
+      "stdout_sha256": "f0ae7764a087e95dc6b166d14697e21aad574552d22a4bb6284aa2ab0148eb07",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/generate_scalar_pv_final.py",
+        "--proposal",
+        "/data/ivy-scalar-relocation-check-20261120-v1/O/log/PROPOSAL.json",
+        "--context",
+        "/data/ivy-scalar-relocation-check-20261120-v1/CONTEXT.json"
+      ],
+      "returncode": 0,
+      "stdout_sha256": "202413822ad6a3aa05faa11a54e797f44ee6f8c8d198c19da027fbaea5da949a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/generate_cell_source_rows.py",
+        "--out",
+        "/data/ivy-scalar-relocation-check-20261120-v1/O/cell",
+        "--original-log-proposal",
+        "/data/ivy-scalar-relocation-check-20261120-v1/O/log/PROPOSAL.json",
+        "--context",
+        "/data/ivy-scalar-relocation-check-20261120-v1/CONTEXT.json"
+      ],
+      "returncode": 0,
+      "stdout_sha256": "905583b48c96f556b52e5dc9ed3df0383706d7066c2e20cf5078c40b8ed84623",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/generate_cell_domains.py",
+        "--out",
+        "/data/ivy-scalar-relocation-check-20261120-v1/O/domain",
+        "--original-log-proposal",
+        "/data/ivy-scalar-relocation-check-20261120-v1/O/log/PROPOSAL.json",
+        "--context",
+        "/data/ivy-scalar-relocation-check-20261120-v1/CONTEXT.json"
+      ],
+      "returncode": 0,
+      "stdout_sha256": "d9dbb85bf378420e6b3e11b55248bf776da648b26b7427ddcd932382185ac53f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/observe_finite_scalars_native.py",
+        "--out",
+        "/data/ivy-scalar-relocation-check-20261120-v1/O/native",
+        "--rows-source",
+        "/data/ivy-ramanujan-source-pv-20261119/local-cells-million-v1/source/RamanujanPV/LocalCellsMillion/Data.lean",
+        "--rows-sha256",
+        "054ad58fe66e6b22ef91c06e19c1492fd24c7636c0fc241cba7c3fe760b5294e",
+        "--context",
+        "/data/ivy-scalar-relocation-check-20261120-v1/CONTEXT.json"
+      ],
+      "returncode": 0,
+      "stdout_sha256": "23d749d79a184298bd23ed241ce9a29d6be061da4228ab6abf0455c1990ad316",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/observe_finite_scalars_native.py",
+        "--out",
+        "/data/ivy-scalar-relocation-check-20261120-v1/O/native-bad",
+        "--rows-source",
+        "/data/ivy-ramanujan-source-pv-20261119/local-cells-million-v1/source/RamanujanPV/LocalCellsMillion/Data.lean",
+        "--rows-sha256",
+        "0000000000000000000000000000000000000000000000000000000000000000",
+        "--context",
+        "/data/ivy-scalar-relocation-check-20261120-v1/CONTEXT.json"
+      ],
+      "returncode": 1,
+      "expected_rejection": true
+    },
+    {
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/generate_scalar_pv_rows.py",
+        "--out",
+        "/data/ivy-scalar-relocation-check-20261120-v1/OO/log",
+        "--rows-source",
+        "/data/ivy-ramanujan-source-pv-20261119/local-cells-million-v1/source/RamanujanPV/LocalCellsMillion/Data.lean",
+        "--rows-sha256",
+        "054ad58fe66e6b22ef91c06e19c1492fd24c7636c0fc241cba7c3fe760b5294e",
+        "--context",
+        "/data/ivy-scalar-relocation-check-20261120-v1/CONTEXT.json"
+      ],
+      "returncode": 0,
+      "stdout_sha256": "b31a12dd821cc6ec81e06b0753660b7212c53316385ccab40337b6c7ed94d80e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/generate_scalar_pv_final.py",
+        "--proposal",
+        "/data/ivy-scalar-relocation-check-20261120-v1/OO/log/PROPOSAL.json",
+        "--context",
+        "/data/ivy-scalar-relocation-check-20261120-v1/CONTEXT.json"
+      ],
+      "returncode": 0,
+      "stdout_sha256": "919559068f6aa9876eb3230d0e3168498d938ad749abc3d36dd124625fea7f87",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/generate_cell_source_rows.py",
+        "--out",
+        "/data/ivy-scalar-relocation-check-20261120-v1/OO/cell",
+        "--original-log-proposal",
+        "/data/ivy-scalar-relocation-check-20261120-v1/OO/log/PROPOSAL.json",
+        "--context",
+        "/data/ivy-scalar-relocation-check-20261120-v1/CONTEXT.json"
+      ],
+      "returncode": 0,
+      "stdout_sha256": "0feeafcbd6c1224c1192e461110ce90f26c44bbfd69636b6547bb8b387478b5e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/generate_cell_domains.py",
+        "--out",
+        "/data/ivy-scalar-relocation-check-20261120-v1/OO/domain",
+        "--original-log-proposal",
+        "/data/ivy-scalar-relocation-check-20261120-v1/OO/log/PROPOSAL.json",
+        "--context",
+        "/data/ivy-scalar-relocation-check-20261120-v1/CONTEXT.json"
+      ],
+      "returncode": 0,
+      "stdout_sha256": "e48dcedd148ff709332b36a155cbb2d4cb9dea3233b1ca7b0960a36fb85c879d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/observe_finite_scalars_native.py",
+        "--out",
+        "/data/ivy-scalar-relocation-check-20261120-v1/OO/native",
+        "--rows-source",
+        "/data/ivy-ramanujan-source-pv-20261119/local-cells-million-v1/source/RamanujanPV/LocalCellsMillion/Data.lean",
+        "--rows-sha256",
+        "054ad58fe66e6b22ef91c06e19c1492fd24c7636c0fc241cba7c3fe760b5294e",
+        "--context",
+        "/data/ivy-scalar-relocation-check-20261120-v1/CONTEXT.json"
+      ],
+      "returncode": 0,
+      "stdout_sha256": "22df34d99c3f566767d4f50c4e6b99cbfa00527ac3958a1d007d3ac02aa68fab",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-ramanujan-source-pv-20261119/network/Solutions/RamanujanSourcePV.v1/scripts/observe_finite_scalars_native.py",
+        "--out",
+        "/data/ivy-scalar-relocation-check-20261120-v1/OO/native-bad",
+        "--rows-source",
+        "/data/ivy-ramanujan-source-pv-20261119/local-cells-million-v1/source/RamanujanPV/LocalCellsMillion/Data.lean",
+        "--rows-sha256",
+        "0000000000000000000000000000000000000000000000000000000000000000",
+        "--context",
+        "/data/ivy-scalar-relocation-check-20261120-v1/CONTEXT.json"
+      ],
+      "returncode": 1,
+      "expected_rejection": true
+    }
+  ],
+  "not_claimed": "No Lean compilation or cleanfullpipelineclosure is inferred from this source-regeneration/nativeobservercontrol."
+}
