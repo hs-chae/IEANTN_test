@@ -1,0 +1,50 @@
+version: v0.4
+project:
+  name: Explicit conditional RH hypothesis
+  description: An explicit unproved Mathlib Riemann hypothesis input and only its
+    logical adapters to the existing open half-plane and finite-height predicates.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11M26
+automation:
+  methods:
+  - method: manual
+    role: Neutral setup logical adapters; ordinary pinned Lean checks only.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+node:
+  id: RH.v1
+  family: RH
+  version: v1
+  kind: standard
+  status: active
+conclusions:
+- id: hypothesis
+  declaration: RH.v1.hypothesis
+  challenge: RH.v1.challenge_hypothesis
+  imports: []
+  imports_status: none
+  justifications:
+  - id: conditional-input
+    kind: none-yet
+    note: Exactly Mathlib RiemannHypothesis at revision 71a80585ee495fc24472fd0eaffc89d94e4fd8d6,
+      Mathlib/NumberTheory/LSeries/RiemannZeta.lean:185. This is a conditional experimental
+      input. No proof of this conclusion is provided.
+  designated: conditional-input
+sources: []
+limitations:
+- RH.v1.hypothesis is an explicit shared assumption, not an asserted proof or a cited
+  RH proof. Its designated none-yet status is intentional.
+- No solution or proof is claimed for RH.v1.challenge_hypothesis. The generated Challenge
+  is statement-only scaffolding and is excluded from all adapter proof imports.

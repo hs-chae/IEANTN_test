@@ -1,0 +1,66 @@
+version: v0.4
+project:
+  name: Logical adapters from conditional RH
+  description: An explicit unproved Mathlib Riemann hypothesis input and only its
+    logical adapters to the existing open half-plane and finite-height predicates.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11M26
+automation:
+  methods:
+  - method: manual
+    role: Neutral setup logical adapters; ordinary pinned Lean checks only.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+node:
+  id: RHAdapters.v1
+  family: RHAdapters
+  version: v1
+  kind: standard
+  status: awaiting-verification
+conclusions:
+- id: half_planes
+  declaration: RHAdapters.v1.half_planes
+  challenge: RHAdapters.v1.challenge_half_planes
+  imports:
+  - node: RH.v1
+    conclusion: hypothesis
+  imports_status: identified
+  justifications:
+  - id: workflow-pending
+    kind: none-yet
+    note: The exact implication from the hypothesis is proved in Solutions/RHAdapters.v1/Solution.lean
+      and IEANTN/Bridges/RH/LogicalAdapters.lean; ordinary Lean compilation observations
+      are recorded outside receipts/. Workflow verification remains pending.
+  designated: workflow-pending
+- id: finite_heights
+  declaration: RHAdapters.v1.finite_heights
+  challenge: RHAdapters.v1.challenge_finite_heights
+  imports:
+  - node: RH.v1
+    conclusion: hypothesis
+  imports_status: identified
+  justifications:
+  - id: workflow-pending
+    kind: none-yet
+    note: The exact implication from the hypothesis is proved in Solutions/RHAdapters.v1/Solution.lean
+      and IEANTN/Bridges/RH/LogicalAdapters.lean; ordinary Lean compilation observations
+      are recorded outside receipts/. Workflow verification remains pending.
+  designated: workflow-pending
+sources: []
+limitations:
+- Logical adapter proofs compile under pinned ordinary Lean with only propext, Classical.choice
+  and Quot.sound. No IEANTN Comparator or independent-kernel receipt has been issued.
+- No reciprocal-zero sum, zero count, multiplicity, numerical coefficient, prime-count
+  table, limiting argument or new analytic estimate is supplied.

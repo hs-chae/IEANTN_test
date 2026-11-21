@@ -107,6 +107,8 @@ import IEANTN.Nodes.QRHConsequences.v1.Challenge
 import IEANTN.Nodes.QRHPropagation.v1.Challenge
 import IEANTN.Nodes.QRHPropagation.v2.Challenge
 import IEANTN.Nodes.QRHPropagation.v3.Challenge
+import IEANTN.Nodes.RH.v1.Challenge
+import IEANTN.Nodes.RHAdapters.v1.Challenge
 import IEANTN.Nodes.RamanujanGap.v1.Challenge
 import IEANTN.Nodes.RamanujanGap.v2.Challenge
 import IEANTN.Nodes.RamanujanNumerics.v1.Challenge

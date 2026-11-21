@@ -17,6 +17,7 @@ import IEANTN.Bridges.QRH.Geometry
 import IEANTN.Bridges.QRH.Identities
 import IEANTN.Bridges.QRHCH2.Compose
 import IEANTN.Bridges.QRHCH2.Optimize
+import IEANTN.Bridges.RH.LogicalAdapters
 import IEANTN.Bridges.RosserSchoenfeld.ToClassical
 
 /-!
