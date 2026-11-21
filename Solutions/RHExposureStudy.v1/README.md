@@ -1,5 +1,7 @@
 # RH propagation: two independent research arms
 
+[Delivery and handoff](DELIVERY_AND_HANDOFF.md) records the exact uploaded files, archive hash and one-command restoration. [ARTIFACTS.json](ARTIFACTS.json) contains the verified attachment identities.
+
 Read `reports/RH_PROPAGATION_REPORT_EN.html` or `reports/RH_PROPAGATION_REPORT_KO.html`. Both are standalone offline documents with static mathematics. They distinguish the original independent submissions, later reviews, and coordinator proof completion. Start with `ledgers/RESULTS.json` for exact statements, domains, assumptions, evidence and remaining obligations.
 
 This is an isolated research solution directory. It does not replace existing IEANTN results or assert that RH has been proved. The actual RH node and logical adapters are in the repository's `IEANTN/Nodes/RH*` and `IEANTN/Bridges/RH` directories.
