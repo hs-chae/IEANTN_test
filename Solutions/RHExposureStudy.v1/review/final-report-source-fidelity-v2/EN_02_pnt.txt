@@ -1,0 +1,69 @@
+What the two independent arms found for the PNT
+
+Put L=log x and v=L/2−log L. The final NL submission replaced a coarse cutoff by exact Fourier multipliers and then a parabolic logarithmic average. Its strongest proposed ψ envelope is
+
+| ψ ( x ) − x | ≤ sqrt(x) B_(5) ( L ) , B_(5) ( L ) = (v^(2) + 1.662 v + 1.148 + L)/(2 π) + 0.14 , L ≥ 35 .
+
+The parabolic density is 3(1−u²)/4 on [−1,1]. Its transform is φ(y)=3(sin y−y cos y)/y³, continuously extended by φ(0)=1. The zeros are summed after applying this transform; taking absolute values first would discard the improvement. Regularized Mellin moments of the absolute transform are bounded by 0.831 and 0.574. The submitted directed quadrature uses step 0.002 through 100, explicit total-variation remainders and analytic infinite tails. These are written analytic and rational-computation claims, not a completed Lean analytic proof or source-first PV.
+
+I_(j) = ∫_(0)^(∞) ( | ϕ ( y ) | − 1_(y ≤ 1) ) ( log y )^(j) (d y)/(y) , I_(0) < .831 , I_(1) < .574 .
+
+The regularization subtracts the constant near zero, making the integrals finite. Their contributions are 2I₀v and 2I₁ inside the numerator of B5, explaining the coefficients 1.662 and 1.148.
+
+The IEANTN arm instead instantiated the actual Chirre–Helfgott finite-height proof at a height depending on x:
+
+T = (20 sqrt(x))/(L) , u = (L)/(2) − log L + log ( 10 / π ) , | ψ ( x ) − x | ≤ sqrt(x) A_(*) ( L ) , A_(*) ( L ) = 0.158 L + (u^(2) − u / 3)/(2 π) , L ≥ 34 .
+
+The center of CH’s theorem is not x itself. It is x(π/T)coth(π/T). The finite-height domain, the exact T−1 denominator and this center correction are all paid before the displayed coefficient is obtained. The first compiled path retains thirteen analytic source predicates. A second path proves the low inverse-ordinate cap from existing zero-count contracts, consumes four additional existing analytic proofs, and gives A*+0.821 with only eight named analytic predicates besides RH. A finer written two-range zero-count estimate gives A*+0.332. These are different assumption/coefficient tradeoffs, not interchangeable proofs.
+
+Exact13-input theorem · Exact8-input theorem
+
+The initial NL bound B3 is valid but dominated by CH after optimizing its height. That verdict does not apply to the final B5. The final independent review compares the complete variable-height CH functions, including all corrections. Its decision and any qualifications are recorded in the final review ledger. The full-arm draft also misquotes Lee–Nosal Theorem 1.1 and makes an overbroad ordering claim; that comparison is corrected separately without discarding the valid variable-height construction.
+
+Chirre–Helfgott, Corollary 1.2; §§7–9 · Lee–Nosal v4, Theorems 1.1–1.2, Corollary 1.3 · Büthe, Theorem 2, (1.5)–(1.10), Tables 1–2
+
+The actual Lee–Nosal source coefficients, in units of √x, are F₁ and F₂ below. The locked full-arm PNT.md instead prints F₁ with misplaced logarithms and constants and says F₂ is smaller for every L≥exp(4). That ordering reverses near L=30,369.58. The new PNTClosed Lean theorem does not assume that false ordering; direct comparisons with each correct function separately preserve its claimed improvements. There is no standalone Blueprint label for the arm’s PNT.md; its underlying CH proof correspondence is the existing CH2 §9 source module.
+
+F_(1) ( L ) = (L^(2))/(8 π) − ( (L)/(2 π) + 1.465 ) log L + 1.2325 L , F_(2) ( L ) = (L ( L − log L ))/(8 π) .
+
+The same primary CH paper already supplies a convenient explicit bound in Corollary 9.3, equation (9.4), with T=2π²√x/L≥10⁷ and RH to that height. It must also stay in the pointwise minimum:
+
+| ψ ( x ) − x | ≤ (sqrt(x))/(8 π) [ ( L − 2 log (L)/(π e) )^(2) − 4 ] .
+
+At L=34 this coefficient is about 38.66406, slightly below the full arm’s 38.66777. Thus A* is not a uniform improvement over every published CH formula from its own onset. No new best-known claim follows merely from improving Lee–Nosal. The final NL B5 comparison is evaluated separately on L≥35.
+
+For clarity, the primary CH statement used in this comparison is displayed before minimizing anything:
+
+| ψ ( x ) − x (π)/(T) coth (π)/(T) | ≤ (π x)/(T − 1) + ( (log^(2) ( T / ( 2 π ) ))/(2 π) − (log ( T / ( 2 π ) ))/(6 π) ) sqrt(x) , T ≥ 10^(7) , x > max ( T , 10^(9) ) .
+
+Under RH every permitted T is available. Write r=log(T/(2π)). Dropping only positive center and T−1 corrections gives a lower bound F on every resulting absolute-error envelope about x. Its minimum occurs between r₀=L/2−log L+log π and L/2. Strong convexity then gives a uniform, rather than sampled, comparison:
+
+F_(L) ( r ) = (1)/(2) e^(L / 2 − r) + (r^(2) − r / 3)/(2 π) , min_(r) F_(L) ( r ) ≥ F_(L) ( r_(0) ) − (( log L − log π + 1 / 6 )^(2))/(2 π^(2) ( 1 / 2 + 1 / π )) > B_(5) ( L ) + .0666 ( L ≥ 35 ) .
+
+The independent reviewer proves the last difference is positive at 35 and increasing on the whole ray, with exact rational scalar checks and explicit derivative bounds. At L=35 the actual numerically optimized CH envelope is approximately 40.9480√x, while B5 is approximately 40.5299√x. These decimal values illustrate the result; the uniform inequality is established by the separate analytic argument. This comparison is a post-lock reviewer finding, not information supplied to either discovery worker.
+
+The reviewer also checks B5 is below CH’s explicit (9.4) by more than 0.5√x on L≥35. This is a scoped comparison, not a claim that B5 wins everywhere against all literature: Büthe’s applicable signed Table 1 rows give much smaller finite ψ bounds throughout the overlap from exp(35) to 1.024·10¹⁹. Keep those rows in the minimum.
+
+Illustrative samples. The uniform comparison is proved analytically above.
+
+The same parabolic window gives an independently reviewed quantitative prime-count statement. Put D₁=.465L−.93log L−.25, δ=D/√x and a=xe⁻δ,b=xeδ. For L≥24 and D₁≤D≤2L,
+
+# { p : a < p < b } > ( (4)/(3) ( D − D_(1) ) + .04 ) (sqrt(a))/(log a) .
+
+Taking D=D₁+3L/4 gives more than √x primes and leading full-length coefficient 2.43. Taking a slightly larger D gives a strictly greater limiting count, so the infimum of forward-interval coefficients with limiting count greater than √x is at most 2.43. This improves the inspected numerical bounds 2.52 in CMS and 2.5074 in Chirre–Pereira–de Laat, not their underlying unknown optimal Fourier constant. Setting D=D₁ gives the explicit .88 existence band exp(24)≤a≤exp(199), which does not improve CMS’s earlier global existence theorem.
+
+Carneiro–Milinovich–Soundararajan, Theorems 3, 5; §6 · Chirre–Pereira–de Laat, §1.3, quantitative prime intervals
+
+The explicit forward corollary above follows without a new numerical search. Choose D=1.215L−.93log L−.25. On the whole ray L≥24 one has L≤D<1.215L, δ<1/5000 and δ decreasing. Thus L−δ increases continuously from below24 to infinity, providing a center for every log u≥24. The conversion of length is
+
+(b − a)/(sqrt(a) log a) = (2 D)/(L) (e^(δ / 2) ( sinh δ / δ ))/(1 − δ / L) ≤ (2 D)/(L) ( 1 + 4 δ ) < 2.43 − (1.86 log L + .45)/(L) < 2.43 .
+
+The error allowance uses 9.72Lδ≤11.8098L²e⁻ᴸ⁄²<.05, maximal at L=24 on this ray. The lower count is (L+.04)√a/(L−δ), which is greater than (1+.04/log a)√a. Strict interval inclusion transfers it to the displayed forward interval, including u=exp24. This pointwise bonus tends to zero and does not itself prove a strict limiting count above one at the exact coefficient2.43; the separate slightly-enlarged-width argument establishes the infimum statement.
+
+Post-lock full proof and18 exact controls · Independent proof check
+
+Both arms retain signed information when passing from ψ to θ and π. For example the full-arm prime-power relay proves 0.99√x≤ψ(x)−θ(x)≤1.01√x on its ray. Retaining the integrated spectral primitive, rather than integrating a pointwise absolute PNT bound, yields the sharper written π transfer below:
+
+| J ( x ) − li ( x ) − (ψ ( x ) − x)/(L) | ≤ 14 + (0.076 sqrt(x))/(L^(2)) , L ≥ 26 , J ( x ) = ∑ p^(k) ≤ x (1)/(k) .
+
+The 0.076 refinement is a written derivation from Grenié–Molteni’s explicit primitive and the analytic inverse-square zero mass, not the compiled 0.278 route and not a new table computation. Also li is the principal-value logarithmic integral; Li₂ starts at 2. Their constant difference must be retained in every normalized π-error comparison.

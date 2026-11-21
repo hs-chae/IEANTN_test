@@ -1,0 +1,288 @@
+{
+  "status": "PASS_NORMAL_O_OO_FRESH_AND18_NEGATIVE_CLI_CONTROLS",
+  "modes": [
+    {
+      "mode": "normal",
+      "receipt": "final-normal/REPLAY_RESULT.json",
+      "sha256": "26462e68132ae63c4d2fb46b3112f5bf2e9b59f2db5322c02619bbe2d2f994fb",
+      "elapsed_seconds": 34.626547472551465
+    },
+    {
+      "mode": "O",
+      "receipt": "final-O/REPLAY_RESULT.json",
+      "sha256": "e03928466eaafc58ff5bf1d4b55cd74109aaa19dddc26f65cc5571caeb6dd334",
+      "elapsed_seconds": 34.507836205884814
+    },
+    {
+      "mode": "OO",
+      "receipt": "final-OO/REPLAY_RESULT.json",
+      "sha256": "c665a2257a9028ba4dbde6e6fdb3f9aee03216eab1aeca9f4925841e772e39e9",
+      "elapsed_seconds": 34.45485031045973
+    }
+  ],
+  "negative_controls": [
+    {
+      "mode": "normal",
+      "case": "replay-existing",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-propagation-20261120/post-lock-verification/MertensPositive-v1/replay.py",
+        "--out",
+        "/data/ivy-rh-propagation-20261120/post-lock-verification/MertensPositive-v1/final-normal",
+        "--optimize",
+        "normal"
+      ],
+      "exit_code": 1,
+      "stderr_sha256": "ab1a5f388b062dae80133e3002875286c49a0fd4f2abb319cc59aecd8255a8c0"
+    },
+    {
+      "mode": "normal",
+      "case": "replay-mismatch",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-propagation-20261120/post-lock-verification/MertensPositive-v1/replay.py",
+        "--out",
+        "/data/ivy-rh-propagation-20261120/post-lock-verification/MertensPositive-v1/negative-controls/must-not-exist-normal",
+        "--optimize",
+        "O"
+      ],
+      "exit_code": 1,
+      "stderr_sha256": "c3a3440f3f37d574174f82491a9b7ff1501f3717dac418e5b60b0e38ce3ee7e2"
+    },
+    {
+      "mode": "normal",
+      "case": "compile-module-path",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-propagation-20261120/post-lock-verification/MertensPositive-v1/compile.py",
+        "../Definitions",
+        "--attempt",
+        "negative"
+      ],
+      "exit_code": 1,
+      "stderr_sha256": "32b989890bb7972c8dbdf29d44195af9753c76b21b244fd926a20e039cf8b106"
+    },
+    {
+      "mode": "normal",
+      "case": "compile-attempt-path",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-propagation-20261120/post-lock-verification/MertensPositive-v1/compile.py",
+        "Definitions",
+        "--attempt",
+        "../escape"
+      ],
+      "exit_code": 1,
+      "stderr_sha256": "0ab90450870f8b311c3600012234fc8e3faa3088914f2b77ea12e848be3832ec"
+    },
+    {
+      "mode": "normal",
+      "case": "compile-existing",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-propagation-20261120/post-lock-verification/MertensPositive-v1/compile.py",
+        "Definitions",
+        "--attempt",
+        "definitions-3-jrelax"
+      ],
+      "exit_code": 1,
+      "stderr_sha256": "fe99d1ee9c31c5c1abab4429b0b6d3316e70839e33c7326febb5690114c13158"
+    },
+    {
+      "mode": "normal",
+      "case": "compile-unknown-arg",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-propagation-20261120/post-lock-verification/MertensPositive-v1/compile.py",
+        "Definitions",
+        "--attempt",
+        "negative",
+        "--unexpected",
+        "1"
+      ],
+      "exit_code": 2,
+      "stderr_sha256": "c0b9a56af090ff84fe1c442b818f14a29ba52e23a803b36536a4b08253a76665"
+    },
+    {
+      "mode": "O",
+      "case": "replay-existing",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/data/ivy-rh-propagation-20261120/post-lock-verification/MertensPositive-v1/replay.py",
+        "--out",
+        "/data/ivy-rh-propagation-20261120/post-lock-verification/MertensPositive-v1/final-O",
+        "--optimize",
+        "O"
+      ],
+      "exit_code": 1,
+      "stderr_sha256": "ab1a5f388b062dae80133e3002875286c49a0fd4f2abb319cc59aecd8255a8c0"
+    },
+    {
+      "mode": "O",
+      "case": "replay-mismatch",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/data/ivy-rh-propagation-20261120/post-lock-verification/MertensPositive-v1/replay.py",
+        "--out",
+        "/data/ivy-rh-propagation-20261120/post-lock-verification/MertensPositive-v1/negative-controls/must-not-exist-O",
+        "--optimize",
+        "normal"
+      ],
+      "exit_code": 1,
+      "stderr_sha256": "c3a3440f3f37d574174f82491a9b7ff1501f3717dac418e5b60b0e38ce3ee7e2"
+    },
+    {
+      "mode": "O",
+      "case": "compile-module-path",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/data/ivy-rh-propagation-20261120/post-lock-verification/MertensPositive-v1/compile.py",
+        "../Definitions",
+        "--attempt",
+        "negative"
+      ],
+      "exit_code": 1,
+      "stderr_sha256": "32b989890bb7972c8dbdf29d44195af9753c76b21b244fd926a20e039cf8b106"
+    },
+    {
+      "mode": "O",
+      "case": "compile-attempt-path",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/data/ivy-rh-propagation-20261120/post-lock-verification/MertensPositive-v1/compile.py",
+        "Definitions",
+        "--attempt",
+        "../escape"
+      ],
+      "exit_code": 1,
+      "stderr_sha256": "0ab90450870f8b311c3600012234fc8e3faa3088914f2b77ea12e848be3832ec"
+    },
+    {
+      "mode": "O",
+      "case": "compile-existing",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/data/ivy-rh-propagation-20261120/post-lock-verification/MertensPositive-v1/compile.py",
+        "Definitions",
+        "--attempt",
+        "definitions-3-jrelax"
+      ],
+      "exit_code": 1,
+      "stderr_sha256": "fe99d1ee9c31c5c1abab4429b0b6d3316e70839e33c7326febb5690114c13158"
+    },
+    {
+      "mode": "O",
+      "case": "compile-unknown-arg",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/data/ivy-rh-propagation-20261120/post-lock-verification/MertensPositive-v1/compile.py",
+        "Definitions",
+        "--attempt",
+        "negative",
+        "--unexpected",
+        "1"
+      ],
+      "exit_code": 2,
+      "stderr_sha256": "c0b9a56af090ff84fe1c442b818f14a29ba52e23a803b36536a4b08253a76665"
+    },
+    {
+      "mode": "OO",
+      "case": "replay-existing",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-propagation-20261120/post-lock-verification/MertensPositive-v1/replay.py",
+        "--out",
+        "/data/ivy-rh-propagation-20261120/post-lock-verification/MertensPositive-v1/final-OO",
+        "--optimize",
+        "OO"
+      ],
+      "exit_code": 1,
+      "stderr_sha256": "ab1a5f388b062dae80133e3002875286c49a0fd4f2abb319cc59aecd8255a8c0"
+    },
+    {
+      "mode": "OO",
+      "case": "replay-mismatch",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-propagation-20261120/post-lock-verification/MertensPositive-v1/replay.py",
+        "--out",
+        "/data/ivy-rh-propagation-20261120/post-lock-verification/MertensPositive-v1/negative-controls/must-not-exist-OO",
+        "--optimize",
+        "normal"
+      ],
+      "exit_code": 1,
+      "stderr_sha256": "c3a3440f3f37d574174f82491a9b7ff1501f3717dac418e5b60b0e38ce3ee7e2"
+    },
+    {
+      "mode": "OO",
+      "case": "compile-module-path",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-propagation-20261120/post-lock-verification/MertensPositive-v1/compile.py",
+        "../Definitions",
+        "--attempt",
+        "negative"
+      ],
+      "exit_code": 1,
+      "stderr_sha256": "32b989890bb7972c8dbdf29d44195af9753c76b21b244fd926a20e039cf8b106"
+    },
+    {
+      "mode": "OO",
+      "case": "compile-attempt-path",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-propagation-20261120/post-lock-verification/MertensPositive-v1/compile.py",
+        "Definitions",
+        "--attempt",
+        "../escape"
+      ],
+      "exit_code": 1,
+      "stderr_sha256": "0ab90450870f8b311c3600012234fc8e3faa3088914f2b77ea12e848be3832ec"
+    },
+    {
+      "mode": "OO",
+      "case": "compile-existing",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-propagation-20261120/post-lock-verification/MertensPositive-v1/compile.py",
+        "Definitions",
+        "--attempt",
+        "definitions-3-jrelax"
+      ],
+      "exit_code": 1,
+      "stderr_sha256": "fe99d1ee9c31c5c1abab4429b0b6d3316e70839e33c7326febb5690114c13158"
+    },
+    {
+      "mode": "OO",
+      "case": "compile-unknown-arg",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-propagation-20261120/post-lock-verification/MertensPositive-v1/compile.py",
+        "Definitions",
+        "--attempt",
+        "negative",
+        "--unexpected",
+        "1"
+      ],
+      "exit_code": 2,
+      "stderr_sha256": "c0b9a56af090ff84fe1c442b818f14a29ba52e23a803b36536a4b08253a76665"
+    }
+  ],
+  "scientific_source_manifest_sha256": "28b31a83c2cef912367aa9bef4f4d8570c54b11f5ebfb2d6d0e18d4b90fd2027",
+  "validator_sha256": {
+    "compile.py": "fd229cf7a8a19fcdb074a4187b30a063339aa44d1c01f1ff0c5dd22e49622696",
+    "replay.py": "592915f0ec9362e87913232cdfc4b660466c9d181285746ee7f2461e702564ef"
+  }
+}

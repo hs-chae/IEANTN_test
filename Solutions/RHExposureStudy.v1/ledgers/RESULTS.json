@@ -1,0 +1,897 @@
+{
+  "schema": "RH_PROPAGATION_MATHEMATICAL_LEDGER_V1",
+  "utc": "2026-11-21T03:50:00.129256+00:00",
+  "rows": [
+    {
+      "result_id": "NL-PNT-B5",
+      "arm": "NL_RH",
+      "phase": "fresh",
+      "statement": "For all real x with L>=35, abs(psi(x)-x)<=sqrtx*((v^2+1.662v+1.148+L)/(2pi)+.14), v=L/2-logL",
+      "domain": "[exp35,infinity)",
+      "normalization": "L=logx; Epsi=abs(psi-x)/x; Epi=L*abs(pi-Li2)/x; G=e*x/logx*pi(x/e)-pi(x)^2; RG=logx^6/x^2*G",
+      "hypotheses": [
+        {
+          "id": "RH",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "exact explicit formula",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "published zero-count and low-zero-exclusion theorems",
+          "status": "explicit_hypothesis_or_source_predicate"
+        }
+      ],
+      "baseline_ids": [
+        "historical-source-current-21roots",
+        "applicable-RH-primary-literature"
+      ],
+      "provenance": {
+        "mechanisms": [
+          "new logarithmic parabolic smoothing",
+          "exact Mellin moments",
+          "directed rational quadrature"
+        ],
+        "coordinator_ideas_retroactive_arm_credit": false
+      },
+      "evidence": {
+        "kind": "written_analytic_derivation",
+        "paths": [
+          "locked/NL_RH/files/PNT.md",
+          "locked/NL_RH/files/parabola.py",
+          "review/final-NL"
+        ],
+        "source_first_PV": "NO"
+      },
+      "status": "reviewed_written_or_computational_see_final_review",
+      "remaining_obligations": [
+        "Analytic proof not formalized in Lean",
+        "Numerical source C/C++ not source-first verified"
+      ],
+      "source_scope": "Exact written-source identities and source locators in linked manifests; selected result ledger does not establish exhaustive all-repository source audit."
+    },
+    {
+      "result_id": "NL-INTERVAL-PARABOLA",
+      "arm": "NL_RH",
+      "phase": "fresh",
+      "statement": "D1=.465L-.93logL-.25, D1<=D<=2L; a=x*exp(-D/sqrtx),b=x*exp(D/sqrtx); #{p:a<p<b}>((4/3)*(D-D1)+.04)*sqrta/loga",
+      "domain": "L=logx>=24, D1<=D<=2L",
+      "normalization": "L=logx; Epsi=abs(psi-x)/x; Epi=L*abs(pi-Li2)/x; G=e*x/logx*pi(x/e)-pi(x)^2; RG=logx^6/x^2*G",
+      "hypotheses": [
+        {
+          "id": "RH",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "zero-count/explicit-formula theorems",
+          "status": "explicit_hypothesis_or_source_predicate"
+        }
+      ],
+      "baseline_ids": [
+        "historical-source-current-21roots",
+        "applicable-RH-primary-literature"
+      ],
+      "provenance": {
+        "mechanisms": [
+          "parabolic weighted count",
+          "retained interior-prime term"
+        ],
+        "coordinator_ideas_retroactive_arm_credit": false
+      },
+      "evidence": {
+        "kind": "written_analytic_derivation",
+        "paths": [
+          "locked/NL_RH/files/Intervals.md",
+          "locked/NL_RH/files/parabola.py"
+        ],
+        "source_first_PV": "NO"
+      },
+      "status": "reviewed_written_or_computational_see_final_review",
+      "remaining_obligations": [
+        "Analytic Fourier argument not fully Lean checked",
+        "Does not improve CMS global .88 existence or best asymptotic constant"
+      ],
+      "source_scope": "Exact written-source identities and source locators in linked manifests; selected result ledger does not establish exhaustive all-repository source audit."
+    },
+    {
+      "result_id": "NL-RAM-RH",
+      "arm": "NL_RH",
+      "phase": "fresh",
+      "statement": "RG>0 for logx>=38.95; RG>=1+14/L+142/L^2 for L>=60",
+      "domain": "[exp38.95,infinity)",
+      "normalization": "L=logx; Epsi=abs(psi-x)/x; Epi=L*abs(pi-Li2)/x; G=e*x/logx*pi(x/e)-pi(x)^2; RG=logx^6/x^2*G",
+      "hypotheses": [
+        {
+          "id": "RH",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "NL-PNT-B5 and signed pi transfer",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "actual li series/derivative facts",
+          "status": "explicit_hypothesis_or_source_predicate"
+        }
+      ],
+      "baseline_ids": [
+        "historical-source-current-21roots",
+        "applicable-RH-primary-literature"
+      ],
+      "provenance": {
+        "mechanisms": [
+          "factorial cancellation before enclosure",
+          "continuous exact rational cells"
+        ],
+        "coordinator_ideas_retroactive_arm_credit": false
+      },
+      "evidence": {
+        "kind": "written_analytic_derivation",
+        "paths": [
+          "locked/NL_RH/files/Ramanujan.md",
+          "locked/NL_RH/files/bounds.py",
+          "locked/NL_RH/files/RationalEnvelope.lean"
+        ],
+        "source_first_PV": "NO"
+      },
+      "status": "reviewed_written_or_computational_see_final_review",
+      "remaining_obligations": [
+        "Whole analytic hypotheses not discharged in Lean"
+      ],
+      "source_scope": "Exact written-source identities and source locators in linked manifests; selected result ledger does not establish exhaustive all-repository source audit."
+    },
+    {
+      "result_id": "NL-RAM-FINITE665",
+      "arm": "NL_RH",
+      "phase": "fresh",
+      "statement": "Native finite audit plus published finite inputs and Logan/Brun-Titchmarsh analytic envelope give G>0 on(kappa,exp665] without fullRH",
+      "domain": "(kappa,exp665]",
+      "normalization": "L=logx; Epsi=abs(psi-x)/x; Epi=L*abs(pi-Li2)/x; G=e*x/logx*pi(x/e)-pi(x)^2; RG=logx^6/x^2*G",
+      "hypotheses": [
+        {
+          "id": "published RH-height3e12 verification",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "published finite Buthe and Platt-Trudgian bounds",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "native C++ finite prime computation",
+          "status": "explicit_hypothesis_or_source_predicate"
+        }
+      ],
+      "baseline_ids": [
+        "historical-source-current-21roots",
+        "applicable-RH-primary-literature"
+      ],
+      "provenance": {
+        "mechanisms": [
+          "centered Logan smoothing",
+          "Brun-Titchmarsh unsmoothing",
+          "changed numerical workload"
+        ],
+        "coordinator_ideas_retroactive_arm_credit": false
+      },
+      "evidence": {
+        "kind": "written_analytic_derivation",
+        "paths": [
+          "locked/NL_RH/files/Ramanujan.md",
+          "locked/NL_RH/files/finite_ram.cpp",
+          "locked/NL_RH/files/finite_ram.out",
+          "review/final-NL"
+        ],
+        "source_first_PV": "NO"
+      },
+      "status": "reviewed_written_or_computational_see_final_review",
+      "remaining_obligations": [
+        "Native C++ finite output is not source-first PV",
+        "Stronger CH same-consumer finite-height benchmark exists",
+        "No unconditional infinite ray"
+      ],
+      "source_scope": "Exact written-source identities and source locators in linked manifests; selected result ledger does not establish exhaustive all-repository source audit."
+    },
+    {
+      "result_id": "NL-WEIGHTED-COUPLED",
+      "arm": "NL_RH",
+      "phase": "fresh",
+      "statement": "For s in {B,W}, .13/(sqrtx*L)<D_A-L*D_s<2.39/(sqrtx*L); D_A=A-logx-E, D_B=sum_(p<=x)1/p-loglogx-B, D_W=logP-loglogx-gamma",
+      "domain": "x>=exp24",
+      "normalization": "L=logx; Epsi=abs(psi-x)/x; Epi=L*abs(pi-Li2)/x; G=e*x/logx*pi(x/e)-pi(x)^2; RG=logx^6/x^2*G",
+      "hypotheses": [
+        {
+          "id": "RH",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "signed explicit formula and analytic inverse-square zero mass",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "full-prime normalization constants",
+          "status": "explicit_hypothesis_or_source_predicate"
+        }
+      ],
+      "baseline_ids": [
+        "historical-source-current-21roots",
+        "applicable-RH-primary-literature"
+      ],
+      "provenance": {
+        "mechanisms": [
+          "shared oscillatory endpoint cancels",
+          "full-prime tail correction",
+          "cross-family signed deductions"
+        ],
+        "coordinator_ideas_retroactive_arm_credit": false
+      },
+      "evidence": {
+        "kind": "written_analytic_derivation",
+        "paths": [
+          "locked/NL_RH/files/Weighted.md",
+          "review/final-NL/REVIEW.json"
+        ],
+        "source_first_PV": "NO"
+      },
+      "status": "reviewed_written_or_computational_see_final_review",
+      "remaining_obligations": [
+        "Original full-prime tail notation repaired post-lock; W upper intermediate adds<=1.045/x, final2.39 survives",
+        "Analytic proof written, not complete Lean or source-first PV"
+      ],
+      "source_scope": "Exact written-source identities and source locators in linked manifests; selected result ledger does not establish exhaustive all-repository source audit."
+    },
+    {
+      "result_id": "FULL-PNT-13",
+      "arm": "IEANTN_RH",
+      "phase": "fresh",
+      "statement": "abs(psi(expL)-expL)<=A(L)*sqrt(expL), A=.158L+((L/2-logL+log(10/pi))^2-(L/2-logL+log(10/pi))/3)/(2pi)",
+      "domain": "L>=34",
+      "normalization": "L=logx; Epsi=abs(psi-x)/x; Epi=L*abs(pi-Li2)/x; G=e*x/logx*pi(x/e)-pi(x)^2; RG=logx^6/x^2*G",
+      "hypotheses": [
+        {
+          "id": "RH",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "13 exact predicates printed by PNTFormal.actual_psi",
+          "status": "explicit_hypothesis_or_source_predicate"
+        }
+      ],
+      "baseline_ids": [
+        "historical-source-current-21roots",
+        "applicable-RH-primary-literature"
+      ],
+      "provenance": {
+        "mechanisms": [
+          "actual CH2 proof body reuse",
+          "variable truncation height",
+          "center correction"
+        ],
+        "coordinator_ideas_retroactive_arm_credit": false
+      },
+      "evidence": {
+        "kind": "kernel_checked_conditional_consumer",
+        "paths": [
+          "locked/IEANTN_RH/files/PNTFormal.lean",
+          "locked/IEANTN_RH/files/PNTScalar.lean",
+          "locked/IEANTN_RH/files/PNT.md"
+        ],
+        "source_first_PV": "NO"
+      },
+      "status": "accepted_at_declared_boundary",
+      "remaining_obligations": [
+        "Existing13 source predicates are retained",
+        "Original LN comparison corrected separately"
+      ],
+      "source_scope": "Exact written-source identities and source locators in linked manifests; selected result ledger does not establish exhaustive all-repository source audit."
+    },
+    {
+      "result_id": "FULL-PNT-8",
+      "arm": "IEANTN_RH",
+      "phase": "fresh",
+      "statement": "abs(psi(expL)-expL)<=(A(L)+.821)*sqrt(expL)",
+      "domain": "L>=34",
+      "normalization": "L=logx; Epsi=abs(psi-x)/x; Epi=L*abs(pi-Li2)/x; G=e*x/logx*pi(x/e)-pi(x)^2; RG=logx^6/x^2*G",
+      "hypotheses": [
+        {
+          "id": "RH",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "logDeriv_laurent_alternating",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "logDeriv_neg_one",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "logDeriv_two",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "logDeriv_three_halves",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "cot_series_zeta_values",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "rvm_error_bound",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "rvm_error_small",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "logDeriv_partial_fractions",
+          "status": "explicit_hypothesis_or_source_predicate"
+        }
+      ],
+      "baseline_ids": [
+        "historical-source-current-21roots",
+        "applicable-RH-primary-literature"
+      ],
+      "provenance": {
+        "mechanisms": [
+          "proves coarser low-zero bound",
+          "actual four additional analytic proofs consumed",
+          "assumption reduction"
+        ],
+        "coordinator_ideas_retroactive_arm_credit": false
+      },
+      "evidence": {
+        "kind": "kernel_checked_conditional_consumer",
+        "paths": [
+          "locked/IEANTN_RH/files/PNTClosed.lean",
+          "locked/IEANTN_RH/files/LooseLowSum.lean",
+          "locked/IEANTN_RH/files/generate_loose.py"
+        ],
+        "source_first_PV": "NO"
+      },
+      "status": "accepted_at_declared_boundary",
+      "remaining_obligations": [
+        "Eight named analytic predicates remain",
+        "No separate numerical inverse-ordinate cap"
+      ],
+      "source_scope": "Exact written-source identities and source locators in linked manifests; selected result ledger does not establish exhaustive all-repository source audit."
+    },
+    {
+      "result_id": "FULL-PNT-332",
+      "arm": "IEANTN_RH",
+      "phase": "fresh",
+      "statement": "abs(psi(expL)-expL)<=(A(L)+.332)*sqrt(expL) from two-range cap10.651",
+      "domain": "L>=34",
+      "normalization": "L=logx; Epsi=abs(psi-x)/x; Epi=L*abs(pi-Li2)/x; G=e*x/logx*pi(x/e)-pi(x)^2; RG=logx^6/x^2*G",
+      "hypotheses": [
+        {
+          "id": "RH",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "same eight analytic inputs as FULL-PNT-8",
+          "status": "explicit_hypothesis_or_source_predicate"
+        }
+      ],
+      "baseline_ids": [
+        "historical-source-current-21roots",
+        "applicable-RH-primary-literature"
+      ],
+      "provenance": {
+        "mechanisms": [
+          "sharper use of small zero-count bound through280"
+        ],
+        "coordinator_ideas_retroactive_arm_credit": false
+      },
+      "evidence": {
+        "kind": "written_analytic_derivation",
+        "paths": [
+          "locked/IEANTN_RH/files/PNT.md"
+        ],
+        "source_first_PV": "NO"
+      },
+      "status": "reviewed_written_or_computational_see_final_review",
+      "remaining_obligations": [
+        "Two-range propagation not compiled"
+      ],
+      "source_scope": "Exact written-source identities and source locators in linked manifests; selected result ledger does not establish exhaustive all-repository source audit."
+    },
+    {
+      "result_id": "FULL-WEIGHTED",
+      "arm": "IEANTN_RH",
+      "phase": "fresh",
+      "statement": ".942<=sqrtx*(M1-(psi-x)/x)<=1.094; .886<=sqrtx*L*(MP-(psi-x)/(xL))<=1.173; corresponding M2 upper1.174",
+      "domain": "L>=34",
+      "normalization": "L=logx; Epsi=abs(psi-x)/x; Epi=L*abs(pi-Li2)/x; G=e*x/logx*pi(x/e)-pi(x)^2; RG=logx^6/x^2*G",
+      "hypotheses": [
+        {
+          "id": "RH",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "GM integrated explicit formula",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "analytic xi inverse-square mass<.047",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "published finite anchors",
+          "status": "explicit_hypothesis_or_source_predicate"
+        }
+      ],
+      "baseline_ids": [
+        "historical-source-current-21roots",
+        "applicable-RH-primary-literature"
+      ],
+      "provenance": {
+        "mechanisms": [
+          "integrate signed spectral terms before modulus",
+          "analytic zero mass without numerical ordinate table"
+        ],
+        "coordinator_ideas_retroactive_arm_credit": false
+      },
+      "evidence": {
+        "kind": "written_analytic_derivation",
+        "paths": [
+          "locked/IEANTN_RH/files/Weighted.md"
+        ],
+        "source_first_PV": "NO"
+      },
+      "status": "reviewed_written_or_computational_see_final_review",
+      "remaining_obligations": [
+        "Full Stieltjes/resolvent proof written, not Lean formalized"
+      ],
+      "source_scope": "Exact written-source identities and source locators in linked manifests; selected result ledger does not establish exhaustive all-repository source audit."
+    },
+    {
+      "result_id": "FULL-PRIMORIAL",
+      "arm": "IEANTN_RH",
+      "phase": "fresh",
+      "statement": "log(P/(exp(gamma)*log(theta(x))))>=1.876/(sqrtx*logx)",
+      "domain": "L>=34",
+      "normalization": "L=logx; Epsi=abs(psi-x)/x; Epi=L*abs(pi-Li2)/x; G=e*x/logx*pi(x/e)-pi(x)^2; RG=logx^6/x^2*G",
+      "hypotheses": [
+        {
+          "id": "RH",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "Buthe2016 psi predicate",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "weighted lower spectral band .886",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "P>0",
+          "status": "explicit_hypothesis_or_source_predicate"
+        }
+      ],
+      "baseline_ids": [
+        "historical-source-current-21roots",
+        "applicable-RH-primary-literature"
+      ],
+      "provenance": {
+        "mechanisms": [
+          "actual theta square relay",
+          "log tangent cancellation"
+        ],
+        "coordinator_ideas_retroactive_arm_credit": false
+      },
+      "evidence": {
+        "kind": "kernel_checked_conditional_consumer",
+        "paths": [
+          "locked/IEANTN_RH/files/WeightedConsumer.lean",
+          "locked/IEANTN_RH/files/Weighted.md"
+        ],
+        "source_first_PV": "NO"
+      },
+      "status": "accepted_at_declared_boundary",
+      "remaining_obligations": [
+        "Exact spectral band remains explicit Lean premise"
+      ],
+      "source_scope": "Exact written-source identities and source locators in linked manifests; selected result ledger does not establish exhaustive all-repository source audit."
+    },
+    {
+      "result_id": "FULL-SIGNED-INTERVAL",
+      "arm": "IEANTN_RH",
+      "phase": "fresh",
+      "statement": "pi(y)-pi(x)>=(y-x-1.95*sqrty+.05*sqrtx)/logy",
+      "domain": "1423<=x<=y<=1e19",
+      "normalization": "L=logx; Epsi=abs(psi-x)/x; Epi=L*abs(pi-Li2)/x; G=e*x/logx*pi(x/e)-pi(x)^2; RG=logx^6/x^2*G",
+      "hypotheses": [
+        {
+          "id": "published Buthe finite theta upper/lower",
+          "status": "explicit_hypothesis_or_source_predicate"
+        }
+      ],
+      "baseline_ids": [
+        "historical-source-current-21roots",
+        "applicable-RH-primary-literature"
+      ],
+      "provenance": {
+        "mechanisms": [
+          "actual PrimeInterval theta_characterisation",
+          "retain endpoint sign"
+        ],
+        "coordinator_ideas_retroactive_arm_credit": false
+      },
+      "evidence": {
+        "kind": "kernel_checked_conditional_consumer",
+        "paths": [
+          "locked/IEANTN_RH/files/Intervals.lean",
+          "locked/IEANTN_RH/files/Intervals.md"
+        ],
+        "source_first_PV": "NO"
+      },
+      "status": "accepted_at_declared_boundary",
+      "remaining_obligations": [
+        "Published original finite computations not rerun"
+      ],
+      "source_scope": "Exact written-source identities and source locators in linked manifests; selected result ledger does not establish exhaustive all-repository source audit."
+    },
+    {
+      "result_id": "FULL-CMS-COUNT",
+      "arm": "IEANTN_RH",
+      "phase": "fresh",
+      "statement": "pi(x+.88*(1+2alpha)*sqrtx*logx)-pi(x)>alpha*sqrtx",
+      "domain": "x>=4e18, 1<=alpha<=2",
+      "normalization": "L=logx; Epsi=abs(psi-x)/x; Epi=L*abs(pi-Li2)/x; G=e*x/logx*pi(x/e)-pi(x)^2; RG=logx^6/x^2*G",
+      "hypotheses": [
+        {
+          "id": "RH",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "CMS exact Fourier and Brun-Titchmarsh source inequalities",
+          "status": "explicit_hypothesis_or_source_predicate"
+        }
+      ],
+      "baseline_ids": [
+        "historical-source-current-21roots",
+        "applicable-RH-primary-literature"
+      ],
+      "provenance": {
+        "mechanisms": [
+          "retained interior primes",
+          "rechecked widened c domain"
+        ],
+        "coordinator_ideas_retroactive_arm_credit": false
+      },
+      "evidence": {
+        "kind": "written_analytic_derivation",
+        "paths": [
+          "locked/IEANTN_RH/files/Intervals.md",
+          "locked/IEANTN_RH/files/analytic_scalars.py"
+        ],
+        "source_first_PV": "NO"
+      },
+      "status": "reviewed_written_or_computational_see_final_review",
+      "remaining_obligations": [
+        "Written analytic adaptation, not full Lean",
+        "Does not beat CMS stated asymptotic Theorem3"
+      ],
+      "source_scope": "Exact written-source identities and source locators in linked manifests; selected result ledger does not establish exhaustive all-repository source audit."
+    },
+    {
+      "result_id": "FULL-RAM610",
+      "arm": "IEANTN_RH",
+      "phase": "fresh",
+      "statement": "For every real x>=610000000000, RG(x)>=.001",
+      "domain": "[610000000000,infinity)",
+      "normalization": "L=logx; Epsi=abs(psi-x)/x; Epi=L*abs(pi-Li2)/x; G=e*x/logx*pi(x/e)-pi(x)^2; RG=logx^6/x^2*G",
+      "hypotheses": [
+        {
+          "id": "RH",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "Buthe Table1 and exact finite source inputs",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "GM integrated formula",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "analytic inverse-square zero mass",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "actual li facts",
+          "status": "explicit_hypothesis_or_source_predicate"
+        }
+      ],
+      "baseline_ids": [
+        "historical-source-current-21roots",
+        "applicable-RH-primary-literature"
+      ],
+      "provenance": {
+        "mechanisms": [
+          "signed Table1 recovered throughJ",
+          "stronger polynomial retention",
+          "new numerical cells"
+        ],
+        "coordinator_ideas_retroactive_arm_credit": false
+      },
+      "evidence": {
+        "kind": "written_analytic_derivation",
+        "paths": [
+          "locked/IEANTN_RH/files/Ramanujan.md",
+          "locked/IEANTN_RH/files/refined_ram.py"
+        ],
+        "source_first_PV": "NO"
+      },
+      "status": "reviewed_written_or_computational_see_final_review",
+      "remaining_obligations": [
+        "Eleven scalar cells executed, full new analytic Lean closure incomplete",
+        "May not inherit separate640b proof"
+      ],
+      "source_scope": "Exact written-source identities and source locators in linked manifests; selected result ledger does not establish exhaustive all-repository source audit."
+    },
+    {
+      "result_id": "FULL-REAL-CROSSING",
+      "arm": "IEANTN_RH",
+      "phase": "fresh",
+      "statement": "There is a unique z in(A,A+1), A=38358837682, with Gz=0; G increases continuously; .217926<z-A<.217927",
+      "domain": "closed unit[A,A+1]",
+      "normalization": "L=logx; Epsi=abs(psi-x)/x; Epi=L*abs(pi-Li2)/x; G=e*x/logx*pi(x/e)-pi(x)^2; RG=logx^6/x^2*G",
+      "hypotheses": [
+        {
+          "id": "actual inherited source-linked C prime-count/exponential proofs",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "standard analytic log facts",
+          "status": "explicit_hypothesis_or_source_predicate"
+        }
+      ],
+      "baseline_ids": [
+        "historical-source-current-21roots",
+        "applicable-RH-primary-literature"
+      ],
+      "provenance": {
+        "mechanisms": [
+          "actual source-linked output reuse",
+          "new real-variable consumer"
+        ],
+        "coordinator_ideas_retroactive_arm_credit": false
+      },
+      "evidence": {
+        "kind": "kernel_checked_conditional_consumer",
+        "paths": [
+          "locked/IEANTN_RH/files/RealCrossing.lean",
+          "locked/IEANTN_RH/files/CrossingBracket.lean"
+        ],
+        "source_first_PV": "COMPONENT_OR_INHERITED_ONLY_SEE_GAPS"
+      },
+      "status": "accepted_at_declared_boundary",
+      "remaining_obligations": [
+        "Global last-failure assembly retains published early all-real prefix and analytic ray",
+        "Fine20decimal bracket is separate rational execution"
+      ],
+      "source_scope": "Exact written-source identities and source locators in linked manifests; selected result ledger does not establish exhaustive all-repository source audit."
+    },
+    {
+      "result_id": "POST-RAM640",
+      "arm": "POST_LOCK_SYNTHESIS",
+      "phase": "synthesis",
+      "statement": "For every real x>=640000000000, RG>=1/25 and G>=x^2/(25*logx^6)>0",
+      "domain": "[640000000000,infinity)",
+      "normalization": "L=logx; Epsi=abs(psi-x)/x; Epi=L*abs(pi-Li2)/x; G=e*x/logx*pi(x/e)-pi(x)^2; RG=logx^6/x^2*G",
+      "hypotheses": [
+        {
+          "id": "RH",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "Buthe Table2",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "Buthe Eqs1.8,1.9,1.10",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "Buthe2016Eq7.2",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "actual IEANTN li series and derivative bridges",
+          "status": "explicit_hypothesis_or_source_predicate"
+        }
+      ],
+      "baseline_ids": [
+        "historical-source-current-21roots",
+        "applicable-RH-primary-literature"
+      ],
+      "provenance": {
+        "mechanisms": [
+          "new complete finite and infinite-tail proofs",
+          "proof-only outward rounding",
+          "real coverage"
+        ],
+        "coordinator_ideas_retroactive_arm_credit": false
+      },
+      "evidence": {
+        "kind": "kernel_checked_conditional_consumer",
+        "paths": [
+          "Ramanujan640/source/FinalResult.lean",
+          "Ramanujan640/FINAL_STATUS.json",
+          "Ramanujan640/evidence/ACCEPTED_REPLAY.json"
+        ],
+        "source_first_PV": "NO"
+      },
+      "status": "accepted_at_declared_boundary",
+      "remaining_obligations": [
+        "Published original computations not rerun",
+        "Two actual-li definition bridges explicit",
+        "Not source-first slab program PV",
+        "Finite source-first prefix below640b remains"
+      ],
+      "source_scope": "Exact written-source identities and source locators in linked manifests; selected result ledger does not establish exhaustive all-repository source audit."
+    },
+    {
+      "result_id": "POST-MERTENS-POSITIVE",
+      "arm": "POST_LOCK_SYNTHESIS",
+      "phase": "synthesis",
+      "statement": "A(x)-logx-E>.006/sqrtx, A=sum_(p<=x)logp/p, E=-gamma-sum_p logp/(p*(p-1))",
+      "domain": "exp24<=x<=1e19",
+      "normalization": "L=logx; Epsi=abs(psi-x)/x; Epi=L*abs(pi-Li2)/x; G=e*x/logx*pi(x/e)-pi(x)^2; RG=logx^6/x^2*G",
+      "hypotheses": [
+        {
+          "id": "RH",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "BFKNWProp29(ii)Eq154",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "BFKNWLemma21",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "Buthe finite psi bound",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "Buthe finite theta upper",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "Buthe finite theta lower",
+          "status": "explicit_hypothesis_or_source_predicate"
+        }
+      ],
+      "baseline_ids": [
+        "historical-source-current-21roots",
+        "applicable-RH-primary-literature"
+      ],
+      "provenance": {
+        "mechanisms": [
+          "full-prime power correction",
+          "finite Abel and integral proof",
+          "retained signed square-prime contribution"
+        ],
+        "coordinator_ideas_retroactive_arm_credit": false
+      },
+      "evidence": {
+        "kind": "kernel_checked_conditional_consumer",
+        "paths": [
+          "MertensPositive/IEANTNAdapters.lean",
+          "MertensPositive/FINAL_THEOREM_TYPE.txt",
+          "MertensPositive/ALLMODE_REPLAYS.json"
+        ],
+        "source_first_PV": "NO"
+      },
+      "status": "accepted_at_declared_boundary",
+      "remaining_obligations": [
+        "Published five source predicates retained",
+        "No global priority claim; source Table13 stronger locally",
+        "Not source-first PV"
+      ],
+      "source_scope": "Exact written-source identities and source locators in linked manifests; selected result ledger does not establish exhaustive all-repository source audit."
+    },
+    {
+      "result_id": "POST-CH-FINITE665",
+      "arm": "POST_LOCK_SYNTHESIS",
+      "phase": "synthesis",
+      "statement": "CH Cor1.3 plus same Ramanujan consumer gives a smaller finite-height pi envelope and at least the same exp665 window; last-cell RG margin>.403 versus .009051",
+      "domain": "finite-height analytic window through exp665",
+      "normalization": "L=logx; Epsi=abs(psi-x)/x; Epi=L*abs(pi-Li2)/x; G=e*x/logx*pi(x/e)-pi(x)^2; RG=logx^6/x^2*G",
+      "hypotheses": [
+        {
+          "id": "published RH-height3e12",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "CH Cor1.3",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "same consumer prime-power/li inputs",
+          "status": "explicit_hypothesis_or_source_predicate"
+        }
+      ],
+      "baseline_ids": [
+        "historical-source-current-21roots",
+        "applicable-RH-primary-literature"
+      ],
+      "provenance": {
+        "mechanisms": [
+          "stronger literature baseline",
+          "same-consumer post-lock adaptation"
+        ],
+        "coordinator_ideas_retroactive_arm_credit": false
+      },
+      "evidence": {
+        "kind": "written_analytic_derivation",
+        "paths": [
+          "review/final-NL"
+        ],
+        "source_first_PV": "NO"
+      },
+      "status": "reviewed_written_or_computational_see_final_review",
+      "remaining_obligations": [
+        "Written reviewer synthesis, not arm result",
+        "No cold source-first verification of original height computation"
+      ],
+      "source_scope": "Exact written-source identities and source locators in linked manifests; selected result ledger does not establish exhaustive all-repository source audit."
+    },
+    {
+      "result_id": "POST-FORWARD243",
+      "arm": "POST_LOCK_SYNTHESIS",
+      "phase": "synthesis",
+      "statement": "For every real u>=exp24, pi(u+2.43*sqrtu*logu)-pi(u)>(1+.04/logu)*sqrtu>sqrtu; same strict bound counts primes in the open forward interval",
+      "domain": "[exp24,infinity)",
+      "normalization": "L=logx; Epsi=abs(psi-x)/x; Epi=L*abs(pi-Li2)/x; G=e*x/logx*pi(x/e)-pi(x)^2; RG=logx^6/x^2*G",
+      "hypotheses": [
+        {
+          "id": "RH",
+          "status": "explicit_hypothesis_or_source_predicate"
+        },
+        {
+          "id": "final NL parabolic count theorem and its stated analytic inputs",
+          "status": "explicit_hypothesis_or_source_predicate"
+        }
+      ],
+      "baseline_ids": [
+        "historical-source-current-21roots",
+        "applicable-RH-primary-literature"
+      ],
+      "provenance": {
+        "mechanisms": [
+          "exact whole-ray forward conversion",
+          "strict endpoint and IVT proof",
+          "independently verified post-lock synthesis"
+        ],
+        "coordinator_ideas_retroactive_arm_credit": false
+      },
+      "evidence": {
+        "kind": "written_analytic_derivation",
+        "paths": [
+          "review/postlock-forward243/PROOF.html",
+          "review/postlock-forward243/RECEIPT.json",
+          "review/post-lock-forward243-independent/REVIEW.html"
+        ],
+        "source_first_PV": "NO"
+      },
+      "status": "reviewed_written_or_computational_see_final_review",
+      "remaining_obligations": [
+        "Written analytic theorem, not full Lean or source-first PV",
+        "Pointwise vanishing bonus alone does not prove strict liminf>1 at exact2.43",
+        "No global-best claim"
+      ],
+      "source_scope": "Exact written-source identities and source locators in linked manifests; selected result ledger does not establish exhaustive all-repository source audit."
+    }
+  ],
+  "primary_outcomes_unchanged": true,
+  "counts_are_not_independent_trials": true,
+  "acceptance_requires_final_review_receipt": true
+}

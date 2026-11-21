@@ -1,0 +1,33 @@
+Why the positive Mertens conclusion follows
+
+Write CA(x)=Σn≤xΛ(n)/n, where Λ(pᵏ)=log p and Λ(n)=0 otherwise. The normalization constant forces the prime-power correction to include all primes, including primes greater than x. This exact identity is now proved:
+
+A ( x ) − log x − E = C A ( x ) − log x + γ + T_(A) ( x ) , T_(A) ( x ) = ∑ p , k ≥ 2 , p^(k) > x (log p)/(p^(k)) .
+
+RH turns BFKNW’s actual zero sum into a reciprocal-ordinate mass divided by √x. Its published bound, relaxed to 0.0476 for a transparent interface, combines with Büthe’s 0.94 bound. For y=√x and M=10¹⁹, keep only square primes y<p≤M in the positive tail, then apply finite Abel summation and the signed θ bounds:
+
+| C A ( x ) − log x + γ | ≤ (.94 + .0476)/(sqrt(x)) + (2)/(x) , T_(A) ( x ) ≥ (1)/(y) − (2.55)/(y sqrt(y)) − (2)/(M) .
+
+y ( A ( x ) − log x − E ) > .993624998 − .9876 − (1)/(80000) > .006 .
+
+The endpoint estimates use √y≥exp(6)>400 and y/M<10⁻⁹ throughout the stated closed band. The positive prime-square tail is larger than the worst permitted negative CA error, giving the strict sign. There is no assumed sign, no hardcoded answer, no infinite-range extrapolation, and no need for a prime list up to 10¹⁹. The published source computations inside the retained predicates have not thereby been rerun.
+
+P ( x ) = ∏ p ≤ x ( 1 − 1 / p )^(− 1) , B = γ + ∑ p ( log ( 1 − 1 / p ) + 1 / p ) , D_(B) ( x ) = ∑ p ≤ x (1)/(p) − log log x − B .
+
+B is the reciprocal-prime Mertens constant; P is the Mertens product. All finite prime sums here include exactly p≤x.
+
+NL independently recovered another cancellation. Put D_A=A−log x−E and D_W=log P−log log x−γ, with D_B defined above. Its written result is
+
+(.13)/(sqrt(x) log x) < D_(A) − ( log x ) D_(s) < (2.39)/(sqrt(x) log x) , s ∈ { B , W } , x ≥ e^(24) .
+
+The review corrects the full-prime tail identity throughout the argument. For W the correction adds at most 1.045/x to the stated intermediate upper estimate; the final 2.39 constant still holds. Independent absolute error bars would lose the common oscillatory endpoint and would not imply this signed conclusion. This remains a written analytic result rather than a completed formal Mertens proof.
+
+The full arm independently proves a different signed cancellation for the Mertens product. With P(x)=∏p≤x(1−1/p)⁻¹ and L≥34, its written spectral band and actual θ relay give
+
+log (P ( x ))/(e^(γ) log θ ( x )) ≥ (1.876)/(sqrt(x) log x) .
+
+log (P ( x ))/(e^(γ) L) − (ψ ( x ) − x)/(x L) ≥ (.886)/(sqrt(x) L) , ψ ( x ) − θ ( x ) ≥ .99 sqrt(x) , L ≥ 34 .
+
+The first displayed inequality in this line is the exact retained spectral-band premise. Subtracting the log-log tangent at x cancels ψ−x; adding the square-prime allowance gives .886+.99=1.876. If N is the primorial ∏p≤x p, then θ(x)=log N, explaining this normalization.
+
+The Lean consumer proves the logarithm cancellation and θ positivity but retains its .886 lower spectral band as an explicit premise. It therefore verifies the downstream deduction, not the unformalized integrated spectral formula.

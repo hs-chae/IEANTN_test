@@ -1,0 +1,1 @@
+export LEAN_PATH=/work:/generic/lib/mathlib:/generic/lib/plausible:/generic/lib/LeanSearchClient:/generic/lib/importGraph:/generic/lib/proofwidgets:/generic/lib/aesop:/generic/lib/Qq:/generic/lib/batteries:/application-cache:/ieantn

@@ -1,0 +1,179 @@
+{
+  "review_type": "fresh independent report-reader review",
+  "created_utc": "2026-11-21T03:21:07.388501+00:00",
+  "status": "completed_full_read_with_located_revision_requests",
+  "inputs": [
+    {
+      "language": "EN",
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-propagation-20261120/reports/RH_PROPAGATION_REPORT_EN.html",
+      "sha256": "2e235f8cc6910847b848b9d1850e1160fd108ec4f6ee13702f0ab055fea765e8",
+      "bytes": 855267,
+      "extracted_text": "/data/ivy-rh-propagation-20261120/review/fresh-report-reader-v1/EN.full.txt",
+      "read_order": 1,
+      "full_linear_read_completed": true
+    },
+    {
+      "language": "KO",
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-propagation-20261120/reports/RH_PROPAGATION_REPORT_KO.html",
+      "sha256": "a50fa11874713042ccf097a8b1e80c007dc8fb6d02801b693c4ac72a24d282d6",
+      "bytes": 857779,
+      "extracted_text": "/data/ivy-rh-propagation-20261120/review/fresh-report-reader-v1/KO.full.txt",
+      "read_order": 2,
+      "full_linear_read_completed": true
+    }
+  ],
+  "reader_contract": "Mathematically literate project owner: actual results, exact assumptions/domains, independent arms, post-lock coordinator, source-first PV, reproduction. No redesign of proofs.",
+  "what_read": [
+    "The current EN HTML body from beginning through reproduction, including all displayed/inline MathML and expanded source-proof audit appendix.",
+    "Then the current KO HTML body in the same linear order, including the entire English-language appendix.",
+    "Embedded font-license text was extracted and encountered; embedded base64 font/CSS data was excluded."
+  ],
+  "what_not_read": [
+    "Original research sources or linked PDFs",
+    "Prior reviews",
+    "Worker transcripts",
+    "Project memories",
+    "Any other project files"
+  ],
+  "method": "Python standard-library HTMLParser; semantic MathML-to-text extraction preserves fractions, roots, superscripts and subscripts. Initial bs4 import was unavailable, so a standard-library parser was used. No manuscript edits, source validation, browser rendering or proof checking performed.",
+  "version_note": "Initial extraction used earlier EN e492c372136a52a1644b6d02f428321570c5762e4528240c439e626bbf2e1a7b and KO 9012714b244fe83489f312f0b4849de4f735b1959a5ccd742d4fd21a79fa6ca1; after parent refresh, both final inputs above were fully reread in EN-then-KO order. The removed review-checkpoint notice is not a finding.",
+  "mathml_comparison": {
+    "objects_per_language": 110,
+    "structurally_identical": true
+  },
+  "positive_conclusions": [
+    "The headline all-real 640-billion Ramanujan result and positive Mertens band have clear numerical domains and explicit conditional/proof-level qualifications.",
+    "Locked NL/IEANTN discoveries are repeatedly distinguished from later coordinator/reviewer mathematical work; unequal final elapsed times and time-matched checkpoints are distinguished.",
+    "The report clearly distinguishes inherited C source-linked outputs, independent kernel arithmetic, native C++ execution, written analytic proofs and remaining finite source-first coverage.",
+    "Reproduction separates deterministic proof replay from stochastic rediscovery, states retained published computation inputs, and gives useful named artifacts and commands.",
+    "No new source/math defect is established by this reader-only review."
+  ],
+  "findings": [
+    {
+      "id": "FR1",
+      "priority": "medium",
+      "kind": "undefined_notation",
+      "languages": [
+        "EN",
+        "KO"
+      ],
+      "location": {
+        "anchor": "mertens-proof",
+        "blocks": "0084,0090–0094"
+      },
+      "fragment": "CA(x)=ΣΛ(n)/n; D_B=Σ1/p−log log x−B; D_W=log P−log log x−γ",
+      "reader_question": "What are the cutoffs in these two sums, what is B, and what is P when D_W first appears? The constant B is never identified. P is defined only after its first use. Calling the explicitly defined reciprocal Euler product a primorial product also suggests the different product ∏p.",
+      "action": "Give CA(x)=Σ_{n≤x}Λ(n)/n and define Λ; give the p≤x cutoff and identify the reciprocal-prime Mertens constant in D_B; define P before D_W. Call P the Mertens product or reciprocal Euler product. Identify γ once as Euler’s constant.",
+      "impact": "A mathematically literate reader can follow the first result but cannot reconstruct the later three-error cancellation from the stated definitions alone."
+    },
+    {
+      "id": "FR2",
+      "priority": "medium",
+      "kind": "unstated_exact_premise",
+      "languages": [
+        "EN",
+        "KO"
+      ],
+      "location": {
+        "anchors": [
+          "pnt",
+          "mertens-proof"
+        ],
+        "blocks": "0028,0095"
+      },
+      "fragment": "thirteen analytic source predicates / eight named analytic predicates; retains its .886 lower spectral band as an explicit premise",
+      "reader_question": "Which precise premises distinguish the two compiled PNT branches, and what exact inequality is the .886 spectral band? The output 1.876 is displayed, but the assumption to which the formal consumer is conditional is only named.",
+      "action": "Provide a direct branch-specific theorem-type/premise link beside each 13/8 count. Display the .886 premise with its normalized quantity and domain, then one line connecting it and the θ transfer to 1.876.",
+      "impact": "The report is careful about conditional status, but these two passages still prevent the reader from assessing the exact conditional mathematical claim."
+    },
+    {
+      "id": "FR3",
+      "priority": "medium",
+      "kind": "missing_error_relation",
+      "languages": [
+        "EN",
+        "KO"
+      ],
+      "location": {
+        "anchor": "ramanujan",
+        "blocks": "0100–0102"
+      },
+      "fragment": "one obtains the normalized π allowance below; ε_CH(u)=... , u=log x≥12",
+      "reader_question": "Does ε_CH bound Eπ defined earlier, the li-based signed deficit, or another quantity? Is u≥12 the complete admitted range after every finite-height condition is paid?",
+      "action": "State the actual inequality bounded by ε_CH, identify li versus Li₂ explicitly, and give its complete finite-height/domain hypotheses beside it. Name and link the cited Corollary 1.3 here; the following source line currently names Corollary 1.2.",
+      "impact": "Without this link the exp(665) Ramanujan comparison cannot be connected to the displayed π normalization. This is a request to expose the existing argument, not an assertion that the bound is false."
+    },
+    {
+      "id": "FR4",
+      "priority": "low",
+      "kind": "missing_consumer_statement",
+      "languages": [
+        "EN",
+        "KO"
+      ],
+      "location": {
+        "anchor": "historical",
+        "blocks": "0125,0131–0132"
+      },
+      "fragment": "W turns R into a prime-rich interval width; W(L)=...",
+      "reader_question": "What exact interval and guaranteed prime count does W(log x) produce? The formula defines a dimensionless coefficient but never states its theorem.",
+      "action": "State the historical inequality involving W(log x), its x-scale, prime-count lower bound and admitted range; otherwise omit this unused formula from the reading report and retain the ledger link.",
+      "impact": "The historical side is otherwise precise, but a width coefficient alone is not yet a comparable short-interval result."
+    },
+    {
+      "id": "FR5",
+      "priority": "low",
+      "kind": "unexplained_coefficient_connection",
+      "languages": [
+        "EN",
+        "KO"
+      ],
+      "location": {
+        "anchor": "pnt",
+        "blocks": "0024–0025"
+      },
+      "fragment": "Regularized Mellin moments ... bounded by 0.831 and 0.574",
+      "reader_question": "Which two regularized integrals are meant, and how do they enter B5? The report gives a transform and quadrature mesh but not the mathematical quantities being enclosed.",
+      "action": "Define the two integrals (including their regularization) or link their exact displayed definitions at this sentence; briefly identify their relation to the 1.662 and 1.148 terms.",
+      "impact": "This is the main NL analytic advance, and one local definition would make its mechanism explainable without requiring the reader to infer the omitted transform argument."
+    },
+    {
+      "id": "FR6",
+      "priority": "low",
+      "kind": "overloaded_acronym",
+      "languages": [
+        "EN",
+        "KO"
+      ],
+      "location": {
+        "anchors": [
+          "results",
+          "trust"
+        ],
+        "blocks": "0006,0123"
+      },
+      "fragment": "li(x)=PV∫... ; “PV” means source-first program verification throughout this report",
+      "reader_question": "The displayed integral uses conventional PV for principal value, whereas the later sentence says PV always has a different meaning.",
+      "action": "Qualify the program-verification usage explicitly and spell out Cauchy principal value at the li definition (or choose a different integral label).",
+      "impact": "The proof boundary itself is well distinguished; this small wording change removes an avoidable ambiguity in the same report."
+    },
+    {
+      "id": "FR7",
+      "priority": "medium",
+      "kind": "language_completion",
+      "languages": [
+        "KO"
+      ],
+      "location": {
+        "section": "정확한 출처 증명 검토 부록",
+        "blocks": "0137–0212"
+      },
+      "fragment": "Source defects with a conditional repair ... [all appendix prose is English]",
+      "reader_question": "Is the Korean version intended to contain an English-only audit appendix? Its disclosure label is Korean but all four findings, repairs and evidence paragraphs remain English.",
+      "action": "Translate the appendix’s explanatory prose and headings in the Korean edition, retaining the shared exact mathematical statements and source locators. If deliberately English-only, label that limitation explicitly before opening the appendix.",
+      "impact": "The main Korean report is consistent with the English report, but a Korean-reading owner cannot read the detailed proof repair in Korean."
+    }
+  ],
+  "repetition_assessment": "Repeated source-first and post-lock qualifications carry distinct local purposes. The four long identical project/Blueprint-absence paragraphs are burdensome but confined to a collapsed appendix and support card-local provenance; no removal is required by this review.",
+  "overall": "The mathematical narrative and attribution boundaries are substantially understandable. Address the missing definitions, exact premise/normalization connections and Korean appendix language before treating the report as a fully self-contained bilingual reading artifact."
+}

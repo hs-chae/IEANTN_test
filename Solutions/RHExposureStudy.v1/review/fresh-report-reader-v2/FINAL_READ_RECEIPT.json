@@ -1,0 +1,131 @@
+{
+  "review_type": "complete linear reread after report revisions",
+  "created_utc": "2026-11-21T03:26:39.496339+00:00",
+  "status": "full_read_complete_minor_editorial_residues_only",
+  "inputs": [
+    {
+      "language": "EN",
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-propagation-20261120/reports/RH_PROPAGATION_REPORT_EN.html",
+      "sha256": "1bfc700e6244daedc8fd4f6fa2916d18a3adb9a91d5c5cf27e0305f6c2890cb9",
+      "bytes": 863002,
+      "read_order": 1,
+      "full_linear_read_completed": true,
+      "extracted_read_text": "/data/ivy-rh-propagation-20261120/review/fresh-report-reader-v2/EN.full.txt"
+    },
+    {
+      "language": "KO",
+      "path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-propagation-20261120/reports/RH_PROPAGATION_REPORT_KO.html",
+      "sha256": "95466af3432a6dd01e048d2a24885093ec24797a106217e41bf5d26c68dd455f",
+      "bytes": 868083,
+      "read_order": 2,
+      "full_linear_read_completed": true,
+      "extracted_read_text": "/data/ivy-rh-propagation-20261120/review/fresh-report-reader-v2/KO.full.txt"
+    }
+  ],
+  "reader_contract": "Mathematically literate owner: actual results, exact assumptions/domains, independent arms versus post-lock coordinator, actual source-first PV boundary and reproduction. No proof redesign.",
+  "what_read": "Both latest manuscript bodies in full, EN then KO, including all displayed/inline MathML, full expanded source-audit appendix and reproduction section. Embedded font license encountered; base64/CSS excluded.",
+  "what_not_read": [
+    "Original research sources and linked PDFs",
+    "Earlier review files",
+    "Worker transcripts",
+    "Project memories",
+    "Proof/program source or other project files"
+  ],
+  "method": "Standard-library HTMLParser and semantic MathML extraction; direct manuscript markup inspection for branch links and duplicate audit wrappers. No manuscript edits, source audit, proof checking, reproduction execution or browser-layout claim.",
+  "mathml": {
+    "objects_per_language": [
+      115,
+      115
+    ],
+    "all_raw_subtrees_byte_identical": true
+  },
+  "requested_change_verification": [
+    {
+      "id": "FR1",
+      "status": "substantially_resolved_one_label_residue",
+      "evidence": "CA cutoff and von Mangoldt definition at 0089; full P/B/DB definitions at 0095–0096 before D_W; Euler constant at 0007. Only the frontier table label remains (V2-1)."
+    },
+    {
+      "id": "FR2",
+      "status": "resolved",
+      "evidence": "Branch-specific direct links to PNTFormal.lean and PNTClosed.lean at 0033; exact .886 premise and .99 transfer at 0102; .886+.99=1.876 explanation at 0103."
+    },
+    {
+      "id": "FR3",
+      "status": "resolved_as_reading_issue",
+      "evidence": "Displayed li-based normalized π-error relation at 0111, complete u≥12 scope and retained published finite-height inputs, Li₂ adjustment and exp665 application limit at 0112, exact Corollary1.3 PDF locator at 0113. No source validation performed."
+    },
+    {
+      "id": "FR4",
+      "status": "resolved",
+      "evidence": "Actual interval and count inequality for W, x≥exp330, W<.017 at 0144; retained fourteen inputs and historical attribution at 0145."
+    },
+    {
+      "id": "FR5",
+      "status": "resolved_with_one_Korean_wording_residue",
+      "evidence": "Regularized Mellin I_j definition at 0028; 2I₀v and 2I₁ connection at 0029. See V2-2 for the Korean endpoint wording."
+    },
+    {
+      "id": "FR6",
+      "status": "resolved",
+      "evidence": "c.p.v. integral notation at 0006; Cauchy principal value and separate PV program-verification usage at 0007."
+    },
+    {
+      "id": "FR7",
+      "status": "translation_resolved_integration_wrapper_residue",
+      "evidence": "Entire Korean appendix read at 0152–0227; mathematics, retained-source inputs, non-discovery attribution and conditional repair boundary are consistent with EN. Only disclosure duplication remains (V2-3)."
+    }
+  ],
+  "findings": [
+    {
+      "id": "V2-1",
+      "priority": "low",
+      "location": {
+        "languages": [
+          "EN",
+          "KO"
+        ],
+        "anchor": "frontier",
+        "block": "0066"
+      },
+      "fragment": "primorial margin 1.876 / primorial 여유 1.876",
+      "issue": "The prose now correctly names P the Mertens product and separately defines the primorial N, but this table label still calls the P-based margin primorial.",
+      "action": "Use “Mertens-product margin” / “메르텐스 곱 여유” consistently in this table cell.",
+      "material_mathematical_defect": false
+    },
+    {
+      "id": "V2-2",
+      "priority": "low",
+      "location": {
+        "languages": [
+          "KO"
+        ],
+        "anchor": "pnt",
+        "block": "0029"
+      },
+      "fragment": "정규화는 영점 근방의 상수항을 빼서",
+      "issue": "The English says “near zero”, meaning the integration endpoint y=0. In the surrounding zero-sum discussion “영점” suggests a zeta zero.",
+      "action": "Write “정규화는 y=0 근방의 상수항을 빼서…” or “정규화는 0 근방의 상수항을 빼서…”.",
+      "material_mathematical_defect": false
+    },
+    {
+      "id": "V2-3",
+      "priority": "low",
+      "location": {
+        "languages": [
+          "KO"
+        ],
+        "section": "source-proof audit appendix",
+        "blocks": "0150–0151"
+      },
+      "fragment": "Two consecutive audit summaries, with two nested <details class=\"audit\"> wrappers.",
+      "issue": "The translated full appendix was inserted inside the previous audit wrapper. EN has one audit wrapper; KO has two, requiring an unnecessary second disclosure click. The appendix prose itself is readable.",
+      "action": "Keep one audit disclosure wrapper and one summary around the translated appendix.",
+      "material_mathematical_defect": false
+    }
+  ],
+  "mathematical_narrative": "The revised report communicates the two completed conditional consumers, written NL advance and full-function comparison, IEANTN reuse, post-lock synthesis and remaining source-first finite-prefix gap clearly. It does not conflate kernel arithmetic, native C++ execution and source-first program verification. No new mathematical/proof defect is established by this reader-only reread.",
+  "translation_assessment": "Korean source-audit explanations, proof-boundary qualifications and repair are readable and faithful; exact primary locators remain English identifiers. All mathematical subtrees match EN exactly. The verbatim font license appropriately remains English.",
+  "known_publication_gate": "Parent states the claimed independently tested Ramanujan source-only reproduction command is still awaiting its actual receipt. This is a known pending publication/reproduction gate, not a new mathematical proof objection and not validated by this reader.",
+  "completion_condition": "Resolve the three local editorial residues and complete the separately tracked publication gates; no mathematical rewrite or extra discovery work is requested."
+}

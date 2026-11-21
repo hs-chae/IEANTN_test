@@ -1,0 +1,902 @@
+{
+  "schema": "RAMANUJAN640_FINAL_SOURCE_ONLY_KERNEL_VERIFICATION_V2",
+  "utc": "2026-11-21T03:43:18.392922+00:00",
+  "status": "PASS_ACTUAL_ALL_REAL_THEOREM_AND_RELOCATED_SOURCE_ONLY_REPRODUCTION",
+  "claim": "Every real x>=640000000000 has RG(x)>=1/25 and G(x)>=x^2/(25*(log x)^6).",
+  "source_inputs": [
+    {
+      "id": "RH",
+      "statement": "The exact SharedRH.hypothesis = pinned Mathlib RiemannHypothesis.",
+      "locator": "src/SharedRH.lean; initial common mission."
+    },
+    {
+      "id": "B-Table2",
+      "statement": "Every listed(v,m,M) bounds the signed normalized li-J deficit on the full closed[v,2v].",
+      "url": "https://arxiv.org/pdf/1511.02032v2#page=16",
+      "locator": "Table2,printed/PDFp16; old Buthe.v1.table_2_interval_bounds; all31rows exact-audited."
+    },
+    {
+      "id": "B-1.8",
+      "statement": "|li(t)-J(t)|<sqrt(t)/log(t),2<=t<=10^19.",
+      "url": "https://arxiv.org/pdf/1511.02032v2#page=2",
+      "locator": "Theorem2 Eq1.8"
+    },
+    {
+      "id": "B-1.9",
+      "statement": "li(t)-pi(t)<=sqrt(t)/log(t)*(1.95+3.9/log(t)+19.5/log(t)^2),2<=t<=10^19.",
+      "url": "https://arxiv.org/pdf/1511.02032v2#page=2",
+      "locator": "Theorem2 Eq1.9"
+    },
+    {
+      "id": "B-1.10",
+      "statement": "li(t)-pi(t)>0,2<=t<=10^19.",
+      "url": "https://arxiv.org/pdf/1511.02032v2#page=2",
+      "locator": "Theorem2 Eq1.10"
+    },
+    {
+      "id": "B2016-7.2",
+      "statement": "Partial RH to admissible finiteT gives |pi(t)-li(t)|<=sqrt(t)*log(t)/(8*pi),t>2657,4.92*sqrt(t/log(t))<=T; RH supplies each such finiteT.",
+      "url": "https://arxiv.org/pdf/1410.7015v4#page=13",
+      "locator": "Theorem2 Eq7.2,printed/PDFp13"
+    },
+    {
+      "id": "li-series",
+      "statement": "For x>1,the actual PV li(x)=gamma+log(log(x))+sum_{n>=1}(log(x))^n/(n*n!).",
+      "url": "https://dlmf.nist.gov/6.2.E8",
+      "second_url": "https://dlmf.nist.gov/6.6.E1",
+      "locator": "DLMF6.2.8 and6.6.1; original officialTexbytes pinned in analytic-reuse/source-pins.",
+      "formal_status": "Explicit source contract,not proved from IEANTN.limUnder PV definition."
+    },
+    {
+      "id": "li-derivative",
+      "statement": "For every x>1,HasDerivAt IEANTN.li (1/log(x)) x.",
+      "url": "https://dlmf.nist.gov/6.2.E8",
+      "locator": "Derivative of the displayed PV integral away from its singularity; standard fundamental theorem of calculus.",
+      "formal_status": "Explicit prime-free source/definition bridge,not proved from IEANTN.limUnder PV definition."
+    }
+  ],
+  "source_input_count": 8,
+  "actual_theorems": [
+    "Ramanujan640.ramanujan_640b",
+    "Ramanujan640.actual_gap_640b"
+  ],
+  "source_first_PV": false,
+  "native_decide": false,
+  "new_mathematics_credit": "Post-lock verification engineering; no retroactive independent-arm discovery credit.",
+  "remaining_source_boundary": [
+    "Formal derivation of standard li-series and x>1 derivative from the project principal-value limUnder definition remains external; both are explicit genuine source contracts in the final type.",
+    "Published B\u00fcthe prime-count/zero computations are literature inputs,not rerun.",
+    "No actual C coefficient constructor is consumed by this640b proof,so no connected C source-firstPV claim."
+  ],
+  "standard_global_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "desired_margin_or_numerical_success_assumptions": false,
+  "source_module_count": 146,
+  "checker_source_module_count": 92,
+  "application_and_checker_cached_objects_used": false,
+  "new_proof_cached_objects_used": false,
+  "generic_binary_prerequisites": [
+    {
+      "name": "mathlib",
+      "default_root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/mathlib/.lake/build/lib/lean",
+      "revision": "71a80585ee495fc24472fd0eaffc89d94e4fd8d6",
+      "inventory": "generic-inventories/mathlib.json",
+      "inventory_sha256": "15fe6ca2d5f548e37a711cddacce8aa2ebce030ede1a90d72bd19a5e7f481749"
+    },
+    {
+      "name": "plausible",
+      "default_root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/plausible/.lake/build/lib/lean",
+      "revision": "d9598f07b1bc701f1e3aae163d2681c1fd978793",
+      "inventory": "generic-inventories/plausible.json",
+      "inventory_sha256": "e83af7803065e77ec5b434069a8bedb630e663d1af152eda793fec9c9dcdc107"
+    },
+    {
+      "name": "LeanSearchClient",
+      "default_root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/LeanSearchClient/.lake/build/lib/lean",
+      "revision": "ba67e212be1197b84c1f1f6299488a10a3002713",
+      "inventory": "generic-inventories/LeanSearchClient.json",
+      "inventory_sha256": "6d53dbdaece1bcc4294b57a84bce9cbddccef83bc5be4781723c7b9d9f2e4be8"
+    },
+    {
+      "name": "importGraph",
+      "default_root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/importGraph/.lake/build/lib/lean",
+      "revision": "1681d78dd6e65e38b143f9740d829c826673807c",
+      "inventory": "generic-inventories/importGraph.json",
+      "inventory_sha256": "4ed031cf3ba5d58a65601050c0d6db17c81bd71f9090072d62e7f7eb6791a273"
+    },
+    {
+      "name": "proofwidgets",
+      "default_root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/proofwidgets/.lake/build/lib/lean",
+      "revision": "a8acbfd87375ff4abe14ce09db5b7664d383bc7f",
+      "inventory": "generic-inventories/proofwidgets.json",
+      "inventory_sha256": "13274d9d3fb3d49876e3ac4c03712b738dbf327102ad3b31a00136283f0786ca"
+    },
+    {
+      "name": "aesop",
+      "default_root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/aesop/.lake/build/lib/lean",
+      "revision": "18889deb9e83ea7420ef51c160d6f88552e744e3",
+      "inventory": "generic-inventories/aesop.json",
+      "inventory_sha256": "c92f8a019180cfd8e339965049e737c00f1f75554ae5553b5e6cde38513a6f67"
+    },
+    {
+      "name": "Qq",
+      "default_root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/Qq/.lake/build/lib/lean",
+      "revision": "507746ab8f4b643ccdacb2ec4cdb5853fa9f8ab3",
+      "inventory": "generic-inventories/Qq.json",
+      "inventory_sha256": "75946593726b9f1bfb7ed854c79c764bacd88bc083c3587482a80ec42abd7d23"
+    },
+    {
+      "name": "batteries",
+      "default_root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/batteries/.lake/build/lib/lean",
+      "revision": "4cac2177c37f5530c4da76aa8e4307f3fc9e4dcb",
+      "inventory": "generic-inventories/batteries.json",
+      "inventory_sha256": "1a109e15ac8efd824ea329dbb3bc79af308022bb845d2c5b81fade612b944deb"
+    }
+  ],
+  "compiler": "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+  "compiler_sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+  "all_generic_inventory_files_checked": true,
+  "frozen_raw_input_sha256": "be96467c3c471017ea8c45aa0368b9fe15329223bff901a630a8ac1068735daf",
+  "final_source_sha256": "153d2b31e6980db425cc747c4dec8dbb82f132dd69690e916d116ed8bace0def",
+  "final_object_sha256": "de48c87555793b504dc94531f686d949fa0a2cd6de457e63a4ea090fc799edf8",
+  "source_manifest_sha256": "387d45b9063d44a020f920fb6f471ae9b88572d3e61ca49c4726cc1e01886630",
+  "source_replay_receipt": {
+    "file": "/data/ivy-rh-propagation-20261120/post-lock-verification/Ramanujan640-v1/portable-source-v2/relocated-replay-v2/RESULT.json",
+    "sha256": "56cc885db7cdf32b9675c246ed3ccc2e64ef203696e34f3bf88f8bafb63af39f"
+  },
+  "validator_matrix": {
+    "file": "/data/ivy-rh-propagation-20261120/post-lock-verification/Ramanujan640-v1/validator-controls/portable-v2-matrix-v2/RESULT.json",
+    "sha256": "d9c658d6247e5a322fb379964f69b2fa3938b84ee237934f65fac8813265839d",
+    "actual_cli_invocations": 465,
+    "active_children": 146
+  },
+  "resource_summary": {
+    "peak_single_compiler_rss_kib": 10040160,
+    "recorded_witness_and_build_phase_wall_seconds": 1232.742086,
+    "compiler_children": [
+      {
+        "module": "IEANTN.Vocabulary.PrimeCounting",
+        "elapsed_seconds": 1.77,
+        "peak_rss_kib": 3002996
+      },
+      {
+        "module": "RamanujanPV.Intervals",
+        "elapsed_seconds": 8.43,
+        "peak_rss_kib": 6920912
+      },
+      {
+        "module": "SharedRH",
+        "elapsed_seconds": 2.13,
+        "peak_rss_kib": 3424744
+      },
+      {
+        "module": "IEANTN.Nodes.RamanujanGap.v1.Conclusions",
+        "elapsed_seconds": 1.95,
+        "peak_rss_kib": 3001608
+      },
+      {
+        "module": "IEANTN.Vocabulary.ErrorTerms",
+        "elapsed_seconds": 1.97,
+        "peak_rss_kib": 3125652
+      },
+      {
+        "module": "IEANTN.Nodes.Buthe.v1.Tables",
+        "elapsed_seconds": 3.73,
+        "peak_rss_kib": 3143768
+      },
+      {
+        "module": "IEANTN.Nodes.Buthe.v1.Conclusions",
+        "elapsed_seconds": 1.86,
+        "peak_rss_kib": 3125788
+      },
+      {
+        "module": "RamAlgebra",
+        "elapsed_seconds": 4.16,
+        "peak_rss_kib": 6890412
+      },
+      {
+        "module": "LeanCert.Core.Interval",
+        "elapsed_seconds": 1.93,
+        "peak_rss_kib": 3129984
+      },
+      {
+        "module": "LeanCert.Core.IntervalRat.Basic",
+        "elapsed_seconds": 3.81,
+        "peak_rss_kib": 3200852
+      },
+      {
+        "module": "LeanCert.Tactic.IntervalAuto.Types",
+        "elapsed_seconds": 2.41,
+        "peak_rss_kib": 3547148
+      },
+      {
+        "module": "LeanCert.Tactic.IntervalAuto.Norm",
+        "elapsed_seconds": 2.4,
+        "peak_rss_kib": 3555544
+      },
+      {
+        "module": "LeanCert.Core.Expr",
+        "elapsed_seconds": 2.91,
+        "peak_rss_kib": 3209384
+      },
+      {
+        "module": "LeanCert.Meta.Numeral",
+        "elapsed_seconds": 2.42,
+        "peak_rss_kib": 3569768
+      },
+      {
+        "module": "LeanCert.Tactic.IntervalAuto.Extract",
+        "elapsed_seconds": 2.25,
+        "peak_rss_kib": 3552520
+      },
+      {
+        "module": "LeanCert.Meta.ToExpr",
+        "elapsed_seconds": 3.1,
+        "peak_rss_kib": 3614196
+      },
+      {
+        "module": "LeanCert.Tactic.IntervalAuto.Parse",
+        "elapsed_seconds": 3.25,
+        "peak_rss_kib": 3605040
+      },
+      {
+        "module": "LeanCert.Tactic.IntervalAuto.Diagnostic",
+        "elapsed_seconds": 2.23,
+        "peak_rss_kib": 3559656
+      },
+      {
+        "module": "LeanCert.Core.Support",
+        "elapsed_seconds": 2.21,
+        "peak_rss_kib": 3160088
+      },
+      {
+        "module": "LeanCert.Core.IntervalRat.Transcendental",
+        "elapsed_seconds": 2.71,
+        "peak_rss_kib": 3212032
+      },
+      {
+        "module": "LeanCert.Core.IntervalRat.LogReduction",
+        "elapsed_seconds": 2.71,
+        "peak_rss_kib": 3194716
+      },
+      {
+        "module": "LeanCert.Core.DerivativeIntervals",
+        "elapsed_seconds": 1.92,
+        "peak_rss_kib": 2767512
+      },
+      {
+        "module": "LeanCert.Core.Taylor",
+        "elapsed_seconds": 3.32,
+        "peak_rss_kib": 3229556
+      },
+      {
+        "module": "LeanCert.Core.IntervalRat.Taylor",
+        "elapsed_seconds": 7.23,
+        "peak_rss_kib": 3342656
+      },
+      {
+        "module": "LeanCert.Core.IntervalReal",
+        "elapsed_seconds": 2.06,
+        "peak_rss_kib": 3138344
+      },
+      {
+        "module": "LeanCert.Core.IntervalRealEndpoints",
+        "elapsed_seconds": 2.51,
+        "peak_rss_kib": 3208248
+      },
+      {
+        "module": "LeanCert.Core.TrigReduction",
+        "elapsed_seconds": 2.26,
+        "peak_rss_kib": 3145020
+      },
+      {
+        "module": "LeanCert.Core.IntervalRat.TrigReduced",
+        "elapsed_seconds": 2.02,
+        "peak_rss_kib": 3177148
+      },
+      {
+        "module": "LeanCert.Engine.Eval.Core",
+        "elapsed_seconds": 3.65,
+        "peak_rss_kib": 3265764
+      },
+      {
+        "module": "LeanCert.Engine.Eval.Result",
+        "elapsed_seconds": 1.99,
+        "peak_rss_kib": 3128352
+      },
+      {
+        "module": "LeanCert.Engine.Eval.Extended",
+        "elapsed_seconds": 2.53,
+        "peak_rss_kib": 3204244
+      },
+      {
+        "module": "LeanCert.Engine.Bounds.Lemmas",
+        "elapsed_seconds": 2.09,
+        "peak_rss_kib": 3166256
+      },
+      {
+        "module": "LeanCert.Engine.IntervalEval",
+        "elapsed_seconds": 1.86,
+        "peak_rss_kib": 3143452
+      },
+      {
+        "module": "LeanCert.Engine.AD.Basic",
+        "elapsed_seconds": 1.95,
+        "peak_rss_kib": 3168400
+      },
+      {
+        "module": "LeanCert.Engine.AD.Transcendental",
+        "elapsed_seconds": 2.68,
+        "peak_rss_kib": 3196244
+      },
+      {
+        "module": "LeanCert.Engine.AD.Eval",
+        "elapsed_seconds": 1.93,
+        "peak_rss_kib": 3157708
+      },
+      {
+        "module": "LeanCert.Engine.AD.Correctness",
+        "elapsed_seconds": 2.37,
+        "peak_rss_kib": 3197900
+      },
+      {
+        "module": "LeanCert.Contrib.Sinc",
+        "elapsed_seconds": 2.73,
+        "peak_rss_kib": 3183740
+      },
+      {
+        "module": "LeanCert.Engine.AD.PartialCorrectness",
+        "elapsed_seconds": 3.63,
+        "peak_rss_kib": 3246840
+      },
+      {
+        "module": "LeanCert.Engine.AD.Computable",
+        "elapsed_seconds": 2.4,
+        "peak_rss_kib": 3199660
+      },
+      {
+        "module": "LeanCert.Engine.AD.DomainChecked",
+        "elapsed_seconds": 2.37,
+        "peak_rss_kib": 3198124
+      },
+      {
+        "module": "LeanCert.Core.Dyadic",
+        "elapsed_seconds": 1.83,
+        "peak_rss_kib": 1742528
+      },
+      {
+        "module": "LeanCert.Core.IntervalDyadic",
+        "elapsed_seconds": 4.01,
+        "peak_rss_kib": 3245172
+      },
+      {
+        "module": "LeanCert.Engine.IntervalEvalDyadic",
+        "elapsed_seconds": 3.34,
+        "peak_rss_kib": 3248904
+      },
+      {
+        "module": "LeanCert.Engine.AD.Dyadic",
+        "elapsed_seconds": 2.77,
+        "peak_rss_kib": 3217060
+      },
+      {
+        "module": "LeanCert.Engine.AD",
+        "elapsed_seconds": 2.01,
+        "peak_rss_kib": 3155624
+      },
+      {
+        "module": "LeanCert.Meta.ProveSupported",
+        "elapsed_seconds": 2.48,
+        "peak_rss_kib": 3613900
+      },
+      {
+        "module": "LeanCert.Tactic.Verification",
+        "elapsed_seconds": 1.84,
+        "peak_rss_kib": 1670316
+      },
+      {
+        "module": "LeanCert.Tactic.LeanCert.Bridge.Environment",
+        "elapsed_seconds": 1.85,
+        "peak_rss_kib": 3105700
+      },
+      {
+        "module": "LeanCert.Tactic.LeanCert.Normalize",
+        "elapsed_seconds": 2.32,
+        "peak_rss_kib": 3562264
+      },
+      {
+        "module": "LeanCert.Tactic.IntervalAuto.ProveCommon",
+        "elapsed_seconds": 3.1,
+        "peak_rss_kib": 3652052
+      },
+      {
+        "module": "LeanCert.Tactic.IntervalAuto.Basic",
+        "elapsed_seconds": 2.15,
+        "peak_rss_kib": 3584296
+      },
+      {
+        "module": "LeanCert.Tactic.NumericalRefinement",
+        "elapsed_seconds": 0.41,
+        "peak_rss_kib": 498256
+      },
+      {
+        "module": "LeanCert.Engine.TaylorModel.Core",
+        "elapsed_seconds": 4.17,
+        "peak_rss_kib": 3280068
+      },
+      {
+        "module": "LeanCert.Engine.TaylorModel.Trig",
+        "elapsed_seconds": 5.19,
+        "peak_rss_kib": 3260676
+      },
+      {
+        "module": "LeanCert.Engine.TaylorModel.ExpLog",
+        "elapsed_seconds": 3.54,
+        "peak_rss_kib": 3236180
+      },
+      {
+        "module": "LeanCert.Engine.TaylorModel.Hyperbolic",
+        "elapsed_seconds": 5.23,
+        "peak_rss_kib": 3333692
+      },
+      {
+        "module": "LeanCert.Engine.TaylorModel.Special",
+        "elapsed_seconds": 1.98,
+        "peak_rss_kib": 3179480
+      },
+      {
+        "module": "LeanCert.Engine.TaylorModel.Functions",
+        "elapsed_seconds": 1.83,
+        "peak_rss_kib": 3177016
+      },
+      {
+        "module": "LeanCert.Engine.TaylorModel.Expr",
+        "elapsed_seconds": 2.8,
+        "peak_rss_kib": 3276308
+      },
+      {
+        "module": "LeanCert.Engine.Integrate",
+        "elapsed_seconds": 3.07,
+        "peak_rss_kib": 3233676
+      },
+      {
+        "module": "LeanCert.Engine.TaylorModel.Integral",
+        "elapsed_seconds": 2.31,
+        "peak_rss_kib": 3190600
+      },
+      {
+        "module": "LeanCert.Engine.TaylorModel",
+        "elapsed_seconds": 1.88,
+        "peak_rss_kib": 3180728
+      },
+      {
+        "module": "LeanCert.Engine.IntervalEvalRefined",
+        "elapsed_seconds": 2.37,
+        "peak_rss_kib": 3246152
+      },
+      {
+        "module": "LeanCert.Engine.Affine.Basic",
+        "elapsed_seconds": 3.28,
+        "peak_rss_kib": 3244384
+      },
+      {
+        "module": "LeanCert.Engine.Affine.Nonlinear",
+        "elapsed_seconds": 2.84,
+        "peak_rss_kib": 3209264
+      },
+      {
+        "module": "LeanCert.Engine.Affine.Transcendental",
+        "elapsed_seconds": 2.69,
+        "peak_rss_kib": 3204920
+      },
+      {
+        "module": "LeanCert.Engine.IntervalEvalAffine",
+        "elapsed_seconds": 3.19,
+        "peak_rss_kib": 3225600
+      },
+      {
+        "module": "LeanCert.Engine.Affine.Environment",
+        "elapsed_seconds": 2.63,
+        "peak_rss_kib": 3204384
+      },
+      {
+        "module": "LeanCert.Engine.Optimization.Box",
+        "elapsed_seconds": 2.21,
+        "peak_rss_kib": 3186820
+      },
+      {
+        "module": "LeanCert.Engine.Optimize",
+        "elapsed_seconds": 3.52,
+        "peak_rss_kib": 3226516
+      },
+      {
+        "module": "LeanCert.Engine.Optimization.Gradient",
+        "elapsed_seconds": 3.32,
+        "peak_rss_kib": 3246592
+      },
+      {
+        "module": "LeanCert.Engine.Optimization.Global",
+        "elapsed_seconds": 10.34,
+        "peak_rss_kib": 3441400
+      },
+      {
+        "module": "LeanCert.Engine.RootFinding.Basic",
+        "elapsed_seconds": 3.02,
+        "peak_rss_kib": 3218456
+      },
+      {
+        "module": "LeanCert.Engine.RootFinding.Bisection",
+        "elapsed_seconds": 2.77,
+        "peak_rss_kib": 3207220
+      },
+      {
+        "module": "LeanCert.Engine.RootFinding.Newton",
+        "elapsed_seconds": 2.74,
+        "peak_rss_kib": 3272216
+      },
+      {
+        "module": "LeanCert.Engine.RootFinding.MVTBounds",
+        "elapsed_seconds": 2.99,
+        "peak_rss_kib": 3302220
+      },
+      {
+        "module": "LeanCert.Engine.RootFinding.Contraction",
+        "elapsed_seconds": 3.08,
+        "peak_rss_kib": 3264704
+      },
+      {
+        "module": "LeanCert.Engine.RootFinding.Krawczyk",
+        "elapsed_seconds": 2.77,
+        "peak_rss_kib": 3247264
+      },
+      {
+        "module": "LeanCert.Engine.RootFinding.Main",
+        "elapsed_seconds": 1.84,
+        "peak_rss_kib": 3194356
+      },
+      {
+        "module": "LeanCert.Meta.ProveContinuous",
+        "elapsed_seconds": 2.85,
+        "peak_rss_kib": 3640176
+      },
+      {
+        "module": "LeanCert.Validity.Bounds.Core",
+        "elapsed_seconds": 1.99,
+        "peak_rss_kib": 3169548
+      },
+      {
+        "module": "LeanCert.Validity.Bounds.Checked",
+        "elapsed_seconds": 2.06,
+        "peak_rss_kib": 3169624
+      },
+      {
+        "module": "LeanCert.Validity.Bounds.Smart",
+        "elapsed_seconds": 2.09,
+        "peak_rss_kib": 3202340
+      },
+      {
+        "module": "LeanCert.Validity.Bounds.Bridge",
+        "elapsed_seconds": 2.18,
+        "peak_rss_kib": 3187376
+      },
+      {
+        "module": "LeanCert.Validity.Bounds.Basic",
+        "elapsed_seconds": 1.83,
+        "peak_rss_kib": 3156116
+      },
+      {
+        "module": "LeanCert.Validity.Integration",
+        "elapsed_seconds": 3.54,
+        "peak_rss_kib": 3664348
+      },
+      {
+        "module": "LeanCert.Validity.Bounds",
+        "elapsed_seconds": 3.4,
+        "peak_rss_kib": 3737756
+      },
+      {
+        "module": "LeanCert.Validity.DyadicBounds",
+        "elapsed_seconds": 2.06,
+        "peak_rss_kib": 3179956
+      },
+      {
+        "module": "LeanCert.Engine.Optimization.BoundVerify",
+        "elapsed_seconds": 2.18,
+        "peak_rss_kib": 3253092
+      },
+      {
+        "module": "LeanCert.Tactic.IntervalAuto.Bound",
+        "elapsed_seconds": 9.71,
+        "peak_rss_kib": 3865848
+      },
+      {
+        "module": "LeanCert.Tactic.IntervalAuto.Multivariate",
+        "elapsed_seconds": 3.69,
+        "peak_rss_kib": 3712908
+      },
+      {
+        "module": "LeanCert.Tactic.IntervalAuto.OptBound",
+        "elapsed_seconds": 2.72,
+        "peak_rss_kib": 3677760
+      },
+      {
+        "module": "LeanCert.Tactic.IntervalAuto.RootBound",
+        "elapsed_seconds": 2.63,
+        "peak_rss_kib": 3680276
+      },
+      {
+        "module": "LeanCert.Tactic.IntervalAuto.PointIneq",
+        "elapsed_seconds": 5.6,
+        "peak_rss_kib": 3770336
+      },
+      {
+        "module": "LeanCert.Core.DyadicCell",
+        "elapsed_seconds": 2.48,
+        "peak_rss_kib": 3211284
+      },
+      {
+        "module": "LeanCert.Core.DyadicFrontier",
+        "elapsed_seconds": 2.07,
+        "peak_rss_kib": 3174284
+      },
+      {
+        "module": "LeanCert.Tactic.IntervalAuto.Subdiv",
+        "elapsed_seconds": 3.29,
+        "peak_rss_kib": 3708748
+      },
+      {
+        "module": "LeanCert.Tactic.IntervalAuto.Adaptive",
+        "elapsed_seconds": 4.22,
+        "peak_rss_kib": 3721972
+      },
+      {
+        "module": "LeanCert.Tactic.IntervalAuto",
+        "elapsed_seconds": 2.39,
+        "peak_rss_kib": 3664916
+      },
+      {
+        "module": "PrimePowerTransport",
+        "elapsed_seconds": 5.65,
+        "peak_rss_kib": 7383108
+      },
+      {
+        "module": "ActualConsumer",
+        "elapsed_seconds": 4.52,
+        "peak_rss_kib": 7268964
+      },
+      {
+        "module": "SourceDeficits",
+        "elapsed_seconds": 7.86,
+        "peak_rss_kib": 7456908
+      },
+      {
+        "module": "TableTransport",
+        "elapsed_seconds": 26.24,
+        "peak_rss_kib": 7569976
+      },
+      {
+        "module": "LeafMargins",
+        "elapsed_seconds": 161.09,
+        "peak_rss_kib": 8092872
+      },
+      {
+        "module": "LeafDomains",
+        "elapsed_seconds": 39.89,
+        "peak_rss_kib": 7415400
+      },
+      {
+        "module": "RiemannBounds",
+        "elapsed_seconds": 5.13,
+        "peak_rss_kib": 7270188
+      },
+      {
+        "module": "PrimePowerUpper",
+        "elapsed_seconds": 5.17,
+        "peak_rss_kib": 7281896
+      },
+      {
+        "module": "SlabMonotonic",
+        "elapsed_seconds": 5.1,
+        "peak_rss_kib": 7292892
+      },
+      {
+        "module": "ProofBounds",
+        "elapsed_seconds": 454.79,
+        "peak_rss_kib": 10040160
+      },
+      {
+        "module": "IEANTN.Nodes.DudekPlatt.v3.Conclusions",
+        "elapsed_seconds": 2.01,
+        "peak_rss_kib": 3006340
+      },
+      {
+        "module": "IEANTN.Nodes.DudekPlattNumerics.v6.Conclusions",
+        "elapsed_seconds": 1.98,
+        "peak_rss_kib": 3002288
+      },
+      {
+        "module": "RamanujanPV.QuantitativeTail",
+        "elapsed_seconds": 18.72,
+        "peak_rss_kib": 7222328
+      },
+      {
+        "module": "RamanujanPV.AnalyticTransition",
+        "elapsed_seconds": 33.52,
+        "peak_rss_kib": 7256592
+      },
+      {
+        "module": "AnalyticBarrier640",
+        "elapsed_seconds": 5.13,
+        "peak_rss_kib": 6909556
+      },
+      {
+        "module": "FactorialBarrier640",
+        "elapsed_seconds": 5.26,
+        "peak_rss_kib": 6914520
+      },
+      {
+        "module": "Log35Barrier640",
+        "elapsed_seconds": 5.53,
+        "peak_rss_kib": 6918468
+      },
+      {
+        "module": "ActualLiBarrier640",
+        "elapsed_seconds": 4.88,
+        "peak_rss_kib": 6903752
+      },
+      {
+        "module": "Gamma640",
+        "elapsed_seconds": 24.72,
+        "peak_rss_kib": 7232368
+      },
+      {
+        "module": "Exp155Barrier640",
+        "elapsed_seconds": 5.2,
+        "peak_rss_kib": 6902284
+      },
+      {
+        "module": "Anchor640",
+        "elapsed_seconds": 7.65,
+        "peak_rss_kib": 7072144
+      },
+      {
+        "module": "Polynomial640",
+        "elapsed_seconds": 12.57,
+        "peak_rss_kib": 7003080
+      },
+      {
+        "module": "MainTerm640",
+        "elapsed_seconds": 5.91,
+        "peak_rss_kib": 6940976
+      },
+      {
+        "module": "GlobalW640",
+        "elapsed_seconds": 5.03,
+        "peak_rss_kib": 6901320
+      },
+      {
+        "module": "GapMonotonic",
+        "elapsed_seconds": 6.62,
+        "peak_rss_kib": 7305556
+      },
+      {
+        "module": "AnalyticBridges",
+        "elapsed_seconds": 4.88,
+        "peak_rss_kib": 7276812
+      },
+      {
+        "module": "FiniteConsumer",
+        "elapsed_seconds": 9.78,
+        "peak_rss_kib": 7331544
+      },
+      {
+        "module": "IEANTN.Vocabulary.Zeta",
+        "elapsed_seconds": 2.35,
+        "peak_rss_kib": 3455020
+      },
+      {
+        "module": "IEANTN.Vocabulary.ZeroFreeHalfPlane",
+        "elapsed_seconds": 2.2,
+        "peak_rss_kib": 3424820
+      },
+      {
+        "module": "IEANTN.Nodes.RH.v1.Conclusions",
+        "elapsed_seconds": 2.14,
+        "peak_rss_kib": 3429452
+      },
+      {
+        "module": "IEANTN.Nodes.RHAdapters.v1.Conclusions",
+        "elapsed_seconds": 2.13,
+        "peak_rss_kib": 3431640
+      },
+      {
+        "module": "IEANTN.Nodes.OpenAIQRH.v1.Conclusions",
+        "elapsed_seconds": 2.14,
+        "peak_rss_kib": 3427260
+      },
+      {
+        "module": "IEANTN.Nodes.PlattTrudgian.v1.Conclusions",
+        "elapsed_seconds": 2.03,
+        "peak_rss_kib": 3430508
+      },
+      {
+        "module": "IEANTN.Bridges.RH.LogicalAdapters",
+        "elapsed_seconds": 2.64,
+        "peak_rss_kib": 3908768
+      },
+      {
+        "module": "IEANTN.Vocabulary.Numerics",
+        "elapsed_seconds": 1.63,
+        "peak_rss_kib": 2500884
+      },
+      {
+        "module": "IEANTN.Nodes.Buthe2016.v1.Tables",
+        "elapsed_seconds": 2.03,
+        "peak_rss_kib": 3128152
+      },
+      {
+        "module": "IEANTN.Nodes.Buthe2016.v1.Conclusions",
+        "elapsed_seconds": 2.19,
+        "peak_rss_kib": 3446252
+      },
+      {
+        "module": "IEANTN.Nodes.CH2.v5.Conclusions",
+        "elapsed_seconds": 2.18,
+        "peak_rss_kib": 3439056
+      },
+      {
+        "module": "IEANTN.Nodes.CH2.v1.Conclusions",
+        "elapsed_seconds": 2.17,
+        "peak_rss_kib": 3449332
+      },
+      {
+        "module": "IEANTN.Nodes.LowZeroes.v1.Conclusions",
+        "elapsed_seconds": 2.17,
+        "peak_rss_kib": 3431984
+      },
+      {
+        "module": "IEANTN.Nodes.ZetaHadamard.v1.Conclusions",
+        "elapsed_seconds": 2.18,
+        "peak_rss_kib": 3436944
+      },
+      {
+        "module": "FullRH",
+        "elapsed_seconds": 2.96,
+        "peak_rss_kib": 3930692
+      },
+      {
+        "module": "TailW640",
+        "elapsed_seconds": 4.17,
+        "peak_rss_kib": 6896976
+      },
+      {
+        "module": "RHTailBounds640",
+        "elapsed_seconds": 10.06,
+        "peak_rss_kib": 7709500
+      },
+      {
+        "module": "RHTailActual640",
+        "elapsed_seconds": 6.6,
+        "peak_rss_kib": 7311444
+      },
+      {
+        "module": "FinalResult",
+        "elapsed_seconds": 4.76,
+        "peak_rss_kib": 7280984
+      }
+    ]
+  },
+  "refactor_receipt": {
+    "file": "/data/ivy-rh-propagation-20261120/post-lock-verification/Ramanujan640-v1/V2_EXACT_BODY_REFACTOR.json",
+    "sha256": "9251691efd3b26f12da3a0120f9855294a6c16b6db9f3e5d9b8a090cff011a17"
+  },
+  "historical_V1": {
+    "receipt": "/data/ivy-rh-propagation-20261120/post-lock-verification/Ramanujan640-v1/reproductions/clean-v1/RESULT.json",
+    "sha256": "b8b039288e37b837e05496b60a64888f03713fa7250d5c23574b1c327a3c08c7",
+    "boundary": "Accepted old-cache-dependent replay preserved; replaced for standalone reproduction by the actual V2 source-only replay."
+  },
+  "final_extra_claim_review": "/data/ivy-rh-propagation-20261120/review/final-full-Ramanujan/REVIEW.html"
+}
