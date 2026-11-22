@@ -1,0 +1,65 @@
+version: v0.4
+node:
+  id: PrimeQuantile.v1
+  family: PrimeQuantile
+  version: v1
+  kind: pipeline
+  status: awaiting-verification
+project:
+  name: PrimeQuantile.v1
+  description: Actual contiguous prime-index blocks and cube intervals consuming the
+    new direct prime counts.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+conclusions:
+- id: octic_block
+  declaration: PrimeQuantile.v1.octic_block
+  challenge: PrimeQuantile.v1.challenge_octic_block
+  imports:
+  - node: PrimeInterval.v2
+    conclusion: count_215
+  imports_status: identified
+  justifications:
+  - id: local-proof
+    kind: lean-noncompliant
+    note: Actual typed source solution and proof receipts under Solutions/RHContinuation.v1;
+      official Comparator pending.
+  designated: local-proof
+- id: successive_cubes
+  declaration: PrimeQuantile.v1.successive_cubes
+  challenge: PrimeQuantile.v1.challenge_successive_cubes
+  imports:
+  - node: PrimeInterval.v2
+    conclusion: count_215
+  imports_status: identified
+  justifications:
+  - id: local-proof
+    kind: lean-noncompliant
+    note: Actual typed source solution and proof receipts under Solutions/RHContinuation.v1;
+      official Comparator pending.
+  designated: local-proof
+sources:
+- id: RHContinuation20261122
+  title: Post-lock RH full-network mathematical continuation
+  authors:
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: New post-lock synthesis; historical arms and outcomes unchanged. Exact analytical
+    and source-first boundaries in Solutions/RHContinuation.v1.
+limitations:
+- No official Comparator receipt is claimed. New input packs retain all unclosed analytic
+  identities and domain requirements. Standard-three-axiom conditional edges do not
+  prove their external premises. Source-first PV is claimed only for explicitly documented
+  C source components.

@@ -1,0 +1,1237 @@
+{
+  "schema": "RH_CONTINUATION_INTEGRATION_SOURCE_ONLY_CLOSURE_V1",
+  "status": "SOURCE_FREEZE_COMPLETE_NOT_NEW_BUILD_RECEIPT",
+  "root": "NetworkConsumers",
+  "modules": [
+    {
+      "module": "IEANTN.Vocabulary.Zeta",
+      "source": "IEANTN/Vocabulary/Zeta.lean",
+      "frozen": "frozen-source/IEANTN/Vocabulary/Zeta.lean",
+      "sha256": "42e239de4c1151d03ed94ee4c0c51d031f974faa6998f447e85845665bb846ef",
+      "imports": [
+        "Mathlib.NumberTheory.LSeries.RiemannZeta",
+        "Mathlib.Analysis.Meromorphic.Order",
+        "Mathlib.Analysis.SpecialFunctions.Pow.Real"
+      ]
+    },
+    {
+      "module": "IEANTN.Vocabulary.RHSmoothing",
+      "source": "IEANTN/Vocabulary/RHSmoothing.lean",
+      "frozen": "frozen-source/IEANTN/Vocabulary/RHSmoothing.lean",
+      "sha256": "a1bb6be0815f6b8a691f7fd7248a7cfb456514502de89713b0f62fceccc89ef3",
+      "imports": [
+        "IEANTN.Vocabulary.Zeta",
+        "Mathlib.NumberTheory.Chebyshev",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.RHSmoothingInputs.v1.Conclusions",
+      "source": "IEANTN/Nodes/RHSmoothingInputs/v1/Conclusions.lean",
+      "frozen": "frozen-source/IEANTN/Nodes/RHSmoothingInputs/v1/Conclusions.lean",
+      "sha256": "88f68e39ca990f19ff21a6c24e90fd3e076a568f43ccb47f6c91ae00b781eb44",
+      "imports": [
+        "IEANTN.Vocabulary.RHSmoothing"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.RHSmoothing.v1.Conclusions",
+      "source": "IEANTN/Nodes/RHSmoothing/v1/Conclusions.lean",
+      "frozen": "frozen-source/IEANTN/Nodes/RHSmoothing/v1/Conclusions.lean",
+      "sha256": "e478d0322beaaed6bdd28ffaf915e5b55cf21a1aeba5e26d830f2ab882a5b70d",
+      "imports": [
+        "IEANTN.Vocabulary.RHSmoothing"
+      ]
+    },
+    {
+      "module": "IEANTN.Vocabulary.PrimeWindows",
+      "source": "IEANTN/Vocabulary/PrimeWindows.lean",
+      "frozen": "frozen-source/IEANTN/Vocabulary/PrimeWindows.lean",
+      "sha256": "8e6fb241093709c82b1b67b68603316e6519da7e84288f031f8a7819c6800d38",
+      "imports": [
+        "IEANTN.Vocabulary.RHSmoothing",
+        "Mathlib.NumberTheory.PrimeCounting",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.DerivHyp"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.PrimeKernelInputs.v1.Conclusions",
+      "source": "IEANTN/Nodes/PrimeKernelInputs/v1/Conclusions.lean",
+      "frozen": "frozen-source/IEANTN/Nodes/PrimeKernelInputs/v1/Conclusions.lean",
+      "sha256": "239f8d3c8ca3c8ab4381001d5d557f8ba83c527bfe4c1d3319f7986f228e2b01",
+      "imports": [
+        "IEANTN.Vocabulary.PrimeWindows"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.PrimeInterval.v2.Conclusions",
+      "source": "IEANTN/Nodes/PrimeInterval/v2/Conclusions.lean",
+      "frozen": "frozen-source/IEANTN/Nodes/PrimeInterval/v2/Conclusions.lean",
+      "sha256": "378ca5ee47900285366783ec18b0ab814e25d79d50151f53f2ee586860b57301",
+      "imports": [
+        "IEANTN.Vocabulary.PrimeWindows"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.PrimeQuantile.v1.Conclusions",
+      "source": "IEANTN/Nodes/PrimeQuantile/v1/Conclusions.lean",
+      "frozen": "frozen-source/IEANTN/Nodes/PrimeQuantile/v1/Conclusions.lean",
+      "sha256": "294950af345fe7be89e4595a6bc415b5505ce76eab1fef547d4d87f893308a2b",
+      "imports": [
+        "IEANTN.Vocabulary.PrimeWindows"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.Lcm.v4.Conclusions",
+      "source": "IEANTN/Nodes/Lcm/v4/Conclusions.lean",
+      "frozen": "frozen-source/IEANTN/Nodes/Lcm/v4/Conclusions.lean",
+      "sha256": "5086321b03791c8f635713cc8fe08e6aa11b4086abbf2512f1e5ec00369596c7",
+      "imports": [
+        "IEANTN.Vocabulary.RHSmoothing"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.Primorial.v2.Conclusions",
+      "source": "IEANTN/Nodes/Primorial/v2/Conclusions.lean",
+      "frozen": "frozen-source/IEANTN/Nodes/Primorial/v2/Conclusions.lean",
+      "sha256": "2f212e6cf57bcf4ce219916fab55935c3de3683bdf2b94d4c25d2b615cdb40f8",
+      "imports": [
+        "IEANTN.Vocabulary.RHSmoothing"
+      ]
+    },
+    {
+      "module": "IEANTN.Vocabulary.ZeroFreeHalfPlane",
+      "source": "IEANTN/Vocabulary/ZeroFreeHalfPlane.lean",
+      "frozen": "frozen-source/IEANTN/Vocabulary/ZeroFreeHalfPlane.lean",
+      "sha256": "c4093b0a652ec21bb446736389639e0a7a8217f4e7258fc0276c69eb203f7b8c",
+      "imports": [
+        "Mathlib.NumberTheory.LSeries.RiemannZeta"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.RH.v1.Conclusions",
+      "source": "IEANTN/Nodes/RH/v1/Conclusions.lean",
+      "frozen": "frozen-source/IEANTN/Nodes/RH/v1/Conclusions.lean",
+      "sha256": "84d39ecb7fa86c04e58fe97f47350132d58da3f3cef5e9420442d2e3b0505502",
+      "imports": [
+        "IEANTN.Vocabulary.Zeta",
+        "IEANTN.Vocabulary.ZeroFreeHalfPlane"
+      ]
+    },
+    {
+      "module": "PsiSmoothing",
+      "source": "Solutions/RHContinuation.v1/parabolic/PsiSmoothing.lean",
+      "frozen": "frozen-source/PsiSmoothing.lean",
+      "sha256": "064a0caf76124d9e6e54c41a04cf3e1afd6ba38bc80b64ea9cfddf3a78704a1d",
+      "imports": [
+        "IEANTN.Vocabulary.Zeta",
+        "Mathlib.NumberTheory.Chebyshev",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus",
+        "Mathlib.Analysis.SpecialFunctions.Integrals.Basic",
+        "Mathlib.Tactic",
+        "Mathlib.Analysis.Complex.ExponentialBounds",
+        "Mathlib.Analysis.Real.Pi.Bounds"
+      ]
+    },
+    {
+      "module": "PsiBoxExact",
+      "source": "Solutions/RHContinuation.v1/parabolic/PsiBoxExact.lean",
+      "frozen": "frozen-source/PsiBoxExact.lean",
+      "sha256": "147d212da3df32c8ca22c0ac0432c49f410536f24f1ec1c2599aa7a92fe60313",
+      "imports": [
+        "PsiSmoothing"
+      ]
+    },
+    {
+      "module": "PsiElementary",
+      "source": "Solutions/RHContinuation.v1/integration/source/PsiElementary.lean",
+      "frozen": "frozen-source/PsiElementary.lean",
+      "sha256": "7d7abe3c9c14d27a8ca8b93f0ce4b5056670db33a72fa178092dab7425cb92ef",
+      "imports": [
+        "PsiSmoothing",
+        "Mathlib"
+      ]
+    },
+    {
+      "module": "PsiClosedElementary",
+      "source": "Solutions/RHContinuation.v1/parabolic/PsiClosedElementary.lean",
+      "frozen": "frozen-source/PsiClosedElementary.lean",
+      "sha256": "505d73688090815facee9a733a630c0abc686c9c0704549d704ef6d115feea7a",
+      "imports": [
+        "PsiBoxExact",
+        "PsiElementary"
+      ]
+    },
+    {
+      "module": "QuarticWindow",
+      "source": "Solutions/RHContinuation.v1/parabolic/QuarticWindow.lean",
+      "frozen": "frozen-source/QuarticWindow.lean",
+      "sha256": "745977aa24b660fadacdc7f3995b4746b4df64475de7987959dfdb951f999882",
+      "imports": [
+        "Mathlib.NumberTheory.Chebyshev",
+        "Mathlib.NumberTheory.PrimeCounting",
+        "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Sqrt",
+        "Mathlib.Tactic"
+      ]
+    },
+    {
+      "module": "EvenKernel",
+      "source": "Solutions/RHContinuation.v1/parabolic/EvenKernel.lean",
+      "frozen": "frozen-source/EvenKernel.lean",
+      "sha256": "c5d328e0ea179c10329eae9474547e5163e347129326a0691f75a0c18fe45499",
+      "imports": [
+        "QuarticWindow",
+        "PsiSmoothing",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.DerivHyp"
+      ]
+    },
+    {
+      "module": "OcticConsumer",
+      "source": "Solutions/RHContinuation.v1/parabolic/OcticConsumer.lean",
+      "frozen": "frozen-source/OcticConsumer.lean",
+      "sha256": "1e5d5f6f15811f9280ecc9946eff3e084bcfb1771d21027b148447eacfff48bb",
+      "imports": [
+        "EvenKernel"
+      ]
+    },
+    {
+      "module": "PrimeQuantiles",
+      "source": "Solutions/RHContinuation.v1/integration/source/PrimeQuantiles.lean",
+      "frozen": "frozen-source/PrimeQuantiles.lean",
+      "sha256": "4c36db5cdf4e54aba0c44f4b0181257256f5b2528321d362d8f1bc7fa61be2a6",
+      "imports": [
+        "QuarticWindow"
+      ]
+    },
+    {
+      "module": "OcticQuantiles",
+      "source": "Solutions/RHContinuation.v1/integration/source/OcticQuantiles.lean",
+      "frozen": "frozen-source/OcticQuantiles.lean",
+      "sha256": "56e4efa83db03c7c602ceb06859b64d0e844b7cd8657a9571c80e88000affbc2",
+      "imports": [
+        "PrimeQuantiles"
+      ]
+    },
+    {
+      "module": "OcticCubes",
+      "source": "Solutions/RHContinuation.v1/integration/source/OcticCubes.lean",
+      "frozen": "frozen-source/OcticCubes.lean",
+      "sha256": "9b4ed6aeabc06d16d55e07144e5e5d6d0ab9d20b2b7cbdb3ff9f235edd621048",
+      "imports": [
+        "OcticQuantiles",
+        "Mathlib.Analysis.Complex.Exponential"
+      ]
+    },
+    {
+      "module": "SharedRH",
+      "source": "Solutions/RHContinuation.v1/integration/pnt-source/SharedRH.lean",
+      "frozen": "frozen-source/SharedRH.lean",
+      "sha256": "cd89ea0f3934a2b38893fa806b0ed81d73adb6d73081d203411371a46a55dc1c",
+      "imports": [
+        "Mathlib.NumberTheory.LSeries.RiemannZeta"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.RHAdapters.v1.Conclusions",
+      "source": "IEANTN/Nodes/RHAdapters/v1/Conclusions.lean",
+      "frozen": "frozen-source/IEANTN/Nodes/RHAdapters/v1/Conclusions.lean",
+      "sha256": "8bf7031d2330601b0652418c0d1d1fb82607f4894c4df9e49f6dc5c24f8087e5",
+      "imports": [
+        "IEANTN.Nodes.RH.v1.Conclusions"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.OpenAIQRH.v1.Conclusions",
+      "source": "IEANTN/Nodes/OpenAIQRH/v1/Conclusions.lean",
+      "frozen": "frozen-source/IEANTN/Nodes/OpenAIQRH/v1/Conclusions.lean",
+      "sha256": "2b960bf3546f8a9d85200e503db1fe5d036584a150a13008d831807092617d19",
+      "imports": [
+        "IEANTN.Vocabulary.ZeroFreeHalfPlane"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.PlattTrudgian.v1.Conclusions",
+      "source": "IEANTN/Nodes/PlattTrudgian/v1/Conclusions.lean",
+      "frozen": "frozen-source/IEANTN/Nodes/PlattTrudgian/v1/Conclusions.lean",
+      "sha256": "3a5dfbca68c5ef883b9b0372f62224311b17bd29963cbb19d4dc0cb0feeb4667",
+      "imports": [
+        "IEANTN.Vocabulary.Zeta"
+      ]
+    },
+    {
+      "module": "IEANTN.Bridges.RH.LogicalAdapters",
+      "source": "IEANTN/Bridges/RH/LogicalAdapters.lean",
+      "frozen": "frozen-source/IEANTN/Bridges/RH/LogicalAdapters.lean",
+      "sha256": "b02d555c47d159fed667aaa7d2a508137b48657e446257ef5b1ea3e32a4514c1",
+      "imports": [
+        "IEANTN.Nodes.RHAdapters.v1.Conclusions",
+        "IEANTN.Nodes.OpenAIQRH.v1.Conclusions",
+        "IEANTN.Nodes.PlattTrudgian.v1.Conclusions",
+        "Mathlib.Tactic"
+      ]
+    },
+    {
+      "module": "IEANTN.Vocabulary.PrimeCounting",
+      "source": "IEANTN/Vocabulary/PrimeCounting.lean",
+      "frozen": "frozen-source/IEANTN/Vocabulary/PrimeCounting.lean",
+      "sha256": "2863183b4c78aa1abd3be714dceeef534d6f3141c20a8df10c47b13aa38731d5",
+      "imports": [
+        "Mathlib.NumberTheory.PrimeCounting",
+        "Mathlib.MeasureTheory.Integral.Bochner.Set",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic"
+      ]
+    },
+    {
+      "module": "IEANTN.Vocabulary.ErrorTerms",
+      "source": "IEANTN/Vocabulary/ErrorTerms.lean",
+      "frozen": "frozen-source/IEANTN/Vocabulary/ErrorTerms.lean",
+      "sha256": "8027fc677653f3d86229a586404f9d4ab2ca6c8404d8ccc18df056b22c2e01bc",
+      "imports": [
+        "Mathlib.NumberTheory.Chebyshev",
+        "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+        "IEANTN.Vocabulary.PrimeCounting"
+      ]
+    },
+    {
+      "module": "IEANTN.Vocabulary.Numerics",
+      "source": "IEANTN/Vocabulary/Numerics.lean",
+      "frozen": "frozen-source/IEANTN/Vocabulary/Numerics.lean",
+      "sha256": "6dda8dda76515740e4ebb87af352f5eb4712f3b0038e84d2138b445d3be5b736",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.Pow.Real"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.Buthe2016.v1.Tables",
+      "source": "IEANTN/Nodes/Buthe2016/v1/Tables.lean",
+      "frozen": "frozen-source/IEANTN/Nodes/Buthe2016/v1/Tables.lean",
+      "sha256": "3def126f7cf07dd77979af15781b59b69bd90e43071f3ab4bb416e573537d8d1",
+      "imports": [
+        "IEANTN.Vocabulary.ErrorTerms"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.Buthe2016.v1.Conclusions",
+      "source": "IEANTN/Nodes/Buthe2016/v1/Conclusions.lean",
+      "frozen": "frozen-source/IEANTN/Nodes/Buthe2016/v1/Conclusions.lean",
+      "sha256": "0b6ab451ea4776bb44d6a1680d748295baa68285a690efa4a9cb7b045e76972a",
+      "imports": [
+        "IEANTN.Vocabulary.Zeta",
+        "IEANTN.Vocabulary.PrimeCounting",
+        "IEANTN.Vocabulary.ErrorTerms",
+        "IEANTN.Vocabulary.Numerics",
+        "IEANTN.Nodes.Buthe2016.v1.Tables"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.CH2.v5.Conclusions",
+      "source": "IEANTN/Nodes/CH2/v5/Conclusions.lean",
+      "frozen": "frozen-source/IEANTN/Nodes/CH2/v5/Conclusions.lean",
+      "sha256": "a1bb5c364b58ba6111239da6be028d474a8b61393a62df2cdfc1099bdbd5a639",
+      "imports": [
+        "IEANTN.Vocabulary.ErrorTerms",
+        "IEANTN.Vocabulary.ZeroFreeHalfPlane"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.CH2.v1.Conclusions",
+      "source": "IEANTN/Nodes/CH2/v1/Conclusions.lean",
+      "frozen": "frozen-source/IEANTN/Nodes/CH2/v1/Conclusions.lean",
+      "sha256": "f706109f41a47d0879cb31c30066c07b62aa43fba6b6242559832eb887cc511c",
+      "imports": [
+        "Mathlib.NumberTheory.Harmonic.EulerMascheroni",
+        "IEANTN.Vocabulary.ErrorTerms",
+        "IEANTN.Vocabulary.Zeta"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.LowZeroes.v1.Conclusions",
+      "source": "IEANTN/Nodes/LowZeroes/v1/Conclusions.lean",
+      "frozen": "frozen-source/IEANTN/Nodes/LowZeroes/v1/Conclusions.lean",
+      "sha256": "8dd7f5a5657bf01bd67cf36bd9264fe1d2a58a88664660bfc40886bd946881ea",
+      "imports": [
+        "IEANTN.Vocabulary.Zeta",
+        "IEANTN.Vocabulary.Numerics"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.ZetaHadamard.v1.Conclusions",
+      "source": "IEANTN/Nodes/ZetaHadamard/v1/Conclusions.lean",
+      "frozen": "frozen-source/IEANTN/Nodes/ZetaHadamard/v1/Conclusions.lean",
+      "sha256": "7059789de0f72dcaf892319fc7579709698ae7cb2abcc3ac122e548a3ac5af8b",
+      "imports": [
+        "Mathlib.NumberTheory.LSeries.RiemannZeta",
+        "Mathlib.Analysis.SpecialFunctions.Gamma.Digamma",
+        "IEANTN.Vocabulary.Zeta"
+      ]
+    },
+    {
+      "module": "FullRH",
+      "source": "Solutions/RHContinuation.v1/integration/pnt-source/FullRH.lean",
+      "frozen": "frozen-source/FullRH.lean",
+      "sha256": "cb7b97f4002464b381c2631fe3e98a2057192d6549e37efacc7e157c2d0674cb",
+      "imports": [
+        "SharedRH",
+        "IEANTN.Bridges.RH.LogicalAdapters",
+        "IEANTN.Nodes.Buthe2016.v1.Conclusions",
+        "IEANTN.Nodes.CH2.v5.Conclusions",
+        "IEANTN.Nodes.CH2.v1.Conclusions",
+        "Mathlib.Analysis.Complex.ExponentialBounds",
+        "IEANTN.Nodes.LowZeroes.v1.Conclusions",
+        "IEANTN.Nodes.ZetaHadamard.v1.Conclusions"
+      ]
+    },
+    {
+      "module": "PntSupport",
+      "source": "Solutions/CH2.v1/PntSupport.lean",
+      "frozen": "frozen-source/PntSupport.lean",
+      "sha256": "ab521f2a103188bd1f954e0808ed857db6221ef16b6fe21c0474d9df524e5b13",
+      "imports": [
+        "Mathlib.Algebra.Notation.Support"
+      ]
+    },
+    {
+      "module": "PntAsymptotics",
+      "source": "Solutions/CH2.v1/PntAsymptotics.lean",
+      "frozen": "frozen-source/PntAsymptotics.lean",
+      "sha256": "6289d21bca215e5984f6aa8cedd71d15914d228bcf3b40852e0a063f0eb8e1bc",
+      "imports": [
+        "Mathlib.Analysis.Asymptotics.Lemmas",
+        "Mathlib.Topology.Order.Compact"
+      ]
+    },
+    {
+      "module": "PntSobolev",
+      "source": "Solutions/CH2.v1/PntSobolev.lean",
+      "frozen": "frozen-source/PntSobolev.lean",
+      "sha256": "f697c48c8632b7e0abca37e4199ede39b6fe034f69ad2e2df48dc98214fc241b",
+      "imports": [
+        "Mathlib.Analysis.Calculus.Deriv.Support",
+        "Mathlib.Analysis.Distribution.SchwartzSpace.Deriv",
+        "Mathlib.Order.Filter.ZeroAndBoundedAtFilter",
+        "PntSupport",
+        "PntAsymptotics"
+      ]
+    },
+    {
+      "module": "PntSmooth",
+      "source": "Solutions/CH2.v1/PntSmooth.lean",
+      "frozen": "frozen-source/PntSmooth.lean",
+      "sha256": "81790d76351d94445207fc2f792d95a9e5f53c72d1062ae8475353889e4c0939",
+      "imports": [
+        "Batteries.Tactic.Lemma",
+        "Mathlib.Geometry.Manifold.PartitionOfUnity",
+        "Mathlib.Tactic.Bound",
+        "PntSobolev"
+      ]
+    },
+    {
+      "module": "PntFourier",
+      "source": "Solutions/CH2.v1/PntFourier.lean",
+      "frozen": "frozen-source/PntFourier.lean",
+      "sha256": "7786e3670564b2396f2efdcf036b25d2db4a735632fc86fa0cb070f0f61d592a",
+      "imports": [
+        "Mathlib.Analysis.Distribution.SchwartzSpace.Deriv",
+        "Mathlib.MeasureTheory.Integral.IntegralEqImproper",
+        "Mathlib.Topology.ContinuousMap.Bounded.Basic",
+        "Mathlib.Order.Filter.ZeroAndBoundedAtFilter",
+        "Mathlib.Analysis.Fourier.FourierTransformDeriv",
+        "PntSobolev",
+        "PntSmooth"
+      ]
+    },
+    {
+      "module": "WienerPort",
+      "source": "Solutions/CH2.v1/WienerPort.lean",
+      "frozen": "frozen-source/WienerPort.lean",
+      "sha256": "0ac22fcb17286b7b41b43461aad024f1ee09624c4c82da39032a2a8005ccd3cc",
+      "imports": [
+        "Mathlib.Analysis.Fourier.RiemannLebesgueLemma",
+        "Mathlib.Analysis.Normed.Group.Tannery",
+        "Mathlib.Analysis.SumIntegralComparisons",
+        "Mathlib.NumberTheory.Chebyshev",
+        "Mathlib.NumberTheory.LSeries.PrimesInAP",
+        "Mathlib.NumberTheory.MulChar.Lemmas",
+        "Mathlib.Topology.EMetricSpace.BoundedVariation",
+        "Mathlib.Analysis.Convolution",
+        "PntFourier"
+      ]
+    },
+    {
+      "module": "Part1Fourier",
+      "source": "Solutions/CH2.v1/Part1Fourier.lean",
+      "frozen": "frozen-source/Part1Fourier.lean",
+      "sha256": "36754c2685a926985a43a297d6be0be54d8b57110cfe1184a903d85c0a139803",
+      "imports": [
+        "WienerPort",
+        "Mathlib.Algebra.Order.Field.Pointwise",
+        "Mathlib.Algebra.Order.Ring.Star",
+        "Mathlib.Analysis.Complex.PhragmenLindelof",
+        "Mathlib.Analysis.CStarAlgebra.Classes",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.DerivHyp",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Complex",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Meromorphic",
+        "Mathlib.Data.Int.Star",
+        "Mathlib.Data.PNat.Interval",
+        "Mathlib.Data.Real.Sign",
+        "Mathlib.Algebra.Order.Star.Real",
+        "Mathlib.RingTheory.SimpleRing.Principal",
+        "Mathlib.NumberTheory.Chebyshev",
+        "Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt",
+        "Mathlib.NumberTheory.LSeries.Basic",
+        "Mathlib.Analysis.Fourier.FourierTransform",
+        "Mathlib.Analysis.SpecialFunctions.ImproperIntegrals"
+      ]
+    },
+    {
+      "module": "RectanglePort",
+      "source": "Solutions/CH2.v1/RectanglePort.lean",
+      "frozen": "frozen-source/RectanglePort.lean",
+      "sha256": "6d8dde78b8c8d8835d1f64efe5d23a60807f2385382d62f1c7994bacc57463e9",
+      "imports": [
+        "Mathlib.Analysis.Complex.Convex",
+        "Mathlib.Analysis.InnerProductSpace.Basic",
+        "Mathlib.Analysis.Normed.Order.Lattice",
+        "Mathlib.Order.Interval.Set.Monotone"
+      ]
+    },
+    {
+      "module": "AdditiveCombination",
+      "source": "Solutions/CH2.v1/AdditiveCombination.lean",
+      "frozen": "frozen-source/AdditiveCombination.lean",
+      "sha256": "230f7da86d3fc8c9684a2305c883bb24a2cd38578526297bbe40db899b3f29a7",
+      "imports": [
+        "Mathlib.Tactic.Abel",
+        "Mathlib.Tactic.LinearCombinationPrime"
+      ]
+    },
+    {
+      "module": "ResiduePort",
+      "source": "Solutions/CH2.v1/ResiduePort.lean",
+      "frozen": "frozen-source/ResiduePort.lean",
+      "sha256": "9a4278dfc736fca0227035cc7618b7c7e06438a8c0e9c2af70a56484f0687b4a",
+      "imports": [
+        "Mathlib.Analysis.Complex.CauchyIntegral",
+        "Mathlib.Analysis.Complex.Convex",
+        "Mathlib.Analysis.Complex.RemovableSingularity",
+        "Mathlib.Analysis.SpecialFunctions.Integrals.Basic",
+        "Mathlib.Analysis.Meromorphic.NormalForm",
+        "RectanglePort",
+        "AdditiveCombination"
+      ]
+    },
+    {
+      "module": "Approximants",
+      "source": "Solutions/CH2.v1/Approximants.lean",
+      "frozen": "frozen-source/Approximants.lean",
+      "sha256": "657866a52560430df6b6b07e9da372254982533751be99b6f260689459fbfb3c",
+      "imports": [
+        "ResiduePort",
+        "Mathlib.Algebra.Order.Field.Pointwise",
+        "Mathlib.Algebra.Order.Ring.Star",
+        "Mathlib.Analysis.Complex.PhragmenLindelof",
+        "Mathlib.Analysis.CStarAlgebra.Classes",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.DerivHyp",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Complex",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Meromorphic",
+        "Mathlib.Data.Int.Star",
+        "Mathlib.Data.PNat.Interval",
+        "Mathlib.Data.Real.Sign",
+        "Mathlib.Algebra.Order.Star.Real",
+        "Mathlib.RingTheory.SimpleRing.Principal",
+        "Mathlib.Analysis.Fourier.FourierTransform",
+        "Mathlib.Analysis.SpecialFunctions.ImproperIntegrals",
+        "Mathlib.NumberTheory.Chebyshev",
+        "Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt",
+        "Mathlib.NumberTheory.LSeries.Basic",
+        "Mathlib.Topology.EMetricSpace.BoundedVariation",
+        "Mathlib.Analysis.Real.Pi.Bounds",
+        "Mathlib.Analysis.SpecialFunctions.Gaussian.GaussianIntegral",
+        "Mathlib.MeasureTheory.Integral.ExpDecay"
+      ]
+    },
+    {
+      "module": "Decay",
+      "source": "Solutions/CH2.v1/Decay.lean",
+      "frozen": "frozen-source/Decay.lean",
+      "sha256": "927699fe2809f4639309f9a1241290eb580016e3b2f64cf3789b176bfe1a2b91",
+      "imports": [
+        "Approximants",
+        "Mathlib.Analysis.Fourier.Inversion",
+        "Mathlib.Analysis.SpecialFunctions.Gamma.BohrMollerup"
+      ]
+    },
+    {
+      "module": "ZetaConjPort",
+      "source": "Solutions/CH2.v1/ZetaConjPort.lean",
+      "frozen": "frozen-source/ZetaConjPort.lean",
+      "sha256": "451943ff81dd14dde98c1edbafa72872161cab5ce67f1a32dbff0389f4975017",
+      "imports": [
+        "Mathlib.Analysis.Calculus.Deriv.Star",
+        "Mathlib.Analysis.Normed.Module.Connected",
+        "Mathlib.NumberTheory.Harmonic.ZetaAsymp"
+      ]
+    },
+    {
+      "module": "Section5",
+      "source": "Solutions/CH2.v1/Section5.lean",
+      "frozen": "frozen-source/Section5.lean",
+      "sha256": "5aa4df38e3b89522f8bf824d9348041d4ad23927a108c169918cb1aaade7d194",
+      "imports": [
+        "Mathlib.Analysis.Meromorphic.NormalForm",
+        "Part1Fourier",
+        "Approximants",
+        "Decay",
+        "ZetaConjPort"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.ZetaLogDeriv.v1.Conclusions",
+      "source": "IEANTN/Nodes/ZetaLogDeriv/v1/Conclusions.lean",
+      "frozen": "frozen-source/IEANTN/Nodes/ZetaLogDeriv/v1/Conclusions.lean",
+      "sha256": "38b507692c28f630347ae6ca15e0ce0c146fd267052933eea25f40ff5ccdb2f4",
+      "imports": [
+        "Mathlib.NumberTheory.LSeries.RiemannZeta",
+        "Mathlib.Analysis.SpecialFunctions.Gamma.Digamma",
+        "Mathlib.Analysis.SpecialFunctions.Complex.Log"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.GammaAsymptotics.v2.Conclusions",
+      "source": "IEANTN/Nodes/GammaAsymptotics/v2/Conclusions.lean",
+      "frozen": "frozen-source/IEANTN/Nodes/GammaAsymptotics/v2/Conclusions.lean",
+      "sha256": "15a135392864908c3f6bd3fa8bc9ce70f20f99afc7292be3092c80b1c767da23",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.Gamma.Digamma",
+        "Mathlib.Analysis.SpecialFunctions.Complex.Log"
+      ]
+    },
+    {
+      "module": "ZetaInstance",
+      "source": "Solutions/CH2.v1/ZetaInstance.lean",
+      "frozen": "frozen-source/ZetaInstance.lean",
+      "sha256": "c47ff9a79cc30428b8091a03ad005d311f331a6e91e356ad8cd785cc842b332d",
+      "imports": [
+        "Section5",
+        "IEANTN.Nodes.ZetaLogDeriv.v1.Conclusions",
+        "IEANTN.Nodes.GammaAsymptotics.v2.Conclusions"
+      ]
+    },
+    {
+      "module": "Section5Neg",
+      "source": "Solutions/CH2.v1/Section5Neg.lean",
+      "frozen": "frozen-source/Section5Neg.lean",
+      "sha256": "bb0a9bddb79f281cda1feadfe1eabd85ea70b7be5737de3fb9785fecf3cef31d",
+      "imports": [
+        "Section5"
+      ]
+    },
+    {
+      "module": "ZetaInstanceNeg",
+      "source": "Solutions/CH2.v1/ZetaInstanceNeg.lean",
+      "frozen": "frozen-source/ZetaInstanceNeg.lean",
+      "sha256": "51ac8b01f95e31a519edb5a6fa94ce2096bb950dd889b24d53077ac7aab254f9",
+      "imports": [
+        "ZetaInstance",
+        "Section5Neg"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.CH2.v2.Conclusions",
+      "source": "IEANTN/Nodes/CH2/v2/Conclusions.lean",
+      "frozen": "frozen-source/IEANTN/Nodes/CH2/v2/Conclusions.lean",
+      "sha256": "4252e1ef44aa15c9e21d806c7650ccaf94ae3338cfe522db6d502c60588e4f3b",
+      "imports": [
+        "Mathlib.Analysis.Fourier.FourierTransform",
+        "Mathlib.Analysis.SpecialFunctions.Complex.LogBounds"
+      ]
+    },
+    {
+      "module": "Section6",
+      "source": "Solutions/CH2.v1/Section6.lean",
+      "frozen": "frozen-source/Section6.lean",
+      "sha256": "e569847a27f0ebfcd25fbf09d5442f9ddaec7ade542f163336f6d12762b3253f",
+      "imports": [
+        "ZetaInstanceNeg",
+        "IEANTN.Nodes.CH2.v2.Conclusions"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.CotangentSeries.v1.Conclusions",
+      "source": "IEANTN/Nodes/CotangentSeries/v1/Conclusions.lean",
+      "frozen": "frozen-source/IEANTN/Nodes/CotangentSeries/v1/Conclusions.lean",
+      "sha256": "ffdb2615d1ce6ee2e3f1beacb695ab6f41b3da6e018424a5fd9c0586e5cc0961",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Cotangent",
+        "Mathlib.NumberTheory.LSeries.HurwitzZetaValues"
+      ]
+    },
+    {
+      "module": "Section7",
+      "source": "Solutions/CH2.v1/Section7.lean",
+      "frozen": "frozen-source/Section7.lean",
+      "sha256": "c1fab34a2acd1a74f79bade52fd9774f697265f09c27634064c04f1439b1691b",
+      "imports": [
+        "Mathlib.Analysis.Complex.Trigonometric",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Bounds",
+        "Mathlib.NumberTheory.LSeries.HurwitzZetaValues",
+        "Mathlib.Analysis.Real.Pi.Bounds",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.DerivHyp",
+        "IEANTN.Nodes.CotangentSeries.v1.Conclusions"
+      ]
+    },
+    {
+      "module": "Section6Res",
+      "source": "Solutions/CH2.v1/Section6Res.lean",
+      "frozen": "frozen-source/Section6Res.lean",
+      "sha256": "a66927d09315c94dc5a5ef60796a455f2bf680d5d18c11e55878857ebf47ea13",
+      "imports": [
+        "Section6",
+        "Section7",
+        "IEANTN.Vocabulary.Zeta"
+      ]
+    },
+    {
+      "module": "Section6Zeros",
+      "source": "Solutions/CH2.v1/Section6Zeros.lean",
+      "frozen": "frozen-source/Section6Zeros.lean",
+      "sha256": "ec192fa1f6acb82884b08348f2fe1aa18bc21a620f3d7b93260b2c526dff0d77",
+      "imports": [
+        "Section6Res"
+      ]
+    },
+    {
+      "module": "Section7Weights",
+      "source": "Solutions/CH2.v1/Section7Weights.lean",
+      "frozen": "frozen-source/Section7Weights.lean",
+      "sha256": "e4c11659238f1aa9fabb3dcb998ec9e32187893122616e1198e2f4ba080d00a6",
+      "imports": [
+        "Section6Zeros"
+      ]
+    },
+    {
+      "module": "Section7Tritura",
+      "source": "Solutions/CH2.v1/Section7Tritura.lean",
+      "frozen": "frozen-source/Section7Tritura.lean",
+      "sha256": "6846743b98eb6d031adf18950aa4f242306b9d2ecf7c6b3c1d03e8f1c9ceff82",
+      "imports": [
+        "Section7Weights"
+      ]
+    },
+    {
+      "module": "DigammaReal",
+      "source": "Solutions/CH2.v1/DigammaReal.lean",
+      "frozen": "frozen-source/DigammaReal.lean",
+      "sha256": "1e0c3c379baca8c8b99a0b09da28c443d4a3c27e2689304af9022a546f5e5817",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.Gamma.BohrMollerup",
+        "Mathlib.Analysis.SpecialFunctions.Gamma.Deriv",
+        "Mathlib.Analysis.SpecialFunctions.Gamma.Digamma",
+        "Mathlib.Analysis.Convex.Deriv",
+        "Mathlib.Analysis.Calculus.Deriv.MeanValue"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.ZetaLogDerivValues.v1.Conclusions",
+      "source": "IEANTN/Nodes/ZetaLogDerivValues/v1/Conclusions.lean",
+      "frozen": "frozen-source/IEANTN/Nodes/ZetaLogDerivValues/v1/Conclusions.lean",
+      "sha256": "bf7ef8d1a7f84c7f7fdd4b4ac4d1594536cec172f68188fe7b7c80f7d25a89e1",
+      "imports": [
+        "Mathlib.NumberTheory.LSeries.RiemannZeta",
+        "Mathlib.NumberTheory.Harmonic.EulerMascheroni",
+        "IEANTN.Vocabulary.Numerics"
+      ]
+    },
+    {
+      "module": "Section8",
+      "source": "Solutions/CH2.v1/Section8.lean",
+      "frozen": "frozen-source/Section8.lean",
+      "sha256": "91b107b2b5176cf5a473f5c75841466199d40d06d3080a416a001bfecca071f6",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Complex",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.DerivHyp",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Bounds",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.ComplexDeriv",
+        "Mathlib.Analysis.Calculus.MeanValue",
+        "Mathlib.Analysis.Real.Pi.Bounds",
+        "Mathlib.Analysis.SpecialFunctions.Pow.Complex",
+        "Mathlib.Analysis.SpecialFunctions.Pow.Deriv",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic",
+        "Mathlib.Analysis.SpecialFunctions.ImproperIntegrals",
+        "Mathlib.Analysis.Complex.CauchyIntegral",
+        "Mathlib.MeasureTheory.Integral.IntegralEqImproper",
+        "Mathlib.Analysis.Complex.ExponentialBounds",
+        "Section7",
+        "DigammaReal",
+        "Mathlib.NumberTheory.LSeries.Dirichlet",
+        "IEANTN.Nodes.ZetaLogDerivValues.v1.Conclusions",
+        "IEANTN.Nodes.ZetaLogDeriv.v1.Conclusions",
+        "IEANTN.Nodes.GammaAsymptotics.v2.Conclusions"
+      ]
+    },
+    {
+      "module": "Section6Weight",
+      "source": "Solutions/CH2.v1/Section6Weight.lean",
+      "frozen": "frozen-source/Section6Weight.lean",
+      "sha256": "3c71e6a8717bb445ec06b61441e31401621d34fe8eba579de29b9223a98c6c84",
+      "imports": [
+        "Section6Zeros"
+      ]
+    },
+    {
+      "module": "Section6Contour",
+      "source": "Solutions/CH2.v1/Section6Contour.lean",
+      "frozen": "frozen-source/Section6Contour.lean",
+      "sha256": "d656e439312b768de7adecedda7780ff7977e9accf4d5941e68804d4edeb5571",
+      "imports": [
+        "Section8",
+        "Section6Weight"
+      ]
+    },
+    {
+      "module": "ZetaReal01",
+      "source": "Solutions/CH2.v1/ZetaReal01.lean",
+      "frozen": "frozen-source/ZetaReal01.lean",
+      "sha256": "46e5e5dcd4375fd9e47732f997e69470cc28c0e812b7ad60f33f8bc648b310d4",
+      "imports": [
+        "Mathlib.Analysis.MellinTransform",
+        "Mathlib.NumberTheory.Harmonic.ZetaAsymp",
+        "Mathlib.MeasureTheory.Integral.IntegralEqImproper",
+        "Mathlib.MeasureTheory.Function.Floor",
+        "Mathlib.Analysis.SpecialFunctions.ImproperIntegrals",
+        "Mathlib.Analysis.Complex.Convex",
+        "Section7"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.ZeroCount.v1.Conclusions",
+      "source": "IEANTN/Nodes/ZeroCount/v1/Conclusions.lean",
+      "frozen": "frozen-source/IEANTN/Nodes/ZeroCount/v1/Conclusions.lean",
+      "sha256": "8e8d6408e9cbea09e17c32cd92152133c78f690b84b72f9d4df2bf6f71a38a13",
+      "imports": [
+        "IEANTN.Vocabulary.Zeta"
+      ]
+    },
+    {
+      "module": "Section6Hyp",
+      "source": "Solutions/CH2.v1/Section6Hyp.lean",
+      "frozen": "frozen-source/Section6Hyp.lean",
+      "sha256": "3d70aafcf19bbf8f5dacad611a562b598686b9873ccc4178470bebc11102d450",
+      "imports": [
+        "Section6Contour",
+        "ZetaReal01",
+        "IEANTN.Nodes.ZeroCount.v1.Conclusions"
+      ]
+    },
+    {
+      "module": "Section7Zeros",
+      "source": "Solutions/CH2.v1/Section7Zeros.lean",
+      "frozen": "frozen-source/Section7Zeros.lean",
+      "sha256": "3eed2d788f959c28d8048d94f4b6caeec069822aab65dedfce65e281b3a6c454",
+      "imports": [
+        "Section6Hyp"
+      ]
+    },
+    {
+      "module": "Section7Adar",
+      "source": "Solutions/CH2.v1/Section7Adar.lean",
+      "frozen": "frozen-source/Section7Adar.lean",
+      "sha256": "a0746db10d7182ff0bc3bf500f51c0834eb9136837ab4488156436af9bea1332",
+      "imports": [
+        "Section7Tritura",
+        "Section7Zeros"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.PlattZeroSum.v1.Conclusions",
+      "source": "IEANTN/Nodes/PlattZeroSum/v1/Conclusions.lean",
+      "frozen": "frozen-source/IEANTN/Nodes/PlattZeroSum/v1/Conclusions.lean",
+      "sha256": "1b25b6767d28aa3433b8d5b4245ed4374f8225815fd30183f033a31deda34cb2",
+      "imports": [
+        "IEANTN.Vocabulary.Zeta"
+      ]
+    },
+    {
+      "module": "Section7Vihuela",
+      "source": "Solutions/CH2.v1/Section7Vihuela.lean",
+      "frozen": "frozen-source/Section7Vihuela.lean",
+      "sha256": "f3880c257e0338b399552f0011e167c822b0412ebf33f8ffa1952d10bf01029b",
+      "imports": [
+        "Section7Adar",
+        "IEANTN.Nodes.PlattZeroSum.v1.Conclusions"
+      ]
+    },
+    {
+      "module": "Section81Janframe",
+      "source": "Solutions/CH2.v1/Section81Janframe.lean",
+      "frozen": "frozen-source/Section81Janframe.lean",
+      "sha256": "4fcc398cd87d10f1fdd5ecb1c670b5eba63c69239426c3b9eaea5c557617f9ce",
+      "imports": [
+        "Section7Vihuela"
+      ]
+    },
+    {
+      "module": "GammaGaussSeries",
+      "source": "Solutions/CH2.v1/GammaGaussSeries.lean",
+      "frozen": "frozen-source/GammaGaussSeries.lean",
+      "sha256": "6e947437b267b5dbb2c3299b93a8ca477c487579f084817a13d2881ce5f6b7d0",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.Gamma.Digamma",
+        "Mathlib.Analysis.PSeries"
+      ]
+    },
+    {
+      "module": "GammaRecurrence",
+      "source": "Solutions/CH2.v1/GammaRecurrence.lean",
+      "frozen": "frozen-source/GammaRecurrence.lean",
+      "sha256": "8cf6e3db8bf6d9a24d5352ed3d98a9731eb64564f42c835d4701568f313f245f",
+      "imports": [
+        "GammaGaussSeries"
+      ]
+    },
+    {
+      "module": "GammaRealAsymptotic",
+      "source": "Solutions/CH2.v1/GammaRealAsymptotic.lean",
+      "frozen": "frozen-source/GammaRealAsymptotic.lean",
+      "sha256": "289bf36620d96d8d10eec86bac6bcfaa0619f8dfe354e48a9644cdd5aa8b24db",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.Gamma.BohrMollerup",
+        "Mathlib.Analysis.SpecialFunctions.Gamma.Deriv",
+        "Mathlib.Analysis.Convex.Deriv",
+        "Mathlib.Analysis.Calculus.Deriv.MeanValue"
+      ]
+    },
+    {
+      "module": "GammaComplexToReal",
+      "source": "Solutions/CH2.v1/GammaComplexToReal.lean",
+      "frozen": "frozen-source/GammaComplexToReal.lean",
+      "sha256": "7bf1413db128f24a8f7a508fc1070492753e5213e5501e25faec5817881177a6",
+      "imports": [
+        "GammaRealAsymptotic",
+        "Mathlib.Analysis.SpecialFunctions.Gamma.Digamma"
+      ]
+    },
+    {
+      "module": "GammaOscillation",
+      "source": "Solutions/CH2.v1/GammaOscillation.lean",
+      "frozen": "frozen-source/GammaOscillation.lean",
+      "sha256": "bf4bfbce7006f048dcc66cc37f17354285525c715adadf2bb112c6be297f649c",
+      "imports": [
+        "GammaRecurrence",
+        "GammaComplexToReal"
+      ]
+    },
+    {
+      "module": "GammaPeriodic",
+      "source": "Solutions/CH2.v1/GammaPeriodic.lean",
+      "frozen": "frozen-source/GammaPeriodic.lean",
+      "sha256": "2242fc4f9284f7d08c2e98df269edb2f211d00090d6315219b037c9cca4f1692",
+      "imports": [
+        "Mathlib.Analysis.Normed.Group.Basic",
+        "Mathlib.Analysis.SpecificLimits.Basic"
+      ]
+    },
+    {
+      "module": "GammaRealIdentity",
+      "source": "Solutions/CH2.v1/GammaRealIdentity.lean",
+      "frozen": "frozen-source/GammaRealIdentity.lean",
+      "sha256": "f236e8201977a2c8d8309a2a1e0e2c657f2262b234f3eec880a2b3c2f062be54",
+      "imports": [
+        "GammaOscillation",
+        "GammaPeriodic"
+      ]
+    },
+    {
+      "module": "GammaAnalytic",
+      "source": "Solutions/CH2.v1/GammaAnalytic.lean",
+      "frozen": "frozen-source/GammaAnalytic.lean",
+      "sha256": "24fd69168a4197f850fc8c24a3405730fc1e634492df61c06d60361104f2767f",
+      "imports": [
+        "GammaRealIdentity",
+        "Mathlib.Analysis.Complex.LocallyUniformLimit",
+        "Mathlib.Analysis.Analytic.IsolatedZeros",
+        "Mathlib.Analysis.Complex.Convex"
+      ]
+    },
+    {
+      "module": "Section81Titch",
+      "source": "Solutions/CH2.v1/Section81Titch.lean",
+      "frozen": "frozen-source/Section81Titch.lean",
+      "sha256": "7052f6d3ba5ef33c6007a2326b582292c9d134265f0eb89061d1eed0edbfb59e",
+      "imports": [
+        "Section81Janframe",
+        "GammaAnalytic",
+        "IEANTN.Nodes.ZetaHadamard.v1.Conclusions"
+      ]
+    },
+    {
+      "module": "Section81",
+      "source": "Solutions/CH2.v1/Section81.lean",
+      "frozen": "frozen-source/Section81.lean",
+      "sha256": "dc7b6a35488f8e48a76c8d900ff4a18473617fd0195ad27ce7755b28926a5864",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.Integrals.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic",
+        "Mathlib.Analysis.SpecialFunctions.ImproperIntegrals",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.ArctanDeriv",
+        "Mathlib.Analysis.SpecialFunctions.Arsinh",
+        "Mathlib.Analysis.Complex.ExponentialBounds"
+      ]
+    },
+    {
+      "module": "GammaStrip",
+      "source": "Solutions/CH2.v1/GammaStrip.lean",
+      "frozen": "frozen-source/GammaStrip.lean",
+      "sha256": "736b95e70f6c48060609b76abff26a06c25cf12d2643b6a836223fd0b490aa6a",
+      "imports": [
+        "GammaAnalytic"
+      ]
+    },
+    {
+      "module": "Section81Saghar",
+      "source": "Solutions/CH2.v1/Section81Saghar.lean",
+      "frozen": "frozen-source/Section81Saghar.lean",
+      "sha256": "cce3664234b4e49f043f2b7fb6608c773d988c9b949ba2b4033071c0d534d00e",
+      "imports": [
+        "Section81Titch",
+        "Section81",
+        "GammaStrip",
+        "IEANTN.Nodes.ZetaLogDeriv.v1.Conclusions"
+      ]
+    },
+    {
+      "module": "Section81Hardin",
+      "source": "Solutions/CH2.v1/Section81Hardin.lean",
+      "frozen": "frozen-source/Section81Hardin.lean",
+      "sha256": "da41c5da3a6dc2cf63f2dc9c0c0608bc1639556b2efdc9ccd470f58e61a99ab2",
+      "imports": [
+        "Section81Saghar",
+        "Section6Hyp"
+      ]
+    },
+    {
+      "module": "Section9",
+      "source": "Solutions/CH2.v1/Section9.lean",
+      "frozen": "frozen-source/Section9.lean",
+      "sha256": "cba026ebb52fbf471c52a78dd4ab68d997441131b7c3cf640d8a739b0b42bfdd",
+      "imports": [
+        "Section81Hardin"
+      ]
+    },
+    {
+      "module": "Section9Limit",
+      "source": "Solutions/CH2.v1/Section9Limit.lean",
+      "frozen": "frozen-source/Section9Limit.lean",
+      "sha256": "6d3d8f2132f19331c865c9df1eb1b0c15eef4f2cba07e5a73827a2a94c3175c7",
+      "imports": [
+        "Section9",
+        "IEANTN.Nodes.CH2.v1.Conclusions"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.Buthe.v1.Tables",
+      "source": "IEANTN/Nodes/Buthe/v1/Tables.lean",
+      "frozen": "frozen-source/IEANTN/Nodes/Buthe/v1/Tables.lean",
+      "sha256": "a5e96d99d74c6bb472792ac8cd689d09015e4de760d797659a4ceac7ddc79e92",
+      "imports": [
+        "IEANTN.Vocabulary.ErrorTerms"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.Buthe.v1.Conclusions",
+      "source": "IEANTN/Nodes/Buthe/v1/Conclusions.lean",
+      "frozen": "frozen-source/IEANTN/Nodes/Buthe/v1/Conclusions.lean",
+      "sha256": "06118da7c74732c2c063c0d7b6e8ea9eaf4249faed3207df4601ae4022831244",
+      "imports": [
+        "IEANTN.Vocabulary.ErrorTerms",
+        "IEANTN.Nodes.Buthe.v1.Tables"
+      ]
+    },
+    {
+      "module": "Section9Cor13",
+      "source": "Solutions/CH2.v1/Section9Cor13.lean",
+      "frozen": "frozen-source/Section9Cor13.lean",
+      "sha256": "d91161db95ddcf7766ad5a6bb8ec196a9c145a02b93723b222b57a479b3a234e",
+      "imports": [
+        "Section9Limit",
+        "IEANTN.Nodes.PlattTrudgian.v1.Conclusions",
+        "IEANTN.Nodes.Buthe.v1.Conclusions"
+      ]
+    },
+    {
+      "module": "PNTFormal",
+      "source": "Solutions/RHContinuation.v1/integration/pnt-source/PNTFormal.lean",
+      "frozen": "frozen-source/PNTFormal.lean",
+      "sha256": "41cc7ce147ec7580cd0732ed9054b99bf8f36ca8b0e9c046ee1fd80d2a810135",
+      "imports": [
+        "FullRH",
+        "Section9Cor13"
+      ]
+    },
+    {
+      "module": "PNTScalar",
+      "source": "Solutions/RHContinuation.v1/integration/pnt-source/PNTScalar.lean",
+      "frozen": "frozen-source/PNTScalar.lean",
+      "sha256": "73b7fa1d1d35b5ecd567a06975b780a77b790572ebb6f547e20a9b572437c5a3",
+      "imports": [
+        "PNTFormal"
+      ]
+    },
+    {
+      "module": "Recovered7",
+      "source": "Solutions/RHContinuation.v1/integration/pnt-source/Recovered7.lean",
+      "frozen": "frozen-source/Recovered7.lean",
+      "sha256": "5aa28fc9943439731980a0f4d58a689d7923e1c29781bddea7c06b19205f7870",
+      "imports": [
+        "Section7Vihuela"
+      ]
+    },
+    {
+      "module": "Recovered9",
+      "source": "Solutions/RHContinuation.v1/integration/pnt-source/Recovered9.lean",
+      "frozen": "frozen-source/Recovered9.lean",
+      "sha256": "bce9f074dd9882731bb7c1834b9c338bdc69bbbff8504a12dddd54994cf93091",
+      "imports": [
+        "Section9",
+        "Recovered7"
+      ]
+    },
+    {
+      "module": "RecoveredLimit",
+      "source": "Solutions/RHContinuation.v1/integration/pnt-source/RecoveredLimit.lean",
+      "frozen": "frozen-source/RecoveredLimit.lean",
+      "sha256": "66d90af44e4bf12944ba1f0c40e9119765e80f98fff61b69775a18600f54f985",
+      "imports": [
+        "Section9Limit",
+        "Recovered9"
+      ]
+    },
+    {
+      "module": "ZeroAbel",
+      "source": "Solutions/RHContinuation.v1/integration/source/ZeroAbel.lean",
+      "frozen": "frozen-source/ZeroAbel.lean",
+      "sha256": "00f867b1cb01907345f07a525bf68b3446150f029829cfef2f660d7c2aa120eb",
+      "imports": [
+        "Section7Zeros"
+      ]
+    },
+    {
+      "module": "DiscreteZeroCount",
+      "source": "Solutions/RHContinuation.v1/integration/source/DiscreteZeroCount.lean",
+      "frozen": "frozen-source/DiscreteZeroCount.lean",
+      "sha256": "08c8ef73a40a53f5e2341ba2acb562e3ab058c42ddc31f3007a479c86763d229",
+      "imports": [
+        "ZeroAbel"
+      ]
+    },
+    {
+      "module": "NumericalZeroLadder",
+      "source": "Solutions/RHContinuation.v1/integration/source/NumericalZeroLadder.lean",
+      "frozen": "frozen-source/NumericalZeroLadder.lean",
+      "sha256": "2773fca848c53d0c2808b51160476de7355a12452267d1f7f3b034f70105a0a2",
+      "imports": [
+        "DiscreteZeroCount"
+      ]
+    },
+    {
+      "module": "ZeroCountIntegral",
+      "source": "Solutions/RHContinuation.v1/integration/source/ZeroCountIntegral.lean",
+      "frozen": "frozen-source/ZeroCountIntegral.lean",
+      "sha256": "fd7290f548a2ceb7a7fa2249d71abfec8507a89f763f92ee3b373e8a13912cd6",
+      "imports": [
+        "NumericalZeroLadder"
+      ]
+    },
+    {
+      "module": "RecoveredLowSum",
+      "source": "Solutions/RHContinuation.v1/integration/source/RecoveredLowSum.lean",
+      "frozen": "frozen-source/RecoveredLowSum.lean",
+      "sha256": "a334503a17263214887ae3d75b2f8c3c225a29cf669eae501748df7ff76047fc",
+      "imports": [
+        "ZeroCountIntegral"
+      ]
+    },
+    {
+      "module": "RecoveredPNT",
+      "source": "Solutions/RHContinuation.v1/integration/pnt-source/RecoveredPNT.lean",
+      "frozen": "frozen-source/RecoveredPNT.lean",
+      "sha256": "eea4f2890e918bd5993f10158e0b6af23b5510db6438401891ad73fc4699da2a",
+      "imports": [
+        "PNTScalar",
+        "RecoveredLimit",
+        "RecoveredLowSum"
+      ]
+    },
+    {
+      "module": "ClosedCH2Compat",
+      "source": "Solutions/RHContinuation.v1/integration/pnt-source/ClosedCH2Compat.lean",
+      "frozen": "frozen-source/ClosedCH2Compat.lean",
+      "sha256": "21942f715c78d43c2de7d519150727f201d3235b130511bc3009125782df3fc8",
+      "imports": [
+        "Part1Fourier",
+        "IEANTN.Nodes.CH2.v2.Conclusions"
+      ]
+    },
+    {
+      "module": "ClosedZeta",
+      "source": "Solutions/RHContinuation.v1/integration/pnt-source/ClosedZeta.lean",
+      "frozen": "frozen-source/ClosedZeta.lean",
+      "sha256": "679afaebc777181d16239ca6bba579e30732c438a826253a926d1edb5a3bed88",
+      "imports": [
+        "Mathlib",
+        "IEANTN.Nodes.ZetaLogDeriv.v1.Conclusions"
+      ]
+    },
+    {
+      "module": "RecoveredPNTClosed",
+      "source": "Solutions/RHContinuation.v1/integration/pnt-source/RecoveredPNTClosed.lean",
+      "frozen": "frozen-source/RecoveredPNTClosed.lean",
+      "sha256": "6bc42ec9ed8725760e70bcab8510a3acf9b4f8e4794eabbd57078a0a1cac5162",
+      "imports": [
+        "RecoveredPNT",
+        "ClosedCH2Compat",
+        "GammaStrip",
+        "ClosedZeta"
+      ]
+    },
+    {
+      "module": "ThetaRelay",
+      "source": "Solutions/RHContinuation.v1/integration/source/ThetaRelay.lean",
+      "frozen": "frozen-source/ThetaRelay.lean",
+      "sha256": "42bb90c7d58e798aa306e1cf1c42598b28dbd0d1cdc21e770ba6a78175332489",
+      "imports": [
+        "FullRH",
+        "Mathlib.Tactic",
+        "Mathlib.Analysis.Real.Pi.Bounds"
+      ]
+    },
+    {
+      "module": "NetworkConsumers",
+      "source": "Solutions/RHContinuation.v1/integration/source/NetworkConsumers.lean",
+      "frozen": "frozen-source/NetworkConsumers.lean",
+      "sha256": "c699b511ecb70c8d5415d28d746bf27f0016d49d46e66f37a3c0534d3701629e",
+      "imports": [
+        "IEANTN.Nodes.RHSmoothingInputs.v1.Conclusions",
+        "IEANTN.Nodes.RHSmoothing.v1.Conclusions",
+        "IEANTN.Nodes.PrimeKernelInputs.v1.Conclusions",
+        "IEANTN.Nodes.PrimeInterval.v2.Conclusions",
+        "IEANTN.Nodes.PrimeQuantile.v1.Conclusions",
+        "IEANTN.Nodes.Lcm.v4.Conclusions",
+        "IEANTN.Nodes.Primorial.v2.Conclusions",
+        "IEANTN.Nodes.RH.v1.Conclusions",
+        "PsiClosedElementary",
+        "OcticConsumer",
+        "OcticCubes",
+        "RecoveredPNTClosed",
+        "ThetaRelay"
+      ]
+    }
+  ],
+  "generic_context": "../scripts/GENERIC_CONTEXT.json",
+  "no_prebuilt_application_objects": true
+}

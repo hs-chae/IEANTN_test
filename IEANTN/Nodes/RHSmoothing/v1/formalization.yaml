@@ -1,0 +1,113 @@
+version: v0.4
+node:
+  id: RHSmoothing.v1
+  family: RHSmoothing
+  version: v1
+  kind: pipeline
+  status: awaiting-verification
+project:
+  name: RHSmoothing.v1
+  description: 'Actual PNT providers: new box kernel and rigorously recovered integer-zero-count
+    CH bound; proof tiers remain distinct.'
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+conclusions:
+- id: box_psi
+  declaration: RHSmoothing.v1.box_psi
+  challenge: RHSmoothing.v1.challenge_box_psi
+  imports:
+  - node: RH.v1
+    conclusion: hypothesis
+  - node: RHSmoothingInputs.v1
+    conclusion: box_explicit_formula
+  - node: RHSmoothingInputs.v1
+    conclusion: box_zero_estimate
+  - node: RHSmoothingInputs.v1
+    conclusion: box_moments
+  imports_status: identified
+  justifications:
+  - id: local-proof
+    kind: lean-noncompliant
+    note: Actual typed source solution and proof receipts under Solutions/RHContinuation.v1;
+      official Comparator pending.
+  designated: local-proof
+- id: B5_psi
+  declaration: RHSmoothing.v1.B5_psi
+  challenge: RHSmoothing.v1.challenge_B5_psi
+  imports:
+  - node: RH.v1
+    conclusion: hypothesis
+  - node: RHSmoothingInputs.v1
+    conclusion: parabola_inputs
+  imports_status: identified
+  justifications:
+  - id: local-proof
+    kind: lean-noncompliant
+    note: Actual typed source solution and proof receipts under Solutions/RHContinuation.v1;
+      official Comparator pending.
+  designated: local-proof
+- id: box_improves_B5
+  declaration: RHSmoothing.v1.box_improves_B5
+  challenge: RHSmoothing.v1.challenge_box_improves_B5
+  imports: []
+  imports_status: none
+  justifications:
+  - id: local-proof
+    kind: lean-noncompliant
+    note: Actual typed source solution and proof receipts under Solutions/RHContinuation.v1;
+      official Comparator pending.
+  designated: local-proof
+- id: recovered_ch_psi
+  declaration: RHSmoothing.v1.recovered_ch_psi
+  challenge: RHSmoothing.v1.challenge_recovered_ch_psi
+  imports:
+  - node: RH.v1
+    conclusion: hypothesis
+  - node: ZetaLogDerivValues.v1
+    conclusion: logDeriv_laurent_alternating
+  - node: ZetaLogDerivValues.v1
+    conclusion: logDeriv_neg_one
+  - node: ZetaLogDerivValues.v1
+    conclusion: logDeriv_two
+  - node: ZetaLogDerivValues.v1
+    conclusion: logDeriv_three_halves
+  - node: CotangentSeries.v1
+    conclusion: cot_series_zeta_values
+  - node: ZeroCount.v1
+    conclusion: rvm_error_bound
+  - node: ZeroCount.v1
+    conclusion: rvm_error_small
+  - node: ZetaHadamard.v1
+    conclusion: logDeriv_partial_fractions
+  imports_status: identified
+  justifications:
+  - id: local-proof
+    kind: lean-noncompliant
+    note: Actual typed source solution and proof receipts under Solutions/RHContinuation.v1;
+      official Comparator pending.
+  designated: local-proof
+sources:
+- id: RHContinuation20261122
+  title: Post-lock RH full-network mathematical continuation
+  authors:
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: New post-lock synthesis; historical arms and outcomes unchanged. Exact analytical
+    and source-first boundaries in Solutions/RHContinuation.v1.
+limitations:
+- No official Comparator receipt is claimed. New input packs retain all unclosed analytic
+  identities and domain requirements. Standard-three-axiom conditional edges do not
+  prove their external premises. Source-first PV is claimed only for explicitly documented
+  C source components.

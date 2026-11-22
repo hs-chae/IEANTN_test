@@ -1,0 +1,65 @@
+version: v0.4
+node:
+  id: BoxMellinInputs.v1
+  family: BoxMellinInputs
+  version: v1
+  kind: pipeline
+  status: awaiting-verification
+project:
+  name: BoxMellinInputs.v1
+  description: Exact remaining analytic identities for the regularized absolute box Mellin moments.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+conclusions:
+- id: first_moment
+  declaration: BoxMellinInputs.v1.first_moment
+  challenge: BoxMellinInputs.v1.challenge_first_moment
+  imports: []
+  imports_status: none
+  justifications:
+  - id: analytic-open
+    kind: none-yet
+    note: Written positive Fourier-series, Gamma-integral and harmonic partial-fraction derivation; formal Mellin coefficient extraction and integrability remain open.
+  designated: analytic-open
+- id: second_moment_identity
+  declaration: BoxMellinInputs.v1.second_moment_identity
+  challenge: BoxMellinInputs.v1.challenge_second_moment_identity
+  imports: []
+  imports_status: none
+  justifications:
+  - id: analytic-open
+    kind: none-yet
+    note: Written exact coefficient identity, including actual Stieltjes limit; formal uniform expansion and differentiated Mellin identity remain open. The finite numerical cap is not a premise.
+  designated: analytic-open
+- id: stieltjes_trapezoid
+  declaration: BoxMellinInputs.v1.stieltjes_trapezoid
+  challenge: BoxMellinInputs.v1.challenge_stieltjes_trapezoid
+  imports: []
+  imports_status: none
+  justifications:
+  - id: analytic-open
+    kind: none-yet
+    note: Written convergence from Euler summation and convex trapezoid comparison on t>=128; complete formal limit and trapezoid proof remain open.
+  designated: analytic-open
+sources:
+- id: RHContinuation20261122BoxMellin
+  title: Exact regularized absolute box Mellin moments and finite logarithmic evaluation
+  authors:
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: New post-lock continuation derivation in Solutions/RHContinuation.v1/parabolic/BOX_MELLIN_EXACT.md, independently reviewed mathematically. No external paper is asserted to state these exact identities as one theorem.
+limitations:
+- These are unresolved analytic inputs, not formalized theorems. Downstream source-first logarithm program verification and exact kernel aggregation do not discharge these analytic identities.
+- No official Comparator receipt is claimed; historical experiments and their original outcomes are unchanged.

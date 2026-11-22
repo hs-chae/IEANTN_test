@@ -1,0 +1,986 @@
+{
+  "status": "PASS_ACTUAL_CLI_CONTROLS_ALL_OPTIMIZATION_MODES",
+  "seconds": 65.33126183412969,
+  "cases": [
+    {
+      "mode": "normal",
+      "case": "positive-helper",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py",
+        "--source",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/tiny-source",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/positive",
+        "--module",
+        "Smoke"
+      ],
+      "returncode": 0,
+      "expected_success": true
+    },
+    {
+      "mode": "normal",
+      "case": "duplicate-json",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py",
+        "--source",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/tiny-source",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/dup",
+        "--module",
+        "Smoke"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "normal",
+      "case": "nonfinite-json",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py",
+        "--source",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/tiny-source",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/nan",
+        "--module",
+        "Smoke"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "normal",
+      "case": "compiler-pin",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py",
+        "--source",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/tiny-source",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/compiler-pin-out",
+        "--module",
+        "Smoke"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "normal",
+      "case": "dependency-pin",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py",
+        "--source",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/tiny-source",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/dependency-pin-out",
+        "--module",
+        "Smoke"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "normal",
+      "case": "missing-args",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py"
+      ],
+      "returncode": 2,
+      "expected_success": false
+    },
+    {
+      "mode": "normal",
+      "case": "zero-modules",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py",
+        "--source",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/tiny-source",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/zero"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "normal",
+      "case": "duplicate-modules",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py",
+        "--source",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/tiny-source",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/duplicates",
+        "--module",
+        "Smoke",
+        "--module",
+        "Smoke"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "normal",
+      "case": "unknown-option",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py",
+        "--source",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/tiny-source",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/unknown",
+        "--module",
+        "Smoke",
+        "--unknown"
+      ],
+      "returncode": 2,
+      "expected_success": false
+    },
+    {
+      "mode": "normal",
+      "case": "existing-output",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py",
+        "--source",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/tiny-source",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/exists",
+        "--module",
+        "Smoke"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "normal",
+      "case": "missing-source",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py",
+        "--source",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/tiny-source",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/missing",
+        "--module",
+        "Missing"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "normal",
+      "case": "missing-library",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py",
+        "--source",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/tiny-source",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/lib",
+        "--module",
+        "Smoke",
+        "--extra-library",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/absent"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "normal",
+      "case": "invalid-Lean",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py",
+        "--source",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/tiny-source",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/wrong",
+        "--module",
+        "Wrong"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "normal",
+      "case": "positive-relocated-public",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/fixture/network/Solutions/RHContinuation.v1/integration/reproduce_public.py",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/relocated-good",
+        "--base-run",
+        "/data/ivy-rh-continuation-20261122/integration/public-final-v2/base"
+      ],
+      "returncode": 0,
+      "expected_success": true
+    },
+    {
+      "mode": "normal",
+      "case": "mutated-source-built-object",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/fixture/network/Solutions/RHContinuation.v1/integration/reproduce_public.py",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/bad-object",
+        "--base-run",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/mutated-base"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "normal",
+      "case": "missing-object-identity",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/fixture/network/Solutions/RHContinuation.v1/integration/reproduce_public.py",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/missing-object-id",
+        "--base-run",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/unrecorded-object-base"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "normal",
+      "case": "changed-frozen-source",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/fixture/network/Solutions/RHContinuation.v1/integration/reproduce.py",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/bad-source"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "normal",
+      "case": "changed-canonical",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/fixture/network/Solutions/RHContinuation.v1/integration/reproduce_public.py",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/bad-public",
+        "--base-run",
+        "/data/ivy-rh-continuation-20261122/integration/public-final-v2/base"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "normal",
+      "case": "public-missing-args",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/fixture/network/Solutions/RHContinuation.v1/integration/reproduce_public.py"
+      ],
+      "returncode": 2,
+      "expected_success": false
+    },
+    {
+      "mode": "normal",
+      "case": "public-unknown-option",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/fixture/network/Solutions/RHContinuation.v1/integration/reproduce_public.py",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/unknown-public",
+        "--unknown"
+      ],
+      "returncode": 2,
+      "expected_success": false
+    },
+    {
+      "mode": "normal",
+      "case": "public-existing-output",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/fixture/network/Solutions/RHContinuation.v1/integration/reproduce_public.py",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/normal/relocated-good",
+        "--base-run",
+        "/data/ivy-rh-continuation-20261122/integration/public-final-v2/base"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "O",
+      "case": "positive-helper",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py",
+        "--source",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/tiny-source",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/positive",
+        "--module",
+        "Smoke"
+      ],
+      "returncode": 0,
+      "expected_success": true
+    },
+    {
+      "mode": "O",
+      "case": "duplicate-json",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py",
+        "--source",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/tiny-source",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/dup",
+        "--module",
+        "Smoke"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "O",
+      "case": "nonfinite-json",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py",
+        "--source",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/tiny-source",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/nan",
+        "--module",
+        "Smoke"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "O",
+      "case": "compiler-pin",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py",
+        "--source",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/tiny-source",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/compiler-pin-out",
+        "--module",
+        "Smoke"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "O",
+      "case": "dependency-pin",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py",
+        "--source",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/tiny-source",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/dependency-pin-out",
+        "--module",
+        "Smoke"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "O",
+      "case": "missing-args",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py"
+      ],
+      "returncode": 2,
+      "expected_success": false
+    },
+    {
+      "mode": "O",
+      "case": "zero-modules",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py",
+        "--source",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/tiny-source",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/zero"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "O",
+      "case": "duplicate-modules",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py",
+        "--source",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/tiny-source",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/duplicates",
+        "--module",
+        "Smoke",
+        "--module",
+        "Smoke"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "O",
+      "case": "unknown-option",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py",
+        "--source",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/tiny-source",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/unknown",
+        "--module",
+        "Smoke",
+        "--unknown"
+      ],
+      "returncode": 2,
+      "expected_success": false
+    },
+    {
+      "mode": "O",
+      "case": "existing-output",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py",
+        "--source",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/tiny-source",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/exists",
+        "--module",
+        "Smoke"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "O",
+      "case": "missing-source",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py",
+        "--source",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/tiny-source",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/missing",
+        "--module",
+        "Missing"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "O",
+      "case": "missing-library",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py",
+        "--source",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/tiny-source",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/lib",
+        "--module",
+        "Smoke",
+        "--extra-library",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/absent"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "O",
+      "case": "invalid-Lean",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py",
+        "--source",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/tiny-source",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/wrong",
+        "--module",
+        "Wrong"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "O",
+      "case": "positive-relocated-public",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/fixture/network/Solutions/RHContinuation.v1/integration/reproduce_public.py",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/relocated-good",
+        "--base-run",
+        "/data/ivy-rh-continuation-20261122/integration/public-final-v2/base"
+      ],
+      "returncode": 0,
+      "expected_success": true
+    },
+    {
+      "mode": "O",
+      "case": "mutated-source-built-object",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/fixture/network/Solutions/RHContinuation.v1/integration/reproduce_public.py",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/bad-object",
+        "--base-run",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/mutated-base"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "O",
+      "case": "missing-object-identity",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/fixture/network/Solutions/RHContinuation.v1/integration/reproduce_public.py",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/missing-object-id",
+        "--base-run",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/unrecorded-object-base"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "O",
+      "case": "changed-frozen-source",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/fixture/network/Solutions/RHContinuation.v1/integration/reproduce.py",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/bad-source"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "O",
+      "case": "changed-canonical",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/fixture/network/Solutions/RHContinuation.v1/integration/reproduce_public.py",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/bad-public",
+        "--base-run",
+        "/data/ivy-rh-continuation-20261122/integration/public-final-v2/base"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "O",
+      "case": "public-missing-args",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/fixture/network/Solutions/RHContinuation.v1/integration/reproduce_public.py"
+      ],
+      "returncode": 2,
+      "expected_success": false
+    },
+    {
+      "mode": "O",
+      "case": "public-unknown-option",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/fixture/network/Solutions/RHContinuation.v1/integration/reproduce_public.py",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/unknown-public",
+        "--unknown"
+      ],
+      "returncode": 2,
+      "expected_success": false
+    },
+    {
+      "mode": "O",
+      "case": "public-existing-output",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/fixture/network/Solutions/RHContinuation.v1/integration/reproduce_public.py",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/O/relocated-good",
+        "--base-run",
+        "/data/ivy-rh-continuation-20261122/integration/public-final-v2/base"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "OO",
+      "case": "positive-helper",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py",
+        "--source",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/tiny-source",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/positive",
+        "--module",
+        "Smoke"
+      ],
+      "returncode": 0,
+      "expected_success": true
+    },
+    {
+      "mode": "OO",
+      "case": "duplicate-json",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py",
+        "--source",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/tiny-source",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/dup",
+        "--module",
+        "Smoke"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "OO",
+      "case": "nonfinite-json",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py",
+        "--source",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/tiny-source",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/nan",
+        "--module",
+        "Smoke"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "OO",
+      "case": "compiler-pin",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py",
+        "--source",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/tiny-source",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/compiler-pin-out",
+        "--module",
+        "Smoke"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "OO",
+      "case": "dependency-pin",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py",
+        "--source",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/tiny-source",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/dependency-pin-out",
+        "--module",
+        "Smoke"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "OO",
+      "case": "missing-args",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py"
+      ],
+      "returncode": 2,
+      "expected_success": false
+    },
+    {
+      "mode": "OO",
+      "case": "zero-modules",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py",
+        "--source",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/tiny-source",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/zero"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "OO",
+      "case": "duplicate-modules",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py",
+        "--source",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/tiny-source",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/duplicates",
+        "--module",
+        "Smoke",
+        "--module",
+        "Smoke"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "OO",
+      "case": "unknown-option",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py",
+        "--source",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/tiny-source",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/unknown",
+        "--module",
+        "Smoke",
+        "--unknown"
+      ],
+      "returncode": 2,
+      "expected_success": false
+    },
+    {
+      "mode": "OO",
+      "case": "existing-output",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py",
+        "--source",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/tiny-source",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/exists",
+        "--module",
+        "Smoke"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "OO",
+      "case": "missing-source",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py",
+        "--source",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/tiny-source",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/missing",
+        "--module",
+        "Missing"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "OO",
+      "case": "missing-library",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py",
+        "--source",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/tiny-source",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/lib",
+        "--module",
+        "Smoke",
+        "--extra-library",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/absent"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "OO",
+      "case": "invalid-Lean",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py",
+        "--source",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/tiny-source",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/wrong",
+        "--module",
+        "Wrong"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "OO",
+      "case": "positive-relocated-public",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/fixture/network/Solutions/RHContinuation.v1/integration/reproduce_public.py",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/relocated-good",
+        "--base-run",
+        "/data/ivy-rh-continuation-20261122/integration/public-final-v2/base"
+      ],
+      "returncode": 0,
+      "expected_success": true
+    },
+    {
+      "mode": "OO",
+      "case": "mutated-source-built-object",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/fixture/network/Solutions/RHContinuation.v1/integration/reproduce_public.py",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/bad-object",
+        "--base-run",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/mutated-base"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "OO",
+      "case": "missing-object-identity",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/fixture/network/Solutions/RHContinuation.v1/integration/reproduce_public.py",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/missing-object-id",
+        "--base-run",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/unrecorded-object-base"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "OO",
+      "case": "changed-frozen-source",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/fixture/network/Solutions/RHContinuation.v1/integration/reproduce.py",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/bad-source"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "OO",
+      "case": "changed-canonical",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/fixture/network/Solutions/RHContinuation.v1/integration/reproduce_public.py",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/bad-public",
+        "--base-run",
+        "/data/ivy-rh-continuation-20261122/integration/public-final-v2/base"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    },
+    {
+      "mode": "OO",
+      "case": "public-missing-args",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/fixture/network/Solutions/RHContinuation.v1/integration/reproduce_public.py"
+      ],
+      "returncode": 2,
+      "expected_success": false
+    },
+    {
+      "mode": "OO",
+      "case": "public-unknown-option",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/fixture/network/Solutions/RHContinuation.v1/integration/reproduce_public.py",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/unknown-public",
+        "--unknown"
+      ],
+      "returncode": 2,
+      "expected_success": false
+    },
+    {
+      "mode": "OO",
+      "case": "public-existing-output",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/fixture/network/Solutions/RHContinuation.v1/integration/reproduce_public.py",
+        "--out",
+        "/data/ivy-rh-continuation-20261122/integration/controls-final-v2/OO/relocated-good",
+        "--base-run",
+        "/data/ivy-rh-continuation-20261122/integration/public-final-v2/base"
+      ],
+      "returncode": 1,
+      "expected_success": false
+    }
+  ],
+  "actual_child_invocations": 63,
+  "positive_cases": 6,
+  "negative_cases": 57,
+  "helper_sha256": "4c21ed7f32952d5124ad8a8922d7611cc49756d1ba957d3f5f23fc72621c7acc",
+  "reproducer_sha256": "d80e0517eb424bac26ecfcecfdab4402513fe8267790fa05352a9d0ff1f0d0ca",
+  "public_reproducer_sha256": "99946bfe4316387e30dadf3e7ad894da5f29ce5bbe9716f36a5c4b961e1515d6",
+  "control_validator_sha256": "b02d3e23a34b5bd02264c0c788eb1662cecbd915ce42c8c6e42127cc7ba4b600",
+  "assert_used_for_acceptance": false
+}

@@ -1,0 +1,91 @@
+{
+  "schema": "INDEPENDENT_BOX_REPAIR_ACCEPTANCE_V1",
+  "reviewer": "signed_continuation",
+  "status": "ALL_TWO_REQUESTED_WRITTEN_SOURCE_REPAIRS_ACCEPTED; NO_MATHEMATICAL_BOUND_DEFECT_FOUND_IN_REVIEWED_FULL_BOX_DERIVATIONS",
+  "original_review": {
+    "path": "Solutions/RHContinuation.v1/signed/reviews/box/REVIEW.json",
+    "sha256": "da51b10b8273d42e973e75da3635e343f5b4345ec92f8c0e6379a55622ce6475",
+    "preserved_without_modification": true
+  },
+  "repair_receipt": {
+    "path": "Solutions/RHContinuation.v1/parabolic/SOURCE_CORRECTION.json",
+    "sha256": "0f533c0bf012aec30ee6dfee63fb3c1ca2a72cf3fb526252251ef05a960fbc33"
+  },
+  "checked_documents_and_archives": [
+    {
+      "path": "Solutions/RHContinuation.v1/parabolic/BOX_PNT_PROOF.md",
+      "sha256": "709956a7f877c0bc3a4c1b4408df5d553bf94860f1d2f444b5bcba4aff7ffae6",
+      "original_archived_path": "Solutions/RHContinuation.v1/parabolic/reproduction_history/source-correction-original-documents/BOX_PNT_PROOF.md",
+      "original_sha256": "7c3d5b3a661bbe775caf6763933fb8b36e0dfddb0c7b11e55d9d8830622ac4b4"
+    },
+    {
+      "path": "Solutions/RHContinuation.v1/parabolic/BOX_MELLIN_EXACT.md",
+      "sha256": "4c99987e70722371cc9e84ca793f3de74aafaeac21812dec081d3e16fae15432",
+      "original_archived_path": "Solutions/RHContinuation.v1/parabolic/reproduction_history/source-correction-original-documents/BOX_MELLIN_EXACT.md",
+      "original_sha256": "6fed9216bcfa81f27a6866cd066adbb4b19feb9b85414c2b9de55be4d479576b"
+    },
+    {
+      "path": "Solutions/RHContinuation.v1/parabolic/QUARTIC_PROOF.md",
+      "sha256": "8c9fcdb66b4e2f9a61e46c3a9d72dd9ebb674da0d61c37eb556ff46b9afdf82a",
+      "original_archived_path": "Solutions/RHContinuation.v1/parabolic/reproduction_history/source-correction-original-documents/QUARTIC_PROOF.md",
+      "original_sha256": "7c8bb7359de0cf02e985e22011726c3603d7b6991a1bd0d17f67623df9811dc8"
+    },
+    {
+      "path": "Solutions/RHContinuation.v1/parabolic/SEXTIC_PROOF.md",
+      "sha256": "66a3f6ed53c34ca61b8fe825a330dfd49554205489f2412a4538925c58a02090",
+      "original_archived_path": "Solutions/RHContinuation.v1/parabolic/reproduction_history/source-correction-original-documents/SEXTIC_PROOF.md",
+      "original_sha256": "832ed20b573592479b2fb98d1b0cd986a696a9f3d47de7ff2ca668f6bf54395d"
+    },
+    {
+      "path": "Solutions/RHContinuation.v1/parabolic/OCTIC_PROOF.md",
+      "sha256": "c50f415c9fbb640b28b0b33a41dd617f9c55581dec8fa4fb60a61a28476ec890",
+      "original_archived_path": "Solutions/RHContinuation.v1/parabolic/reproduction_history/source-correction-original-documents/OCTIC_PROOF.md",
+      "original_sha256": "41c5ab88090d177a97bf66bf9ee51f32c4376fa720b140d1db8861bcfd3ad9dc"
+    },
+    {
+      "path": "Solutions/RHContinuation.v1/parabolic/README.md",
+      "sha256": "95c926aff4d31c92ff4a4dc6ceaa06a4e2d2a64e98389917fa4563981296d63f",
+      "original_archived_path": "Solutions/RHContinuation.v1/parabolic/reproduction_history/source-correction-original-documents/README.md",
+      "original_sha256": "b9a1f308ac5261fe37cd58a20ba4be851a394a516af6853171c69a0cb9eed2aa"
+    }
+  ],
+  "findings": [
+    {
+      "id": "F01_source_identity",
+      "status": "RESOLVED",
+      "acceptance": "Current six live documents identify Mean square as2008.06140v1/JNT238(2022)740-762,Cor1p743, and distinguish Accurate-estimation2009.13791/MathComp2021. The actual bound and parameters are unchanged."
+    },
+    {
+      "id": "F02_exact_trivial_residue",
+      "status": "RESOLVED_WRITTEN_DERIVATION_ONLY",
+      "acceptance": "New BOX_PNT_PROOF subsections explicitly compute all relevant residues from DGM Perron integrand: +x^2/2; -m*x^(rho+1)/[rho(rho+1)]; -xlog2pi from exact zeta0 expansion; x-independentlogDeriv(-1); -x^(1-2n)/[2n(2n-1)]. The separate trivial series and derivative converge uniformly onx>=a>1. IBP is performed onactualpsi1 before the primitive zero series is interchanged with bounded boundary/integral operations; each individual smooth zero term yields the exact average packet. Constant cancellation, unitmass, box endpoints and actual ordinary psi are retained. This repairs the written justification without formalizing the existing averaged identity premise."
+    }
+  ],
+  "source_domain_extraction_correction": {
+    "status": "STRICT_DOMAIN_CONCERN_WITHDRAWN; ORIGINAL_NONSTRICT_DOMAIN_ALIGNED",
+    "actual_primary": "Both pinned primary PDFpage images visibly print the slanted greater-or-equal glyph in T>=2pi. The text extractor rendered it as >.",
+    "prior_mistake": "The reviewer initially repeated the strict extracted text to the parent; visual source inspection disproves that reading. It was not a material theorem-domain mismatch, and it is not counted as a third finding.",
+    "application": "A=12>2pi throughout, so the proof uses a safely interior height. No extension lemma or source-contract change is needed.",
+    "visual_preimages": [
+      {
+        "path": "/data/ivy-rh-continuation-20261122/parabolic/BPT_v1_cor1_source_page.png",
+        "sha256": "bfd2b954f3ec905d488bccd18bae2d877af3c653d428e77f7c4f55772c8eb15f",
+        "independently_viewed": true,
+        "visible_statement": "Corollary1: For all T>=2pi, N(T)=T/(2pi)log(T/(2pi))-T/(2pi)+7/8+(.28theta)logT."
+      },
+      {
+        "path": "/data/ivy-rh-continuation-20261122/parabolic/BPT_cor1_source_page.png",
+        "sha256": "5ae76d68fb892d264ac716026244dbb7556281fcc4d653cdc1605593c85a0d05",
+        "independently_viewed": true,
+        "visible_statement": "Corollary1: For all T>=2pi, N(T)=T/(2pi)log(T/(2pi))-T/(2pi)+7/8+(.28theta)logT."
+      }
+    ]
+  },
+  "trust_and_formal_status": {
+    "scientific_changes": "Documentation repair only; reviewed receipt records46 source modules and453 protected evidence files unchanged. This acceptance independently verifies the six live/archive document hashes, not a new recompilation of all scientific modules.",
+    "five_analytic_Lean_contracts_remain_open": true,
+    "no_new_source_first_PV_claim": true,
+    "no_new_native_numerical_fact_promoted": true
+  },
+  "report_review": "Await final parent FACTS/render/HTML freeze; this addendum does not claim to review moving final report bytes."
+}

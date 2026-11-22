@@ -1,0 +1,63 @@
+{
+  "steps": [
+    {
+      "command": [
+        "python",
+        "scripts/ieantn.py",
+        "gen-challenges"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "scripts/ieantn.py",
+        "fingerprint"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "scripts/ieantn.py",
+        "check-closure"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "scripts/ieantn.py",
+        "check-graph"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "scripts/ieantn.py",
+        "check-receipts"
+      ],
+      "returncode": 1
+    },
+    {
+      "command": [
+        "python",
+        "scripts/ieantn.py",
+        "gen-challenges",
+        "--check"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "scripts/ieantn.py",
+        "fingerprint",
+        "--check"
+      ],
+      "returncode": 0
+    }
+  ],
+  "preexisting_receipt_errors_preserved": true
+}

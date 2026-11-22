@@ -1,0 +1,161 @@
+{
+  "schema": "FOCUSED_EN_KO_REPORT_SOURCE_FIDELITY_REVIEW_V1",
+  "reviewer": "signed_continuation",
+  "scope": "The current EN/KO report generator and reports, mathematical claim/status fidelity to new actual Lean declarations and pinpoint primary sources. All nine identified correction groups are checked report-wide in both languages. This is not an exhaustive external-declaration audit of IEANTN.",
+  "status": "NO_UNRESOLVED_MATERIAL_REPORT_MISMATCH_FOUND_IN_REVIEWED_PREIMAGE",
+  "inputs": [
+    {
+      "path": "Solutions/RHContinuation.v1/reports/render.py",
+      "sha256": "c51f12c1bbfce3afa81bf9ea017c99a024c160d81af290f251afba0c1a418887"
+    },
+    {
+      "path": "Solutions/RHContinuation.v1/reports/RH_CONTINUATION_REPORT_EN.html",
+      "sha256": "c4dc9083f8294632bf4429f7eade39909953cb0c52a0efc6cf940b1eafa98082"
+    },
+    {
+      "path": "Solutions/RHContinuation.v1/reports/RH_CONTINUATION_REPORT_KO.html",
+      "sha256": "b6dababfd3415a9882670ed20cce8f8ec1e8d92fbb9ae44d0dd96d90aba845cc"
+    }
+  ],
+  "correction_groups": [
+    {
+      "id": "R01",
+      "lean_and_blueprint_or_report": "MertensProfile.lean:first_mertens_square_profile; no standalone Blueprint label; report signed section",
+      "actual_primary_source_claim": "The proved whole-band square profile is a non-strict lower bound on1423^2<=x<=1e19.",
+      "primary_locator": "signed/source/MertensProfile.lean:first_mertens_square_profile",
+      "prior_fragment": "Strict > in square profile; domain omitted",
+      "concrete_trigger": "At equality the non-strict theorem cannot justify a strict report statement.",
+      "mathematical_impact": "Overstatement of exactly the profile theorem, not of the separate strict .014 consumer.",
+      "verified_current_repair": "Uses >= and prints1423^2<=x<=1e19.",
+      "status": "RESOLVED_IN_CURRENT_REPORT_GENERATOR"
+    },
+    {
+      "id": "R02",
+      "lean_and_blueprint_or_report": "RamanujanGap.v3 source coefficient consumer; report Ramanujan paragraph",
+      "actual_primary_source_claim": "Actual C program computes21 coefficients with firstfour zero; kernel output sequence agrees.",
+      "primary_locator": "ramanujan/ActualSourcePolynomial.lean; source coefficient program and formal interpreter",
+      "prior_fragment": "21 positive coefficients",
+      "concrete_trigger": "Coefficients j=0,1,2,3 arezero.",
+      "mathematical_impact": "Wrong description of actual program outputs; final margin remains unaffected.",
+      "verified_current_repair": "Both EN/KO say all21 coefficients includingfour initialzeros.",
+      "status": "RESOLVED_IN_CURRENT_REPORT_GENERATOR"
+    },
+    {
+      "id": "R03",
+      "lean_and_blueprint_or_report": "BoxMellinInputs.v1 moment identity; report Mellin display",
+      "actual_primary_source_claim": "The written Mellin identity is justified for real0<s<1; gamma1 is the limit of sum(logn/n)-.5log^2N.",
+      "primary_locator": "parabolic/BOX_MELLIN_EXACT.md; IEANTN/Nodes/BoxMellinInputs/v1/Conclusions.lean",
+      "prior_fragment": "Mellin formula without s domain; gamma1 not defined",
+      "concrete_trigger": "Outside its strip the defining improper integral need not converge.",
+      "mathematical_impact": "Readers could apply the displayed formula without its actual analytic hypotheses.",
+      "verified_current_repair": "Prints0<s<1, actual J_j definition and exact Stieltjes limit.",
+      "status": "RESOLVED_IN_CURRENT_REPORT_GENERATOR"
+    },
+    {
+      "id": "R04",
+      "lean_and_blueprint_or_report": "Nicolas.v1 actual spectral_bound and log_f_upper_full; report product displays",
+      "actual_primary_source_claim": "W is actual multiplicity-weighted spectral sum; absolute summability and RH bound|W|<=beta are separate source predicates.",
+      "primary_locator": "Nicolas1202.0729v2 Eq1.18,1.19; proof2.19 PDFp8",
+      "prior_fragment": "W used without definition/summability",
+      "concrete_trigger": "Lean totalized tsum cannot supply a source claim without Summable.",
+      "mathematical_impact": "Missing meaning and infinite-sum trust boundary in exposition.",
+      "verified_current_repair": "Actual W formula and absolute summability displayed.",
+      "status": "RESOLVED_IN_CURRENT_REPORT_GENERATOR"
+    },
+    {
+      "id": "R05",
+      "lean_and_blueprint_or_report": "MertensPositive.table13_literal_caption_counterexample and three other-column declarations; no standalone Table13 Blueprint label",
+      "actual_primary_source_claim": "BFKNW literal Table13 first-row four denominator formulas fail atx7 or5 under actual Eq1,2,3,6,8 definitions.",
+      "primary_locator": "BFKNW2608.01498v1 PDFp50, printed50, Table13; source Eq1,2,3,6,8",
+      "prior_fragment": "Source finding linked only to MertensRH source154/21",
+      "concrete_trigger": "The new .014 theorem consumes154/21, notTable13; those links do not identify the counterexample proof.",
+      "mathematical_impact": "Risk of confusing a paper-caption issue with a Lean/source mismatch or theorem dependency.",
+      "verified_current_repair": "Links actual Table13Check and Table13OtherColumns proof modules, explicitly states no Table13 Blueprint label, no lambda challenge and no corrected-table certification.",
+      "status": "RESOLVED_IN_CURRENT_REPORT_GENERATOR"
+    },
+    {
+      "id": "R06",
+      "lean_and_blueprint_or_report": "CubeProfile:first_mertens_cube_profile_u and cube_gain_lower; report signed section",
+      "actual_primary_source_claim": "Actual cube profile has positive .5/u^2 and exact subtractive terms; gain>=.000229 throughout7<=u<=40.",
+      "primary_locator": "signed/source/CubeProfile.lean:first_mertens_cube_profile_u,cube_gain_lower",
+      "prior_fragment": "Only square profile displayed beside .014 claim",
+      "concrete_trigger": "Square profile is strictly below .01379001 and cannot alone show .014.",
+      "mathematical_impact": "The substantive improvement mechanism was not visible in the report.",
+      "verified_current_repair": "Full u-profile/domain and whole-band .000229 gain now displayed.",
+      "status": "RESOLVED_IN_CURRENT_REPORT_GENERATOR"
+    },
+    {
+      "id": "R07",
+      "lean_and_blueprint_or_report": "Frozen Weighted.md historical1.876 comparator and new Nicolas adapter",
+      "actual_primary_source_claim": "Historical1.876 constant was stated only forx>=exp34; full Nicolas2.19 is known stronger profile forx>=599.",
+      "primary_locator": "RHExposureStudy.v1/locked/IEANTN_RH/files/Weighted.md; Nicolas1202.0729v2 proof2.19",
+      "prior_fragment": "Historical constant discussed alongside newx>599 without explicit old domain",
+      "concrete_trigger": "Applying1.876 belowexp34 changes the frozen comparator contract.",
+      "mathematical_impact": "Could imply a broader known benchmark than the source states.",
+      "verified_current_repair": "Explicitly names x>=exp34 comparison and conservative Leanx>599.",
+      "status": "RESOLVED_IN_CURRENT_REPORT_GENERATOR"
+    },
+    {
+      "id": "R08",
+      "lean_and_blueprint_or_report": "Simonic2021 full-function catalog; report Mobius onset",
+      "actual_primary_source_claim": "Theorem2 onset isx>=10^(10^4.487), equivalentlylogx>=(log10)*10^4.487.",
+      "primary_locator": "Simonic2109.11744v2 Theorem2(9); signed/mobius/MATHEMATICAL_FRONTIER.json",
+      "prior_fragment": "double-exponential in x",
+      "concrete_trigger": "Phrase does not specify exact height and can hide source-domain restrictions.",
+      "mathematical_impact": "Wrong onset would invalidate active-minimum comparisons.",
+      "verified_current_repair": "Exact tower and logarithmic threshold displayed; full eventual subpower branch retained.",
+      "status": "RESOLVED_IN_CURRENT_REPORT_GENERATOR"
+    },
+    {
+      "id": "R09",
+      "lean_and_blueprint_or_report": "PrimeInterval.v2 actual count theorem; report source-frontier comparison",
+      "actual_primary_source_claim": "CMSTheorem3(1.13) yields an asymptotic infimum<2.52 foralpha1; CPLsection1.3 improves width to2.5074 with unspecified finite onset. CMSTheorem5 explicitx>=4 is existenceonly.",
+      "primary_locator": "CMS1708.04122v2 PDFp5 Theorem3(1.13),Theorem5; CPL2005.02393v3 PDFp2 section1.3",
+      "prior_fragment": "Published2.52/2.5074 described without asymptotic/onset distinction",
+      "concrete_trigger": "The newu>=exp24 conditional ray differs from an asymptotic liminf statement.",
+      "mathematical_impact": "Could overstate matched-domain comparison or misidentify an explicit prime-existence theorem as a prime-rich theorem.",
+      "verified_current_repair": "EN/KO now explicitly say asymptotic same-count infimum bounds with unspecified onset.",
+      "status": "RESOLVED_IN_CURRENT_REPORT_GENERATOR"
+    }
+  ],
+  "independence": "The reviewer independently reviewed other-track mathematics and both reports; its own signed theorems are self-reviewed, with separate root/Ram primary/math reviews linked elsewhere. Original pre-repair generator byte preimage was not separately retained; prior fragments record directly observed review history, not a recoverable old-file hash.",
+  "positive_boundary_checks": [
+    "Actual zero-indexed prime quantile documented, p0=2",
+    "RH and analytic source assumptions remain explicit",
+    "No full complex-analytic Mobius Lean proof claimed",
+    "No source-first PV claimed for kernel numerical facts, Arb or Python quadrature",
+    "Native finite prime-count scout remains excluded from accepted theorem",
+    "No causal exposure, exhaustive best-known, optimality or original-primary-success claim",
+    "Four Table13 findings shown as source-caption issues, not headline-paper refutations"
+  ],
+  "regeneration_receipts": [
+    {
+      "path": "Solutions/RHContinuation.v1/signed/reviews/full-network/REPORT_REGENERATION_normal.json",
+      "sha256": "63fc8636e0b0f47e9f1a70febcd95e46d0353f2eae884805b6dfc02ced7c150c"
+    },
+    {
+      "path": "Solutions/RHContinuation.v1/signed/reviews/full-network/REPORT_REGENERATION_O.json",
+      "sha256": "66404e54464b6830af924a8c26693dad119c091939c7045f968a11d757dc003e"
+    },
+    {
+      "path": "Solutions/RHContinuation.v1/signed/reviews/full-network/REPORT_REGENERATION_OO.json",
+      "sha256": "0fed1d6927dca1d478cc7f5e9b0c67863fd1c41c54adf18833dd8cc1b6d3dbd7"
+    }
+  ],
+  "fresh_primary_pins": [
+    {
+      "filename": "1708.04122v2.pdf",
+      "sha256": "45b6c7f991831a2dc456c10285206cb17a53ef46c6ae15e43cfa5671554b0dce"
+    },
+    {
+      "filename": "2005.02393v3.pdf",
+      "sha256": "034509c50a70e895966304f4f555cb1ace010d806578af53e39b988237190679"
+    }
+  ],
+  "not_verified_here": [
+    "No official Comparator replay",
+    "Not an exhaustive census of every external claim in old source nodes",
+    "No independent browser mobile screenshot pass",
+    "Parent may regenerate reports after final FACTS edits; rerun review_reports.py for changed preimages"
+  ]
+}

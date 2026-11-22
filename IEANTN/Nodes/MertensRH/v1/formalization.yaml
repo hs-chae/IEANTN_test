@@ -1,0 +1,146 @@
+version: v0.4
+node:
+  id: MertensRH.v1
+  family: MertensRH
+  version: v1
+  kind: pipeline
+  status: awaiting-verification
+project:
+  name: MertensRH signed RH propagation
+  description: Recovers omitted positive square and cube prime-power tails; same original5
+    source inputs improve .006 to .014 on the full old band, and give earlier onset/profile.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hs-chae
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+conclusions:
+- id: bfknw154
+  declaration: MertensRH.v1.bfknw154
+  challenge: MertensRH.v1.challenge_bfknw154
+  imports: []
+  imports_status: none
+  justifications:
+  - id: source
+    kind: literature
+    source: BFKNW2026
+    locator: Proposition29(ii), Equation(154)
+    note: The actual J1 zero family and source domain x>=2.
+  designated: source
+- id: bfknw21
+  declaration: MertensRH.v1.bfknw21
+  challenge: MertensRH.v1.challenge_bfknw21
+  imports: []
+  imports_status: none
+  justifications:
+  - id: source
+    kind: literature
+    source: BFKNW2026
+    locator: Lemma21, Equations(85)-(90), m=1
+    note: Full both-sign inverse-ordinate-square mass0.04620999 and summability. This
+      numerical source remains literature-backed.
+  designated: source
+- id: positive_cube
+  declaration: MertensRH.v1.positive_cube
+  challenge: MertensRH.v1.challenge_positive_cube
+  imports:
+  - node: RH.v1
+    conclusion: hypothesis
+  - node: MertensRH.v1
+    conclusion: bfknw154
+  - node: MertensRH.v1
+    conclusion: bfknw21
+  - node: Buthe.v1
+    conclusion: theorem_2_psi
+  - node: Buthe.v1
+    conclusion: theorem_2_theta
+  - node: Buthe.v1
+    conclusion: theorem_2_theta_lower
+  imports_status: identified
+  justifications:
+  - id: local-kernel
+    kind: lean-noncompliant
+    note: 'Complete local source-only Lean transport in Solutions/MertensRH.v1/Solution.lean;
+      only standard logical axioms. No official Comparator workflow receipt exists
+      for this new research branch: pending independent workflow verification, not
+      a source-first PV claim. Exact theorem types and replay evidence are recorded
+      in Solutions/RHContinuation.v1/signed.'
+  designated: local-kernel
+- id: positive_earlier
+  declaration: MertensRH.v1.positive_earlier
+  challenge: MertensRH.v1.challenge_positive_earlier
+  imports:
+  - node: RH.v1
+    conclusion: hypothesis
+  - node: MertensRH.v1
+    conclusion: bfknw154
+  - node: MertensRH.v1
+    conclusion: bfknw21
+  - node: Buthe.v1
+    conclusion: theorem_2_psi
+  - node: Buthe.v1
+    conclusion: theorem_2_theta
+  - node: Buthe.v1
+    conclusion: theorem_2_theta_lower
+  imports_status: identified
+  justifications:
+  - id: local-kernel
+    kind: lean-noncompliant
+    note: 'Complete local source-only Lean transport in Solutions/MertensRH.v1/Solution.lean;
+      only standard logical axioms. No official Comparator workflow receipt exists
+      for this new research branch: pending independent workflow verification, not
+      a source-first PV claim. Exact theorem types and replay evidence are recorded
+      in Solutions/RHContinuation.v1/signed.'
+  designated: local-kernel
+- id: cube_profile
+  declaration: MertensRH.v1.cube_profile
+  challenge: MertensRH.v1.challenge_cube_profile
+  imports:
+  - node: RH.v1
+    conclusion: hypothesis
+  - node: MertensRH.v1
+    conclusion: bfknw154
+  - node: MertensRH.v1
+    conclusion: bfknw21
+  - node: Buthe.v1
+    conclusion: theorem_2_psi
+  - node: Buthe.v1
+    conclusion: theorem_2_theta
+  - node: Buthe.v1
+    conclusion: theorem_2_theta_lower
+  imports_status: identified
+  justifications:
+  - id: local-kernel
+    kind: lean-noncompliant
+    note: 'Complete local source-only Lean transport in Solutions/MertensRH.v1/Solution.lean;
+      only standard logical axioms. No official Comparator workflow receipt exists
+      for this new research branch: pending independent workflow verification, not
+      a source-first PV claim. Exact theorem types and replay evidence are recorded
+      in Solutions/RHContinuation.v1/signed.'
+  designated: local-kernel
+sources:
+- id: BFKNW2026
+  title: Bounds for Mertens sums
+  authors:
+  - Samuel Broadbent
+  - Andrew Fiori
+  - Habiba Kadiri
+  - Nathan Ng
+  - Kirsten Wilk
+  type: paper
+  arxiv: 2608.01498v1
+  relationship: uses
+- id: SignedContinuation2026
+  title: Signed first-Mertens continuation with positive cube-tail recovery
+  authors:
+  - OpenAI (Codex)
+  type: preprint
+  relationship: formalizes
+  note: Solutions/RHContinuation.v1/signed/RESULTS.md; new continuation, no best-known
+    claim.

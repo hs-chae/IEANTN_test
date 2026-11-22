@@ -1,0 +1,133 @@
+version: v0.4
+node:
+  id: RamanujanGap.v3
+  family: RamanujanGap
+  version: v3
+  kind: pipeline
+  status: awaiting-verification
+project:
+  name: Actual all-real Ramanujan gap with source-linked full coefficients
+  description: Quantitative1/12 margin at640b and nonconstant whole-ray profile; actual
+    principal-value li identities, full degree20 source-model coefficient outputs,
+    finite kernel arithmetic and variable analytic remainder are proved internally.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+conclusions:
+- id: one_twelfth_margin
+  declaration: RamanujanGap.v3.one_twelfth_margin
+  challenge: RamanujanGap.v3.challenge_one_twelfth_margin
+  imports: &id003
+  - &id001
+    node: RH.v1
+    conclusion: hypothesis
+  - node: Buthe.v1
+    conclusion: table_2_interval_bounds
+  - node: Buthe.v1
+    conclusion: theorem_2_li_minus_riemann_pi
+  - node: Buthe.v1
+    conclusion: theorem_2_li_minus_pi
+  - node: Buthe.v1
+    conclusion: theorem_2_li_gt_pi
+  - &id002
+    node: Buthe2016.v1
+    conclusion: theorem_2_li_minus_pi
+  imports_status: identified
+  justifications:
+  - id: source-linked-lean
+    kind: lean-noncompliant
+    note: Complete standard-three-axiom Lean proof in Solutions/RamanujanGap.v3/Solution.lean,
+      built by the source-only pinned replay in Solutions/RHContinuation.v1/ramanujan/node_publication/reproduce.py.
+      No official Comparator workflow receipt has been obtained; do not treat local
+      build receipts as Comparator evidence. The solution currently uses the curated
+      fresh-source research build rather than a standalone Comparator Lake package.
+      Coefficient application is source-first C PV; other numeric leaves are kernel
+      interval proofs; six original analytic/RH inputs remain explicit.
+  designated: source-linked-lean
+- id: tail_144_margin
+  declaration: RamanujanGap.v3.tail_144_margin
+  challenge: RamanujanGap.v3.challenge_tail_144_margin
+  imports:
+  - *id001
+  - *id002
+  imports_status: identified
+  justifications:
+  - id: source-linked-lean
+    kind: lean-noncompliant
+    note: Complete standard-three-axiom Lean proof in Solutions/RamanujanGap.v3/Solution.lean,
+      built by the source-only pinned replay in Solutions/RHContinuation.v1/ramanujan/node_publication/reproduce.py.
+      No official Comparator workflow receipt has been obtained; do not treat local
+      build receipts as Comparator evidence. The solution currently uses the curated
+      fresh-source research build rather than a standalone Comparator Lake package.
+      Coefficient application is source-first C PV; other numeric leaves are kernel
+      interval proofs; six original analytic/RH inputs remain explicit.
+  designated: source-linked-lean
+- id: full_profile
+  declaration: RamanujanGap.v3.full_profile
+  challenge: RamanujanGap.v3.challenge_full_profile
+  imports: *id003
+  imports_status: identified
+  justifications:
+  - id: source-linked-lean
+    kind: lean-noncompliant
+    note: Complete standard-three-axiom Lean proof in Solutions/RamanujanGap.v3/Solution.lean,
+      built by the source-only pinned replay in Solutions/RHContinuation.v1/ramanujan/node_publication/reproduce.py.
+      No official Comparator workflow receipt has been obtained; do not treat local
+      build receipts as Comparator evidence. The solution currently uses the curated
+      fresh-source research build rather than a standalone Comparator Lake package.
+      Coefficient application is source-first C PV; other numeric leaves are kernel
+      interval proofs; six original analytic/RH inputs remain explicit.
+  designated: source-linked-lean
+- id: ramanujan
+  declaration: RamanujanGap.v3.ramanujan
+  challenge: RamanujanGap.v3.challenge_ramanujan
+  imports: *id003
+  imports_status: identified
+  justifications:
+  - id: source-linked-lean
+    kind: lean-noncompliant
+    note: Complete standard-three-axiom Lean proof in Solutions/RamanujanGap.v3/Solution.lean,
+      built by the source-only pinned replay in Solutions/RHContinuation.v1/ramanujan/node_publication/reproduce.py.
+      No official Comparator workflow receipt has been obtained; do not treat local
+      build receipts as Comparator evidence. The solution currently uses the curated
+      fresh-source research build rather than a standalone Comparator Lake package.
+      Coefficient application is source-first C PV; other numeric leaves are kernel
+      interval proofs; six original analytic/RH inputs remain explicit.
+  designated: source-linked-lean
+sources:
+- id: rh-continuation
+  title: Post-lock actual-li/source-coefficient Ramanujan continuation
+  authors:
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: formalizes
+  note: New research proof in Solutions/RHContinuation.v1/ramanujan/. This bound is
+    not attributed verbatim to a literature source; the original published assumptions
+    are drawn as explicit node edges.
+automation:
+  methods:
+  - method: manual
+    role: Actual-li analysis, typed restricted-C source execution, kernel interval
+      proofs and standard-axiom nonlinear consumers.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+limitations:
+- No official Comparator receipt; lean-noncompliant is intentional.
+- Source-first PV covers the actual rh_coeff.c coefficient application, not every
+  numerical leaf or prime-count producer; native C run trusts compiler/runtime/OS/hardware
+  contracts.
+- Full finite source-first PV on [38359837684,640000000000) and the separate610b/Table1/GM
+  optimized branch remain incomplete.
+- No best-known, optimality, integer-cutoff or finer-root novelty claim. Original
+  v1/v2 and experimental outcomes are preserved.

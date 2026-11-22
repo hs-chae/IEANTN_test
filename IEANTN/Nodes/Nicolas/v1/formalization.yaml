@@ -1,0 +1,96 @@
+version: v0.4
+node:
+  id: Nicolas.v1
+  family: Nicolas
+  version: v1
+  kind: paper
+  status: awaiting-verification
+project:
+  name: Nicolas signed RH propagation
+  description: Exact Nicolas2012 full profile and actual product normalization, preserving
+    source hypotheses and summability.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hs-chae
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+conclusions:
+- id: spectral_bound
+  declaration: Nicolas.v1.spectral_bound
+  challenge: Nicolas.v1.challenge_spectral_bound
+  imports: []
+  imports_status: none
+  justifications:
+  - id: source
+    kind: literature
+    source: Nicolas2012
+    locator: Equations(1.18)-(1.19), with absolute-convergence guard
+    note: Actual zeros and multiplicities. RH is quantified inside this exact conditional
+      source claim.
+  designated: source
+- id: log_f_upper_full
+  declaration: Nicolas.v1.log_f_upper_full
+  challenge: Nicolas.v1.challenge_log_f_upper_full
+  imports: []
+  imports_status: none
+  justifications:
+  - id: source
+    kind: literature
+    source: Nicolas2012
+    locator: Proof of Proposition2.1, Equation(2.19), PDFp8
+    note: Full function, not rounded2.062. Strict599<x source subdomain.
+  designated: source
+- id: log_product_lower
+  declaration: Nicolas.v1.log_product_lower
+  challenge: Nicolas.v1.challenge_log_product_lower
+  imports:
+  - node: RH.v1
+    conclusion: hypothesis
+  - node: Nicolas.v1
+    conclusion: spectral_bound
+  - node: Nicolas.v1
+    conclusion: log_f_upper_full
+  imports_status: identified
+  justifications:
+  - id: local-kernel
+    kind: lean-noncompliant
+    note: 'Complete local source-only Lean transport in Solutions/Nicolas.v1/Solution.lean;
+      only standard logical axioms. No official Comparator workflow receipt exists
+      for this new research branch: pending independent workflow verification, not
+      a source-first PV claim. Exact theorem types and replay evidence are recorded
+      in Solutions/RHContinuation.v1/signed.'
+  designated: local-kernel
+- id: relative_product_lower
+  declaration: Nicolas.v1.relative_product_lower
+  challenge: Nicolas.v1.challenge_relative_product_lower
+  imports:
+  - node: RH.v1
+    conclusion: hypothesis
+  - node: Nicolas.v1
+    conclusion: spectral_bound
+  - node: Nicolas.v1
+    conclusion: log_f_upper_full
+  imports_status: identified
+  justifications:
+  - id: local-kernel
+    kind: lean-noncompliant
+    note: 'Complete local source-only Lean transport in Solutions/Nicolas.v1/Solution.lean;
+      only standard logical axioms. No official Comparator workflow receipt exists
+      for this new research branch: pending independent workflow verification, not
+      a source-first PV claim. Exact theorem types and replay evidence are recorded
+      in Solutions/RHContinuation.v1/signed.'
+  designated: local-kernel
+sources:
+- id: Nicolas2012
+  title: Small values of the Euler function and the Riemann hypothesis
+  authors:
+  - Jean-Louis Nicolas
+  type: paper
+  arxiv: 1202.0729v2
+  relationship: formalizes

@@ -1,0 +1,98 @@
+version: v0.4
+node:
+  id: MobiusRH.v1
+  family: MobiusRH
+  version: v1
+  kind: pipeline
+  status: awaiting-solution
+project:
+  name: MobiusRH signed RH propagation
+  description: Actual summatory and weighted Mobius sums. New written RH power remains
+    none-yet; actual Abel-to-weighted consumer is separately locally kernel checked.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hs-chae
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+conclusions:
+- id: power_bound
+  declaration: MobiusRH.v1.power_bound
+  challenge: MobiusRH.v1.challenge_power_bound
+  imports:
+  - node: RH.v1
+    conclusion: hypothesis
+  - node: ZeroCount.v1
+    conclusion: rvm_error_bound
+  - node: ZetaHadamard.v1
+    conclusion: logDeriv_partial_fractions
+  imports_status: traced
+  justifications:
+  - id: pending-analytic
+    kind: none-yet
+    note: New written derivation independently reviewed in stages. Canonical HasSum
+      Hadamard, exact zero count and already proved real-zero exclusion are reused.
+      Classical DLMF5.9.E13 Gamma identity, Euler reciprocal bound and Perron/Mellin
+      transfer are traced in the written source, not all drawn as graph edges. Complex
+      Stieltjes/Poisson/Gamma chain and three actual integral enclosures remain unclosed
+      in Lean. The scalar, smoothing and actual conditional consumer components do
+      not justify this complete implication. No unverified numerical result or target-as-premise
+      proof is promoted.
+  designated: pending-analytic
+- id: abel_source
+  declaration: MobiusRH.v1.abel_source
+  challenge: MobiusRH.v1.challenge_abel_source
+  imports:
+  - node: RH.v1
+    conclusion: hypothesis
+  imports_status: identified
+  justifications:
+  - id: source
+    kind: literature
+    source: Simonic2022
+    locator: Proof of Theorem2, PDFp18, display after(51)
+    note: Actual m and M, s=1 removable reciprocal-zeta value zero; integrability
+      explicit.
+  designated: source
+- id: weighted_bound
+  declaration: MobiusRH.v1.weighted_bound
+  challenge: MobiusRH.v1.challenge_weighted_bound
+  imports:
+  - node: MobiusRH.v1
+    conclusion: power_bound
+  - node: MobiusRH.v1
+    conclusion: abel_source
+  imports_status: identified
+  justifications:
+  - id: local-kernel
+    kind: lean-noncompliant
+    note: 'Complete local source-only Lean transport in Solutions/MobiusRH.v1/Solution.lean;
+      only standard logical axioms. No official Comparator workflow receipt exists
+      for this new research branch: pending independent workflow verification, not
+      a source-first PV claim. Exact theorem types and replay evidence are recorded
+      in Solutions/RHContinuation.v1/signed. The proof consumes the upstream M bound
+      as a visible graph hypothesis. Its unresolved analytic proof is inherited and
+      is not discharged by this weighted adapter.'
+  designated: local-kernel
+sources:
+- id: Simonic2022
+  title: Estimates for L-functions in the critical strip under GRH with effective
+    applications
+  authors:
+  - Aleksander Simonič
+  type: paper
+  arxiv: 2201.10771v1
+  relationship: uses
+- id: MobiusContinuation2026
+  title: RH reciprocal-zeta transfer through canonical zero-count and Hadamard nodes
+  authors:
+  - OpenAI (Codex)
+  type: preprint
+  relationship: formalizes
+  note: Solutions/RHContinuation.v1/signed/mobius/RECIPROCAL_ZETA_DERIVATION.md; written
+    analytic chain, not completed RH-to-M Lean proof.

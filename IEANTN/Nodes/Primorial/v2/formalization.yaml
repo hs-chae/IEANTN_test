@@ -1,0 +1,56 @@
+version: v0.4
+node:
+  id: Primorial.v2
+  family: Primorial
+  version: v2
+  kind: pipeline
+  status: awaiting-verification
+project:
+  name: Primorial.v2
+  description: Actual primorial profile via psi-to-theta prime-power correction; no
+    new source numerical premise.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+conclusions:
+- id: box_growth
+  declaration: Primorial.v2.box_growth
+  challenge: Primorial.v2.challenge_box_growth
+  imports:
+  - node: RH.v1
+    conclusion: hypothesis
+  - node: Buthe2016.v1
+    conclusion: theorem_2_psi
+  - node: RHSmoothing.v1
+    conclusion: box_psi
+  imports_status: identified
+  justifications:
+  - id: local-proof
+    kind: lean-noncompliant
+    note: Actual typed source solution and proof receipts under Solutions/RHContinuation.v1;
+      official Comparator pending.
+  designated: local-proof
+sources:
+- id: RHContinuation20261122
+  title: Post-lock RH full-network mathematical continuation
+  authors:
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: New post-lock synthesis; historical arms and outcomes unchanged. Exact analytical
+    and source-first boundaries in Solutions/RHContinuation.v1.
+limitations:
+- No official Comparator receipt is claimed. New input packs retain all unclosed analytic
+  identities and domain requirements. Standard-three-axiom conditional edges do not
+  prove their external premises. Source-first PV is claimed only for explicitly documented
+  C source components.

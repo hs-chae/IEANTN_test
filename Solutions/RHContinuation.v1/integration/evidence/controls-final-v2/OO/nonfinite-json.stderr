@@ -1,0 +1,25 @@
+Traceback (most recent call last):
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py", line 41, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py", line 20, in main
+    p=argparse.ArgumentParser(allow_abbrev=False);p.add_argument('--source',type=Path,required=True);p.add_argument('--out',type=Path,required=True);p.add_argument('--module',action='append',default=[]);p.add_argument('--extra-library',action='append',default=[]);a=p.parse_args();reference=Path(__file__).parent/'GENERIC_CONTEXT.json';pinned=read(reference);ctx=read(Path(os.environ.get('IEANTN_GENERIC_CONTEXT',reference)));src=a.source.resolve();out=a.out.resolve();own_hash=sha(__file__)
+                                                                                                                                                                                                                                                                                                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py", line 14, in read
+    return json.loads(Path(path).read_bytes(),object_pairs_hook=pairs,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/__init__.py", line 359, in loads
+    return cls(**kw).decode(s)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py", line 15, in <lambda>
+    parse_constant=lambda _:(_ for _ in()).throw(ValueError('nonfinite JSON')))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHContinuation.v1/scripts/build_modules.py", line 15, in <genexpr>
+    parse_constant=lambda _:(_ for _ in()).throw(ValueError('nonfinite JSON')))
+ValueError: nonfinite JSON

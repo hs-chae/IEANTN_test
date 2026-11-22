@@ -1,0 +1,208 @@
+version: v0.4
+node:
+  id: RHPrimeCounting.v1
+  family: RHPrimeCounting
+  version: v1
+  kind: pipeline
+  status: awaiting-verification
+project:
+  name: Actual RH psi-to-prime-counting propagation through GM primitive
+  description: Literal four-term published primitive input plus completed actual-J/psi/Abel
+    calculus produces generic and boxed signed/absolute prime-counting bounds. Pointwise
+    improvements inherit the common explicit prime-power/offset correction.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+conclusions:
+- id: gm_source
+  declaration: RHPrimeCounting.v1.gm_source
+  challenge: RHPrimeCounting.v1.challenge_gm_source
+  imports: []
+  imports_status: none
+  justifications:
+  - id: gm-paper
+    kind: literature
+    source: GM2015
+    locator: "Theorem1.1, rational-field case, PDFp3; \u03C81 definition PDFp1 and\
+      \ finite Mangoldt representation\xA71"
+    note: Exact four-term conditional RH bound; no source proof of this published
+      result is claimed here. The finite primitive is separately proved equal to the
+      actual integral.
+  designated: gm-paper
+- id: prime_power_series
+  declaration: RHPrimeCounting.v1.prime_power_series
+  challenge: RHPrimeCounting.v1.challenge_prime_power_series
+  imports: []
+  imports_status: none
+  justifications:
+  - id: actual-lower-height-lean
+    kind: lean-noncompliant
+    note: Unconditional complete standard-three-axiom proof from exact finite prime-power
+      reindexing and proved finite support. ActualQ is expressed entirely through
+      lower-height prime counts. No official Comparator receipt.
+  designated: actual-lower-height-lean
+- id: prime_power_nonnegative
+  declaration: RHPrimeCounting.v1.prime_power_nonnegative
+  challenge: RHPrimeCounting.v1.challenge_prime_power_nonnegative
+  imports: []
+  imports_status: none
+  justifications:
+  - id: actual-lower-height-lean
+    kind: lean-noncompliant
+    note: Unconditional complete standard-three-axiom proof from exact finite prime-power
+      reindexing and proved finite support. ActualQ is expressed entirely through
+      lower-height prime counts. No official Comparator receipt.
+  designated: actual-lower-height-lean
+- id: generic_transfer
+  declaration: RHPrimeCounting.v1.generic_transfer
+  challenge: RHPrimeCounting.v1.challenge_generic_transfer
+  imports:
+  - &id001
+    node: RH.v1
+    conclusion: hypothesis
+  - &id002
+    node: RHPrimeCounting.v1
+    conclusion: gm_source
+  - &id003
+    node: Buthe.v1
+    conclusion: theorem_2_psi
+  - &id004
+    node: Buthe.v1
+    conclusion: theorem_2_li_minus_riemann_pi
+  imports_status: identified
+  justifications:
+  - id: actual-lean-transport
+    kind: lean-noncompliant
+    note: Complete standard-three-axiom actual-J/psi primitive/Abel/GM transport and
+      typed Solution in Solutions/RHPrimeCounting.v1/Solution.lean. Curated source-only
+      research replay, no official Comparator receipt or standalone Comparator package.
+      Published gm_source remains a separate explicit literature input; no desired
+      J error is assumed. The actual prime-power correction Q and li(2) offset are
+      retained.
+  designated: actual-lean-transport
+- id: boxed_signed
+  declaration: RHPrimeCounting.v1.boxed_signed
+  challenge: RHPrimeCounting.v1.challenge_boxed_signed
+  imports:
+  - *id001
+  - *id002
+  - *id003
+  - *id004
+  - node: RHSmoothing.v1
+    conclusion: box_psi
+  imports_status: identified
+  justifications:
+  - id: actual-lean-transport
+    kind: lean-noncompliant
+    note: Complete standard-three-axiom actual-J/psi primitive/Abel/GM transport and
+      typed Solution in Solutions/RHPrimeCounting.v1/Solution.lean. Curated source-only
+      research replay, no official Comparator receipt or standalone Comparator package.
+      Published gm_source remains a separate explicit literature input; no desired
+      J error is assumed. The actual prime-power correction Q and li(2) offset are
+      retained.
+  designated: actual-lean-transport
+- id: boxed_absolute
+  declaration: RHPrimeCounting.v1.boxed_absolute
+  challenge: RHPrimeCounting.v1.challenge_boxed_absolute
+  imports:
+  - *id001
+  - *id002
+  - *id003
+  - *id004
+  - node: RHSmoothing.v1
+    conclusion: box_psi
+  imports_status: identified
+  justifications:
+  - id: actual-lean-transport
+    kind: lean-noncompliant
+    note: Complete standard-three-axiom actual-J/psi primitive/Abel/GM transport and
+      typed Solution in Solutions/RHPrimeCounting.v1/Solution.lean. Curated source-only
+      research replay, no official Comparator receipt or standalone Comparator package.
+      Published gm_source remains a separate explicit literature input; no desired
+      J error is assumed. The actual prime-power correction Q and li(2) offset are
+      retained.
+  designated: actual-lean-transport
+- id: B5_absolute
+  declaration: RHPrimeCounting.v1.B5_absolute
+  challenge: RHPrimeCounting.v1.challenge_B5_absolute
+  imports:
+  - *id001
+  - *id002
+  - *id003
+  - *id004
+  - node: RHSmoothing.v1
+    conclusion: B5_psi
+  imports_status: identified
+  justifications:
+  - id: actual-lean-transport
+    kind: lean-noncompliant
+    note: Complete standard-three-axiom actual-J/psi primitive/Abel/GM transport and
+      typed Solution in Solutions/RHPrimeCounting.v1/Solution.lean. Curated source-only
+      research replay, no official Comparator receipt or standalone Comparator package.
+      Published gm_source remains a separate explicit literature input; no desired
+      J error is assumed. The actual prime-power correction Q and li(2) offset are
+      retained.
+  designated: actual-lean-transport
+- id: boxed_strict_gain
+  declaration: RHPrimeCounting.v1.boxed_strict_gain
+  challenge: RHPrimeCounting.v1.challenge_boxed_strict_gain
+  imports:
+  - node: RHSmoothing.v1
+    conclusion: box_improves_B5
+  imports_status: identified
+  justifications:
+  - id: actual-lean-transport
+    kind: lean-noncompliant
+    note: Complete standard-three-axiom actual-J/psi primitive/Abel/GM transport and
+      typed Solution in Solutions/RHPrimeCounting.v1/Solution.lean. Curated source-only
+      research replay, no official Comparator receipt or standalone Comparator package.
+      Published gm_source remains a separate explicit literature input; no desired
+      J error is assumed. The actual prime-power correction Q and li(2) offset are
+      retained.
+  designated: actual-lean-transport
+sources:
+- id: GM2015
+  title: Explicit smoothed prime ideals theorems under GRH
+  authors:
+  - Loic Grenie
+  - Giuseppe Molteni
+  type: paper
+  arxiv: 1312.4465v4
+  url: https://arxiv.org/abs/1312.4465
+  relationship: background
+  note: 'Theorem1.1 PDFp3 Q-case: .0462x^(3/2)+1.838x+1.9851+.5097/x forx>=3 underRH.'
+- id: continuation
+  title: Actual principal-value li, finite Mangoldt and GM prime-counting transfer
+  authors:
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: formalizes
+  note: Solutions/RHContinuation.v1/ramanujan/ActualJIdentity,ActualGMPrimitive,ActualGMTransfer,ActualGMClosed.
+    Full prime-power reindexing and actual endpoints are proved.
+automation:
+  methods:
+  - method: manual
+    role: Exact actual analytic identities, right-derivative integration by parts,
+      source-bound norm transport, kernel scalar anchors and typed downstream consumers.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+limitations:
+- The GM source estimate is literature-backed, not newly formalized. Derived outputs
+  are standard-axiom Lean proofs without official Comparator receipts.
+- The explicit actual prime-power correction Q=riemannPrimeCounting-primeCounting
+  is retained; no pure scalar-coefficient PNT pi improvement is asserted.
+- Strict gain compares two certified envelopes with the same Q/li(2)/GM correction,
+  not actual unknown errors.
+- The stronger .076 spectral transfer and separate610b Ramanujan branch remain incomplete;
+  this node completes the robust .2772 primitive transfer.

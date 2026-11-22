@@ -1,0 +1,172 @@
+{
+  "schema": "INDEPENDENT_FULL_BOX_ANALYTIC_REVIEW_V1",
+  "reviewer": "signed_continuation",
+  "scope": "Bounded full mathematical review of the two new BOX written derivations and their exact canonical/Lean contracts, including allL>=35, complex displacement, density, absolute moments andtrapezoid128. This is not a completed analytic Lean proof or exhaustive repository source audit.",
+  "status": "NO_MATHEMATICAL_BOUND_DEFECT_FOUND; TWO_CONCRETE_WRITTEN_SOURCE_REPAIRS_REQUESTED",
+  "inputs": [
+    {
+      "path": "Solutions/RHContinuation.v1/parabolic/BOX_PNT_PROOF.md",
+      "sha256": "7c3d5b3a661bbe775caf6763933fb8b36e0dfddb0c7b11e55d9d8830622ac4b4"
+    },
+    {
+      "path": "Solutions/RHContinuation.v1/parabolic/BOX_MELLIN_EXACT.md",
+      "sha256": "6fed9216bcfa81f27a6866cd066adbb4b19feb9b85414c2b9de55be4d479576b"
+    },
+    {
+      "path": "Solutions/RHContinuation.v1/parabolic/PsiSmoothing.lean",
+      "sha256": "064a0caf76124d9e6e54c41a04cf3e1afd6ba38bc80b64ea9cfddf3a78704a1d"
+    },
+    {
+      "path": "IEANTN/Nodes/BoxMellinInputs/v1/Conclusions.lean",
+      "sha256": "ec1b3edfa907cb07d06c9f98824bf3388cb72c953e847a5cec9acfed21ff2176"
+    },
+    {
+      "path": "IEANTN/Nodes/RHSmoothingInputs/v1/Conclusions.lean",
+      "sha256": "88f68e39ca990f19ff21a6c24e90fd3e076a568f43ccb47f6c91ae00b781eb44"
+    }
+  ],
+  "checks": [
+    {
+      "id": "actual_box_multiplier",
+      "actual_Lean_Blueprint": "PsiSmoothing.zeroPacket, zeroAverage and actual box averages; RHSmoothingInputs.v1.box_explicit_formula. No standalone Blueprint label, canonical Conclusions and full proof note are the correspondence.",
+      "actual_primary_or_written_source": "BOX_PNT_PROOF.md box legitimacy section; DGM1503.05403v2 PDFp2 exact Perron integral and integrated explicit formula.",
+      "independent_mathematical_check": "Under RH rho=.5+i gamma, the actual average multiplier is exp(s rho delta)*sinh(rho delta)/(rho delta)=exp(s rho delta)*phi(delta(gamma-i/2)). Positive realx makes its complex power unambiguous. |rho|>=|gamma|. Real-zero exclusion is separately justified by eta; it is not inferred solely from RH.",
+      "status": "NO_MATHEMATICAL_DEFECT_FOUND"
+    },
+    {
+      "id": "integrated_series_and_summability",
+      "actual_Lean_Blueprint": "Actual Summable(zeroPacket box s L) is explicitly retained, not inferred from a totalized tsum.",
+      "actual_primary_or_written_source": "DGM integrated zero series has denominatorrho(rho+1); BPTCor1 givesN(T)=O(TlogT).",
+      "independent_mathematical_check": "On compactx>1, integrated zero series is locally uniformly absolutely convergent. Integration by parts against the log-box uses this series, not pointwise differentiation of the conditional psi zero series. Averaged multipliers decayO(1/gamma^2), which is summable by the same count theorem, with actual multiplicities.",
+      "status": "NO_MATHEMATICAL_DEFECT_FOUND"
+    },
+    {
+      "id": "low_height_and_center",
+      "actual_Lean_Blueprint": "PsiSmoothing.ZeroDensityMomentEstimate box uses actual both-sign multiplicity sum; actual positive cumulativeN is ordinary right-closed count.",
+      "actual_primary_or_written_source": "BPT The mean square... arxiv2008.06140v1 Cor1PDFp4 and published2022 Cor1p743: centerT/(2pi)*(log(T/(2pi))-1)+7/8,error<=.28logT.",
+      "independent_mathematical_check": "AtA12, M(A)+.28logA<.896651<1; right-closed integrality givesN12=0 and monotonicity excludes lower positive ordinates. If a midpoint source count convention is used, pass to the right limit of the continuous source envelope before applying integrality. All proof-bearing heights are>=12>2pi.",
+      "status": "NO_MATHEMATICAL_DEFECT_FOUND"
+    },
+    {
+      "id": "Stieltjes_constant_both_signs",
+      "actual_Lean_Blueprint": "ZeroDensityMomentEstimate actualJ0/J1, not just their numeric caps.",
+      "actual_primary_or_written_source": "BOX_PNT_PROOF real-axis density section.",
+      "independent_mathematical_check": "Forf(t)=|phi(delta t)|/t, twiceStieltjes IBP gives main=(v^2+2J0v+2J1-log(A/(2pi))^2)/(2pi). The boundary is+2M(A)/A becauseN(A)=0, not a sign-reversed7/8 term. The non-derivative error is+.56(logA+1)/A. Their combined constant is0.129478552877...<.130. The proof retains actualJ values before applying upper caps.",
+      "status": "NO_MATHEMATICAL_DEFECT_FOUND"
+    },
+    {
+      "id": "small_y_regularization",
+      "actual_Lean_Blueprint": "J box0 andJ box1 are actual regularized integrals.",
+      "actual_primary_or_written_source": "BOX_PNT_PROOF density regularization; BOX_MELLIN_EXACT local domination.",
+      "independent_mathematical_check": "Leteta=A delta,z=log(A/(2pi))>0. The omitted lower integral has absolute value<=eta^2/(6pi)*(1/4+z/2), by|phi-1|<=y^2/6 and writinglogy+v=log(y/eta)+z. AtL35 this is<1e-10 and delta decreases thereafter.",
+      "status": "NO_MATHEMATICAL_DEFECT_FOUND"
+    },
+    {
+      "id": "density_derivative_variation",
+      "actual_Lean_Blueprint": "Absolute real-axis sinc derivative correction.",
+      "actual_primary_or_written_source": "BOX_PNT_PROOF H0,H1.",
+      "independent_mathematical_check": "Use|phi prime|<=y/3 fory<=2, and<=1/y+1/y^2 fory>=2. H0<=2/3+1/2+1/8=31/24<1.3. H1<=(2log2-1)/3+(log2+1)/2+(log2/2+1/4)/4<1.2. Thus.56delta[1.3log(1/delta)+1.2]<.000003 atL35; it decreases on the whole ray.",
+      "status": "NO_MATHEMATICAL_DEFECT_FOUND"
+    },
+    {
+      "id": "complex_sinc_displacement",
+      "actual_Lean_Blueprint": "Actual complex zeroPacket, not a real-Fourier surrogate.",
+      "actual_primary_or_written_source": "BOX_PNT_PROOF imaginary displacement section.",
+      "independent_mathematical_check": "Integral representation gives|phi prime(y+it)|<=exp(delta/2)/2; quotient gives<=exp(delta/2)(1/|y|+1/y^2). For|y|>=3 the latter<=1.5exp(delta/2)/|y|; for|y|<=3 use the first. Integrating a displacementdelta/2 gives the printed delta/4 times clipped reciprocal sum. Both signs and multiplicities are already in that sum.",
+      "status": "NO_MATHEMATICAL_DEFECT_FOUND"
+    },
+    {
+      "id": "clipped_reciprocal_and_whole_ray",
+      "actual_Lean_Blueprint": "No new zero table, ordinate gap, or externally asserted reciprocal sum.",
+      "actual_primary_or_written_source": "BPTCor1; BOX_PNT_PROOF two exact Stieltjes estimates.",
+      "independent_mathematical_check": "AtT=3/delta, the low sum is<=log^2(T/(2pi))/(2pi)+.131; exactR endpoint cancellations improve its residual toC-.56/T. TailT sum_{|gamma|>T}gamma^-2 <=(log(T/(2pi))+1)/pi+(1.12logT+.28)/T. Putw=v+log3<=L/2. SinceT>1e7 and the remainder<.000002, clipped/L^2 <=1/24+1/(6*35)+(1/3+.132)/35^2<1/20. This proves a whole-ray bound, not sampled coverage.",
+      "status": "NO_MATHEMATICAL_DEFECT_FOUND"
+    },
+    {
+      "id": "imaginary_and_external_budget",
+      "actual_Lean_Blueprint": "ActualzeroAverage box bound with allowance.131.",
+      "actual_primary_or_written_source": "BOX_PNT_PROOF imaginary/external contributions.",
+      "independent_mathematical_check": "L^2delta is decreasing forL>=35 because its logarithmic derivative is3/L-.5<0, and its35anchor<.000172. The printed coarse displacement<.000046 follows even fromclip<L^2. For the external factor, use|phi(y-it)|<=exp(delta/2)min(1,1/|y|), so external cost<delta exp(delta)*clip<.000181. Summed with.130,1e-10 and.000003, this is<.131. Strongerclip<L^2/20 gives substantial extra slack without changing the theorem.",
+      "status": "NO_MATHEMATICAL_DEFECT_FOUND"
+    },
+    {
+      "id": "main_trivial_and_monotonicity",
+      "actual_Lean_Blueprint": "Actual average_brackets; MainTermEstimate/TrivialTermEstimate discharged by PsiElementary and actual canonical consumers.",
+      "actual_primary_or_written_source": "BOX_PNT_PROOF main/trivial section.",
+      "independent_mathematical_check": "For symmetric unit-mass box, exp(sdelta)Eexp(deltaU) isbracketed by exp(+-delta)coshdelta; the deviation<=delta exp2delta. Normalized excess aboveL/(2pi) is<.001 onL>=35. Supports stay>exp34; trivial contribution ispositive and<log2pi, so normalizeddifference<.001. Both monotone averages work at prime powers, giving actual full real domain and allowance.133<.14.",
+      "status": "NO_MATHEMATICAL_DEFECT_FOUND"
+    },
+    {
+      "id": "absolute_Mellin_exact",
+      "actual_Lean_Blueprint": "BoxMellinInputs.first_moment,second_moment_identity; actual PsiSmoothing.J box0/1.",
+      "actual_primary_or_written_source": "BOX_MELLIN_EXACT Mellin expansion.",
+      "independent_mathematical_check": "For0<s<1, the positive Fourier series of|siny| and positive Laplace identity justify Tonelli. H(s)=P(s)[zeta(1+s)+sum4^-k zeta(2k+1+s)], P=2^-s/[Gamma(2-s)cos(pi s/2)]. The regularized integral and first derivative are uniformly dominated for|s|<.5. Witha=1-gamma-log2, logP=a*s+(1/2+pi^2/24)s^2+O(s^3), soPsecondcoefficient=(a^2+1+pi^2/12)/2. Partial fractions give sum1/[n(4n^2-1)]=2log2-1. The resulting J0=log2 and J1=-gamma1-q+a log2-a^2/2+1/2+pi^2/24 have the printed signs and coefficients.",
+      "status": "NO_MATHEMATICAL_DEFECT_FOUND"
+    },
+    {
+      "id": "Stieltjes_limit_and_trapezoid128",
+      "actual_Lean_Blueprint": "BoxMellinInputs.stieltjes_trapezoid, actual Stieltjes sequence and q series.",
+      "actual_primary_or_written_source": "BOX_MELLIN_EXACT second finite upper construction.",
+      "independent_mathematical_check": "The locally uniform Euler-summation remainder identifiesgamma1=limS_N with zetaLaurentcoefficient-gamma1. Forf=logt/t,f doubleprime=(2logt-3)/t^3>0 fort>=5. Exacttrapezoid accounting S_M-S_N=E_NM-f(N)/2+f(M)/2 givesgamma1>=S_N-logN/(2N). Omittedq terms arepositive, hence J1<=U128. This proves the direction of the actual cap and does not mistake the lower endpoint of its numerical upper-expression enclosure for a lower bound onJ1.",
+      "status": "NO_MATHEMATICAL_DEFECT_FOUND"
+    },
+    {
+      "id": "numerical_source_chain_boundary",
+      "actual_Lean_Blueprint": "CLogMomentNetwork.box_moments then actual canonical box_psi consumer.",
+      "actual_primary_or_written_source": "BOX_MELLIN_EXACT completed C numerical component, pinned source replay/evidence.",
+      "independent_mathematical_check": "Actual C-derived interval lower/upperlogs on2..128 feed finite aggregation. KernelqSummable andactualgamma lower bounds address omitted positive tail andEulerconstant. The remaining three Mellin/Stieltjes contracts plus exact averagedexplicitformula and actual zero-densityestimate are retained. Their formalization remains open; no source-firstPV claimed for those analytic identities or Python quadrature.",
+      "status": "NO_MATHEMATICAL_DEFECT_FOUND"
+    },
+    {
+      "id": "complete_profile_comparison",
+      "actual_Lean_Blueprint": "RHSmoothing.v1.box_improves_B5; actual complete profiles.",
+      "actual_primary_or_written_source": "BOX_MELLIN_EXACT stronger actualpsi function.",
+      "independent_mathematical_check": "B5-fast difference=[(1.662-2log2)*v+1.148-1.4175]/(2pi). Itsv coefficient ispositive, v increases forL>2, and theL35anchor exceeds.546. This compares full functions onL>=35, keeps the common leadingL^2/(8pi), and does not establish optimality or exhaustive literature dominance.",
+      "status": "NO_MATHEMATICAL_DEFECT_FOUND"
+    }
+  ],
+  "findings": [
+    {
+      "id": "F01_source_identity",
+      "Lean_Blueprint": "RHSmoothingInputs/PrimeKernelInputs source trace, BOX_PNT_PROOF.md and BOX_MELLIN_EXACT.md primary zero-count paragraph; no standalone Blueprint label.",
+      "actual_primary_claim": "The required exact+7/8/.28logT Cor1 is in The mean square of the error term in the prime number theorem (2008.06140v1PDFp4, JNT238(2022)p743). Accurate-estimation is a different2009.13791 paper and refers to that antecedent.",
+      "flawed_fragment": "Accurate estimation..., Corollary1, publishedp743(arXiv2008.06140v1PDFp4)",
+      "trigger_and_impact": "Wrong title conflates two real primary papers. The numeric bound is genuinely present in the linked2008 paper, so this is a citation identity repair, not a false zero-count theorem.",
+      "repair_requested": "Use correct Mean-square title everywhere in newly authored sources/reports/metadata; preserve historical originals.",
+      "status": "PENDING_PARENT_REPAIR"
+    },
+    {
+      "id": "F02_exact_trivial_residue",
+      "Lean_Blueprint": "RHSmoothingInputs.box_explicit_formula uses exact PsiSmoothing.trivial and log2pi. BOX_PNT_PROOF says integrate by parts againstDGM Psi1.",
+      "actual_primary_claim": "DGM1503.05403v2PDFp2 states exact Perron integral and Psi1=x^2/2-sumx^(rho+1)/[rho(rho+1)]-xr+rprime+R1(x), with|R1|<=.6/x; that display does not itself identifyr or differentiateR1.",
+      "flawed_fragment": "The exact trivial term -log(1-t^-2)/2 is asserted without displaying the recovery from boundedR1.",
+      "trigger_and_impact": "A bound on a remainder alone does not justify its derivative. The exact averaged explicit identity needs a classical residue expansion, rather than differentiating the.6/x inequality. No arithmetic bound is disproved.",
+      "recoverable_derivation": "From the displayed Perron integrand, pole1 givesx^2/2, eachrho gives-x^(rho+1)/[rho(rho+1)], pole0 gives-x log2pi, pole-1 contributes a constant, and simple trivialzero-2n gives-x^(1-2n)/[2n(2n-1)]. ThusR1 equals that negative uniformly convergent series forx>1; its derivative is sumx^-2n/(2n)=-.5log(1-x^-2), uniformly onx>=a>1. Then integration by parts gives the actual log-average formula.",
+      "repair_requested": "Add exact residue series and local uniform convergence argument to written proof, with source trace; do not upgrade formal status.",
+      "status": "PENDING_PARENT_REPAIR"
+    }
+  ],
+  "scalar_cross_checks": [
+    {
+      "path": "SCALAR_ANCHORS_normal.json",
+      "sha256": "900a8297879cc802cf5968cabba71d86c8cfe86dde5bb9c84b7c090241b79894"
+    },
+    {
+      "path": "SCALAR_ANCHORS_O.json",
+      "sha256": "5e74b7cb5763beb5d31df0ec72705edc3b537999d683526512bff7868312424f"
+    },
+    {
+      "path": "SCALAR_ANCHORS_OO.json",
+      "sha256": "0110a8e3d7467a4973ca087ae2d67cb38c2518fc9de79e5937466591fcc1ec29"
+    }
+  ],
+  "formal_inputs_still_open": [
+    "AveragedExplicitFormula box",
+    "ZeroDensityMomentEstimate box",
+    "BoxMellinInputs.first_moment",
+    "BoxMellinInputs.second_moment_identity",
+    "BoxMellinInputs.stieltjes_trapezoid"
+  ],
+  "source_first_PV": "Only the separately documented actual C-log numerical component; no PV claimed by this review or native Arb anchors.",
+  "native_numeric_dependencies": "Python-flint0.9.0/256bit as pinned in signed/mobius/requirements-linux-x86_64.txt. Exact source/anchors retained; whole-domain conclusions use the explicit mathematical inequalities above, not a sample grid."
+}

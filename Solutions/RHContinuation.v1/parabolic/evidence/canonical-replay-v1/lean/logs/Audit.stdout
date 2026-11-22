@@ -1,0 +1,48 @@
+'QuarticWindow.prime_count_222' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SexticWindow.prime_count_218' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PsiSmoothing.psi_B5' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PsiSmoothing.psi_box_actual_x' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PsiSmoothing.box_improves_B5' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuarticWindow.prime_count_222 : RiemannHypothesis →
+  QuarticWindow.QuarticExplicitFormula →
+    QuarticWindow.QuarticZeroEstimate →
+      QuarticWindow.QuarticPrimePowerCost →
+        QuarticWindow.QuarticTrivialCost →
+          QuarticWindow.QuarticScalarGeometry →
+            QuarticWindow.QuarticForwardCoverage →
+              ∀ (u : ℝ),
+                Real.exp 24 ≤ u →
+                  (503 / 500 + 26 / 5 / Real.log u) * √u <
+                    QuarticWindow.primeCounting (u + 111 / 50 * √u * Real.log u) - QuarticWindow.primeCounting u
+SexticWindow.prime_count_218 : RiemannHypothesis →
+  SexticWindow.SexticExplicitFormula →
+    SexticWindow.SexticZeroEstimate →
+      SexticWindow.SexticPrimePowerCost →
+        SexticWindow.SexticTrivialCost →
+          SexticWindow.SexticScalarGeometry →
+            SexticWindow.SexticForwardCoverage →
+              ∀ (u : ℝ),
+                Real.exp 24 ≤ u →
+                  (353 / 350 + 212 / 7 / Real.log u) * √u <
+                    SexticWindow.primeCounting (u + 109 / 50 * √u * Real.log u) - SexticWindow.primeCounting u
+PsiSmoothing.psi_B5 : RiemannHypothesis →
+  PsiSmoothing.AveragedExplicitFormula PsiSmoothing.parabola →
+    PsiSmoothing.ZeroDensityMomentEstimate PsiSmoothing.parabola →
+      PsiSmoothing.MainTermEstimate PsiSmoothing.parabola →
+        PsiSmoothing.TrivialTermEstimate PsiSmoothing.parabola →
+          PsiSmoothing.J PsiSmoothing.parabola 0 ≤ 831 / 1000 →
+            PsiSmoothing.J PsiSmoothing.parabola 1 ≤ 287 / 500 →
+              ∀ (L : ℝ),
+                35 ≤ L →
+                  |Chebyshev.psi (Real.exp L) - Real.exp L| ≤
+                    √(Real.exp L) * PsiSmoothing.envelope (831 / 1000) (287 / 500) L
+PsiSmoothing.psi_box_actual_x : RiemannHypothesis →
+  PsiSmoothing.AveragedExplicitFormula PsiSmoothing.box →
+    PsiSmoothing.ZeroDensityMomentEstimate PsiSmoothing.box →
+      PsiSmoothing.MainTermEstimate PsiSmoothing.box →
+        PsiSmoothing.TrivialTermEstimate PsiSmoothing.box →
+          PsiSmoothing.J PsiSmoothing.box 0 ≤ 701 / 1000 →
+            PsiSmoothing.J PsiSmoothing.box 1 ≤ 3 / 4 →
+              ∀ (x : ℝ),
+                Real.exp 35 ≤ x → |Chebyshev.psi x - x| ≤ √x * PsiSmoothing.envelope (701 / 1000) (3 / 4) (Real.log x)
+"standardAxiomsOnly"

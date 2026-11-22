@@ -1,0 +1,2690 @@
+'RHContinuation.ReciprocalScalars.log_height_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHContinuation.ReciprocalScalars.log_compact_ratio_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHContinuation.ReciprocalScalars.compact_budget_lt_180' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHContinuation.ReciprocalScalars.log_global_ratio_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHContinuation.ReciprocalScalars.exp_six_point_two_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHContinuation.ReciprocalScalars.six_rpow_point32_lt_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHContinuation.ReciprocalScalars.global_budget_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHContinuation.DigammaIntegral.kernel_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHContinuation.DigammaIntegral.remainder_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHContinuation.DigammaIntegral.digamma_sub_log_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHContinuation.DigammaIntegral.digamma_real_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHContinuation.MobiusSmoothing.smoothing_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHContinuation.MobiusSmoothing.moebius_abs_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHContinuation.MobiusSmoothing.newTerms_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHContinuation.MobiusSmoothing.smoothing_discrepancy' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHContinuation.PerronPower.h_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHContinuation.PerronPower.height_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHContinuation.PerronPower.middle_power' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHContinuation.PerronPower.high_power' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHContinuation.PerronPower.coefficient_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHContinuation.PerronPower.actual_M_from_three_enclosures' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHContinuation.WeightedMobius.weighted_from_actual_M' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHContinuation.WeightedMobius.weighted_power_candidate_consumer' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'RHContinuation.StripScalars.uniform_strip' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHContinuation.StripScalars.global_budget_small' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem RHContinuation.PerronPower.actual_M_from_three_enclosures : ∀ {x : ℝ},
+  LE.le.{0} 1 x →
+    RHContinuation.PerronPower.Perron45At x →
+      LE.le.{0} (norm.{0} (RHContinuation.PerronPower.I0 x))
+          (HMul.hMul.{0, 0, 0}
+            (HDiv.hDiv.{0, 0, 0}
+              (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} 2 RHContinuation.PerronPower.sigma)
+                RHContinuation.PerronPower.C)
+              (HMul.hMul.{0, 0, 0} Real.pi RHContinuation.PerronPower.sigma))
+            (HPow.hPow.{0, 0, 0} x RHContinuation.PerronPower.sigma)) →
+        LE.le.{0} (norm.{0} (RHContinuation.PerronPower.I1 x))
+            (HMul.hMul.{0, 0, 0}
+              (HMul.hMul.{0, 0, 0}
+                (HDiv.hDiv.{0, 0, 0}
+                  (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} 2 RHContinuation.PerronPower.sigma)
+                    RHContinuation.PerronPower.C)
+                  (HMul.hMul.{0, 0, 0} Real.pi RHContinuation.PerronPower.epsilon))
+                (HPow.hPow.{0, 0, 0} x RHContinuation.PerronPower.sigma))
+              (HPow.hPow.{0, 0, 0} (RHContinuation.PerronPower.V x) RHContinuation.PerronPower.epsilon)) →
+          LE.le.{0} (norm.{0} (RHContinuation.PerronPower.I2 x))
+              (HMul.hMul.{0, 0, 0}
+                (HDiv.hDiv.{0, 0, 0}
+                  (HMul.hMul.{0, 0, 0}
+                    (HDiv.hDiv.{0, 0, 0}
+                      (HMul.hMul.{0, 0, 0}
+                        (HPow.hPow.{0, 0, 0} 2 (HAdd.hAdd.{0, 0, 0} RHContinuation.PerronPower.sigma 2))
+                        RHContinuation.PerronPower.C)
+                      (HMul.hMul.{0, 0, 0} Real.pi (HSub.hSub.{0, 0, 0} 1 RHContinuation.PerronPower.epsilon)))
+                    (HPow.hPow.{0, 0, 0} x (HAdd.hAdd.{0, 0, 0} RHContinuation.PerronPower.sigma 1)))
+                  (RHContinuation.PerronPower.h x))
+                (HPow.hPow.{0, 0, 0} (RHContinuation.PerronPower.V x)
+                  (HSub.hSub.{0, 0, 0} RHContinuation.PerronPower.epsilon 1))) →
+            LT.lt.{0} (abs.{0} (RHContinuation.MobiusSmoothing.M x))
+              (HMul.hMul.{0, 0, 0} 1100000 (HPow.hPow.{0, 0, 0} x RHContinuation.PerronPower.kappa)) :=
+fun {x} hx hP h0 h1 h2 =>
+  have hx0 :=
+    lt_of_not_ge.{0} fun a =>
+      Mathlib.Tactic.Linarith.lt_irrefl.{0}
+        (Eq.mp.{0}
+          (congrArg.{1, 1} (fun _a => LT.lt.{0} _a 0)
+            (Mathlib.Tactic.Ring.of_eq.{1}
+              (Mathlib.Tactic.Ring.Common.add_congr.{0}
+                (Mathlib.Tactic.Ring.Common.add_congr.{0}
+                  (Mathlib.Tactic.Ring.Common.neg_congr.{0}
+                    (Mathlib.Tactic.Ring.cast_pos.{0} (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ Nat.cast_one.{0}))
+                    (Mathlib.Tactic.Ring.Common.neg_add.{0}
+                      (Mathlib.Meta.NormNum.IsInt.to_raw_eq.{0}
+                        (Mathlib.Meta.NormNum.isInt_neg.{0} (Eq.refl.{1} Neg.neg.{0})
+                          (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1))
+                          (Eq.refl.{1} (Int.negOfNat 1))))
+                      Mathlib.Tactic.Ring.Common.neg_zero.{0}))
+                  (Mathlib.Tactic.Ring.Common.sub_congr.{0}
+                    (Mathlib.Tactic.Ring.cast_pos.{0} (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ Nat.cast_one.{0}))
+                    (Mathlib.Tactic.Ring.Common.atom_pf.{0} x rfl.{1}
+                      (Eq.mpr.{0}
+                        (id.{0}
+                          (congrArg.{1, 1}
+                            (fun _a =>
+                              Eq.{1}
+                                (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} x (Nat.rawCast.{0} 1)) (Nat.rawCast.{0} 1))
+                                (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} x (Nat.rawCast.{0} 1)) _a))
+                            (Eq.symm.{1} rfl.{1})))
+                        (Eq.refl.{1}
+                          (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} x (Nat.rawCast.{0} 1)) (Nat.rawCast.{0} 1)))))
+                    (Mathlib.Tactic.Ring.Common.sub_pf.{0}
+                      (Mathlib.Tactic.Ring.Common.neg_add.{0}
+                        (Mathlib.Tactic.Ring.Common.neg_mul.{0} x (Nat.rawCast.{0} 1)
+                          (Mathlib.Meta.NormNum.IsInt.to_raw_eq.{0}
+                            (Mathlib.Meta.NormNum.isInt_neg.{0} (Eq.refl.{1} Neg.neg.{0})
+                              (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1))
+                              (Eq.refl.{1} (Int.negOfNat 1)))))
+                        Mathlib.Tactic.Ring.Common.neg_zero.{0})
+                      (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0} (Nat.rawCast.{0} 1)
+                        (Mathlib.Tactic.Ring.Common.add_pf_zero_add.{0}
+                          (HAdd.hAdd.{0, 0, 0}
+                            (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} x (Nat.rawCast.{0} 1))
+                              (Int.rawCast.{0} (Int.negOfNat 1)))
+                            0)))))
+                  (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero.{0}
+                    (Mathlib.Meta.NormNum.IsInt.to_isNat.{0}
+                      (Mathlib.Meta.NormNum.isInt_add.{0} (Eq.refl.{1} HAdd.hAdd.{0, 0, 0})
+                        (Mathlib.Meta.NormNum.IsInt.of_raw.{0} ℝ (Int.negOfNat 1))
+                        (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1))
+                        (Eq.refl.{1} (Int.ofNat 0))))
+                    (Mathlib.Tactic.Ring.Common.add_pf_zero_add.{0}
+                      (HAdd.hAdd.{0, 0, 0}
+                        (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} x (Nat.rawCast.{0} 1))
+                          (Int.rawCast.{0} (Int.negOfNat 1)))
+                        0))))
+                (Mathlib.Tactic.Ring.Common.sub_congr.{0}
+                  (Mathlib.Tactic.Ring.Common.atom_pf.{0} x rfl.{1}
+                    (Eq.mpr.{0}
+                      (id.{0}
+                        (congrArg.{1, 1}
+                          (fun _a =>
+                            Eq.{1} (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} x (Nat.rawCast.{0} 1)) (Nat.rawCast.{0} 1))
+                              (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} x (Nat.rawCast.{0} 1)) _a))
+                          (Eq.symm.{1} rfl.{1})))
+                      (Eq.refl.{1}
+                        (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} x (Nat.rawCast.{0} 1)) (Nat.rawCast.{0} 1)))))
+                  (Mathlib.Tactic.Ring.cast_zero.{0} (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ Nat.cast_zero.{0}))
+                  (Mathlib.Tactic.Ring.Common.sub_pf.{0} Mathlib.Tactic.Ring.Common.neg_zero.{0}
+                    (Mathlib.Tactic.Ring.Common.add_pf_add_zero.{0}
+                      (HAdd.hAdd.{0, 0, 0}
+                        (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} x (Nat.rawCast.{0} 1)) (Nat.rawCast.{0} 1)) 0))))
+                (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero.{0}
+                  (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero.{0} x (Nat.rawCast.{0} 1)
+                    (Mathlib.Meta.NormNum.IsInt.to_isNat.{0}
+                      (Mathlib.Meta.NormNum.isInt_add.{0} (Eq.refl.{1} HAdd.hAdd.{0, 0, 0})
+                        (Mathlib.Meta.NormNum.IsInt.of_raw.{0} ℝ (Int.negOfNat 1))
+                        (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1))
+                        (Eq.refl.{1} (Int.ofNat 0)))))
+                  (Mathlib.Tactic.Ring.Common.add_pf_zero_add.{0} 0)))
+              (Mathlib.Tactic.Ring.cast_zero.{0} (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ Nat.cast_zero.{0}))))
+          (Mathlib.Tactic.Linarith.add_lt_of_neg_of_le.{0}
+            (Mathlib.Tactic.Linarith.add_lt_of_neg_of_le.{0}
+              (neg_neg_of_pos.{0} Mathlib.Tactic.Linarith.zero_lt_one.{0})
+              (Mathlib.Tactic.Linarith.sub_nonpos_of_le.{0} hx))
+            (Mathlib.Tactic.Linarith.sub_nonpos_of_le.{0} a)));
+  have hh := RHContinuation.PerronPower.h_bounds hx;
+  have hdisc :=
+    RHContinuation.MobiusSmoothing.smoothing_discrepancy
+      (le_of_not_gt.{0} fun a =>
+        Mathlib.Tactic.Linarith.lt_irrefl.{0}
+          (Eq.mp.{0}
+            (congrArg.{1, 1} (fun _a => LT.lt.{0} _a 0)
+              (Mathlib.Tactic.Ring.of_eq.{1}
+                (Mathlib.Tactic.Ring.Common.add_congr.{0}
+                  (Mathlib.Tactic.Ring.Common.add_congr.{0}
+                    (Mathlib.Tactic.Ring.Common.neg_congr.{0}
+                      (Mathlib.Tactic.Ring.cast_pos.{0} (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ Nat.cast_one.{0}))
+                      (Mathlib.Tactic.Ring.Common.neg_add.{0}
+                        (Mathlib.Meta.NormNum.IsInt.to_raw_eq.{0}
+                          (Mathlib.Meta.NormNum.isInt_neg.{0} (Eq.refl.{1} Neg.neg.{0})
+                            (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1))
+                            (Eq.refl.{1} (Int.negOfNat 1))))
+                        Mathlib.Tactic.Ring.Common.neg_zero.{0}))
+                    (Mathlib.Tactic.Ring.Common.sub_congr.{0}
+                      (Mathlib.Tactic.Ring.cast_pos.{0} (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ Nat.cast_one.{0}))
+                      (Mathlib.Tactic.Ring.Common.atom_pf.{0} x rfl.{1}
+                        (Eq.mpr.{0}
+                          (id.{0}
+                            (congrArg.{1, 1}
+                              (fun _a =>
+                                Eq.{1}
+                                  (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} x (Nat.rawCast.{0} 1)) (Nat.rawCast.{0} 1))
+                                  (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} x (Nat.rawCast.{0} 1)) _a))
+                              (Eq.symm.{1} rfl.{1})))
+                          (Eq.refl.{1}
+                            (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} x (Nat.rawCast.{0} 1)) (Nat.rawCast.{0} 1)))))
+                      (Mathlib.Tactic.Ring.Common.sub_pf.{0}
+                        (Mathlib.Tactic.Ring.Common.neg_add.{0}
+                          (Mathlib.Tactic.Ring.Common.neg_mul.{0} x (Nat.rawCast.{0} 1)
+                            (Mathlib.Meta.NormNum.IsInt.to_raw_eq.{0}
+                              (Mathlib.Meta.NormNum.isInt_neg.{0} (Eq.refl.{1} Neg.neg.{0})
+                                (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1))
+                                (Eq.refl.{1} (Int.negOfNat 1)))))
+                          Mathlib.Tactic.Ring.Common.neg_zero.{0})
+                        (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0} (Nat.rawCast.{0} 1)
+                          (Mathlib.Tactic.Ring.Common.add_pf_zero_add.{0}
+                            (HAdd.hAdd.{0, 0, 0}
+                              (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} x (Nat.rawCast.{0} 1))
+                                (Int.rawCast.{0} (Int.negOfNat 1)))
+                              0)))))
+                    (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero.{0}
+                      (Mathlib.Meta.NormNum.IsInt.to_isNat.{0}
+                        (Mathlib.Meta.NormNum.isInt_add.{0} (Eq.refl.{1} HAdd.hAdd.{0, 0, 0})
+                          (Mathlib.Meta.NormNum.IsInt.of_raw.{0} ℝ (Int.negOfNat 1))
+                          (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1))
+                          (Eq.refl.{1} (Int.ofNat 0))))
+                      (Mathlib.Tactic.Ring.Common.add_pf_zero_add.{0}
+                        (HAdd.hAdd.{0, 0, 0}
+                          (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} x (Nat.rawCast.{0} 1))
+                            (Int.rawCast.{0} (Int.negOfNat 1)))
+                          0))))
+                  (Mathlib.Tactic.Ring.Common.sub_congr.{0}
+                    (Mathlib.Tactic.Ring.Common.atom_pf.{0} x rfl.{1}
+                      (Eq.mpr.{0}
+                        (id.{0}
+                          (congrArg.{1, 1}
+                            (fun _a =>
+                              Eq.{1}
+                                (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} x (Nat.rawCast.{0} 1)) (Nat.rawCast.{0} 1))
+                                (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} x (Nat.rawCast.{0} 1)) _a))
+                            (Eq.symm.{1} rfl.{1})))
+                        (Eq.refl.{1}
+                          (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} x (Nat.rawCast.{0} 1)) (Nat.rawCast.{0} 1)))))
+                    (Mathlib.Tactic.Ring.cast_zero.{0} (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ Nat.cast_zero.{0}))
+                    (Mathlib.Tactic.Ring.Common.sub_pf.{0} Mathlib.Tactic.Ring.Common.neg_zero.{0}
+                      (Mathlib.Tactic.Ring.Common.add_pf_add_zero.{0}
+                        (HAdd.hAdd.{0, 0, 0}
+                          (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} x (Nat.rawCast.{0} 1)) (Nat.rawCast.{0} 1)) 0))))
+                  (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero.{0}
+                    (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero.{0} x (Nat.rawCast.{0} 1)
+                      (Mathlib.Meta.NormNum.IsInt.to_isNat.{0}
+                        (Mathlib.Meta.NormNum.isInt_add.{0} (Eq.refl.{1} HAdd.hAdd.{0, 0, 0})
+                          (Mathlib.Meta.NormNum.IsInt.of_raw.{0} ℝ (Int.negOfNat 1))
+                          (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1))
+                          (Eq.refl.{1} (Int.ofNat 0)))))
+                    (Mathlib.Tactic.Ring.Common.add_pf_zero_add.{0} 0)))
+                (Mathlib.Tactic.Ring.cast_zero.{0} (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ Nat.cast_zero.{0}))))
+            (Mathlib.Tactic.Linarith.add_neg.{0}
+              (Mathlib.Tactic.Linarith.add_lt_of_neg_of_le.{0}
+                (neg_neg_of_pos.{0} Mathlib.Tactic.Linarith.zero_lt_one.{0})
+                (Mathlib.Tactic.Linarith.sub_nonpos_of_le.{0} hx))
+              (Mathlib.Tactic.Linarith.sub_neg_of_lt.{0} a))))
+      (lt_of_not_ge.{0} fun a =>
+        Mathlib.Tactic.Linarith.lt_irrefl.{0}
+          (Eq.mp.{0}
+            (congrArg.{1, 1} (fun _a => LT.lt.{0} _a 0)
+              (Mathlib.Tactic.Ring.of_eq.{1}
+                (Mathlib.Tactic.Ring.Common.add_congr.{0}
+                  (Mathlib.Tactic.Ring.Common.add_congr.{0}
+                    (Mathlib.Tactic.Ring.Common.neg_congr.{0}
+                      (Mathlib.Tactic.Ring.cast_pos.{0} (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ Nat.cast_one.{0}))
+                      (Mathlib.Tactic.Ring.Common.neg_add.{0}
+                        (Mathlib.Meta.NormNum.IsInt.to_raw_eq.{0}
+                          (Mathlib.Meta.NormNum.isInt_neg.{0} (Eq.refl.{1} Neg.neg.{0})
+                            (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1))
+                            (Eq.refl.{1} (Int.negOfNat 1))))
+                        Mathlib.Tactic.Ring.Common.neg_zero.{0}))
+                    (Mathlib.Tactic.Ring.Common.sub_congr.{0}
+                      (Mathlib.Tactic.Ring.cast_pos.{0} (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ Nat.cast_one.{0}))
+                      (Mathlib.Tactic.Ring.Common.atom_pf.{0} (RHContinuation.PerronPower.h x) rfl.{1}
+                        (Eq.mpr.{0}
+                          (id.{0}
+                            (congrArg.{1, 1}
+                              (fun _a =>
+                                Eq.{1}
+                                  (HMul.hMul.{0, 0, 0}
+                                    (HPow.hPow.{0, 0, 0} (RHContinuation.PerronPower.h x) (Nat.rawCast.{0} 1))
+                                    (Nat.rawCast.{0} 1))
+                                  (HMul.hMul.{0, 0, 0}
+                                    (HPow.hPow.{0, 0, 0} (RHContinuation.PerronPower.h x) (Nat.rawCast.{0} 1)) _a))
+                              (Eq.symm.{1} rfl.{1})))
+                          (Eq.refl.{1}
+                            (HMul.hMul.{0, 0, 0}
+                              (HPow.hPow.{0, 0, 0} (RHContinuation.PerronPower.h x) (Nat.rawCast.{0} 1))
+                              (Nat.rawCast.{0} 1)))))
+                      (Mathlib.Tactic.Ring.Common.sub_pf.{0}
+                        (Mathlib.Tactic.Ring.Common.neg_add.{0}
+                          (Mathlib.Tactic.Ring.Common.neg_mul.{0} (RHContinuation.PerronPower.h x) (Nat.rawCast.{0} 1)
+                            (Mathlib.Meta.NormNum.IsInt.to_raw_eq.{0}
+                              (Mathlib.Meta.NormNum.isInt_neg.{0} (Eq.refl.{1} Neg.neg.{0})
+                                (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1))
+                                (Eq.refl.{1} (Int.negOfNat 1)))))
+                          Mathlib.Tactic.Ring.Common.neg_zero.{0})
+                        (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0} (Nat.rawCast.{0} 1)
+                          (Mathlib.Tactic.Ring.Common.add_pf_zero_add.{0}
+                            (HAdd.hAdd.{0, 0, 0}
+                              (HMul.hMul.{0, 0, 0}
+                                (HPow.hPow.{0, 0, 0} (RHContinuation.PerronPower.h x) (Nat.rawCast.{0} 1))
+                                (Int.rawCast.{0} (Int.negOfNat 1)))
+                              0)))))
+                    (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero.{0}
+                      (Mathlib.Meta.NormNum.IsInt.to_isNat.{0}
+                        (Mathlib.Meta.NormNum.isInt_add.{0} (Eq.refl.{1} HAdd.hAdd.{0, 0, 0})
+                          (Mathlib.Meta.NormNum.IsInt.of_raw.{0} ℝ (Int.negOfNat 1))
+                          (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1))
+                          (Eq.refl.{1} (Int.ofNat 0))))
+                      (Mathlib.Tactic.Ring.Common.add_pf_zero_add.{0}
+                        (HAdd.hAdd.{0, 0, 0}
+                          (HMul.hMul.{0, 0, 0}
+                            (HPow.hPow.{0, 0, 0} (RHContinuation.PerronPower.h x) (Nat.rawCast.{0} 1))
+                            (Int.rawCast.{0} (Int.negOfNat 1)))
+                          0))))
+                  (Mathlib.Tactic.Ring.Common.sub_congr.{0}
+                    (Mathlib.Tactic.Ring.Common.atom_pf.{0} (RHContinuation.PerronPower.h x) rfl.{1}
+                      (Eq.mpr.{0}
+                        (id.{0}
+                          (congrArg.{1, 1}
+                            (fun _a =>
+                              Eq.{1}
+                                (HMul.hMul.{0, 0, 0}
+                                  (HPow.hPow.{0, 0, 0} (RHContinuation.PerronPower.h x) (Nat.rawCast.{0} 1))
+                                  (Nat.rawCast.{0} 1))
+                                (HMul.hMul.{0, 0, 0}
+                                  (HPow.hPow.{0, 0, 0} (RHContinuation.PerronPower.h x) (Nat.rawCast.{0} 1)) _a))
+                            (Eq.symm.{1} rfl.{1})))
+                        (Eq.refl.{1}
+                          (HMul.hMul.{0, 0, 0}
+                            (HPow.hPow.{0, 0, 0} (RHContinuation.PerronPower.h x) (Nat.rawCast.{0} 1))
+                            (Nat.rawCast.{0} 1)))))
+                    (Mathlib.Tactic.Ring.cast_zero.{0} (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ Nat.cast_zero.{0}))
+                    (Mathlib.Tactic.Ring.Common.sub_pf.{0} Mathlib.Tactic.Ring.Common.neg_zero.{0}
+                      (Mathlib.Tactic.Ring.Common.add_pf_add_zero.{0}
+                        (HAdd.hAdd.{0, 0, 0}
+                          (HMul.hMul.{0, 0, 0}
+                            (HPow.hPow.{0, 0, 0} (RHContinuation.PerronPower.h x) (Nat.rawCast.{0} 1))
+                            (Nat.rawCast.{0} 1))
+                          0))))
+                  (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero.{0}
+                    (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero.{0} (RHContinuation.PerronPower.h x)
+                      (Nat.rawCast.{0} 1)
+                      (Mathlib.Meta.NormNum.IsInt.to_isNat.{0}
+                        (Mathlib.Meta.NormNum.isInt_add.{0} (Eq.refl.{1} HAdd.hAdd.{0, 0, 0})
+                          (Mathlib.Meta.NormNum.IsInt.of_raw.{0} ℝ (Int.negOfNat 1))
+                          (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1))
+                          (Eq.refl.{1} (Int.ofNat 0)))))
+                    (Mathlib.Tactic.Ring.Common.add_pf_zero_add.{0} 0)))
+                (Mathlib.Tactic.Ring.cast_zero.{0} (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ Nat.cast_zero.{0}))))
+            (Mathlib.Tactic.Linarith.add_lt_of_neg_of_le.{0}
+              (Mathlib.Tactic.Linarith.add_lt_of_neg_of_le.{0}
+                (neg_neg_of_pos.{0} Mathlib.Tactic.Linarith.zero_lt_one.{0})
+                (Mathlib.Tactic.Linarith.sub_nonpos_of_le.{0} hh.left))
+              (Mathlib.Tactic.Linarith.sub_nonpos_of_le.{0} a))));
+  have hid :=
+    id.{0}
+      (Mathlib.Tactic.Ring.of_eq.{1}
+        (Mathlib.Tactic.Ring.Common.atom_pf.{0} (∫ (t : ℝ), RHContinuation.PerronPower.kernel x t) rfl.{1}
+          (Eq.mpr.{0}
+            (id.{0}
+              (congrArg.{1, 1}
+                (fun _a =>
+                  Eq.{1}
+                    (HMul.hMul.{0, 0, 0}
+                      (HPow.hPow.{0, 0, 0} (∫ (t : ℝ), RHContinuation.PerronPower.kernel x t) (Nat.rawCast.{0} 1))
+                      (Nat.rawCast.{0} 1))
+                    (HMul.hMul.{0, 0, 0}
+                      (HPow.hPow.{0, 0, 0} (∫ (t : ℝ), RHContinuation.PerronPower.kernel x t) (Nat.rawCast.{0} 1)) _a))
+                (Eq.symm.{1} rfl.{1})))
+            (Eq.refl.{1}
+              (HMul.hMul.{0, 0, 0}
+                (HPow.hPow.{0, 0, 0} (∫ (t : ℝ), RHContinuation.PerronPower.kernel x t) (Nat.rawCast.{0} 1))
+                (Nat.rawCast.{0} 1)))))
+        (Mathlib.Tactic.Ring.Common.add_congr.{0}
+          (Mathlib.Tactic.Ring.Common.add_congr.{0}
+            (Mathlib.Tactic.Ring.Common.atom_pf.{0}
+              (∫ (t : ℝ) in Set.Icc.{0} (-1) 1, RHContinuation.PerronPower.kernel x t) rfl.{1}
+              (Eq.mpr.{0}
+                (id.{0}
+                  (congrArg.{1, 1}
+                    (fun _a =>
+                      Eq.{1}
+                        (HMul.hMul.{0, 0, 0}
+                          (HPow.hPow.{0, 0, 0} (∫ (t : ℝ) in Set.Icc.{0} (-1) 1, RHContinuation.PerronPower.kernel x t)
+                            (Nat.rawCast.{0} 1))
+                          (Nat.rawCast.{0} 1))
+                        (HMul.hMul.{0, 0, 0}
+                          (HPow.hPow.{0, 0, 0} (∫ (t : ℝ) in Set.Icc.{0} (-1) 1, RHContinuation.PerronPower.kernel x t)
+                            (Nat.rawCast.{0} 1))
+                          _a))
+                    (Eq.symm.{1} rfl.{1})))
+                (Eq.refl.{1}
+                  (HMul.hMul.{0, 0, 0}
+                    (HPow.hPow.{0, 0, 0} (∫ (t : ℝ) in Set.Icc.{0} (-1) 1, RHContinuation.PerronPower.kernel x t)
+                      (Nat.rawCast.{0} 1))
+                    (Nat.rawCast.{0} 1)))))
+            (Mathlib.Tactic.Ring.Common.sub_congr.{0}
+              (Mathlib.Tactic.Ring.Common.atom_pf.{0}
+                (∫ (t : ℝ) in
+                  Set.Icc.{0} (Neg.neg.{0} (RHContinuation.PerronPower.V x)) (RHContinuation.PerronPower.V x),
+                  RHContinuation.PerronPower.kernel x t)
+                rfl.{1}
+                (Eq.mpr.{0}
+                  (id.{0}
+                    (congrArg.{1, 1}
+                      (fun _a =>
+                        Eq.{1}
+                          (HMul.hMul.{0, 0, 0}
+                            (HPow.hPow.{0, 0, 0}
+                              (∫ (t : ℝ) in
+                                Set.Icc.{0} (Neg.neg.{0} (RHContinuation.PerronPower.V x))
+                                  (RHContinuation.PerronPower.V x),
+                                RHContinuation.PerronPower.kernel x t)
+                              (Nat.rawCast.{0} 1))
+                            (Nat.rawCast.{0} 1))
+                          (HMul.hMul.{0, 0, 0}
+                            (HPow.hPow.{0, 0, 0}
+                              (∫ (t : ℝ) in
+                                Set.Icc.{0} (Neg.neg.{0} (RHContinuation.PerronPower.V x))
+                                  (RHContinuation.PerronPower.V x),
+                                RHContinuation.PerronPower.kernel x t)
+                              (Nat.rawCast.{0} 1))
+                            _a))
+                      (Eq.symm.{1} rfl.{1})))
+                  (Eq.refl.{1}
+                    (HMul.hMul.{0, 0, 0}
+                      (HPow.hPow.{0, 0, 0}
+                        (∫ (t : ℝ) in
+                          Set.Icc.{0} (Neg.neg.{0} (RHContinuation.PerronPower.V x)) (RHContinuation.PerronPower.V x),
+                          RHContinuation.PerronPower.kernel x t)
+                        (Nat.rawCast.{0} 1))
+                      (Nat.rawCast.{0} 1)))))
+              (Mathlib.Tactic.Ring.Common.atom_pf.{0}
+                (∫ (t : ℝ) in Set.Icc.{0} (-1) 1, RHContinuation.PerronPower.kernel x t) rfl.{1}
+                (Eq.mpr.{0}
+                  (id.{0}
+                    (congrArg.{1, 1}
+                      (fun _a =>
+                        Eq.{1}
+                          (HMul.hMul.{0, 0, 0}
+                            (HPow.hPow.{0, 0, 0}
+                              (∫ (t : ℝ) in Set.Icc.{0} (-1) 1, RHContinuation.PerronPower.kernel x t)
+                              (Nat.rawCast.{0} 1))
+                            (Nat.rawCast.{0} 1))
+                          (HMul.hMul.{0, 0, 0}
+                            (HPow.hPow.{0, 0, 0}
+                              (∫ (t : ℝ) in Set.Icc.{0} (-1) 1, RHContinuation.PerronPower.kernel x t)
+                              (Nat.rawCast.{0} 1))
+                            _a))
+                      (Eq.symm.{1} rfl.{1})))
+                  (Eq.refl.{1}
+                    (HMul.hMul.{0, 0, 0}
+                      (HPow.hPow.{0, 0, 0} (∫ (t : ℝ) in Set.Icc.{0} (-1) 1, RHContinuation.PerronPower.kernel x t)
+                        (Nat.rawCast.{0} 1))
+                      (Nat.rawCast.{0} 1)))))
+              (Mathlib.Tactic.Ring.Common.sub_pf.{0}
+                (Mathlib.Tactic.Ring.Common.neg_add.{0}
+                  (Mathlib.Tactic.Ring.Common.neg_mul.{0}
+                    (∫ (t : ℝ) in Set.Icc.{0} (-1) 1, RHContinuation.PerronPower.kernel x t) (Nat.rawCast.{0} 1)
+                    (Mathlib.Meta.NormNum.IsInt.to_raw_eq.{0}
+                      (Mathlib.Meta.NormNum.isInt_neg.{0} (Eq.refl.{1} Neg.neg.{0})
+                        (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℂ 1))
+                        (Eq.refl.{1} (Int.negOfNat 1)))))
+                  Mathlib.Tactic.Ring.Common.neg_zero.{0})
+                (Mathlib.Tactic.Ring.Common.add_pf_add_gt.{0}
+                  (HMul.hMul.{0, 0, 0}
+                    (HPow.hPow.{0, 0, 0} (∫ (t : ℝ) in Set.Icc.{0} (-1) 1, RHContinuation.PerronPower.kernel x t)
+                      (Nat.rawCast.{0} 1))
+                    (Int.rawCast.{0} (Int.negOfNat 1)))
+                  (Mathlib.Tactic.Ring.Common.add_pf_add_zero.{0}
+                    (HAdd.hAdd.{0, 0, 0}
+                      (HMul.hMul.{0, 0, 0}
+                        (HPow.hPow.{0, 0, 0}
+                          (∫ (t : ℝ) in
+                            Set.Icc.{0} (Neg.neg.{0} (RHContinuation.PerronPower.V x)) (RHContinuation.PerronPower.V x),
+                            RHContinuation.PerronPower.kernel x t)
+                          (Nat.rawCast.{0} 1))
+                        (Nat.rawCast.{0} 1))
+                      0)))))
+            (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero.{0}
+              (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero.{0}
+                (∫ (t : ℝ) in Set.Icc.{0} (-1) 1, RHContinuation.PerronPower.kernel x t) (Nat.rawCast.{0} 1)
+                (Mathlib.Meta.NormNum.IsInt.to_isNat.{0}
+                  (Mathlib.Meta.NormNum.isInt_add.{0} (Eq.refl.{1} HAdd.hAdd.{0, 0, 0})
+                    (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℂ 1))
+                    (Mathlib.Meta.NormNum.IsInt.of_raw.{0} ℂ (Int.negOfNat 1)) (Eq.refl.{1} (Int.ofNat 0)))))
+              (Mathlib.Tactic.Ring.Common.add_pf_zero_add.{0}
+                (HAdd.hAdd.{0, 0, 0}
+                  (HMul.hMul.{0, 0, 0}
+                    (HPow.hPow.{0, 0, 0}
+                      (∫ (t : ℝ) in
+                        Set.Icc.{0} (Neg.neg.{0} (RHContinuation.PerronPower.V x)) (RHContinuation.PerronPower.V x),
+                        RHContinuation.PerronPower.kernel x t)
+                      (Nat.rawCast.{0} 1))
+                    (Nat.rawCast.{0} 1))
+                  0))))
+          (Mathlib.Tactic.Ring.Common.sub_congr.{0}
+            (Mathlib.Tactic.Ring.Common.atom_pf.{0} (∫ (t : ℝ), RHContinuation.PerronPower.kernel x t) rfl.{1}
+              (Eq.mpr.{0}
+                (id.{0}
+                  (congrArg.{1, 1}
+                    (fun _a =>
+                      Eq.{1}
+                        (HMul.hMul.{0, 0, 0}
+                          (HPow.hPow.{0, 0, 0} (∫ (t : ℝ), RHContinuation.PerronPower.kernel x t) (Nat.rawCast.{0} 1))
+                          (Nat.rawCast.{0} 1))
+                        (HMul.hMul.{0, 0, 0}
+                          (HPow.hPow.{0, 0, 0} (∫ (t : ℝ), RHContinuation.PerronPower.kernel x t) (Nat.rawCast.{0} 1))
+                          _a))
+                    (Eq.symm.{1} rfl.{1})))
+                (Eq.refl.{1}
+                  (HMul.hMul.{0, 0, 0}
+                    (HPow.hPow.{0, 0, 0} (∫ (t : ℝ), RHContinuation.PerronPower.kernel x t) (Nat.rawCast.{0} 1))
+                    (Nat.rawCast.{0} 1)))))
+            (Mathlib.Tactic.Ring.Common.atom_pf.{0}
+              (∫ (t : ℝ) in Set.Icc.{0} (Neg.neg.{0} (RHContinuation.PerronPower.V x)) (RHContinuation.PerronPower.V x),
+                RHContinuation.PerronPower.kernel x t)
+              rfl.{1}
+              (Eq.mpr.{0}
+                (id.{0}
+                  (congrArg.{1, 1}
+                    (fun _a =>
+                      Eq.{1}
+                        (HMul.hMul.{0, 0, 0}
+                          (HPow.hPow.{0, 0, 0}
+                            (∫ (t : ℝ) in
+                              Set.Icc.{0} (Neg.neg.{0} (RHContinuation.PerronPower.V x))
+                                (RHContinuation.PerronPower.V x),
+                              RHContinuation.PerronPower.kernel x t)
+                            (Nat.rawCast.{0} 1))
+                          (Nat.rawCast.{0} 1))
+                        (HMul.hMul.{0, 0, 0}
+                          (HPow.hPow.{0, 0, 0}
+                            (∫ (t : ℝ) in
+                              Set.Icc.{0} (Neg.neg.{0} (RHContinuation.PerronPower.V x))
+                                (RHContinuation.PerronPower.V x),
+                              RHContinuation.PerronPower.kernel x t)
+                            (Nat.rawCast.{0} 1))
+                          _a))
+                    (Eq.symm.{1} rfl.{1})))
+                (Eq.refl.{1}
+                  (HMul.hMul.{0, 0, 0}
+                    (HPow.hPow.{0, 0, 0}
+                      (∫ (t : ℝ) in
+                        Set.Icc.{0} (Neg.neg.{0} (RHContinuation.PerronPower.V x)) (RHContinuation.PerronPower.V x),
+                        RHContinuation.PerronPower.kernel x t)
+                      (Nat.rawCast.{0} 1))
+                    (Nat.rawCast.{0} 1)))))
+            (Mathlib.Tactic.Ring.Common.sub_pf.{0}
+              (Mathlib.Tactic.Ring.Common.neg_add.{0}
+                (Mathlib.Tactic.Ring.Common.neg_mul.{0}
+                  (∫ (t : ℝ) in
+                    Set.Icc.{0} (Neg.neg.{0} (RHContinuation.PerronPower.V x)) (RHContinuation.PerronPower.V x),
+                    RHContinuation.PerronPower.kernel x t)
+                  (Nat.rawCast.{0} 1)
+                  (Mathlib.Meta.NormNum.IsInt.to_raw_eq.{0}
+                    (Mathlib.Meta.NormNum.isInt_neg.{0} (Eq.refl.{1} Neg.neg.{0})
+                      (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℂ 1))
+                      (Eq.refl.{1} (Int.negOfNat 1)))))
+                Mathlib.Tactic.Ring.Common.neg_zero.{0})
+              (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0}
+                (HMul.hMul.{0, 0, 0}
+                  (HPow.hPow.{0, 0, 0} (∫ (t : ℝ), RHContinuation.PerronPower.kernel x t) (Nat.rawCast.{0} 1))
+                  (Nat.rawCast.{0} 1))
+                (Mathlib.Tactic.Ring.Common.add_pf_zero_add.{0}
+                  (HAdd.hAdd.{0, 0, 0}
+                    (HMul.hMul.{0, 0, 0}
+                      (HPow.hPow.{0, 0, 0}
+                        (∫ (t : ℝ) in
+                          Set.Icc.{0} (Neg.neg.{0} (RHContinuation.PerronPower.V x)) (RHContinuation.PerronPower.V x),
+                          RHContinuation.PerronPower.kernel x t)
+                        (Nat.rawCast.{0} 1))
+                      (Int.rawCast.{0} (Int.negOfNat 1)))
+                    0)))))
+          (Mathlib.Tactic.Ring.Common.add_pf_add_gt.{0}
+            (HMul.hMul.{0, 0, 0}
+              (HPow.hPow.{0, 0, 0} (∫ (t : ℝ), RHContinuation.PerronPower.kernel x t) (Nat.rawCast.{0} 1))
+              (Nat.rawCast.{0} 1))
+            (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero.{0}
+              (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero.{0}
+                (∫ (t : ℝ) in
+                  Set.Icc.{0} (Neg.neg.{0} (RHContinuation.PerronPower.V x)) (RHContinuation.PerronPower.V x),
+                  RHContinuation.PerronPower.kernel x t)
+                (Nat.rawCast.{0} 1)
+                (Mathlib.Meta.NormNum.IsInt.to_isNat.{0}
+                  (Mathlib.Meta.NormNum.isInt_add.{0} (Eq.refl.{1} HAdd.hAdd.{0, 0, 0})
+                    (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℂ 1))
+                    (Mathlib.Meta.NormNum.IsInt.of_raw.{0} ℂ (Int.negOfNat 1)) (Eq.refl.{1} (Int.ofNat 0)))))
+              (Mathlib.Tactic.Ring.Common.add_pf_zero_add.{0} 0)))));
+  have hnorm :=
+    Eq.mpr.{0}
+      (id.{0}
+        (congrArg.{1, 1}
+          (fun _a =>
+            LE.le.{0} (abs.{0} _a)
+              (HAdd.hAdd.{0, 0, 0}
+                (HAdd.hAdd.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I0 x))
+                  (norm.{0} (RHContinuation.PerronPower.I1 x)))
+                (norm.{0} (RHContinuation.PerronPower.I2 x))))
+          hP.right))
+      (Eq.mpr.{0}
+        (id.{0}
+          (congrArg.{1, 1}
+            (fun _a =>
+              LE.le.{0} (abs.{0} _a.re)
+                (HAdd.hAdd.{0, 0, 0}
+                  (HAdd.hAdd.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I0 x))
+                    (norm.{0} (RHContinuation.PerronPower.I1 x)))
+                  (norm.{0} (RHContinuation.PerronPower.I2 x))))
+            hid))
+        (LE.le.trans.{0}
+          (Complex.abs_re_le_norm
+            (HAdd.hAdd.{0, 0, 0}
+              (HAdd.hAdd.{0, 0, 0} (RHContinuation.PerronPower.I0 x) (RHContinuation.PerronPower.I1 x))
+              (RHContinuation.PerronPower.I2 x)))
+          (LE.le.trans.{0}
+            (norm_add_le.{0} (HAdd.hAdd.{0, 0, 0} (RHContinuation.PerronPower.I0 x) (RHContinuation.PerronPower.I1 x))
+              (RHContinuation.PerronPower.I2 x))
+            (add_le_add.{0} (norm_add_le.{0} (RHContinuation.PerronPower.I0 x) (RHContinuation.PerronPower.I1 x))
+              (le_refl.{0} (norm.{0} (RHContinuation.PerronPower.I2 x)))))));
+  have htri :=
+    have ht :=
+      abs_add_le.{0}
+        (HSub.hSub.{0, 0, 0}
+          (HDiv.hDiv.{0, 0, 0}
+            (HSub.hSub.{0, 0, 0}
+              (RHContinuation.MobiusSmoothing.smoothedM (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+              (RHContinuation.MobiusSmoothing.smoothedM x))
+            (RHContinuation.PerronPower.h x))
+          (RHContinuation.MobiusSmoothing.M x))
+        (Neg.neg.{0}
+          (HDiv.hDiv.{0, 0, 0}
+            (HSub.hSub.{0, 0, 0}
+              (RHContinuation.MobiusSmoothing.smoothedM (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+              (RHContinuation.MobiusSmoothing.smoothedM x))
+            (RHContinuation.PerronPower.h x)));
+    have ha :=
+      Mathlib.Tactic.Ring.of_eq.{1}
+        (Mathlib.Tactic.Ring.Common.add_congr.{0}
+          (Mathlib.Tactic.Ring.Common.sub_congr.{0}
+            (Mathlib.Tactic.Ring.Common.div_congr.{0}
+              (Mathlib.Tactic.Ring.Common.sub_congr.{0}
+                (Mathlib.Tactic.Ring.Common.atom_pf.{0}
+                  (RHContinuation.MobiusSmoothing.smoothedM (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                  rfl.{1}
+                  (Eq.mpr.{0}
+                    (id.{0}
+                      (congrArg.{1, 1}
+                        (fun _a =>
+                          Eq.{1}
+                            (HMul.hMul.{0, 0, 0}
+                              (HPow.hPow.{0, 0, 0}
+                                (RHContinuation.MobiusSmoothing.smoothedM
+                                  (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                (Nat.rawCast.{0} 1))
+                              (Nat.rawCast.{0} 1))
+                            (HMul.hMul.{0, 0, 0}
+                              (HPow.hPow.{0, 0, 0}
+                                (RHContinuation.MobiusSmoothing.smoothedM
+                                  (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                (Nat.rawCast.{0} 1))
+                              _a))
+                        (Eq.symm.{1} rfl.{1})))
+                    (Eq.refl.{1}
+                      (HMul.hMul.{0, 0, 0}
+                        (HPow.hPow.{0, 0, 0}
+                          (RHContinuation.MobiusSmoothing.smoothedM
+                            (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                          (Nat.rawCast.{0} 1))
+                        (Nat.rawCast.{0} 1)))))
+                (Mathlib.Tactic.Ring.Common.atom_pf.{0} (RHContinuation.MobiusSmoothing.smoothedM x) rfl.{1}
+                  (Eq.mpr.{0}
+                    (id.{0}
+                      (congrArg.{1, 1}
+                        (fun _a =>
+                          Eq.{1}
+                            (HMul.hMul.{0, 0, 0}
+                              (HPow.hPow.{0, 0, 0} (RHContinuation.MobiusSmoothing.smoothedM x) (Nat.rawCast.{0} 1))
+                              (Nat.rawCast.{0} 1))
+                            (HMul.hMul.{0, 0, 0}
+                              (HPow.hPow.{0, 0, 0} (RHContinuation.MobiusSmoothing.smoothedM x) (Nat.rawCast.{0} 1))
+                              _a))
+                        (Eq.symm.{1} rfl.{1})))
+                    (Eq.refl.{1}
+                      (HMul.hMul.{0, 0, 0}
+                        (HPow.hPow.{0, 0, 0} (RHContinuation.MobiusSmoothing.smoothedM x) (Nat.rawCast.{0} 1))
+                        (Nat.rawCast.{0} 1)))))
+                (Mathlib.Tactic.Ring.Common.sub_pf.{0}
+                  (Mathlib.Tactic.Ring.Common.neg_add.{0}
+                    (Mathlib.Tactic.Ring.Common.neg_mul.{0} (RHContinuation.MobiusSmoothing.smoothedM x)
+                      (Nat.rawCast.{0} 1)
+                      (Mathlib.Meta.NormNum.IsInt.to_raw_eq.{0}
+                        (Mathlib.Meta.NormNum.isInt_neg.{0} (Eq.refl.{1} Neg.neg.{0})
+                          (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1))
+                          (Eq.refl.{1} (Int.negOfNat 1)))))
+                    Mathlib.Tactic.Ring.Common.neg_zero.{0})
+                  (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0}
+                    (HMul.hMul.{0, 0, 0}
+                      (HPow.hPow.{0, 0, 0}
+                        (RHContinuation.MobiusSmoothing.smoothedM
+                          (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                        (Nat.rawCast.{0} 1))
+                      (Nat.rawCast.{0} 1))
+                    (Mathlib.Tactic.Ring.Common.add_pf_zero_add.{0}
+                      (HAdd.hAdd.{0, 0, 0}
+                        (HMul.hMul.{0, 0, 0}
+                          (HPow.hPow.{0, 0, 0} (RHContinuation.MobiusSmoothing.smoothedM x) (Nat.rawCast.{0} 1))
+                          (Int.rawCast.{0} (Int.negOfNat 1)))
+                        0)))))
+              (Mathlib.Tactic.Ring.Common.atom_pf.{0} (RHContinuation.PerronPower.h x) rfl.{1}
+                (Eq.mpr.{0}
+                  (id.{0}
+                    (congrArg.{1, 1}
+                      (fun _a =>
+                        Eq.{1}
+                          (HMul.hMul.{0, 0, 0}
+                            (HPow.hPow.{0, 0, 0} (RHContinuation.PerronPower.h x) (Nat.rawCast.{0} 1))
+                            (Nat.rawCast.{0} 1))
+                          (HMul.hMul.{0, 0, 0}
+                            (HPow.hPow.{0, 0, 0} (RHContinuation.PerronPower.h x) (Nat.rawCast.{0} 1)) _a))
+                      (Eq.symm.{1} rfl.{1})))
+                  (Eq.refl.{1}
+                    (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} (RHContinuation.PerronPower.h x) (Nat.rawCast.{0} 1))
+                      (Nat.rawCast.{0} 1)))))
+              (Mathlib.Tactic.Ring.Common.div_pf.{0}
+                (Mathlib.Tactic.Ring.Common.inv_single.{0}
+                  (Mathlib.Tactic.Ring.Common.inv_mul.{0} (Eq.refl.{1} (Inv.inv.{0} (RHContinuation.PerronPower.h x)))
+                    (Mathlib.Meta.NormNum.IsNat.to_raw_eq.{0}
+                      (Mathlib.Meta.NormNum.IsNNRat.to_isNat.{0}
+                        (Mathlib.Meta.NormNum.isNNRat_inv_pos.{0}
+                          (Mathlib.Meta.NormNum.IsNat.to_isNNRat.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1)))))
+                    (Eq.rec.{0, 1}
+                      (Mathlib.Tactic.Ring.Common.mul_pf_right.{0} (Inv.inv.{0} (RHContinuation.PerronPower.h x))
+                        (Nat.rawCast.{0} 1)
+                        (Mathlib.Meta.NormNum.IsNat.to_raw_eq.{0}
+                          (Mathlib.Meta.NormNum.isNat_mul.{0} (Eq.refl.{1} HMul.hMul.{0, 0, 0})
+                            (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1) (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1)
+                            (Eq.refl.{1} 1))))
+                      (Eq.symm.{1}
+                        (Eq.mpr.{0}
+                          (id.{0}
+                            (congrArg.{1, 1}
+                              (fun _a =>
+                                Eq.{1}
+                                  (HMul.hMul.{0, 0, 0}
+                                    (HPow.hPow.{0, 0, 0} (Inv.inv.{0} (RHContinuation.PerronPower.h x))
+                                      (Nat.rawCast.{0} 1))
+                                    (Nat.rawCast.{0} 1))
+                                  (HMul.hMul.{0, 0, 0}
+                                    (HPow.hPow.{0, 0, 0} (Inv.inv.{0} (RHContinuation.PerronPower.h x))
+                                      (Nat.rawCast.{0} 1))
+                                    _a))
+                              (Eq.symm.{1} rfl.{1})))
+                          (Eq.refl.{1}
+                            (HMul.hMul.{0, 0, 0}
+                              (HPow.hPow.{0, 0, 0} (Inv.inv.{0} (RHContinuation.PerronPower.h x)) (Nat.rawCast.{0} 1))
+                              (Nat.rawCast.{0} 1))))))))
+                (Mathlib.Tactic.Ring.Common.add_mul.{0}
+                  (Mathlib.Tactic.Ring.Common.mul_add.{0}
+                    (Mathlib.Tactic.Ring.Common.mul_pf_left.{0}
+                      (RHContinuation.MobiusSmoothing.smoothedM
+                        (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                      (Nat.rawCast.{0} 1)
+                      (Mathlib.Tactic.Ring.Common.mul_pf_right.{0} (Inv.inv.{0} (RHContinuation.PerronPower.h x))
+                        (Nat.rawCast.{0} 1)
+                        (Mathlib.Meta.NormNum.IsNat.to_raw_eq.{0}
+                          (Mathlib.Meta.NormNum.isNat_mul.{0} (Eq.refl.{1} HMul.hMul.{0, 0, 0})
+                            (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1) (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1)
+                            (Eq.refl.{1} 1)))))
+                    (Mathlib.Tactic.Ring.Common.mul_zero.{0}
+                      (HMul.hMul.{0, 0, 0}
+                        (HPow.hPow.{0, 0, 0}
+                          (RHContinuation.MobiusSmoothing.smoothedM
+                            (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                          (Nat.rawCast.{0} 1))
+                        (Nat.rawCast.{0} 1)))
+                    (Mathlib.Tactic.Ring.Common.add_pf_add_zero.{0}
+                      (HAdd.hAdd.{0, 0, 0}
+                        (HMul.hMul.{0, 0, 0}
+                          (HPow.hPow.{0, 0, 0}
+                            (RHContinuation.MobiusSmoothing.smoothedM
+                              (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                            (Nat.rawCast.{0} 1))
+                          (HMul.hMul.{0, 0, 0}
+                            (HPow.hPow.{0, 0, 0} (Inv.inv.{0} (RHContinuation.PerronPower.h x)) (Nat.rawCast.{0} 1))
+                            (Nat.rawCast.{0} 1)))
+                        0)))
+                  (Mathlib.Tactic.Ring.Common.add_mul.{0}
+                    (Mathlib.Tactic.Ring.Common.mul_add.{0}
+                      (Mathlib.Tactic.Ring.Common.mul_pf_left.{0} (RHContinuation.MobiusSmoothing.smoothedM x)
+                        (Nat.rawCast.{0} 1)
+                        (Mathlib.Tactic.Ring.Common.mul_pf_right.{0} (Inv.inv.{0} (RHContinuation.PerronPower.h x))
+                          (Nat.rawCast.{0} 1)
+                          (Mathlib.Meta.NormNum.IsInt.to_raw_eq.{0}
+                            (Mathlib.Meta.NormNum.isInt_mul.{0} (Eq.refl.{1} HMul.hMul.{0, 0, 0})
+                              (Mathlib.Meta.NormNum.IsInt.of_raw.{0} ℝ (Int.negOfNat 1))
+                              (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1))
+                              (Eq.refl.{1} (Int.negOfNat 1))))))
+                      (Mathlib.Tactic.Ring.Common.mul_zero.{0}
+                        (HMul.hMul.{0, 0, 0}
+                          (HPow.hPow.{0, 0, 0} (RHContinuation.MobiusSmoothing.smoothedM x) (Nat.rawCast.{0} 1))
+                          (Int.rawCast.{0} (Int.negOfNat 1))))
+                      (Mathlib.Tactic.Ring.Common.add_pf_add_zero.{0}
+                        (HAdd.hAdd.{0, 0, 0}
+                          (HMul.hMul.{0, 0, 0}
+                            (HPow.hPow.{0, 0, 0} (RHContinuation.MobiusSmoothing.smoothedM x) (Nat.rawCast.{0} 1))
+                            (HMul.hMul.{0, 0, 0}
+                              (HPow.hPow.{0, 0, 0} (Inv.inv.{0} (RHContinuation.PerronPower.h x)) (Nat.rawCast.{0} 1))
+                              (Int.rawCast.{0} (Int.negOfNat 1))))
+                          0)))
+                    (Mathlib.Tactic.Ring.Common.zero_mul.{0}
+                      (HAdd.hAdd.{0, 0, 0}
+                        (HMul.hMul.{0, 0, 0}
+                          (HPow.hPow.{0, 0, 0} (Inv.inv.{0} (RHContinuation.PerronPower.h x)) (Nat.rawCast.{0} 1))
+                          (Nat.rawCast.{0} 1))
+                        0))
+                    (Mathlib.Tactic.Ring.Common.add_pf_add_zero.{0}
+                      (HAdd.hAdd.{0, 0, 0}
+                        (HMul.hMul.{0, 0, 0}
+                          (HPow.hPow.{0, 0, 0} (RHContinuation.MobiusSmoothing.smoothedM x) (Nat.rawCast.{0} 1))
+                          (HMul.hMul.{0, 0, 0}
+                            (HPow.hPow.{0, 0, 0} (Inv.inv.{0} (RHContinuation.PerronPower.h x)) (Nat.rawCast.{0} 1))
+                            (Int.rawCast.{0} (Int.negOfNat 1))))
+                        0)))
+                  (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0}
+                    (HMul.hMul.{0, 0, 0}
+                      (HPow.hPow.{0, 0, 0}
+                        (RHContinuation.MobiusSmoothing.smoothedM
+                          (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                        (Nat.rawCast.{0} 1))
+                      (HMul.hMul.{0, 0, 0}
+                        (HPow.hPow.{0, 0, 0} (Inv.inv.{0} (RHContinuation.PerronPower.h x)) (Nat.rawCast.{0} 1))
+                        (Nat.rawCast.{0} 1)))
+                    (Mathlib.Tactic.Ring.Common.add_pf_zero_add.{0}
+                      (HAdd.hAdd.{0, 0, 0}
+                        (HMul.hMul.{0, 0, 0}
+                          (HPow.hPow.{0, 0, 0} (RHContinuation.MobiusSmoothing.smoothedM x) (Nat.rawCast.{0} 1))
+                          (HMul.hMul.{0, 0, 0}
+                            (HPow.hPow.{0, 0, 0} (Inv.inv.{0} (RHContinuation.PerronPower.h x)) (Nat.rawCast.{0} 1))
+                            (Int.rawCast.{0} (Int.negOfNat 1))))
+                        0))))))
+            (Mathlib.Tactic.Ring.Common.atom_pf.{0} (RHContinuation.MobiusSmoothing.M x) rfl.{1}
+              (Eq.mpr.{0}
+                (id.{0}
+                  (congrArg.{1, 1}
+                    (fun _a =>
+                      Eq.{1}
+                        (HMul.hMul.{0, 0, 0}
+                          (HPow.hPow.{0, 0, 0} (RHContinuation.MobiusSmoothing.M x) (Nat.rawCast.{0} 1))
+                          (Nat.rawCast.{0} 1))
+                        (HMul.hMul.{0, 0, 0}
+                          (HPow.hPow.{0, 0, 0} (RHContinuation.MobiusSmoothing.M x) (Nat.rawCast.{0} 1)) _a))
+                    (Eq.symm.{1} rfl.{1})))
+                (Eq.refl.{1}
+                  (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} (RHContinuation.MobiusSmoothing.M x) (Nat.rawCast.{0} 1))
+                    (Nat.rawCast.{0} 1)))))
+            (Mathlib.Tactic.Ring.Common.sub_pf.{0}
+              (Mathlib.Tactic.Ring.Common.neg_add.{0}
+                (Mathlib.Tactic.Ring.Common.neg_mul.{0} (RHContinuation.MobiusSmoothing.M x) (Nat.rawCast.{0} 1)
+                  (Mathlib.Meta.NormNum.IsInt.to_raw_eq.{0}
+                    (Mathlib.Meta.NormNum.isInt_neg.{0} (Eq.refl.{1} Neg.neg.{0})
+                      (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1))
+                      (Eq.refl.{1} (Int.negOfNat 1)))))
+                Mathlib.Tactic.Ring.Common.neg_zero.{0})
+              (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0}
+                (HMul.hMul.{0, 0, 0}
+                  (HPow.hPow.{0, 0, 0}
+                    (RHContinuation.MobiusSmoothing.smoothedM (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                    (Nat.rawCast.{0} 1))
+                  (HMul.hMul.{0, 0, 0}
+                    (HPow.hPow.{0, 0, 0} (Inv.inv.{0} (RHContinuation.PerronPower.h x)) (Nat.rawCast.{0} 1))
+                    (Nat.rawCast.{0} 1)))
+                (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0}
+                  (HMul.hMul.{0, 0, 0}
+                    (HPow.hPow.{0, 0, 0} (RHContinuation.MobiusSmoothing.smoothedM x) (Nat.rawCast.{0} 1))
+                    (HMul.hMul.{0, 0, 0}
+                      (HPow.hPow.{0, 0, 0} (Inv.inv.{0} (RHContinuation.PerronPower.h x)) (Nat.rawCast.{0} 1))
+                      (Int.rawCast.{0} (Int.negOfNat 1))))
+                  (Mathlib.Tactic.Ring.Common.add_pf_zero_add.{0}
+                    (HAdd.hAdd.{0, 0, 0}
+                      (HMul.hMul.{0, 0, 0}
+                        (HPow.hPow.{0, 0, 0} (RHContinuation.MobiusSmoothing.M x) (Nat.rawCast.{0} 1))
+                        (Int.rawCast.{0} (Int.negOfNat 1)))
+                      0))))))
+          (Mathlib.Tactic.Ring.Common.neg_congr.{0}
+            (Mathlib.Tactic.Ring.Common.div_congr.{0}
+              (Mathlib.Tactic.Ring.Common.sub_congr.{0}
+                (Mathlib.Tactic.Ring.Common.atom_pf.{0}
+                  (RHContinuation.MobiusSmoothing.smoothedM (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                  rfl.{1}
+                  (Eq.mpr.{0}
+                    (id.{0}
+                      (congrArg.{1, 1}
+                        (fun _a =>
+                          Eq.{1}
+                            (HMul.hMul.{0, 0, 0}
+                              (HPow.hPow.{0, 0, 0}
+                                (RHContinuation.MobiusSmoothing.smoothedM
+                                  (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                (Nat.rawCast.{0} 1))
+                              (Nat.rawCast.{0} 1))
+                            (HMul.hMul.{0, 0, 0}
+                              (HPow.hPow.{0, 0, 0}
+                                (RHContinuation.MobiusSmoothing.smoothedM
+                                  (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                (Nat.rawCast.{0} 1))
+                              _a))
+                        (Eq.symm.{1} rfl.{1})))
+                    (Eq.refl.{1}
+                      (HMul.hMul.{0, 0, 0}
+                        (HPow.hPow.{0, 0, 0}
+                          (RHContinuation.MobiusSmoothing.smoothedM
+                            (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                          (Nat.rawCast.{0} 1))
+                        (Nat.rawCast.{0} 1)))))
+                (Mathlib.Tactic.Ring.Common.atom_pf.{0} (RHContinuation.MobiusSmoothing.smoothedM x) rfl.{1}
+                  (Eq.mpr.{0}
+                    (id.{0}
+                      (congrArg.{1, 1}
+                        (fun _a =>
+                          Eq.{1}
+                            (HMul.hMul.{0, 0, 0}
+                              (HPow.hPow.{0, 0, 0} (RHContinuation.MobiusSmoothing.smoothedM x) (Nat.rawCast.{0} 1))
+                              (Nat.rawCast.{0} 1))
+                            (HMul.hMul.{0, 0, 0}
+                              (HPow.hPow.{0, 0, 0} (RHContinuation.MobiusSmoothing.smoothedM x) (Nat.rawCast.{0} 1))
+                              _a))
+                        (Eq.symm.{1} rfl.{1})))
+                    (Eq.refl.{1}
+                      (HMul.hMul.{0, 0, 0}
+                        (HPow.hPow.{0, 0, 0} (RHContinuation.MobiusSmoothing.smoothedM x) (Nat.rawCast.{0} 1))
+                        (Nat.rawCast.{0} 1)))))
+                (Mathlib.Tactic.Ring.Common.sub_pf.{0}
+                  (Mathlib.Tactic.Ring.Common.neg_add.{0}
+                    (Mathlib.Tactic.Ring.Common.neg_mul.{0} (RHContinuation.MobiusSmoothing.smoothedM x)
+                      (Nat.rawCast.{0} 1)
+                      (Mathlib.Meta.NormNum.IsInt.to_raw_eq.{0}
+                        (Mathlib.Meta.NormNum.isInt_neg.{0} (Eq.refl.{1} Neg.neg.{0})
+                          (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1))
+                          (Eq.refl.{1} (Int.negOfNat 1)))))
+                    Mathlib.Tactic.Ring.Common.neg_zero.{0})
+                  (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0}
+                    (HMul.hMul.{0, 0, 0}
+                      (HPow.hPow.{0, 0, 0}
+                        (RHContinuation.MobiusSmoothing.smoothedM
+                          (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                        (Nat.rawCast.{0} 1))
+                      (Nat.rawCast.{0} 1))
+                    (Mathlib.Tactic.Ring.Common.add_pf_zero_add.{0}
+                      (HAdd.hAdd.{0, 0, 0}
+                        (HMul.hMul.{0, 0, 0}
+                          (HPow.hPow.{0, 0, 0} (RHContinuation.MobiusSmoothing.smoothedM x) (Nat.rawCast.{0} 1))
+                          (Int.rawCast.{0} (Int.negOfNat 1)))
+                        0)))))
+              (Mathlib.Tactic.Ring.Common.atom_pf.{0} (RHContinuation.PerronPower.h x) rfl.{1}
+                (Eq.mpr.{0}
+                  (id.{0}
+                    (congrArg.{1, 1}
+                      (fun _a =>
+                        Eq.{1}
+                          (HMul.hMul.{0, 0, 0}
+                            (HPow.hPow.{0, 0, 0} (RHContinuation.PerronPower.h x) (Nat.rawCast.{0} 1))
+                            (Nat.rawCast.{0} 1))
+                          (HMul.hMul.{0, 0, 0}
+                            (HPow.hPow.{0, 0, 0} (RHContinuation.PerronPower.h x) (Nat.rawCast.{0} 1)) _a))
+                      (Eq.symm.{1} rfl.{1})))
+                  (Eq.refl.{1}
+                    (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} (RHContinuation.PerronPower.h x) (Nat.rawCast.{0} 1))
+                      (Nat.rawCast.{0} 1)))))
+              (Mathlib.Tactic.Ring.Common.div_pf.{0}
+                (Mathlib.Tactic.Ring.Common.inv_single.{0}
+                  (Mathlib.Tactic.Ring.Common.inv_mul.{0} (Eq.refl.{1} (Inv.inv.{0} (RHContinuation.PerronPower.h x)))
+                    (Mathlib.Meta.NormNum.IsNat.to_raw_eq.{0}
+                      (Mathlib.Meta.NormNum.IsNNRat.to_isNat.{0}
+                        (Mathlib.Meta.NormNum.isNNRat_inv_pos.{0}
+                          (Mathlib.Meta.NormNum.IsNat.to_isNNRat.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1)))))
+                    (Eq.rec.{0, 1}
+                      (Mathlib.Tactic.Ring.Common.mul_pf_right.{0} (Inv.inv.{0} (RHContinuation.PerronPower.h x))
+                        (Nat.rawCast.{0} 1)
+                        (Mathlib.Meta.NormNum.IsNat.to_raw_eq.{0}
+                          (Mathlib.Meta.NormNum.isNat_mul.{0} (Eq.refl.{1} HMul.hMul.{0, 0, 0})
+                            (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1) (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1)
+                            (Eq.refl.{1} 1))))
+                      (Eq.symm.{1}
+                        (Eq.mpr.{0}
+                          (id.{0}
+                            (congrArg.{1, 1}
+                              (fun _a =>
+                                Eq.{1}
+                                  (HMul.hMul.{0, 0, 0}
+                                    (HPow.hPow.{0, 0, 0} (Inv.inv.{0} (RHContinuation.PerronPower.h x))
+                                      (Nat.rawCast.{0} 1))
+                                    (Nat.rawCast.{0} 1))
+                                  (HMul.hMul.{0, 0, 0}
+                                    (HPow.hPow.{0, 0, 0} (Inv.inv.{0} (RHContinuation.PerronPower.h x))
+                                      (Nat.rawCast.{0} 1))
+                                    _a))
+                              (Eq.symm.{1} rfl.{1})))
+                          (Eq.refl.{1}
+                            (HMul.hMul.{0, 0, 0}
+                              (HPow.hPow.{0, 0, 0} (Inv.inv.{0} (RHContinuation.PerronPower.h x)) (Nat.rawCast.{0} 1))
+                              (Nat.rawCast.{0} 1))))))))
+                (Mathlib.Tactic.Ring.Common.add_mul.{0}
+                  (Mathlib.Tactic.Ring.Common.mul_add.{0}
+                    (Mathlib.Tactic.Ring.Common.mul_pf_left.{0}
+                      (RHContinuation.MobiusSmoothing.smoothedM
+                        (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                      (Nat.rawCast.{0} 1)
+                      (Mathlib.Tactic.Ring.Common.mul_pf_right.{0} (Inv.inv.{0} (RHContinuation.PerronPower.h x))
+                        (Nat.rawCast.{0} 1)
+                        (Mathlib.Meta.NormNum.IsNat.to_raw_eq.{0}
+                          (Mathlib.Meta.NormNum.isNat_mul.{0} (Eq.refl.{1} HMul.hMul.{0, 0, 0})
+                            (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1) (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1)
+                            (Eq.refl.{1} 1)))))
+                    (Mathlib.Tactic.Ring.Common.mul_zero.{0}
+                      (HMul.hMul.{0, 0, 0}
+                        (HPow.hPow.{0, 0, 0}
+                          (RHContinuation.MobiusSmoothing.smoothedM
+                            (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                          (Nat.rawCast.{0} 1))
+                        (Nat.rawCast.{0} 1)))
+                    (Mathlib.Tactic.Ring.Common.add_pf_add_zero.{0}
+                      (HAdd.hAdd.{0, 0, 0}
+                        (HMul.hMul.{0, 0, 0}
+                          (HPow.hPow.{0, 0, 0}
+                            (RHContinuation.MobiusSmoothing.smoothedM
+                              (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                            (Nat.rawCast.{0} 1))
+                          (HMul.hMul.{0, 0, 0}
+                            (HPow.hPow.{0, 0, 0} (Inv.inv.{0} (RHContinuation.PerronPower.h x)) (Nat.rawCast.{0} 1))
+                            (Nat.rawCast.{0} 1)))
+                        0)))
+                  (Mathlib.Tactic.Ring.Common.add_mul.{0}
+                    (Mathlib.Tactic.Ring.Common.mul_add.{0}
+                      (Mathlib.Tactic.Ring.Common.mul_pf_left.{0} (RHContinuation.MobiusSmoothing.smoothedM x)
+                        (Nat.rawCast.{0} 1)
+                        (Mathlib.Tactic.Ring.Common.mul_pf_right.{0} (Inv.inv.{0} (RHContinuation.PerronPower.h x))
+                          (Nat.rawCast.{0} 1)
+                          (Mathlib.Meta.NormNum.IsInt.to_raw_eq.{0}
+                            (Mathlib.Meta.NormNum.isInt_mul.{0} (Eq.refl.{1} HMul.hMul.{0, 0, 0})
+                              (Mathlib.Meta.NormNum.IsInt.of_raw.{0} ℝ (Int.negOfNat 1))
+                              (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1))
+                              (Eq.refl.{1} (Int.negOfNat 1))))))
+                      (Mathlib.Tactic.Ring.Common.mul_zero.{0}
+                        (HMul.hMul.{0, 0, 0}
+                          (HPow.hPow.{0, 0, 0} (RHContinuation.MobiusSmoothing.smoothedM x) (Nat.rawCast.{0} 1))
+                          (Int.rawCast.{0} (Int.negOfNat 1))))
+                      (Mathlib.Tactic.Ring.Common.add_pf_add_zero.{0}
+                        (HAdd.hAdd.{0, 0, 0}
+                          (HMul.hMul.{0, 0, 0}
+                            (HPow.hPow.{0, 0, 0} (RHContinuation.MobiusSmoothing.smoothedM x) (Nat.rawCast.{0} 1))
+                            (HMul.hMul.{0, 0, 0}
+                              (HPow.hPow.{0, 0, 0} (Inv.inv.{0} (RHContinuation.PerronPower.h x)) (Nat.rawCast.{0} 1))
+                              (Int.rawCast.{0} (Int.negOfNat 1))))
+                          0)))
+                    (Mathlib.Tactic.Ring.Common.zero_mul.{0}
+                      (HAdd.hAdd.{0, 0, 0}
+                        (HMul.hMul.{0, 0, 0}
+                          (HPow.hPow.{0, 0, 0} (Inv.inv.{0} (RHContinuation.PerronPower.h x)) (Nat.rawCast.{0} 1))
+                          (Nat.rawCast.{0} 1))
+                        0))
+                    (Mathlib.Tactic.Ring.Common.add_pf_add_zero.{0}
+                      (HAdd.hAdd.{0, 0, 0}
+                        (HMul.hMul.{0, 0, 0}
+                          (HPow.hPow.{0, 0, 0} (RHContinuation.MobiusSmoothing.smoothedM x) (Nat.rawCast.{0} 1))
+                          (HMul.hMul.{0, 0, 0}
+                            (HPow.hPow.{0, 0, 0} (Inv.inv.{0} (RHContinuation.PerronPower.h x)) (Nat.rawCast.{0} 1))
+                            (Int.rawCast.{0} (Int.negOfNat 1))))
+                        0)))
+                  (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0}
+                    (HMul.hMul.{0, 0, 0}
+                      (HPow.hPow.{0, 0, 0}
+                        (RHContinuation.MobiusSmoothing.smoothedM
+                          (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                        (Nat.rawCast.{0} 1))
+                      (HMul.hMul.{0, 0, 0}
+                        (HPow.hPow.{0, 0, 0} (Inv.inv.{0} (RHContinuation.PerronPower.h x)) (Nat.rawCast.{0} 1))
+                        (Nat.rawCast.{0} 1)))
+                    (Mathlib.Tactic.Ring.Common.add_pf_zero_add.{0}
+                      (HAdd.hAdd.{0, 0, 0}
+                        (HMul.hMul.{0, 0, 0}
+                          (HPow.hPow.{0, 0, 0} (RHContinuation.MobiusSmoothing.smoothedM x) (Nat.rawCast.{0} 1))
+                          (HMul.hMul.{0, 0, 0}
+                            (HPow.hPow.{0, 0, 0} (Inv.inv.{0} (RHContinuation.PerronPower.h x)) (Nat.rawCast.{0} 1))
+                            (Int.rawCast.{0} (Int.negOfNat 1))))
+                        0))))))
+            (Mathlib.Tactic.Ring.Common.neg_add.{0}
+              (Mathlib.Tactic.Ring.Common.neg_mul.{0}
+                (RHContinuation.MobiusSmoothing.smoothedM (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                (Nat.rawCast.{0} 1)
+                (Mathlib.Tactic.Ring.Common.neg_mul.{0} (Inv.inv.{0} (RHContinuation.PerronPower.h x))
+                  (Nat.rawCast.{0} 1)
+                  (Mathlib.Meta.NormNum.IsInt.to_raw_eq.{0}
+                    (Mathlib.Meta.NormNum.isInt_neg.{0} (Eq.refl.{1} Neg.neg.{0})
+                      (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1))
+                      (Eq.refl.{1} (Int.negOfNat 1))))))
+              (Mathlib.Tactic.Ring.Common.neg_add.{0}
+                (Mathlib.Tactic.Ring.Common.neg_mul.{0} (RHContinuation.MobiusSmoothing.smoothedM x) (Nat.rawCast.{0} 1)
+                  (Mathlib.Tactic.Ring.Common.neg_mul.{0} (Inv.inv.{0} (RHContinuation.PerronPower.h x))
+                    (Nat.rawCast.{0} 1)
+                    (Mathlib.Meta.NormNum.IsNat.to_raw_eq.{0}
+                      (Mathlib.Meta.NormNum.IsInt.to_isNat.{0}
+                        (Mathlib.Meta.NormNum.isInt_neg.{0} (Eq.refl.{1} Neg.neg.{0})
+                          (Mathlib.Meta.NormNum.IsInt.of_raw.{0} ℝ (Int.negOfNat 1)) (Eq.refl.{1} (Int.ofNat 1)))))))
+                Mathlib.Tactic.Ring.Common.neg_zero.{0})))
+          (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero.{0}
+            (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero.{0}
+              (RHContinuation.MobiusSmoothing.smoothedM (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+              (Nat.rawCast.{0} 1)
+              (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero.{0} (Inv.inv.{0} (RHContinuation.PerronPower.h x))
+                (Nat.rawCast.{0} 1)
+                (Mathlib.Meta.NormNum.IsInt.to_isNat.{0}
+                  (Mathlib.Meta.NormNum.isInt_add.{0} (Eq.refl.{1} HAdd.hAdd.{0, 0, 0})
+                    (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1))
+                    (Mathlib.Meta.NormNum.IsInt.of_raw.{0} ℝ (Int.negOfNat 1)) (Eq.refl.{1} (Int.ofNat 0))))))
+            (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero.{0}
+              (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero.{0} (RHContinuation.MobiusSmoothing.smoothedM x)
+                (Nat.rawCast.{0} 1)
+                (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero.{0} (Inv.inv.{0} (RHContinuation.PerronPower.h x))
+                  (Nat.rawCast.{0} 1)
+                  (Mathlib.Meta.NormNum.IsInt.to_isNat.{0}
+                    (Mathlib.Meta.NormNum.isInt_add.{0} (Eq.refl.{1} HAdd.hAdd.{0, 0, 0})
+                      (Mathlib.Meta.NormNum.IsInt.of_raw.{0} ℝ (Int.negOfNat 1))
+                      (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1))
+                      (Eq.refl.{1} (Int.ofNat 0))))))
+              (Mathlib.Tactic.Ring.Common.add_pf_add_zero.{0}
+                (HAdd.hAdd.{0, 0, 0}
+                  (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} (RHContinuation.MobiusSmoothing.M x) (Nat.rawCast.{0} 1))
+                    (Int.rawCast.{0} (Int.negOfNat 1)))
+                  0)))))
+        (Mathlib.Tactic.Ring.Common.neg_congr.{0}
+          (Mathlib.Tactic.Ring.Common.atom_pf.{0} (RHContinuation.MobiusSmoothing.M x) rfl.{1}
+            (Eq.mpr.{0}
+              (id.{0}
+                (congrArg.{1, 1}
+                  (fun _a =>
+                    Eq.{1}
+                      (HMul.hMul.{0, 0, 0}
+                        (HPow.hPow.{0, 0, 0} (RHContinuation.MobiusSmoothing.M x) (Nat.rawCast.{0} 1))
+                        (Nat.rawCast.{0} 1))
+                      (HMul.hMul.{0, 0, 0}
+                        (HPow.hPow.{0, 0, 0} (RHContinuation.MobiusSmoothing.M x) (Nat.rawCast.{0} 1)) _a))
+                  (Eq.symm.{1} rfl.{1})))
+              (Eq.refl.{1}
+                (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} (RHContinuation.MobiusSmoothing.M x) (Nat.rawCast.{0} 1))
+                  (Nat.rawCast.{0} 1)))))
+          (Mathlib.Tactic.Ring.Common.neg_add.{0}
+            (Mathlib.Tactic.Ring.Common.neg_mul.{0} (RHContinuation.MobiusSmoothing.M x) (Nat.rawCast.{0} 1)
+              (Mathlib.Meta.NormNum.IsInt.to_raw_eq.{0}
+                (Mathlib.Meta.NormNum.isInt_neg.{0} (Eq.refl.{1} Neg.neg.{0})
+                  (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1))
+                  (Eq.refl.{1} (Int.negOfNat 1)))))
+            Mathlib.Tactic.Ring.Common.neg_zero.{0}));
+    le_of_not_gt.{0} fun a =>
+      Mathlib.Tactic.Linarith.lt_irrefl.{0}
+        (Eq.mp.{0}
+          (congrArg.{1, 1} (fun _a => LT.lt.{0} _a 0)
+            (Mathlib.Tactic.Ring.of_eq.{1}
+              (Mathlib.Tactic.Ring.Common.add_congr.{0}
+                (Mathlib.Tactic.Ring.Common.add_congr.{0}
+                  (Mathlib.Tactic.Ring.Common.add_congr.{0}
+                    (Mathlib.Tactic.Ring.Common.sub_congr.{0}
+                      (Mathlib.Tactic.Ring.Common.mul_congr.{0}
+                        (Mathlib.Tactic.Ring.cast_pos.{0} (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ Nat.cast_one.{0}))
+                        (Mathlib.Tactic.Ring.Common.atom_pf.{0}
+                          (abs.{0}
+                            (HSub.hSub.{0, 0, 0}
+                              (HDiv.hDiv.{0, 0, 0}
+                                (HSub.hSub.{0, 0, 0}
+                                  (RHContinuation.MobiusSmoothing.smoothedM
+                                    (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                  (RHContinuation.MobiusSmoothing.smoothedM x))
+                                (RHContinuation.PerronPower.h x))
+                              (RHContinuation.MobiusSmoothing.M x)))
+                          rfl.{1}
+                          (Eq.mpr.{0}
+                            (id.{0}
+                              (congrArg.{1, 1}
+                                (fun _a =>
+                                  Eq.{1}
+                                    (HMul.hMul.{0, 0, 0}
+                                      (HPow.hPow.{0, 0, 0}
+                                        (abs.{0}
+                                          (HSub.hSub.{0, 0, 0}
+                                            (HDiv.hDiv.{0, 0, 0}
+                                              (HSub.hSub.{0, 0, 0}
+                                                (RHContinuation.MobiusSmoothing.smoothedM
+                                                  (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                                (RHContinuation.MobiusSmoothing.smoothedM x))
+                                              (RHContinuation.PerronPower.h x))
+                                            (RHContinuation.MobiusSmoothing.M x)))
+                                        (Nat.rawCast.{0} 1))
+                                      (Nat.rawCast.{0} 1))
+                                    (HMul.hMul.{0, 0, 0}
+                                      (HPow.hPow.{0, 0, 0}
+                                        (abs.{0}
+                                          (HSub.hSub.{0, 0, 0}
+                                            (HDiv.hDiv.{0, 0, 0}
+                                              (HSub.hSub.{0, 0, 0}
+                                                (RHContinuation.MobiusSmoothing.smoothedM
+                                                  (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                                (RHContinuation.MobiusSmoothing.smoothedM x))
+                                              (RHContinuation.PerronPower.h x))
+                                            (RHContinuation.MobiusSmoothing.M x)))
+                                        (Nat.rawCast.{0} 1))
+                                      _a))
+                                (Eq.symm.{1} rfl.{1})))
+                            (Eq.refl.{1}
+                              (HMul.hMul.{0, 0, 0}
+                                (HPow.hPow.{0, 0, 0}
+                                  (abs.{0}
+                                    (HSub.hSub.{0, 0, 0}
+                                      (HDiv.hDiv.{0, 0, 0}
+                                        (HSub.hSub.{0, 0, 0}
+                                          (RHContinuation.MobiusSmoothing.smoothedM
+                                            (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                          (RHContinuation.MobiusSmoothing.smoothedM x))
+                                        (RHContinuation.PerronPower.h x))
+                                      (RHContinuation.MobiusSmoothing.M x)))
+                                  (Nat.rawCast.{0} 1))
+                                (Nat.rawCast.{0} 1)))))
+                        (Mathlib.Tactic.Ring.Common.add_mul.{0}
+                          (Mathlib.Tactic.Ring.Common.mul_add.{0}
+                            (Mathlib.Tactic.Ring.Common.mul_pf_right.{0}
+                              (abs.{0}
+                                (HSub.hSub.{0, 0, 0}
+                                  (HDiv.hDiv.{0, 0, 0}
+                                    (HSub.hSub.{0, 0, 0}
+                                      (RHContinuation.MobiusSmoothing.smoothedM
+                                        (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                      (RHContinuation.MobiusSmoothing.smoothedM x))
+                                    (RHContinuation.PerronPower.h x))
+                                  (RHContinuation.MobiusSmoothing.M x)))
+                              (Nat.rawCast.{0} 1)
+                              (Mathlib.Meta.NormNum.IsNat.to_raw_eq.{0}
+                                (Mathlib.Meta.NormNum.isNat_mul.{0} (Eq.refl.{1} HMul.hMul.{0, 0, 0})
+                                  (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1)
+                                  (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1) (Eq.refl.{1} 1))))
+                            (Mathlib.Tactic.Ring.Common.mul_zero.{0} (Nat.rawCast.{0} 1))
+                            (Mathlib.Tactic.Ring.Common.add_pf_add_zero.{0}
+                              (HAdd.hAdd.{0, 0, 0}
+                                (HMul.hMul.{0, 0, 0}
+                                  (HPow.hPow.{0, 0, 0}
+                                    (abs.{0}
+                                      (HSub.hSub.{0, 0, 0}
+                                        (HDiv.hDiv.{0, 0, 0}
+                                          (HSub.hSub.{0, 0, 0}
+                                            (RHContinuation.MobiusSmoothing.smoothedM
+                                              (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                            (RHContinuation.MobiusSmoothing.smoothedM x))
+                                          (RHContinuation.PerronPower.h x))
+                                        (RHContinuation.MobiusSmoothing.M x)))
+                                    (Nat.rawCast.{0} 1))
+                                  (Nat.rawCast.{0} 1))
+                                0)))
+                          (Mathlib.Tactic.Ring.Common.zero_mul.{0}
+                            (HAdd.hAdd.{0, 0, 0}
+                              (HMul.hMul.{0, 0, 0}
+                                (HPow.hPow.{0, 0, 0}
+                                  (abs.{0}
+                                    (HSub.hSub.{0, 0, 0}
+                                      (HDiv.hDiv.{0, 0, 0}
+                                        (HSub.hSub.{0, 0, 0}
+                                          (RHContinuation.MobiusSmoothing.smoothedM
+                                            (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                          (RHContinuation.MobiusSmoothing.smoothedM x))
+                                        (RHContinuation.PerronPower.h x))
+                                      (RHContinuation.MobiusSmoothing.M x)))
+                                  (Nat.rawCast.{0} 1))
+                                (Nat.rawCast.{0} 1))
+                              0))
+                          (Mathlib.Tactic.Ring.Common.add_pf_add_zero.{0}
+                            (HAdd.hAdd.{0, 0, 0}
+                              (HMul.hMul.{0, 0, 0}
+                                (HPow.hPow.{0, 0, 0}
+                                  (abs.{0}
+                                    (HSub.hSub.{0, 0, 0}
+                                      (HDiv.hDiv.{0, 0, 0}
+                                        (HSub.hSub.{0, 0, 0}
+                                          (RHContinuation.MobiusSmoothing.smoothedM
+                                            (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                          (RHContinuation.MobiusSmoothing.smoothedM x))
+                                        (RHContinuation.PerronPower.h x))
+                                      (RHContinuation.MobiusSmoothing.M x)))
+                                  (Nat.rawCast.{0} 1))
+                                (Nat.rawCast.{0} 1))
+                              0))))
+                      (Mathlib.Tactic.Ring.Common.add_congr.{0}
+                        (Mathlib.Tactic.Ring.Common.mul_congr.{0}
+                          (Mathlib.Tactic.Ring.cast_pos.{0} (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ Nat.cast_one.{0}))
+                          (Mathlib.Tactic.Ring.Common.atom_pf.{0} (RHContinuation.PerronPower.h x) rfl.{1}
+                            (Eq.mpr.{0}
+                              (id.{0}
+                                (congrArg.{1, 1}
+                                  (fun _a =>
+                                    Eq.{1}
+                                      (HMul.hMul.{0, 0, 0}
+                                        (HPow.hPow.{0, 0, 0} (RHContinuation.PerronPower.h x) (Nat.rawCast.{0} 1))
+                                        (Nat.rawCast.{0} 1))
+                                      (HMul.hMul.{0, 0, 0}
+                                        (HPow.hPow.{0, 0, 0} (RHContinuation.PerronPower.h x) (Nat.rawCast.{0} 1)) _a))
+                                  (Eq.symm.{1} rfl.{1})))
+                              (Eq.refl.{1}
+                                (HMul.hMul.{0, 0, 0}
+                                  (HPow.hPow.{0, 0, 0} (RHContinuation.PerronPower.h x) (Nat.rawCast.{0} 1))
+                                  (Nat.rawCast.{0} 1)))))
+                          (Mathlib.Tactic.Ring.Common.add_mul.{0}
+                            (Mathlib.Tactic.Ring.Common.mul_add.{0}
+                              (Mathlib.Tactic.Ring.Common.mul_pf_right.{0} (RHContinuation.PerronPower.h x)
+                                (Nat.rawCast.{0} 1)
+                                (Mathlib.Meta.NormNum.IsNat.to_raw_eq.{0}
+                                  (Mathlib.Meta.NormNum.isNat_mul.{0} (Eq.refl.{1} HMul.hMul.{0, 0, 0})
+                                    (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1)
+                                    (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1) (Eq.refl.{1} 1))))
+                              (Mathlib.Tactic.Ring.Common.mul_zero.{0} (Nat.rawCast.{0} 1))
+                              (Mathlib.Tactic.Ring.Common.add_pf_add_zero.{0}
+                                (HAdd.hAdd.{0, 0, 0}
+                                  (HMul.hMul.{0, 0, 0}
+                                    (HPow.hPow.{0, 0, 0} (RHContinuation.PerronPower.h x) (Nat.rawCast.{0} 1))
+                                    (Nat.rawCast.{0} 1))
+                                  0)))
+                            (Mathlib.Tactic.Ring.Common.zero_mul.{0}
+                              (HAdd.hAdd.{0, 0, 0}
+                                (HMul.hMul.{0, 0, 0}
+                                  (HPow.hPow.{0, 0, 0} (RHContinuation.PerronPower.h x) (Nat.rawCast.{0} 1))
+                                  (Nat.rawCast.{0} 1))
+                                0))
+                            (Mathlib.Tactic.Ring.Common.add_pf_add_zero.{0}
+                              (HAdd.hAdd.{0, 0, 0}
+                                (HMul.hMul.{0, 0, 0}
+                                  (HPow.hPow.{0, 0, 0} (RHContinuation.PerronPower.h x) (Nat.rawCast.{0} 1))
+                                  (Nat.rawCast.{0} 1))
+                                0))))
+                        (Mathlib.Tactic.Ring.Common.mul_congr.{0}
+                          (Mathlib.Tactic.Ring.cast_pos.{0} (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ Nat.cast_one.{0}))
+                          (Mathlib.Tactic.Ring.cast_pos.{0} (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ Nat.cast_one.{0}))
+                          (Mathlib.Tactic.Ring.Common.add_mul.{0}
+                            (Mathlib.Tactic.Ring.Common.mul_add.{0}
+                              (Mathlib.Meta.NormNum.IsNat.to_raw_eq.{0}
+                                (Mathlib.Meta.NormNum.isNat_mul.{0} (Eq.refl.{1} HMul.hMul.{0, 0, 0})
+                                  (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1)
+                                  (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1) (Eq.refl.{1} 1)))
+                              (Mathlib.Tactic.Ring.Common.mul_zero.{0} (Nat.rawCast.{0} 1))
+                              (Mathlib.Tactic.Ring.Common.add_pf_add_zero.{0}
+                                (HAdd.hAdd.{0, 0, 0} (Nat.rawCast.{0} 1) 0)))
+                            (Mathlib.Tactic.Ring.Common.zero_mul.{0} (HAdd.hAdd.{0, 0, 0} (Nat.rawCast.{0} 1) 0))
+                            (Mathlib.Tactic.Ring.Common.add_pf_add_zero.{0}
+                              (HAdd.hAdd.{0, 0, 0} (Nat.rawCast.{0} 1) 0))))
+                        (Mathlib.Tactic.Ring.Common.add_pf_add_gt.{0} (Nat.rawCast.{0} 1)
+                          (Mathlib.Tactic.Ring.Common.add_pf_add_zero.{0}
+                            (HAdd.hAdd.{0, 0, 0}
+                              (HMul.hMul.{0, 0, 0}
+                                (HPow.hPow.{0, 0, 0} (RHContinuation.PerronPower.h x) (Nat.rawCast.{0} 1))
+                                (Nat.rawCast.{0} 1))
+                              0))))
+                      (Mathlib.Tactic.Ring.Common.sub_pf.{0}
+                        (Mathlib.Tactic.Ring.Common.neg_add.{0}
+                          (Mathlib.Meta.NormNum.IsInt.to_raw_eq.{0}
+                            (Mathlib.Meta.NormNum.isInt_neg.{0} (Eq.refl.{1} Neg.neg.{0})
+                              (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1))
+                              (Eq.refl.{1} (Int.negOfNat 1))))
+                          (Mathlib.Tactic.Ring.Common.neg_add.{0}
+                            (Mathlib.Tactic.Ring.Common.neg_mul.{0} (RHContinuation.PerronPower.h x) (Nat.rawCast.{0} 1)
+                              (Mathlib.Meta.NormNum.IsInt.to_raw_eq.{0}
+                                (Mathlib.Meta.NormNum.isInt_neg.{0} (Eq.refl.{1} Neg.neg.{0})
+                                  (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1))
+                                  (Eq.refl.{1} (Int.negOfNat 1)))))
+                            Mathlib.Tactic.Ring.Common.neg_zero.{0}))
+                        (Mathlib.Tactic.Ring.Common.add_pf_add_gt.{0} (Int.rawCast.{0} (Int.negOfNat 1))
+                          (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0}
+                            (HMul.hMul.{0, 0, 0}
+                              (HPow.hPow.{0, 0, 0}
+                                (abs.{0}
+                                  (HSub.hSub.{0, 0, 0}
+                                    (HDiv.hDiv.{0, 0, 0}
+                                      (HSub.hSub.{0, 0, 0}
+                                        (RHContinuation.MobiusSmoothing.smoothedM
+                                          (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                        (RHContinuation.MobiusSmoothing.smoothedM x))
+                                      (RHContinuation.PerronPower.h x))
+                                    (RHContinuation.MobiusSmoothing.M x)))
+                                (Nat.rawCast.{0} 1))
+                              (Nat.rawCast.{0} 1))
+                            (Mathlib.Tactic.Ring.Common.add_pf_zero_add.{0}
+                              (HAdd.hAdd.{0, 0, 0}
+                                (HMul.hMul.{0, 0, 0}
+                                  (HPow.hPow.{0, 0, 0} (RHContinuation.PerronPower.h x) (Nat.rawCast.{0} 1))
+                                  (Int.rawCast.{0} (Int.negOfNat 1)))
+                                0))))))
+                    (Mathlib.Tactic.Ring.Common.sub_congr.{0}
+                      (Mathlib.Tactic.Ring.Common.mul_congr.{0}
+                        (Mathlib.Tactic.Ring.cast_pos.{0} (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ Nat.cast_one.{0}))
+                        (Mathlib.Tactic.Ring.Common.atom_pf.{0}
+                          (abs.{0}
+                            (HDiv.hDiv.{0, 0, 0}
+                              (HSub.hSub.{0, 0, 0}
+                                (RHContinuation.MobiusSmoothing.smoothedM
+                                  (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                (RHContinuation.MobiusSmoothing.smoothedM x))
+                              (RHContinuation.PerronPower.h x)))
+                          rfl.{1}
+                          (Eq.mpr.{0}
+                            (id.{0}
+                              (congrArg.{1, 1}
+                                (fun _a =>
+                                  Eq.{1}
+                                    (HMul.hMul.{0, 0, 0}
+                                      (HPow.hPow.{0, 0, 0}
+                                        (abs.{0}
+                                          (HDiv.hDiv.{0, 0, 0}
+                                            (HSub.hSub.{0, 0, 0}
+                                              (RHContinuation.MobiusSmoothing.smoothedM
+                                                (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                              (RHContinuation.MobiusSmoothing.smoothedM x))
+                                            (RHContinuation.PerronPower.h x)))
+                                        (Nat.rawCast.{0} 1))
+                                      (Nat.rawCast.{0} 1))
+                                    (HMul.hMul.{0, 0, 0}
+                                      (HPow.hPow.{0, 0, 0}
+                                        (abs.{0}
+                                          (HDiv.hDiv.{0, 0, 0}
+                                            (HSub.hSub.{0, 0, 0}
+                                              (RHContinuation.MobiusSmoothing.smoothedM
+                                                (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                              (RHContinuation.MobiusSmoothing.smoothedM x))
+                                            (RHContinuation.PerronPower.h x)))
+                                        (Nat.rawCast.{0} 1))
+                                      _a))
+                                (Eq.symm.{1} rfl.{1})))
+                            (Eq.refl.{1}
+                              (HMul.hMul.{0, 0, 0}
+                                (HPow.hPow.{0, 0, 0}
+                                  (abs.{0}
+                                    (HDiv.hDiv.{0, 0, 0}
+                                      (HSub.hSub.{0, 0, 0}
+                                        (RHContinuation.MobiusSmoothing.smoothedM
+                                          (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                        (RHContinuation.MobiusSmoothing.smoothedM x))
+                                      (RHContinuation.PerronPower.h x)))
+                                  (Nat.rawCast.{0} 1))
+                                (Nat.rawCast.{0} 1)))))
+                        (Mathlib.Tactic.Ring.Common.add_mul.{0}
+                          (Mathlib.Tactic.Ring.Common.mul_add.{0}
+                            (Mathlib.Tactic.Ring.Common.mul_pf_right.{0}
+                              (abs.{0}
+                                (HDiv.hDiv.{0, 0, 0}
+                                  (HSub.hSub.{0, 0, 0}
+                                    (RHContinuation.MobiusSmoothing.smoothedM
+                                      (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                    (RHContinuation.MobiusSmoothing.smoothedM x))
+                                  (RHContinuation.PerronPower.h x)))
+                              (Nat.rawCast.{0} 1)
+                              (Mathlib.Meta.NormNum.IsNat.to_raw_eq.{0}
+                                (Mathlib.Meta.NormNum.isNat_mul.{0} (Eq.refl.{1} HMul.hMul.{0, 0, 0})
+                                  (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1)
+                                  (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1) (Eq.refl.{1} 1))))
+                            (Mathlib.Tactic.Ring.Common.mul_zero.{0} (Nat.rawCast.{0} 1))
+                            (Mathlib.Tactic.Ring.Common.add_pf_add_zero.{0}
+                              (HAdd.hAdd.{0, 0, 0}
+                                (HMul.hMul.{0, 0, 0}
+                                  (HPow.hPow.{0, 0, 0}
+                                    (abs.{0}
+                                      (HDiv.hDiv.{0, 0, 0}
+                                        (HSub.hSub.{0, 0, 0}
+                                          (RHContinuation.MobiusSmoothing.smoothedM
+                                            (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                          (RHContinuation.MobiusSmoothing.smoothedM x))
+                                        (RHContinuation.PerronPower.h x)))
+                                    (Nat.rawCast.{0} 1))
+                                  (Nat.rawCast.{0} 1))
+                                0)))
+                          (Mathlib.Tactic.Ring.Common.zero_mul.{0}
+                            (HAdd.hAdd.{0, 0, 0}
+                              (HMul.hMul.{0, 0, 0}
+                                (HPow.hPow.{0, 0, 0}
+                                  (abs.{0}
+                                    (HDiv.hDiv.{0, 0, 0}
+                                      (HSub.hSub.{0, 0, 0}
+                                        (RHContinuation.MobiusSmoothing.smoothedM
+                                          (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                        (RHContinuation.MobiusSmoothing.smoothedM x))
+                                      (RHContinuation.PerronPower.h x)))
+                                  (Nat.rawCast.{0} 1))
+                                (Nat.rawCast.{0} 1))
+                              0))
+                          (Mathlib.Tactic.Ring.Common.add_pf_add_zero.{0}
+                            (HAdd.hAdd.{0, 0, 0}
+                              (HMul.hMul.{0, 0, 0}
+                                (HPow.hPow.{0, 0, 0}
+                                  (abs.{0}
+                                    (HDiv.hDiv.{0, 0, 0}
+                                      (HSub.hSub.{0, 0, 0}
+                                        (RHContinuation.MobiusSmoothing.smoothedM
+                                          (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                        (RHContinuation.MobiusSmoothing.smoothedM x))
+                                      (RHContinuation.PerronPower.h x)))
+                                  (Nat.rawCast.{0} 1))
+                                (Nat.rawCast.{0} 1))
+                              0))))
+                      (Mathlib.Tactic.Ring.Common.add_congr.{0}
+                        (Mathlib.Tactic.Ring.Common.add_congr.{0}
+                          (Mathlib.Tactic.Ring.Common.mul_congr.{0}
+                            (Mathlib.Tactic.Ring.cast_pos.{0} (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ Nat.cast_one.{0}))
+                            (Mathlib.Tactic.Ring.Common.atom_pf.{0} (norm.{0} (RHContinuation.PerronPower.I0 x)) rfl.{1}
+                              (Eq.mpr.{0}
+                                (id.{0}
+                                  (congrArg.{1, 1}
+                                    (fun _a =>
+                                      Eq.{1}
+                                        (HMul.hMul.{0, 0, 0}
+                                          (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I0 x))
+                                            (Nat.rawCast.{0} 1))
+                                          (Nat.rawCast.{0} 1))
+                                        (HMul.hMul.{0, 0, 0}
+                                          (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I0 x))
+                                            (Nat.rawCast.{0} 1))
+                                          _a))
+                                    (Eq.symm.{1} rfl.{1})))
+                                (Eq.refl.{1}
+                                  (HMul.hMul.{0, 0, 0}
+                                    (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I0 x))
+                                      (Nat.rawCast.{0} 1))
+                                    (Nat.rawCast.{0} 1)))))
+                            (Mathlib.Tactic.Ring.Common.add_mul.{0}
+                              (Mathlib.Tactic.Ring.Common.mul_add.{0}
+                                (Mathlib.Tactic.Ring.Common.mul_pf_right.{0}
+                                  (norm.{0} (RHContinuation.PerronPower.I0 x)) (Nat.rawCast.{0} 1)
+                                  (Mathlib.Meta.NormNum.IsNat.to_raw_eq.{0}
+                                    (Mathlib.Meta.NormNum.isNat_mul.{0} (Eq.refl.{1} HMul.hMul.{0, 0, 0})
+                                      (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1)
+                                      (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1) (Eq.refl.{1} 1))))
+                                (Mathlib.Tactic.Ring.Common.mul_zero.{0} (Nat.rawCast.{0} 1))
+                                (Mathlib.Tactic.Ring.Common.add_pf_add_zero.{0}
+                                  (HAdd.hAdd.{0, 0, 0}
+                                    (HMul.hMul.{0, 0, 0}
+                                      (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I0 x))
+                                        (Nat.rawCast.{0} 1))
+                                      (Nat.rawCast.{0} 1))
+                                    0)))
+                              (Mathlib.Tactic.Ring.Common.zero_mul.{0}
+                                (HAdd.hAdd.{0, 0, 0}
+                                  (HMul.hMul.{0, 0, 0}
+                                    (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I0 x))
+                                      (Nat.rawCast.{0} 1))
+                                    (Nat.rawCast.{0} 1))
+                                  0))
+                              (Mathlib.Tactic.Ring.Common.add_pf_add_zero.{0}
+                                (HAdd.hAdd.{0, 0, 0}
+                                  (HMul.hMul.{0, 0, 0}
+                                    (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I0 x))
+                                      (Nat.rawCast.{0} 1))
+                                    (Nat.rawCast.{0} 1))
+                                  0))))
+                          (Mathlib.Tactic.Ring.Common.mul_congr.{0}
+                            (Mathlib.Tactic.Ring.cast_pos.{0} (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ Nat.cast_one.{0}))
+                            (Mathlib.Tactic.Ring.Common.atom_pf.{0} (norm.{0} (RHContinuation.PerronPower.I1 x)) rfl.{1}
+                              (Eq.mpr.{0}
+                                (id.{0}
+                                  (congrArg.{1, 1}
+                                    (fun _a =>
+                                      Eq.{1}
+                                        (HMul.hMul.{0, 0, 0}
+                                          (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I1 x))
+                                            (Nat.rawCast.{0} 1))
+                                          (Nat.rawCast.{0} 1))
+                                        (HMul.hMul.{0, 0, 0}
+                                          (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I1 x))
+                                            (Nat.rawCast.{0} 1))
+                                          _a))
+                                    (Eq.symm.{1} rfl.{1})))
+                                (Eq.refl.{1}
+                                  (HMul.hMul.{0, 0, 0}
+                                    (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I1 x))
+                                      (Nat.rawCast.{0} 1))
+                                    (Nat.rawCast.{0} 1)))))
+                            (Mathlib.Tactic.Ring.Common.add_mul.{0}
+                              (Mathlib.Tactic.Ring.Common.mul_add.{0}
+                                (Mathlib.Tactic.Ring.Common.mul_pf_right.{0}
+                                  (norm.{0} (RHContinuation.PerronPower.I1 x)) (Nat.rawCast.{0} 1)
+                                  (Mathlib.Meta.NormNum.IsNat.to_raw_eq.{0}
+                                    (Mathlib.Meta.NormNum.isNat_mul.{0} (Eq.refl.{1} HMul.hMul.{0, 0, 0})
+                                      (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1)
+                                      (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1) (Eq.refl.{1} 1))))
+                                (Mathlib.Tactic.Ring.Common.mul_zero.{0} (Nat.rawCast.{0} 1))
+                                (Mathlib.Tactic.Ring.Common.add_pf_add_zero.{0}
+                                  (HAdd.hAdd.{0, 0, 0}
+                                    (HMul.hMul.{0, 0, 0}
+                                      (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I1 x))
+                                        (Nat.rawCast.{0} 1))
+                                      (Nat.rawCast.{0} 1))
+                                    0)))
+                              (Mathlib.Tactic.Ring.Common.zero_mul.{0}
+                                (HAdd.hAdd.{0, 0, 0}
+                                  (HMul.hMul.{0, 0, 0}
+                                    (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I1 x))
+                                      (Nat.rawCast.{0} 1))
+                                    (Nat.rawCast.{0} 1))
+                                  0))
+                              (Mathlib.Tactic.Ring.Common.add_pf_add_zero.{0}
+                                (HAdd.hAdd.{0, 0, 0}
+                                  (HMul.hMul.{0, 0, 0}
+                                    (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I1 x))
+                                      (Nat.rawCast.{0} 1))
+                                    (Nat.rawCast.{0} 1))
+                                  0))))
+                          (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0}
+                            (HMul.hMul.{0, 0, 0}
+                              (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I0 x)) (Nat.rawCast.{0} 1))
+                              (Nat.rawCast.{0} 1))
+                            (Mathlib.Tactic.Ring.Common.add_pf_zero_add.{0}
+                              (HAdd.hAdd.{0, 0, 0}
+                                (HMul.hMul.{0, 0, 0}
+                                  (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I1 x)) (Nat.rawCast.{0} 1))
+                                  (Nat.rawCast.{0} 1))
+                                0))))
+                        (Mathlib.Tactic.Ring.Common.mul_congr.{0}
+                          (Mathlib.Tactic.Ring.cast_pos.{0} (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ Nat.cast_one.{0}))
+                          (Mathlib.Tactic.Ring.Common.atom_pf.{0} (norm.{0} (RHContinuation.PerronPower.I2 x)) rfl.{1}
+                            (Eq.mpr.{0}
+                              (id.{0}
+                                (congrArg.{1, 1}
+                                  (fun _a =>
+                                    Eq.{1}
+                                      (HMul.hMul.{0, 0, 0}
+                                        (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I2 x))
+                                          (Nat.rawCast.{0} 1))
+                                        (Nat.rawCast.{0} 1))
+                                      (HMul.hMul.{0, 0, 0}
+                                        (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I2 x))
+                                          (Nat.rawCast.{0} 1))
+                                        _a))
+                                  (Eq.symm.{1} rfl.{1})))
+                              (Eq.refl.{1}
+                                (HMul.hMul.{0, 0, 0}
+                                  (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I2 x)) (Nat.rawCast.{0} 1))
+                                  (Nat.rawCast.{0} 1)))))
+                          (Mathlib.Tactic.Ring.Common.add_mul.{0}
+                            (Mathlib.Tactic.Ring.Common.mul_add.{0}
+                              (Mathlib.Tactic.Ring.Common.mul_pf_right.{0} (norm.{0} (RHContinuation.PerronPower.I2 x))
+                                (Nat.rawCast.{0} 1)
+                                (Mathlib.Meta.NormNum.IsNat.to_raw_eq.{0}
+                                  (Mathlib.Meta.NormNum.isNat_mul.{0} (Eq.refl.{1} HMul.hMul.{0, 0, 0})
+                                    (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1)
+                                    (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1) (Eq.refl.{1} 1))))
+                              (Mathlib.Tactic.Ring.Common.mul_zero.{0} (Nat.rawCast.{0} 1))
+                              (Mathlib.Tactic.Ring.Common.add_pf_add_zero.{0}
+                                (HAdd.hAdd.{0, 0, 0}
+                                  (HMul.hMul.{0, 0, 0}
+                                    (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I2 x))
+                                      (Nat.rawCast.{0} 1))
+                                    (Nat.rawCast.{0} 1))
+                                  0)))
+                            (Mathlib.Tactic.Ring.Common.zero_mul.{0}
+                              (HAdd.hAdd.{0, 0, 0}
+                                (HMul.hMul.{0, 0, 0}
+                                  (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I2 x)) (Nat.rawCast.{0} 1))
+                                  (Nat.rawCast.{0} 1))
+                                0))
+                            (Mathlib.Tactic.Ring.Common.add_pf_add_zero.{0}
+                              (HAdd.hAdd.{0, 0, 0}
+                                (HMul.hMul.{0, 0, 0}
+                                  (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I2 x)) (Nat.rawCast.{0} 1))
+                                  (Nat.rawCast.{0} 1))
+                                0))))
+                        (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0}
+                          (HMul.hMul.{0, 0, 0}
+                            (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I0 x)) (Nat.rawCast.{0} 1))
+                            (Nat.rawCast.{0} 1))
+                          (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0}
+                            (HMul.hMul.{0, 0, 0}
+                              (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I1 x)) (Nat.rawCast.{0} 1))
+                              (Nat.rawCast.{0} 1))
+                            (Mathlib.Tactic.Ring.Common.add_pf_zero_add.{0}
+                              (HAdd.hAdd.{0, 0, 0}
+                                (HMul.hMul.{0, 0, 0}
+                                  (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I2 x)) (Nat.rawCast.{0} 1))
+                                  (Nat.rawCast.{0} 1))
+                                0)))))
+                      (Mathlib.Tactic.Ring.Common.sub_pf.{0}
+                        (Mathlib.Tactic.Ring.Common.neg_add.{0}
+                          (Mathlib.Tactic.Ring.Common.neg_mul.{0} (norm.{0} (RHContinuation.PerronPower.I0 x))
+                            (Nat.rawCast.{0} 1)
+                            (Mathlib.Meta.NormNum.IsInt.to_raw_eq.{0}
+                              (Mathlib.Meta.NormNum.isInt_neg.{0} (Eq.refl.{1} Neg.neg.{0})
+                                (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1))
+                                (Eq.refl.{1} (Int.negOfNat 1)))))
+                          (Mathlib.Tactic.Ring.Common.neg_add.{0}
+                            (Mathlib.Tactic.Ring.Common.neg_mul.{0} (norm.{0} (RHContinuation.PerronPower.I1 x))
+                              (Nat.rawCast.{0} 1)
+                              (Mathlib.Meta.NormNum.IsInt.to_raw_eq.{0}
+                                (Mathlib.Meta.NormNum.isInt_neg.{0} (Eq.refl.{1} Neg.neg.{0})
+                                  (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1))
+                                  (Eq.refl.{1} (Int.negOfNat 1)))))
+                            (Mathlib.Tactic.Ring.Common.neg_add.{0}
+                              (Mathlib.Tactic.Ring.Common.neg_mul.{0} (norm.{0} (RHContinuation.PerronPower.I2 x))
+                                (Nat.rawCast.{0} 1)
+                                (Mathlib.Meta.NormNum.IsInt.to_raw_eq.{0}
+                                  (Mathlib.Meta.NormNum.isInt_neg.{0} (Eq.refl.{1} Neg.neg.{0})
+                                    (Mathlib.Meta.NormNum.IsNat.to_isInt.{0}
+                                      (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1))
+                                    (Eq.refl.{1} (Int.negOfNat 1)))))
+                              Mathlib.Tactic.Ring.Common.neg_zero.{0})))
+                        (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0}
+                          (HMul.hMul.{0, 0, 0}
+                            (HPow.hPow.{0, 0, 0}
+                              (abs.{0}
+                                (HDiv.hDiv.{0, 0, 0}
+                                  (HSub.hSub.{0, 0, 0}
+                                    (RHContinuation.MobiusSmoothing.smoothedM
+                                      (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                    (RHContinuation.MobiusSmoothing.smoothedM x))
+                                  (RHContinuation.PerronPower.h x)))
+                              (Nat.rawCast.{0} 1))
+                            (Nat.rawCast.{0} 1))
+                          (Mathlib.Tactic.Ring.Common.add_pf_zero_add.{0}
+                            (HAdd.hAdd.{0, 0, 0}
+                              (HMul.hMul.{0, 0, 0}
+                                (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I0 x)) (Nat.rawCast.{0} 1))
+                                (Int.rawCast.{0} (Int.negOfNat 1)))
+                              (HAdd.hAdd.{0, 0, 0}
+                                (HMul.hMul.{0, 0, 0}
+                                  (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I1 x)) (Nat.rawCast.{0} 1))
+                                  (Int.rawCast.{0} (Int.negOfNat 1)))
+                                (HAdd.hAdd.{0, 0, 0}
+                                  (HMul.hMul.{0, 0, 0}
+                                    (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I2 x))
+                                      (Nat.rawCast.{0} 1))
+                                    (Int.rawCast.{0} (Int.negOfNat 1)))
+                                  0)))))))
+                    (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0} (Int.rawCast.{0} (Int.negOfNat 1))
+                      (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0}
+                        (HMul.hMul.{0, 0, 0}
+                          (HPow.hPow.{0, 0, 0}
+                            (abs.{0}
+                              (HSub.hSub.{0, 0, 0}
+                                (HDiv.hDiv.{0, 0, 0}
+                                  (HSub.hSub.{0, 0, 0}
+                                    (RHContinuation.MobiusSmoothing.smoothedM
+                                      (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                    (RHContinuation.MobiusSmoothing.smoothedM x))
+                                  (RHContinuation.PerronPower.h x))
+                                (RHContinuation.MobiusSmoothing.M x)))
+                            (Nat.rawCast.{0} 1))
+                          (Nat.rawCast.{0} 1))
+                        (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0}
+                          (HMul.hMul.{0, 0, 0}
+                            (HPow.hPow.{0, 0, 0} (RHContinuation.PerronPower.h x) (Nat.rawCast.{0} 1))
+                            (Int.rawCast.{0} (Int.negOfNat 1)))
+                          (Mathlib.Tactic.Ring.Common.add_pf_zero_add.{0}
+                            (HAdd.hAdd.{0, 0, 0}
+                              (HMul.hMul.{0, 0, 0}
+                                (HPow.hPow.{0, 0, 0}
+                                  (abs.{0}
+                                    (HDiv.hDiv.{0, 0, 0}
+                                      (HSub.hSub.{0, 0, 0}
+                                        (RHContinuation.MobiusSmoothing.smoothedM
+                                          (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                        (RHContinuation.MobiusSmoothing.smoothedM x))
+                                      (RHContinuation.PerronPower.h x)))
+                                  (Nat.rawCast.{0} 1))
+                                (Nat.rawCast.{0} 1))
+                              (HAdd.hAdd.{0, 0, 0}
+                                (HMul.hMul.{0, 0, 0}
+                                  (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I0 x)) (Nat.rawCast.{0} 1))
+                                  (Int.rawCast.{0} (Int.negOfNat 1)))
+                                (HAdd.hAdd.{0, 0, 0}
+                                  (HMul.hMul.{0, 0, 0}
+                                    (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I1 x))
+                                      (Nat.rawCast.{0} 1))
+                                    (Int.rawCast.{0} (Int.negOfNat 1)))
+                                  (HAdd.hAdd.{0, 0, 0}
+                                    (HMul.hMul.{0, 0, 0}
+                                      (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I2 x))
+                                        (Nat.rawCast.{0} 1))
+                                      (Int.rawCast.{0} (Int.negOfNat 1)))
+                                    0)))))))))
+                  (Mathlib.Tactic.Ring.Common.sub_congr.{0}
+                    (Mathlib.Tactic.Ring.Common.mul_congr.{0}
+                      (Mathlib.Tactic.Ring.cast_pos.{0} (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ Nat.cast_one.{0}))
+                      (Mathlib.Tactic.Ring.Common.atom_pf.{0} (abs.{0} (RHContinuation.MobiusSmoothing.M x)) rfl.{1}
+                        (Eq.mpr.{0}
+                          (id.{0}
+                            (congrArg.{1, 1}
+                              (fun _a =>
+                                Eq.{1}
+                                  (HMul.hMul.{0, 0, 0}
+                                    (HPow.hPow.{0, 0, 0} (abs.{0} (RHContinuation.MobiusSmoothing.M x))
+                                      (Nat.rawCast.{0} 1))
+                                    (Nat.rawCast.{0} 1))
+                                  (HMul.hMul.{0, 0, 0}
+                                    (HPow.hPow.{0, 0, 0} (abs.{0} (RHContinuation.MobiusSmoothing.M x))
+                                      (Nat.rawCast.{0} 1))
+                                    _a))
+                              (Eq.symm.{1} rfl.{1})))
+                          (Eq.refl.{1}
+                            (HMul.hMul.{0, 0, 0}
+                              (HPow.hPow.{0, 0, 0} (abs.{0} (RHContinuation.MobiusSmoothing.M x)) (Nat.rawCast.{0} 1))
+                              (Nat.rawCast.{0} 1)))))
+                      (Mathlib.Tactic.Ring.Common.add_mul.{0}
+                        (Mathlib.Tactic.Ring.Common.mul_add.{0}
+                          (Mathlib.Tactic.Ring.Common.mul_pf_right.{0} (abs.{0} (RHContinuation.MobiusSmoothing.M x))
+                            (Nat.rawCast.{0} 1)
+                            (Mathlib.Meta.NormNum.IsNat.to_raw_eq.{0}
+                              (Mathlib.Meta.NormNum.isNat_mul.{0} (Eq.refl.{1} HMul.hMul.{0, 0, 0})
+                                (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1) (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1)
+                                (Eq.refl.{1} 1))))
+                          (Mathlib.Tactic.Ring.Common.mul_zero.{0} (Nat.rawCast.{0} 1))
+                          (Mathlib.Tactic.Ring.Common.add_pf_add_zero.{0}
+                            (HAdd.hAdd.{0, 0, 0}
+                              (HMul.hMul.{0, 0, 0}
+                                (HPow.hPow.{0, 0, 0} (abs.{0} (RHContinuation.MobiusSmoothing.M x)) (Nat.rawCast.{0} 1))
+                                (Nat.rawCast.{0} 1))
+                              0)))
+                        (Mathlib.Tactic.Ring.Common.zero_mul.{0}
+                          (HAdd.hAdd.{0, 0, 0}
+                            (HMul.hMul.{0, 0, 0}
+                              (HPow.hPow.{0, 0, 0} (abs.{0} (RHContinuation.MobiusSmoothing.M x)) (Nat.rawCast.{0} 1))
+                              (Nat.rawCast.{0} 1))
+                            0))
+                        (Mathlib.Tactic.Ring.Common.add_pf_add_zero.{0}
+                          (HAdd.hAdd.{0, 0, 0}
+                            (HMul.hMul.{0, 0, 0}
+                              (HPow.hPow.{0, 0, 0} (abs.{0} (RHContinuation.MobiusSmoothing.M x)) (Nat.rawCast.{0} 1))
+                              (Nat.rawCast.{0} 1))
+                            0))))
+                    (Mathlib.Tactic.Ring.Common.add_congr.{0}
+                      (Mathlib.Tactic.Ring.Common.mul_congr.{0}
+                        (Mathlib.Tactic.Ring.cast_pos.{0} (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ Nat.cast_one.{0}))
+                        (Mathlib.Tactic.Ring.Common.atom_pf.{0}
+                          (abs.{0}
+                            (HSub.hSub.{0, 0, 0}
+                              (HDiv.hDiv.{0, 0, 0}
+                                (HSub.hSub.{0, 0, 0}
+                                  (RHContinuation.MobiusSmoothing.smoothedM
+                                    (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                  (RHContinuation.MobiusSmoothing.smoothedM x))
+                                (RHContinuation.PerronPower.h x))
+                              (RHContinuation.MobiusSmoothing.M x)))
+                          rfl.{1}
+                          (Eq.mpr.{0}
+                            (id.{0}
+                              (congrArg.{1, 1}
+                                (fun _a =>
+                                  Eq.{1}
+                                    (HMul.hMul.{0, 0, 0}
+                                      (HPow.hPow.{0, 0, 0}
+                                        (abs.{0}
+                                          (HSub.hSub.{0, 0, 0}
+                                            (HDiv.hDiv.{0, 0, 0}
+                                              (HSub.hSub.{0, 0, 0}
+                                                (RHContinuation.MobiusSmoothing.smoothedM
+                                                  (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                                (RHContinuation.MobiusSmoothing.smoothedM x))
+                                              (RHContinuation.PerronPower.h x))
+                                            (RHContinuation.MobiusSmoothing.M x)))
+                                        (Nat.rawCast.{0} 1))
+                                      (Nat.rawCast.{0} 1))
+                                    (HMul.hMul.{0, 0, 0}
+                                      (HPow.hPow.{0, 0, 0}
+                                        (abs.{0}
+                                          (HSub.hSub.{0, 0, 0}
+                                            (HDiv.hDiv.{0, 0, 0}
+                                              (HSub.hSub.{0, 0, 0}
+                                                (RHContinuation.MobiusSmoothing.smoothedM
+                                                  (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                                (RHContinuation.MobiusSmoothing.smoothedM x))
+                                              (RHContinuation.PerronPower.h x))
+                                            (RHContinuation.MobiusSmoothing.M x)))
+                                        (Nat.rawCast.{0} 1))
+                                      _a))
+                                (Eq.symm.{1} rfl.{1})))
+                            (Eq.refl.{1}
+                              (HMul.hMul.{0, 0, 0}
+                                (HPow.hPow.{0, 0, 0}
+                                  (abs.{0}
+                                    (HSub.hSub.{0, 0, 0}
+                                      (HDiv.hDiv.{0, 0, 0}
+                                        (HSub.hSub.{0, 0, 0}
+                                          (RHContinuation.MobiusSmoothing.smoothedM
+                                            (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                          (RHContinuation.MobiusSmoothing.smoothedM x))
+                                        (RHContinuation.PerronPower.h x))
+                                      (RHContinuation.MobiusSmoothing.M x)))
+                                  (Nat.rawCast.{0} 1))
+                                (Nat.rawCast.{0} 1)))))
+                        (Mathlib.Tactic.Ring.Common.add_mul.{0}
+                          (Mathlib.Tactic.Ring.Common.mul_add.{0}
+                            (Mathlib.Tactic.Ring.Common.mul_pf_right.{0}
+                              (abs.{0}
+                                (HSub.hSub.{0, 0, 0}
+                                  (HDiv.hDiv.{0, 0, 0}
+                                    (HSub.hSub.{0, 0, 0}
+                                      (RHContinuation.MobiusSmoothing.smoothedM
+                                        (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                      (RHContinuation.MobiusSmoothing.smoothedM x))
+                                    (RHContinuation.PerronPower.h x))
+                                  (RHContinuation.MobiusSmoothing.M x)))
+                              (Nat.rawCast.{0} 1)
+                              (Mathlib.Meta.NormNum.IsNat.to_raw_eq.{0}
+                                (Mathlib.Meta.NormNum.isNat_mul.{0} (Eq.refl.{1} HMul.hMul.{0, 0, 0})
+                                  (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1)
+                                  (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1) (Eq.refl.{1} 1))))
+                            (Mathlib.Tactic.Ring.Common.mul_zero.{0} (Nat.rawCast.{0} 1))
+                            (Mathlib.Tactic.Ring.Common.add_pf_add_zero.{0}
+                              (HAdd.hAdd.{0, 0, 0}
+                                (HMul.hMul.{0, 0, 0}
+                                  (HPow.hPow.{0, 0, 0}
+                                    (abs.{0}
+                                      (HSub.hSub.{0, 0, 0}
+                                        (HDiv.hDiv.{0, 0, 0}
+                                          (HSub.hSub.{0, 0, 0}
+                                            (RHContinuation.MobiusSmoothing.smoothedM
+                                              (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                            (RHContinuation.MobiusSmoothing.smoothedM x))
+                                          (RHContinuation.PerronPower.h x))
+                                        (RHContinuation.MobiusSmoothing.M x)))
+                                    (Nat.rawCast.{0} 1))
+                                  (Nat.rawCast.{0} 1))
+                                0)))
+                          (Mathlib.Tactic.Ring.Common.zero_mul.{0}
+                            (HAdd.hAdd.{0, 0, 0}
+                              (HMul.hMul.{0, 0, 0}
+                                (HPow.hPow.{0, 0, 0}
+                                  (abs.{0}
+                                    (HSub.hSub.{0, 0, 0}
+                                      (HDiv.hDiv.{0, 0, 0}
+                                        (HSub.hSub.{0, 0, 0}
+                                          (RHContinuation.MobiusSmoothing.smoothedM
+                                            (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                          (RHContinuation.MobiusSmoothing.smoothedM x))
+                                        (RHContinuation.PerronPower.h x))
+                                      (RHContinuation.MobiusSmoothing.M x)))
+                                  (Nat.rawCast.{0} 1))
+                                (Nat.rawCast.{0} 1))
+                              0))
+                          (Mathlib.Tactic.Ring.Common.add_pf_add_zero.{0}
+                            (HAdd.hAdd.{0, 0, 0}
+                              (HMul.hMul.{0, 0, 0}
+                                (HPow.hPow.{0, 0, 0}
+                                  (abs.{0}
+                                    (HSub.hSub.{0, 0, 0}
+                                      (HDiv.hDiv.{0, 0, 0}
+                                        (HSub.hSub.{0, 0, 0}
+                                          (RHContinuation.MobiusSmoothing.smoothedM
+                                            (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                          (RHContinuation.MobiusSmoothing.smoothedM x))
+                                        (RHContinuation.PerronPower.h x))
+                                      (RHContinuation.MobiusSmoothing.M x)))
+                                  (Nat.rawCast.{0} 1))
+                                (Nat.rawCast.{0} 1))
+                              0))))
+                      (Mathlib.Tactic.Ring.Common.mul_congr.{0}
+                        (Mathlib.Tactic.Ring.cast_pos.{0} (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ Nat.cast_one.{0}))
+                        (Mathlib.Tactic.Ring.Common.atom_pf.{0}
+                          (abs.{0}
+                            (HDiv.hDiv.{0, 0, 0}
+                              (HSub.hSub.{0, 0, 0}
+                                (RHContinuation.MobiusSmoothing.smoothedM
+                                  (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                (RHContinuation.MobiusSmoothing.smoothedM x))
+                              (RHContinuation.PerronPower.h x)))
+                          rfl.{1}
+                          (Eq.mpr.{0}
+                            (id.{0}
+                              (congrArg.{1, 1}
+                                (fun _a =>
+                                  Eq.{1}
+                                    (HMul.hMul.{0, 0, 0}
+                                      (HPow.hPow.{0, 0, 0}
+                                        (abs.{0}
+                                          (HDiv.hDiv.{0, 0, 0}
+                                            (HSub.hSub.{0, 0, 0}
+                                              (RHContinuation.MobiusSmoothing.smoothedM
+                                                (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                              (RHContinuation.MobiusSmoothing.smoothedM x))
+                                            (RHContinuation.PerronPower.h x)))
+                                        (Nat.rawCast.{0} 1))
+                                      (Nat.rawCast.{0} 1))
+                                    (HMul.hMul.{0, 0, 0}
+                                      (HPow.hPow.{0, 0, 0}
+                                        (abs.{0}
+                                          (HDiv.hDiv.{0, 0, 0}
+                                            (HSub.hSub.{0, 0, 0}
+                                              (RHContinuation.MobiusSmoothing.smoothedM
+                                                (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                              (RHContinuation.MobiusSmoothing.smoothedM x))
+                                            (RHContinuation.PerronPower.h x)))
+                                        (Nat.rawCast.{0} 1))
+                                      _a))
+                                (Eq.symm.{1} rfl.{1})))
+                            (Eq.refl.{1}
+                              (HMul.hMul.{0, 0, 0}
+                                (HPow.hPow.{0, 0, 0}
+                                  (abs.{0}
+                                    (HDiv.hDiv.{0, 0, 0}
+                                      (HSub.hSub.{0, 0, 0}
+                                        (RHContinuation.MobiusSmoothing.smoothedM
+                                          (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                        (RHContinuation.MobiusSmoothing.smoothedM x))
+                                      (RHContinuation.PerronPower.h x)))
+                                  (Nat.rawCast.{0} 1))
+                                (Nat.rawCast.{0} 1)))))
+                        (Mathlib.Tactic.Ring.Common.add_mul.{0}
+                          (Mathlib.Tactic.Ring.Common.mul_add.{0}
+                            (Mathlib.Tactic.Ring.Common.mul_pf_right.{0}
+                              (abs.{0}
+                                (HDiv.hDiv.{0, 0, 0}
+                                  (HSub.hSub.{0, 0, 0}
+                                    (RHContinuation.MobiusSmoothing.smoothedM
+                                      (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                    (RHContinuation.MobiusSmoothing.smoothedM x))
+                                  (RHContinuation.PerronPower.h x)))
+                              (Nat.rawCast.{0} 1)
+                              (Mathlib.Meta.NormNum.IsNat.to_raw_eq.{0}
+                                (Mathlib.Meta.NormNum.isNat_mul.{0} (Eq.refl.{1} HMul.hMul.{0, 0, 0})
+                                  (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1)
+                                  (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1) (Eq.refl.{1} 1))))
+                            (Mathlib.Tactic.Ring.Common.mul_zero.{0} (Nat.rawCast.{0} 1))
+                            (Mathlib.Tactic.Ring.Common.add_pf_add_zero.{0}
+                              (HAdd.hAdd.{0, 0, 0}
+                                (HMul.hMul.{0, 0, 0}
+                                  (HPow.hPow.{0, 0, 0}
+                                    (abs.{0}
+                                      (HDiv.hDiv.{0, 0, 0}
+                                        (HSub.hSub.{0, 0, 0}
+                                          (RHContinuation.MobiusSmoothing.smoothedM
+                                            (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                          (RHContinuation.MobiusSmoothing.smoothedM x))
+                                        (RHContinuation.PerronPower.h x)))
+                                    (Nat.rawCast.{0} 1))
+                                  (Nat.rawCast.{0} 1))
+                                0)))
+                          (Mathlib.Tactic.Ring.Common.zero_mul.{0}
+                            (HAdd.hAdd.{0, 0, 0}
+                              (HMul.hMul.{0, 0, 0}
+                                (HPow.hPow.{0, 0, 0}
+                                  (abs.{0}
+                                    (HDiv.hDiv.{0, 0, 0}
+                                      (HSub.hSub.{0, 0, 0}
+                                        (RHContinuation.MobiusSmoothing.smoothedM
+                                          (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                        (RHContinuation.MobiusSmoothing.smoothedM x))
+                                      (RHContinuation.PerronPower.h x)))
+                                  (Nat.rawCast.{0} 1))
+                                (Nat.rawCast.{0} 1))
+                              0))
+                          (Mathlib.Tactic.Ring.Common.add_pf_add_zero.{0}
+                            (HAdd.hAdd.{0, 0, 0}
+                              (HMul.hMul.{0, 0, 0}
+                                (HPow.hPow.{0, 0, 0}
+                                  (abs.{0}
+                                    (HDiv.hDiv.{0, 0, 0}
+                                      (HSub.hSub.{0, 0, 0}
+                                        (RHContinuation.MobiusSmoothing.smoothedM
+                                          (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                        (RHContinuation.MobiusSmoothing.smoothedM x))
+                                      (RHContinuation.PerronPower.h x)))
+                                  (Nat.rawCast.{0} 1))
+                                (Nat.rawCast.{0} 1))
+                              0))))
+                      (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0}
+                        (HMul.hMul.{0, 0, 0}
+                          (HPow.hPow.{0, 0, 0}
+                            (abs.{0}
+                              (HSub.hSub.{0, 0, 0}
+                                (HDiv.hDiv.{0, 0, 0}
+                                  (HSub.hSub.{0, 0, 0}
+                                    (RHContinuation.MobiusSmoothing.smoothedM
+                                      (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                    (RHContinuation.MobiusSmoothing.smoothedM x))
+                                  (RHContinuation.PerronPower.h x))
+                                (RHContinuation.MobiusSmoothing.M x)))
+                            (Nat.rawCast.{0} 1))
+                          (Nat.rawCast.{0} 1))
+                        (Mathlib.Tactic.Ring.Common.add_pf_zero_add.{0}
+                          (HAdd.hAdd.{0, 0, 0}
+                            (HMul.hMul.{0, 0, 0}
+                              (HPow.hPow.{0, 0, 0}
+                                (abs.{0}
+                                  (HDiv.hDiv.{0, 0, 0}
+                                    (HSub.hSub.{0, 0, 0}
+                                      (RHContinuation.MobiusSmoothing.smoothedM
+                                        (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                      (RHContinuation.MobiusSmoothing.smoothedM x))
+                                    (RHContinuation.PerronPower.h x)))
+                                (Nat.rawCast.{0} 1))
+                              (Nat.rawCast.{0} 1))
+                            0))))
+                    (Mathlib.Tactic.Ring.Common.sub_pf.{0}
+                      (Mathlib.Tactic.Ring.Common.neg_add.{0}
+                        (Mathlib.Tactic.Ring.Common.neg_mul.{0}
+                          (abs.{0}
+                            (HSub.hSub.{0, 0, 0}
+                              (HDiv.hDiv.{0, 0, 0}
+                                (HSub.hSub.{0, 0, 0}
+                                  (RHContinuation.MobiusSmoothing.smoothedM
+                                    (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                  (RHContinuation.MobiusSmoothing.smoothedM x))
+                                (RHContinuation.PerronPower.h x))
+                              (RHContinuation.MobiusSmoothing.M x)))
+                          (Nat.rawCast.{0} 1)
+                          (Mathlib.Meta.NormNum.IsInt.to_raw_eq.{0}
+                            (Mathlib.Meta.NormNum.isInt_neg.{0} (Eq.refl.{1} Neg.neg.{0})
+                              (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1))
+                              (Eq.refl.{1} (Int.negOfNat 1)))))
+                        (Mathlib.Tactic.Ring.Common.neg_add.{0}
+                          (Mathlib.Tactic.Ring.Common.neg_mul.{0}
+                            (abs.{0}
+                              (HDiv.hDiv.{0, 0, 0}
+                                (HSub.hSub.{0, 0, 0}
+                                  (RHContinuation.MobiusSmoothing.smoothedM
+                                    (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                  (RHContinuation.MobiusSmoothing.smoothedM x))
+                                (RHContinuation.PerronPower.h x)))
+                            (Nat.rawCast.{0} 1)
+                            (Mathlib.Meta.NormNum.IsInt.to_raw_eq.{0}
+                              (Mathlib.Meta.NormNum.isInt_neg.{0} (Eq.refl.{1} Neg.neg.{0})
+                                (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1))
+                                (Eq.refl.{1} (Int.negOfNat 1)))))
+                          Mathlib.Tactic.Ring.Common.neg_zero.{0}))
+                      (Mathlib.Tactic.Ring.Common.add_pf_add_gt.{0}
+                        (HMul.hMul.{0, 0, 0}
+                          (HPow.hPow.{0, 0, 0}
+                            (abs.{0}
+                              (HSub.hSub.{0, 0, 0}
+                                (HDiv.hDiv.{0, 0, 0}
+                                  (HSub.hSub.{0, 0, 0}
+                                    (RHContinuation.MobiusSmoothing.smoothedM
+                                      (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                    (RHContinuation.MobiusSmoothing.smoothedM x))
+                                  (RHContinuation.PerronPower.h x))
+                                (RHContinuation.MobiusSmoothing.M x)))
+                            (Nat.rawCast.{0} 1))
+                          (Int.rawCast.{0} (Int.negOfNat 1)))
+                        (Mathlib.Tactic.Ring.Common.add_pf_add_gt.{0}
+                          (HMul.hMul.{0, 0, 0}
+                            (HPow.hPow.{0, 0, 0}
+                              (abs.{0}
+                                (HDiv.hDiv.{0, 0, 0}
+                                  (HSub.hSub.{0, 0, 0}
+                                    (RHContinuation.MobiusSmoothing.smoothedM
+                                      (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                    (RHContinuation.MobiusSmoothing.smoothedM x))
+                                  (RHContinuation.PerronPower.h x)))
+                              (Nat.rawCast.{0} 1))
+                            (Int.rawCast.{0} (Int.negOfNat 1)))
+                          (Mathlib.Tactic.Ring.Common.add_pf_add_zero.{0}
+                            (HAdd.hAdd.{0, 0, 0}
+                              (HMul.hMul.{0, 0, 0}
+                                (HPow.hPow.{0, 0, 0} (abs.{0} (RHContinuation.MobiusSmoothing.M x)) (Nat.rawCast.{0} 1))
+                                (Nat.rawCast.{0} 1))
+                              0))))))
+                  (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0} (Int.rawCast.{0} (Int.negOfNat 1))
+                    (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero.{0}
+                      (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero.{0}
+                        (abs.{0}
+                          (HSub.hSub.{0, 0, 0}
+                            (HDiv.hDiv.{0, 0, 0}
+                              (HSub.hSub.{0, 0, 0}
+                                (RHContinuation.MobiusSmoothing.smoothedM
+                                  (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                (RHContinuation.MobiusSmoothing.smoothedM x))
+                              (RHContinuation.PerronPower.h x))
+                            (RHContinuation.MobiusSmoothing.M x)))
+                        (Nat.rawCast.{0} 1)
+                        (Mathlib.Meta.NormNum.IsInt.to_isNat.{0}
+                          (Mathlib.Meta.NormNum.isInt_add.{0} (Eq.refl.{1} HAdd.hAdd.{0, 0, 0})
+                            (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1))
+                            (Mathlib.Meta.NormNum.IsInt.of_raw.{0} ℝ (Int.negOfNat 1)) (Eq.refl.{1} (Int.ofNat 0)))))
+                      (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0}
+                        (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} (RHContinuation.PerronPower.h x) (Nat.rawCast.{0} 1))
+                          (Int.rawCast.{0} (Int.negOfNat 1)))
+                        (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero.{0}
+                          (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero.{0}
+                            (abs.{0}
+                              (HDiv.hDiv.{0, 0, 0}
+                                (HSub.hSub.{0, 0, 0}
+                                  (RHContinuation.MobiusSmoothing.smoothedM
+                                    (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                  (RHContinuation.MobiusSmoothing.smoothedM x))
+                                (RHContinuation.PerronPower.h x)))
+                            (Nat.rawCast.{0} 1)
+                            (Mathlib.Meta.NormNum.IsInt.to_isNat.{0}
+                              (Mathlib.Meta.NormNum.isInt_add.{0} (Eq.refl.{1} HAdd.hAdd.{0, 0, 0})
+                                (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1))
+                                (Mathlib.Meta.NormNum.IsInt.of_raw.{0} ℝ (Int.negOfNat 1))
+                                (Eq.refl.{1} (Int.ofNat 0)))))
+                          (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0}
+                            (HMul.hMul.{0, 0, 0}
+                              (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I0 x)) (Nat.rawCast.{0} 1))
+                              (Int.rawCast.{0} (Int.negOfNat 1)))
+                            (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0}
+                              (HMul.hMul.{0, 0, 0}
+                                (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I1 x)) (Nat.rawCast.{0} 1))
+                                (Int.rawCast.{0} (Int.negOfNat 1)))
+                              (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0}
+                                (HMul.hMul.{0, 0, 0}
+                                  (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I2 x)) (Nat.rawCast.{0} 1))
+                                  (Int.rawCast.{0} (Int.negOfNat 1)))
+                                (Mathlib.Tactic.Ring.Common.add_pf_zero_add.{0}
+                                  (HAdd.hAdd.{0, 0, 0}
+                                    (HMul.hMul.{0, 0, 0}
+                                      (HPow.hPow.{0, 0, 0} (abs.{0} (RHContinuation.MobiusSmoothing.M x))
+                                        (Nat.rawCast.{0} 1))
+                                      (Nat.rawCast.{0} 1))
+                                    0))))))))))
+                (Mathlib.Tactic.Ring.Common.sub_congr.{0}
+                  (Mathlib.Tactic.Ring.Common.add_congr.{0}
+                    (Mathlib.Tactic.Ring.Common.add_congr.{0}
+                      (Mathlib.Tactic.Ring.Common.add_congr.{0}
+                        (Mathlib.Tactic.Ring.Common.add_congr.{0}
+                          (Mathlib.Tactic.Ring.Common.atom_pf.{0} (RHContinuation.PerronPower.h x) rfl.{1}
+                            (Eq.mpr.{0}
+                              (id.{0}
+                                (congrArg.{1, 1}
+                                  (fun _a =>
+                                    Eq.{1}
+                                      (HMul.hMul.{0, 0, 0}
+                                        (HPow.hPow.{0, 0, 0} (RHContinuation.PerronPower.h x) (Nat.rawCast.{0} 1))
+                                        (Nat.rawCast.{0} 1))
+                                      (HMul.hMul.{0, 0, 0}
+                                        (HPow.hPow.{0, 0, 0} (RHContinuation.PerronPower.h x) (Nat.rawCast.{0} 1)) _a))
+                                  (Eq.symm.{1} rfl.{1})))
+                              (Eq.refl.{1}
+                                (HMul.hMul.{0, 0, 0}
+                                  (HPow.hPow.{0, 0, 0} (RHContinuation.PerronPower.h x) (Nat.rawCast.{0} 1))
+                                  (Nat.rawCast.{0} 1)))))
+                          (Mathlib.Tactic.Ring.cast_pos.{0} (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ Nat.cast_one.{0}))
+                          (Mathlib.Tactic.Ring.Common.add_pf_add_gt.{0} (Nat.rawCast.{0} 1)
+                            (Mathlib.Tactic.Ring.Common.add_pf_add_zero.{0}
+                              (HAdd.hAdd.{0, 0, 0}
+                                (HMul.hMul.{0, 0, 0}
+                                  (HPow.hPow.{0, 0, 0} (RHContinuation.PerronPower.h x) (Nat.rawCast.{0} 1))
+                                  (Nat.rawCast.{0} 1))
+                                0))))
+                        (Mathlib.Tactic.Ring.Common.atom_pf.{0} (norm.{0} (RHContinuation.PerronPower.I0 x)) rfl.{1}
+                          (Eq.mpr.{0}
+                            (id.{0}
+                              (congrArg.{1, 1}
+                                (fun _a =>
+                                  Eq.{1}
+                                    (HMul.hMul.{0, 0, 0}
+                                      (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I0 x))
+                                        (Nat.rawCast.{0} 1))
+                                      (Nat.rawCast.{0} 1))
+                                    (HMul.hMul.{0, 0, 0}
+                                      (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I0 x))
+                                        (Nat.rawCast.{0} 1))
+                                      _a))
+                                (Eq.symm.{1} rfl.{1})))
+                            (Eq.refl.{1}
+                              (HMul.hMul.{0, 0, 0}
+                                (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I0 x)) (Nat.rawCast.{0} 1))
+                                (Nat.rawCast.{0} 1)))))
+                        (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0} (Nat.rawCast.{0} 1)
+                          (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0}
+                            (HMul.hMul.{0, 0, 0}
+                              (HPow.hPow.{0, 0, 0} (RHContinuation.PerronPower.h x) (Nat.rawCast.{0} 1))
+                              (Nat.rawCast.{0} 1))
+                            (Mathlib.Tactic.Ring.Common.add_pf_zero_add.{0}
+                              (HAdd.hAdd.{0, 0, 0}
+                                (HMul.hMul.{0, 0, 0}
+                                  (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I0 x)) (Nat.rawCast.{0} 1))
+                                  (Nat.rawCast.{0} 1))
+                                0)))))
+                      (Mathlib.Tactic.Ring.Common.atom_pf.{0} (norm.{0} (RHContinuation.PerronPower.I1 x)) rfl.{1}
+                        (Eq.mpr.{0}
+                          (id.{0}
+                            (congrArg.{1, 1}
+                              (fun _a =>
+                                Eq.{1}
+                                  (HMul.hMul.{0, 0, 0}
+                                    (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I1 x))
+                                      (Nat.rawCast.{0} 1))
+                                    (Nat.rawCast.{0} 1))
+                                  (HMul.hMul.{0, 0, 0}
+                                    (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I1 x))
+                                      (Nat.rawCast.{0} 1))
+                                    _a))
+                              (Eq.symm.{1} rfl.{1})))
+                          (Eq.refl.{1}
+                            (HMul.hMul.{0, 0, 0}
+                              (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I1 x)) (Nat.rawCast.{0} 1))
+                              (Nat.rawCast.{0} 1)))))
+                      (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0} (Nat.rawCast.{0} 1)
+                        (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0}
+                          (HMul.hMul.{0, 0, 0}
+                            (HPow.hPow.{0, 0, 0} (RHContinuation.PerronPower.h x) (Nat.rawCast.{0} 1))
+                            (Nat.rawCast.{0} 1))
+                          (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0}
+                            (HMul.hMul.{0, 0, 0}
+                              (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I0 x)) (Nat.rawCast.{0} 1))
+                              (Nat.rawCast.{0} 1))
+                            (Mathlib.Tactic.Ring.Common.add_pf_zero_add.{0}
+                              (HAdd.hAdd.{0, 0, 0}
+                                (HMul.hMul.{0, 0, 0}
+                                  (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I1 x)) (Nat.rawCast.{0} 1))
+                                  (Nat.rawCast.{0} 1))
+                                0))))))
+                    (Mathlib.Tactic.Ring.Common.atom_pf.{0} (norm.{0} (RHContinuation.PerronPower.I2 x)) rfl.{1}
+                      (Eq.mpr.{0}
+                        (id.{0}
+                          (congrArg.{1, 1}
+                            (fun _a =>
+                              Eq.{1}
+                                (HMul.hMul.{0, 0, 0}
+                                  (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I2 x)) (Nat.rawCast.{0} 1))
+                                  (Nat.rawCast.{0} 1))
+                                (HMul.hMul.{0, 0, 0}
+                                  (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I2 x)) (Nat.rawCast.{0} 1))
+                                  _a))
+                            (Eq.symm.{1} rfl.{1})))
+                        (Eq.refl.{1}
+                          (HMul.hMul.{0, 0, 0}
+                            (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I2 x)) (Nat.rawCast.{0} 1))
+                            (Nat.rawCast.{0} 1)))))
+                    (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0} (Nat.rawCast.{0} 1)
+                      (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0}
+                        (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} (RHContinuation.PerronPower.h x) (Nat.rawCast.{0} 1))
+                          (Nat.rawCast.{0} 1))
+                        (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0}
+                          (HMul.hMul.{0, 0, 0}
+                            (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I0 x)) (Nat.rawCast.{0} 1))
+                            (Nat.rawCast.{0} 1))
+                          (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0}
+                            (HMul.hMul.{0, 0, 0}
+                              (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I1 x)) (Nat.rawCast.{0} 1))
+                              (Nat.rawCast.{0} 1))
+                            (Mathlib.Tactic.Ring.Common.add_pf_zero_add.{0}
+                              (HAdd.hAdd.{0, 0, 0}
+                                (HMul.hMul.{0, 0, 0}
+                                  (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I2 x)) (Nat.rawCast.{0} 1))
+                                  (Nat.rawCast.{0} 1))
+                                0)))))))
+                  (Mathlib.Tactic.Ring.Common.atom_pf.{0} (abs.{0} (RHContinuation.MobiusSmoothing.M x)) rfl.{1}
+                    (Eq.mpr.{0}
+                      (id.{0}
+                        (congrArg.{1, 1}
+                          (fun _a =>
+                            Eq.{1}
+                              (HMul.hMul.{0, 0, 0}
+                                (HPow.hPow.{0, 0, 0} (abs.{0} (RHContinuation.MobiusSmoothing.M x)) (Nat.rawCast.{0} 1))
+                                (Nat.rawCast.{0} 1))
+                              (HMul.hMul.{0, 0, 0}
+                                (HPow.hPow.{0, 0, 0} (abs.{0} (RHContinuation.MobiusSmoothing.M x)) (Nat.rawCast.{0} 1))
+                                _a))
+                          (Eq.symm.{1} rfl.{1})))
+                      (Eq.refl.{1}
+                        (HMul.hMul.{0, 0, 0}
+                          (HPow.hPow.{0, 0, 0} (abs.{0} (RHContinuation.MobiusSmoothing.M x)) (Nat.rawCast.{0} 1))
+                          (Nat.rawCast.{0} 1)))))
+                  (Mathlib.Tactic.Ring.Common.sub_pf.{0}
+                    (Mathlib.Tactic.Ring.Common.neg_add.{0}
+                      (Mathlib.Tactic.Ring.Common.neg_mul.{0} (abs.{0} (RHContinuation.MobiusSmoothing.M x))
+                        (Nat.rawCast.{0} 1)
+                        (Mathlib.Meta.NormNum.IsInt.to_raw_eq.{0}
+                          (Mathlib.Meta.NormNum.isInt_neg.{0} (Eq.refl.{1} Neg.neg.{0})
+                            (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1))
+                            (Eq.refl.{1} (Int.negOfNat 1)))))
+                      Mathlib.Tactic.Ring.Common.neg_zero.{0})
+                    (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0} (Nat.rawCast.{0} 1)
+                      (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0}
+                        (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} (RHContinuation.PerronPower.h x) (Nat.rawCast.{0} 1))
+                          (Nat.rawCast.{0} 1))
+                        (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0}
+                          (HMul.hMul.{0, 0, 0}
+                            (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I0 x)) (Nat.rawCast.{0} 1))
+                            (Nat.rawCast.{0} 1))
+                          (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0}
+                            (HMul.hMul.{0, 0, 0}
+                              (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I1 x)) (Nat.rawCast.{0} 1))
+                              (Nat.rawCast.{0} 1))
+                            (Mathlib.Tactic.Ring.Common.add_pf_add_lt.{0}
+                              (HMul.hMul.{0, 0, 0}
+                                (HPow.hPow.{0, 0, 0} (norm.{0} (RHContinuation.PerronPower.I2 x)) (Nat.rawCast.{0} 1))
+                                (Nat.rawCast.{0} 1))
+                              (Mathlib.Tactic.Ring.Common.add_pf_zero_add.{0}
+                                (HAdd.hAdd.{0, 0, 0}
+                                  (HMul.hMul.{0, 0, 0}
+                                    (HPow.hPow.{0, 0, 0} (abs.{0} (RHContinuation.MobiusSmoothing.M x))
+                                      (Nat.rawCast.{0} 1))
+                                    (Int.rawCast.{0} (Int.negOfNat 1)))
+                                  0)))))))))
+                (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero.{0}
+                  (Mathlib.Meta.NormNum.IsInt.to_isNat.{0}
+                    (Mathlib.Meta.NormNum.isInt_add.{0} (Eq.refl.{1} HAdd.hAdd.{0, 0, 0})
+                      (Mathlib.Meta.NormNum.IsInt.of_raw.{0} ℝ (Int.negOfNat 1))
+                      (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1))
+                      (Eq.refl.{1} (Int.ofNat 0))))
+                  (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero.{0}
+                    (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero.{0} (RHContinuation.PerronPower.h x)
+                      (Nat.rawCast.{0} 1)
+                      (Mathlib.Meta.NormNum.IsInt.to_isNat.{0}
+                        (Mathlib.Meta.NormNum.isInt_add.{0} (Eq.refl.{1} HAdd.hAdd.{0, 0, 0})
+                          (Mathlib.Meta.NormNum.IsInt.of_raw.{0} ℝ (Int.negOfNat 1))
+                          (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1))
+                          (Eq.refl.{1} (Int.ofNat 0)))))
+                    (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero.{0}
+                      (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero.{0} (norm.{0} (RHContinuation.PerronPower.I0 x))
+                        (Nat.rawCast.{0} 1)
+                        (Mathlib.Meta.NormNum.IsInt.to_isNat.{0}
+                          (Mathlib.Meta.NormNum.isInt_add.{0} (Eq.refl.{1} HAdd.hAdd.{0, 0, 0})
+                            (Mathlib.Meta.NormNum.IsInt.of_raw.{0} ℝ (Int.negOfNat 1))
+                            (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1))
+                            (Eq.refl.{1} (Int.ofNat 0)))))
+                      (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero.{0}
+                        (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero.{0} (norm.{0} (RHContinuation.PerronPower.I1 x))
+                          (Nat.rawCast.{0} 1)
+                          (Mathlib.Meta.NormNum.IsInt.to_isNat.{0}
+                            (Mathlib.Meta.NormNum.isInt_add.{0} (Eq.refl.{1} HAdd.hAdd.{0, 0, 0})
+                              (Mathlib.Meta.NormNum.IsInt.of_raw.{0} ℝ (Int.negOfNat 1))
+                              (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1))
+                              (Eq.refl.{1} (Int.ofNat 0)))))
+                        (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero.{0}
+                          (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero.{0}
+                            (norm.{0} (RHContinuation.PerronPower.I2 x)) (Nat.rawCast.{0} 1)
+                            (Mathlib.Meta.NormNum.IsInt.to_isNat.{0}
+                              (Mathlib.Meta.NormNum.isInt_add.{0} (Eq.refl.{1} HAdd.hAdd.{0, 0, 0})
+                                (Mathlib.Meta.NormNum.IsInt.of_raw.{0} ℝ (Int.negOfNat 1))
+                                (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1))
+                                (Eq.refl.{1} (Int.ofNat 0)))))
+                          (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero.{0}
+                            (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero.{0}
+                              (abs.{0} (RHContinuation.MobiusSmoothing.M x)) (Nat.rawCast.{0} 1)
+                              (Mathlib.Meta.NormNum.IsInt.to_isNat.{0}
+                                (Mathlib.Meta.NormNum.isInt_add.{0} (Eq.refl.{1} HAdd.hAdd.{0, 0, 0})
+                                  (Mathlib.Meta.NormNum.IsNat.to_isInt.{0} (Mathlib.Meta.NormNum.IsNat.of_raw.{0} ℝ 1))
+                                  (Mathlib.Meta.NormNum.IsInt.of_raw.{0} ℝ (Int.negOfNat 1))
+                                  (Eq.refl.{1} (Int.ofNat 0)))))
+                            (Mathlib.Tactic.Ring.Common.add_pf_zero_add.{0} 0))))))))
+              (Mathlib.Tactic.Ring.cast_zero.{0} (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ Nat.cast_zero.{0}))))
+          (Mathlib.Tactic.Linarith.add_lt_of_le_of_neg.{0}
+            (Mathlib.Tactic.Linarith.add_nonpos.{0}
+              (Mathlib.Tactic.Linarith.add_nonpos.{0}
+                (Eq.mp.{0}
+                  (congrArg.{1, 1} (fun _a => LE.le.{0} _a 0)
+                    (Mathlib.Tactic.Linarith.without_one_mul.{0}
+                      (Mathlib.Tactic.CancelDenoms.sub_subst.{0} rfl.{1}
+                        (Mathlib.Tactic.CancelDenoms.add_subst.{0} rfl.{1} rfl.{1}))))
+                  (Mathlib.Tactic.Linarith.sub_nonpos_of_le.{0} hdisc))
+                (Eq.mp.{0}
+                  (congrArg.{1, 1} (fun _a => LE.le.{0} _a 0)
+                    (Mathlib.Tactic.Linarith.without_one_mul.{0}
+                      (Mathlib.Tactic.CancelDenoms.sub_subst.{0} rfl.{1}
+                        (Mathlib.Tactic.CancelDenoms.add_subst.{0}
+                          (Mathlib.Tactic.CancelDenoms.add_subst.{0} rfl.{1} rfl.{1}) rfl.{1}))))
+                  (Mathlib.Tactic.Linarith.sub_nonpos_of_le.{0} hnorm)))
+              (Eq.mp.{0}
+                (congrArg.{1, 1} (fun _a => LE.le.{0} _a 0)
+                  (Mathlib.Tactic.Linarith.without_one_mul.{0}
+                    (Mathlib.Tactic.CancelDenoms.sub_subst.{0} rfl.{1}
+                      (Mathlib.Tactic.CancelDenoms.add_subst.{0} rfl.{1} rfl.{1}))))
+                (Mathlib.Tactic.Linarith.sub_nonpos_of_le.{0}
+                  (Eq.mp.{0}
+                    (congrArg.{1, 1} (LE.le.{0} (abs.{0} (RHContinuation.MobiusSmoothing.M x)))
+                      (congrArg.{1, 1}
+                        (HAdd.hAdd.{0, 0, 0}
+                          (abs.{0}
+                            (HSub.hSub.{0, 0, 0}
+                              (HDiv.hDiv.{0, 0, 0}
+                                (HSub.hSub.{0, 0, 0}
+                                  (RHContinuation.MobiusSmoothing.smoothedM
+                                    (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                  (RHContinuation.MobiusSmoothing.smoothedM x))
+                                (RHContinuation.PerronPower.h x))
+                              (RHContinuation.MobiusSmoothing.M x))))
+                        (abs_neg.{0}
+                          (HDiv.hDiv.{0, 0, 0}
+                            (HSub.hSub.{0, 0, 0}
+                              (RHContinuation.MobiusSmoothing.smoothedM
+                                (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                              (RHContinuation.MobiusSmoothing.smoothedM x))
+                            (RHContinuation.PerronPower.h x)))))
+                    (Eq.mp.{0}
+                      (congrArg.{1, 1}
+                        (fun _a =>
+                          LE.le.{0} _a
+                            (HAdd.hAdd.{0, 0, 0}
+                              (abs.{0}
+                                (HSub.hSub.{0, 0, 0}
+                                  (HDiv.hDiv.{0, 0, 0}
+                                    (HSub.hSub.{0, 0, 0}
+                                      (RHContinuation.MobiusSmoothing.smoothedM
+                                        (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                      (RHContinuation.MobiusSmoothing.smoothedM x))
+                                    (RHContinuation.PerronPower.h x))
+                                  (RHContinuation.MobiusSmoothing.M x)))
+                              (abs.{0}
+                                (Neg.neg.{0}
+                                  (HDiv.hDiv.{0, 0, 0}
+                                    (HSub.hSub.{0, 0, 0}
+                                      (RHContinuation.MobiusSmoothing.smoothedM
+                                        (HAdd.hAdd.{0, 0, 0} x (RHContinuation.PerronPower.h x)))
+                                      (RHContinuation.MobiusSmoothing.smoothedM x))
+                                    (RHContinuation.PerronPower.h ⋯))))))
+                        ⋯)
+                      ⋯)))))
+            ⋯));
+  ⋯
+theorem RHContinuation.WeightedMobius.weighted_power_candidate_consumer : ∀ {x : ℝ},
+  LE.le.{0} 1 x →
+    RHContinuation.WeightedMobius.AbelAt x →
+      (∀ (u : ℝ),
+          LE.le.{0} 1 u →
+            LE.le.{0} (abs.{0} (RHContinuation.MobiusSmoothing.M u))
+              (HMul.hMul.{0, 0, 0} 1100000 (HPow.hPow.{0, 0, 0} u (107 / 132)))) →
+        LE.le.{0} (abs.{0} (RHContinuation.WeightedMobius.m x))
+          (HMul.hMul.{0, 0, 0} 6908000 (HPow.hPow.{0, 0, 0} x (-25 / 132))) :=
+fun {x} hx hA hM =>
+  have hh :=
+    RHContinuation.WeightedMobius.weighted_from_actual_M
+      (Mathlib.Meta.NormNum.isNat_le_true.{0} (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ Nat.cast_zero.{0})
+        (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ (Eq.refl.{1} 1100000)) (Eq.refl.{1} true))
+      (Mathlib.Meta.NormNum.isNNRat_lt_true.{0}
+        (Mathlib.Meta.NormNum.isNNRat_div.{0}
+          (Mathlib.Meta.NormNum.isNNRat_mul.{0} (Eq.refl.{1} HMul.hMul.{0, 0, 0})
+            (Mathlib.Meta.NormNum.IsNat.to_isNNRat.{0} (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ (Eq.refl.{1} 107)))
+            (Mathlib.Meta.NormNum.isNNRat_inv_pos.{0}
+              (Mathlib.Meta.NormNum.IsNat.to_isNNRat.{0} (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ (Eq.refl.{1} 132))))
+            (Eq.refl.{1} (Nat.mul 107 1)) (Eq.refl.{1} 132)))
+        (Mathlib.Meta.NormNum.IsNat.to_isNNRat.{0} (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ Nat.cast_one.{0}))
+        (Eq.refl.{1} true))
+      hx hA hM;
+  Eq.mpr.{0}
+    (id.{0}
+      (Eq.trans.{1}
+        (Eq.trans.{1}
+          (Eq.trans.{1}
+            (congrArg.{1, 1} (LE.le.{0} (abs.{0} (RHContinuation.WeightedMobius.m x)))
+              (Eq.trans.{1}
+                (congrArg.{1, 1} (HMul.hMul.{0, 0, 0} 6908000)
+                  (Eq.trans.{1}
+                    (congrArg.{1, 1} (HPow.hPow.{0, 0, 0} x)
+                      (Mathlib.Meta.NormNum.IsRat.neg_to_eq.{0}
+                        (Mathlib.Meta.NormNum.isRat_div.{0}
+                          (Mathlib.Meta.NormNum.isRat_mul.{0} (Eq.refl.{1} HMul.hMul.{0, 0, 0})
+                            (Mathlib.Meta.NormNum.IsInt.to_isRat.{0}
+                              (Mathlib.Meta.NormNum.isInt_neg.{0} (Eq.refl.{1} Neg.neg.{0})
+                                (Mathlib.Meta.NormNum.IsNat.to_isInt.{0}
+                                  (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ (Eq.refl.{1} 25)))
+                                (Eq.refl.{1} (Int.negOfNat 25))))
+                            (Mathlib.Meta.NormNum.IsNNRat.to_isRat.{0}
+                              (Mathlib.Meta.NormNum.isNNRat_inv_pos.{0}
+                                (Mathlib.Meta.NormNum.IsNat.to_isNNRat.{0}
+                                  (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ (Eq.refl.{1} 132)))))
+                            (Eq.refl.{1} ((Int.negOfNat 25).mul (Int.ofNat 1))) (Eq.refl.{1} 132)))
+                        (Eq.refl.{1} 25) (Eq.refl.{1} 132)))
+                    (congrArg.{1, 1} (HPow.hPow.{0, 0, 0} x)
+                      (Mathlib.Meta.NormNum.IsRat.neg_to_eq.{0}
+                        (Mathlib.Meta.NormNum.isRat_neg.{0} (Eq.refl.{1} Neg.neg.{0})
+                          (Mathlib.Meta.NormNum.IsNNRat.to_isRat.{0}
+                            (Mathlib.Meta.NormNum.isNNRat_div.{0}
+                              (Mathlib.Meta.NormNum.isNNRat_mul.{0} (Eq.refl.{1} HMul.hMul.{0, 0, 0})
+                                (Mathlib.Meta.NormNum.IsNat.to_isNNRat.{0}
+                                  (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ (Eq.refl.{1} 25)))
+                                (Mathlib.Meta.NormNum.isNNRat_inv_pos.{0}
+                                  (Mathlib.Meta.NormNum.IsNat.to_isNNRat.{0}
+                                    (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ (Eq.refl.{1} 132))))
+                                (Eq.refl.{1} (Nat.mul 25 1)) (Eq.refl.{1} 132))))
+                          (Eq.refl.{1} (Int.negOfNat 25)))
+                        (Eq.refl.{1} 25) (Eq.refl.{1} 132)))))
+                (congrArg.{1, 1} (HMul.hMul.{0, 0, 0} 6908000)
+                  (congrArg.{1, 1} (HPow.hPow.{0, 0, 0} x)
+                    (Mathlib.Meta.NormNum.IsRat.neg_to_eq.{0}
+                      (Mathlib.Meta.NormNum.isRat_neg.{0} (Eq.refl.{1} Neg.neg.{0})
+                        (Mathlib.Meta.NormNum.IsNNRat.to_isRat.{0}
+                          (Mathlib.Meta.NormNum.isNNRat_div.{0}
+                            (Mathlib.Meta.NormNum.isNNRat_mul.{0} (Eq.refl.{1} HMul.hMul.{0, 0, 0})
+                              (Mathlib.Meta.NormNum.IsNat.to_isNNRat.{0}
+                                (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ (Eq.refl.{1} 25)))
+                              (Mathlib.Meta.NormNum.isNNRat_inv_pos.{0}
+                                (Mathlib.Meta.NormNum.IsNat.to_isNNRat.{0}
+                                  (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ (Eq.refl.{1} 132))))
+                              (Eq.refl.{1} (Nat.mul 25 1)) (Eq.refl.{1} 132))))
+                        (Eq.refl.{1} (Int.negOfNat 25)))
+                      (Eq.refl.{1} 25) (Eq.refl.{1} 132))))))
+            (congrArg.{1, 1} (LE.le.{0} (abs.{0} (RHContinuation.WeightedMobius.m x)))
+              (congrArg.{1, 1} (HMul.hMul.{0, 0, 0} 6908000)
+                (congrArg.{1, 1} (HPow.hPow.{0, 0, 0} x)
+                  (Mathlib.Meta.NormNum.IsRat.neg_to_eq.{0}
+                    (Mathlib.Meta.NormNum.isRat_neg.{0} (Eq.refl.{1} Neg.neg.{0})
+                      (Mathlib.Meta.NormNum.IsNNRat.to_isRat.{0}
+                        (Mathlib.Meta.NormNum.isNNRat_div.{0}
+                          (Mathlib.Meta.NormNum.isNNRat_mul.{0} (Eq.refl.{1} HMul.hMul.{0, 0, 0})
+                            (Mathlib.Meta.NormNum.IsNat.to_isNNRat.{0}
+                              (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ (Eq.refl.{1} 25)))
+                            (Mathlib.Meta.NormNum.isNNRat_inv_pos.{0}
+                              (Mathlib.Meta.NormNum.IsNat.to_isNNRat.{0}
+                                (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ (Eq.refl.{1} 132))))
+                            (Eq.refl.{1} (Nat.mul 25 1)) (Eq.refl.{1} 132))))
+                      (Eq.refl.{1} (Int.negOfNat 25)))
+                    (Eq.refl.{1} 25) (Eq.refl.{1} 132))))))
+          ge_iff_le._simp_1.{0})
+        (congrArg.{1, 1} (LE.le.{0} (abs.{0} (RHContinuation.WeightedMobius.m x)))
+          (congrArg.{1, 1} (HMul.hMul.{0, 0, 0} 6908000)
+            (congrArg.{1, 1} (HPow.hPow.{0, 0, 0} x)
+              (Mathlib.Meta.NormNum.IsRat.neg_to_eq.{0}
+                (Mathlib.Meta.NormNum.isRat_neg.{0} (Eq.refl.{1} Neg.neg.{0})
+                  (Mathlib.Meta.NormNum.IsNNRat.to_isRat.{0}
+                    (Mathlib.Meta.NormNum.isNNRat_div.{0}
+                      (Mathlib.Meta.NormNum.isNNRat_mul.{0} (Eq.refl.{1} HMul.hMul.{0, 0, 0})
+                        (Mathlib.Meta.NormNum.IsNat.to_isNNRat.{0}
+                          (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ (Eq.refl.{1} 25)))
+                        (Mathlib.Meta.NormNum.isNNRat_inv_pos.{0}
+                          (Mathlib.Meta.NormNum.IsNat.to_isNNRat.{0}
+                            (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ (Eq.refl.{1} 132))))
+                        (Eq.refl.{1} (Nat.mul 25 1)) (Eq.refl.{1} 132))))
+                  (Eq.refl.{1} (Int.negOfNat 25)))
+                (Eq.refl.{1} 25) (Eq.refl.{1} 132)))))))
+    (Eq.mp.{0}
+      (Eq.trans.{1}
+        (congrArg.{1, 1} (LE.le.{0} (abs.{0} (RHContinuation.WeightedMobius.m x)))
+          (Eq.trans.{1}
+            (congr.{1, 1}
+              (congrArg.{1, 1} HMul.hMul.{0, 0, 0}
+                (Mathlib.Meta.NormNum.IsNat.to_eq.{0}
+                  (Mathlib.Meta.NormNum.IsNNRat.to_isNat.{0}
+                    (Mathlib.Meta.NormNum.isNNRat_mul.{0} (Eq.refl.{1} HMul.hMul.{0, 0, 0})
+                      (Mathlib.Meta.NormNum.IsNat.to_isNNRat.{0}
+                        (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ (Eq.refl.{1} 1100000)))
+                      (Mathlib.Meta.NormNum.isNNRat_add.{0} (Eq.refl.{1} HAdd.hAdd.{0, 0, 0})
+                        (Mathlib.Meta.NormNum.IsNat.to_isNNRat.{0}
+                          (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ Nat.cast_one.{0}))
+                        (Mathlib.Meta.NormNum.isNNRat_div.{0}
+                          (Mathlib.Meta.NormNum.isNNRat_mul.{0} (Eq.refl.{1} HMul.hMul.{0, 0, 0})
+                            (Mathlib.Meta.NormNum.IsNat.to_isNNRat.{0}
+                              (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ Nat.cast_one.{0}))
+                            (Mathlib.Meta.NormNum.isNNRat_inv_pos.{0}
+                              (Mathlib.Meta.NormNum.IsRat.to_isNNRat.{0}
+                                (Mathlib.Meta.NormNum.isRat_sub.{0} (Eq.refl.{1} HSub.hSub.{0, 0, 0})
+                                  (Mathlib.Meta.NormNum.IsNNRat.to_isRat.{0}
+                                    (Mathlib.Meta.NormNum.IsNat.to_isNNRat.{0}
+                                      (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ Nat.cast_one.{0})))
+                                  (Mathlib.Meta.NormNum.IsNNRat.to_isRat.{0}
+                                    (Mathlib.Meta.NormNum.isNNRat_div.{0}
+                                      (Mathlib.Meta.NormNum.isNNRat_mul.{0} (Eq.refl.{1} HMul.hMul.{0, 0, 0})
+                                        (Mathlib.Meta.NormNum.IsNat.to_isNNRat.{0}
+                                          (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ (Eq.refl.{1} 107)))
+                                        (Mathlib.Meta.NormNum.isNNRat_inv_pos.{0}
+                                          (Mathlib.Meta.NormNum.IsNat.to_isNNRat.{0}
+                                            (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ (Eq.refl.{1} 132))))
+                                        (Eq.refl.{1} (Nat.mul 107 1)) (Eq.refl.{1} 132))))
+                                  (Eq.refl.{1} (Int.ofNat 25)) (Eq.refl.{1} 132))))
+                            (Eq.refl.{1} (Nat.mul 1 132)) (Eq.refl.{1} 25)))
+                        (Eq.refl.{1} 157) (Eq.refl.{1} 25))
+                      (Eq.refl.{1} (Nat.mul 1100000 157)) (Eq.refl.{1} 25)))
+                  (Eq.refl.{1} 6908000)))
+              (Eq.trans.{1}
+                (congrArg.{1, 1} (HPow.hPow.{0, 0, 0} x)
+                  (Mathlib.Meta.NormNum.IsRat.neg_to_eq.{0}
+                    (Mathlib.Meta.NormNum.isRat_sub.{0} (Eq.refl.{1} HSub.hSub.{0, 0, 0})
+                      (Mathlib.Meta.NormNum.IsNNRat.to_isRat.{0}
+                        (Mathlib.Meta.NormNum.isNNRat_div.{0}
+                          (Mathlib.Meta.NormNum.isNNRat_mul.{0} (Eq.refl.{1} HMul.hMul.{0, 0, 0})
+                            (Mathlib.Meta.NormNum.IsNat.to_isNNRat.{0}
+                              (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ (Eq.refl.{1} 107)))
+                            (Mathlib.Meta.NormNum.isNNRat_inv_pos.{0}
+                              (Mathlib.Meta.NormNum.IsNat.to_isNNRat.{0}
+                                (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ (Eq.refl.{1} 132))))
+                            (Eq.refl.{1} (Nat.mul 107 1)) (Eq.refl.{1} 132))))
+                      (Mathlib.Meta.NormNum.IsNNRat.to_isRat.{0}
+                        (Mathlib.Meta.NormNum.IsNat.to_isNNRat.{0}
+                          (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ Nat.cast_one.{0})))
+                      (Eq.refl.{1} (Int.negOfNat 25)) (Eq.refl.{1} 132))
+                    (Eq.refl.{1} 25) (Eq.refl.{1} 132)))
+                (congrArg.{1, 1} (HPow.hPow.{0, 0, 0} x)
+                  (Mathlib.Meta.NormNum.IsRat.neg_to_eq.{0}
+                    (Mathlib.Meta.NormNum.isRat_neg.{0} (Eq.refl.{1} Neg.neg.{0})
+                      (Mathlib.Meta.NormNum.IsNNRat.to_isRat.{0}
+                        (Mathlib.Meta.NormNum.isNNRat_div.{0}
+                          (Mathlib.Meta.NormNum.isNNRat_mul.{0} (Eq.refl.{1} HMul.hMul.{0, 0, 0})
+                            (Mathlib.Meta.NormNum.IsNat.to_isNNRat.{0}
+                              (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ (Eq.refl.{1} 25)))
+                            (Mathlib.Meta.NormNum.isNNRat_inv_pos.{0}
+                              (Mathlib.Meta.NormNum.IsNat.to_isNNRat.{0}
+                                (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ (Eq.refl.{1} 132))))
+                            (Eq.refl.{1} (Nat.mul 25 1)) (Eq.refl.{1} 132))))
+                      (Eq.refl.{1} (Int.negOfNat 25)))
+                    (Eq.refl.{1} 25) (Eq.refl.{1} 132)))))
+            (congrArg.{1, 1} (HMul.hMul.{0, 0, 0} 6908000)
+              (congrArg.{1, 1} (HPow.hPow.{0, 0, 0} x)
+                (Mathlib.Meta.NormNum.IsRat.neg_to_eq.{0}
+                  (Mathlib.Meta.NormNum.isRat_neg.{0} (Eq.refl.{1} Neg.neg.{0})
+                    (Mathlib.Meta.NormNum.IsNNRat.to_isRat.{0}
+                      (Mathlib.Meta.NormNum.isNNRat_div.{0}
+                        (Mathlib.Meta.NormNum.isNNRat_mul.{0} (Eq.refl.{1} HMul.hMul.{0, 0, 0})
+                          (Mathlib.Meta.NormNum.IsNat.to_isNNRat.{0}
+                            (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ (Eq.refl.{1} 25)))
+                          (Mathlib.Meta.NormNum.isNNRat_inv_pos.{0}
+                            (Mathlib.Meta.NormNum.IsNat.to_isNNRat.{0}
+                              (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ (Eq.refl.{1} 132))))
+                          (Eq.refl.{1} (Nat.mul 25 1)) (Eq.refl.{1} 132))))
+                    (Eq.refl.{1} (Int.negOfNat 25)))
+                  (Eq.refl.{1} 25) (Eq.refl.{1} 132))))))
+        (congrArg.{1, 1} (LE.le.{0} (abs.{0} (RHContinuation.WeightedMobius.m x)))
+          (congrArg.{1, 1} (HMul.hMul.{0, 0, 0} 6908000)
+            (congrArg.{1, 1} (HPow.hPow.{0, 0, 0} x)
+              (Mathlib.Meta.NormNum.IsRat.neg_to_eq.{0}
+                (Mathlib.Meta.NormNum.isRat_neg.{0} (Eq.refl.{1} Neg.neg.{0})
+                  (Mathlib.Meta.NormNum.IsNNRat.to_isRat.{0}
+                    (Mathlib.Meta.NormNum.isNNRat_div.{0}
+                      (Mathlib.Meta.NormNum.isNNRat_mul.{0} (Eq.refl.{1} HMul.hMul.{0, 0, 0})
+                        (Mathlib.Meta.NormNum.IsNat.to_isNNRat.{0}
+                          (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ (Eq.refl.{1} 25)))
+                        (Mathlib.Meta.NormNum.isNNRat_inv_pos.{0}
+                          (Mathlib.Meta.NormNum.IsNat.to_isNNRat.{0}
+                            (Mathlib.Meta.NormNum.isNat_ofNat.{0} ℝ (Eq.refl.{1} 132))))
+                        (Eq.refl.{1} (Nat.mul 25 1)) (Eq.refl.{1} 132))))
+                  (Eq.refl.{1} (Int.negOfNat 25)))
+                (Eq.refl.{1} 25) (Eq.refl.{1} 132))))))
+      hh)

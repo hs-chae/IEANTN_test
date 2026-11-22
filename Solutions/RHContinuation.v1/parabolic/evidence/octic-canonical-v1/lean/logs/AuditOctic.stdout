@@ -1,0 +1,27 @@
+'EvenKernel.prime_count_from_kernel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcticConsumer.prime_count_215' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcticConsumer.prime_count_family' depends on axioms: [propext, Classical.choice, Quot.sound]
+OcticConsumer.prime_count_215 : RiemannHypothesis →
+  EvenKernel.ExplicitFormula 4 (43 / 20) →
+    EvenKernel.ZeroEstimate 4 (43 / 20) (911 / 500) (3 / 2) (3 / 125) →
+      EvenKernel.PrimePowerCost 4 (43 / 20) (31 / 2000) →
+        EvenKernel.TrivialCost 4 (43 / 20) (1 / 1000) →
+          EvenKernel.ScalarGeometry 4 (43 / 20) (911 / 500) (3 / 2) (3 / 125) (31 / 2000) (1 / 1000) (29 / 5) →
+            EvenKernel.ForwardCoverage (43 / 20) →
+              ∀ (u : ℝ),
+                Real.exp 24 ≤ u →
+                  (9001 / 9000 + 29 / 5 / Real.log u) * √u <
+                    QuarticWindow.primeCounting (u + 43 / 20 * √u * Real.log u) - QuarticWindow.primeCounting u
+OcticConsumer.prime_count_family : RiemannHypothesis →
+  (∀ C ∈ Set.Icc (103 / 100) 16, EvenKernel.ExplicitFormula 4 C) →
+    (∀ C ∈ Set.Icc (103 / 100) 16, EvenKernel.ZeroEstimate 4 C (911 / 500) (3 / 2) (3 / 20)) →
+      (∀ C ∈ Set.Icc (103 / 100) 16, EvenKernel.PrimePowerCost 4 C (29 / 500)) →
+        (∀ C ∈ Set.Icc (103 / 100) 16, EvenKernel.TrivialCost 4 C (1 / 1000)) →
+          (∀ C ∈ Set.Icc (103 / 100) 16,
+              EvenKernel.ScalarGeometry 4 C (911 / 500) (3 / 2) (3 / 20) (29 / 500) (1 / 1000) (21 / 5)) →
+            (∀ C ∈ Set.Icc (103 / 100) 16, EvenKernel.ForwardCoverage C) →
+              ∀ C ∈ Set.Icc (103 / 100) 16,
+                ∀ (u : ℝ),
+                  Real.exp 24 ≤ u →
+                    (8 / 9 * C - 911 / 1000 + 21 / 5 / Real.log u) * √u <
+                      QuarticWindow.primeCounting (u + C * √u * Real.log u) - QuarticWindow.primeCounting u
