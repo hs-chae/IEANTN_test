@@ -1,0 +1,93 @@
+{
+  "schema": "RH_LIMIT_UNCONDITIONAL_STIELTJES_SOURCE_LINKED_PNT_V1",
+  "status": "PASS_ACTUAL_STIELTJES_CLOSURE_AND_SOURCE_LINKED_FOUR_INPUT_PNT",
+  "seconds": 9.853032942861319,
+  "python_optimization": 1,
+  "controller_sha256": "0827fd4d4a9169bbacce44b64bead7689d35c5eb894d3ae80e2d89f22d4e7285",
+  "manifest_sha256": "feb4374b5eb6290cd0562ebaf8ddeff4fddf69725e497cbb92d9b3bc951bd4e6",
+  "baseline": "/data/ivy-rh-limit-20261122/analytic/cold48-v1/baseline",
+  "baseline_result_sha256": "645bb86583f650dcd7193ab26d869d413aaf1aae0fe8fbf1da2384aa9b9ee1d1",
+  "baseline_object_binding_sha256": "9bb724c3dea50fa706345a45657fd4e56cda7c7ced1080444a1247021097400d",
+  "fresh_baseline_rebuilt": false,
+  "source_modules": 48,
+  "new_modules": [
+    {
+      "module": "StieltjesTrapezoid",
+      "source_sha256": "df135aace992421431fce203c3d97b373640dd837dc549adfae30fe0c1b01505",
+      "object_sha256": "533f869457360a6e2d3d56fe6c7bfafbefcd2dcd2a75efe20937337fbd3ad2e5",
+      "seconds": 5.204045308753848,
+      "command": [
+        "/usr/bin/time",
+        "-v",
+        "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+        "--root=/data/ivy-rh-limit-20261122/analytic/controls48-v2/O/accepted/source",
+        "-j8",
+        "-o",
+        "/data/ivy-rh-limit-20261122/analytic/controls48-v2/O/accepted/objects/StieltjesTrapezoid.olean",
+        "/data/ivy-rh-limit-20261122/analytic/controls48-v2/O/accepted/source/StieltjesTrapezoid.lean"
+      ],
+      "max_RSS_KiB": 6916248,
+      "axiom_audits": [
+        {
+          "theorem": "RHLimit.Stieltjes.stieltjes_trapezoid",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "BoxMomentReduced",
+      "source_sha256": "32154cf0b2b3216393fcf23d318209f4e9c7fd9e7ed779762d5bc02adedce5d9",
+      "object_sha256": "98f9d269e627f96240b84b0fcde3a1b5596b0281683a8de62db24be7111e8acc",
+      "seconds": 4.554227828979492,
+      "command": [
+        "/usr/bin/time",
+        "-v",
+        "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+        "--root=/data/ivy-rh-limit-20261122/analytic/controls48-v2/O/accepted/source",
+        "-j8",
+        "-o",
+        "/data/ivy-rh-limit-20261122/analytic/controls48-v2/O/accepted/objects/BoxMomentReduced.olean",
+        "/data/ivy-rh-limit-20261122/analytic/controls48-v2/O/accepted/source/BoxMomentReduced.lean"
+      ],
+      "max_RSS_KiB": 6878408,
+      "axiom_audits": [
+        {
+          "theorem": "RHLimit.BoxMomentReduced.box_moments",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "theorem": "RHLimit.BoxMomentReduced.box_psi",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ]
+    }
+  ],
+  "compiler_sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+  "max_child_RSS_KiB": 6916248,
+  "owned_run_final_bytes": 737908,
+  "peak_disk_bytes": "not independently sampled",
+  "new_kernel_OOM_counter": "not independently sampled; every accepted child returned0",
+  "remaining_analytic_inputs": [
+    "RHSmoothingInputs.v1.box_explicit_formula",
+    "RHSmoothingInputs.v1.box_zero_estimate",
+    "BoxMellinInputs.v1.first_moment",
+    "BoxMellinInputs.v1.second_moment_identity"
+  ],
+  "RH_explicit": true,
+  "numeric_moment_or_Stieltjes_premise": false,
+  "source_first_PV_component": "Unchanged actual verified_finite_log.c\u2192AST/execution\u2192127word bounds\u2192kernel moment aggregation\u2192actual box_psi; Stieltjes closure is ordinary kernel analysis, not PV.",
+  "whole_pipeline_source_first_PV": false,
+  "official_Comparator_receipt": false
+}

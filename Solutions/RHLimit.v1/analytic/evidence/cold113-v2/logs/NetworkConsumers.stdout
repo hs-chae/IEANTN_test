@@ -1,0 +1,372 @@
+'RHContinuation.Network.box_psi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHContinuation.Network.B5_psi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHContinuation.Network.box_improves_B5' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHContinuation.Network.recovered_ch_psi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHContinuation.Network.count_215' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHContinuation.Network.count_family' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHContinuation.Network.octic_block' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHContinuation.Network.successive_cubes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHContinuation.Network.box_lcm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHContinuation.Network.recovered_lcm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHContinuation.Network.box_primorial' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem RHContinuation.Network.box_psi : RH.v1.hypothesis →
+  RHSmoothingInputs.v1.box_explicit_formula →
+    RHSmoothingInputs.v1.box_zero_estimate → RHSmoothingInputs.v1.box_moments → RHSmoothing.v1.box_psi :=
+fun rh hef hz hm => Parabolic.psi_fast rh hef hz hm.left hm.right
+theorem RHContinuation.Network.recovered_ch_psi : RH.v1.hypothesis →
+  ZetaLogDerivValues.v1.logDeriv_laurent_alternating →
+    ZetaLogDerivValues.v1.logDeriv_neg_one →
+      ZetaLogDerivValues.v1.logDeriv_two →
+        ZetaLogDerivValues.v1.logDeriv_three_halves →
+          CotangentSeries.v1.cot_series_zeta_values →
+            ZeroCount.v1.rvm_error_bound →
+              ZeroCount.v1.rvm_error_small →
+                ZetaHadamard.v1.logDeriv_partial_fractions → RHSmoothing.v1.recovered_ch_psi :=
+fun rh hk hn h2 hv hc hr hs hh x hx =>
+  have hx0 := LT.lt.trans_le (exp_pos 34) hx;
+  have hL := Eq.mp (congrFun' (congrArg LE.le (log_exp 34)) (log x)) (log_le_log (exp_pos 34) hx);
+  have h := PNTStudy.sharpened_recovered rh hk hn h2 hv hc hr hs hh hL;
+  have hcoef :=
+    of_eq_true
+      (Eq.trans
+        (Eq.trans
+          (congr
+            (congrArg Eq
+              (Eq.trans
+                (congr
+                  (congrArg HAdd.hAdd
+                    (Eq.trans
+                      (congrFun'
+                        (congrArg HAdd.hAdd
+                          (Eq.trans
+                            (congrFun'
+                              (congrArg HMul.hMul
+                                (Mathlib.Meta.NormNum.IsNNRat.to_eq
+                                  (Mathlib.Meta.NormNum.isNNRat_ofScientific_of_true
+                                    (Mathlib.Meta.NormNum.isNNRat_nnratCast
+                                      (Mathlib.Meta.NormNum.isNNRat_divNat (Mathlib.Meta.NormNum.IsNat.raw_refl 158)
+                                        (Mathlib.Meta.NormNum.isNat_pow (Eq.refl HPow.hPow)
+                                          (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 10))
+                                          (Mathlib.Meta.NormNum.IsNat.raw_refl 3)
+                                          (Mathlib.Meta.NormNum.IsNatPowT.run Mathlib.Meta.NormNum.IsNatPowT.bit1))
+                                        (Mathlib.Meta.NormNum.isNNRat_div
+                                          (Mathlib.Meta.NormNum.isNNRat_mul (Eq.refl HMul.hMul)
+                                            (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                              (Mathlib.Meta.NormNum.isNat_natCast 158 158
+                                                (Mathlib.Meta.NormNum.IsNat.raw_refl 158)))
+                                            (Mathlib.Meta.NormNum.isNNRat_inv_pos
+                                              (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                                (Mathlib.Meta.NormNum.isNat_natCast 1000 1000
+                                                  (Mathlib.Meta.NormNum.IsNat.raw_refl 1000))))
+                                            (Eq.refl (Nat.mul 158 1)) (Eq.refl 1000))))))
+                                  (Eq.refl 79) (Eq.refl 500)))
+                              (log x))
+                            (congrFun'
+                              (congrArg HMul.hMul
+                                (Mathlib.Meta.NormNum.IsNNRat.to_eq
+                                  (Mathlib.Meta.NormNum.isNNRat_div
+                                    (Mathlib.Meta.NormNum.isNNRat_mul (Eq.refl HMul.hMul)
+                                      (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                        (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 79)))
+                                      (Mathlib.Meta.NormNum.isNNRat_inv_pos
+                                        (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                          (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 500))))
+                                      (Eq.refl (Nat.mul 79 1)) (Eq.refl 500)))
+                                  (Eq.refl 79) (Eq.refl 500)))
+                              (log x))))
+                        (((log x / 2 - log (log x) + log (10 / π)) ^ 2 - (log x / 2 - log (log x) + log (10 / π)) / 3) /
+                          (2 * π)))
+                      (congrFun'
+                        (congrArg HAdd.hAdd
+                          (congrFun'
+                            (congrArg HMul.hMul
+                              (Mathlib.Meta.NormNum.IsNNRat.to_eq
+                                (Mathlib.Meta.NormNum.isNNRat_div
+                                  (Mathlib.Meta.NormNum.isNNRat_mul (Eq.refl HMul.hMul)
+                                    (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                      (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 79)))
+                                    (Mathlib.Meta.NormNum.isNNRat_inv_pos
+                                      (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                        (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 500))))
+                                    (Eq.refl (Nat.mul 79 1)) (Eq.refl 500)))
+                                (Eq.refl 79) (Eq.refl 500)))
+                            (log x)))
+                        (((log x / 2 - log (log x) + log (10 / π)) ^ 2 - (log x / 2 - log (log x) + log (10 / π)) / 3) /
+                          (2 * π)))))
+                  (Mathlib.Meta.NormNum.IsNNRat.to_eq
+                    (Mathlib.Meta.NormNum.isNNRat_ofScientific_of_true
+                      (Mathlib.Meta.NormNum.isNNRat_nnratCast
+                        (Mathlib.Meta.NormNum.isNNRat_divNat (Mathlib.Meta.NormNum.IsNat.raw_refl 181)
+                          (Mathlib.Meta.NormNum.isNat_pow (Eq.refl HPow.hPow)
+                            (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 10)) (Mathlib.Meta.NormNum.IsNat.raw_refl 3)
+                            (Mathlib.Meta.NormNum.IsNatPowT.run Mathlib.Meta.NormNum.IsNatPowT.bit1))
+                          (Mathlib.Meta.NormNum.isNNRat_div
+                            (Mathlib.Meta.NormNum.isNNRat_mul (Eq.refl HMul.hMul)
+                              (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                (Mathlib.Meta.NormNum.isNat_natCast 181 181 (Mathlib.Meta.NormNum.IsNat.raw_refl 181)))
+                              (Mathlib.Meta.NormNum.isNNRat_inv_pos
+                                (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                  (Mathlib.Meta.NormNum.isNat_natCast 1000 1000
+                                    (Mathlib.Meta.NormNum.IsNat.raw_refl 1000))))
+                              (Eq.refl (Nat.mul 181 1)) (Eq.refl 1000))))))
+                    (Eq.refl 181) (Eq.refl 1000)))
+                (congr
+                  (congrArg HAdd.hAdd
+                    (congrFun'
+                      (congrArg HAdd.hAdd
+                        (congrFun'
+                          (congrArg HMul.hMul
+                            (Mathlib.Meta.NormNum.IsNNRat.to_eq
+                              (Mathlib.Meta.NormNum.isNNRat_div
+                                (Mathlib.Meta.NormNum.isNNRat_mul (Eq.refl HMul.hMul)
+                                  (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                    (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 79)))
+                                  (Mathlib.Meta.NormNum.isNNRat_inv_pos
+                                    (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                      (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 500))))
+                                  (Eq.refl (Nat.mul 79 1)) (Eq.refl 500)))
+                              (Eq.refl 79) (Eq.refl 500)))
+                          (log x)))
+                      (((log x / 2 - log (log x) + log (10 / π)) ^ 2 - (log x / 2 - log (log x) + log (10 / π)) / 3) /
+                        (2 * π))))
+                  (Mathlib.Meta.NormNum.IsNNRat.to_eq
+                    (Mathlib.Meta.NormNum.isNNRat_div
+                      (Mathlib.Meta.NormNum.isNNRat_mul (Eq.refl HMul.hMul)
+                        (Mathlib.Meta.NormNum.IsNat.to_isNNRat (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 181)))
+                        (Mathlib.Meta.NormNum.isNNRat_inv_pos
+                          (Mathlib.Meta.NormNum.IsNat.to_isNNRat (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 1000))))
+                        (Eq.refl (Nat.mul 181 1)) (Eq.refl 1000)))
+                    (Eq.refl 181) (Eq.refl 1000)))))
+            (Eq.trans
+              (congr
+                (congrArg HAdd.hAdd
+                  (Eq.trans
+                    (congrFun'
+                      (congrArg HAdd.hAdd
+                        (Eq.trans
+                          (congrFun'
+                            (congrArg HMul.hMul
+                              (Mathlib.Meta.NormNum.IsNNRat.to_eq
+                                (Mathlib.Meta.NormNum.isNNRat_div
+                                  (Mathlib.Meta.NormNum.isNNRat_mul (Eq.refl HMul.hMul)
+                                    (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                      (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 158)))
+                                    (Mathlib.Meta.NormNum.isNNRat_inv_pos
+                                      (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                        (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 1000))))
+                                    (Eq.refl (Nat.mul 158 1)) (Eq.refl 1000)))
+                                (Eq.refl 79) (Eq.refl 500)))
+                            (log x))
+                          (congrFun'
+                            (congrArg HMul.hMul
+                              (Mathlib.Meta.NormNum.IsNNRat.to_eq
+                                (Mathlib.Meta.NormNum.isNNRat_div
+                                  (Mathlib.Meta.NormNum.isNNRat_mul (Eq.refl HMul.hMul)
+                                    (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                      (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 79)))
+                                    (Mathlib.Meta.NormNum.isNNRat_inv_pos
+                                      (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                        (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 500))))
+                                    (Eq.refl (Nat.mul 79 1)) (Eq.refl 500)))
+                                (Eq.refl 79) (Eq.refl 500)))
+                            (log x))))
+                      (((log x / 2 - log (log x) + log (10 / π)) ^ 2 - (log x / 2 - log (log x) + log (10 / π)) / 3) /
+                        (2 * π)))
+                    (congrFun'
+                      (congrArg HAdd.hAdd
+                        (congrFun'
+                          (congrArg HMul.hMul
+                            (Mathlib.Meta.NormNum.IsNNRat.to_eq
+                              (Mathlib.Meta.NormNum.isNNRat_div
+                                (Mathlib.Meta.NormNum.isNNRat_mul (Eq.refl HMul.hMul)
+                                  (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                    (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 79)))
+                                  (Mathlib.Meta.NormNum.isNNRat_inv_pos
+                                    (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                      (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 500))))
+                                  (Eq.refl (Nat.mul 79 1)) (Eq.refl 500)))
+                              (Eq.refl 79) (Eq.refl 500)))
+                          (log x)))
+                      (((log x / 2 - log (log x) + log (10 / π)) ^ 2 - (log x / 2 - log (log x) + log (10 / π)) / 3) /
+                        (2 * π)))))
+                (Mathlib.Meta.NormNum.IsNNRat.to_eq
+                  (Mathlib.Meta.NormNum.isNNRat_div
+                    (Mathlib.Meta.NormNum.isNNRat_mul (Eq.refl HMul.hMul)
+                      (Mathlib.Meta.NormNum.IsNat.to_isNNRat (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 181)))
+                      (Mathlib.Meta.NormNum.isNNRat_inv_pos
+                        (Mathlib.Meta.NormNum.IsNat.to_isNNRat (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 1000))))
+                      (Eq.refl (Nat.mul 181 1)) (Eq.refl 1000)))
+                  (Eq.refl 181) (Eq.refl 1000)))
+              (congr
+                (congrArg HAdd.hAdd
+                  (congrFun'
+                    (congrArg HAdd.hAdd
+                      (congrFun'
+                        (congrArg HMul.hMul
+                          (Mathlib.Meta.NormNum.IsNNRat.to_eq
+                            (Mathlib.Meta.NormNum.isNNRat_div
+                              (Mathlib.Meta.NormNum.isNNRat_mul (Eq.refl HMul.hMul)
+                                (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                  (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 79)))
+                                (Mathlib.Meta.NormNum.isNNRat_inv_pos
+                                  (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                    (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 500))))
+                                (Eq.refl (Nat.mul 79 1)) (Eq.refl 500)))
+                            (Eq.refl 79) (Eq.refl 500)))
+                        (log x)))
+                    (((log x / 2 - log (log x) + log (10 / π)) ^ 2 - (log x / 2 - log (log x) + log (10 / π)) / 3) /
+                      (2 * π))))
+                (Mathlib.Meta.NormNum.IsNNRat.to_eq
+                  (Mathlib.Meta.NormNum.isNNRat_div
+                    (Mathlib.Meta.NormNum.isNNRat_mul (Eq.refl HMul.hMul)
+                      (Mathlib.Meta.NormNum.IsNat.to_isNNRat (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 181)))
+                      (Mathlib.Meta.NormNum.isNNRat_inv_pos
+                        (Mathlib.Meta.NormNum.IsNat.to_isNNRat (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 1000))))
+                      (Eq.refl (Nat.mul 181 1)) (Eq.refl 1000)))
+                  (Eq.refl 181) (Eq.refl 1000)))))
+          (eq_self
+            (79 / 500 * log x +
+                ((log x / 2 - log (log x) + log (10 / π)) ^ 2 - (log x / 2 - log (log x) + log (10 / π)) / 3) /
+                  (2 * π) +
+              181 / 1000)))
+        (eq_true True.intro));
+  Eq.mp (congrArg (fun _a => |Chebyshev.psi _a - _a| ≤ RHSmoothing.chBound (log x) * √_a) (exp_log hx0))
+    (Eq.mp (congrArg (fun _a => |Chebyshev.psi (rexp (log x)) - rexp (log x)| ≤ _a * √(rexp (log x))) hcoef) h)
+theorem RHContinuation.Network.count_215 : RH.v1.hypothesis →
+  PrimeKernelInputs.v1.octic_215 → PrimeInterval.v2.count_215 :=
+fun rh hi =>
+  OcticConsumer.prime_count_215 rh hi.left hi.right.left hi.right.right.left hi.right.right.right.left
+    hi.right.right.right.right.left hi.right.right.right.right.right
+theorem RHContinuation.Network.box_primorial : RH.v1.hypothesis →
+  Buthe2016.v1.theorem_2_psi → RHSmoothing.v1.box_psi → Primorial.v2.box_growth :=
+fun rh hb hi n hn =>
+  have hn0 := LT.lt.trans_le (exp_pos 35) hn;
+  have hL := Eq.mp (congrFun' (congrArg LE.le (log_exp 35)) (log ↑n)) (log_le_log (exp_pos 35) hn);
+  have hp := hi (↑n) hn;
+  have hp' :=
+    Eq.mpr
+      (id
+        (congr
+          (congrArg LE.le
+            (congrArg abs (congr (congrArg HSub.hSub (congrArg Chebyshev.psi (exp_log hn0))) (exp_log hn0))))
+          (Eq.trans (congrArg (HMul.hMul (RHSmoothing.fastBound (log ↑n))) (congrArg sqrt (exp_log hn0)))
+            (mul_comm (RHSmoothing.fastBound (log ↑n)) √↑n))))
+      hp;
+  have ht :=
+    ThetaRelay.theta_relay rh hb
+      (le_of_not_gt fun a =>
+        Mathlib.Tactic.Linarith.lt_irrefl
+          (Eq.mp
+            (congrArg (fun _a => _a < 0)
+              (Mathlib.Tactic.Ring.of_eq
+                (Mathlib.Tactic.Ring.Common.add_congr
+                  (Mathlib.Tactic.Ring.Common.add_congr
+                    (Mathlib.Tactic.Ring.Common.neg_congr
+                      (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                      (Mathlib.Tactic.Ring.Common.neg_add
+                        (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                          (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                            (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                            (Eq.refl (Int.negOfNat 1))))
+                        Mathlib.Tactic.Ring.Common.neg_zero))
+                    (Mathlib.Tactic.Ring.Common.sub_congr
+                      (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 35)))
+                      (Mathlib.Tactic.Ring.Common.atom_pf (log ↑n) rfl
+                        (Eq.mpr
+                          (id
+                            (congrArg (fun _a => log ↑n ^ Nat.rawCast 1 * Nat.rawCast 1 = log ↑n ^ Nat.rawCast 1 * _a)
+                              (Eq.symm rfl)))
+                          (Eq.refl (log ↑n ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                      (Mathlib.Tactic.Ring.Common.sub_pf
+                        (Mathlib.Tactic.Ring.Common.neg_add
+                          (Mathlib.Tactic.Ring.Common.neg_mul (log ↑n) (Nat.rawCast 1)
+                            (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                              (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                                (Eq.refl (Int.negOfNat 1)))))
+                          Mathlib.Tactic.Ring.Common.neg_zero)
+                        (Mathlib.Tactic.Ring.Common.add_pf_add_lt (Nat.rawCast 35)
+                          (Mathlib.Tactic.Ring.Common.add_pf_zero_add
+                            (log ↑n ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast + 0)))))
+                    (Mathlib.Tactic.Ring.Common.add_pf_add_overlap
+                      (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                        (Mathlib.Meta.NormNum.IsInt.to_isNat
+                          (Mathlib.Meta.NormNum.isInt_add (Eq.refl HAdd.hAdd)
+                            (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 1))
+                            (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 35))
+                            (Eq.refl (Int.ofNat 34)))))
+                      (Mathlib.Tactic.Ring.Common.add_pf_zero_add
+                        (log ↑n ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast + 0))))
+                  (Mathlib.Tactic.Ring.Common.sub_congr
+                    (Mathlib.Tactic.Ring.Common.atom_pf (log ↑n) rfl
+                      (Eq.mpr
+                        (id
+                          (congrArg (fun _a => log ↑n ^ Nat.rawCast 1 * Nat.rawCast 1 = log ↑n ^ Nat.rawCast 1 * _a)
+                            (Eq.symm rfl)))
+                        (Eq.refl (log ↑n ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                    (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 34)))
+                    (Mathlib.Tactic.Ring.Common.sub_pf
+                      (Mathlib.Tactic.Ring.Common.neg_add
+                        (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                          (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                            (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 34))
+                            (Eq.refl (Int.negOfNat 34))))
+                        Mathlib.Tactic.Ring.Common.neg_zero)
+                      (Mathlib.Tactic.Ring.Common.add_pf_add_gt (Int.negOfNat 34).rawCast
+                        (Mathlib.Tactic.Ring.Common.add_pf_add_zero (log ↑n ^ Nat.rawCast 1 * Nat.rawCast 1 + 0)))))
+                  (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero
+                    (Mathlib.Meta.NormNum.IsInt.to_isNat
+                      (Mathlib.Meta.NormNum.isInt_add (Eq.refl HAdd.hAdd)
+                        (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 34))
+                        (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 34)) (Eq.refl (Int.ofNat 0))))
+                    (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero
+                      (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero (log ↑n) (Nat.rawCast 1)
+                        (Mathlib.Meta.NormNum.IsInt.to_isNat
+                          (Mathlib.Meta.NormNum.isInt_add (Eq.refl HAdd.hAdd)
+                            (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 1))
+                            (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                            (Eq.refl (Int.ofNat 0)))))
+                      (Mathlib.Tactic.Ring.Common.add_pf_zero_add 0))))
+                (Mathlib.Tactic.Ring.cast_zero (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))))
+            (Mathlib.Tactic.Linarith.add_neg
+              (Mathlib.Tactic.Linarith.add_lt_of_neg_of_le (neg_neg_of_pos Mathlib.Tactic.Linarith.zero_lt_one)
+                (Mathlib.Tactic.Linarith.sub_nonpos_of_le hL))
+              (Mathlib.Tactic.Linarith.sub_neg_of_lt a))))
+      hp';
+  Eq.mp
+    (congr
+      (congrArg LE.le
+        (congrArg abs
+          (congr
+            (congrArg HSub.hSub
+              (Eq.trans (Eq.trans (congrArg Chebyshev.theta (exp_log hn0)) (Chebyshev.theta_eq_log_primorial ↑n))
+                (congrArg log (congrArg Nat.cast (congrArg primorial (Nat.floor_natCast n))))))
+            (exp_log hn0))))
+      (congr
+        (congrArg HMul.hMul
+          (congrArg (HAdd.hAdd (RHSmoothing.fastBound (log ↑n)))
+            (have this :=
+              Mathlib.Meta.NormNum.isNNRat_eq_true
+                (Mathlib.Meta.NormNum.isNNRat_ofScientific_of_true
+                  (Mathlib.Meta.NormNum.isNNRat_nnratCast
+                    (Mathlib.Meta.NormNum.isNNRat_divNat (Mathlib.Meta.NormNum.IsNat.raw_refl 101)
+                      (Mathlib.Meta.NormNum.isNat_pow (Eq.refl HPow.hPow)
+                        (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 10)) (Mathlib.Meta.NormNum.IsNat.raw_refl 2)
+                        (Mathlib.Meta.NormNum.IsNatPowT.run Mathlib.Meta.NormNum.IsNatPowT.bit0))
+                      (Mathlib.Meta.NormNum.isNNRat_div
+                        (Mathlib.Meta.NormNum.isNNRat_mul (Eq.refl HMul.hMul)
+                          (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                            (Mathlib.Meta.NormNum.isNat_natCast 101 101 (Mathlib.Meta.NormNum.IsNat.raw_refl 101)))
+                          (Mathlib.Meta.NormNum.isNNRat_inv_pos
+                            (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                              (Mathlib.Meta.NormNum.isNat_natCast 100 100 (Mathlib.Meta.NormNum.IsNat.raw_refl 100))))
+                          (Eq.refl (Nat.mul 101 1)) (Eq.refl 100))))))
+                (Mathlib.Meta.NormNum.isNNRat_div
+                  (Mathlib.Meta.NormNum.isNNRat_mul (Eq.refl HMul.hMul)
+                    (Mathlib.Meta.NormNum.IsNat.to_isNNRat (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 101)))
+                    (Mathlib.Meta.NormNum.isNNRat_inv_pos
+                      (Mathlib.Meta.NormNum.IsNat.to_isNNRat (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 100))))
+                    (Eq.refl (Nat.mul 101 1)) (Eq.refl 100)));
+            this)))
+        (congrArg sqrt (exp_log hn0))))
+    ht

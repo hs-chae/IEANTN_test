@@ -1,0 +1,327 @@
+{
+  "scope": "The five new analytic files only; all their named interfaces and source-bearing constructions inspected. This is not an exhaustive new source audit of the imported46/111-source IEANTN closure.",
+  "rows": [
+    {
+      "file": "StieltjesTrapezoid.lean",
+      "declaration": "RHLimit.Stieltjes.stieltjes_trapezoid",
+      "actual_Lean_and_Blueprint": "Proves exactly existing BoxMellinInputs.v1.stieltjes_trapezoid: actual stieltjesSeq Tendsto its actual limUnder gamma1, plus actual finite128 lower correction. No new standalone Blueprint label; existing node Conclusions.lean and BOX_MELLIN_EXACT.md are the correspondence.",
+      "source": "Project-internal written continuation BOX_MELLIN_EXACT.md; elementary convex-trapezoid derivation independently formalized here. Generic real calculus/log lemmas are from pinned Mathlib. No external zeta Laurent-identity theorem is asserted by this proof.",
+      "impact": "Removes exactly one formerly explicit analytic premise from the actual moment/PNT chain. Does not identify gamma1 with a zeta Laurent coefficient.",
+      "status": "PROVED_INTERNAL_ANALYTIC_BRIDGE",
+      "declaration_instances": [
+        {
+          "file": "StieltjesTrapezoid.lean",
+          "declaration": "RHLimit.Stieltjes.f",
+          "line": 16
+        },
+        {
+          "file": "StieltjesTrapezoid.lean",
+          "declaration": "RHLimit.Stieltjes.fp",
+          "line": 17
+        },
+        {
+          "file": "StieltjesTrapezoid.lean",
+          "declaration": "RHLimit.Stieltjes.hasDerivAt_f",
+          "line": 19
+        },
+        {
+          "file": "StieltjesTrapezoid.lean",
+          "declaration": "RHLimit.Stieltjes.hasDerivAt_fp",
+          "line": 25
+        },
+        {
+          "file": "StieltjesTrapezoid.lean",
+          "declaration": "RHLimit.Stieltjes.log_lower",
+          "line": 35
+        },
+        {
+          "file": "StieltjesTrapezoid.lean",
+          "declaration": "RHLimit.Stieltjes.f_continuous",
+          "line": 42
+        },
+        {
+          "file": "StieltjesTrapezoid.lean",
+          "declaration": "RHLimit.Stieltjes.f_antitone",
+          "line": 46
+        },
+        {
+          "file": "StieltjesTrapezoid.lean",
+          "declaration": "RHLimit.Stieltjes.f_convex",
+          "line": 54
+        },
+        {
+          "file": "StieltjesTrapezoid.lean",
+          "declaration": "RHLimit.Stieltjes.f_nonneg",
+          "line": 66
+        },
+        {
+          "file": "StieltjesTrapezoid.lean",
+          "declaration": "RHLimit.Stieltjes.f_integrable",
+          "line": 69
+        },
+        {
+          "file": "StieltjesTrapezoid.lean",
+          "declaration": "RHLimit.Stieltjes.f_integral",
+          "line": 76
+        },
+        {
+          "file": "StieltjesTrapezoid.lean",
+          "declaration": "RHLimit.Stieltjes.trap_integral",
+          "line": 87
+        },
+        {
+          "file": "StieltjesTrapezoid.lean",
+          "declaration": "RHLimit.Stieltjes.stieltjes_succ",
+          "line": 117
+        },
+        {
+          "file": "StieltjesTrapezoid.lean",
+          "declaration": "RHLimit.Stieltjes.f_right_integral",
+          "line": 127
+        },
+        {
+          "file": "StieltjesTrapezoid.lean",
+          "declaration": "RHLimit.Stieltjes.stieltjes_antitone",
+          "line": 140
+        },
+        {
+          "file": "StieltjesTrapezoid.lean",
+          "declaration": "RHLimit.Stieltjes.corrected_monotone",
+          "line": 150
+        },
+        {
+          "file": "StieltjesTrapezoid.lean",
+          "declaration": "RHLimit.Stieltjes.f_tendsto_zero",
+          "line": 163
+        },
+        {
+          "file": "StieltjesTrapezoid.lean",
+          "declaration": "RHLimit.Stieltjes.stieltjes_trapezoid",
+          "line": 170
+        }
+      ]
+    },
+    {
+      "file": "BoxMomentReduced.lean",
+      "declaration": "RHLimit.BoxMomentReduced.box_psi",
+      "actual_Lean_and_Blueprint": "Calls actual RHContinuation.CLogMomentNetwork.box_psi, replacing only its stieltjes premise with the new unconditional theorem. Actual RHSmoothing.v1.box_psi target unchanged. Existing node RHSmoothing.v1/BoxMellinInputs.v1; no new standalone Blueprint label.",
+      "source": "Project-internal CLogMomentNetwork.lean and its existing actual verified_finite_log.c source-linked pipeline; no new numerical program or constants introduced. Original C-source trust/proof receipts are reused, not claimed fully reaudited by this scoped source audit.",
+      "impact": "RH remains explicit, and four analytic premises remain. Source-only48-module replay compiles actual final consumer; not a bare scalar substitute.",
+      "status": "PROVED_REDUCED_ACTUAL_CONSUMER",
+      "declaration_instances": [
+        {
+          "file": "BoxMomentReduced.lean",
+          "declaration": "RHLimit.BoxMomentReduced.box_moments",
+          "line": 14
+        },
+        {
+          "file": "BoxMomentReduced.lean",
+          "declaration": "RHLimit.BoxMomentReduced.box_psi",
+          "line": 21
+        }
+      ]
+    },
+    {
+      "file": "OcticFourier.lean",
+      "declaration": "RHLimit.OcticFourier.transform_eq; transform_zero; transform_hasDerivAt",
+      "actual_Lean_and_Blueprint": "Actual EvenKernel.transform4 integral of max(0,1-u^8)cos(yu), actual mass16/9, exact derivative. No new standalone Blueprint label; imported PrimeKernelInputs/PrimeInterval nodes and EvenKernel module provide correspondence.",
+      "source": "Project-internal eight-term formula appears exactly in RHContinuation.v1/parabolic/octic_quadrature.py line21; absolute derivative coefficient list in octic_scalars.py lines9-10. New proof derives its antiderivative/derivative from actual integral rather than trusting numerical code.",
+      "impact": "Closes formula-to-kernel and derivative attachment for every nonzero y. Separate actual zero-value theorem; no rational-expression equality at y=0. Does not certify numerical moment integration.",
+      "status": "PROVED_EXACT_ANALYTIC_ATTACHMENT",
+      "declaration_instances": [
+        {
+          "file": "OcticFourier.lean",
+          "declaration": "RHLimit.OcticFourier.primitive",
+          "line": 16
+        },
+        {
+          "file": "OcticFourier.lean",
+          "declaration": "RHLimit.OcticFourier.formula",
+          "line": 27
+        },
+        {
+          "file": "OcticFourier.lean",
+          "declaration": "RHLimit.OcticFourier.primitive_derivative",
+          "line": 32
+        },
+        {
+          "file": "OcticFourier.lean",
+          "declaration": "RHLimit.OcticFourier.transform_eq",
+          "line": 53
+        },
+        {
+          "file": "OcticFourier.lean",
+          "declaration": "RHLimit.OcticFourier.transform_zero",
+          "line": 69
+        },
+        {
+          "file": "OcticFourier.lean",
+          "declaration": "RHLimit.OcticFourier.formulaDerivative",
+          "line": 74
+        },
+        {
+          "file": "OcticFourier.lean",
+          "declaration": "RHLimit.OcticFourier.formula_hasDerivAt",
+          "line": 81
+        },
+        {
+          "file": "OcticFourier.lean",
+          "declaration": "RHLimit.OcticFourier.transform_hasDerivAt",
+          "line": 101
+        }
+      ]
+    },
+    {
+      "file": "BPTZeroCount.lean",
+      "declaration": "RHLimit.BPTZeroCount.PublishedBound; count_twelve_zero; finite_remainder; finite_remainder_bound",
+      "actual_Lean_and_Blueprint": "Local actual zetaNClosed/rvmMain predicate with T>=2pi and7/25 logT. Actual count definition is from ZeroCount.v1 Conclusions.lean (closedIoc); no new standalone Blueprint label. Canonical ZeroCount node itself names CH2AppendixB LemmaB.1 and is weaker; it is not substituted for BPT.",
+      "source": "Brent-Platt-Trudgian, The mean square of the error term in the prime number theorem, JNT238(2022)740-762, Corollary1p743; arXiv2008.06140v1 PDFp4, HTMLCorollary1. Exact published error0.28logT forT>=2pi. Lemma2PDFp5 displays T1<gamma<=T2 finite sum convention. Primary PDF extraction misreads>=; visual/HTML>= verified. The source's published interval computation up to1.03e8 has not been reverified here.",
+      "primary_url": "https://arxiv.org/pdf/2008.06140v1#page=4",
+      "impact": "Exact source predicate remains an explicit literature-backed input. Conditional NClosed12=0 and finite C1 weighted-error consequences are kernel proved. Generic HasRvMBound's different threshold/open count not silently used. Weak CH/Rosser bound is insufficient for this cutoff step and is not substituted.",
+      "status": "SOURCE_INPUT_EXPLICIT_DERIVED_CONSEQUENCES_PROVED",
+      "declaration_instances": [
+        {
+          "file": "BPTZeroCount.lean",
+          "declaration": "RHLimit.BPTZeroCount.PublishedBound",
+          "line": 20
+        },
+        {
+          "file": "BPTZeroCount.lean",
+          "declaration": "RHLimit.BPTZeroCount.count_eq_nat",
+          "line": 25
+        },
+        {
+          "file": "BPTZeroCount.lean",
+          "declaration": "RHLimit.BPTZeroCount.log_twelve_lt",
+          "line": 43
+        },
+        {
+          "file": "BPTZeroCount.lean",
+          "declaration": "RHLimit.BPTZeroCount.count_twelve_zero",
+          "line": 56
+        },
+        {
+          "file": "BPTZeroCount.lean",
+          "declaration": "RHLimit.BPTZeroCount.remainder",
+          "line": 86
+        },
+        {
+          "file": "BPTZeroCount.lean",
+          "declaration": "RHLimit.BPTZeroCount.density",
+          "line": 89
+        },
+        {
+          "file": "BPTZeroCount.lean",
+          "declaration": "RHLimit.BPTZeroCount.main_hasDerivAt",
+          "line": 91
+        },
+        {
+          "file": "BPTZeroCount.lean",
+          "declaration": "RHLimit.BPTZeroCount.finite_remainder",
+          "line": 103
+        },
+        {
+          "file": "BPTZeroCount.lean",
+          "declaration": "RHLimit.BPTZeroCount.finite_remainder_bound",
+          "line": 150
+        }
+      ]
+    },
+    {
+      "file": "AbsoluteStieltjes.lean",
+      "declaration": "RHLimit.AbsoluteStieltjes.finite_absolute_bound; octic_finite_bound",
+      "actual_Lean_and_Blueprint": "Real finite zero sums over actual Ioc(a,b), with exact actual zero multiplicities and actual scaled octic transform. No new standalone Blueprint label; imported EvenKernel/ZeroCount modules are correspondence.",
+      "source": "Project-internal new smooth-majorant derivation from the exact publishedBPT input: sqrt(f^2+epsilon^2), proven derivative domination, finite sum monotonicity, epsilon limit. Not attributed as an identical theorem stated by BPT.",
+      "impact": "Removes a genuine nondifferentiability obstruction for abs(Fourier) at its zeros, including the actual scaled octic specialization. Does not prove the infinite all-zero-series limit, numerical moment caps, full ZeroEstimate, or smoothedEF.",
+      "status": "PROVED_FINITE_ABSOLUTE_ANALYTIC_BRIDGE",
+      "declaration_instances": [
+        {
+          "file": "AbsoluteStieltjes.lean",
+          "declaration": "RHLimit.AbsoluteStieltjes.smooth",
+          "line": 17
+        },
+        {
+          "file": "AbsoluteStieltjes.lean",
+          "declaration": "RHLimit.AbsoluteStieltjes.smoothDeriv",
+          "line": 19
+        },
+        {
+          "file": "AbsoluteStieltjes.lean",
+          "declaration": "RHLimit.AbsoluteStieltjes.smooth_pos",
+          "line": 22
+        },
+        {
+          "file": "AbsoluteStieltjes.lean",
+          "declaration": "RHLimit.AbsoluteStieltjes.smooth_lower",
+          "line": 28
+        },
+        {
+          "file": "AbsoluteStieltjes.lean",
+          "declaration": "RHLimit.AbsoluteStieltjes.smooth_upper",
+          "line": 31
+        },
+        {
+          "file": "AbsoluteStieltjes.lean",
+          "declaration": "RHLimit.AbsoluteStieltjes.smooth_derivative",
+          "line": 36
+        },
+        {
+          "file": "AbsoluteStieltjes.lean",
+          "declaration": "RHLimit.AbsoluteStieltjes.smooth_derivative_bound",
+          "line": 44
+        },
+        {
+          "file": "AbsoluteStieltjes.lean",
+          "declaration": "RHLimit.AbsoluteStieltjes.smooth_continuousOn",
+          "line": 53
+        },
+        {
+          "file": "AbsoluteStieltjes.lean",
+          "declaration": "RHLimit.AbsoluteStieltjes.smoothDeriv_continuousOn",
+          "line": 57
+        },
+        {
+          "file": "AbsoluteStieltjes.lean",
+          "declaration": "RHLimit.AbsoluteStieltjes.density_nonneg",
+          "line": 62
+        },
+        {
+          "file": "AbsoluteStieltjes.lean",
+          "declaration": "RHLimit.AbsoluteStieltjes.majorant_bound",
+          "line": 69
+        },
+        {
+          "file": "AbsoluteStieltjes.lean",
+          "declaration": "RHLimit.AbsoluteStieltjes.finite_absolute_bound",
+          "line": 136
+        },
+        {
+          "file": "AbsoluteStieltjes.lean",
+          "declaration": "RHLimit.AbsoluteStieltjes.octicPacket",
+          "line": 156
+        },
+        {
+          "file": "AbsoluteStieltjes.lean",
+          "declaration": "RHLimit.AbsoluteStieltjes.octicPacketDeriv",
+          "line": 157
+        },
+        {
+          "file": "AbsoluteStieltjes.lean",
+          "declaration": "RHLimit.AbsoluteStieltjes.octicPacket_derivative",
+          "line": 160
+        },
+        {
+          "file": "AbsoluteStieltjes.lean",
+          "declaration": "RHLimit.AbsoluteStieltjes.octicPacketDeriv_continuousOn",
+          "line": 169
+        },
+        {
+          "file": "AbsoluteStieltjes.lean",
+          "declaration": "RHLimit.AbsoluteStieltjes.octic_finite_bound",
+          "line": 181
+        }
+      ]
+    }
+  ],
+  "blueprint_status": "No new standalone Blueprint label/file was created. These helper contracts are tied to the actual imported network Conclusions.lean/formalization.yaml modules and original written derivations; no nonexistent Blueprint source is claimed checked."
+}

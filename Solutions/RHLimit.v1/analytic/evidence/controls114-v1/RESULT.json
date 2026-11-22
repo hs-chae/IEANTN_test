@@ -1,0 +1,347 @@
+{
+  "status": "PASS_ALL_MODE_COMMON_ABSOLUTE_CLI_CONTROLS",
+  "controller_sha256": "8b686e06329daee92681c9a45a67afb1bb1561879f4576aeb7c386b15aa64caf",
+  "common_validator_sha256": "216a6a83c352f42d4bf1e853093e4c7fd54b3f75705eb3ec33baa73a78daf605",
+  "absolute_validator_sha256": "ea1098a129a4a830d3ca6c1ec54bcfe166ac596016fb214d35d1023e0b54527d",
+  "base_result_sha256": "23a09fb02ea991c88bc956a4ff72b34fe72b411817bf917c321162845eb3b5f8",
+  "rows": [
+    {
+      "mode": "normal",
+      "test": "common-preflight",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/analytic/reproduce_common.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/analytic/controls114-v1/normal/common-noout",
+        "--check"
+      ],
+      "returncode": 0,
+      "expected_acceptance": true
+    },
+    {
+      "mode": "normal",
+      "test": "absolute-preflight",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/analytic/reproduce_absolute.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/analytic/controls114-v1/normal/absolute-noout",
+        "--check"
+      ],
+      "returncode": 0,
+      "expected_acceptance": true
+    },
+    {
+      "mode": "normal",
+      "test": "actual-source-proof-append",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/analytic/reproduce_absolute.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/analytic/controls114-v1/normal/accepted",
+        "--base-run",
+        "/data/ivy-rh-limit-20261122/analytic/cold113-v2"
+      ],
+      "returncode": 0,
+      "expected_acceptance": true
+    },
+    {
+      "mode": "normal",
+      "test": "existing-output",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/analytic/reproduce_absolute.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/analytic/controls114-v1/normal/accepted",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected_acceptance": false
+    },
+    {
+      "mode": "normal",
+      "test": "duplicate-context",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/analytic/reproduce_absolute.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/analytic/controls114-v1/normal/duplicate-context-out",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected_acceptance": false
+    },
+    {
+      "mode": "normal",
+      "test": "nonfinite-context",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/analytic/reproduce_absolute.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/analytic/controls114-v1/normal/nonfinite-context-out",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected_acceptance": false
+    },
+    {
+      "mode": "normal",
+      "test": "changed-object",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/analytic/reproduce_absolute.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/analytic/controls114-v1/normal/bad-object-out",
+        "--base-run",
+        "/data/ivy-rh-limit-20261122/analytic/controls114-v1/normal/mutated-bank"
+      ],
+      "returncode": 1,
+      "expected_acceptance": false
+    },
+    {
+      "mode": "normal",
+      "test": "changed-source",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/analytic/reproduce_absolute.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/analytic/controls114-v1/normal/bad-source-out",
+        "--base-run",
+        "/data/ivy-rh-limit-20261122/analytic/controls114-v1/normal/mutated-bank"
+      ],
+      "returncode": 1,
+      "expected_acceptance": false
+    },
+    {
+      "mode": "O",
+      "test": "common-preflight",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/analytic/reproduce_common.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/analytic/controls114-v1/O/common-noout",
+        "--check"
+      ],
+      "returncode": 0,
+      "expected_acceptance": true
+    },
+    {
+      "mode": "O",
+      "test": "absolute-preflight",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/analytic/reproduce_absolute.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/analytic/controls114-v1/O/absolute-noout",
+        "--check"
+      ],
+      "returncode": 0,
+      "expected_acceptance": true
+    },
+    {
+      "mode": "O",
+      "test": "actual-source-proof-append",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/analytic/reproduce_absolute.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/analytic/controls114-v1/O/accepted",
+        "--base-run",
+        "/data/ivy-rh-limit-20261122/analytic/cold113-v2"
+      ],
+      "returncode": 0,
+      "expected_acceptance": true
+    },
+    {
+      "mode": "O",
+      "test": "existing-output",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/analytic/reproduce_absolute.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/analytic/controls114-v1/O/accepted",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected_acceptance": false
+    },
+    {
+      "mode": "O",
+      "test": "duplicate-context",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/analytic/reproduce_absolute.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/analytic/controls114-v1/O/duplicate-context-out",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected_acceptance": false
+    },
+    {
+      "mode": "O",
+      "test": "nonfinite-context",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/analytic/reproduce_absolute.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/analytic/controls114-v1/O/nonfinite-context-out",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected_acceptance": false
+    },
+    {
+      "mode": "O",
+      "test": "changed-object",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/analytic/reproduce_absolute.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/analytic/controls114-v1/O/bad-object-out",
+        "--base-run",
+        "/data/ivy-rh-limit-20261122/analytic/controls114-v1/O/mutated-bank"
+      ],
+      "returncode": 1,
+      "expected_acceptance": false
+    },
+    {
+      "mode": "O",
+      "test": "changed-source",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/analytic/reproduce_absolute.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/analytic/controls114-v1/O/bad-source-out",
+        "--base-run",
+        "/data/ivy-rh-limit-20261122/analytic/controls114-v1/O/mutated-bank"
+      ],
+      "returncode": 1,
+      "expected_acceptance": false
+    },
+    {
+      "mode": "OO",
+      "test": "common-preflight",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/analytic/reproduce_common.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/analytic/controls114-v1/OO/common-noout",
+        "--check"
+      ],
+      "returncode": 0,
+      "expected_acceptance": true
+    },
+    {
+      "mode": "OO",
+      "test": "absolute-preflight",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/analytic/reproduce_absolute.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/analytic/controls114-v1/OO/absolute-noout",
+        "--check"
+      ],
+      "returncode": 0,
+      "expected_acceptance": true
+    },
+    {
+      "mode": "OO",
+      "test": "actual-source-proof-append",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/analytic/reproduce_absolute.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/analytic/controls114-v1/OO/accepted",
+        "--base-run",
+        "/data/ivy-rh-limit-20261122/analytic/cold113-v2"
+      ],
+      "returncode": 0,
+      "expected_acceptance": true
+    },
+    {
+      "mode": "OO",
+      "test": "existing-output",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/analytic/reproduce_absolute.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/analytic/controls114-v1/OO/accepted",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected_acceptance": false
+    },
+    {
+      "mode": "OO",
+      "test": "duplicate-context",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/analytic/reproduce_absolute.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/analytic/controls114-v1/OO/duplicate-context-out",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected_acceptance": false
+    },
+    {
+      "mode": "OO",
+      "test": "nonfinite-context",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/analytic/reproduce_absolute.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/analytic/controls114-v1/OO/nonfinite-context-out",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected_acceptance": false
+    },
+    {
+      "mode": "OO",
+      "test": "changed-object",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/analytic/reproduce_absolute.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/analytic/controls114-v1/OO/bad-object-out",
+        "--base-run",
+        "/data/ivy-rh-limit-20261122/analytic/controls114-v1/OO/mutated-bank"
+      ],
+      "returncode": 1,
+      "expected_acceptance": false
+    },
+    {
+      "mode": "OO",
+      "test": "changed-source",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/analytic/reproduce_absolute.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/analytic/controls114-v1/OO/bad-source-out",
+        "--base-run",
+        "/data/ivy-rh-limit-20261122/analytic/controls114-v1/OO/mutated-bank"
+      ],
+      "returncode": 1,
+      "expected_acceptance": false
+    }
+  ],
+  "fresh_source_graph": "Separate actual cold113-v2 receipt; this control executes all common/absolute preflights and actual source-proof append in every Python optimization mode, plus byte/source/context rejection controls."
+}

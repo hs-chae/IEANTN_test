@@ -1,0 +1,36 @@
+Traceback (most recent call last):
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/analytic/reproduce_common.py", line 73, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/analytic/reproduce_common.py", line 43, in main
+    ref=read(OLD/'scripts/GENERIC_CONTEXT.json');ctx=read(Path(os.environ.get('IEANTN_GENERIC_CONTEXT',OLD/'scripts/GENERIC_CONTEXT.json')))
+                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/analytic/reproduce_common.py", line 17, in read
+    return json.loads(Path(p).read_bytes(),object_pairs_hook=pairs,parse_float=finite,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/__init__.py", line 359, in loads
+    return cls(**kw).decode(s)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/analytic/reproduce_common.py", line 16, in finite
+    v=float(s);need(math.isfinite(v),'nonfinite JSON');return v
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/analytic/reproduce_common.py", line 8, in need
+    if not ok:raise ValueError(msg)
+              ^^^^^^^^^^^^^^^^^^^^^
+ValueError: nonfinite JSON
+Traceback (most recent call last):
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/analytic/reproduce_absolute.py", line 68, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/analytic/reproduce_absolute.py", line 49, in main
+    subprocess.run([sys.executable,str(B/'reproduce_common.py'),'--out',str(out),'--check'],env=env,check=True);print('PASS_ABSOLUTE_SOURCE_PREFLIGHT_ONLY');return
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3', '/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/analytic/reproduce_common.py', '--out', '/data/ivy-rh-limit-20261122/analytic/controls114-v1/OO/nonfinite-context-out', '--check']' returned non-zero exit status 1.
