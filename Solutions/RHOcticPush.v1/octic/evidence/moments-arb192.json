@@ -1,0 +1,41 @@
+{
+  "status": "PASS_DIRECTED_ARITHMETIC_WITH_WRITTEN_ANALYTIC_REMAINDERS",
+  "verification_tier": "E; numerical pipeline not Lean-verified or source-first PV",
+  "mathematical_claims": [
+    "integral_0_infinity abs(F4(y)) dy <143/25",
+    "integral_0_infinity abs(F4(y))*log(y) dy <23/5"
+  ],
+  "parameters": {
+    "T": 1000,
+    "denominator": 200,
+    "cells": 200000,
+    "Arb_precision_bits": 192,
+    "low_Fourier_series_terms": 48,
+    "quadrature": "endpoint absolute trapezoid plus (16/33)h^3/12 per cell",
+    "log_weight": "upper endpoint on[1,T], exact series on[0,1]"
+  },
+  "enclosures": {
+    "finite_M0_upper": "[5.700576666920443007789942017181104295146729765863691 +/- 5.38e-52]",
+    "finite_M1_positive_upper": "[6.155521712504285459577186170295372406428891857557379 +/- 5.57e-52]",
+    "negative_M1_integral": "[-1.7512477199105088943423360914521198051952201454784110665 +/- 4.82e-56]",
+    "tail_M0_upper": "[0.0160562248426947315300800000000000000000000000000000000000 +/- 5.78e-59]",
+    "tail_M1_upper": "[0.126940546794854053117464080029054516746246005214001936484 +/- 4.87e-58]",
+    "M0_upper": "[5.716632891763137739320022017181104295146729765863691 +/- 5.38e-52]",
+    "M1_upper": "[4.531214539388630618352314158872307117979917717292970 +/- 4.27e-52]"
+  },
+  "endpoint_trace_sha256": "c15708483de98224c6afb3d066b6d4ae030a636e4d51ddc7c46a9745469316c1",
+  "software": {
+    "python": "3.11.14",
+    "python_flint": "0.9.0",
+    "flint": "3.6.0"
+  },
+  "source_sha256": "bf991f1bd9c330a6739a6f7498d91994a3d33a59cab73268256c5e59fd76ce98",
+  "command": [
+    "Solutions/RHOcticPush.v1/octic/certify_moments.py",
+    "--out",
+    "/data/ivy-rh-octic-20261123/analytic-octic/moments-arb192.json"
+  ],
+  "wall_seconds": 1.4511620849370956,
+  "no_Lean_acceptance": true,
+  "source_first_PV": false
+}

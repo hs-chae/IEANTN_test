@@ -1,0 +1,103 @@
+import LeanCert.Validity.Bounds.Core
+import OcticFourier
+
+/-! Ordinary kernel certificate checking for the actual octic Fourier integral.
+This is not source-first program verification. -/
+namespace RHOcticPush.Moments.Endpoint
+open Real Set LeanCert.Core LeanCert.Engine LeanCert.Validity
+set_option maxHeartbeats 0
+set_option maxRecDepth 1000000
+set_option Elab.async false
+
+def A (q : ℚ) : ℚ := -16/q^2+672/q^4-13440/q^6+80640/q^8
+def B (q : ℚ) : ℚ := 112/q^3-3360/q^5+40320/q^7-80640/q^9
+def expr (q : ℚ) : Expr := .add (.mul (.const (A q)) (.cos (.var 0)))
+  (.mul (.const (B q)) (.sin (.var 0)))
+def point (q : ℚ) : IntervalRat := ⟨q,q,le_refl q⟩
+def cfg : EvalConfig := { taylorDepth := 20 }
+/-- Choose a centered period; soundness does not assume that this heuristic
+returns any particular period, because shift correctness holds for every integer. -/
+def shift (q : ℚ) : ℤ := (q/TrigReduction.twoPiRatHi+1/2).floor
+def reduced (q : ℚ) : IntervalRat := TrigReduction.shiftInterval (point q) (shift q)
+def enclosure (q : ℚ) : IntervalRat :=
+  IntervalRat.add
+    (IntervalRat.mul (IntervalRat.singleton (A q)) (IntervalRat.cosComputable (reduced q) 20))
+    (IntervalRat.mul (IntervalRat.singleton (B q)) (IntervalRat.sinComputable (reduced q) 20))
+def check (q c : ℚ) : Bool :=
+  decide ((enclosure q).hi ≤ c) &&decide (-c ≤ (enclosure q).lo)
+
+lemma supported (q : ℚ) : ExprSupportedCore (expr q) := by
+  unfold expr
+  repeat constructor
+
+lemma eval_eq (q : ℚ) : Expr.eval (fun _ => (q:ℝ)) (expr q)=RHLimit.OcticFourier.formula q := by
+  dsimp [expr,Expr.eval,A,B,RHLimit.OcticFourier.formula]
+  push_cast
+  ring
+
+theorem enclosure_sound (q : ℚ) :
+    (A q:ℝ)*cos (q:ℝ)+(B q:ℝ)*sin (q:ℝ) ∈ enclosure q := by
+  have mem : (q:ℝ) ∈ point q := by simp [IntervalRat.mem_def,point]
+  have red : (q:ℝ)-2*pi*(shift q:ℝ) ∈ reduced q :=
+    TrigReduction.mem_shiftInterval_of_mem mem
+  have hs : sin (q:ℝ)=sin ((q:ℝ)-2*pi*(shift q:ℝ)) := by
+    have h := Real.sin_add_int_mul_two_pi (q:ℝ) (-(shift q))
+    simp only [Int.cast_neg,neg_mul] at h
+    rw [← h]
+    ring_nf
+  have hc : cos (q:ℝ)=cos ((q:ℝ)-2*pi*(shift q:ℝ)) := by
+    have h := Real.cos_add_int_mul_two_pi (q:ℝ) (-(shift q))
+    simp only [Int.cast_neg,neg_mul] at h
+    rw [← h]
+    ring_nf
+  unfold enclosure
+  rw [hs,hc]
+  exact IntervalRat.mem_add
+    (IntervalRat.mem_mul (IntervalRat.mem_singleton _) (IntervalRat.mem_cosComputable red 20))
+    (IntervalRat.mem_mul (IntervalRat.mem_singleton _) (IntervalRat.mem_sinComputable red 20))
+
+theorem check_sound {q c : ℚ} (hq : q ≠ 0) (hc : check q c=true) :
+    |EvenKernel.transform 4 (q:ℝ)| ≤ (c:ℝ) := by
+  have parts : (enclosure q).hi ≤ c ∧-c ≤ (enclosure q).lo := by
+    simpa only [check,Bool.and_eq_true,decide_eq_true_eq] using hc
+  have mem := enclosure_sound q
+  simp only [IntervalRat.mem_def] at mem
+  have hf : EvenKernel.transform 4 (q:ℝ)=
+      (A q:ℝ)*cos (q:ℝ)+(B q:ℝ)*sin (q:ℝ) := by
+    rw [RHLimit.OcticFourier.transform_eq (by exact_mod_cast hq)]
+    exact (eval_eq q).symm
+  rw [hf]
+  have low : -(c:ℝ) ≤ ((enclosure q).lo:ℝ) := by
+    exact_mod_cast parts.2
+  have high : ((enclosure q).hi:ℝ) ≤ (c:ℝ) := Rat.cast_le.mpr parts.1
+  exact abs_le.mpr ⟨low.trans mem.1,mem.2.trans high⟩
+
+/-- A balanced complete checker, with no untrusted finite outputs. -/
+def tree (p : Nat → Bool) : Nat → Nat → Bool
+  | i,0 => p i
+  | i,d+1 => tree p i d &&tree p (i+2^d) d
+
+lemma tree_at (p : Nat → Bool) (depth : Nat) :
+    ∀ i, tree p i depth=true →∀ j, i ≤ j →j < i+2^depth →p j=true := by
+  induction depth with
+  | zero =>
+    intro i ht j hlo hhi
+    have hji : j=i := by omega
+    simpa [tree,hji] using ht
+  | succ d ih =>
+    intro i ht j hlo hhi
+    have parts : tree p i d=true ∧tree p (i+2^d) d=true := by
+      simpa only [tree,Bool.and_eq_true] using ht
+    obtain ⟨hl,hr⟩ := parts
+    by_cases hmid : j < i+2^d
+    · exact ih i hl j hlo hmid
+    · exact ih (i+2^d) hr j (by omega) (by
+        have hp : (2:Nat)^(d+1)=2^d+2^d := by rw [pow_succ,Nat.mul_two]
+        rw [hp] at hhi
+        omega)
+
+#print axioms eval_eq
+#print axioms enclosure_sound
+#print axioms check_sound
+#print axioms tree_at
+end RHOcticPush.Moments.Endpoint

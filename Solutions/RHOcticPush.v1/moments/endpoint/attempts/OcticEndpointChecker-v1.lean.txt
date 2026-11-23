@@ -1,0 +1,63 @@
+import LeanCert.Validity.Bounds.Core
+import OcticFourier
+
+/-! Ordinary kernel certificate checking for the actual octic Fourier integral.
+This is not source-first program verification. -/
+namespace RHOcticPush.Moments.Endpoint
+open Real Set LeanCert.Core LeanCert.Engine LeanCert.Validity
+set_option maxHeartbeats 0
+set_option maxRecDepth 1000000
+set_option Elab.async false
+
+def A (q : ℚ) : ℚ := -16/q^2+672/q^4-13440/q^6+80640/q^8
+def B (q : ℚ) : ℚ := 112/q^3-3360/q^5+40320/q^7-80640/q^9
+def expr (q : ℚ) : Expr := .add (.mul (.const (A q)) (.cos (.var 0)))
+  (.mul (.const (B q)) (.sin (.var 0)))
+def point (q : ℚ) : IntervalRat := ⟨q,q,le_refl q⟩
+def cfg : EvalConfig := { taylorDepth := 20 }
+def check (q c : ℚ) : Bool :=
+  checkUpperBound (expr q) (point q) c cfg &&
+  checkLowerBound (expr q) (point q) (-c) cfg
+
+lemma supported (q : ℚ) : ExprSupportedCore (expr q) := by
+  unfold expr
+  repeat constructor
+
+lemma eval_eq (q : ℚ) : Expr.eval (fun _ => (q:ℝ)) (expr q)=RHLimit.OcticFourier.formula q := by
+  dsimp [expr,Expr.eval,A,B,RHLimit.OcticFourier.formula]
+  push_cast
+  ring
+
+theorem check_sound {q c : ℚ} (hq : q ≠ 0) (hc : check q c=true) :
+    |EvenKernel.transform 4 (q:ℝ)| ≤ (c:ℝ) := by
+  obtain ⟨hu,hl⟩ := Bool.and_eq_true.mp hc
+  have mem : (q:ℝ) ∈ point q := by simp [IntervalRat.mem_def,point]
+  have u := verify_upper_bound (expr q) (supported q) (point q) c cfg hu q mem
+  have l := verify_lower_bound (expr q) (supported q) (point q) (-c) cfg hl q mem
+  rw [eval_eq] at u l
+  rw [RHLimit.OcticFourier.transform_eq (by exact_mod_cast hq)]
+  exact abs_le.mpr ⟨by simpa only [Rat.cast_neg] using l,u⟩
+
+/-- A balanced complete checker, with no untrusted finite outputs. -/
+def tree (p : Nat → Bool) : Nat → Nat → Bool
+  | i,0 => p i
+  | i,d+1 => tree p i d &&tree p (i+2^d) d
+
+lemma tree_at (p : Nat → Bool) (depth : Nat) :
+    ∀ i, tree p i depth=true →∀ j, i ≤ j →j < i+2^depth →p j=true := by
+  induction depth with
+  | zero => intro i ht j hlo hhi; have hji : j=i := by simpa using (Nat.le_antisymm (by omega) hlo);simpa [tree,hji] using ht
+  | succ d ih =>
+    intro i ht j hlo hhi
+    obtain ⟨hl,hr⟩ := Bool.and_eq_true.mp ht
+    by_cases hmid : j < i+2^d
+    · exact ih i hl j hlo hmid
+    · exact ih (i+2^d) hr j (by omega) (by
+        have hp : (2:Nat)^(d+1)=2^d+2^d := by rw [pow_succ,Nat.mul_two]
+        rw [hp] at hhi
+        omega)
+
+#print axioms eval_eq
+#print axioms check_sound
+#print axioms tree_at
+end RHOcticPush.Moments.Endpoint

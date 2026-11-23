@@ -1,0 +1,94 @@
+{
+  "status": "PASS_INDEPENDENT_MATHEMATICAL_CONTRACT_REVIEW_NOT_NUMERICAL_CAP_VERIFICATION",
+  "reviewer": "/root/rh_octic_analytic",
+  "scope": "Exactly nine Root-owned analytic moment modules listed below; numerical endpoint modules excluded and not claimed reviewed.",
+  "primary_math": "Project-internal new derivations, compared directly against actual defining F integral and pinned Mathlib calculus/integration theorems. No separate external-paper attribution is made by these nine contracts.",
+  "findings": [],
+  "publication_notes": [
+    "ANALYTIC_SOURCE_FREEZE.json currently enumerates8 roots, excluding OcticMomentAssembly; Root reports assembly compiled. Refresh census and add its exact receipt before claiming nine frozen roots.",
+    "All conclusions here remain development receipts until fresh full source closure replay."
+  ],
+  "modules": [
+    {
+      "file": "Solutions/RHOcticPush.v1/moments/AbsTrapezoid.lean",
+      "sha256": "4bf834c6e3de44eb9e8c5114e08c63754de34cc64ebc86846a1396d2d3be6f7c",
+      "declarations": "abs_chord, abs_trapezoid",
+      "mathematical_contract_checked": "Convexity of f\u00b1(M/2)x\u00b2 on \u211d implies |f| lies below endpoint absolute chord plus(M/2)(x\u2212a)(b\u2212x); integral curvature correction Mh\u00b3/12.",
+      "domain_checked": "a<b; all x\u2208[a,b]; continuous actual f. No C\u00b2 assumption on |f|.",
+      "finding": "ALIGNED",
+      "source_identity": "Project-internal derivation; imported actual F source identity is baseline OcticFourier.transform_eq and new OcticDerivativeBounds."
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/moments/OcticQuadrature.lean",
+      "sha256": "634011651d68b88d4437e0a8f1ae2b5734213b6d1318bfba81d9c3d6035d1e48",
+      "declarations": "quadratic_convex, octic_abs_trapezoid",
+      "mathematical_contract_checked": "Actual two derivatives of original F and |F\u2033|\u226416/33 instantiate the positive/negative quadratic perturbations.",
+      "domain_checked": "All real endpoints a<b, including a=0 and cells containing zeros of F.",
+      "finding": "ALIGNED",
+      "source_identity": "Project-internal derivation; imported actual F source identity is baseline OcticFourier.transform_eq and new OcticDerivativeBounds."
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/moments/OcticSecondDecay.lean",
+      "sha256": "d511efb6c6485f5beac8279d02289d5a9929585dddd20e8de10a014275714bf8",
+      "declarations": "second_ibp, remainder_bound, second_quadratic_decay",
+      "mathematical_contract_checked": "q=u\u00b2\u2212u\u00b9\u2070: y\u00b2F\u2033=16cos y+\u222b(2\u221290u\u2078)cos(yu); remainder\u2264\u222b(2+90u\u2078)=24, hence y\u00b2|F\u2033|\u226440.",
+      "domain_checked": "Identity y\u22600; final inequality includes y=0 by separate proof.",
+      "finding": "ALIGNED",
+      "source_identity": "Project-internal derivation; imported actual F source identity is baseline OcticFourier.transform_eq and new OcticDerivativeBounds."
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/moments/OcticLocalQuadrature.lean",
+      "sha256": "e7ed0c6a95e8eef8b7974ec302d7869dcc6354d9f81fb3f745621c704893e1b9",
+      "declarations": "abs_chord_on, octic_abs_trapezoid_decay",
+      "mathematical_contract_checked": "Local convexity bound and x\u2265a>0 imply |F\u2033(x)|\u226440/a\u00b2; exact Mh\u00b3/12 correction retained.",
+      "domain_checked": "a>0,a<b, convexity only on actual full cell[a,b].",
+      "finding": "ALIGNED",
+      "source_identity": "Project-internal derivation; imported actual F source identity is baseline OcticFourier.transform_eq and new OcticDerivativeBounds."
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/moments/OcticTail.lean",
+      "sha256": "bdf84ca0cc91e72a35c6fdaf25d9e6806d4a17f364e7d211e65ea27cd4d684df",
+      "declarations": "transform_abs_poly, tail_term, octic_tail_bound, log_tail_integral",
+      "mathematical_contract_checked": "Actual exact F rational-trigonometric formula bounded termwise; coefficient sum at1000\u226416113/1000 and every extra power pays1000^-k. Entire tail O(y^-2).",
+      "domain_checked": "y\u22651000 for fixed tail; source formula used only y>0; log tail T\u22651.",
+      "finding": "ALIGNED",
+      "source_identity": "Project-internal derivation; imported actual F source identity is baseline OcticFourier.transform_eq and new OcticDerivativeBounds."
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/moments/OcticTailIntegrals.lean",
+      "sha256": "7719269bf6f0c9e7a25aadcda4e05df610f26de24eeef5952a819dd1bfc7cdc4",
+      "declarations": "octic_abs_tail, octic_log_tail",
+      "mathematical_contract_checked": "Improper inverse-square and log/inverse-square integrability plus comparison pay entire tails16113/1e6 and(16113/1e6)(log1000+1).",
+      "domain_checked": "Strict tail y>1000, boundary singleton harmless; all infinite integrals proved integrable.",
+      "finding": "ALIGNED",
+      "source_identity": "Project-internal derivation; imported actual F source identity is baseline OcticFourier.transform_eq and new OcticDerivativeBounds."
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/moments/OcticFiniteQuadrature.lean",
+      "sha256": "800dcebcbc6a25aa15f987801cc9f62f34cdcf2f65ecfc30e37c3c55ba1c3f48",
+      "declarations": "octic_cell, octic_finite_quad, octic_log_cell, octic_finite_log_quad",
+      "mathematical_contract_checked": "Strictly increasing actual mesh telescopes integrals over every adjacent cell; endpoint bounds feed true quadrature; upper endpoint log bound valid on cells above1.",
+      "domain_checked": "All N+1 endpoint premises required; m\u2264N and a_i\u22651 for logarithmic cells. No discontinuous |F| derivative.",
+      "finding": "ALIGNED",
+      "source_identity": "Project-internal derivation; imported actual F source identity is baseline OcticFourier.transform_eq and new OcticDerivativeBounds."
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/moments/OcticLowMoment.lean",
+      "sha256": "4485ae45b6588a64641540d827dea2ecf69a82f9121198aadd8fd576c9c0444f",
+      "declarations": "octic_mass_lower, low_log_point, octic_low_log",
+      "mathematical_contract_checked": "cos z\u22651\u2212z\u00b2/2 plus actual kernel moments yields F\u226516/9\u22128y\u00b2/33; \u2212y\u00b2log y\u22641/4 implies signed[0,1] moment\u2264\u2212170/99.",
+      "domain_checked": "0<y\u22641 for log inequality; exact y=0 handled separately as totalized log0=0, harmless integration endpoint.",
+      "finding": "ALIGNED",
+      "source_identity": "Project-internal derivation; imported actual F source identity is baseline OcticFourier.transform_eq and new OcticDerivativeBounds."
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/moments/OcticMomentAssembly.lean",
+      "sha256": "159667e930a1b5a8a15dee099bebb9e9fcf7d60b8da37035c929e7c4753e4a5c",
+      "declarations": "M0_split, M1_split, M0_le_finite, M1_le_finite",
+      "mathematical_contract_checked": "Actual complete M0 and signed M1 split using already proved integrability; consumes finite numerical bounds, low negative contribution and entire tail.",
+      "domain_checked": "Finite certificates remain explicit premises. No numerical cap is claimed or inferred from exploratory Arb receipts.",
+      "finding": "ALIGNED",
+      "source_identity": "Project-internal derivation; imported actual F source identity is baseline OcticFourier.transform_eq and new OcticDerivativeBounds."
+    }
+  ]
+}

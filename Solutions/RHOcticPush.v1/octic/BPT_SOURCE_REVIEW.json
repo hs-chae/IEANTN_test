@@ -1,0 +1,48 @@
+{
+  "status": "SOURCE_CONTRACT_ALIGNED_WITH_FORMALLY_PROVED_ENDPOINT_ADAPTER",
+  "actual_Lean_and_Blueprint": {
+    "file": "Solutions/RHLimit.v1/analytic/BPTZeroCount.lean",
+    "declaration": "RHLimit.BPTZeroCount.PublishedBound",
+    "statement": "\u2200T\u22652\u03c0, |zetaNClosed(T)\u2212[T/(2\u03c0)log(T/(2\u03c0))\u2212T/(2\u03c0)+7/8]|\u2264(7/25)logT",
+    "count": "IEANTN.Vocabulary.Zeta.zetaZeroesSum univ(Ioc0 T), full integer zetaOrder multiplicity",
+    "Blueprint": "No separate Blueprint label for this experimental source predicate; imported original ZeroCount.v1 Conclusions.lean/CH2 Section7Zeros defines actual closed count."
+  },
+  "primary_source": {
+    "title": "Brent, Platt, Trudgian, The mean square of the error term in the prime number theorem",
+    "edition": "Journal of Number Theory238(2022),740\u2013762; final author PDF",
+    "url": "https://maths-people.anu.edu.au/~brent/pd/rpb274-final.pdf",
+    "sha256": "4be3667cbe07ab6a24930e8835923362ae12af946b622fa73c89fd654e9fae34",
+    "pin": "Solutions/RHOcticPush.v1/octic/sources/BPT_JNT238_Final.pdf",
+    "Corollary1": {
+      "printed_page": 743,
+      "PDF_page": 4,
+      "actual_formula": "For every T\u22652\u03c0: N(T)=T/(2\u03c0)log(T/(2\u03c0))\u2212T/(2\u03c0)+7/8+(0.28\u03d1)logT, |\u03d1|\u22641.",
+      "source_computation": "Published proof uses interval arithmetic through7.7\u00d710^8; this external computation is not reverified here."
+    },
+    "boundary_evidence": {
+      "printed_page": 744,
+      "PDF_page": 5,
+      "actual_formula": "Lemma2 sums T1<\u03b3\u2264T2; subsequent zero sums likewise use explicit closed upper endpoints.",
+      "precise_absence": "No standalone definition of N(T) at zero-ordinate jump points is given in this final PDF. No half-weight convention was found. The formal transfer therefore uses only non-ordinate heights, where all conventional counts agree."
+    },
+    "multiplicity_evidence": {
+      "printed_page": 754,
+      "PDF_page": 15,
+      "actual_claim": "Every zero\u03c1 in a zero sum is weighted by its multiplicitym\u03c1; double sums use product multiplicities."
+    }
+  },
+  "formal_transfer": {
+    "file": "Solutions/RHOcticPush.v1/octic/OcticBPTSourceEndpoint.lean",
+    "source_predicate": "SourceBPTOffOrdinate: exact original bound only for T>2\u03c0 that is not any positive zero ordinate.",
+    "theorem": "publishedBound_of_offOrdinate : SourceBPTOffOrdinate \u2192 RHLimit.BPTZeroCount.PublishedBound",
+    "mechanism": "Actual finite zero set up toT+1 supplies a right neighborhood with no zero heights aboveT and constant actual Nclosed=Nclosed(T); take right limit of continuous rvmMain/log. Handles jump heights and threshold2\u03c0 with no error term or lost multiplicity.",
+    "receipt": "/data/ivy-rh-octic-20261123/analytic-octic/bpt-source-endpoint-002/RUN.json",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "impact": "No material mathematical mismatch found. The endpoint convention ambiguity is eliminated by an actual general Lean proof, rather than inferred away or paid by an unproved error allowance.",
+  "remaining_trust": "SourceBPTOffOrdinate remains a genuine unformalized published analytic/numerical input. This adapter does not prove the published BPT bound itself."
+}

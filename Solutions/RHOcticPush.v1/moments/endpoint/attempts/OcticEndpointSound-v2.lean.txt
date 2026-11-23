@@ -1,0 +1,31 @@
+import OcticEndpointData
+namespace RHOcticPush.Moments.Endpoint
+open Real
+set_option maxHeartbeats 0
+set_option maxRecDepth 1000000
+set_option Elab.async false
+
+lemma grid_pos {i : Nat} (hi : i ≠ 0) : 0 < grid i := by
+  have hip : 0 < (i:ℚ) := by exact_mod_cast Nat.pos_of_ne_zero hi
+  unfold grid
+  split_ifs <;> positivity
+
+theorem row_sound {i : Nat} (verified : row i=true) :
+    |EvenKernel.transform 4 (grid i:ℝ)| ≤ (upper i:ℝ) := by
+  by_cases hi : i=0
+  · subst i
+    have hu : (16/9:ℚ) ≤ upper 0 := by simpa only [row,ite_true,decide_eq_true_eq] using verified
+    have he : |EvenKernel.transform 4 (grid 0:ℝ)|=(16/9:ℝ) := by
+      norm_num [grid,RHLimit.OcticFourier.transform_zero]
+    rw [he]
+    exact_mod_cast (show ((16/9:ℚ):ℝ) ≤ (upper 0:ℝ) from Rat.cast_le.mpr hu)
+  · exact check_sound (grid_pos hi).ne' (by simpa only [row,if_neg hi] using verified)
+
+theorem all_rows_sound (verified : ∀ i : Nat, i < 7301 → row i=true) :
+    ∀ i : Nat, i < 7301 →|EvenKernel.transform 4 (grid i:ℝ)| ≤ (upper i:ℝ) :=
+  fun i hi => row_sound (verified i hi)
+
+#print axioms grid_pos
+#print axioms row_sound
+#print axioms all_rows_sound
+end RHOcticPush.Moments.Endpoint

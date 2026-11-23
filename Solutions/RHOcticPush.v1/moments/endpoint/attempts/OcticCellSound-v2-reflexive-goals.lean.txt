@@ -1,0 +1,54 @@
+import OcticCellData
+import OcticEndpointSound
+import OcticLogEndpointSound
+import OcticFiniteQuadrature
+namespace RHOcticPush.Moments.Endpoint
+open Real Finset
+set_option maxHeartbeats 0
+set_option maxRecDepth 1000000
+set_option Elab.async false
+
+lemma cast_cell (i : Nat) :
+    (cellRat i:ℝ)=cellBudget (grid i) (grid (i+1)) (upper i) (upper (i+1)) := by
+  unfold cellRat cellBudget cellCurvature
+  push_cast
+  split_ifs with hq hr hr
+  · push_cast
+  · exact (hr (by exact_mod_cast hq)).elim
+  · exact (hq (by exact_mod_cast hr)).elim
+  · push_cast
+
+lemma arithmetic0 {i : Nat} (hi : i < 7300) (checked : arithmeticRow i=true) :
+    cellRat i ≤ cap0 i := by
+  have both : decide (cellRat i ≤ cap0 i)=true ∧
+      (if 100 ≤ i then decide (cellRat i*logUpper (i+1) ≤ cap1 i) else true)=true := by
+    simpa only [arithmeticRow,if_pos hi,Bool.and_eq_true] using checked
+  exact of_decide_eq_true both.1
+
+lemma arithmetic1 {i : Nat} (hlo : 100 ≤ i) (hi : i < 7300)
+    (checked : arithmeticRow i=true) : cellRat i*logUpper (i+1) ≤ cap1 i := by
+  have both : cellRat i ≤ cap0 i ∧cellRat i*logUpper (i+1) ≤ cap1 i := by
+    simpa only [arithmeticRow,if_pos hi,if_pos hlo,Bool.and_eq_true,decide_eq_true_eq] using checked
+  exact both.2
+
+theorem allRow_parts {i : Nat} (checked : allRow i=true) :
+    row i=true ∧logRow i=true ∧arithmeticRow i=true := by
+  simpa only [allRow,Bool.and_eq_true,and_assoc] using checked
+
+lemma actual_cell_cap0 {i : Nat} (hi : i < 7300) (checked : allRow i=true) :
+    cellBudget (grid i) (grid (i+1)) (upper i) (upper (i+1)) ≤ (cap0 i:ℝ) := by
+  rw [← cast_cell]
+  exact Rat.cast_le.mpr (arithmetic0 hi (allRow_parts checked).2.2)
+
+lemma actual_cell_cap1 {i : Nat} (hlo : 100 ≤ i) (hi : i < 7300)
+    (checked : allRow i=true) :
+    cellBudget (grid i) (grid (i+1)) (upper i) (upper (i+1))*(logUpper (i+1):ℝ) ≤
+      (cap1 i:ℝ) := by
+  rw [← cast_cell,← Rat.cast_mul]
+  exact Rat.cast_le.mpr (arithmetic1 hlo hi (allRow_parts checked).2.2)
+
+#print axioms cast_cell
+#print axioms allRow_parts
+#print axioms actual_cell_cap0
+#print axioms actual_cell_cap1
+end RHOcticPush.Moments.Endpoint

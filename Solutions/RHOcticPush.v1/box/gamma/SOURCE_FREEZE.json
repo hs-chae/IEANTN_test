@@ -1,0 +1,79 @@
+{
+  "status": "FOUR_ACTUAL_GENERIC_ANALYTIC_MODULES_PASS_STANDARD3",
+  "target": "All real0<s<1, actual integral cosine_mellin=pi/(2 Gamma(2-s) cos(pi s/2)); actual full-domain integrability.",
+  "source_inputs": [],
+  "new_axioms_or_sorry": false,
+  "PV_claim": false,
+  "modules": [
+    {
+      "module": "GammaEuler",
+      "path": "Solutions/RHOcticPush.v1/box/gamma/GammaEuler.lean",
+      "sha256": "ceecac6fb7469cf3aea5c0682bc1bf672c70413260549dcc8389b591a8a5b3bc",
+      "receipt": "Solutions/RHOcticPush.v1/box/gamma/evidence/GammaEuler/RECEIPT.json",
+      "developer_bank": "/data/ivy-rh-octic-20261123/box-gamma-euler-v4/objects",
+      "wall_seconds": 2.5928341802209616,
+      "axioms": [
+        {
+          "name": "RHOcticPush.BoxGamma.integral_rpow_div_one_add",
+          "axioms": "propext, Classical.choice, Quot.sound"
+        }
+      ]
+    },
+    {
+      "module": "GammaQuadratic",
+      "path": "Solutions/RHOcticPush.v1/box/gamma/GammaQuadratic.lean",
+      "sha256": "1eac01dff204283df262faa1d06c1e54a1c963dfab5b21ea254a50a777be3580",
+      "receipt": "Solutions/RHOcticPush.v1/box/gamma/evidence/GammaQuadratic/RECEIPT.json",
+      "developer_bank": "/data/ivy-rh-octic-20261123/box-gamma-quadratic-v3/objects",
+      "wall_seconds": 2.268351260572672,
+      "axioms": [
+        {
+          "name": "RHOcticPush.BoxGamma.integral_quadratic",
+          "axioms": "propext, Classical.choice, Quot.sound"
+        },
+        {
+          "name": "RHOcticPush.BoxGamma.quadratic_integrable",
+          "axioms": "propext, Classical.choice, Quot.sound"
+        }
+      ]
+    },
+    {
+      "module": "GammaDamped",
+      "path": "Solutions/RHOcticPush.v1/box/gamma/GammaDamped.lean",
+      "sha256": "37f45f35a5a99dfe6ab285f71b1c2779a373c6c03b0268083acf24acc8d7ff5a",
+      "receipt": "Solutions/RHOcticPush.v1/box/gamma/evidence/GammaDamped/RECEIPT.json",
+      "developer_bank": "/data/ivy-rh-octic-20261123/box-gamma-damped-v2/objects",
+      "wall_seconds": 2.279323322698474,
+      "axioms": [
+        {
+          "name": "RHOcticPush.BoxGamma.damped_cos_integral",
+          "axioms": "propext, Classical.choice, Quot.sound"
+        },
+        {
+          "name": "RHOcticPush.BoxGamma.damped_integral",
+          "axioms": "propext, Classical.choice, Quot.sound"
+        }
+      ]
+    },
+    {
+      "module": "GammaMellin",
+      "path": "Solutions/RHOcticPush.v1/box/gamma/GammaMellin.lean",
+      "sha256": "128e646caf08abdbc3f59d72485b8965a31f67e882be531bd093b675aa08e6b0",
+      "receipt": "Solutions/RHOcticPush.v1/box/gamma/evidence/GammaMellin/RECEIPT.json",
+      "developer_bank": "/data/ivy-rh-octic-20261123/box-gamma-mellin-v2/objects",
+      "wall_seconds": 2.7074223812669516,
+      "axioms": [
+        {
+          "name": "RHOcticPush.BoxGamma.cosine_mellin",
+          "axioms": "propext, Classical.choice, Quot.sound"
+        },
+        {
+          "name": "RHOcticPush.BoxGamma.cosine_mellin_integrable",
+          "axioms": "propext, Classical.choice, Quot.sound"
+        }
+      ]
+    }
+  ],
+  "old_frozen_octic31_edited": false,
+  "route": "Actual Euler beta rational Jacobian -> actual quadratic integral/integrability -> actual damped cosine Laplace -> actual product integrability and Fubini -> positive real Gamma integral."
+}

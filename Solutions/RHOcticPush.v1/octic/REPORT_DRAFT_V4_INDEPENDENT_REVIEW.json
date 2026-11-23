@@ -1,0 +1,63 @@
+{
+  "status": "INDEPENDENT_CURRENT_V4_MATH_REPORT_REVIEW_WITH_ACTIONABLE_CORRECTIONS",
+  "reviewer": "/root/rh_octic_analytic",
+  "scope": "Both actualv4 HTML expositions plus full formulas/generator; not stalev3. Owned octic/Goldbach coefficients/domains/trust boundary checked against frozen actual sources; independent reviews of Root moments/checker also reused. Other source-family novelty statements are checked for conservative scope, not claimed a new exhaustive literature review.",
+  "files": [
+    {
+      "path": "/data/ivy-rh-octic-20261123/report-draft-v4/RH_OCTIC_RESEARCH_EN.html",
+      "sha256": "a0791698290c8cae0af7cd2317347e8c346c370cc2b499363215d4d266729c15"
+    },
+    {
+      "path": "/data/ivy-rh-octic-20261123/report-draft-v4/RH_OCTIC_RESEARCH_KO.html",
+      "sha256": "0e2a3333f9c96bb89a0e36db7017ebf1581d79e6c6983efca45070fdc1db6ec3"
+    },
+    {
+      "path": "Solutions/RHOcticPush.v1/reports/FORMULAS.json",
+      "sha256": "654781100409fd37f6fe43cd53258c76df046089b5da6c2faea671293edbf0ad"
+    },
+    {
+      "path": "Solutions/RHOcticPush.v1/reports/build_reports.py",
+      "sha256": "56d9ecdb199fd9a76f3bc19d8216b840cfb44f6b770c514f74f633c1370bd619"
+    }
+  ],
+  "confirmed": [
+    "A1.8203/B1.457 and actual strong caps correct",
+    "Samewidth2.15 leading180173/180000 gain17/20000 correct",
+    "Widths2.149 uniformleading180013/180000 and2.14891875 leading1 correct",
+    "Both interval endpoints excluded and entire real onsetexp24 retained",
+    "Goldbach actual sorted triples/count not globalbinary or ternaryrecord; finitebinary/geometry explicit",
+    "GeneralGreen/Nicolas/BPT source inputs visible; no RH-only or newPV claim",
+    "BPT endpointrightlimit and complete tails correctly explained",
+    "No globalbestknown/optimality claim; postlockresults not retroactiveexposurewins"
+  ],
+  "findings": [
+    {
+      "severity": "clarity/domain",
+      "actual_report": "FORMULAS.json infinite displays a general BPT integral inequality; EN/KO prose mentions regularity but the displayed inequality does not state a\u22652\u03c0.",
+      "actual_Lean": "OcticBPTInfinite.infinite_absolute_bound requires a\u22652\u03c0; HasDerivAt f f\u2032 on[a,\u221e), ContinuousOn f\u2032, both weighted integrabilities, and |f(t)|logt\u21920.",
+      "source": "BPT Corollary1 p743 only T\u22652\u03c0; Lemma2 p744 supplies the interval transport.",
+      "requested_correction": "Add a\u22652\u03c0 and a short linked hypothesis list immediately with the displayed infinite inequality. It is not an unrestricted bound for arbitrary f/a."
+    },
+    {
+      "severity": "coverage",
+      "actual_report": "Complete leading-claim matrix has octic, GM, Ramanujan, Box and Nicolas rows but no new sorted Goldbach count row. Dedicated Goldbach section does correctly display finite binary/geometry.",
+      "actual_Lean": "OptimizedFinal.triples_above_n_minus_H needs RH+Green+Nicolas+BPT and GoldbachEvenUpTo H, odd n,2H<n,n\u2212H\u2265exp24,c\u221a(n\u2212H)log(n\u2212H)\u2264H\u22124.",
+      "source": "New project-internal derived injection into actual sorted triples, not externally attributed Goldbach record.",
+      "requested_correction": "Add Goldbach to the complete matrix or narrow that matrix coverage label; preserve explicit finite-binary and scalar hypotheses."
+    },
+    {
+      "severity": "new_progress",
+      "actual_report": "Both drafts say Gamma/Mellin evaluation is still required. This was correct at the earlier snapshot but generic cosine_mellin now passes actual no-premise proofs.",
+      "actual_Lean": "box/gamma/GammaMellin.lean cosine_mellin and cosine_mellin_integrable now compile Std3; per-term actual_box_mellin_series also just passed.",
+      "source": "Derived from actual Mathlib Gamma/Beta/reflection and Fubini; no new literature assumption.",
+      "requested_correction": "Update completed substeps to include the generic Gamma integral and actual evaluated series. Keep J0/J1 and full Box explicit/zero predicates open until their actual proofs are finished."
+    },
+    {
+      "severity": "bilingual_detail",
+      "actual_report": "EN PV section includes pure-recursion same-chunk182.04s/30.70GiB empty-axiom result and correction of Nat.brecOn attribution; KO section omits that supplemental result.",
+      "actual_Lean": "Separate finite worker result; this review checks cross-language exposition parity, not re-verification of that receipt.",
+      "source": "Project-internal finite verification experiment.",
+      "requested_correction": "If intended reports have matched current evidence, include the same bounded result and limitation in KO. Do not upgrade full90.67m completion."
+    }
+  ]
+}
