@@ -1,0 +1,13 @@
+'RHContinuation.CLogMomentNetwork.box_moments' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHContinuation.CLogMomentNetwork.box_psi' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem RHContinuation.CLogMomentNetwork.box_psi : RiemannHypothesis →
+  RHSmoothingInputs.v1.box_explicit_formula →
+    RHSmoothingInputs.v1.box_zero_estimate →
+      BoxMellinInputs.v1.first_moment →
+        BoxMellinInputs.v1.second_moment_identity → BoxMellinInputs.v1.stieltjes_trapezoid → RHSmoothing.v1.box_psi :=
+fun rh hef hz boxMellinInputs_v1_first_moment boxMellinInputs_v1_second_moment_identity
+    boxMellinInputs_v1_stieltjes_trapezoid =>
+  have hm :=
+    box_moments boxMellinInputs_v1_first_moment boxMellinInputs_v1_second_moment_identity
+      boxMellinInputs_v1_stieltjes_trapezoid;
+  Parabolic.psi_fast rh hef hz hm.left hm.right

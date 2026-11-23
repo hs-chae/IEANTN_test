@@ -1,0 +1,303 @@
+{
+  "status": "PASS_ACTUAL_PI_CLI_ALL_OPTIMIZATION_MODES",
+  "validator_sha256": "c2bf383db7530374141521328a3dfe7c4d6195227c0f4a0f82168e24725f22c1",
+  "controller_sha256": "ec589dc992da2ed093a83ba9385676e4efa5c41dd4cd10e7703d110214c3c851",
+  "source_manifest_sha256": "32cef82784fb8858f6127bce2b69f236f3789fd07a7c92cb4853861ded1c7c24",
+  "cases": [
+    {
+      "optimization": 0,
+      "case": "positive",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/fixture/network/Solutions/RHLimit.v1/scripts/reproduce_pi_complete.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/not_created_0_positive",
+        "--check"
+      ],
+      "returncode": 0,
+      "expected": "preflight_only"
+    },
+    {
+      "optimization": 0,
+      "case": "unknown_flag",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/fixture/network/Solutions/RHLimit.v1/scripts/reproduce_pi_complete.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/not_created_0_unknown_flag",
+        "--check",
+        "--nonexistent-option"
+      ],
+      "returncode": 2,
+      "expected": "rejected"
+    },
+    {
+      "optimization": 0,
+      "case": "duplicate_json",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/fixture/network/Solutions/RHLimit.v1/scripts/reproduce_pi_complete.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/not_created_0_duplicate_json",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected": "rejected"
+    },
+    {
+      "optimization": 0,
+      "case": "nonfinite_json",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/fixture/network/Solutions/RHLimit.v1/scripts/reproduce_pi_complete.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/not_created_0_nonfinite_json",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected": "rejected"
+    },
+    {
+      "optimization": 0,
+      "case": "changed_source",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/fixture/network/Solutions/RHLimit.v1/scripts/reproduce_pi_complete.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/not_created_0_changed_source",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected": "rejected"
+    },
+    {
+      "optimization": 0,
+      "case": "changed_resource",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/fixture/network/Solutions/RHLimit.v1/scripts/reproduce_pi_complete.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/not_created_0_changed_resource",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected": "rejected"
+    },
+    {
+      "optimization": 0,
+      "case": "existing_output",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/fixture/network/Solutions/RHLimit.v1/scripts/reproduce_pi_complete.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/not_created_0_existing_output",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected": "rejected"
+    },
+    {
+      "optimization": 1,
+      "case": "positive",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/fixture/network/Solutions/RHLimit.v1/scripts/reproduce_pi_complete.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/not_created_1_positive",
+        "--check"
+      ],
+      "returncode": 0,
+      "expected": "preflight_only"
+    },
+    {
+      "optimization": 1,
+      "case": "unknown_flag",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/fixture/network/Solutions/RHLimit.v1/scripts/reproduce_pi_complete.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/not_created_1_unknown_flag",
+        "--check",
+        "--nonexistent-option"
+      ],
+      "returncode": 2,
+      "expected": "rejected"
+    },
+    {
+      "optimization": 1,
+      "case": "duplicate_json",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/fixture/network/Solutions/RHLimit.v1/scripts/reproduce_pi_complete.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/not_created_1_duplicate_json",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected": "rejected"
+    },
+    {
+      "optimization": 1,
+      "case": "nonfinite_json",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/fixture/network/Solutions/RHLimit.v1/scripts/reproduce_pi_complete.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/not_created_1_nonfinite_json",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected": "rejected"
+    },
+    {
+      "optimization": 1,
+      "case": "changed_source",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/fixture/network/Solutions/RHLimit.v1/scripts/reproduce_pi_complete.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/not_created_1_changed_source",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected": "rejected"
+    },
+    {
+      "optimization": 1,
+      "case": "changed_resource",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/fixture/network/Solutions/RHLimit.v1/scripts/reproduce_pi_complete.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/not_created_1_changed_resource",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected": "rejected"
+    },
+    {
+      "optimization": 1,
+      "case": "existing_output",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/fixture/network/Solutions/RHLimit.v1/scripts/reproduce_pi_complete.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/not_created_1_existing_output",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected": "rejected"
+    },
+    {
+      "optimization": 2,
+      "case": "positive",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/fixture/network/Solutions/RHLimit.v1/scripts/reproduce_pi_complete.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/not_created_2_positive",
+        "--check"
+      ],
+      "returncode": 0,
+      "expected": "preflight_only"
+    },
+    {
+      "optimization": 2,
+      "case": "unknown_flag",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/fixture/network/Solutions/RHLimit.v1/scripts/reproduce_pi_complete.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/not_created_2_unknown_flag",
+        "--check",
+        "--nonexistent-option"
+      ],
+      "returncode": 2,
+      "expected": "rejected"
+    },
+    {
+      "optimization": 2,
+      "case": "duplicate_json",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/fixture/network/Solutions/RHLimit.v1/scripts/reproduce_pi_complete.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/not_created_2_duplicate_json",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected": "rejected"
+    },
+    {
+      "optimization": 2,
+      "case": "nonfinite_json",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/fixture/network/Solutions/RHLimit.v1/scripts/reproduce_pi_complete.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/not_created_2_nonfinite_json",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected": "rejected"
+    },
+    {
+      "optimization": 2,
+      "case": "changed_source",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/fixture/network/Solutions/RHLimit.v1/scripts/reproduce_pi_complete.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/not_created_2_changed_source",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected": "rejected"
+    },
+    {
+      "optimization": 2,
+      "case": "changed_resource",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/fixture/network/Solutions/RHLimit.v1/scripts/reproduce_pi_complete.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/not_created_2_changed_resource",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected": "rejected"
+    },
+    {
+      "optimization": 2,
+      "case": "existing_output",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/fixture/network/Solutions/RHLimit.v1/scripts/reproduce_pi_complete.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/pi/controls-complete-v3/not_created_2_existing_output",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected": "rejected"
+    }
+  ],
+  "positive_preflights": 3,
+  "rejections": 18,
+  "fresh_acceptance_receipts_written": 0,
+  "mathematical_build_repeated": false,
+  "verified_regenerable_fixture_bytes_removed": 4714186
+}

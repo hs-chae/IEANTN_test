@@ -1,0 +1,1780 @@
+{
+  "schema": "RH_LIMIT_PUBLICATION_TOY_CONTROLS_V1",
+  "status": "PASS_ALL_TOY_ARCHIVE_PARTS_AND_READY_GATES_NORMAL_O_OO",
+  "real_study_frozen_or_archived": false,
+  "cases": 105,
+  "controller_sha256": "f92002a2a33552da8f100080593162cd119e9abbabba81fa8751029360219b00",
+  "tools_sha256": {
+    "prepare_bundle.py": "d9684893a13d7bd258ca5e271c1244b11f1632b0e011bbba96241ee02c573acf",
+    "archive_tools.py": "5b8a7396d55a3248e11b2e2a561be0d8023afb05fea61f08fc943a6a3a840e0e",
+    "join_bundle.py": "25a1e00463515617d0ced05edcaaef795baf3f0b7d718a1163e013a79c6ff1d8",
+    "REPRODUCE_RH_LIMIT.py": "406579f5e4511e306582581b5a2e0347c202f19226ff1c9d48f2f9721531a3ad"
+  },
+  "results": [
+    {
+      "mode": 0,
+      "label": "seal-toy",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py",
+        "seal",
+        "--tree",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/toy"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "stdout": "{\"status\": \"MANIFEST_SEALED\", \"files\": 1}\n",
+      "stderr": ""
+    },
+    {
+      "mode": 0,
+      "label": "verify-toy",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "verify",
+        "--tree",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/toy"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "stdout": "{\"status\": \"PASS_ALL_SOURCE_BYTES_AND_MEMBERS\", \"files\": 1}\n",
+      "stderr": ""
+    },
+    {
+      "mode": 0,
+      "label": "pack-toy",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py",
+        "pack",
+        "--tree",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/toy",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/TOY.tar.gz"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "stdout": "{\"schema\": \"RH_CONTINUATION_ARCHIVE_IDENTITY_V1\", \"archive\": \"TOY.tar.gz\", \"bytes\": 322, \"sha256\": \"0341706932b70a9937e09d2dddbe615ec2ef66104c2bf423ca228dcfec0bcadb\", \"manifest_sha256\": \"33e9f33d469a3430bb3f8b09178d5b00504dc46e9d9de809b35556ea363f2043\", \"manifest_files\": 1}\n",
+      "stderr": ""
+    },
+    {
+      "mode": 0,
+      "label": "extract-toy",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "extract",
+        "--archive",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/TOY.tar.gz",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/extracted"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "stdout": "{\"status\": \"PASS_STRICT_ARCHIVE_EXTRACTION_AND_ALL_FILE_HASHES\", \"files\": 1}\n",
+      "stderr": ""
+    },
+    {
+      "mode": 0,
+      "label": "split-toy",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py",
+        "--split",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/TOY.tar.gz",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/parts",
+        "--part-bytes",
+        "64"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "stdout": "{\"status\": \"PASS_SPLIT_EXACT_ARCHIVE_INTO_BOUNDED_PARTS\", \"parts\": 6, \"maximum_part_bytes\": 64, \"archive_sha256\": \"0341706932b70a9937e09d2dddbe615ec2ef66104c2bf423ca228dcfec0bcadb\"}\n",
+      "stderr": ""
+    },
+    {
+      "mode": 0,
+      "label": "check-toy-parts",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py",
+        "--parts-dir",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/parts",
+        "--check"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "stdout": "{\"status\": \"PASS_ALL_PARTS_AND_WHOLE_ARCHIVE_SHA256\", \"bytes\": 322, \"sha256\": \"0341706932b70a9937e09d2dddbe615ec2ef66104c2bf423ca228dcfec0bcadb\"}\n",
+      "stderr": ""
+    },
+    {
+      "mode": 0,
+      "label": "reject-corrupt-extraction-helper",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py",
+        "--parts-dir",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/parts",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 120, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 117, in main\n    join(a.parts_dir.resolve(), a.out.resolve() if a.out is not None else None, a.check)\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 74, in join\n    need(sha(parts / 'archive_tools.py') == m['extract_helper_sha256'], 'extract helper identity differs')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 16, in need\n    raise ValueError(message)\nValueError: extract helper identity differs\n"
+    },
+    {
+      "mode": 0,
+      "label": "join-toy",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py",
+        "--parts-dir",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/parts",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/joined.tar.gz"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "stdout": "{\"status\": \"PASS_RECONSTRUCTED_EXACT_ARCHIVE\", \"bytes\": 322, \"sha256\": \"0341706932b70a9937e09d2dddbe615ec2ef66104c2bf423ca228dcfec0bcadb\"}\n",
+      "stderr": ""
+    },
+    {
+      "mode": 0,
+      "label": "reject-extra-part",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py",
+        "--parts-dir",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/parts",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 120, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 117, in main\n    join(a.parts_dir.resolve(), a.out.resolve() if a.out is not None else None, a.check)\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 75, in join\n    need({p.name for p in parts.glob('RH_LIMIT_SOURCE.part*')} == {row['path'] for row in rows}, 'unexpected or missing part membership')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 16, in need\n    raise ValueError(message)\nValueError: unexpected or missing part membership\n"
+    },
+    {
+      "mode": 0,
+      "label": "reject-corrupt-part",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py",
+        "--parts-dir",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/parts",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 120, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 117, in main\n    join(a.parts_dir.resolve(), a.out.resolve() if a.out is not None else None, a.check)\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 88, in join\n    need(local.hexdigest() == row['sha256'], 'part hash mismatch: ' + row['path'])\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 16, in need\n    raise ValueError(message)\nValueError: part hash mismatch: RH_LIMIT_SOURCE.part001\n"
+    },
+    {
+      "mode": 0,
+      "label": "reject-existing-join-output",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py",
+        "--parts-dir",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/parts",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/joined.tar.gz"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 120, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 117, in main\n    join(a.parts_dir.resolve(), a.out.resolve() if a.out is not None else None, a.check)\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 94, in join\n    need(out is not None and not out.exists() and not out.is_symlink(), 'fresh --out archive required')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 16, in need\n    raise ValueError(message)\nValueError: fresh --out archive required\n"
+    },
+    {
+      "mode": 0,
+      "label": "reject-oversized-parts",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py",
+        "--split",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/TOY.tar.gz",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/oversized",
+        "--part-bytes",
+        "6291457"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 120, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 114, in main\n    split(a.split.resolve(), a.out.resolve(), a.part_bytes)\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 43, in split\n    need(1 <= part_bytes <= MAX_PART and re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]{0,127}', archive.name), 'invalid archive name/part bound')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 16, in need\n    raise ValueError(message)\nValueError: invalid archive name/part bound\n"
+    },
+    {
+      "mode": 0,
+      "label": "reject-no-final-ready",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "pack",
+        "--tree",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/toy",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/not-approved.tar.gz"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 220, in main\n    elif a.action=='pack':approved_archive(a.tree,a.out)\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 192, in approved_archive\n    verify(tree);r=strict(tree/'ROOT_FINAL_READY.json');p=strict(tree/'SOURCE_PLAN.json')\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 25, in strict\n    def strict(p):return decode(Path(p).read_bytes())\n                                ^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/pathlib.py\", line 1050, in read_bytes\n    with self.open(mode='rb') as f:\n         ^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/pathlib.py\", line 1044, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/toy/ROOT_FINAL_READY.json'\n"
+    },
+    {
+      "mode": 0,
+      "label": "reject-duplicate-JSON",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "verify",
+        "--tree",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/bad"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 219, in main\n    elif a.action=='verify':print(json.dumps({'status':'PASS_ALL_SOURCE_BYTES_AND_MEMBERS','files':verify(a.tree)}))\n                                                                                                   ^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 221, in verify\n    m = strict(tree / \"BUNDLE_MANIFEST.json\")\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 41, in strict\n    return json.loads(Path(path).read_bytes(), object_pairs_hook=pairs,\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/__init__.py\", line 359, in loads\n    return cls(**kw).decode(s)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 337, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 353, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 34, in pairs\n    need(key not in result, \"duplicate JSON key: \" + key)\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: duplicate JSON key: schema\n"
+    },
+    {
+      "mode": 0,
+      "label": "reject-overflowing-JSON",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "verify",
+        "--tree",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/bad"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 219, in main\n    elif a.action=='verify':print(json.dumps({'status':'PASS_ALL_SOURCE_BYTES_AND_MEMBERS','files':verify(a.tree)}))\n                                                                                                   ^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 221, in verify\n    m = strict(tree / \"BUNDLE_MANIFEST.json\")\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 41, in strict\n    return json.loads(Path(path).read_bytes(), object_pairs_hook=pairs,\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/__init__.py\", line 359, in loads\n    return cls(**kw).decode(s)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 337, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 353, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 39, in number\n    need(abs(value) != float(\"inf\"), \"overflowing JSON float\")\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: overflowing JSON float\n"
+    },
+    {
+      "mode": 0,
+      "label": "reject-changed-source",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "verify",
+        "--tree",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/toy"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 219, in main\n    elif a.action=='verify':print(json.dumps({'status':'PASS_ALL_SOURCE_BYTES_AND_MEMBERS','files':verify(a.tree)}))\n                                                                                                   ^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 230, in verify\n    need(p.is_file() and not p.is_symlink() and p.stat().st_size == row[\"bytes\"] and sha(p) == row[\"sha256\"], \"file hash/size mismatch: \" + rel)\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: file hash/size mismatch: source.txt\n"
+    },
+    {
+      "mode": 0,
+      "label": "reject-extra-member",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "verify",
+        "--tree",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/toy"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 219, in main\n    elif a.action=='verify':print(json.dumps({'status':'PASS_ALL_SOURCE_BYTES_AND_MEMBERS','files':verify(a.tree)}))\n                                                                                                   ^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 232, in verify\n    need(actual == names, \"manifest membership differs\")\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: manifest membership differs\n"
+    },
+    {
+      "mode": 0,
+      "label": "reject-invalid-member-parent",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "extract",
+        "--archive",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/parent.tar.gz",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/invalid-parent"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 221, in main\n    else:extract(a.archive,a.out)\n         ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 263, in extract\n    safe(member.name)\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 49, in safe\n    need(not p.is_absolute() and raw == p.as_posix() and all(x not in {\"\", \".\", \"..\"} for x in p.parts),\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: unsafe/noncanonical path: ../x\n"
+    },
+    {
+      "mode": 0,
+      "label": "reject-invalid-member-absolute",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "extract",
+        "--archive",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/absolute.tar.gz",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/invalid-absolute"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 221, in main\n    else:extract(a.archive,a.out)\n         ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 263, in extract\n    safe(member.name)\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 49, in safe\n    need(not p.is_absolute() and raw == p.as_posix() and all(x not in {\"\", \".\", \"..\"} for x in p.parts),\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: unsafe/noncanonical path: /x\n"
+    },
+    {
+      "mode": 0,
+      "label": "reject-invalid-member-duplicate",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "extract",
+        "--archive",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/duplicate.tar.gz",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/invalid-duplicate"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 221, in main\n    else:extract(a.archive,a.out)\n         ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 264, in extract\n    need(member.name not in names and member.isfile() and member.size >= 0,\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: duplicate, linked or nonregular archive member\n"
+    },
+    {
+      "mode": 0,
+      "label": "reject-invalid-member-link",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "extract",
+        "--archive",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/link.tar.gz",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/invalid-link"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 221, in main\n    else:extract(a.archive,a.out)\n         ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 264, in extract\n    need(member.name not in names and member.isfile() and member.size >= 0,\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: duplicate, linked or nonregular archive member\n"
+    },
+    {
+      "mode": 0,
+      "label": "reject-invalid-member-prefix",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "extract",
+        "--archive",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/prefix.tar.gz",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/invalid-prefix"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 221, in main\n    else:extract(a.archive,a.out)\n         ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 268, in extract\n    need(not any(parent.as_posix() in names for parent in PurePosixPath(name).parents\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: file/directory archive prefix collision\n"
+    },
+    {
+      "mode": 0,
+      "label": "reject-invalid-member-noncanonical",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "extract",
+        "--archive",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/noncanonical.tar.gz",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/invalid-noncanonical"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 221, in main\n    else:extract(a.archive,a.out)\n         ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 263, in extract\n    safe(member.name)\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 49, in safe\n    need(not p.is_absolute() and raw == p.as_posix() and all(x not in {\"\", \".\", \"..\"} for x in p.parts),\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: unsafe/noncanonical path: a/../x\n"
+    },
+    {
+      "mode": 0,
+      "label": "reject-nonready-freeze",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "freeze",
+        "--plan",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/plan.json",
+        "--ready",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/ready.json",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/research-must-not-stage"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 218, in main\n    elif a.action=='freeze':freeze(a.plan,a.ready,a.out)\n                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 161, in freeze\n    need(r['status']=='ROOT_FINAL_READY'and r['schema']=='RH_LIMIT_ROOT_FINAL_READY_V1','ROOT_FINAL_READY required')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: ROOT_FINAL_READY required\n"
+    },
+    {
+      "mode": 0,
+      "label": "reject-wrong-root-plan-hash",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "freeze",
+        "--plan",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/plan.json",
+        "--ready",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/ready.json",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/research-must-not-stage"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 218, in main\n    elif a.action=='freeze':freeze(a.plan,a.ready,a.out)\n                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 162, in freeze\n    need(r['approved_plan_sha256']==sha(plan_path),'ready receipt does not approve exact current plan')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: ready receipt does not approve exact current plan\n"
+    },
+    {
+      "mode": 0,
+      "label": "reject-missing-active-CLI-arguments-prepare_bundle.py",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "freeze"
+      ],
+      "returncode": 2,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "usage: prepare_bundle.py freeze [-h] --plan PLAN --ready READY --out OUT\nprepare_bundle.py freeze: error: the following arguments are required: --plan, --ready, --out\n"
+    },
+    {
+      "mode": 0,
+      "label": "reject-missing-active-CLI-arguments-prepare_bundle.py",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "plan"
+      ],
+      "returncode": 2,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "usage: prepare_bundle.py plan [-h] --network NETWORK --prior-archive\n                              PRIOR_ARCHIVE [--canonical CANONICAL] --out OUT\nprepare_bundle.py plan: error: the following arguments are required: --network, --prior-archive, --out\n"
+    },
+    {
+      "mode": 0,
+      "label": "reject-missing-active-CLI-arguments-join_bundle.py",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 120, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 116, in main\n    need(a.parts_dir is not None, '--parts-dir required')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 16, in need\n    raise ValueError(message)\nValueError: --parts-dir required\n"
+    },
+    {
+      "mode": 0,
+      "label": "reject-missing-active-CLI-arguments-REPRODUCE_RH_LIMIT.py",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/REPRODUCE_RH_LIMIT.py"
+      ],
+      "returncode": 2,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "usage: REPRODUCE_RH_LIMIT.py [-h] [--context CONTEXT] --out OUT [--check]\n                             [--serial] [--self-test]\nREPRODUCE_RH_LIMIT.py: error: the following arguments are required: --out\n"
+    },
+    {
+      "mode": 0,
+      "label": "reject-unknown-option",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "plan",
+        "--unexpected"
+      ],
+      "returncode": 2,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "usage: prepare_bundle.py plan [-h] --network NETWORK --prior-archive\n                              PRIOR_ARCHIVE [--canonical CANONICAL] --out OUT\nprepare_bundle.py plan: error: the following arguments are required: --network, --prior-archive, --out\n"
+    },
+    {
+      "mode": 0,
+      "label": "tiny-bounded-process",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/run_replay_bounded.py",
+        "--record",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/bounded",
+        "--limit-gib",
+        "80",
+        "--group-gib",
+        "240",
+        "--wall-seconds",
+        "30",
+        "--",
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-c",
+        "print(123)"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "stdout": "{\"status\": \"PASS_PROCESS_EXIT_ZERO\", \"returncode\": 0, \"elapsed_seconds\": 0.057796159759163857, \"maximum_sampled_tree_RSS_bytes\": 0}\n",
+      "stderr": ""
+    },
+    {
+      "mode": 0,
+      "label": "reject-group-over240",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/run_replay_bounded.py",
+        "--record",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/must-not-run",
+        "--group-gib",
+        "241",
+        "--",
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-c",
+        "print(123)"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/run_replay_bounded.py\", line 113, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/run_replay_bounded.py\", line 55, in main\n    need(1 <= a.limit_gib <= 80 and 1 <= a.group_gib <= 240 and 1 <= a.wall_seconds <= 14400, 'resource policy bounds')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/run_replay_bounded.py\", line 12, in need\n    raise ValueError(message)\nValueError: resource policy bounds\n"
+    },
+    {
+      "mode": 0,
+      "label": "toy-orchestrator-concurrency-dependencies-and-failures",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/REPRODUCE_RH_LIMIT.py",
+        "--self-test",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/orchestrator"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "stdout": "PASS_TOY analytic-absolute\nPASS_TOY octic\nPASS_TOY pi\nPASS_TOY analytic-box\nPASS_TOY spectral\nPASS_TOY pi\nPASS_TOY spectral\nPASS_TOY analytic-absolute\nPASS_TOY octic\nPASS_TOY analytic-box\nPASS_TOY analytic-absolute\nPASS_TOY octic\nPASS_TOY analytic-box\nPASS_TOY octic\nPASS_TOY analytic-absolute\nPASS_TOY pi\nPASS_TOY spectral\nPASS_TOY analytic-absolute\nPASS_TOY pi\nPASS_TOY analytic-box\nPASS_TOY_PARALLEL_SERIAL_FAILURE_AND_MEMORY_CONTROLS\n",
+      "stderr": ""
+    },
+    {
+      "mode": 0,
+      "label": "reject-toy-with-production-context",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/REPRODUCE_RH_LIMIT.py",
+        "--self-test",
+        "--context",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/never-used",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/must-not-launch"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/REPRODUCE_RH_LIMIT.py\", line 192, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/REPRODUCE_RH_LIMIT.py\", line 153, in main\n    need(a.context is None and not a.check and not a.serial,'toy test runs parallel and serial internally, without production context');toy_self_test(a.out.resolve());return\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: toy test runs parallel and serial internally, without production context\n"
+    },
+    {
+      "mode": 0,
+      "label": "reject-ambiguous-toy-serial",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/REPRODUCE_RH_LIMIT.py",
+        "--self-test",
+        "--serial",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/0/must-not-launch-serial"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/REPRODUCE_RH_LIMIT.py\", line 192, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/REPRODUCE_RH_LIMIT.py\", line 153, in main\n    need(a.context is None and not a.check and not a.serial,'toy test runs parallel and serial internally, without production context');toy_self_test(a.out.resolve());return\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: toy test runs parallel and serial internally, without production context\n"
+    },
+    {
+      "mode": 1,
+      "label": "seal-toy",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py",
+        "seal",
+        "--tree",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/toy"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "stdout": "{\"status\": \"MANIFEST_SEALED\", \"files\": 1}\n",
+      "stderr": ""
+    },
+    {
+      "mode": 1,
+      "label": "verify-toy",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "verify",
+        "--tree",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/toy"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "stdout": "{\"status\": \"PASS_ALL_SOURCE_BYTES_AND_MEMBERS\", \"files\": 1}\n",
+      "stderr": ""
+    },
+    {
+      "mode": 1,
+      "label": "pack-toy",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py",
+        "pack",
+        "--tree",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/toy",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/TOY.tar.gz"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "stdout": "{\"schema\": \"RH_CONTINUATION_ARCHIVE_IDENTITY_V1\", \"archive\": \"TOY.tar.gz\", \"bytes\": 322, \"sha256\": \"0341706932b70a9937e09d2dddbe615ec2ef66104c2bf423ca228dcfec0bcadb\", \"manifest_sha256\": \"33e9f33d469a3430bb3f8b09178d5b00504dc46e9d9de809b35556ea363f2043\", \"manifest_files\": 1}\n",
+      "stderr": ""
+    },
+    {
+      "mode": 1,
+      "label": "extract-toy",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "extract",
+        "--archive",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/TOY.tar.gz",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/extracted"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "stdout": "{\"status\": \"PASS_STRICT_ARCHIVE_EXTRACTION_AND_ALL_FILE_HASHES\", \"files\": 1}\n",
+      "stderr": ""
+    },
+    {
+      "mode": 1,
+      "label": "split-toy",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py",
+        "--split",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/TOY.tar.gz",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/parts",
+        "--part-bytes",
+        "64"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "stdout": "{\"status\": \"PASS_SPLIT_EXACT_ARCHIVE_INTO_BOUNDED_PARTS\", \"parts\": 6, \"maximum_part_bytes\": 64, \"archive_sha256\": \"0341706932b70a9937e09d2dddbe615ec2ef66104c2bf423ca228dcfec0bcadb\"}\n",
+      "stderr": ""
+    },
+    {
+      "mode": 1,
+      "label": "check-toy-parts",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py",
+        "--parts-dir",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/parts",
+        "--check"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "stdout": "{\"status\": \"PASS_ALL_PARTS_AND_WHOLE_ARCHIVE_SHA256\", \"bytes\": 322, \"sha256\": \"0341706932b70a9937e09d2dddbe615ec2ef66104c2bf423ca228dcfec0bcadb\"}\n",
+      "stderr": ""
+    },
+    {
+      "mode": 1,
+      "label": "reject-corrupt-extraction-helper",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py",
+        "--parts-dir",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/parts",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 120, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 117, in main\n    join(a.parts_dir.resolve(), a.out.resolve() if a.out is not None else None, a.check)\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 74, in join\n    need(sha(parts / 'archive_tools.py') == m['extract_helper_sha256'], 'extract helper identity differs')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 16, in need\n    raise ValueError(message)\nValueError: extract helper identity differs\n"
+    },
+    {
+      "mode": 1,
+      "label": "join-toy",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py",
+        "--parts-dir",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/parts",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/joined.tar.gz"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "stdout": "{\"status\": \"PASS_RECONSTRUCTED_EXACT_ARCHIVE\", \"bytes\": 322, \"sha256\": \"0341706932b70a9937e09d2dddbe615ec2ef66104c2bf423ca228dcfec0bcadb\"}\n",
+      "stderr": ""
+    },
+    {
+      "mode": 1,
+      "label": "reject-extra-part",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py",
+        "--parts-dir",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/parts",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 120, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 117, in main\n    join(a.parts_dir.resolve(), a.out.resolve() if a.out is not None else None, a.check)\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 75, in join\n    need({p.name for p in parts.glob('RH_LIMIT_SOURCE.part*')} == {row['path'] for row in rows}, 'unexpected or missing part membership')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 16, in need\n    raise ValueError(message)\nValueError: unexpected or missing part membership\n"
+    },
+    {
+      "mode": 1,
+      "label": "reject-corrupt-part",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py",
+        "--parts-dir",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/parts",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 120, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 117, in main\n    join(a.parts_dir.resolve(), a.out.resolve() if a.out is not None else None, a.check)\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 88, in join\n    need(local.hexdigest() == row['sha256'], 'part hash mismatch: ' + row['path'])\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 16, in need\n    raise ValueError(message)\nValueError: part hash mismatch: RH_LIMIT_SOURCE.part001\n"
+    },
+    {
+      "mode": 1,
+      "label": "reject-existing-join-output",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py",
+        "--parts-dir",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/parts",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/joined.tar.gz"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 120, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 117, in main\n    join(a.parts_dir.resolve(), a.out.resolve() if a.out is not None else None, a.check)\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 94, in join\n    need(out is not None and not out.exists() and not out.is_symlink(), 'fresh --out archive required')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 16, in need\n    raise ValueError(message)\nValueError: fresh --out archive required\n"
+    },
+    {
+      "mode": 1,
+      "label": "reject-oversized-parts",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py",
+        "--split",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/TOY.tar.gz",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/oversized",
+        "--part-bytes",
+        "6291457"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 120, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 114, in main\n    split(a.split.resolve(), a.out.resolve(), a.part_bytes)\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 43, in split\n    need(1 <= part_bytes <= MAX_PART and re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]{0,127}', archive.name), 'invalid archive name/part bound')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 16, in need\n    raise ValueError(message)\nValueError: invalid archive name/part bound\n"
+    },
+    {
+      "mode": 1,
+      "label": "reject-no-final-ready",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "pack",
+        "--tree",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/toy",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/not-approved.tar.gz"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 220, in main\n    elif a.action=='pack':approved_archive(a.tree,a.out)\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 192, in approved_archive\n    verify(tree);r=strict(tree/'ROOT_FINAL_READY.json');p=strict(tree/'SOURCE_PLAN.json')\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 25, in strict\n    def strict(p):return decode(Path(p).read_bytes())\n                                ^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/pathlib.py\", line 1050, in read_bytes\n    with self.open(mode='rb') as f:\n         ^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/pathlib.py\", line 1044, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/toy/ROOT_FINAL_READY.json'\n"
+    },
+    {
+      "mode": 1,
+      "label": "reject-duplicate-JSON",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "verify",
+        "--tree",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/bad"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 219, in main\n    elif a.action=='verify':print(json.dumps({'status':'PASS_ALL_SOURCE_BYTES_AND_MEMBERS','files':verify(a.tree)}))\n                                                                                                   ^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 221, in verify\n    m = strict(tree / \"BUNDLE_MANIFEST.json\")\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 41, in strict\n    return json.loads(Path(path).read_bytes(), object_pairs_hook=pairs,\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/__init__.py\", line 359, in loads\n    return cls(**kw).decode(s)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 337, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 353, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 34, in pairs\n    need(key not in result, \"duplicate JSON key: \" + key)\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: duplicate JSON key: schema\n"
+    },
+    {
+      "mode": 1,
+      "label": "reject-overflowing-JSON",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "verify",
+        "--tree",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/bad"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 219, in main\n    elif a.action=='verify':print(json.dumps({'status':'PASS_ALL_SOURCE_BYTES_AND_MEMBERS','files':verify(a.tree)}))\n                                                                                                   ^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 221, in verify\n    m = strict(tree / \"BUNDLE_MANIFEST.json\")\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 41, in strict\n    return json.loads(Path(path).read_bytes(), object_pairs_hook=pairs,\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/__init__.py\", line 359, in loads\n    return cls(**kw).decode(s)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 337, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 353, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 39, in number\n    need(abs(value) != float(\"inf\"), \"overflowing JSON float\")\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: overflowing JSON float\n"
+    },
+    {
+      "mode": 1,
+      "label": "reject-changed-source",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "verify",
+        "--tree",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/toy"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 219, in main\n    elif a.action=='verify':print(json.dumps({'status':'PASS_ALL_SOURCE_BYTES_AND_MEMBERS','files':verify(a.tree)}))\n                                                                                                   ^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 230, in verify\n    need(p.is_file() and not p.is_symlink() and p.stat().st_size == row[\"bytes\"] and sha(p) == row[\"sha256\"], \"file hash/size mismatch: \" + rel)\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: file hash/size mismatch: source.txt\n"
+    },
+    {
+      "mode": 1,
+      "label": "reject-extra-member",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "verify",
+        "--tree",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/toy"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 219, in main\n    elif a.action=='verify':print(json.dumps({'status':'PASS_ALL_SOURCE_BYTES_AND_MEMBERS','files':verify(a.tree)}))\n                                                                                                   ^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 232, in verify\n    need(actual == names, \"manifest membership differs\")\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: manifest membership differs\n"
+    },
+    {
+      "mode": 1,
+      "label": "reject-invalid-member-parent",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "extract",
+        "--archive",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/parent.tar.gz",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/invalid-parent"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 221, in main\n    else:extract(a.archive,a.out)\n         ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 263, in extract\n    safe(member.name)\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 49, in safe\n    need(not p.is_absolute() and raw == p.as_posix() and all(x not in {\"\", \".\", \"..\"} for x in p.parts),\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: unsafe/noncanonical path: ../x\n"
+    },
+    {
+      "mode": 1,
+      "label": "reject-invalid-member-absolute",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "extract",
+        "--archive",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/absolute.tar.gz",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/invalid-absolute"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 221, in main\n    else:extract(a.archive,a.out)\n         ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 263, in extract\n    safe(member.name)\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 49, in safe\n    need(not p.is_absolute() and raw == p.as_posix() and all(x not in {\"\", \".\", \"..\"} for x in p.parts),\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: unsafe/noncanonical path: /x\n"
+    },
+    {
+      "mode": 1,
+      "label": "reject-invalid-member-duplicate",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "extract",
+        "--archive",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/duplicate.tar.gz",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/invalid-duplicate"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 221, in main\n    else:extract(a.archive,a.out)\n         ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 264, in extract\n    need(member.name not in names and member.isfile() and member.size >= 0,\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: duplicate, linked or nonregular archive member\n"
+    },
+    {
+      "mode": 1,
+      "label": "reject-invalid-member-link",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "extract",
+        "--archive",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/link.tar.gz",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/invalid-link"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 221, in main\n    else:extract(a.archive,a.out)\n         ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 264, in extract\n    need(member.name not in names and member.isfile() and member.size >= 0,\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: duplicate, linked or nonregular archive member\n"
+    },
+    {
+      "mode": 1,
+      "label": "reject-invalid-member-prefix",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "extract",
+        "--archive",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/prefix.tar.gz",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/invalid-prefix"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 221, in main\n    else:extract(a.archive,a.out)\n         ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 268, in extract\n    need(not any(parent.as_posix() in names for parent in PurePosixPath(name).parents\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: file/directory archive prefix collision\n"
+    },
+    {
+      "mode": 1,
+      "label": "reject-invalid-member-noncanonical",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "extract",
+        "--archive",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/noncanonical.tar.gz",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/invalid-noncanonical"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 221, in main\n    else:extract(a.archive,a.out)\n         ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 263, in extract\n    safe(member.name)\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 49, in safe\n    need(not p.is_absolute() and raw == p.as_posix() and all(x not in {\"\", \".\", \"..\"} for x in p.parts),\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: unsafe/noncanonical path: a/../x\n"
+    },
+    {
+      "mode": 1,
+      "label": "reject-nonready-freeze",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "freeze",
+        "--plan",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/plan.json",
+        "--ready",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/ready.json",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/research-must-not-stage"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 218, in main\n    elif a.action=='freeze':freeze(a.plan,a.ready,a.out)\n                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 161, in freeze\n    need(r['status']=='ROOT_FINAL_READY'and r['schema']=='RH_LIMIT_ROOT_FINAL_READY_V1','ROOT_FINAL_READY required')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: ROOT_FINAL_READY required\n"
+    },
+    {
+      "mode": 1,
+      "label": "reject-wrong-root-plan-hash",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "freeze",
+        "--plan",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/plan.json",
+        "--ready",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/ready.json",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/research-must-not-stage"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 218, in main\n    elif a.action=='freeze':freeze(a.plan,a.ready,a.out)\n                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 162, in freeze\n    need(r['approved_plan_sha256']==sha(plan_path),'ready receipt does not approve exact current plan')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: ready receipt does not approve exact current plan\n"
+    },
+    {
+      "mode": 1,
+      "label": "reject-missing-active-CLI-arguments-prepare_bundle.py",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "freeze"
+      ],
+      "returncode": 2,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "usage: prepare_bundle.py freeze [-h] --plan PLAN --ready READY --out OUT\nprepare_bundle.py freeze: error: the following arguments are required: --plan, --ready, --out\n"
+    },
+    {
+      "mode": 1,
+      "label": "reject-missing-active-CLI-arguments-prepare_bundle.py",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "plan"
+      ],
+      "returncode": 2,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "usage: prepare_bundle.py plan [-h] --network NETWORK --prior-archive\n                              PRIOR_ARCHIVE [--canonical CANONICAL] --out OUT\nprepare_bundle.py plan: error: the following arguments are required: --network, --prior-archive, --out\n"
+    },
+    {
+      "mode": 1,
+      "label": "reject-missing-active-CLI-arguments-join_bundle.py",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 120, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 116, in main\n    need(a.parts_dir is not None, '--parts-dir required')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 16, in need\n    raise ValueError(message)\nValueError: --parts-dir required\n"
+    },
+    {
+      "mode": 1,
+      "label": "reject-missing-active-CLI-arguments-REPRODUCE_RH_LIMIT.py",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/REPRODUCE_RH_LIMIT.py"
+      ],
+      "returncode": 2,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "usage: REPRODUCE_RH_LIMIT.py [-h] [--context CONTEXT] --out OUT [--check]\n                             [--serial] [--self-test]\nREPRODUCE_RH_LIMIT.py: error: the following arguments are required: --out\n"
+    },
+    {
+      "mode": 1,
+      "label": "reject-unknown-option",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "plan",
+        "--unexpected"
+      ],
+      "returncode": 2,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "usage: prepare_bundle.py plan [-h] --network NETWORK --prior-archive\n                              PRIOR_ARCHIVE [--canonical CANONICAL] --out OUT\nprepare_bundle.py plan: error: the following arguments are required: --network, --prior-archive, --out\n"
+    },
+    {
+      "mode": 1,
+      "label": "tiny-bounded-process",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/run_replay_bounded.py",
+        "--record",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/bounded",
+        "--limit-gib",
+        "80",
+        "--group-gib",
+        "240",
+        "--wall-seconds",
+        "30",
+        "--",
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-c",
+        "print(123)"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "stdout": "{\"status\": \"PASS_PROCESS_EXIT_ZERO\", \"returncode\": 0, \"elapsed_seconds\": 0.058065375313162804, \"maximum_sampled_tree_RSS_bytes\": 0}\n",
+      "stderr": ""
+    },
+    {
+      "mode": 1,
+      "label": "reject-group-over240",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/run_replay_bounded.py",
+        "--record",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/must-not-run",
+        "--group-gib",
+        "241",
+        "--",
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-c",
+        "print(123)"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/run_replay_bounded.py\", line 113, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/run_replay_bounded.py\", line 55, in main\n    need(1 <= a.limit_gib <= 80 and 1 <= a.group_gib <= 240 and 1 <= a.wall_seconds <= 14400, 'resource policy bounds')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/run_replay_bounded.py\", line 12, in need\n    raise ValueError(message)\nValueError: resource policy bounds\n"
+    },
+    {
+      "mode": 1,
+      "label": "toy-orchestrator-concurrency-dependencies-and-failures",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/REPRODUCE_RH_LIMIT.py",
+        "--self-test",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/orchestrator"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "stdout": "PASS_TOY octic\nPASS_TOY analytic-absolute\nPASS_TOY pi\nPASS_TOY analytic-box\nPASS_TOY spectral\nPASS_TOY pi\nPASS_TOY spectral\nPASS_TOY analytic-absolute\nPASS_TOY octic\nPASS_TOY analytic-box\nPASS_TOY analytic-absolute\nPASS_TOY octic\nPASS_TOY analytic-box\nPASS_TOY analytic-absolute\nPASS_TOY octic\nPASS_TOY pi\nPASS_TOY spectral\nPASS_TOY analytic-absolute\nPASS_TOY pi\nPASS_TOY analytic-box\nPASS_TOY_PARALLEL_SERIAL_FAILURE_AND_MEMORY_CONTROLS\n",
+      "stderr": ""
+    },
+    {
+      "mode": 1,
+      "label": "reject-toy-with-production-context",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/REPRODUCE_RH_LIMIT.py",
+        "--self-test",
+        "--context",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/never-used",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/must-not-launch"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/REPRODUCE_RH_LIMIT.py\", line 192, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/REPRODUCE_RH_LIMIT.py\", line 153, in main\n    need(a.context is None and not a.check and not a.serial,'toy test runs parallel and serial internally, without production context');toy_self_test(a.out.resolve());return\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: toy test runs parallel and serial internally, without production context\n"
+    },
+    {
+      "mode": 1,
+      "label": "reject-ambiguous-toy-serial",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/REPRODUCE_RH_LIMIT.py",
+        "--self-test",
+        "--serial",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/1/must-not-launch-serial"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/REPRODUCE_RH_LIMIT.py\", line 192, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/REPRODUCE_RH_LIMIT.py\", line 153, in main\n    need(a.context is None and not a.check and not a.serial,'toy test runs parallel and serial internally, without production context');toy_self_test(a.out.resolve());return\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: toy test runs parallel and serial internally, without production context\n"
+    },
+    {
+      "mode": 2,
+      "label": "seal-toy",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py",
+        "seal",
+        "--tree",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/toy"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "stdout": "{\"status\": \"MANIFEST_SEALED\", \"files\": 1}\n",
+      "stderr": ""
+    },
+    {
+      "mode": 2,
+      "label": "verify-toy",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "verify",
+        "--tree",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/toy"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "stdout": "{\"status\": \"PASS_ALL_SOURCE_BYTES_AND_MEMBERS\", \"files\": 1}\n",
+      "stderr": ""
+    },
+    {
+      "mode": 2,
+      "label": "pack-toy",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py",
+        "pack",
+        "--tree",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/toy",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/TOY.tar.gz"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "stdout": "{\"schema\": \"RH_CONTINUATION_ARCHIVE_IDENTITY_V1\", \"archive\": \"TOY.tar.gz\", \"bytes\": 322, \"sha256\": \"0341706932b70a9937e09d2dddbe615ec2ef66104c2bf423ca228dcfec0bcadb\", \"manifest_sha256\": \"33e9f33d469a3430bb3f8b09178d5b00504dc46e9d9de809b35556ea363f2043\", \"manifest_files\": 1}\n",
+      "stderr": ""
+    },
+    {
+      "mode": 2,
+      "label": "extract-toy",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "extract",
+        "--archive",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/TOY.tar.gz",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/extracted"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "stdout": "{\"status\": \"PASS_STRICT_ARCHIVE_EXTRACTION_AND_ALL_FILE_HASHES\", \"files\": 1}\n",
+      "stderr": ""
+    },
+    {
+      "mode": 2,
+      "label": "split-toy",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py",
+        "--split",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/TOY.tar.gz",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/parts",
+        "--part-bytes",
+        "64"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "stdout": "{\"status\": \"PASS_SPLIT_EXACT_ARCHIVE_INTO_BOUNDED_PARTS\", \"parts\": 6, \"maximum_part_bytes\": 64, \"archive_sha256\": \"0341706932b70a9937e09d2dddbe615ec2ef66104c2bf423ca228dcfec0bcadb\"}\n",
+      "stderr": ""
+    },
+    {
+      "mode": 2,
+      "label": "check-toy-parts",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py",
+        "--parts-dir",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/parts",
+        "--check"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "stdout": "{\"status\": \"PASS_ALL_PARTS_AND_WHOLE_ARCHIVE_SHA256\", \"bytes\": 322, \"sha256\": \"0341706932b70a9937e09d2dddbe615ec2ef66104c2bf423ca228dcfec0bcadb\"}\n",
+      "stderr": ""
+    },
+    {
+      "mode": 2,
+      "label": "reject-corrupt-extraction-helper",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py",
+        "--parts-dir",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/parts",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 120, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 117, in main\n    join(a.parts_dir.resolve(), a.out.resolve() if a.out is not None else None, a.check)\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 74, in join\n    need(sha(parts / 'archive_tools.py') == m['extract_helper_sha256'], 'extract helper identity differs')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 16, in need\n    raise ValueError(message)\nValueError: extract helper identity differs\n"
+    },
+    {
+      "mode": 2,
+      "label": "join-toy",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py",
+        "--parts-dir",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/parts",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/joined.tar.gz"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "stdout": "{\"status\": \"PASS_RECONSTRUCTED_EXACT_ARCHIVE\", \"bytes\": 322, \"sha256\": \"0341706932b70a9937e09d2dddbe615ec2ef66104c2bf423ca228dcfec0bcadb\"}\n",
+      "stderr": ""
+    },
+    {
+      "mode": 2,
+      "label": "reject-extra-part",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py",
+        "--parts-dir",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/parts",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 120, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 117, in main\n    join(a.parts_dir.resolve(), a.out.resolve() if a.out is not None else None, a.check)\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 75, in join\n    need({p.name for p in parts.glob('RH_LIMIT_SOURCE.part*')} == {row['path'] for row in rows}, 'unexpected or missing part membership')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 16, in need\n    raise ValueError(message)\nValueError: unexpected or missing part membership\n"
+    },
+    {
+      "mode": 2,
+      "label": "reject-corrupt-part",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py",
+        "--parts-dir",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/parts",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 120, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 117, in main\n    join(a.parts_dir.resolve(), a.out.resolve() if a.out is not None else None, a.check)\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 88, in join\n    need(local.hexdigest() == row['sha256'], 'part hash mismatch: ' + row['path'])\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 16, in need\n    raise ValueError(message)\nValueError: part hash mismatch: RH_LIMIT_SOURCE.part001\n"
+    },
+    {
+      "mode": 2,
+      "label": "reject-existing-join-output",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py",
+        "--parts-dir",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/parts",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/joined.tar.gz"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 120, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 117, in main\n    join(a.parts_dir.resolve(), a.out.resolve() if a.out is not None else None, a.check)\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 94, in join\n    need(out is not None and not out.exists() and not out.is_symlink(), 'fresh --out archive required')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 16, in need\n    raise ValueError(message)\nValueError: fresh --out archive required\n"
+    },
+    {
+      "mode": 2,
+      "label": "reject-oversized-parts",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py",
+        "--split",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/TOY.tar.gz",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/oversized",
+        "--part-bytes",
+        "6291457"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 120, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 114, in main\n    split(a.split.resolve(), a.out.resolve(), a.part_bytes)\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 43, in split\n    need(1 <= part_bytes <= MAX_PART and re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]{0,127}', archive.name), 'invalid archive name/part bound')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 16, in need\n    raise ValueError(message)\nValueError: invalid archive name/part bound\n"
+    },
+    {
+      "mode": 2,
+      "label": "reject-no-final-ready",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "pack",
+        "--tree",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/toy",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/not-approved.tar.gz"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 220, in main\n    elif a.action=='pack':approved_archive(a.tree,a.out)\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 192, in approved_archive\n    verify(tree);r=strict(tree/'ROOT_FINAL_READY.json');p=strict(tree/'SOURCE_PLAN.json')\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 25, in strict\n    def strict(p):return decode(Path(p).read_bytes())\n                                ^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/pathlib.py\", line 1050, in read_bytes\n    with self.open(mode='rb') as f:\n         ^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/pathlib.py\", line 1044, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/toy/ROOT_FINAL_READY.json'\n"
+    },
+    {
+      "mode": 2,
+      "label": "reject-duplicate-JSON",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "verify",
+        "--tree",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/bad"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 219, in main\n    elif a.action=='verify':print(json.dumps({'status':'PASS_ALL_SOURCE_BYTES_AND_MEMBERS','files':verify(a.tree)}))\n                                                                                                   ^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 221, in verify\n    m = strict(tree / \"BUNDLE_MANIFEST.json\")\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 41, in strict\n    return json.loads(Path(path).read_bytes(), object_pairs_hook=pairs,\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/__init__.py\", line 359, in loads\n    return cls(**kw).decode(s)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 337, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 353, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 34, in pairs\n    need(key not in result, \"duplicate JSON key: \" + key)\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: duplicate JSON key: schema\n"
+    },
+    {
+      "mode": 2,
+      "label": "reject-overflowing-JSON",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "verify",
+        "--tree",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/bad"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 219, in main\n    elif a.action=='verify':print(json.dumps({'status':'PASS_ALL_SOURCE_BYTES_AND_MEMBERS','files':verify(a.tree)}))\n                                                                                                   ^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 221, in verify\n    m = strict(tree / \"BUNDLE_MANIFEST.json\")\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 41, in strict\n    return json.loads(Path(path).read_bytes(), object_pairs_hook=pairs,\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/__init__.py\", line 359, in loads\n    return cls(**kw).decode(s)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 337, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py\", line 353, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 39, in number\n    need(abs(value) != float(\"inf\"), \"overflowing JSON float\")\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: overflowing JSON float\n"
+    },
+    {
+      "mode": 2,
+      "label": "reject-changed-source",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "verify",
+        "--tree",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/toy"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 219, in main\n    elif a.action=='verify':print(json.dumps({'status':'PASS_ALL_SOURCE_BYTES_AND_MEMBERS','files':verify(a.tree)}))\n                                                                                                   ^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 230, in verify\n    need(p.is_file() and not p.is_symlink() and p.stat().st_size == row[\"bytes\"] and sha(p) == row[\"sha256\"], \"file hash/size mismatch: \" + rel)\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: file hash/size mismatch: source.txt\n"
+    },
+    {
+      "mode": 2,
+      "label": "reject-extra-member",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "verify",
+        "--tree",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/toy"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 219, in main\n    elif a.action=='verify':print(json.dumps({'status':'PASS_ALL_SOURCE_BYTES_AND_MEMBERS','files':verify(a.tree)}))\n                                                                                                   ^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 232, in verify\n    need(actual == names, \"manifest membership differs\")\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: manifest membership differs\n"
+    },
+    {
+      "mode": 2,
+      "label": "reject-invalid-member-parent",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "extract",
+        "--archive",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/parent.tar.gz",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/invalid-parent"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 221, in main\n    else:extract(a.archive,a.out)\n         ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 263, in extract\n    safe(member.name)\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 49, in safe\n    need(not p.is_absolute() and raw == p.as_posix() and all(x not in {\"\", \".\", \"..\"} for x in p.parts),\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: unsafe/noncanonical path: ../x\n"
+    },
+    {
+      "mode": 2,
+      "label": "reject-invalid-member-absolute",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "extract",
+        "--archive",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/absolute.tar.gz",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/invalid-absolute"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 221, in main\n    else:extract(a.archive,a.out)\n         ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 263, in extract\n    safe(member.name)\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 49, in safe\n    need(not p.is_absolute() and raw == p.as_posix() and all(x not in {\"\", \".\", \"..\"} for x in p.parts),\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: unsafe/noncanonical path: /x\n"
+    },
+    {
+      "mode": 2,
+      "label": "reject-invalid-member-duplicate",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "extract",
+        "--archive",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/duplicate.tar.gz",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/invalid-duplicate"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 221, in main\n    else:extract(a.archive,a.out)\n         ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 264, in extract\n    need(member.name not in names and member.isfile() and member.size >= 0,\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: duplicate, linked or nonregular archive member\n"
+    },
+    {
+      "mode": 2,
+      "label": "reject-invalid-member-link",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "extract",
+        "--archive",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/link.tar.gz",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/invalid-link"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 221, in main\n    else:extract(a.archive,a.out)\n         ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 264, in extract\n    need(member.name not in names and member.isfile() and member.size >= 0,\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: duplicate, linked or nonregular archive member\n"
+    },
+    {
+      "mode": 2,
+      "label": "reject-invalid-member-prefix",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "extract",
+        "--archive",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/prefix.tar.gz",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/invalid-prefix"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 221, in main\n    else:extract(a.archive,a.out)\n         ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 268, in extract\n    need(not any(parent.as_posix() in names for parent in PurePosixPath(name).parents\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: file/directory archive prefix collision\n"
+    },
+    {
+      "mode": 2,
+      "label": "reject-invalid-member-noncanonical",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "extract",
+        "--archive",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/noncanonical.tar.gz",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/invalid-noncanonical"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 221, in main\n    else:extract(a.archive,a.out)\n         ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 263, in extract\n    safe(member.name)\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 49, in safe\n    need(not p.is_absolute() and raw == p.as_posix() and all(x not in {\"\", \".\", \"..\"} for x in p.parts),\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: unsafe/noncanonical path: a/../x\n"
+    },
+    {
+      "mode": 2,
+      "label": "reject-nonready-freeze",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "freeze",
+        "--plan",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/plan.json",
+        "--ready",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/ready.json",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/research-must-not-stage"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 218, in main\n    elif a.action=='freeze':freeze(a.plan,a.ready,a.out)\n                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 161, in freeze\n    need(r['status']=='ROOT_FINAL_READY'and r['schema']=='RH_LIMIT_ROOT_FINAL_READY_V1','ROOT_FINAL_READY required')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: ROOT_FINAL_READY required\n"
+    },
+    {
+      "mode": 2,
+      "label": "reject-wrong-root-plan-hash",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "freeze",
+        "--plan",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/plan.json",
+        "--ready",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/ready.json",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/research-must-not-stage"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 222, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 218, in main\n    elif a.action=='freeze':freeze(a.plan,a.ready,a.out)\n                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py\", line 162, in freeze\n    need(r['approved_plan_sha256']==sha(plan_path),'ready receipt does not approve exact current plan')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: ready receipt does not approve exact current plan\n"
+    },
+    {
+      "mode": 2,
+      "label": "reject-missing-active-CLI-arguments-prepare_bundle.py",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "freeze"
+      ],
+      "returncode": 2,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "usage: prepare_bundle.py freeze [-h] --plan PLAN --ready READY --out OUT\nprepare_bundle.py freeze: error: the following arguments are required: --plan, --ready, --out\n"
+    },
+    {
+      "mode": 2,
+      "label": "reject-missing-active-CLI-arguments-prepare_bundle.py",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "plan"
+      ],
+      "returncode": 2,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "usage: prepare_bundle.py plan [-h] --network NETWORK --prior-archive\n                              PRIOR_ARCHIVE [--canonical CANONICAL] --out OUT\nprepare_bundle.py plan: error: the following arguments are required: --network, --prior-archive, --out\n"
+    },
+    {
+      "mode": 2,
+      "label": "reject-missing-active-CLI-arguments-join_bundle.py",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 120, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 116, in main\n    need(a.parts_dir is not None, '--parts-dir required')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/join_bundle.py\", line 16, in need\n    raise ValueError(message)\nValueError: --parts-dir required\n"
+    },
+    {
+      "mode": 2,
+      "label": "reject-missing-active-CLI-arguments-REPRODUCE_RH_LIMIT.py",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/REPRODUCE_RH_LIMIT.py"
+      ],
+      "returncode": 2,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "usage: REPRODUCE_RH_LIMIT.py [-h] [--context CONTEXT] --out OUT [--check]\n                             [--serial] [--self-test]\nREPRODUCE_RH_LIMIT.py: error: the following arguments are required: --out\n"
+    },
+    {
+      "mode": 2,
+      "label": "reject-unknown-option",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/prepare_bundle.py",
+        "plan",
+        "--unexpected"
+      ],
+      "returncode": 2,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "usage: prepare_bundle.py plan [-h] --network NETWORK --prior-archive\n                              PRIOR_ARCHIVE [--canonical CANONICAL] --out OUT\nprepare_bundle.py plan: error: the following arguments are required: --network, --prior-archive, --out\n"
+    },
+    {
+      "mode": 2,
+      "label": "tiny-bounded-process",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/run_replay_bounded.py",
+        "--record",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/bounded",
+        "--limit-gib",
+        "80",
+        "--group-gib",
+        "240",
+        "--wall-seconds",
+        "30",
+        "--",
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-c",
+        "print(123)"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "stdout": "{\"status\": \"PASS_PROCESS_EXIT_ZERO\", \"returncode\": 0, \"elapsed_seconds\": 0.05674216151237488, \"maximum_sampled_tree_RSS_bytes\": 0}\n",
+      "stderr": ""
+    },
+    {
+      "mode": 2,
+      "label": "reject-group-over240",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/run_replay_bounded.py",
+        "--record",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/must-not-run",
+        "--group-gib",
+        "241",
+        "--",
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-c",
+        "print(123)"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/run_replay_bounded.py\", line 113, in <module>\n    main()\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/run_replay_bounded.py\", line 55, in main\n    need(1 <= a.limit_gib <= 80 and 1 <= a.group_gib <= 240 and 1 <= a.wall_seconds <= 14400, 'resource policy bounds')\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/run_replay_bounded.py\", line 12, in need\n    raise ValueError(message)\nValueError: resource policy bounds\n"
+    },
+    {
+      "mode": 2,
+      "label": "toy-orchestrator-concurrency-dependencies-and-failures",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/REPRODUCE_RH_LIMIT.py",
+        "--self-test",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/orchestrator"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "stdout": "PASS_TOY analytic-absolute\nPASS_TOY octic\nPASS_TOY pi\nPASS_TOY analytic-box\nPASS_TOY spectral\nPASS_TOY pi\nPASS_TOY spectral\nPASS_TOY analytic-absolute\nPASS_TOY octic\nPASS_TOY analytic-box\nPASS_TOY octic\nPASS_TOY analytic-absolute\nPASS_TOY analytic-box\nPASS_TOY octic\nPASS_TOY analytic-absolute\nPASS_TOY pi\nPASS_TOY spectral\nPASS_TOY analytic-absolute\nPASS_TOY pi\nPASS_TOY analytic-box\nPASS_TOY_PARALLEL_SERIAL_FAILURE_AND_MEMORY_CONTROLS\n",
+      "stderr": ""
+    },
+    {
+      "mode": 2,
+      "label": "reject-toy-with-production-context",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/REPRODUCE_RH_LIMIT.py",
+        "--self-test",
+        "--context",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/never-used",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/must-not-launch"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/REPRODUCE_RH_LIMIT.py\", line 192, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/REPRODUCE_RH_LIMIT.py\", line 153, in main\n    need(a.context is None and not a.check and not a.serial,'toy test runs parallel and serial internally, without production context');toy_self_test(a.out.resolve());return\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: toy test runs parallel and serial internally, without production context\n"
+    },
+    {
+      "mode": 2,
+      "label": "reject-ambiguous-toy-serial",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/REPRODUCE_RH_LIMIT.py",
+        "--self-test",
+        "--serial",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/toy-controls-v10/2/must-not-launch-serial"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/REPRODUCE_RH_LIMIT.py\", line 192, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/REPRODUCE_RH_LIMIT.py\", line 153, in main\n    need(a.context is None and not a.check and not a.serial,'toy test runs parallel and serial internally, without production context');toy_self_test(a.out.resolve());return\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/publication/archive_tools.py\", line 21, in need\n    raise ValueError(message)\nValueError: toy test runs parallel and serial internally, without production context\n"
+    }
+  ]
+}
