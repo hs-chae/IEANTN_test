@@ -1,0 +1,75 @@
+{
+  "schema": "MATCHED_TRANSFER_DISCOVERY_CONTROL_V2",
+  "source_first_PV": false,
+  "Lean_theorem": false,
+  "python_version": "3.11.14 (main, Jan 14 2026, 19:35:32) [Clang 21.1.4 ]",
+  "source_hashes": {
+    "matched_transfer_control.py": "7711d10c3448fc2f3dcd35a3caee55084065e8681c52409f7b48e963b04a246d",
+    "refined_ram_p8_p1_16.py": "d4741d9bf5de2ee63f975fcbc4aabe03309e8a5ba7d1dc12d14b3ed250e4c45e",
+    "ram_cert.py": "4f7d89cb3abf14424c19d0df8b5fa91cf10f07e25c822d3dfa0a1e658ff97c4e",
+    "MATCHED_TRANSFER_PARAMETERS.json": "1767fb7c450d0ece771cc5931ba70db22a5e2fb7fde85f2397300ab50494e7ef",
+    "MATCHED_TABLE1.json": "a477840ec91a0556b62dbc2ad5a04c41f4e3531a22dc1e0ef3088afd6132b66b"
+  },
+  "fixed_parameters": {
+    "onset": "620000000000",
+    "target_margin": "1/1000",
+    "log_interval": [
+      "27",
+      "42"
+    ],
+    "depth_cap": 30,
+    "subdivision": "LIFO midpoint rational bisection",
+    "rounding_denominator": "10^44",
+    "exp_terms": 155,
+    "log_atanh_terms": 35,
+    "polynomial_degree": 20,
+    "global_li_bound": "8/5",
+    "lower_prime_powers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "upper_explicit_powers": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "tail_start": 11,
+    "tail_multiplier": "512/5",
+    "base_tail_allowance": "1/1000",
+    "old_transfer": ".2772/L+14*L*exp(-L/2)",
+    "new_transfer": ".1386/(L-6)+14.44*L*exp(-L/2)",
+    "only_changed_input": "compensated J transfer",
+    "classification": "Exact-rational Python exploration; not PV or a Lean theorem",
+    "regeneration_command": "python3 matched_transfer_control.py > MATCHED_TRANSFER_CONTROL.json",
+    "inherited_control_checks": "Gamma bracket,H4096; factorial barriers; .047*(1+16/26)<.076 (the latter is an unused inherited check and does not enter either changed transfer)."
+  },
+  "outcomes": [
+    {
+      "transfer": "old_GM",
+      "status": "SCOUT_DID_NOT_CERTIFY",
+      "criterion_failure": {
+        "l": "29155295973/1073741824",
+        "u": "7288823997/268435456",
+        "lower": "-204886778069323667352459153465214642720291/25000000000000000000000000000000000000000000"
+      },
+      "mathematical_counterexample": false,
+      "resource_failure": false
+    },
+    {
+      "transfer": "new_GM",
+      "status": "SCOUT_LOWER_ENCLOSURE_ABOVE_TARGET",
+      "visited": 31,
+      "empty": 5,
+      "accepted_slabs": 11,
+      "minimum_lower_enclosure": "29878706148604166467000922489563758504663/25000000000000000000000000000000000000000000"
+    }
+  ]
+}

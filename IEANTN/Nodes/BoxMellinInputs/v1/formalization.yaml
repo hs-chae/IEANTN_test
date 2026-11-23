@@ -7,7 +7,8 @@ node:
   status: awaiting-verification
 project:
   name: BoxMellinInputs.v1
-  description: Exact remaining analytic identities for the regularized absolute box Mellin moments.
+  description: Exact remaining analytic identities for the regularized absolute box
+    Mellin moments.
   authors:
   - OpenAI (Codex)
   license: Apache-2.0
@@ -30,7 +31,8 @@ conclusions:
   justifications:
   - id: analytic-open
     kind: none-yet
-    note: Written positive Fourier-series, Gamma-integral and harmonic partial-fraction derivation; formal Mellin coefficient extraction and integrability remain open.
+    note: Written positive Fourier-series, Gamma-integral and harmonic partial-fraction
+      derivation; formal Mellin coefficient extraction and integrability remain open.
   designated: analytic-open
 - id: second_moment_identity
   declaration: BoxMellinInputs.v1.second_moment_identity
@@ -40,7 +42,9 @@ conclusions:
   justifications:
   - id: analytic-open
     kind: none-yet
-    note: Written exact coefficient identity, including actual Stieltjes limit; formal uniform expansion and differentiated Mellin identity remain open. The finite numerical cap is not a premise.
+    note: Written exact coefficient identity, including actual Stieltjes limit; formal
+      uniform expansion and differentiated Mellin identity remain open. The finite
+      numerical cap is not a premise.
   designated: analytic-open
 - id: stieltjes_trapezoid
   declaration: BoxMellinInputs.v1.stieltjes_trapezoid
@@ -50,8 +54,14 @@ conclusions:
   justifications:
   - id: analytic-open
     kind: none-yet
-    note: Written convergence from Euler summation and convex trapezoid comparison on t>=128; complete formal limit and trapezoid proof remain open.
-  designated: analytic-open
+    note: Written convergence from Euler summation and convex trapezoid comparison
+      on t>=128; complete formal limit and trapezoid proof remain open.
+  - id: unconditional-limit-proof
+    kind: lean-noncompliant
+    note: Actual sequence convergence to limUnder and exact128 trapezoid bound proved
+      unconditionally by RHLimit.v1/analytic/StieltjesTrapezoid.lean; cold48-source
+      replay passed. No numerical or RH hypothesis. Official Comparator pending.
+  designated: unconditional-limit-proof
 sources:
 - id: RHContinuation20261122BoxMellin
   title: Exact regularized absolute box Mellin moments and finite logarithmic evaluation
@@ -59,7 +69,10 @@ sources:
   - OpenAI (Codex)
   type: original-proof
   relationship: other
-  note: New post-lock continuation derivation in Solutions/RHContinuation.v1/parabolic/BOX_MELLIN_EXACT.md, independently reviewed mathematically. No external paper is asserted to state these exact identities as one theorem.
+  note: New post-lock continuation derivation in Solutions/RHContinuation.v1/parabolic/BOX_MELLIN_EXACT.md,
+    independently reviewed mathematically. No external paper is asserted to state
+    these exact identities as one theorem.
 limitations:
-- These are unresolved analytic inputs, not formalized theorems. Downstream source-first logarithm program verification and exact kernel aggregation do not discharge these analytic identities.
-- No official Comparator receipt is claimed; historical experiments and their original outcomes are unchanged.
+- First and second Mellin identities remain explicit unresolved analytic inputs. The
+  Stieltjes/trapezoid conclusion now has an unconditional local kernel proof.
+- No official Comparator receipt; historical outcomes unchanged.

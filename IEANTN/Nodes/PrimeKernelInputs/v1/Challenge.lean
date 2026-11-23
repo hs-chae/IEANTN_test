@@ -4,6 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: OpenAI (Codex)
 -/
 import IEANTN.Nodes.PrimeKernelInputs.v1.Conclusions
+import IEANTN.Nodes.PrimeKernelInputs.v2.Conclusions
 
 /-!
 # Challenge: `PrimeKernelInputs.v1`
@@ -16,8 +17,14 @@ Each `sorry` below is deliberate and permanent: a challenge *states*, it does no
 How each conclusion is justified is recorded in `formalization.yaml`, not here.
 -/
 
-theorem PrimeKernelInputs.v1.challenge_octic_215 : PrimeKernelInputs.v1.octic_215 := by
+theorem PrimeKernelInputs.v1.challenge_octic_215
+    (primekernelinputs_v2_octic_215_explicit_formula : PrimeKernelInputs.v2.octic_215_explicit_formula)
+    (primekernelinputs_v2_octic_215_zero_estimate : PrimeKernelInputs.v2.octic_215_zero_estimate) :
+    PrimeKernelInputs.v1.octic_215 := by
   sorry
 
-theorem PrimeKernelInputs.v1.challenge_octic_family : PrimeKernelInputs.v1.octic_family := by
+theorem PrimeKernelInputs.v1.challenge_octic_family
+    (primekernelinputs_v2_octic_family_explicit_formula : PrimeKernelInputs.v2.octic_family_explicit_formula)
+    (primekernelinputs_v2_octic_family_zero_estimate : PrimeKernelInputs.v2.octic_family_zero_estimate) :
+    PrimeKernelInputs.v1.octic_family := by
   sorry

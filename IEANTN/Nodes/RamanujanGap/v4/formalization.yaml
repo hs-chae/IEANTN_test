@@ -1,0 +1,110 @@
+version: v0.4
+node:
+  id: RamanujanGap.v4
+  family: RamanujanGap
+  version: v4
+  kind: pipeline
+  status: awaiting-verification
+project:
+  name: RamanujanGap.v4
+  description: "Actual all-real Ramanujan ray extended640b\u2192620b with margin.001\
+    \ and all stronger original upper-range margins retained. NewGM and Table1 source\
+    \ assumptions are explicit."
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+conclusions:
+- id: margin_620b
+  declaration: RamanujanGap.v4.margin_620b
+  challenge: RamanujanGap.v4.challenge_margin_620b
+  imports:
+  - node: RH.v1
+    conclusion: hypothesis
+  - node: RHPrimeCounting.v1
+    conclusion: gm_source
+  - node: Buthe.v1
+    conclusion: theorem_2_psi
+  - node: Buthe.v1
+    conclusion: theorem_2_li_minus_riemann_pi
+  - node: Buthe.v1
+    conclusion: table_1_interval_bounds
+  - node: Buthe.v1
+    conclusion: table_2_interval_bounds
+  - node: Buthe.v1
+    conclusion: theorem_2_li_minus_pi
+  - node: Buthe.v1
+    conclusion: theorem_2_li_gt_pi
+  - node: Buthe2016.v1
+    conclusion: theorem_2_li_minus_pi
+  imports_status: identified
+  justifications:
+  - id: local-proof
+    kind: lean-noncompliant
+    note: Actual standard-three-axiom conditional Solution, rebuilt from captured
+      source. Official Comparator receipt pending; source-first PV only where the
+      exact C execution chain is documented.
+  designated: local-proof
+- id: full_profile
+  declaration: RamanujanGap.v4.full_profile
+  challenge: RamanujanGap.v4.challenge_full_profile
+  imports:
+  - node: RamanujanGap.v4
+    conclusion: margin_620b
+  - node: RamanujanGap.v3
+    conclusion: full_profile
+  imports_status: identified
+  justifications:
+  - id: local-proof
+    kind: lean-noncompliant
+    note: Actual standard-three-axiom conditional Solution, rebuilt from captured
+      source. Official Comparator receipt pending; source-first PV only where the
+      exact C execution chain is documented.
+  designated: local-proof
+- id: ramanujan
+  declaration: RamanujanGap.v4.ramanujan
+  challenge: RamanujanGap.v4.challenge_ramanujan
+  imports:
+  - node: RamanujanGap.v4
+    conclusion: margin_620b
+  imports_status: identified
+  justifications:
+  - id: local-proof
+    kind: lean-noncompliant
+    note: Actual standard-three-axiom conditional Solution, rebuilt from captured
+      source. Official Comparator receipt pending; source-first PV only where the
+      exact C execution chain is documented.
+  designated: local-proof
+- id: retains_original_margin
+  declaration: RamanujanGap.v4.retains_original_margin
+  challenge: RamanujanGap.v4.challenge_retains_original_margin
+  imports: []
+  imports_status: none
+  justifications:
+  - id: local-proof
+    kind: lean-noncompliant
+    note: Actual standard-three-axiom conditional Solution, rebuilt from captured
+      source. Official Comparator receipt pending; source-first PV only where the
+      exact C execution chain is documented.
+  designated: local-proof
+sources:
+- id: RHLimit20261122
+  title: Post-lock RH limit continuation
+  authors:
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: Exact source and mathematical contracts in Solutions/RHLimit.v1; historical
+    results unchanged.
+limitations:
+- No official Comparator receipt. Conditional kernel proofs do not discharge named
+  analytic inputs. Native/kernel numerical evaluation is not source-first PV.

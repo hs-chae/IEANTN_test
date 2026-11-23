@@ -1,0 +1,25 @@
+The V1 derivative proof used a redundant funext after convert had already unfolded the function definition, and V1/V2 anchor linarith had differently normalized quotients under absolute values. Failed snapshots/logs are retained. V3 closed the actual new theorem; V4 added full-ray strict dominance and consumed psi/pi profiles. All accepted roots print only standard three axioms.
+
+An exploratory note initially claimed canonical small-RvM excludes every zero below12. This incorrectly imported the stronger BPT .28log error into the CH input pack. The actual CH small predicate is |N-main|<1, so the claim was withdrawn promptly. The existing9.676/17.847 staircase remains valid; a future mass proof can use it, but no new mass bound is claimed here yet.
+
+The development compiler currently uses read-only previously accepted application banks and separately pinned generic libraries; the root will execute complete-source validation before publication. No claim of new source-first PV is made.
+
+## Nicolas inverse-square mass relay
+
+`NicolasSpectralMass.lean` recovers ∑ multiplicity(ρ)/|ρ|² ≤ β by a right limit at 1 of the *actual* canonical Nicolas W. The primary source, Nicolas arXiv1202.0729v2, Eq(1.18)–(1.19), printed p4, supplies the actual W series and its RH bound for x>1. The proof uses x=2 to obtain norm summability, establishes coefficient reality/nonnegativity under RH, applies a uniform convergent-series continuity theorem, and only then takes the right limit to 1. It never evaluates the source outside its open domain. `BetaDecimal.lean` proves β<.047 by exact H1024 arithmetic, Mathlib's γ upper sequence, and kernel interval arithmetic for logπ. These are ordinary kernel mathematical proofs, **not source-first PV**. v1–v3 mass failures were algebraic redundant tactics; beta v1–v2 failures were cast normalization / one redundant tactic, all preserved. Accepted runs: nicolas-mass-v4 (2.6313217s), beta-v3 (11.1850647s).
+
+## Finite actual Ramanujan scout
+
+A controlled copy of locked `refined_ram.py` replaces only the J transfer with our proved refinedGM profile. With the locked sharper powers and global1.5 barrier, 610b fails, 620b passes margin.001 with 11 slabs and min.00140998. The global1.5 barrier was not yet kernel closed in the existing continuation, so a further scout retained the *already proved* global1.6 bound but kept the source-correct p8 square and p1 smaller-root barriers: 620b still passes min.00119514824594, 11 slabs. This is a numerical scout, not an accepted mathematical consumer or PV of Python. Actual proof work targets this latter contract and will reuse exact source Table1 and all-real finite count identities; 610b remains open. P3-only variants fail620b and pass630b, negative results preserved.
+
+## Final consumer and reproduction boundary
+
+All ten development modules completed. The accepted final5slab scalar run took275.8615s with31,411,776KiB peakRSS and zero observed OOM. The strict actualπ theorem and retained-margin profile both compile with only standard3 axioms. A full ten-module repeat against the *old accepted* application banks was externally interrupted with session exit143 after its first8modules, while Ram620Leaves was live. Neither parent nor owner requested a stop. There was no normal RESULT/FAILURE receipt, no observed OOM, and no mathematical failure; exact interrupt sender is unavailable. This repeat is explicitly unaccepted; original individual PASS receipts remain intact. The decisive complete source replay instead uses the parent's independently cold261 basis plus our exact55-module append, source-frozen inSOURCE_CLOSURE.json. Its controller refuses an unfinished/nonpass basis or any changed basis source/object/log. OldFullRH's unused declarations are not transplanted; every consumer recompiles against the rootPNTFullRH identity.
+
+The first aggregate sealer expected an axiom_audits field missing from the earliest development receipt. It failed closed in all three Python modes before publishing anything. The corrected sealer reads the actual compiler stdout, independently parses every printed theorem dependency and checks its exact source hash; all three modes then pass. No proof or acceptance criterion was weakened.
+
+## Profile scope correction
+
+Root noted that canonical RamanujanGap.v3 has a stronger p20max/large-log profile beyond the basic1/12+.8 sourceCertifiedMargin. Our retains_original_margin theorem is exactly equality with the latter only. Earlier prose saying “all old margins” was too broad and has been corrected across README, HTML generator and result comparison. The root’s canonicalv4 glue preserves the stronger fullv3 profile; our55closure is not expanded or advertised as that stronger consumer.
+
+A progress message mistyped the matched-control minimum as “.001.195...”. It was immediately corrected to0.0011951482459441666; the exact stored fraction and all Lean source/receipts were unchanged. The matched control is numerical discovery evidence only: its old-transfer negative lower envelope is not a counterexample or a Lean theorem.

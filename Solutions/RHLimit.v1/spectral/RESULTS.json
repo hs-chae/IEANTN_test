@@ -1,0 +1,103 @@
+{
+  "schema": "RH_LIMIT_SOURCE_CORRECT_GM_VARIABLE_PROFILE_V1",
+  "status": "PASS_ACTUAL_J_AND_PI_CONSUMERS_KERNEL_PROVED_WITH_ORIGINAL_SOURCE_INPUTS",
+  "source_file": "Solutions/RHLimit.v1/spectral/SpectralGMRefined.lean",
+  "source_sha256": "5f484cf9f06fa0c774becd702c0335de34536d21e28bb5182f3559ebeb5a64dc",
+  "source_statement": "RH + exactGM4termprimitive + Buthe2015Eq1.5/Eq1.8",
+  "actual_quantity": "T(x)=actualJ(x)-actualPVli(x)-(actualpsi(x)-x)/logx",
+  "domain": "allrealx>=exp12",
+  "new_full_bound": "14.44+.1386*sqrt(x)/(log(x)*(log(x)-6))",
+  "old_full_bound": "14+.2772*sqrt(x)/log(x)^2, allx>=exp8",
+  "strict_comparison": "old_bound(x)-new_bound(x)>1/5 for every realx>=exp16",
+  "asymptotic_normalized_coefficient": {
+    "old": ".2772",
+    "new": ".1386",
+    "normalization": "sqrt(x)/log(x)^2"
+  },
+  "exact_Lean_roots": [
+    {
+      "declaration": "RHLimit.Spectral.actual_J_refined_GM",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "RHLimit.Spectral.actual_pi_refined_GM",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "RHLimit.Spectral.refined_transport_upper",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "RHLimit.Spectral.refined_anchor_allowance",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "RHLimit.Spectral.refined_strictly_improves_old",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "RHLimit.Spectral.actual_J_refined_from_psi_profile",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "RHLimit.Spectral.actual_pi_signed_refined_profile",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "RHLimit.Spectral.actual_pi_absolute_Li_refined_profile",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ],
+  "source_first_PV": false,
+  "numerical_verification": "Only ordinarykernel interval/rational proofs; no native numerical execution axiom.",
+  "source_correspondence": {
+    "canonical_source": "IEANTN.Nodes.RHPrimeCounting.v1.gm_source",
+    "primary": "Grenie-Molteni arXiv1312.4465v4 Theorem1.1,Qcase,PDFp3",
+    "url": "https://arxiv.org/pdf/1312.4465v4#page=3",
+    "formula": "|integral_0^x(psi(t)-t)dt|<=.0462*x^(3/2)+1.838*x+1.9851+.5097/x, x>=3",
+    "Blueprint": "No separate newBlueprintlabel; reusesRHPrimeCounting.v1.gm_source and its actual literal primitive definition."
+  },
+  "build_receipt": "/data/ivy-rh-limit-20261122/spectral/refined-v4/RESULT.json",
+  "build_seconds": 19.85041330382228,
+  "development_predecessor_banks_used": true,
+  "complete_final_source_replay": "Parent integration pending; do not confuse this incremental pass with complete-source replay.",
+  "remaining_obligations": [
+    "Original exact publishedGM/Buthesourceclaims remain inputs; RH remainshypothesis.",
+    "This does not prove the0.076spectral branch or the610bRamanujan result."
+  ],
+  "complete_source_replay": "PASS, 316 unique sources including allfinalconsumers; explicit23resource-dependent source rebuild retained",
+  "cold_source_receipt": "evidence/cold55-v1/RESULT.json",
+  "strict_controls_receipt": "evidence/controls-cold-v2/RESULT.json"
+}

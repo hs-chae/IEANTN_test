@@ -103,6 +103,7 @@ import IEANTN.Nodes.PrimeInterval.v1.Challenge
 import IEANTN.Nodes.PrimeInterval.v1.Examples
 import IEANTN.Nodes.PrimeInterval.v2.Challenge
 import IEANTN.Nodes.PrimeKernelInputs.v1.Challenge
+import IEANTN.Nodes.PrimeKernelInputs.v2.Challenge
 import IEANTN.Nodes.PrimeQuantile.v1.Challenge
 import IEANTN.Nodes.Primorial.v1.Challenge
 import IEANTN.Nodes.Primorial.v2.Challenge
@@ -119,11 +120,13 @@ import IEANTN.Nodes.QRHPropagation.v3.Challenge
 import IEANTN.Nodes.RH.v1.Challenge
 import IEANTN.Nodes.RHAdapters.v1.Challenge
 import IEANTN.Nodes.RHPrimeCounting.v1.Challenge
+import IEANTN.Nodes.RHPrimeCounting.v2.Challenge
 import IEANTN.Nodes.RHSmoothing.v1.Challenge
 import IEANTN.Nodes.RHSmoothingInputs.v1.Challenge
 import IEANTN.Nodes.RamanujanGap.v1.Challenge
 import IEANTN.Nodes.RamanujanGap.v2.Challenge
 import IEANTN.Nodes.RamanujanGap.v3.Challenge
+import IEANTN.Nodes.RamanujanGap.v4.Challenge
 import IEANTN.Nodes.RamanujanNumerics.v1.Challenge
 import IEANTN.Nodes.RamanujanNumerics.v2.Challenge
 import IEANTN.Nodes.RamareSaouter2003.v1.Challenge

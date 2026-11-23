@@ -1,0 +1,55 @@
+{
+  "status": "PASS_INDEPENDENT_SOURCE_SEMANTIC_REVIEW",
+  "reviewer": "octicworker distinct from proofauthor",
+  "coverage": "Finite analytic bridge only; not numerical caps, infinite-tail passage, full explicit formula, or whole repository.",
+  "findings": [
+    {
+      "file": "Solutions/RHLimit.v1/analytic/BPTZeroCount.lean",
+      "declaration": "RHLimit.BPTZeroCount.PublishedBound",
+      "line": 20,
+      "blueprint_correspondence": "No standalone Blueprint label; imported continuation OCTIC_PROOF.md zero-estimate section and namedprimaryinput paragraph.",
+      "primary": "Brent–Platt–Trudgian, JNT238(2022),Corollary1,p743",
+      "primary_url": "https://maths-people.anu.edu.au/~brent/pd/rpb274-final.pdf#page=4",
+      "claim": "For T≥2π, absolute deviation of multiplicity count from T/(2π)log(T/(2π))−T/(2π)+7/8 is at most.28logT.",
+      "comparison": "Exact constants, centering and published threshold retained; hypothesis is explicit, not asserted proved.",
+      "finding": "ALIGNED_EXPLICIT_LITERATURE_INPUT",
+      "source_sha256": "8f39fbd5ea25f716378407e42d536514209d80e066f82d2541b1dd7d9f169207"
+    },
+    {
+      "file": "Solutions/RHLimit.v1/analytic/BPTZeroCount.lean",
+      "declaration": "RHLimit.BPTZeroCount.finite_remainder_bound",
+      "line": 150,
+      "blueprint_correspondence": "No standalone Blueprint label; imported OCTIC_PROOF.md zero-estimate argument.",
+      "primary": "Project-derived finite integration-by-parts consequence of the named BPT Corollary1 input; no claim that BPTstates this C1 extension verbatim.",
+      "comparison": "Closed count difference correctly produces Ioc(a,b]; exact remainder φ(b)R(b)−φ(a)R(a)−integralφ′R; triangle inequality produces.28times bothendpoint terms and integral|φ′|log.",
+      "finding": "ALIGNED_DERIVED_CONDITIONAL_THEOREM",
+      "source_sha256": "8f39fbd5ea25f716378407e42d536514209d80e066f82d2541b1dd7d9f169207"
+    },
+    {
+      "file": "Solutions/RHLimit.v1/analytic/AbsoluteStieltjes.lean",
+      "declaration": "RHLimit.AbsoluteStieltjes.finite_absolute_bound",
+      "line": 136,
+      "blueprint_correspondence": "No standalone Blueprint label; same imported OCTIC_PROOF.md zero-estimate argument.",
+      "primary": "Project-internal derivation from finite_remainder_bound.",
+      "comparison": "sqrt(f²+ε²) is a C1 majorant with error≤ε and derivative absolute value≤|f′|; finiteintervalintegrability and ε→0 proved. No differentiability of abs f assumed.",
+      "finding": "ALIGNED_DERIVED_CONDITIONAL_THEOREM",
+      "source_sha256": "464fc080769c9b46f6731708cbaa06b2e7de1704ea39c0619c59637cb1172310"
+    },
+    {
+      "file": "Solutions/RHLimit.v1/analytic/AbsoluteStieltjes.lean",
+      "declaration": "RHLimit.AbsoluteStieltjes.octic_finite_bound",
+      "line": 181,
+      "blueprint_correspondence": "No standalone Blueprint label; OCTIC_PROOF.md kernel and zero-estimate sections.",
+      "primary": "Project-internal octic Fourier specialization; exact transform attachment proved in OcticFourier.lean.",
+      "comparison": "Actual δtransform4(δt) is used and derivative is δ²formulaDerivative(δt). Sum is positive ordinates Ioc(a,b] with multiplicity, no factor2 is silently inserted. This finite result does not claim a whole two-sidedzero sum or numerical A/Bcaps.",
+      "finding": "ALIGNED_FINITE_SCOPE_NO_FULL_ZERO_ESTIMATE_CLAIM",
+      "source_sha256": "464fc080769c9b46f6731708cbaa06b2e7de1704ea39c0619c59637cb1172310"
+    }
+  ],
+  "material_mismatches": [],
+  "primary_download_sha256": "4be3667cbe07ab6a24930e8835923362ae12af946b622fa73c89fd654e9fae34",
+  "primary_page743_render_sha256": "5ae76d68fb892d264ac716026244dbb7556281fcc4d653cdc1605593c85a0d05",
+  "independent_compile_receipt": "/data/ivy-rh-limit-20261122/octic/independent-analytic-v1/RESULT.json",
+  "independent_compile_receipt_sha256": "b174cdb840d1039cbf988ebf10e0f71eef87bf38704080818a3a08ff3c29bb92",
+  "trust": "Ordinary Lean kernel mathematics with published BPT bound as explicit premise; not source-first PV."
+}

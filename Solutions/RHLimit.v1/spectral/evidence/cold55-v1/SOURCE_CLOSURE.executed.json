@@ -1,0 +1,658 @@
+{
+  "schema": "RH_LIMIT_SPECTRAL_SOURCE_CLOSURE_V1",
+  "basis_manifest": "Solutions/RHLimit.v1/pi/SOURCE_CLOSURE.json",
+  "basis_manifest_sha256": "32cef82784fb8858f6127bce2b69f236f3789fd07a7c92cb4853861ded1c7c24",
+  "basis_modules": 261,
+  "roots": [
+    "Ram620Result",
+    "BetaDecimal"
+  ],
+  "modules": [
+    {
+      "module": "AnalyticBarrier640",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/AnalyticBarrier640.lean",
+      "sha256": "c242f0f7dd3f99e78c2ee593ad748dfbcda20f7c0919ad0552630ff459e7254a",
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/AnalyticBarrier640.lean",
+      "application_imports": [
+        "RamanujanPV.AnalyticTransition"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "FactorialBarrier640",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/FactorialBarrier640.lean",
+      "sha256": "cb05b716cdafef07e75f3a7f298d0fafc31fcf5f87d7ca1e756db3f93870e5aa",
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/FactorialBarrier640.lean",
+      "application_imports": [
+        "AnalyticBarrier640"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "Log35Barrier640",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/Log35Barrier640.lean",
+      "sha256": "e779bd8ade64622e7e3b84871bd39cd7554ff82442b2c9a143de3ec9ee7d49c5",
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/Log35Barrier640.lean",
+      "application_imports": [
+        "AnalyticBarrier640"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "ActualLiBarrier640",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/ActualLiBarrier640.lean",
+      "sha256": "f1d5a2123ed403f5c79c2f5807a26accb9c2a683b47d8c320f19730ecf18e6f4",
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/ActualLiBarrier640.lean",
+      "application_imports": [
+        "FactorialBarrier640",
+        "Log35Barrier640"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "Gamma640",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/Gamma640.lean",
+      "sha256": "936549964a65b75e5776b5c744a1ee6c23c91deca37315789e3edc14c9e73d40",
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/Gamma640.lean",
+      "application_imports": [
+        "Log35Barrier640"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "Exp155Barrier640",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/Exp155Barrier640.lean",
+      "sha256": "d6c1278a57ac31d46995aa7b0d9e23325be3d129b0052e81ce926c6bc519d919",
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/Exp155Barrier640.lean",
+      "application_imports": [
+        "AnalyticBarrier640"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "Anchor640",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/Anchor640.lean",
+      "sha256": "fa4a254c1473040232f0b9f4b188bc8c59d868cea46ea94d57405677b375bc54",
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/Anchor640.lean",
+      "application_imports": [
+        "ActualLiBarrier640",
+        "Gamma640",
+        "Exp155Barrier640"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "GlobalW640",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/GlobalW640.lean",
+      "sha256": "c4846119d0e7392eaea986e96d7040939722a8bbd37d10fcfb01a93729c416be",
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/GlobalW640.lean",
+      "application_imports": [
+        "Anchor640"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "LiSeriesDerivative",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/LiSeriesDerivative.lean",
+      "sha256": "fd1760a175d7ee60a17355865f4a5ae5ab7852f2155c8fc15de593de86827711",
+      "original_path": "Solutions/RHContinuation.v1/ramanujan/LiSeriesDerivative.lean",
+      "application_imports": [
+        "GlobalW640"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.Calculus.SmoothSeries"
+      ]
+    },
+    {
+      "module": "LiRelativeSeries",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/LiRelativeSeries.lean",
+      "sha256": "526698a6aa1f8ac224e47b3c173b65201eb447caf1c9c98d066f9b13a0200427",
+      "original_path": "Solutions/RHContinuation.v1/ramanujan/LiRelativeSeries.lean",
+      "application_imports": [
+        "LiSeriesDerivative",
+        "LiPVDefinition",
+        "LeanCert.Tactic.IntervalAuto"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "Polynomial640",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/Polynomial640.lean",
+      "sha256": "b12c0ddfc38b9651c4d8b46d5777e1306c6ce0ed25e2565f312ad7b8a8a1c766",
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/Polynomial640.lean",
+      "application_imports": [],
+      "generic_imports": [
+        "Mathlib"
+      ]
+    },
+    {
+      "module": "MainTerm640",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/MainTerm640.lean",
+      "sha256": "9c5835cac4beec556585b2426181762716313f65205a9263c189801f28d4254f",
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/MainTerm640.lean",
+      "application_imports": [
+        "Anchor640",
+        "Polynomial640"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "ActualAnchors",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/ActualAnchors.lean",
+      "sha256": "3f3a4f981096df791b5f3e3f4d227da2c92a23c422e97b72ceff44ee75d62933",
+      "original_path": "Solutions/RHContinuation.v1/ramanujan/ActualAnchors.lean",
+      "application_imports": [
+        "LiRelativeSeries",
+        "MainTerm640"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "LeafMargins",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/LeafMargins.lean",
+      "sha256": "804dd12decfbd64e15a6a62390758f4a9fbbf92cbb47940832259da4fd2b12a5",
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeafMargins.lean",
+      "application_imports": [
+        "LeanCert.Tactic.IntervalAuto"
+      ],
+      "generic_imports": [
+        "Mathlib"
+      ]
+    },
+    {
+      "module": "ActualConsumer",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/ActualConsumer.lean",
+      "sha256": "e1a8bb7791b404f8e568c4338bb0e094aedf712a9f065224fb31efa16b68eb7a",
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/ActualConsumer.lean",
+      "application_imports": [
+        "PrimePowerTransport"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "GapMonotonic",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/GapMonotonic.lean",
+      "sha256": "2762e906ea26cf9f9586d2985c76bdc07d7a1d1f630b4cd2da0fc9865bb0b1db",
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/GapMonotonic.lean",
+      "application_imports": [
+        "LeafMargins",
+        "ActualConsumer"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "SourceDeficits",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/SourceDeficits.lean",
+      "sha256": "0145d2ecaa759a189db725f0a64d5a5b1979e5ee80e2fef3f483391e8488d8b1",
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/SourceDeficits.lean",
+      "application_imports": [
+        "ActualConsumer"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "PrimePowerUpper",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/PrimePowerUpper.lean",
+      "sha256": "49a3d8df9734b41e654ffe273d59a06e524aa0dd9e898259f77864d0c4fc67bd",
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/PrimePowerUpper.lean",
+      "application_imports": [
+        "SourceDeficits"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "SlabMonotonic",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/SlabMonotonic.lean",
+      "sha256": "b41cc3083875cf7d0af0f565721176e164f9e6a6793e23195559679f3e54ace6",
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/SlabMonotonic.lean",
+      "application_imports": [
+        "PrimePowerUpper"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "AnalyticBridges",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/AnalyticBridges.lean",
+      "sha256": "cd93259af0c366f0faf4813d092bafa33827831be6c04506943aecbff7457073",
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/AnalyticBridges.lean",
+      "application_imports": [
+        "MainTerm640",
+        "GlobalW640",
+        "GapMonotonic",
+        "SlabMonotonic"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "ActualGlobalW",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/ActualGlobalW.lean",
+      "sha256": "943a26a1d0743cdb40556a60de80e5bb5791b2f1091ca126faaf703842c40e94",
+      "original_path": "Solutions/RHContinuation.v1/ramanujan/ActualGlobalW.lean",
+      "application_imports": [
+        "ActualAnchors",
+        "AnalyticBridges"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "TailW640",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/TailW640.lean",
+      "sha256": "0b122e3eeccda4b911da9c9ed4a41b139eaad86204d5185f4043edb299312ee5",
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/TailW640.lean",
+      "application_imports": [
+        "Anchor640"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "ActualAnalytic",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/ActualAnalytic.lean",
+      "sha256": "4bcc206009d37d0f686b6fb1e2f10b948d28555b47922cb1a143a487d4fadb59",
+      "original_path": "Solutions/RHContinuation.v1/ramanujan/ActualAnalytic.lean",
+      "application_imports": [
+        "ActualGlobalW",
+        "TailW640"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "ActualFullPolynomial",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/ActualFullPolynomial.lean",
+      "sha256": "cc6d328786777c53bc2995d53adb7ec585c138434bbd4d28a5184c93663cfc5e",
+      "original_path": "Solutions/RHContinuation.v1/ramanujan/ActualFullPolynomial.lean",
+      "application_imports": [
+        "ActualAnalytic"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "RamanujanPV.FiniteScalarEval",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/RamanujanPV/FiniteScalarEval.lean",
+      "sha256": "2aa70e3abf7c642d913ef31a80743e6fe6abc75a1e95991fdf583273eee82322",
+      "original_path": "Solutions/RHContinuation.v1/ramanujan/source_component/RamanujanPV/FiniteScalarEval.lean",
+      "application_imports": [
+        "RamanujanPV.FiniteScalarMachine"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "CoefficientPV",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/CoefficientPV.lean",
+      "sha256": "1a0b78edf56cbb2a9f12c6f021cfa8ba42405281ca9a850b407895bc18aff5fa",
+      "original_path": "Solutions/RHContinuation.v1/ramanujan/source_component/CoefficientPV.lean",
+      "application_imports": [
+        "RamanujanPV.FiniteScalarEval"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "ActualSourcePolynomial",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/ActualSourcePolynomial.lean",
+      "sha256": "545a633e0eea84e3d1e1c94dd293b1d5b6eda09592c29fe5bcf221597abcd217",
+      "original_path": "Solutions/RHContinuation.v1/ramanujan/ActualSourcePolynomial.lean",
+      "application_imports": [
+        "ActualFullPolynomial",
+        "CoefficientPV"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "ActualPrimePowers",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/ActualPrimePowers.lean",
+      "sha256": "4b94aefe92398a115f6e06599af3773adf50e37fef175441010ff6e4638a72c0",
+      "original_path": "Solutions/RHContinuation.v1/ramanujan/ActualPrimePowers.lean",
+      "application_imports": [
+        "ActualAnalytic",
+        "SlabMonotonic"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "TableTransport",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/TableTransport.lean",
+      "sha256": "595e777a7f590b11a6cc3e884f073faafe2de6915687f0e98e9e2bf85781d6e0",
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/TableTransport.lean",
+      "application_imports": [
+        "SourceDeficits"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "LeafDomains",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/LeafDomains.lean",
+      "sha256": "e06b419c27752be0e10481635b209c80d151585880cf24b0853aa8459084a44c",
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeafDomains.lean",
+      "application_imports": [
+        "LeafMargins"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "RiemannBounds",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/RiemannBounds.lean",
+      "sha256": "1865d14062e150575f722e1fceac6e73991e716d45fef519b9c2e87789f73815",
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/RiemannBounds.lean",
+      "application_imports": [
+        "TableTransport",
+        "LeafDomains"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "ProofBounds",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/ProofBounds.lean",
+      "sha256": "3bfc946608ac5206bc32ba14349c1220cb052cb0283dab1bd39878773f026205",
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/ProofBounds.lean",
+      "application_imports": [
+        "SlabMonotonic",
+        "LeafMargins"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "FiniteConsumer",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/FiniteConsumer.lean",
+      "sha256": "5d68d4fc43ea8750c23c8139ba2ea9cd5f985a7fedef04ce0a61adcd4148aa4e",
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/FiniteConsumer.lean",
+      "application_imports": [
+        "RiemannBounds",
+        "ProofBounds",
+        "AnalyticBridges"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "ActualFinite",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/ActualFinite.lean",
+      "sha256": "dc31eefaff7fde68d1ef38da9667c582196905a5436d1e1a5647b7ce55123745",
+      "original_path": "Solutions/RHContinuation.v1/ramanujan/ActualFinite.lean",
+      "application_imports": [
+        "ActualPrimePowers",
+        "FiniteConsumer"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "ActualSourceFinite",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/ActualSourceFinite.lean",
+      "sha256": "8d084fe0e88463df55c703d89d693e983d3b12a1f8d090f8ec272dba01f1e10c",
+      "original_path": "Solutions/RHContinuation.v1/ramanujan/ActualSourceFinite.lean",
+      "application_imports": [
+        "ActualSourcePolynomial",
+        "ActualFinite"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "Ram620Bands",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/Ram620Bands.lean",
+      "sha256": "88f92a69745bade9305410552d55e43c26a4bacbedb4a03ba8e60f3137afaaf1",
+      "original_path": "Solutions/RHLimit.v1/spectral/Ram620Bands.lean",
+      "application_imports": [
+        "SpectralGMRefined",
+        "ActualSourceFinite"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "Ram620Low",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/Ram620Low.lean",
+      "sha256": "47a4887db0ca69c7431c347962c085d112f20690d4036853f7182d3879a53d3d",
+      "original_path": "Solutions/RHLimit.v1/spectral/Ram620Low.lean",
+      "application_imports": [
+        "ActualAnalytic"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "Ram620Anchors",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/Ram620Anchors.lean",
+      "sha256": "69d1fdd9e5776b6adf18457904cff33c8467e7aaa0d8c2d4bcb085bf8a938610",
+      "original_path": "Solutions/RHLimit.v1/spectral/Ram620Anchors.lean",
+      "application_imports": [
+        "Ram620Low"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "Ram620Powers",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/Ram620Powers.lean",
+      "sha256": "813c39bae4fb16e2d5b277b7936b4fc71ce7be3bb1330e9ca848af9413787ee1",
+      "original_path": "Solutions/RHLimit.v1/spectral/Ram620Powers.lean",
+      "application_imports": [
+        "Ram620Anchors",
+        "ActualPrimePowers"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "Ram620Finite",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/Ram620Finite.lean",
+      "sha256": "5d6b511b575da83289f4098aee20acb065c4f3da114ea91891218439e87327b6",
+      "original_path": "Solutions/RHLimit.v1/spectral/Ram620Finite.lean",
+      "application_imports": [
+        "Ram620Bands",
+        "Ram620Powers"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "RHTailBounds640",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/RHTailBounds640.lean",
+      "sha256": "30bd9e0d9c02764336e9c77a1a81b0542517268038e453017ee78c78e8dd4b28",
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/RHTailBounds640.lean",
+      "application_imports": [
+        "MainTerm640",
+        "TailW640",
+        "LeanCert.Tactic.IntervalAuto"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "RHTailActual640",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/RHTailActual640.lean",
+      "sha256": "9b03443e45372008224ad4ac7a62829f7d28fe1eb3b2caf5500d8a194bca4576",
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/RHTailActual640.lean",
+      "application_imports": [
+        "FullRH",
+        "RHTailBounds640",
+        "RamAlgebra"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "ActualTail",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/ActualTail.lean",
+      "sha256": "eb5c0dc345319836e423bfe74b2c0a68da972cc56dcdbb40fdd60c012a5cc0b0",
+      "original_path": "Solutions/RHContinuation.v1/ramanujan/ActualTail.lean",
+      "application_imports": [
+        "ActualFinite",
+        "RHTailActual640"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "ActualSourceResult",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/ActualSourceResult.lean",
+      "sha256": "7217232aaf94cd95af3c1d53bde0a88d82c8bae779e39fd9bf10484f0e566d76",
+      "original_path": "Solutions/RHContinuation.v1/ramanujan/ActualSourceResult.lean",
+      "application_imports": [
+        "ActualTail",
+        "ActualSourceFinite"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "Ram620Leaves",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/Ram620Leaves.lean",
+      "sha256": "0e1842316cffea4b52daa2e6b3818ab8f06dd8f52f50c8b35ee162d08edb2edf",
+      "original_path": "Solutions/RHLimit.v1/spectral/Ram620Leaves.lean",
+      "application_imports": [
+        "Ram620Finite",
+        "ActualSourceResult"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "Ram620Result",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/Ram620Result.lean",
+      "sha256": "6cc5ab88d342d776e008b15dfc5b880e07c9e92a760d5f0599d1222b3e019388",
+      "original_path": "Solutions/RHLimit.v1/spectral/Ram620Result.lean",
+      "application_imports": [
+        "Ram620Leaves"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "Definitions",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/Definitions.lean",
+      "sha256": "8d73b16ec1d1209032576402469744afd598bef62ecc3551229f9d88b752b9a1",
+      "original_path": "Solutions/RHContinuation.v1/signed/source/Definitions.lean",
+      "application_imports": [],
+      "generic_imports": [
+        "Mathlib.NumberTheory.LSeries.RiemannZeta",
+        "Mathlib.NumberTheory.Chebyshev",
+        "Mathlib.NumberTheory.AbelSummation",
+        "Mathlib.NumberTheory.Harmonic.EulerMascheroni",
+        "Mathlib.Analysis.SpecificLimits.Normed",
+        "Mathlib.Analysis.SpecialFunctions.Integrals.Basic",
+        "Mathlib.Tactic"
+      ]
+    },
+    {
+      "module": "Convergence",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/Convergence.lean",
+      "sha256": "288b96ad87473d22cc6ab292d02cc32bb21ec9f2588428425ab19c2bcff99287",
+      "original_path": "Solutions/RHContinuation.v1/signed/source/Convergence.lean",
+      "application_imports": [
+        "Definitions"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.PSeries"
+      ]
+    },
+    {
+      "module": "FiniteCorrection",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/FiniteCorrection.lean",
+      "sha256": "5aab87112e36389c51fa1f7823409afb027dc4400d79c87072b2320717de8184",
+      "original_path": "Solutions/RHContinuation.v1/signed/source/FiniteCorrection.lean",
+      "application_imports": [
+        "Definitions"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "AbelFinite",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/AbelFinite.lean",
+      "sha256": "543b1ae757b9403a4e2f05e8342006a4e2ced9129b58faada0a486186ac7480c",
+      "original_path": "Solutions/RHContinuation.v1/signed/source/AbelFinite.lean",
+      "application_imports": [
+        "Definitions"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "Consumer",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/Consumer.lean",
+      "sha256": "c3d514ff03965c38e8ada2678d5ac4288960e8c250c2154f038214a3de49922a",
+      "original_path": "Solutions/RHContinuation.v1/signed/source/Consumer.lean",
+      "application_imports": [
+        "Convergence",
+        "FiniteCorrection",
+        "AbelFinite"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.Complex.ExponentialBounds"
+      ]
+    },
+    {
+      "module": "SourceInterfaces",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/SourceInterfaces.lean",
+      "sha256": "2b4cd791b065c587ec27e82b9f2833b3c507e60c367407f13d53bca4b8ee7ea4",
+      "original_path": "Solutions/RHContinuation.v1/signed/source/SourceInterfaces.lean",
+      "application_imports": [
+        "Consumer"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.Meromorphic.Order",
+        "Mathlib.Analysis.Real.Pi.Bounds"
+      ]
+    },
+    {
+      "module": "NicolasBaseline",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/NicolasBaseline.lean",
+      "sha256": "86af0b1a9a062e1ef2081d3ec1eee023becb085c7bb645bfe8327fb6d581bd5b",
+      "original_path": "Solutions/RHContinuation.v1/signed/source/NicolasBaseline.lean",
+      "application_imports": [
+        "SourceInterfaces"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "NicolasSpectralMass",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/NicolasSpectralMass.lean",
+      "sha256": "7a701da5188a231589cdfef3f8a2d73fa02f831d96b2429d674fb750f8fb38d4",
+      "original_path": "Solutions/RHLimit.v1/spectral/NicolasSpectralMass.lean",
+      "application_imports": [
+        "NicolasBaseline"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.Normed.Group.FunctionSeries",
+        "Mathlib.Analysis.Normed.Module.FiniteDimension"
+      ]
+    },
+    {
+      "module": "BetaDecimal",
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/BetaDecimal.lean",
+      "sha256": "02b737795a9d878ee0630c9aa8c3e2c0d4171f4e047b1307efe768599089923d",
+      "original_path": "Solutions/RHLimit.v1/spectral/BetaDecimal.lean",
+      "application_imports": [
+        "NicolasSpectralMass",
+        "ActualGMClosed"
+      ],
+      "generic_imports": []
+    }
+  ],
+  "resources": [
+    {
+      "path": "Solutions/RHLimit.v1/spectral/frozen-source/rh_coeff.c",
+      "original_path": "Solutions/RHContinuation.v1/ramanujan/source_component/rh_coeff.c",
+      "sha256": "28a92c3069db9d606e25be523cca25d35a36e627e79ffa221ca630b8177314d8"
+    }
+  ],
+  "identity_choices": [
+    {
+      "module": "FullRH",
+      "selected": {
+        "module": "FullRH",
+        "path": "Solutions/RHLimit.v1/pi/frozen-source/FullRH.lean",
+        "sha256": "cb7b97f4002464b381c2631fe3e98a2057192d6549e37efacc7e157c2d0674cb",
+        "application_imports": [
+          "SharedRH",
+          "IEANTN.Bridges.RH.LogicalAdapters",
+          "IEANTN.Nodes.Buthe2016.v1.Conclusions",
+          "IEANTN.Nodes.CH2.v5.Conclusions",
+          "IEANTN.Nodes.CH2.v1.Conclusions",
+          "IEANTN.Nodes.LowZeroes.v1.Conclusions",
+          "IEANTN.Nodes.ZetaHadamard.v1.Conclusions"
+        ],
+        "generic_imports": [
+          "Mathlib.Analysis.Complex.ExponentialBounds"
+        ],
+        "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/FullRH.lean"
+      },
+      "unused": {
+        "path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/FullRH.lean",
+        "sha256": "e6ef39b133efdf8de19301fe76ae345b400db63f33c1f74310463e1b855b5dd3"
+      },
+      "reason": "PNTFullRHselectedbycold261; no new consumer calls oldclassical_one/076"
+    }
+  ],
+  "final_roots": [
+    "RHLimit.NicolasMass.mass_lt_047",
+    "RHLimit.Ram620.actual_ramanujan_strict620",
+    "RHLimit.Ram620.actual_prime_counting_gap620",
+    "RHLimit.Ram620.retains_original_margin"
+  ],
+  "source_selection": "Exact recursive final-root imports; no oldsorryheuristic; basis261replayedbeforeappend"
+}

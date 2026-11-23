@@ -1,0 +1,30 @@
+
+Traceback (most recent call last):
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/spectral/reproduce_cold_append.py", line 190, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/spectral/reproduce_cold_append.py", line 129, in main
+    base,basis_receipt,overrides=validate_basis(basis,manifest,m,ctx,a.resource_proof)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/spectral/reproduce_cold_append.py", line 59, in validate_basis
+    r=read(basis/'RESULT.json');need(r['status']=='PASS_COLD_ALL_261_SOURCE_MODULES_AND_FINAL_PI_CONSUMERS','basis unfinished/nonpass')
+      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/spectral/reproduce_cold_append.py", line 25, in read
+    return json.loads(Path(p).read_bytes(),object_pairs_hook=pairs,parse_float=finite,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/__init__.py", line 359, in loads
+    return cls(**kw).decode(s)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/spectral/reproduce_cold_append.py", line 21, in pairs
+    for k,v in rows:need(k not in d,'duplicate JSON key');d[k]=v
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-continuation-20261122/network/Solutions/RHLimit.v1/spectral/reproduce_cold_append.py", line 12, in need
+    if not c:raise ValueError(m)
+             ^^^^^^^^^^^^^^^^^^^
+ValueError: duplicate JSON key

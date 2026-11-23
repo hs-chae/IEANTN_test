@@ -1,0 +1,34 @@
+{
+  "classification": "Exact-rational discovery control; not source-first PV, not a Lean certificate, and not a counterexample theorem.",
+  "program": "matched_transfer_control.py",
+  "program_support": ["refined_ram_p8_p1_16.py", "ram_cert.py"],
+  "fixed_mathematical_inputs": ["Büthe Table1 exact rows", "Same full21 degree0..20 coefficients", "Same lower/upper prime-power formulas", "Same global actualLi barrier8/5", "Same620b onset", "Same1/1000 target", "Same adaptive slab algorithm anddepth cap30"],
+  "changed_object_only": "Compensated actualJ transfer, normalized byL/sqrtx",
+  "old_transfer": {
+    "formula": ".2772/L+14*L*exp(-L/2)",
+    "underlying_actual_bound": "14+.2772*sqrtx/L^2",
+    "actual_kernel_theorem": "RHContinuation.Ramanujan.actual_J_closed_GM",
+    "source_file": "Solutions/RHContinuation.v1/ramanujan/ActualGMClosed.lean",
+    "constants": {".2772": "6*.0462, the literal GM Theorem1.1 Q coefficient", "14": "Kernel-proved combined Büthe anchor/GM endpoint budget"},
+    "valid_domain": "L>=8; every control use hasL>=26"
+  },
+  "new_transfer": {
+    "formula": ".1386/(L-6)+14.44*L*exp(-L/2)",
+    "underlying_actual_bound": "14.44+.1386*sqrtx/[L*(L-6)]",
+    "actual_kernel_theorem": "RHLimit.Spectral.actual_J_refined_GM",
+    "source_file": "Solutions/RHLimit.v1/spectral/SpectralGMRefined.lean",
+    "constants": {".1386": "3*.0462; proved variable multiplier derivative", "14.44": "Original14 plus kernel-proved2*E(exp12)*w(exp12)+1.838/12<=.44", "6": "Derived antiderivative denominator, not a numerical fitted premise"},
+    "valid_domain": "L>=12; every control use hasL>=26"
+  },
+  "other_constants": {
+    ".0462,1.838,1.9851,.5097": "Grenié–Molteni arXiv1312.4465v4 Theorem1.1 Q display, PDFp3; all retained",
+    "-.88,.68": "Büthe arXiv1511.02032v2 Table1 printedp14 exact rows32*10^10 and16*10^10",
+    "8/5": "Unconditional actual_w_le_eight_fifths, no unproved3/2 replacement",
+    "p8+5*9!/s^9": "Ram620Anchors.actual_p8, closed actual principal-valuedli barrier s>=13",
+    "p1+6/s^2": "Ram620Anchors.actual_p1, closed actual barrier s>=5",
+    "21 coefficients": "Unchangedrh_coeff.c source-first typeduint64 model, CoefficientPV.source/numerical, consumed byactual_source_base",
+    "1/1000 base loss": "Already kernel-proved degree20 factorial-series tail allowance inactual_source_base",
+    "64 prime-power tail multiplier": "Conservative overcount of54 tail terms in the proved63-term finite actual prime-power decomposition"
+  },
+  "outcome_scope": "Old transfer did not certify the fixed recipe; new transfer did. The positive mathematical620b claim is separately kernel-proved for all realx, including all finite endpoint and prime-power/source terms. The failed old lower envelope proves no falsehood of Ramanujan's inequality or impossibility for other proofs."
+}

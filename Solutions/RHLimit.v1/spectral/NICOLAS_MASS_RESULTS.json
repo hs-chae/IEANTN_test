@@ -1,0 +1,53 @@
+{
+  "schema": "NICOLAS_INVERSE_SQUARE_MASS_RELAY_V1",
+  "status": "PASS_KERNEL_PROVED_WITH_EXISTING_SOURCE_INPUT",
+  "inputs": [
+    "Mathlib RiemannHypothesis",
+    "canonical NicolasContinuation.SourceNicolas119, arXiv1202.0729v2 Eq1.19, x>1"
+  ],
+  "conclusion": "Summable weight and tsum weight <47/1000, weight=multiplicity/complexnorm^2",
+  "source_first_PV": false,
+  "native_execution_axioms": [],
+  "development_only": false,
+  "full_fresh_source_replay": "PASS, complete261freshbasis plus23resource replay andall55spectralsources",
+  "modules": [
+    {
+      "module": "NicolasSpectralMass",
+      "source_sha256": "7a701da5188a231589cdfef3f8a2d73fa02f831d96b2429d674fb750f8fb38d4",
+      "run": "nicolas-mass-v4",
+      "elapsed_seconds": 2.6313217151910067,
+      "axiom_audits": [
+        {
+          "theorem": "RHLimit.NicolasMass.mass_le_beta",
+          "axioms": "propext, Classical.choice, Quot.sound"
+        },
+        {
+          "theorem": "RHLimit.NicolasMass.weight_summable",
+          "axioms": "propext, Classical.choice, Quot.sound"
+        }
+      ]
+    },
+    {
+      "module": "BetaDecimal",
+      "source_sha256": "02b737795a9d878ee0630c9aa8c3e2c0d4171f4e047b1307efe768599089923d",
+      "run": "beta-v3",
+      "elapsed_seconds": 11.185064733028412,
+      "axiom_audits": [
+        {
+          "theorem": "RHLimit.NicolasMass.gamma_upper",
+          "axioms": "propext, Classical.choice, Quot.sound"
+        },
+        {
+          "theorem": "RHLimit.NicolasMass.beta_lt_047",
+          "axioms": "propext, Classical.choice, Quot.sound"
+        },
+        {
+          "theorem": "RHLimit.NicolasMass.mass_lt_047",
+          "axioms": "propext, Classical.choice, Quot.sound"
+        }
+      ]
+    }
+  ],
+  "cold_source_receipt": "evidence/cold55-v1/RESULT.json",
+  "historical_development_receipts_retained": true
+}
