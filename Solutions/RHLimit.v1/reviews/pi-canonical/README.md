@@ -76,3 +76,11 @@ this independent append and its exact source/math acceptance controls, respectiv
 The bundled structural validator is byte-identical to the supplied validator;
 reproduction does not require an installed Codex skill directory. Source/claim
 and proof receipts identify old and new hypotheses; no random seed is used.
+
+Final unified report acceptance: exactSHAf6012567ed91b6a0bd5c8a1108251e5ee5125f5566e890ffdb82b3cd9bebaac8,
+sourcecheckpointbc78e15a51af0cc3141f05291250a7822ad4f775,35staticallyrendered
+MathMLformulas. All12actualbrowserCLI routes passed(3positive,9rejections)
+normal/-O/-OO atdesktop1280/mobile390. The original mathematical outcomes and
+all remaining analytical/source-first-PV obligations remain as described.
+Browser screenshots stay in the owneddata study directories and are regenerated
+by browser_controls.py; compact receipts/hashes are bundled under evidence/.
