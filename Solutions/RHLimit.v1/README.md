@@ -1,43 +1,58 @@
 # RH limit continuation
 
-This post-lock research study extends the completed RH portfolio at00402b9b on `research/rh-full-network-20261122`. Original scored outcomes, historical reports and mathematical statements are preserved. This study proves validity; optimality and a best-known-in-the-literature claim are outside its acceptance scope.
+This completed post-lock research pass extends the RH portfolio at `00402b9b` on `research/rh-full-network-20261122`. Original scored outcomes, sources and historical reports are preserved. The aim is validity of stronger conditional results; no optimality, best-known theorem or overall exposure advantage is claimed.
 
-## Completed mathematics
+## Completed results
 
-* **Sharper GM transfer:**14.44+.1386√x/[logx(logx−6)] onx≥e12, with a proved whole-function improvement greater than.2 over14+.2772√x/log²x onx≥e16. Exactly the original literal four-term GM and two Büthe source inputs are retained.
-* **Elementary ordinaryπ:** the actual prime-power correction is bounded unconditionally. Actual CH and boxψ providers now yield explicitEπ functions with no unevaluatedπ/J/root-count sum. The CH branch proves |π(x)−Li(x)|<√x(logx/(8π)−1/3) onx≥e100, conditional onRH and the named existing literature inputs. Kernel point coefficients atL100 are<361.199(CH) and<357.041(box). The box branch retains four explicit analytic inputs.
-* **Ramanujan620b:** normalized actual gap≥.001 on every realx≥620000000000, extending the completed640b onset. The entire canonicalv3 polynomial/max/144-tail profile is preserved on its original domain by calling its actual proved Solution. The new source union is9 versus the old6: GM, theψ anchor and Table1 are added explicitly. The still-unfinished610b/.001 target is not claimed.
-* **Octic2.15/family:** four original contracts—geometry, full-range coverage, prime-power cost and trivial-zero cost—are proved unconditionally without changing any parameter. Actual count and both-strict-endpoint consumers need only the original ExplicitFormula and ZeroEstimate predicates plusRH.
-* **Analytic support:** actual Stieltjes-sequence convergence and its exact128 trapezoid lower bound are proved unconditionally. The exact octic Fourier expression/derivative and a finite absolute-Fourier zero-sum estimate are proved. The latter correctly smooths absolute value at zeros and retains the precise publishedBPT count bound as an explicit source input. Nicolas spectral-interface reuse supplies the actual inverse-square zero mass<.047.
+- **Sharper GM transfer:** the asymptotic leading coefficient is halved. The complete new envelope is strictly better from `exp(16)`, with exactly the original four-term GM primitive and two Büthe anchors. The report shows every endpoint allowance.
+- **Ordinary prime counting:** an unconditional estimate removes the unevaluated prime-power correction. The actual CH provider yields a strict improvement over the classical RH envelope for every real argument from `exp(100)`. The normalized point coefficients at logarithmic height 100 are below 361.199 (CH) and 357.041 (box), under their stated source inputs.
+- **Ramanujan from 620 billion:** the actual normalized gap is at least 0.001 for every real argument from 620,000,000,000. The entire earlier v3 polynomial, maximum and tail profile is retained on its original domain. The new source union has nine inputs rather than six: GM, the psi anchor and Table 1 are added explicitly. This is not the unfinished 610-billion target.
+- **Octic contracts:** geometry, coverage, prime-power cost and trivial-zero cost are now proved with the original parameters. Existing count, indexed-prime and cube consumers reuse those proofs. The count theorem, including both strict endpoints, retains the original two analytic predicates and RH.
+- **Analytic support:** the actual Stieltjes limit and its 128-point trapezoid bound are proved unconditionally. The exact octic Fourier formula and a finite absolute-weighted zero-sum bridge are proved. The explicit Nicolas source interface supplies the inverse-square zero mass bound below 0.047.
 
-## What is verified
+The full formulas, hypotheses and exact primary-source statements are rendered offline in `reports/RH_LIMIT_REPORT_EN.html`.
 
-The complete current source gate builds **340 unique application/LeanCert modules**:261π/source-program dependencies,55 spectral/Ramanujan additions and24 canonical/full-profile additions. These hundreds are captured existing dependencies and evidence, not hundreds of new numerical programs. The final actual network consumers and all14 new canonical typed proof edges audit to only `propext`, `Classical.choice`, `Quot.sound`; an independent24-source reviewer also checked all17 distinct canonical/evolution theorem names. Source/math review covers53 written-source identities with exact file/line identity and primary-input locators.
+## What was executed
 
-New canonical versions are `RHPrimeCounting.v2`, `RamanujanGap.v4`, and `PrimeKernelInputs.v2`. The existing `BoxMellinInputs.v1.stieltjes_trapezoid` now has an unconditional Solution. The existing six-component octic input pack is constructed from its unchanged two analytic components and four proved components, so existing count/quantile/cube descendants reuse it. `integration/NetworkEvolution.lean` proves actual combined box→LCM/π, octic→count/quantiles/cubes, and full Ramanujan-profile consumers. Generated Challenge sorries are statement scaffolds and are never imported by selected proofs. Local proofs remain `lean-noncompliant` pending an official Comparator receipt.
+The restored candidate completed **620 source compilation commands** across six routes in 3,769.58 seconds. The main mathematical closure contains **340 unique application/LeanCert modules**: 261 for ordinary prime counting and source-program support, 55 spectral additions, and 24 final canonical consumers. These are captured dependencies and repeated component closures, not hundreds of newly invented programs.
 
-## Reproduce the complete source proof
+All 14 new canonical typed proof edges and three combined consumers passed standard-axiom audits. Independent review rebuilt the final 24 sources and checked all 17 distinct selected theorem names. The canonical source/math ledger covers 53 written-source identities, including separate file/line identities for identical prototype and published declarations.
 
-Use Linuxx86-64, Python3.11+, Git, a C compiler and GNUtime. The compiler is Lean4.34.0-rc2; exact compiler SHA and nine generic dependency commits are in `../RHContinuation.v1/scripts/GENERIC_CONTEXT.json`. Only pinned generic libraries may be reused. The downloadable bundle supplies clean dependency/bootstrap and full-route instructions.
+The full candidate run used the original integration receipt guard. A subsequent audit tightened only its optional historical 23-module provenance checks and prohibited that override on a clean basis. The final checker passed 99 actual CLI controls across normal, `-O` and `-OO` Python, plus six outer-packet controls. Both complete consumer paths were then rebuilt under the repaired checker: 114.68 seconds on the legacy basis and 118.12 seconds on the clean basis. All 970 mathematical/C source files from the candidate are unchanged. The final archive itself was not rerun end to end after this guard-only repair; the unchanged components and both repaired consumer paths were executed and checked.
 
-From the network root with `IEANTN_GENERIC_CONTEXT` set to an exact relocated context:
+Measured group RSS reached 31.36 GiB with two-second sampling. The replay directory reached 734,961,664 allocated bytes with thirty-second sampling. These are sampled maxima; per-child GNU-time high-water measurements and final per-route disk values are also preserved. Shared cgroup OOM counters had zero deltas. This is not a claim about unrelated host processes.
+
+## Network changes
+
+New versions are `RHPrimeCounting.v2`, `RamanujanGap.v4`, and `PrimeKernelInputs.v2`. The existing `BoxMellinInputs.v1.stieltjes_trapezoid` has an unconditional Solution. The existing six-part octic input pack is constructed from its original two analytic parts and four proved parts. Existing downstream conclusions remain reusable.
+
+The actual proof connections are in `integration/NetworkEvolution.lean`. Metadata lists exact consumed conclusions; Solutions prove those typed implications. The final Ramanujan consumer calls the actual previous full-profile Solution rather than assuming its target result.
+
+Local proofs remain designated `lean-noncompliant` pending an official Comparator receipt. Generated Challenge sorries are statement scaffolds and are excluded from selected proof closures. No official registry acceptance is claimed.
+
+## Reproduction
+
+The downloadable source package has one top-level README, pinned generic-source fetch/bootstrap scripts, and `REPRODUCE_RH_LIMIT.py`. Use that route to regenerate the numerical outputs and all six proof components from a clean environment. Generic libraries may be reused only with the exact pinned identities; application and LeanCert proof objects are rebuilt from source.
+
+For the selected 340-module closure inside this repository, configure the exact generic context and run:
 
 ```sh
-python3 Solutions/RHLimit.v1/scripts/reproduce_pi_complete.py --out /data/rh-pi
-python3 Solutions/RHLimit.v1/spectral/reproduce_cold_append.py \
-  --basis /data/rh-pi --out /data/rh-spectral
-python3 Solutions/RHLimit.v1/scripts/reproduce_integration.py \
-  --basis /data/rh-pi --spectral /data/rh-spectral --out /data/rh-final
+export IEANTN_GENERIC_CONTEXT=/absolute/path/GENERIC_CONTEXT.json
+python Solutions/RHLimit.v1/scripts/reproduce_pi_complete.py --out /absolute/fresh/pi
+python Solutions/RHLimit.v1/spectral/reproduce_cold_append.py --basis /absolute/fresh/pi --out /absolute/fresh/spectral
+python Solutions/RHLimit.v1/scripts/reproduce_integration.py --basis /absolute/fresh/pi --spectral /absolute/fresh/spectral --out /absolute/fresh/final
 ```
 
-Inspect each final RESULT before proceeding. Use fresh owned output directories. `analytic/`, `octic/` and `spectral/` also provide their actual numerical regeneration, full source routes, independent reviews, all-mode CLI controls and exact source/parameter hashes. Numerical workloads are deterministic; no random seed is used.
+The full packet orchestrator additionally runs the actual C-log/box, analytic and octic routes. It admits at most three proof jobs, with a 240 GiB group budget and a 512 GiB host reserve. Its resource precondition is explicit; individual compilers have tighter documented limits. The original 4 GiB cap is not imposed.
 
-The initial `scripts/reproduce_pi.py` is retained as historical evidence: it needed an explicit C include-payload preparation step. It is **not the clean default recipe**. `reproduce_pi_complete.py` captures and validates the exact C payload internally. The original full261 proof run, explicit preparation receipt, and independent fresh23 C-dependent replay are preserved separately; the261 source manifest itself was not silently changed. `pi/RESOURCES.json` identifies the exact1069-byte C payload.
+`reproduce_pi_complete.py` captures the required C include internally. The original `reproduce_pi.py` is retained as historical evidence: its first run required explicit C-file preparation and a separate 23-source replay. `--resource-replay` belongs only to that historical basis and is rejected with a clean default basis. Neither the first receipt nor the fixed 261-source manifest was silently rewritten.
 
-## Source-first PV and remaining obligations
+Exact source/parameters, dependency revisions, compiler commands, output hashes, raw proof logs, C receipts and regeneration scripts are preserved. See `ledgers/REPRODUCIBILITY_FINAL.json`, `evidence/restored-candidate`, `evidence/final-clean24`, and `reviews/integration-cli`. Resource-figure inputs and its optional plotting environment lock are under `reports/resources`; plotting is not a proof dependency. Numerical scouts are deterministic and use no random seed.
 
-PV means actual C/C++/CUDA source→verified AST/execution/arithmetic→mathematical correctness→actual IEANTN consumer. Only the specifically reused `verified_finite_log.c`(127inputs2..128) and `rh_coeff.c`(21inputs0..20) components have this tier. New interval leaves and analytic proofs are kernel-only. The Python harnesses are tested, not source-verified; compiler translation, ABI/runtime, OS and hardware contracts remain documented trusted execution boundaries. No native execution axiom is accepted in the selected theorem closures.
+## Trust and remaining work
 
-The box ExplicitFormula, zero estimate and two Mellin identities remain open analytic inputs. The octic ExplicitFormula/full infinite-zero estimate, including certified moment caps and tail passage, remain open. The.076 oscillatory transfer, original610b target and full finite-prime-count source-first program proof remain unfinished. Earlier separate QRH/generalβ/program-migration backlogs retain their own recorded status. Literature inputs are not silently promoted to proved source theorems. No overall exposure advantage is claimed.
+PV means actual C/C++/CUDA source, verified source-to-AST correspondence, execution/arithmetic correctness, and a connection to an actual IEANTN theorem. Only the reused `verified_finite_log.c` component (inputs 2 through 128) and `rh_coeff.c` component (inputs 0 through 20) have that source-first tier. New interval leaves and analytic arguments are ordinary kernel proofs. The Python harnesses are tested, not source-verified. Compiler translation, ABI/runtime, OS and hardware contracts remain explicit trusted boundaries. Selected final theorem closures contain no native execution axioms.
 
-See `reports/RH_LIMIT_REPORT_EN.html` for the full offline mathematical exposition, exact primary statements and allowances, actual metrics, negative diagnostics, source/claim audits, reproducibility and cleanup limits. Publication and restored-package verification are recorded separately from mathematical acceptance.
+The box explicit formula, zero estimate and two Mellin identities remain open analytic inputs. The octic explicit formula and infinite-zero estimate, including moment caps and tail passage, remain open. The oscillatory 0.076 transfer, original 610-billion target and full finite-prime-count source-first proof remain unfinished. Earlier QRH, general-beta and program-migration backlogs keep their separately recorded status. Published inputs are not silently promoted to formalized source theorems.
+
+Accepted proof artifacts, original sources and locked data are retained. Cleanup is limited to checked, regenerable, experiment-owned copies and caches, with explicit receipts.

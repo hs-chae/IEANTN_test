@@ -12,6 +12,23 @@ bridge, all four closed octic contracts and final count consumers, and the final
 canonical consumers specified in ROOT_FINAL_READY.json. Read the offline study
 reports under network/Solutions/RHLimit.v1 for mathematical statements and limits.
 
+## Recorded verification boundary
+
+The original frozen candidate completed all six routes and 620 source compilation
+commands, with 340 unique modules in the main mathematical closure. The final
+publication subsequently tightens only the optional historical 23-module receipt
+guard; mathematical/C sources, numerical parameters and other component
+controllers are unchanged. Both repaired final-consumer paths were fully rebuilt,
+and actual CLI controls passed in normal, -O and -OO Python. The final archive was
+not rerun end to end after that guard-only change. Consult
+`network/Solutions/RHLimit.v1/ledgers/REPRODUCIBILITY_FINAL.json` for exact receipts.
+
+The normal clean recipe uses no `--resource-replay` argument. That option belongs
+solely to the recorded initial two-stage run and is rejected on a clean basis.
+Plot regeneration is optional reporting work; its pinned environment is separate
+from Lean and the numerical programs. All math in the main HTML is already
+rendered and readable offline.
+
 ## Download and restore
 
 Place every RH_LIMIT_SOURCE.partNNN file, PARTS_MANIFEST.json and join_bundle.py

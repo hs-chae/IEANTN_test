@@ -1,0 +1,17 @@
+[
+  {
+    "label": "missing-output",
+    "returncode": 2,
+    "stderr": "usage: native_log_workload.py [-h] --out OUT\nnative_log_workload.py: error: the following arguments are required: --out\n"
+  },
+  {
+    "label": "unknown-argument",
+    "returncode": 2,
+    "stderr": "usage: native_log_workload.py [-h] --out OUT\nnative_log_workload.py: error: unrecognized arguments: --unexpected\n"
+  },
+  {
+    "label": "existing-output",
+    "returncode": 1,
+    "stderr": "Traceback (most recent call last):\n  File \"/data/ivy-rh-limit-20261122/publication/restored-candidate/network/Solutions/RHContinuation.v1/parabolic/native_log_workload.py\", line 14, in <module>\n    need(not O.exists(),'fresh output');O.mkdir(parents=True);source=N/'Solutions/RamanujanSourcePV.v1/c/verified_finite_log.c';gcc=Path(shutil.which('gcc')).resolve();binary=O/'verified_finite_log.so';cmd=[str(gcc),'-std=gnu11','-O2','-fPIC','-shared',str(source),'-o',str(binary)];before=sha(source);r=subprocess.run(cmd,text=True,capture_output=True);(O/'BUILD.stdout').write_text(r.stdout);(O/'BUILD.stderr').write_text(r.stderr);need(r.returncode==0,'C compilation failed');need(sha(source)==before,'source changed during native build');lib=ctypes.CDLL(str(binary));fn=lib.rpc_log_upper;fn.argtypes=[ctypes.c_uint64];fn.restype=ctypes.c_uint64;t=time.monotonic();rows=[{'n':n,'output':int(fn(n))}for n in range(2,129)];elapsed=time.monotonic()-t;need(len(rows)==127 and [r['n']for r in rows]==list(range(2,129)),'exact finite input coverage')\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/ivy-rh-limit-20261122/publication/restored-candidate/network/Solutions/RHContinuation.v1/parabolic/native_log_workload.py\", line 12, in need\n    if not x:raise ValueError(m)\n             ^^^^^^^^^^^^^^^^^^^\nValueError: fresh output\n"
+  }
+]

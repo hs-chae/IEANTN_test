@@ -1,0 +1,44 @@
+{
+  "status": "PASS_REPRODUCED_ORIGINAL6_ACCEPTANCES_AND_REPAIRED93_ROUTES",
+  "commands": [
+    {
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-limit-20261122/reviews/integration-cli/reproduction-check-v1/run_controls.py",
+        "--network",
+        "/data/ivy-rh-limit-20261122/reviews/integration-cli/reproduction-check-v1/source-original/network",
+        "--data",
+        "/data/ivy-rh-limit-20261122/reviews/integration-cli/reproduction-check-v1/banks",
+        "--out",
+        "/data/ivy-rh-limit-20261122/reviews/integration-cli/reproduction-check-v1/fixed-spec-v2"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-limit-20261122/reviews/integration-cli/reproduction-check-v1/run_controls_repaired.py",
+        "--network",
+        "/data/ivy-rh-limit-20261122/reviews/integration-cli/reproduction-check-v1/source-repaired/network",
+        "--data",
+        "/data/ivy-rh-limit-20261122/reviews/integration-cli/reproduction-check-v1/banks",
+        "--out",
+        "/data/ivy-rh-limit-20261122/reviews/integration-cli/reproduction-check-v1/repaired-spec-v1"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-limit-20261122/reviews/integration-cli/reproduction-check-v1/extra_repaired_controls.py"
+      ],
+      "returncode": 0
+    }
+  ],
+  "private_legacy_policy_fixture_only": true,
+  "original_experimental_outcomes_changed": false,
+  "mathematical_sources_or_numerical_outputs_changed": false,
+  "original63_RESULT_sha256": "c0726c9952dec882b7a7ec730eaf436b6dbe6dc51ddf2d1d7ec94cdcd8c0654c",
+  "repaired63_RESULT_sha256": "93fa54292a602487a25ff09b36f6900d76962c16c5aa859a4ab49fbae590c79b",
+  "extra30_RESULT_sha256": "856c419f190dcd191167f1654a0964c653dc14a5243d626553a34791a02917db"
+}

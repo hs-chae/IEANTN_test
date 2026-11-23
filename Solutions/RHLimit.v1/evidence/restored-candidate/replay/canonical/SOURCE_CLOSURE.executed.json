@@ -1,0 +1,284 @@
+{
+  "schema": "RH_LIMIT_FINAL_CANONICAL_EXTENSION_V1",
+  "basis_modules": 316,
+  "basis_manifests": [
+    {
+      "path": "Solutions/RHLimit.v1/pi/SOURCE_CLOSURE.json",
+      "sha256": "32cef82784fb8858f6127bce2b69f236f3789fd07a7c92cb4853861ded1c7c24"
+    },
+    {
+      "path": "Solutions/RHLimit.v1/spectral/SOURCE_CLOSURE.json",
+      "sha256": "040754d9956a03683fbbb3e781e426c894897b46c98c3b28369c23b7b3090361"
+    }
+  ],
+  "modules": [
+    {
+      "module": "IEANTN.Nodes.RHPrimeCounting.v1.Conclusions",
+      "path": "Solutions/RHLimit.v1/integration/frozen-source/IEANTN/Nodes/RHPrimeCounting/v1/Conclusions.lean",
+      "sha256": "30da8b29230c60e64b942860ace9d924b3db588ab09397be436621a638b0e753",
+      "application_imports": [
+        "IEANTN.Nodes.RH.v1.Conclusions",
+        "IEANTN.Nodes.RHSmoothing.v1.Conclusions",
+        "IEANTN.Vocabulary.PrimeCounting"
+      ],
+      "generic_imports": [
+        "Mathlib.NumberTheory.Chebyshev"
+      ],
+      "original_path": "IEANTN/Nodes/RHPrimeCounting/v1/Conclusions.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.RHPrimeCounting.v2.Conclusions",
+      "path": "Solutions/RHLimit.v1/integration/frozen-source/IEANTN/Nodes/RHPrimeCounting/v2/Conclusions.lean",
+      "sha256": "f153913a14486d522fe79b90d97162a982dbe307236caad4d40b0a7e0b583f95",
+      "application_imports": [
+        "IEANTN.Nodes.RHPrimeCounting.v1.Conclusions",
+        "IEANTN.Vocabulary.ErrorTerms"
+      ],
+      "generic_imports": [],
+      "original_path": "IEANTN/Nodes/RHPrimeCounting/v2/Conclusions.lean"
+    },
+    {
+      "module": "LimitPiSolution",
+      "path": "Solutions/RHLimit.v1/integration/frozen-source/LimitPiSolution.lean",
+      "sha256": "280bb6f46e0d9573cb617f03c552cba32b31b4c9ef846dd20f1e3f2083d43685",
+      "application_imports": [
+        "SourceBoxPi",
+        "IEANTN.Nodes.RHPrimeCounting.v2.Conclusions"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHPrimeCounting.v2/Solution.lean"
+    },
+    {
+      "module": "OcticGeometry",
+      "path": "Solutions/RHLimit.v1/octic/OcticGeometry.lean",
+      "sha256": "10dd9790ddeee4f55de7a0faa1ec73d769e356b050d960ff87a5bc5e1cae9a93",
+      "application_imports": [
+        "EvenKernel"
+      ],
+      "generic_imports": [
+        "Mathlib"
+      ]
+    },
+    {
+      "module": "OcticCoverage",
+      "path": "Solutions/RHLimit.v1/octic/OcticCoverage.lean",
+      "sha256": "417220a24829ae93785c1ccaa2468a5628f7e87e2cb8e215b624222c5413a472",
+      "application_imports": [
+        "OcticGeometry",
+        "OcticConsumer"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "OcticTrivial",
+      "path": "Solutions/RHLimit.v1/octic/OcticTrivial.lean",
+      "sha256": "1d9604dbbe4e645d9c5d8dabcfd992d9191cf70660fa66dfd6fc708a85f20f8e",
+      "application_imports": [
+        "OcticCoverage"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "OcticPrimePowers",
+      "path": "Solutions/RHLimit.v1/octic/OcticPrimePowers.lean",
+      "sha256": "d76cff564e226bd52dce34245f2b9b8658dfab8067c1ece04ef80d39d24919cf",
+      "application_imports": [
+        "OcticTrivial"
+      ],
+      "generic_imports": [
+        "Mathlib.NumberTheory.Harmonic.Bounds"
+      ]
+    },
+    {
+      "module": "OcticPrimePowerScalars",
+      "path": "Solutions/RHLimit.v1/octic/OcticPrimePowerScalars.lean",
+      "sha256": "a2d4d3de2aa3ad99c362493126eb880fb9fff5deb267fa199c87f79e7a33cc11",
+      "application_imports": [
+        "OcticPrimePowers"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "OcticTwoInputs",
+      "path": "Solutions/RHLimit.v1/octic/OcticTwoInputs.lean",
+      "sha256": "291d164ddbd506932cdddb2eae16cb74fc75db911ed12caf2d2e0ed2d21b4706",
+      "application_imports": [
+        "OcticPrimePowerScalars"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "IEANTN.Nodes.PrimeKernelInputs.v2.Conclusions",
+      "path": "Solutions/RHLimit.v1/integration/frozen-source/IEANTN/Nodes/PrimeKernelInputs/v2/Conclusions.lean",
+      "sha256": "a4c24c5cf3e01ec100a5a7538990f7641ba162ea7e8580863d15001e4afbd2af",
+      "application_imports": [
+        "IEANTN.Vocabulary.PrimeWindows"
+      ],
+      "generic_imports": [],
+      "original_path": "IEANTN/Nodes/PrimeKernelInputs/v2/Conclusions.lean"
+    },
+    {
+      "module": "LimitKernelSolution",
+      "path": "Solutions/RHLimit.v1/integration/frozen-source/LimitKernelSolution.lean",
+      "sha256": "a8643e8cb2d00f035ed0bcf0306ebf7bc2a0e7f732f28196d21dbc3fab6e3041",
+      "application_imports": [
+        "OcticTwoInputs",
+        "IEANTN.Nodes.PrimeKernelInputs.v1.Conclusions",
+        "IEANTN.Nodes.PrimeKernelInputs.v2.Conclusions"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/PrimeKernelInputs.v1/Solution.lean"
+    },
+    {
+      "module": "LimitMellinSolution",
+      "path": "Solutions/RHLimit.v1/integration/frozen-source/LimitMellinSolution.lean",
+      "sha256": "6157369556032472f7a03c8c036c4a8db1e5337aaf6931989b18b14bde94c31a",
+      "application_imports": [
+        "StieltjesTrapezoid"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/BoxMellinInputs.v1/Solution.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.RamanujanGap.v3.Conclusions",
+      "path": "Solutions/RHLimit.v1/integration/frozen-source/IEANTN/Nodes/RamanujanGap/v3/Conclusions.lean",
+      "sha256": "40907582161cb319fc75496be75ac074720e66e5374efb8173af6af2021a5d90",
+      "application_imports": [
+        "IEANTN.Nodes.RamanujanGap.v1.Conclusions"
+      ],
+      "generic_imports": [],
+      "original_path": "IEANTN/Nodes/RamanujanGap/v3/Conclusions.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.RamanujanGap.v4.Conclusions",
+      "path": "Solutions/RHLimit.v1/integration/frozen-source/IEANTN/Nodes/RamanujanGap/v4/Conclusions.lean",
+      "sha256": "7adeb5d5afe32b976715c0df2e079592186006d9faba82c63ac48c4b36f8af28",
+      "application_imports": [
+        "IEANTN.Nodes.RamanujanGap.v3.Conclusions"
+      ],
+      "generic_imports": [],
+      "original_path": "IEANTN/Nodes/RamanujanGap/v4/Conclusions.lean"
+    },
+    {
+      "module": "LimitRamSolution",
+      "path": "Solutions/RHLimit.v1/integration/frozen-source/LimitRamSolution.lean",
+      "sha256": "71be7d5c82f897b5bfccaccbc3298c89136d8012d0b836f03fe4f8bc03dd7531",
+      "application_imports": [
+        "Ram620Result",
+        "IEANTN.Nodes.RHPrimeCounting.v1.Conclusions",
+        "IEANTN.Nodes.RamanujanGap.v4.Conclusions"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RamanujanGap.v4/Solution.lean"
+    },
+    {
+      "module": "ActualDynamicMainterm",
+      "path": "Solutions/RHLimit.v1/integration/frozen-source/ActualDynamicMainterm.lean",
+      "sha256": "8a8810a2f24d80ac3c67f72220a7bcd86f3ad4f49b0488eecb1e25081c6d4fa8",
+      "application_imports": [
+        "ActualSourcePolynomial"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/ramanujan/ActualDynamicMainterm.lean"
+    },
+    {
+      "module": "ActualDynamicTail",
+      "path": "Solutions/RHLimit.v1/integration/frozen-source/ActualDynamicTail.lean",
+      "sha256": "08f19a353b78c426324d46d646d04078004d076214721dcb9ccec9f8ab281118",
+      "application_imports": [
+        "ActualDynamicMainterm",
+        "ActualTail"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/ramanujan/ActualDynamicTail.lean"
+    },
+    {
+      "module": "ActualFinalProfile",
+      "path": "Solutions/RHLimit.v1/integration/frozen-source/ActualFinalProfile.lean",
+      "sha256": "b092ed3e1c5263a3c1686a63d3f4cb787ccb32fa1d900878f0a70c4030e7bcae",
+      "application_imports": [
+        "ActualSourceResult",
+        "ActualDynamicTail"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/ramanujan/ActualFinalProfile.lean"
+    },
+    {
+      "module": "OldRamFullSolution",
+      "path": "Solutions/RHLimit.v1/integration/frozen-source/OldRamFullSolution.lean",
+      "sha256": "af0f6a6088a077d212595c227d9591d282b5788fa7764e627734c4b7a42e1e0c",
+      "application_imports": [
+        "IEANTN.Nodes.RamanujanGap.v3.Conclusions",
+        "IEANTN.Nodes.RH.v1.Conclusions",
+        "ActualFinalProfile"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RamanujanGap.v3/Solution.lean"
+    },
+    {
+      "module": "NetworkEvolution",
+      "path": "Solutions/RHLimit.v1/integration/NetworkEvolution.lean",
+      "sha256": "b66b32118ecdc26d821efca27858eea88e3983e1a18c6f0a3f95cdc2c9840d60",
+      "application_imports": [
+        "LimitPiSolution",
+        "LimitKernelSolution",
+        "LimitMellinSolution",
+        "LimitRamSolution",
+        "OldRamFullSolution"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "OcticStrict",
+      "path": "Solutions/RHLimit.v1/octic/OcticStrict.lean",
+      "sha256": "5c261b873dc9f27b71749d87d14d7d3e734afe7a2ca4121d57ef548d7598c2b2",
+      "application_imports": [
+        "OcticTwoInputs"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "BPTZeroCount",
+      "path": "Solutions/RHLimit.v1/analytic/BPTZeroCount.lean",
+      "sha256": "8f39fbd5ea25f716378407e42d536514209d80e066f82d2541b1dd7d9f169207",
+      "application_imports": [
+        "ZeroCountIntegral"
+      ],
+      "generic_imports": [
+        "Mathlib"
+      ]
+    },
+    {
+      "module": "OcticFourier",
+      "path": "Solutions/RHLimit.v1/analytic/OcticFourier.lean",
+      "sha256": "586425769b3b7536354da85fa20347d5c87ef00d82b73cfb1221c211958878f4",
+      "application_imports": [
+        "EvenKernel"
+      ],
+      "generic_imports": [
+        "Mathlib"
+      ]
+    },
+    {
+      "module": "AbsoluteStieltjes",
+      "path": "Solutions/RHLimit.v1/analytic/AbsoluteStieltjes.lean",
+      "sha256": "464fc080769c9b46f6731708cbaa06b2e7de1704ea39c0619c59637cb1172310",
+      "application_imports": [
+        "BPTZeroCount",
+        "OcticFourier"
+      ],
+      "generic_imports": []
+    }
+  ],
+  "roots": [
+    "NetworkEvolution",
+    "OcticStrict",
+    "AbsoluteStieltjes"
+  ],
+  "final_roots": [
+    "RHLimit.Network.octic_forward_evolution",
+    "RHLimit.Network.box_forward_evolution",
+    "RHLimit.Network.ramanujan_full_source_evolution"
+  ],
+  "generated_Challenge_scaffolds_imported": false
+}

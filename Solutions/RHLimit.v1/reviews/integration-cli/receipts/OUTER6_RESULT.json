@@ -1,0 +1,145 @@
+{
+  "schema": "RH_LIMIT_ACTUAL_OUTER_CLI_CONTROLS_V1",
+  "status": "PASS_ALL_SIX_ACTUAL_OUTER_CLI_ROUTES",
+  "actual_verifier": "/data/ivy-rh-limit-20261122/publication/restored-candidate/prepare_bundle.py",
+  "actual_verifier_sha256": "d9684893a13d7bd258ca5e271c1244b11f1632b0e011bbba96241ee02c573acf",
+  "archive_tools_sha256": "5b8a7396d55a3248e11b2e2a561be0d8023afb05fea61f08fc943a6a3a840e0e",
+  "source_manifest_sha256": "8c5020a78074adf8e3509f23de5db8e110407e4c95328aed2c23bec2dddef898",
+  "harness_sha256": "ea1985a4f35d4ad0fec7008d67655395a3928e9401953daeea48349dcdfea1fb",
+  "python_executable": "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+  "python_version": "3.11.14 (main, Jan 14 2026, 19:35:32) [Clang 21.1.4 ]",
+  "original_packet_file_count": 3095,
+  "original_before_snapshot_sha256": "b2a8d80167014c8ac5e82d485c65235913f94a91abf37c8f04117865e8883403",
+  "original_after_snapshot_sha256": "b2a8d80167014c8ac5e82d485c65235913f94a91abf37c8f04117865e8883403",
+  "original_all_source_bytes_and_members_unchanged": true,
+  "original_specification_inode_unchanged": true,
+  "mutation": {
+    "operation": "omit exactly one original_path key from one integration manifest row",
+    "manifest": "network/Solutions/RHLimit.v1/integration/SOURCE_CLOSURE.json",
+    "row_index": 0,
+    "module": "IEANTN.Nodes.RHPrimeCounting.v1.Conclusions",
+    "omitted_original_path": "IEANTN/Nodes/RHPrimeCounting/v1/Conclusions.lean",
+    "original_sha256": "8c5020a78074adf8e3509f23de5db8e110407e4c95328aed2c23bec2dddef898",
+    "mutated_sha256": "c1d0da365622cc62dd5901636b31e7ad983f10e2fc1394286af0d72c9be2de89",
+    "inode_detached_before_mutation": true,
+    "outer_bundle_manifest_unchanged": true
+  },
+  "routes": [
+    {
+      "route": "normal-positive",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-limit-20261122/publication/restored-candidate/prepare_bundle.py",
+        "verify",
+        "--tree",
+        "/data/ivy-rh-limit-20261122/publication/restored-candidate"
+      ],
+      "environment_overrides": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "returncode": 0,
+      "elapsed_seconds": 0.27396264858543873,
+      "stdout_sha256": "e2a132c8fae1811535a4da43e7d1d7f260abe836636747014721276ec8e0ef30",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observation": "ACCEPTED_ORIGINAL_SOURCE_PACKET"
+    },
+    {
+      "route": "normal-omit-original-path",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-limit-20261122/publication/restored-candidate/prepare_bundle.py",
+        "verify",
+        "--tree",
+        "/data/ivy-rh-limit-20261122/reviews/integration-cli/outer/run-v1/negative-tree"
+      ],
+      "environment_overrides": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "returncode": 1,
+      "elapsed_seconds": 0.1598859578371048,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "612b1c4e7f3a543984f507769b302d5853e4b9fade09322d81c87235a7e8a328",
+      "observation": "REJECTED_CHANGED_LOCKED_SOURCE_SPECIFICATION"
+    },
+    {
+      "route": "O-positive",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/data/ivy-rh-limit-20261122/publication/restored-candidate/prepare_bundle.py",
+        "verify",
+        "--tree",
+        "/data/ivy-rh-limit-20261122/publication/restored-candidate"
+      ],
+      "environment_overrides": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "returncode": 0,
+      "elapsed_seconds": 0.26914694160223007,
+      "stdout_sha256": "e2a132c8fae1811535a4da43e7d1d7f260abe836636747014721276ec8e0ef30",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observation": "ACCEPTED_ORIGINAL_SOURCE_PACKET"
+    },
+    {
+      "route": "O-omit-original-path",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/data/ivy-rh-limit-20261122/publication/restored-candidate/prepare_bundle.py",
+        "verify",
+        "--tree",
+        "/data/ivy-rh-limit-20261122/reviews/integration-cli/outer/run-v1/negative-tree"
+      ],
+      "environment_overrides": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "returncode": 1,
+      "elapsed_seconds": 0.1604042537510395,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "612b1c4e7f3a543984f507769b302d5853e4b9fade09322d81c87235a7e8a328",
+      "observation": "REJECTED_CHANGED_LOCKED_SOURCE_SPECIFICATION"
+    },
+    {
+      "route": "OO-positive",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-limit-20261122/publication/restored-candidate/prepare_bundle.py",
+        "verify",
+        "--tree",
+        "/data/ivy-rh-limit-20261122/publication/restored-candidate"
+      ],
+      "environment_overrides": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "returncode": 0,
+      "elapsed_seconds": 0.2637106403708458,
+      "stdout_sha256": "e2a132c8fae1811535a4da43e7d1d7f260abe836636747014721276ec8e0ef30",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observation": "ACCEPTED_ORIGINAL_SOURCE_PACKET"
+    },
+    {
+      "route": "OO-omit-original-path",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-limit-20261122/publication/restored-candidate/prepare_bundle.py",
+        "verify",
+        "--tree",
+        "/data/ivy-rh-limit-20261122/reviews/integration-cli/outer/run-v1/negative-tree"
+      ],
+      "environment_overrides": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "returncode": 1,
+      "elapsed_seconds": 0.16037659347057343,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "612b1c4e7f3a543984f507769b302d5853e4b9fade09322d81c87235a7e8a328",
+      "observation": "REJECTED_CHANGED_LOCKED_SOURCE_SPECIFICATION"
+    }
+  ],
+  "interpretation": "The fixed outer verifier accepts the original packet and rejects an altered manifest against its unchanged locked file identity. This does not test an inner CLI against a trusted replacement specification and is not a program-verification claim.",
+  "setup_error": "An initial read omitted the network/ packet prefix and failed with FileNotFoundError before any mutation or verification route. The real packet-relative path above was then used.",
+  "regenerable_control_tree": "/data/ivy-rh-limit-20261122/reviews/integration-cli/outer/run-v1/negative-tree",
+  "cleanup_policy": "Owned hardlink clone retained as compact regenerable control evidence; no original source or accepted proof artifact was deleted."
+}

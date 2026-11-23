@@ -1,0 +1,3229 @@
+{
+  "schema": "RH_LIMIT_ACTUAL_PI_SOURCE_CLOSURE_V1",
+  "roots": [
+    "PurePiRay",
+    "SourceBoxPi"
+  ],
+  "source_selection": "Exact recursive imports of the final actual ordinary-pi and source-linked box consumers, not a historical sorry queue.",
+  "module_identity_choices": [
+    {
+      "module": "FullRH",
+      "selected": {
+        "module": "FullRH",
+        "path": "Solutions/RHContinuation.v1/integration/frozen-source/FullRH.lean",
+        "sha256": "cb7b97f4002464b381c2631fe3e98a2057192d6549e37efacc7e157c2d0674cb"
+      },
+      "unused_variant": {
+        "path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/FullRH.lean",
+        "sha256": "e6ef39b133efdf8de19301fe76ae345b400db63f33c1f74310463e1b855b5dd3"
+      },
+      "reason": "PNT and Ram archives differ only in their unused classical_one/classical_076 declarations. The PNT source is selected and every consumer is recompiled in one coherent module environment."
+    }
+  ],
+  "modules": [
+    {
+      "module": "IEANTN.Vocabulary.PrimeCounting",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Vocabulary/PrimeCounting.lean",
+      "sha256": "2863183b4c78aa1abd3be714dceeef534d6f3141c20a8df10c47b13aa38731d5",
+      "application_imports": [],
+      "generic_imports": [
+        "Mathlib.NumberTheory.PrimeCounting",
+        "Mathlib.MeasureTheory.Integral.Bochner.Set",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic"
+      ],
+      "original_path": "IEANTN/Vocabulary/PrimeCounting.lean"
+    },
+    {
+      "module": "LiPVDefinition",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LiPVDefinition.lean",
+      "sha256": "48e5858bf0437f8c62f2ddf8bce7380d735de5055353c88638006ee776026bf4",
+      "application_imports": [
+        "IEANTN.Vocabulary.PrimeCounting"
+      ],
+      "generic_imports": [
+        "Mathlib"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/ramanujan/LiPVDefinition.lean"
+    },
+    {
+      "module": "ActualLiAbelModel",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/ActualLiAbelModel.lean",
+      "sha256": "2dc00456f89f00bb20a1a91d888ebc0384b84223c10e15980a3dccedc35eae48",
+      "application_imports": [
+        "LiPVDefinition"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/ramanujan/ActualLiAbelModel.lean"
+    },
+    {
+      "module": "FiniteMangoldtAbel",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/FiniteMangoldtAbel.lean",
+      "sha256": "d63fbae70fcbb14b0e25b16befb7f99523da1ddb0744b030488fa7ae013a0a34",
+      "application_imports": [],
+      "generic_imports": [
+        "Mathlib.NumberTheory.AbelSummation",
+        "Mathlib.NumberTheory.Chebyshev",
+        "Mathlib.Analysis.SpecialFunctions.Log.Deriv",
+        "Mathlib.Tactic"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/parabolic/FiniteMangoldtAbel.lean"
+    },
+    {
+      "module": "ActualCompensatedJ",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/ActualCompensatedJ.lean",
+      "sha256": "e4c117fb839c45517ac4958cadcaf48206269fb4298021f08c72e3f72f89d399",
+      "application_imports": [
+        "ActualLiAbelModel",
+        "FiniteMangoldtAbel"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/ramanujan/ActualCompensatedJ.lean"
+    },
+    {
+      "module": "RamanujanPV.Intervals",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/RamanujanPV/Intervals.lean",
+      "sha256": "fa6c22921bd2b3fdce2cf174f4e188c9185e5c2693a014a83b3e4ff3fc343121",
+      "application_imports": [
+        "IEANTN.Vocabulary.PrimeCounting"
+      ],
+      "generic_imports": [
+        "Mathlib"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/RamanujanPV/Intervals.lean"
+    },
+    {
+      "module": "SharedRH",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/SharedRH.lean",
+      "sha256": "cd89ea0f3934a2b38893fa806b0ed81d73adb6d73081d203411371a46a55dc1c",
+      "application_imports": [],
+      "generic_imports": [
+        "Mathlib.NumberTheory.LSeries.RiemannZeta"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/SharedRH.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.RamanujanGap.v1.Conclusions",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Nodes/RamanujanGap/v1/Conclusions.lean",
+      "sha256": "620d5bd8261a861e7a07c43fc05a2f853f7d34b4a8c2b1e7ce66e74f05f4fab1",
+      "application_imports": [
+        "IEANTN.Vocabulary.PrimeCounting"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/IEANTN/Nodes/RamanujanGap/v1/Conclusions.lean"
+    },
+    {
+      "module": "IEANTN.Vocabulary.ErrorTerms",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Vocabulary/ErrorTerms.lean",
+      "sha256": "8027fc677653f3d86229a586404f9d4ab2ca6c8404d8ccc18df056b22c2e01bc",
+      "application_imports": [
+        "IEANTN.Vocabulary.PrimeCounting"
+      ],
+      "generic_imports": [
+        "Mathlib.NumberTheory.Chebyshev",
+        "Mathlib.Analysis.SpecialFunctions.Pow.Real"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/IEANTN/Vocabulary/ErrorTerms.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.Buthe.v1.Tables",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Nodes/Buthe/v1/Tables.lean",
+      "sha256": "a5e96d99d74c6bb472792ac8cd689d09015e4de760d797659a4ceac7ddc79e92",
+      "application_imports": [
+        "IEANTN.Vocabulary.ErrorTerms"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/IEANTN/Nodes/Buthe/v1/Tables.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.Buthe.v1.Conclusions",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Nodes/Buthe/v1/Conclusions.lean",
+      "sha256": "06118da7c74732c2c063c0d7b6e8ea9eaf4249faed3207df4601ae4022831244",
+      "application_imports": [
+        "IEANTN.Vocabulary.ErrorTerms",
+        "IEANTN.Nodes.Buthe.v1.Tables"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/IEANTN/Nodes/Buthe/v1/Conclusions.lean"
+    },
+    {
+      "module": "RamAlgebra",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/RamAlgebra.lean",
+      "sha256": "71fd9d6ac5b5b4ff2ca12a8792f19046bc7e5c35ae7b12f756b35ac6dc0853ed",
+      "application_imports": [
+        "RamanujanPV.Intervals",
+        "SharedRH",
+        "IEANTN.Nodes.RamanujanGap.v1.Conclusions",
+        "IEANTN.Nodes.Buthe.v1.Conclusions"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/RamAlgebra.lean"
+    },
+    {
+      "module": "LeanCert.Core.Interval",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Core/Interval.lean",
+      "sha256": "3b7e7c4200cbb10a35444d56bb6217ba17af1c1b5e565ecdb9fe87e683589565",
+      "application_imports": [],
+      "generic_imports": [
+        "Mathlib.Analysis.SpecialFunctions.Integrals.Basic",
+        "Mathlib.Topology.Order.Basic"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Core/Interval.lean"
+    },
+    {
+      "module": "LeanCert.Core.IntervalRat.Basic",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Core/IntervalRat/Basic.lean",
+      "sha256": "dec62f02adb351ec8aa3397294ddf914b01b0e6c1c2f8f9864562b1d3111552c",
+      "application_imports": [
+        "LeanCert.Core.Interval"
+      ],
+      "generic_imports": [
+        "Mathlib.Data.Rat.Cast.Order",
+        "Mathlib.Algebra.Order.Field.Basic"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Core/IntervalRat/Basic.lean"
+    },
+    {
+      "module": "LeanCert.Tactic.IntervalAuto.Types",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Tactic/IntervalAuto/Types.lean",
+      "sha256": "aab06d27ff92dec195adacc7527ab42824d2bef9e3cf90d6742fb246b3b81586",
+      "application_imports": [
+        "LeanCert.Core.IntervalRat.Basic"
+      ],
+      "generic_imports": [
+        "Lean"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Tactic/IntervalAuto/Types.lean"
+    },
+    {
+      "module": "LeanCert.Tactic.IntervalAuto.Norm",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Tactic/IntervalAuto/Norm.lean",
+      "sha256": "c12e8d544c361c5eb6fa31f2855bada96918897c39ec26ae4f14b16cb0db78cf",
+      "application_imports": [
+        "LeanCert.Tactic.IntervalAuto.Types"
+      ],
+      "generic_imports": [
+        "Lean"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Tactic/IntervalAuto/Norm.lean"
+    },
+    {
+      "module": "LeanCert.Core.Expr",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Core/Expr.lean",
+      "sha256": "2cbe45500242ef521c414d7d4b4feac885cdcdae1f77c913eaa3597df87b83fb",
+      "application_imports": [],
+      "generic_imports": [
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Arctan",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Sinc",
+        "Mathlib.Analysis.SpecialFunctions.ExpDeriv",
+        "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Arsinh",
+        "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+        "Mathlib.NumberTheory.Harmonic.EulerMascheroni",
+        "Mathlib.Analysis.SpecialFunctions.Gaussian.GaussianIntegral",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Core/Expr.lean"
+    },
+    {
+      "module": "LeanCert.Meta.Numeral",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Meta/Numeral.lean",
+      "sha256": "3b4e2cb8ae075f819bb4310713d324eb7658ac81702a668e70dfedb6133c41ba",
+      "application_imports": [
+        "LeanCert.Core.Expr"
+      ],
+      "generic_imports": [
+        "Lean"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Meta/Numeral.lean"
+    },
+    {
+      "module": "LeanCert.Tactic.IntervalAuto.Extract",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Tactic/IntervalAuto/Extract.lean",
+      "sha256": "b38d5f8b5862e41fa5b8303dee76911ef385ba488ac16a9d8ffedfc0a137c65f",
+      "application_imports": [
+        "LeanCert.Core.IntervalRat.Basic",
+        "LeanCert.Meta.Numeral"
+      ],
+      "generic_imports": [
+        "Lean"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Tactic/IntervalAuto/Extract.lean"
+    },
+    {
+      "module": "LeanCert.Meta.ToExpr",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Meta/ToExpr.lean",
+      "sha256": "39d594519544a077decb5d0536628af38910570eef7d66fa07269c282e9fd918",
+      "application_imports": [
+        "LeanCert.Core.Expr",
+        "LeanCert.Meta.Numeral"
+      ],
+      "generic_imports": [
+        "Lean"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Meta/ToExpr.lean"
+    },
+    {
+      "module": "LeanCert.Tactic.IntervalAuto.Parse",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Tactic/IntervalAuto/Parse.lean",
+      "sha256": "3bf8b96c3b7e9523b804594388197d946009681c31dac1a7e355646a2fc4b4a2",
+      "application_imports": [
+        "LeanCert.Tactic.IntervalAuto.Types",
+        "LeanCert.Tactic.IntervalAuto.Extract",
+        "LeanCert.Meta.ToExpr"
+      ],
+      "generic_imports": [
+        "Lean"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Tactic/IntervalAuto/Parse.lean"
+    },
+    {
+      "module": "LeanCert.Tactic.IntervalAuto.Diagnostic",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Tactic/IntervalAuto/Diagnostic.lean",
+      "sha256": "fcffa1f2d3adba1c0eecceec77ad9c89d315f2fead7ad2a185fe18e6016a3dd0",
+      "application_imports": [
+        "LeanCert.Tactic.IntervalAuto.Types",
+        "LeanCert.Tactic.IntervalAuto.Parse"
+      ],
+      "generic_imports": [
+        "Lean"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Tactic/IntervalAuto/Diagnostic.lean"
+    },
+    {
+      "module": "LeanCert.Core.Support",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Core/Support.lean",
+      "sha256": "10d0f93238ec81ec8f4294ca9e563d2569e896d0dc2eb4e5c715e10fcfd29670",
+      "application_imports": [
+        "LeanCert.Core.Expr"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Core/Support.lean"
+    },
+    {
+      "module": "LeanCert.Core.IntervalRat.Transcendental",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Core/IntervalRat/Transcendental.lean",
+      "sha256": "3968b194323b625283fae2c53900340ff13ec6eaf7d52e958e5c83246f580272",
+      "application_imports": [
+        "LeanCert.Core.IntervalRat.Basic",
+        "LeanCert.Core.Expr"
+      ],
+      "generic_imports": [
+        "Mathlib.Algebra.Order.Floor.Defs",
+        "Mathlib.Algebra.Order.Floor.Ring",
+        "Mathlib.Analysis.SpecialFunctions.Log.Basic"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Core/IntervalRat/Transcendental.lean"
+    },
+    {
+      "module": "LeanCert.Core.IntervalRat.LogReduction",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Core/IntervalRat/LogReduction.lean",
+      "sha256": "5526e5fc0d5447cea71dbe1debf274c2cc1532a5c40b7deee871b53a4dff09c7",
+      "application_imports": [
+        "LeanCert.Core.Expr"
+      ],
+      "generic_imports": [
+        "Mathlib.Data.Rat.Defs",
+        "Mathlib.Data.Nat.Log",
+        "Mathlib.Basic.Real.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Pow.Real"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Core/IntervalRat/LogReduction.lean"
+    },
+    {
+      "module": "LeanCert.Core.DerivativeIntervals",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Core/DerivativeIntervals.lean",
+      "sha256": "d50d7a368033ed7905a92445700ceb8e95ec41e31c08b7ed49bf585d68fcf0f9",
+      "application_imports": [],
+      "generic_imports": [
+        "Mathlib.Analysis.SpecialFunctions.ExpDeriv",
+        "Mathlib.Analysis.SpecialFunctions.Log.Deriv",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Arctan",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.ArctanDeriv",
+        "Mathlib.Analysis.SpecialFunctions.Arsinh",
+        "Mathlib.Analysis.Calculus.MeanValue"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Core/DerivativeIntervals.lean"
+    },
+    {
+      "module": "LeanCert.Core.Taylor",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Core/Taylor.lean",
+      "sha256": "2c3d2aef304c46b10ca430c224d00abaa876daca6f8c94cce66b5fbc7cee354e",
+      "application_imports": [
+        "LeanCert.Core.DerivativeIntervals"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.Calculus.Taylor",
+        "Mathlib.Analysis.SpecialFunctions.ExpDeriv",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv",
+        "Mathlib.Analysis.SpecialFunctions.Log.Deriv"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Core/Taylor.lean"
+    },
+    {
+      "module": "LeanCert.Core.IntervalRat.Taylor",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Core/IntervalRat/Taylor.lean",
+      "sha256": "d7c3988d53312a5055998f2c9c3057daaabdaba07b933fa8635cd85a943838c2",
+      "application_imports": [
+        "LeanCert.Core.IntervalRat.Basic",
+        "LeanCert.Core.IntervalRat.LogReduction",
+        "LeanCert.Core.Taylor",
+        "LeanCert.Core.Expr"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.Complex.ExponentialBounds",
+        "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+        "Mathlib.Analysis.SpecificLimits.Normed",
+        "Mathlib.Analysis.Real.Pi.Bounds",
+        "Mathlib.Data.List.Range"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Core/IntervalRat/Taylor.lean"
+    },
+    {
+      "module": "LeanCert.Core.IntervalReal",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Core/IntervalReal.lean",
+      "sha256": "336cc72b71249722ee1614a4a52b2002dbff9b0e8b3d36d6f85487726b3c54ec",
+      "application_imports": [
+        "LeanCert.Core.IntervalRat.Basic",
+        "LeanCert.Core.IntervalRat.Transcendental",
+        "LeanCert.Core.IntervalRat.Taylor"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Core/IntervalReal.lean"
+    },
+    {
+      "module": "LeanCert.Core.IntervalRealEndpoints",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Core/IntervalRealEndpoints.lean",
+      "sha256": "59023618cd1996de2938dd6c8236f9fca053bb36afa3b07ad6e436ab4edd0dd5",
+      "application_imports": [
+        "LeanCert.Core.IntervalReal"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.SpecialFunctions.ExpDeriv",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Arsinh",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Bounds",
+        "Mathlib.Analysis.Real.Pi.Bounds",
+        "Mathlib.Analysis.Calculus.MeanValue"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Core/IntervalRealEndpoints.lean"
+    },
+    {
+      "module": "LeanCert.Core.TrigReduction",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Core/TrigReduction.lean",
+      "sha256": "3d905fa503e7b5818b69c10e3a03109eb47f13946b2784e20bc277823eff5f04",
+      "application_imports": [
+        "LeanCert.Core.IntervalRat.Basic"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.Real.Pi.Bounds",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Core/TrigReduction.lean"
+    },
+    {
+      "module": "LeanCert.Core.IntervalRat.TrigReduced",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Core/IntervalRat/TrigReduced.lean",
+      "sha256": "a343aa5687ff3c390b50f5572372cc1db0a4aa10c233d0c10e4d0858d19756b4",
+      "application_imports": [
+        "LeanCert.Core.IntervalRat.Taylor",
+        "LeanCert.Core.TrigReduction"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Core/IntervalRat/TrigReduced.lean"
+    },
+    {
+      "module": "LeanCert.Engine.Eval.Core",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/Eval/Core.lean",
+      "sha256": "88601598a7189875ea28ed1c8bf066a1a73d294e31d570ac8a25f80a353afd17",
+      "application_imports": [
+        "LeanCert.Core.Expr",
+        "LeanCert.Core.Support",
+        "LeanCert.Core.IntervalReal",
+        "LeanCert.Core.IntervalRealEndpoints",
+        "LeanCert.Core.IntervalRat.TrigReduced"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Bounds",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Sinc",
+        "Mathlib.Analysis.SpecialFunctions.Log.Deriv",
+        "Mathlib.Analysis.Complex.ExponentialBounds",
+        "Mathlib.Analysis.Real.Pi.Bounds"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/Eval/Core.lean"
+    },
+    {
+      "module": "LeanCert.Engine.Eval.Result",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/Eval/Result.lean",
+      "sha256": "89ec32b03363226f089be80b8adc15d6d07db0f423fd87565d5b3e0950fa5dab",
+      "application_imports": [
+        "LeanCert.Core.IntervalRat.Basic"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/Eval/Result.lean"
+    },
+    {
+      "module": "LeanCert.Engine.Eval.Extended",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/Eval/Extended.lean",
+      "sha256": "56c0a96e6a5b598affeac78f59d6916c0284aff26f3be0b511df2738038d0909",
+      "application_imports": [
+        "LeanCert.Engine.Eval.Core",
+        "LeanCert.Engine.Eval.Result"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/Eval/Extended.lean"
+    },
+    {
+      "module": "LeanCert.Engine.Bounds.Lemmas",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/Bounds/Lemmas.lean",
+      "sha256": "0adba9119737ab87d2119c38b2cfdc9212ddeb614aad1869d5a548df66cad6bf",
+      "application_imports": [
+        "LeanCert.Engine.Eval.Extended"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/Bounds/Lemmas.lean"
+    },
+    {
+      "module": "LeanCert.Engine.IntervalEval",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/IntervalEval.lean",
+      "sha256": "37ae178e55e9f352eb161ce198e8dd559ae287bd1462e3f3f7f10423634eec19",
+      "application_imports": [
+        "LeanCert.Core.Support",
+        "LeanCert.Engine.Eval.Core",
+        "LeanCert.Engine.Eval.Extended",
+        "LeanCert.Engine.Bounds.Lemmas"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/IntervalEval.lean"
+    },
+    {
+      "module": "LeanCert.Engine.AD.Basic",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/AD/Basic.lean",
+      "sha256": "b2f3df0f6bf6d09a4d8b4100d5ae69b4cfb9de80dbe7472fe61f62c89093228a",
+      "application_imports": [
+        "LeanCert.Engine.IntervalEval"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/AD/Basic.lean"
+    },
+    {
+      "module": "LeanCert.Engine.AD.Transcendental",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/AD/Transcendental.lean",
+      "sha256": "e4f07961e91995727023b45cb577c8908632916fb69956b1241970ac2074e5f9",
+      "application_imports": [
+        "LeanCert.Engine.AD.Basic"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.SpecialFunctions.Sqrt"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/AD/Transcendental.lean"
+    },
+    {
+      "module": "LeanCert.Engine.AD.Eval",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/AD/Eval.lean",
+      "sha256": "e3276cc2e4e7f1d49671de3e259f8263ed5b9b0bdcdf49684830c0865e8cd9d9",
+      "application_imports": [
+        "LeanCert.Engine.AD.Basic",
+        "LeanCert.Engine.AD.Transcendental"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/AD/Eval.lean"
+    },
+    {
+      "module": "LeanCert.Engine.AD.Correctness",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/AD/Correctness.lean",
+      "sha256": "2b1d7338364ca89e1adca9f13b3b28abf10ca52537d8c934cd9714a5267e7986",
+      "application_imports": [
+        "LeanCert.Engine.AD.Eval"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.Calculus.Deriv.Add",
+        "Mathlib.Analysis.Calculus.Deriv.Mul",
+        "Mathlib.Analysis.Calculus.Deriv.Comp",
+        "Mathlib.Analysis.Calculus.Deriv.Inv",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/AD/Correctness.lean"
+    },
+    {
+      "module": "LeanCert.Contrib.Sinc",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Contrib/Sinc.lean",
+      "sha256": "7e6f8f5b86b62d7f2e30e9346551cdded584be6a6039a80cd94f61f541b4db47",
+      "application_imports": [],
+      "generic_imports": [
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Sinc",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Bounds",
+        "Mathlib.Analysis.Calculus.Deriv.Slope",
+        "Mathlib.Analysis.Calculus.ContDiff.Defs",
+        "Mathlib.Analysis.Calculus.MeanValue",
+        "Mathlib.Analysis.Calculus.ParametricIntegral",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus",
+        "Mathlib.Analysis.SpecialFunctions.Integrals.Basic",
+        "Mathlib.Analysis.Analytic.Order"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Contrib/Sinc.lean"
+    },
+    {
+      "module": "LeanCert.Engine.AD.PartialCorrectness",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/AD/PartialCorrectness.lean",
+      "sha256": "398bf67ee47655b2407423f8064763c04f40c045bca4e06aa45918a4866618fb",
+      "application_imports": [
+        "LeanCert.Engine.AD.Correctness",
+        "LeanCert.Contrib.Sinc"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.ArctanDeriv",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.DerivHyp",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Sinc",
+        "Mathlib.Analysis.SpecialFunctions.Arsinh",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/AD/PartialCorrectness.lean"
+    },
+    {
+      "module": "LeanCert.Engine.AD.Computable",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/AD/Computable.lean",
+      "sha256": "d9b51b89180fc90a917bc1c148ab0d248801f3d6ad01ebbc61223cc78c1e57c8",
+      "application_imports": [
+        "LeanCert.Engine.AD.Correctness"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/AD/Computable.lean"
+    },
+    {
+      "module": "LeanCert.Engine.AD.DomainChecked",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/AD/DomainChecked.lean",
+      "sha256": "c6e66fe8676902fc3f39115043ad65289da5a1704d05cca0f1d90f54a02cd030",
+      "application_imports": [
+        "LeanCert.Engine.AD.Computable",
+        "LeanCert.Engine.Eval.Result"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/AD/DomainChecked.lean"
+    },
+    {
+      "module": "LeanCert.Core.Dyadic",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Core/Dyadic.lean",
+      "sha256": "d192b0feca965ff61bfd702a987355a0e8cf93b7957345d0d5195c1343b8c38d",
+      "application_imports": [],
+      "generic_imports": [
+        "Mathlib.Data.Rat.Cast.Order",
+        "Mathlib.Algebra.Order.Field.Basic",
+        "Mathlib.Basic.Real.Basic"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Core/Dyadic.lean"
+    },
+    {
+      "module": "LeanCert.Core.IntervalDyadic",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Core/IntervalDyadic.lean",
+      "sha256": "5d2d02eb9d49312af0727bff222223b8ed0eb39a5543670e3946064bf9597ed9",
+      "application_imports": [
+        "LeanCert.Core.Dyadic",
+        "LeanCert.Core.IntervalReal"
+      ],
+      "generic_imports": [
+        "Mathlib.Data.Rat.Cast.Order"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Core/IntervalDyadic.lean"
+    },
+    {
+      "module": "LeanCert.Engine.IntervalEvalDyadic",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/IntervalEvalDyadic.lean",
+      "sha256": "48dcf725d729f159a174c001ef2ef31d1ecfccfaf3b371b014d0c99507f3b939",
+      "application_imports": [
+        "LeanCert.Core.Expr",
+        "LeanCert.Core.IntervalDyadic",
+        "LeanCert.Engine.IntervalEval"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/IntervalEvalDyadic.lean"
+    },
+    {
+      "module": "LeanCert.Engine.AD.Dyadic",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/AD/Dyadic.lean",
+      "sha256": "c22ce2d22ac91717c1966c4b7678b7f80f59513b0cc166ecc2a85660600b4670",
+      "application_imports": [
+        "LeanCert.Engine.AD.DomainChecked",
+        "LeanCert.Engine.IntervalEvalDyadic"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/AD/Dyadic.lean"
+    },
+    {
+      "module": "LeanCert.Engine.AD",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/AD.lean",
+      "sha256": "174a7fe937ce518319a588b869823da998eb7bfd568d3d5e6d1bce03b0d2a19a",
+      "application_imports": [
+        "LeanCert.Engine.AD.Basic",
+        "LeanCert.Engine.AD.Transcendental",
+        "LeanCert.Engine.AD.Eval",
+        "LeanCert.Engine.AD.Correctness",
+        "LeanCert.Engine.AD.PartialCorrectness",
+        "LeanCert.Engine.AD.Computable",
+        "LeanCert.Engine.AD.DomainChecked",
+        "LeanCert.Engine.AD.Dyadic"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/AD.lean"
+    },
+    {
+      "module": "LeanCert.Meta.ProveSupported",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Meta/ProveSupported.lean",
+      "sha256": "1ad6eaa5e0ec53c4f9d475bcb1a11256da317126c9df46fe056be610882daf81",
+      "application_imports": [
+        "LeanCert.Meta.ToExpr",
+        "LeanCert.Engine.IntervalEval",
+        "LeanCert.Engine.AD"
+      ],
+      "generic_imports": [
+        "Lean"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Meta/ProveSupported.lean"
+    },
+    {
+      "module": "LeanCert.Tactic.Verification",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Tactic/Verification.lean",
+      "sha256": "2c576708b528acdde17796b0b715b83079f9cad377182dbd87c248323ff0a58c",
+      "application_imports": [],
+      "generic_imports": [
+        "Lean",
+        "Lean.Meta.Native",
+        "Lean.Meta.Tactic.AuxLemma"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Tactic/Verification.lean"
+    },
+    {
+      "module": "LeanCert.Tactic.LeanCert.Bridge.Environment",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Tactic/LeanCert/Bridge/Environment.lean",
+      "sha256": "6887720890f5932615e0f97aead56382fff91e2b93b9dc1369baa825b6917eca",
+      "application_imports": [
+        "LeanCert.Core.IntervalRat.Basic"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Tactic/LeanCert/Bridge/Environment.lean"
+    },
+    {
+      "module": "LeanCert.Tactic.LeanCert.Normalize",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Tactic/LeanCert/Normalize.lean",
+      "sha256": "d30fb2d92dc1320759bc987d1f85e4245d271de8fa824285482d8c0d2023bb9c",
+      "application_imports": [
+        "LeanCert.Meta.ToExpr",
+        "LeanCert.Tactic.LeanCert.Bridge.Environment"
+      ],
+      "generic_imports": [
+        "Mathlib.Tactic.Ring"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Tactic/LeanCert/Normalize.lean"
+    },
+    {
+      "module": "LeanCert.Tactic.IntervalAuto.ProveCommon",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Tactic/IntervalAuto/ProveCommon.lean",
+      "sha256": "921b2c8b54f5c03a2b7f939267f64930c4f09ab920fbf969c8d05d522ae29384",
+      "application_imports": [
+        "LeanCert.Core.Expr",
+        "LeanCert.Core.IntervalRat.Basic",
+        "LeanCert.Meta.Numeral",
+        "LeanCert.Meta.ProveSupported",
+        "LeanCert.Tactic.IntervalAuto.Types",
+        "LeanCert.Tactic.IntervalAuto.Extract",
+        "LeanCert.Tactic.Verification",
+        "LeanCert.Tactic.LeanCert.Normalize"
+      ],
+      "generic_imports": [
+        "Lean"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Tactic/IntervalAuto/ProveCommon.lean"
+    },
+    {
+      "module": "LeanCert.Tactic.IntervalAuto.Basic",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Tactic/IntervalAuto/Basic.lean",
+      "sha256": "d91394506fdffebf5351778e73f38804c0d3eb421e6d00607036c44d81f2b3bb",
+      "application_imports": [
+        "LeanCert.Tactic.IntervalAuto.Types",
+        "LeanCert.Tactic.IntervalAuto.Norm",
+        "LeanCert.Tactic.IntervalAuto.Extract",
+        "LeanCert.Tactic.IntervalAuto.Parse",
+        "LeanCert.Tactic.IntervalAuto.Diagnostic",
+        "LeanCert.Tactic.IntervalAuto.ProveCommon"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Tactic/IntervalAuto/Basic.lean"
+    },
+    {
+      "module": "LeanCert.Tactic.NumericalRefinement",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Tactic/NumericalRefinement.lean",
+      "sha256": "881fdc35255d785da926ffaec8ecedca1e3edab491823a6afc0bc870fca0c82f",
+      "application_imports": [],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Tactic/NumericalRefinement.lean"
+    },
+    {
+      "module": "LeanCert.Engine.TaylorModel.Core",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/TaylorModel/Core.lean",
+      "sha256": "d27fcc2e8bdc95edfd0e2d52fc7489608ad302f5816067fb54315a19eef06d2f",
+      "application_imports": [
+        "LeanCert.Engine.IntervalEval"
+      ],
+      "generic_imports": [
+        "Mathlib.RingTheory.Polynomial.Basic",
+        "Mathlib.Algebra.Polynomial.Degree.Defs",
+        "Mathlib.Data.Nat.Choose.Sum",
+        "Mathlib.Data.Nat.Choose.Basic",
+        "Mathlib.Data.List.GetD"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/TaylorModel/Core.lean"
+    },
+    {
+      "module": "LeanCert.Engine.TaylorModel.Trig",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/TaylorModel/Trig.lean",
+      "sha256": "46d86076131b7e32165b05c4c8273c2b38171ed2bf65013dc7a2b3bba073d130",
+      "application_imports": [
+        "LeanCert.Engine.TaylorModel.Core",
+        "LeanCert.Contrib.Sinc"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.Complex.ExponentialBounds",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Series",
+        "Mathlib.Analysis.Calculus.IteratedDeriv.Defs",
+        "Mathlib.Analysis.Analytic.Uniqueness"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/TaylorModel/Trig.lean"
+    },
+    {
+      "module": "LeanCert.Engine.TaylorModel.ExpLog",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/TaylorModel/ExpLog.lean",
+      "sha256": "c0e11e59f4c058ef79efc60c62edc33afc1def0cf603faa38267c390538b4187",
+      "application_imports": [
+        "LeanCert.Engine.TaylorModel.Core"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.Complex.ExponentialBounds",
+        "Mathlib.Analysis.SpecialFunctions.Log.Deriv"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/TaylorModel/ExpLog.lean"
+    },
+    {
+      "module": "LeanCert.Engine.TaylorModel.Hyperbolic",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/TaylorModel/Hyperbolic.lean",
+      "sha256": "2db6e56ec56f53e8192f666b6545656cb55ec4819823a3c4a04930646e67d279",
+      "application_imports": [
+        "LeanCert.Engine.TaylorModel.Core"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.Analytic.Binomial",
+        "Mathlib.Analysis.Analytic.Uniqueness",
+        "Mathlib.Analysis.Complex.ExponentialBounds"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/TaylorModel/Hyperbolic.lean"
+    },
+    {
+      "module": "LeanCert.Engine.TaylorModel.Special",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/TaylorModel/Special.lean",
+      "sha256": "574dde0205730b7e062933488b56fa2d43aad3750e643d0028d55cd8dc1b8873",
+      "application_imports": [
+        "LeanCert.Engine.TaylorModel.Core"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/TaylorModel/Special.lean"
+    },
+    {
+      "module": "LeanCert.Engine.TaylorModel.Functions",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/TaylorModel/Functions.lean",
+      "sha256": "7f02fc560c85212f282893dc84b51c37a51a59c04e1f3af2cd83216becea0155",
+      "application_imports": [
+        "LeanCert.Engine.TaylorModel.Trig",
+        "LeanCert.Engine.TaylorModel.ExpLog",
+        "LeanCert.Engine.TaylorModel.Hyperbolic",
+        "LeanCert.Engine.TaylorModel.Special"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/TaylorModel/Functions.lean"
+    },
+    {
+      "module": "LeanCert.Engine.TaylorModel.Expr",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/TaylorModel/Expr.lean",
+      "sha256": "fae23587605667d8f8d1563d6d3bfcf03ce3470099337cd9c92356ca6aa0f067",
+      "application_imports": [
+        "LeanCert.Engine.TaylorModel.Functions"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/TaylorModel/Expr.lean"
+    },
+    {
+      "module": "LeanCert.Engine.Integrate",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/Integrate.lean",
+      "sha256": "e923ec39a5d6cf1666dbfb529f02c8c074b479290ae3746f9471dd55fb86ed5e",
+      "application_imports": [
+        "LeanCert.Engine.IntervalEval"
+      ],
+      "generic_imports": [
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus",
+        "Mathlib.MeasureTheory.Integral.Bochner.Set"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/Integrate.lean"
+    },
+    {
+      "module": "LeanCert.Engine.TaylorModel.Integral",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/TaylorModel/Integral.lean",
+      "sha256": "9972ed2e324a7b0d6fb219cd4648b65055aed94e2dad21b86fd659ea8cf56d1d",
+      "application_imports": [
+        "LeanCert.Engine.TaylorModel.Core",
+        "LeanCert.Engine.Integrate"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/TaylorModel/Integral.lean"
+    },
+    {
+      "module": "LeanCert.Engine.TaylorModel",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/TaylorModel.lean",
+      "sha256": "d19fe4636c4f7e87df4b5f603a2762c996be141020264352bdd601c4df367598",
+      "application_imports": [
+        "LeanCert.Engine.TaylorModel.Core",
+        "LeanCert.Engine.TaylorModel.Functions",
+        "LeanCert.Engine.TaylorModel.Expr",
+        "LeanCert.Engine.TaylorModel.Integral"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/TaylorModel.lean"
+    },
+    {
+      "module": "LeanCert.Engine.IntervalEvalRefined",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/IntervalEvalRefined.lean",
+      "sha256": "5d6f2da74f942555f3a39895b1e4408674f118b1377ae53a761faec8e465b69a",
+      "application_imports": [
+        "LeanCert.Engine.TaylorModel",
+        "LeanCert.Engine.AD"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/IntervalEvalRefined.lean"
+    },
+    {
+      "module": "LeanCert.Engine.Affine.Basic",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/Affine/Basic.lean",
+      "sha256": "ab52dca42b015e6e02d3d1bc88f26ac76da6f9a2e360085d75d36db320af30d5",
+      "application_imports": [
+        "LeanCert.Core.IntervalReal"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/Affine/Basic.lean"
+    },
+    {
+      "module": "LeanCert.Engine.Affine.Nonlinear",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/Affine/Nonlinear.lean",
+      "sha256": "1e376054fa59bdbbd4e678bf1b12609cd20446d29a79700170528770f183d645",
+      "application_imports": [
+        "LeanCert.Engine.Affine.Basic"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/Affine/Nonlinear.lean"
+    },
+    {
+      "module": "LeanCert.Engine.Affine.Transcendental",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/Affine/Transcendental.lean",
+      "sha256": "edd5330a9d3fe0e3e2d0ef1ea4f3660f98b9f8bc05d5d55d51cda3fddb4ca18b",
+      "application_imports": [
+        "LeanCert.Engine.Affine.Nonlinear",
+        "LeanCert.Core.IntervalRat.Taylor",
+        "LeanCert.Engine.IntervalEval"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/Affine/Transcendental.lean"
+    },
+    {
+      "module": "LeanCert.Engine.IntervalEvalAffine",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/IntervalEvalAffine.lean",
+      "sha256": "0faf6e69dbf75ae879673be846aa5ca42d417a3aba65f7b2755ef6392163dafe",
+      "application_imports": [
+        "LeanCert.Core.Expr",
+        "LeanCert.Engine.Affine.Transcendental",
+        "LeanCert.Engine.IntervalEval"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/IntervalEvalAffine.lean"
+    },
+    {
+      "module": "LeanCert.Engine.Affine.Environment",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/Affine/Environment.lean",
+      "sha256": "ad1bb65177772e38fd7503efdb1398585e017a9345838876abacb20eb97d4629",
+      "application_imports": [
+        "LeanCert.Engine.IntervalEvalAffine"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/Affine/Environment.lean"
+    },
+    {
+      "module": "LeanCert.Engine.Optimization.Box",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/Optimization/Box.lean",
+      "sha256": "84c2ee9fed6c0a472a5d46b7ef5b9328cd366821f529287b0be56fa465303d77",
+      "application_imports": [
+        "LeanCert.Engine.IntervalEval"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/Optimization/Box.lean"
+    },
+    {
+      "module": "LeanCert.Engine.Optimize",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/Optimize.lean",
+      "sha256": "2a72cddc80a76464ddf497562d48a0c12d9a2be7c9fb68b6bbb52b9b72d67752",
+      "application_imports": [
+        "LeanCert.Engine.AD"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.Calculus.MeanValue"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/Optimize.lean"
+    },
+    {
+      "module": "LeanCert.Engine.Optimization.Gradient",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/Optimization/Gradient.lean",
+      "sha256": "bbf7b455f432616168428961f578f101e90076a5a16bb71548c791d4f5dbfed1",
+      "application_imports": [
+        "LeanCert.Engine.AD",
+        "LeanCert.Engine.Optimize",
+        "LeanCert.Engine.Optimization.Box"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/Optimization/Gradient.lean"
+    },
+    {
+      "module": "LeanCert.Engine.Optimization.Global",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/Optimization/Global.lean",
+      "sha256": "1145c159abe393991ea0b6f558002b5f9450376483f83335e3030bbe4ee8643f",
+      "application_imports": [
+        "LeanCert.Engine.IntervalEval",
+        "LeanCert.Engine.IntervalEvalRefined",
+        "LeanCert.Engine.IntervalEvalDyadic",
+        "LeanCert.Engine.IntervalEvalAffine",
+        "LeanCert.Engine.Affine.Basic",
+        "LeanCert.Engine.Affine.Environment",
+        "LeanCert.Engine.Optimization.Box",
+        "LeanCert.Engine.Optimization.Gradient"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/Optimization/Global.lean"
+    },
+    {
+      "module": "LeanCert.Engine.RootFinding.Basic",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/RootFinding/Basic.lean",
+      "sha256": "abf1b0d57bff36de06cd91866b627e8a8bab2ad86fbed29719bedeeb71e53b6b",
+      "application_imports": [
+        "LeanCert.Engine.IntervalEval"
+      ],
+      "generic_imports": [
+        "Mathlib.Topology.Order.IntermediateValue"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/RootFinding/Basic.lean"
+    },
+    {
+      "module": "LeanCert.Engine.RootFinding.Bisection",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/RootFinding/Bisection.lean",
+      "sha256": "834ca2e719c443d8a099b03a721f5eb2a956301eec9b74cb717e5476b32ef59e",
+      "application_imports": [
+        "LeanCert.Engine.RootFinding.Basic"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/RootFinding/Bisection.lean"
+    },
+    {
+      "module": "LeanCert.Engine.RootFinding.Newton",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/RootFinding/Newton.lean",
+      "sha256": "301352eea8bc895a0f4dc6cfc54725fd25fff8216b1b3729f267357c43b47f1c",
+      "application_imports": [
+        "LeanCert.Engine.AD",
+        "LeanCert.Engine.TaylorModel",
+        "LeanCert.Engine.Optimize",
+        "LeanCert.Engine.RootFinding.Basic"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.Calculus.MeanValue"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/RootFinding/Newton.lean"
+    },
+    {
+      "module": "LeanCert.Engine.RootFinding.MVTBounds",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/RootFinding/MVTBounds.lean",
+      "sha256": "b629a28e5d6a53cb04d8ac93c6538303e1b179a25834270837f46496c75e975b",
+      "application_imports": [
+        "LeanCert.Engine.RootFinding.Newton"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/RootFinding/MVTBounds.lean"
+    },
+    {
+      "module": "LeanCert.Engine.RootFinding.Contraction",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/RootFinding/Contraction.lean",
+      "sha256": "beb8f439bd31332d4bde8389e9b1686f9a00ac1a7e32a96482581aba24910df5",
+      "application_imports": [
+        "LeanCert.Engine.RootFinding.MVTBounds",
+        "LeanCert.Engine.RootFinding.Bisection"
+      ],
+      "generic_imports": [
+        "Mathlib.Topology.Order.IntermediateValue"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/RootFinding/Contraction.lean"
+    },
+    {
+      "module": "LeanCert.Engine.RootFinding.Krawczyk",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/RootFinding/Krawczyk.lean",
+      "sha256": "74bf7c5cf578301bb0a282f8dc224d14dcd6a6500e6580cfef601b191c0b0901",
+      "application_imports": [
+        "LeanCert.Engine.Optimization.Gradient",
+        "LeanCert.Core.IntervalRat.Basic"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.Matrix.Normed",
+        "Mathlib.Analysis.Calculus.Deriv.Pi",
+        "Mathlib.Topology.MetricSpace.Contracting"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/RootFinding/Krawczyk.lean"
+    },
+    {
+      "module": "LeanCert.Engine.RootFinding.Main",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/RootFinding/Main.lean",
+      "sha256": "6fb1abca4e0c752da061001ed87540254d9e6ac61aa72e2f7e19adc6e6f2b09c",
+      "application_imports": [
+        "LeanCert.Engine.RootFinding.Basic",
+        "LeanCert.Engine.RootFinding.Bisection",
+        "LeanCert.Engine.RootFinding.Newton",
+        "LeanCert.Engine.RootFinding.MVTBounds",
+        "LeanCert.Engine.RootFinding.Contraction",
+        "LeanCert.Engine.RootFinding.Krawczyk"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/RootFinding/Main.lean"
+    },
+    {
+      "module": "LeanCert.Meta.ProveContinuous",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Meta/ProveContinuous.lean",
+      "sha256": "3571c49783a470b3219b96609d7277fa57e84d80ff18495063e2ee184e1f8c5b",
+      "application_imports": [
+        "LeanCert.Meta.ToExpr",
+        "LeanCert.Meta.ProveSupported",
+        "LeanCert.Core.Expr"
+      ],
+      "generic_imports": [
+        "Lean",
+        "Mathlib.Topology.ContinuousOn",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+        "Mathlib.Analysis.SpecialFunctions.ExpDeriv"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Meta/ProveContinuous.lean"
+    },
+    {
+      "module": "LeanCert.Validity.Bounds.Core",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Validity/Bounds/Core.lean",
+      "sha256": "538becf9996d17a1ab910d0f4b697b6fc1433530560cf450d028069b6dcc5227",
+      "application_imports": [
+        "LeanCert.Engine.IntervalEval"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Validity/Bounds/Core.lean"
+    },
+    {
+      "module": "LeanCert.Validity.Bounds.Checked",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Validity/Bounds/Checked.lean",
+      "sha256": "13ad6e88cd61338ad077070f0dd1faa6168389dc2ac849c107e8195149aec4e7",
+      "application_imports": [
+        "LeanCert.Engine.IntervalEval"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Validity/Bounds/Checked.lean"
+    },
+    {
+      "module": "LeanCert.Validity.Bounds.Smart",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Validity/Bounds/Smart.lean",
+      "sha256": "8f2dd5d7925851497e07ae455b9b671a184404590559a7f36752e6c955cd9a48",
+      "application_imports": [
+        "LeanCert.Validity.Bounds.Core",
+        "LeanCert.Engine.AD"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Validity/Bounds/Smart.lean"
+    },
+    {
+      "module": "LeanCert.Validity.Bounds.Bridge",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Validity/Bounds/Bridge.lean",
+      "sha256": "5077549646fc3a1c1ee851fc69820186865f10bc5c491d068c5b279f969e4a37",
+      "application_imports": [
+        "LeanCert.Validity.Bounds.Smart",
+        "LeanCert.Engine.Integrate"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Validity/Bounds/Bridge.lean"
+    },
+    {
+      "module": "LeanCert.Validity.Bounds.Basic",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Validity/Bounds/Basic.lean",
+      "sha256": "9b14e7f1f98fa6ce3a3484f643fd9439baa030c312af906509122a7dd7de8e81",
+      "application_imports": [
+        "LeanCert.Validity.Bounds.Core",
+        "LeanCert.Validity.Bounds.Checked",
+        "LeanCert.Validity.Bounds.Smart",
+        "LeanCert.Validity.Bounds.Bridge"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Validity/Bounds/Basic.lean"
+    },
+    {
+      "module": "LeanCert.Validity.Integration",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Validity/Integration.lean",
+      "sha256": "17e4456f0bd6c27b6aeb4c6bd84b808a78143eea16c05be6e8c63b0c0343dda7",
+      "application_imports": [
+        "LeanCert.Engine.IntervalEval",
+        "LeanCert.Engine.Integrate",
+        "LeanCert.Meta.ProveContinuous"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Validity/Integration.lean"
+    },
+    {
+      "module": "LeanCert.Validity.Bounds",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Validity/Bounds.lean",
+      "sha256": "f9aee40af8bdbed47e578a1af3f86528f52719fd92316f08130034f5cf2356dd",
+      "application_imports": [
+        "LeanCert.Engine.IntervalEval",
+        "LeanCert.Engine.AD",
+        "LeanCert.Engine.Optimization.Global",
+        "LeanCert.Engine.RootFinding.Main",
+        "LeanCert.Engine.Integrate",
+        "LeanCert.Meta.ProveContinuous",
+        "LeanCert.Validity.Bounds.Basic",
+        "LeanCert.Validity.Integration"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Validity/Bounds.lean"
+    },
+    {
+      "module": "LeanCert.Validity.DyadicBounds",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Validity/DyadicBounds.lean",
+      "sha256": "6f1cdbc11f32e425ef5e9f4a22966d64ff0d11614ec9453ed7dde498e31a7c47",
+      "application_imports": [
+        "LeanCert.Engine.IntervalEvalDyadic"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Validity/DyadicBounds.lean"
+    },
+    {
+      "module": "LeanCert.Engine.Optimization.BoundVerify",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Engine/Optimization/BoundVerify.lean",
+      "sha256": "8af2a8914fc521850afae50138e2b3b947cbdc5d8d881197acb357d1f9e85331",
+      "application_imports": [
+        "LeanCert.Engine.Optimization.Global"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Engine/Optimization/BoundVerify.lean"
+    },
+    {
+      "module": "LeanCert.Tactic.IntervalAuto.Bound",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Tactic/IntervalAuto/Bound.lean",
+      "sha256": "49d70e7a1def3456ff769aa842b32af7dec9c7025d7425a0f42ce492e8e9c5e4",
+      "application_imports": [
+        "LeanCert.Tactic.IntervalAuto.Basic",
+        "LeanCert.Tactic.NumericalRefinement",
+        "LeanCert.Tactic.Verification",
+        "LeanCert.Validity.Bounds",
+        "LeanCert.Validity.DyadicBounds",
+        "LeanCert.Engine.Eval.Core",
+        "LeanCert.Engine.Optimization.BoundVerify"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Tactic/IntervalAuto/Bound.lean"
+    },
+    {
+      "module": "LeanCert.Tactic.IntervalAuto.Multivariate",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Tactic/IntervalAuto/Multivariate.lean",
+      "sha256": "9e9e8737513af1ad9285820e01f34f746685dfd777203ca41c968a0921231044",
+      "application_imports": [
+        "LeanCert.Tactic.IntervalAuto.Basic",
+        "LeanCert.Tactic.Verification",
+        "LeanCert.Validity.Bounds",
+        "LeanCert.Engine.Optimization.BoundVerify"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Tactic/IntervalAuto/Multivariate.lean"
+    },
+    {
+      "module": "LeanCert.Tactic.IntervalAuto.OptBound",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Tactic/IntervalAuto/OptBound.lean",
+      "sha256": "880a994af374c9c893478337fb9d7f8292122f73e9d26b9bb46e26dd188475a9",
+      "application_imports": [
+        "LeanCert.Tactic.IntervalAuto.Basic",
+        "LeanCert.Tactic.Verification",
+        "LeanCert.Validity.Bounds",
+        "LeanCert.Engine.Optimization.BoundVerify"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Tactic/IntervalAuto/OptBound.lean"
+    },
+    {
+      "module": "LeanCert.Tactic.IntervalAuto.RootBound",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Tactic/IntervalAuto/RootBound.lean",
+      "sha256": "dba6a350d1fe4f4e81f286cf54077081322d77da482453521bcade44e923e365",
+      "application_imports": [
+        "LeanCert.Tactic.IntervalAuto.Basic",
+        "LeanCert.Tactic.Verification",
+        "LeanCert.Validity.Bounds",
+        "LeanCert.Engine.Optimization.BoundVerify"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Tactic/IntervalAuto/RootBound.lean"
+    },
+    {
+      "module": "LeanCert.Tactic.IntervalAuto.PointIneq",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Tactic/IntervalAuto/PointIneq.lean",
+      "sha256": "b88723998a7f63e9673b9af36811a039057fed75e2a550f4fd7788472180876f",
+      "application_imports": [
+        "LeanCert.Tactic.IntervalAuto.Basic",
+        "LeanCert.Tactic.IntervalAuto.Bound",
+        "LeanCert.Tactic.Verification",
+        "LeanCert.Validity.Bounds",
+        "LeanCert.Validity.DyadicBounds",
+        "LeanCert.Engine.Optimization.BoundVerify"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Tactic/IntervalAuto/PointIneq.lean"
+    },
+    {
+      "module": "LeanCert.Core.DyadicCell",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Core/DyadicCell.lean",
+      "sha256": "adf97af82b3b93c844cfc7fdfd6718a50b5357ba1809d37b5b4085600d250dce",
+      "application_imports": [
+        "LeanCert.Core.IntervalDyadic"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Core/DyadicCell.lean"
+    },
+    {
+      "module": "LeanCert.Core.DyadicFrontier",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Core/DyadicFrontier.lean",
+      "sha256": "276133d5c544bc5fc4c7e1accdb71ebbb0d0a29b605c76a42af5ea33f93bad2a",
+      "application_imports": [
+        "LeanCert.Core.DyadicCell"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Core/DyadicFrontier.lean"
+    },
+    {
+      "module": "LeanCert.Tactic.IntervalAuto.Subdiv",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Tactic/IntervalAuto/Subdiv.lean",
+      "sha256": "84179fc7304036cb470cf53430097c0c1f0f797960fdaf112bdff440f40e6af9",
+      "application_imports": [
+        "LeanCert.Tactic.IntervalAuto.Basic",
+        "LeanCert.Core.DyadicFrontier",
+        "LeanCert.Tactic.Verification",
+        "LeanCert.Tactic.IntervalAuto.Bound",
+        "LeanCert.Validity.Bounds",
+        "LeanCert.Engine.Optimization.BoundVerify"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Tactic/IntervalAuto/Subdiv.lean"
+    },
+    {
+      "module": "LeanCert.Tactic.IntervalAuto.Adaptive",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Tactic/IntervalAuto/Adaptive.lean",
+      "sha256": "6528f997f67dab109b1bb4e2f95c9801a80faaaff5570d30f158a730b3a885a1",
+      "application_imports": [
+        "LeanCert.Tactic.IntervalAuto.Basic",
+        "LeanCert.Tactic.Verification",
+        "LeanCert.Tactic.IntervalAuto.Bound",
+        "LeanCert.Validity.Bounds",
+        "LeanCert.Engine.Optimization.BoundVerify"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Tactic/IntervalAuto/Adaptive.lean"
+    },
+    {
+      "module": "LeanCert.Tactic.IntervalAuto",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LeanCert/Tactic/IntervalAuto.lean",
+      "sha256": "3902ed01de91325a12a2fc1a16fdf53e8dc71f731dc79eca8795e57af319e6ac",
+      "application_imports": [
+        "LeanCert.Tactic.IntervalAuto.Basic",
+        "LeanCert.Tactic.IntervalAuto.Bound",
+        "LeanCert.Tactic.IntervalAuto.Multivariate",
+        "LeanCert.Tactic.IntervalAuto.OptBound",
+        "LeanCert.Tactic.IntervalAuto.RootBound",
+        "LeanCert.Tactic.IntervalAuto.PointIneq",
+        "LeanCert.Tactic.IntervalAuto.Subdiv",
+        "LeanCert.Tactic.IntervalAuto.Adaptive"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/LeanCert/Tactic/IntervalAuto.lean"
+    },
+    {
+      "module": "PrimePowerTransport",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/PrimePowerTransport.lean",
+      "sha256": "3832f88723e2f75c4e7b2311943fa61f07f345841482e0aee4b1b608edf78153",
+      "application_imports": [
+        "RamAlgebra",
+        "LeanCert.Tactic.IntervalAuto"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/PrimePowerTransport.lean"
+    },
+    {
+      "module": "ActualJIdentity",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/ActualJIdentity.lean",
+      "sha256": "d66b465a130c5fd7001153b4dffb145c2045f6c48263949842c06ec8d4cd6913",
+      "application_imports": [
+        "ActualCompensatedJ",
+        "PrimePowerTransport"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/ramanujan/ActualJIdentity.lean"
+    },
+    {
+      "module": "PrimePowerBounds",
+      "path": "Solutions/RHLimit.v1/pi/PrimePowerBounds.lean",
+      "sha256": "29fe295415051ce9c44e3a4eb8d43d154ef0778ad7ffc50283e07977719b5903",
+      "application_imports": [
+        "ActualJIdentity"
+      ],
+      "generic_imports": [
+        "Mathlib.NumberTheory.Harmonic.Bounds"
+      ]
+    },
+    {
+      "module": "PrimePowerRemainder",
+      "path": "Solutions/RHLimit.v1/pi/PrimePowerRemainder.lean",
+      "sha256": "bc4d8edef9b696df7c8937dc6275bb8c05f53f67d65096a2f96a429879256e50",
+      "application_imports": [
+        "PrimePowerBounds"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "ExplicitPrimePower",
+      "path": "Solutions/RHLimit.v1/pi/ExplicitPrimePower.lean",
+      "sha256": "5f83113ef40d8e12521f4b8e16af930804a01818da70a2700f7383e982a34896",
+      "application_imports": [
+        "PrimePowerRemainder"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "ActualGMPrimitive",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/ActualGMPrimitive.lean",
+      "sha256": "db2b44f378f31a253a324692dd2ee1578763a2fc18da0603d82ba1dc0136730e",
+      "application_imports": [
+        "ActualJIdentity"
+      ],
+      "generic_imports": [
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.IntegrationByParts"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/ramanujan/ActualGMPrimitive.lean"
+    },
+    {
+      "module": "ActualGMTransfer",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/ActualGMTransfer.lean",
+      "sha256": "a7b3400fc5b78254c6c835b741d1c4cafe270671b1fa10798ed2f7fec50e530f",
+      "application_imports": [
+        "ActualGMPrimitive"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/ramanujan/ActualGMTransfer.lean"
+    },
+    {
+      "module": "ActualGMClosed",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/ActualGMClosed.lean",
+      "sha256": "e16747d44c043ac967d5bca7d3e73b98566f68702145f8d5f9f184e571a09454",
+      "application_imports": [
+        "ActualGMTransfer"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/ramanujan/ActualGMClosed.lean"
+    },
+    {
+      "module": "SpectralGMRefined",
+      "path": "Solutions/RHLimit.v1/spectral/SpectralGMRefined.lean",
+      "sha256": "5f484cf9f06fa0c774becd702c0335de34536d21e28bb5182f3559ebeb5a64dc",
+      "application_imports": [
+        "ActualGMClosed"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "PurePiBounds",
+      "path": "Solutions/RHLimit.v1/pi/PurePiBounds.lean",
+      "sha256": "24aae6b6d04a20ac69e580630ca2327f9757339f78489ca3dec350a1acb6936e",
+      "application_imports": [
+        "ExplicitPrimePower",
+        "SpectralGMRefined"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "IEANTN.Vocabulary.Zeta",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Vocabulary/Zeta.lean",
+      "sha256": "42e239de4c1151d03ed94ee4c0c51d031f974faa6998f447e85845665bb846ef",
+      "application_imports": [],
+      "generic_imports": [
+        "Mathlib.NumberTheory.LSeries.RiemannZeta",
+        "Mathlib.Analysis.Meromorphic.Order",
+        "Mathlib.Analysis.SpecialFunctions.Pow.Real"
+      ],
+      "original_path": "IEANTN/Vocabulary/Zeta.lean"
+    },
+    {
+      "module": "IEANTN.Vocabulary.RHSmoothing",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Vocabulary/RHSmoothing.lean",
+      "sha256": "a1bb6be0815f6b8a691f7fd7248a7cfb456514502de89713b0f62fceccc89ef3",
+      "application_imports": [
+        "IEANTN.Vocabulary.Zeta"
+      ],
+      "generic_imports": [
+        "Mathlib.NumberTheory.Chebyshev",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic"
+      ],
+      "original_path": "IEANTN/Vocabulary/RHSmoothing.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.RHSmoothingInputs.v1.Conclusions",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Nodes/RHSmoothingInputs/v1/Conclusions.lean",
+      "sha256": "88f68e39ca990f19ff21a6c24e90fd3e076a568f43ccb47f6c91ae00b781eb44",
+      "application_imports": [
+        "IEANTN.Vocabulary.RHSmoothing"
+      ],
+      "generic_imports": [],
+      "original_path": "IEANTN/Nodes/RHSmoothingInputs/v1/Conclusions.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.RHSmoothing.v1.Conclusions",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Nodes/RHSmoothing/v1/Conclusions.lean",
+      "sha256": "e478d0322beaaed6bdd28ffaf915e5b55cf21a1aeba5e26d830f2ab882a5b70d",
+      "application_imports": [
+        "IEANTN.Vocabulary.RHSmoothing"
+      ],
+      "generic_imports": [],
+      "original_path": "IEANTN/Nodes/RHSmoothing/v1/Conclusions.lean"
+    },
+    {
+      "module": "IEANTN.Vocabulary.PrimeWindows",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Vocabulary/PrimeWindows.lean",
+      "sha256": "8e6fb241093709c82b1b67b68603316e6519da7e84288f031f8a7819c6800d38",
+      "application_imports": [
+        "IEANTN.Vocabulary.RHSmoothing"
+      ],
+      "generic_imports": [
+        "Mathlib.NumberTheory.PrimeCounting",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.DerivHyp"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/IEANTN/Vocabulary/PrimeWindows.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.PrimeKernelInputs.v1.Conclusions",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Nodes/PrimeKernelInputs/v1/Conclusions.lean",
+      "sha256": "239f8d3c8ca3c8ab4381001d5d557f8ba83c527bfe4c1d3319f7986f228e2b01",
+      "application_imports": [
+        "IEANTN.Vocabulary.PrimeWindows"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/IEANTN/Nodes/PrimeKernelInputs/v1/Conclusions.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.PrimeInterval.v2.Conclusions",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Nodes/PrimeInterval/v2/Conclusions.lean",
+      "sha256": "378ca5ee47900285366783ec18b0ab814e25d79d50151f53f2ee586860b57301",
+      "application_imports": [
+        "IEANTN.Vocabulary.PrimeWindows"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/IEANTN/Nodes/PrimeInterval/v2/Conclusions.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.PrimeQuantile.v1.Conclusions",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Nodes/PrimeQuantile/v1/Conclusions.lean",
+      "sha256": "294950af345fe7be89e4595a6bc415b5505ce76eab1fef547d4d87f893308a2b",
+      "application_imports": [
+        "IEANTN.Vocabulary.PrimeWindows"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/IEANTN/Nodes/PrimeQuantile/v1/Conclusions.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.Lcm.v4.Conclusions",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Nodes/Lcm/v4/Conclusions.lean",
+      "sha256": "5086321b03791c8f635713cc8fe08e6aa11b4086abbf2512f1e5ec00369596c7",
+      "application_imports": [
+        "IEANTN.Vocabulary.RHSmoothing"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/IEANTN/Nodes/Lcm/v4/Conclusions.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.Primorial.v2.Conclusions",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Nodes/Primorial/v2/Conclusions.lean",
+      "sha256": "2f212e6cf57bcf4ce219916fab55935c3de3683bdf2b94d4c25d2b615cdb40f8",
+      "application_imports": [
+        "IEANTN.Vocabulary.RHSmoothing"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/IEANTN/Nodes/Primorial/v2/Conclusions.lean"
+    },
+    {
+      "module": "IEANTN.Vocabulary.ZeroFreeHalfPlane",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Vocabulary/ZeroFreeHalfPlane.lean",
+      "sha256": "c4093b0a652ec21bb446736389639e0a7a8217f4e7258fc0276c69eb203f7b8c",
+      "application_imports": [],
+      "generic_imports": [
+        "Mathlib.NumberTheory.LSeries.RiemannZeta"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/IEANTN/Vocabulary/ZeroFreeHalfPlane.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.RH.v1.Conclusions",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Nodes/RH/v1/Conclusions.lean",
+      "sha256": "84d39ecb7fa86c04e58fe97f47350132d58da3f3cef5e9420442d2e3b0505502",
+      "application_imports": [
+        "IEANTN.Vocabulary.Zeta",
+        "IEANTN.Vocabulary.ZeroFreeHalfPlane"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/IEANTN/Nodes/RH/v1/Conclusions.lean"
+    },
+    {
+      "module": "PsiSmoothing",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/PsiSmoothing.lean",
+      "sha256": "064a0caf76124d9e6e54c41a04cf3e1afd6ba38bc80b64ea9cfddf3a78704a1d",
+      "application_imports": [
+        "IEANTN.Vocabulary.Zeta"
+      ],
+      "generic_imports": [
+        "Mathlib.NumberTheory.Chebyshev",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus",
+        "Mathlib.Analysis.SpecialFunctions.Integrals.Basic",
+        "Mathlib.Tactic",
+        "Mathlib.Analysis.Complex.ExponentialBounds",
+        "Mathlib.Analysis.Real.Pi.Bounds"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/parabolic/PsiSmoothing.lean"
+    },
+    {
+      "module": "PsiBoxExact",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/PsiBoxExact.lean",
+      "sha256": "147d212da3df32c8ca22c0ac0432c49f410536f24f1ec1c2599aa7a92fe60313",
+      "application_imports": [
+        "PsiSmoothing"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/parabolic/PsiBoxExact.lean"
+    },
+    {
+      "module": "PsiElementary",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/PsiElementary.lean",
+      "sha256": "7d7abe3c9c14d27a8ca8b93f0ce4b5056670db33a72fa178092dab7425cb92ef",
+      "application_imports": [
+        "PsiSmoothing"
+      ],
+      "generic_imports": [
+        "Mathlib"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/integration/source/PsiElementary.lean"
+    },
+    {
+      "module": "PsiClosedElementary",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/PsiClosedElementary.lean",
+      "sha256": "505d73688090815facee9a733a630c0abc686c9c0704549d704ef6d115feea7a",
+      "application_imports": [
+        "PsiBoxExact",
+        "PsiElementary"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/parabolic/PsiClosedElementary.lean"
+    },
+    {
+      "module": "QuarticWindow",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/QuarticWindow.lean",
+      "sha256": "745977aa24b660fadacdc7f3995b4746b4df64475de7987959dfdb951f999882",
+      "application_imports": [],
+      "generic_imports": [
+        "Mathlib.NumberTheory.Chebyshev",
+        "Mathlib.NumberTheory.PrimeCounting",
+        "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Sqrt",
+        "Mathlib.Tactic"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/QuarticWindow.lean"
+    },
+    {
+      "module": "EvenKernel",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/EvenKernel.lean",
+      "sha256": "c5d328e0ea179c10329eae9474547e5163e347129326a0691f75a0c18fe45499",
+      "application_imports": [
+        "QuarticWindow",
+        "PsiSmoothing"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.DerivHyp"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/EvenKernel.lean"
+    },
+    {
+      "module": "OcticConsumer",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/OcticConsumer.lean",
+      "sha256": "1e5d5f6f15811f9280ecc9946eff3e084bcfb1771d21027b148447eacfff48bb",
+      "application_imports": [
+        "EvenKernel"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/OcticConsumer.lean"
+    },
+    {
+      "module": "PrimeQuantiles",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/PrimeQuantiles.lean",
+      "sha256": "4c36db5cdf4e54aba0c44f4b0181257256f5b2528321d362d8f1bc7fa61be2a6",
+      "application_imports": [
+        "QuarticWindow"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/PrimeQuantiles.lean"
+    },
+    {
+      "module": "OcticQuantiles",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/OcticQuantiles.lean",
+      "sha256": "56e4efa83db03c7c602ceb06859b64d0e844b7cd8657a9571c80e88000affbc2",
+      "application_imports": [
+        "PrimeQuantiles"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/OcticQuantiles.lean"
+    },
+    {
+      "module": "OcticCubes",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/OcticCubes.lean",
+      "sha256": "9b4ed6aeabc06d16d55e07144e5e5d6d0ab9d20b2b7cbdb3ff9f235edd621048",
+      "application_imports": [
+        "OcticQuantiles"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.Complex.Exponential"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/OcticCubes.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.RHAdapters.v1.Conclusions",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Nodes/RHAdapters/v1/Conclusions.lean",
+      "sha256": "8bf7031d2330601b0652418c0d1d1fb82607f4894c4df9e49f6dc5c24f8087e5",
+      "application_imports": [
+        "IEANTN.Nodes.RH.v1.Conclusions"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/IEANTN/Nodes/RHAdapters/v1/Conclusions.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.OpenAIQRH.v1.Conclusions",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Nodes/OpenAIQRH/v1/Conclusions.lean",
+      "sha256": "2b960bf3546f8a9d85200e503db1fe5d036584a150a13008d831807092617d19",
+      "application_imports": [
+        "IEANTN.Vocabulary.ZeroFreeHalfPlane"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/IEANTN/Nodes/OpenAIQRH/v1/Conclusions.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.PlattTrudgian.v1.Conclusions",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Nodes/PlattTrudgian/v1/Conclusions.lean",
+      "sha256": "3a5dfbca68c5ef883b9b0372f62224311b17bd29963cbb19d4dc0cb0feeb4667",
+      "application_imports": [
+        "IEANTN.Vocabulary.Zeta"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/IEANTN/Nodes/PlattTrudgian/v1/Conclusions.lean"
+    },
+    {
+      "module": "IEANTN.Bridges.RH.LogicalAdapters",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Bridges/RH/LogicalAdapters.lean",
+      "sha256": "b02d555c47d159fed667aaa7d2a508137b48657e446257ef5b1ea3e32a4514c1",
+      "application_imports": [
+        "IEANTN.Nodes.RHAdapters.v1.Conclusions",
+        "IEANTN.Nodes.OpenAIQRH.v1.Conclusions",
+        "IEANTN.Nodes.PlattTrudgian.v1.Conclusions"
+      ],
+      "generic_imports": [
+        "Mathlib.Tactic"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/IEANTN/Bridges/RH/LogicalAdapters.lean"
+    },
+    {
+      "module": "IEANTN.Vocabulary.Numerics",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Vocabulary/Numerics.lean",
+      "sha256": "6dda8dda76515740e4ebb87af352f5eb4712f3b0038e84d2138b445d3be5b736",
+      "application_imports": [],
+      "generic_imports": [
+        "Mathlib.Analysis.SpecialFunctions.Pow.Real"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/IEANTN/Vocabulary/Numerics.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.Buthe2016.v1.Tables",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Nodes/Buthe2016/v1/Tables.lean",
+      "sha256": "3def126f7cf07dd77979af15781b59b69bd90e43071f3ab4bb416e573537d8d1",
+      "application_imports": [
+        "IEANTN.Vocabulary.ErrorTerms"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/IEANTN/Nodes/Buthe2016/v1/Tables.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.Buthe2016.v1.Conclusions",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Nodes/Buthe2016/v1/Conclusions.lean",
+      "sha256": "0b6ab451ea4776bb44d6a1680d748295baa68285a690efa4a9cb7b045e76972a",
+      "application_imports": [
+        "IEANTN.Vocabulary.Zeta",
+        "IEANTN.Vocabulary.PrimeCounting",
+        "IEANTN.Vocabulary.ErrorTerms",
+        "IEANTN.Vocabulary.Numerics",
+        "IEANTN.Nodes.Buthe2016.v1.Tables"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/IEANTN/Nodes/Buthe2016/v1/Conclusions.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.CH2.v5.Conclusions",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Nodes/CH2/v5/Conclusions.lean",
+      "sha256": "a1bb5c364b58ba6111239da6be028d474a8b61393a62df2cdfc1099bdbd5a639",
+      "application_imports": [
+        "IEANTN.Vocabulary.ErrorTerms",
+        "IEANTN.Vocabulary.ZeroFreeHalfPlane"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/IEANTN/Nodes/CH2/v5/Conclusions.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.CH2.v1.Conclusions",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Nodes/CH2/v1/Conclusions.lean",
+      "sha256": "f706109f41a47d0879cb31c30066c07b62aa43fba6b6242559832eb887cc511c",
+      "application_imports": [
+        "IEANTN.Vocabulary.ErrorTerms",
+        "IEANTN.Vocabulary.Zeta"
+      ],
+      "generic_imports": [
+        "Mathlib.NumberTheory.Harmonic.EulerMascheroni"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/IEANTN/Nodes/CH2/v1/Conclusions.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.LowZeroes.v1.Conclusions",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Nodes/LowZeroes/v1/Conclusions.lean",
+      "sha256": "8dd7f5a5657bf01bd67cf36bd9264fe1d2a58a88664660bfc40886bd946881ea",
+      "application_imports": [
+        "IEANTN.Vocabulary.Zeta",
+        "IEANTN.Vocabulary.Numerics"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/IEANTN/Nodes/LowZeroes/v1/Conclusions.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.ZetaHadamard.v1.Conclusions",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Nodes/ZetaHadamard/v1/Conclusions.lean",
+      "sha256": "7059789de0f72dcaf892319fc7579709698ae7cb2abcc3ac122e548a3ac5af8b",
+      "application_imports": [
+        "IEANTN.Vocabulary.Zeta"
+      ],
+      "generic_imports": [
+        "Mathlib.NumberTheory.LSeries.RiemannZeta",
+        "Mathlib.Analysis.SpecialFunctions.Gamma.Digamma"
+      ],
+      "original_path": "Solutions/RHExposureStudy.v1/Ramanujan640/source/IEANTN/Nodes/ZetaHadamard/v1/Conclusions.lean"
+    },
+    {
+      "module": "FullRH",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/FullRH.lean",
+      "sha256": "cb7b97f4002464b381c2631fe3e98a2057192d6549e37efacc7e157c2d0674cb",
+      "application_imports": [
+        "SharedRH",
+        "IEANTN.Bridges.RH.LogicalAdapters",
+        "IEANTN.Nodes.Buthe2016.v1.Conclusions",
+        "IEANTN.Nodes.CH2.v5.Conclusions",
+        "IEANTN.Nodes.CH2.v1.Conclusions",
+        "IEANTN.Nodes.LowZeroes.v1.Conclusions",
+        "IEANTN.Nodes.ZetaHadamard.v1.Conclusions"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.Complex.ExponentialBounds"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/FullRH.lean"
+    },
+    {
+      "module": "PntSupport",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/PntSupport.lean",
+      "sha256": "ab521f2a103188bd1f954e0808ed857db6221ef16b6fe21c0474d9df524e5b13",
+      "application_imports": [],
+      "generic_imports": [
+        "Mathlib.Algebra.Notation.Support"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/PntSupport.lean"
+    },
+    {
+      "module": "PntAsymptotics",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/PntAsymptotics.lean",
+      "sha256": "6289d21bca215e5984f6aa8cedd71d15914d228bcf3b40852e0a063f0eb8e1bc",
+      "application_imports": [],
+      "generic_imports": [
+        "Mathlib.Analysis.Asymptotics.Lemmas",
+        "Mathlib.Topology.Order.Compact"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/PntAsymptotics.lean"
+    },
+    {
+      "module": "PntSobolev",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/PntSobolev.lean",
+      "sha256": "f697c48c8632b7e0abca37e4199ede39b6fe034f69ad2e2df48dc98214fc241b",
+      "application_imports": [
+        "PntSupport",
+        "PntAsymptotics"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.Calculus.Deriv.Support",
+        "Mathlib.Analysis.Distribution.SchwartzSpace.Deriv",
+        "Mathlib.Order.Filter.ZeroAndBoundedAtFilter"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/PntSobolev.lean"
+    },
+    {
+      "module": "PntSmooth",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/PntSmooth.lean",
+      "sha256": "81790d76351d94445207fc2f792d95a9e5f53c72d1062ae8475353889e4c0939",
+      "application_imports": [
+        "PntSobolev"
+      ],
+      "generic_imports": [
+        "Batteries.Tactic.Lemma",
+        "Mathlib.Geometry.Manifold.PartitionOfUnity",
+        "Mathlib.Tactic.Bound"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/PntSmooth.lean"
+    },
+    {
+      "module": "PntFourier",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/PntFourier.lean",
+      "sha256": "7786e3670564b2396f2efdcf036b25d2db4a735632fc86fa0cb070f0f61d592a",
+      "application_imports": [
+        "PntSobolev",
+        "PntSmooth"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.Distribution.SchwartzSpace.Deriv",
+        "Mathlib.MeasureTheory.Integral.IntegralEqImproper",
+        "Mathlib.Topology.ContinuousMap.Bounded.Basic",
+        "Mathlib.Order.Filter.ZeroAndBoundedAtFilter",
+        "Mathlib.Analysis.Fourier.FourierTransformDeriv"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/PntFourier.lean"
+    },
+    {
+      "module": "WienerPort",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/WienerPort.lean",
+      "sha256": "0ac22fcb17286b7b41b43461aad024f1ee09624c4c82da39032a2a8005ccd3cc",
+      "application_imports": [
+        "PntFourier"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.Fourier.RiemannLebesgueLemma",
+        "Mathlib.Analysis.Normed.Group.Tannery",
+        "Mathlib.Analysis.SumIntegralComparisons",
+        "Mathlib.NumberTheory.Chebyshev",
+        "Mathlib.NumberTheory.LSeries.PrimesInAP",
+        "Mathlib.NumberTheory.MulChar.Lemmas",
+        "Mathlib.Topology.EMetricSpace.BoundedVariation",
+        "Mathlib.Analysis.Convolution"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/WienerPort.lean"
+    },
+    {
+      "module": "Part1Fourier",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/Part1Fourier.lean",
+      "sha256": "36754c2685a926985a43a297d6be0be54d8b57110cfe1184a903d85c0a139803",
+      "application_imports": [
+        "WienerPort"
+      ],
+      "generic_imports": [
+        "Mathlib.Algebra.Order.Field.Pointwise",
+        "Mathlib.Algebra.Order.Ring.Star",
+        "Mathlib.Analysis.Complex.PhragmenLindelof",
+        "Mathlib.Analysis.CStarAlgebra.Classes",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.DerivHyp",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Complex",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Meromorphic",
+        "Mathlib.Data.Int.Star",
+        "Mathlib.Data.PNat.Interval",
+        "Mathlib.Data.Real.Sign",
+        "Mathlib.Algebra.Order.Star.Real",
+        "Mathlib.RingTheory.SimpleRing.Principal",
+        "Mathlib.NumberTheory.Chebyshev",
+        "Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt",
+        "Mathlib.NumberTheory.LSeries.Basic",
+        "Mathlib.Analysis.Fourier.FourierTransform",
+        "Mathlib.Analysis.SpecialFunctions.ImproperIntegrals"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/Part1Fourier.lean"
+    },
+    {
+      "module": "RectanglePort",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/RectanglePort.lean",
+      "sha256": "6d8dde78b8c8d8835d1f64efe5d23a60807f2385382d62f1c7994bacc57463e9",
+      "application_imports": [],
+      "generic_imports": [
+        "Mathlib.Analysis.Complex.Convex",
+        "Mathlib.Analysis.InnerProductSpace.Basic",
+        "Mathlib.Analysis.Normed.Order.Lattice",
+        "Mathlib.Order.Interval.Set.Monotone"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/RectanglePort.lean"
+    },
+    {
+      "module": "AdditiveCombination",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/AdditiveCombination.lean",
+      "sha256": "230f7da86d3fc8c9684a2305c883bb24a2cd38578526297bbe40db899b3f29a7",
+      "application_imports": [],
+      "generic_imports": [
+        "Mathlib.Tactic.Abel",
+        "Mathlib.Tactic.LinearCombinationPrime"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/AdditiveCombination.lean"
+    },
+    {
+      "module": "ResiduePort",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/ResiduePort.lean",
+      "sha256": "9a4278dfc736fca0227035cc7618b7c7e06438a8c0e9c2af70a56484f0687b4a",
+      "application_imports": [
+        "RectanglePort",
+        "AdditiveCombination"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.Complex.CauchyIntegral",
+        "Mathlib.Analysis.Complex.Convex",
+        "Mathlib.Analysis.Complex.RemovableSingularity",
+        "Mathlib.Analysis.SpecialFunctions.Integrals.Basic",
+        "Mathlib.Analysis.Meromorphic.NormalForm"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/ResiduePort.lean"
+    },
+    {
+      "module": "Approximants",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/Approximants.lean",
+      "sha256": "657866a52560430df6b6b07e9da372254982533751be99b6f260689459fbfb3c",
+      "application_imports": [
+        "ResiduePort"
+      ],
+      "generic_imports": [
+        "Mathlib.Algebra.Order.Field.Pointwise",
+        "Mathlib.Algebra.Order.Ring.Star",
+        "Mathlib.Analysis.Complex.PhragmenLindelof",
+        "Mathlib.Analysis.CStarAlgebra.Classes",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.DerivHyp",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Complex",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Meromorphic",
+        "Mathlib.Data.Int.Star",
+        "Mathlib.Data.PNat.Interval",
+        "Mathlib.Data.Real.Sign",
+        "Mathlib.Algebra.Order.Star.Real",
+        "Mathlib.RingTheory.SimpleRing.Principal",
+        "Mathlib.Analysis.Fourier.FourierTransform",
+        "Mathlib.Analysis.SpecialFunctions.ImproperIntegrals",
+        "Mathlib.NumberTheory.Chebyshev",
+        "Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt",
+        "Mathlib.NumberTheory.LSeries.Basic",
+        "Mathlib.Topology.EMetricSpace.BoundedVariation",
+        "Mathlib.Analysis.Real.Pi.Bounds",
+        "Mathlib.Analysis.SpecialFunctions.Gaussian.GaussianIntegral",
+        "Mathlib.MeasureTheory.Integral.ExpDecay"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/Approximants.lean"
+    },
+    {
+      "module": "Decay",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/Decay.lean",
+      "sha256": "927699fe2809f4639309f9a1241290eb580016e3b2f64cf3789b176bfe1a2b91",
+      "application_imports": [
+        "Approximants"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.Fourier.Inversion",
+        "Mathlib.Analysis.SpecialFunctions.Gamma.BohrMollerup"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/Decay.lean"
+    },
+    {
+      "module": "ZetaConjPort",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/ZetaConjPort.lean",
+      "sha256": "451943ff81dd14dde98c1edbafa72872161cab5ce67f1a32dbff0389f4975017",
+      "application_imports": [],
+      "generic_imports": [
+        "Mathlib.Analysis.Calculus.Deriv.Star",
+        "Mathlib.Analysis.Normed.Module.Connected",
+        "Mathlib.NumberTheory.Harmonic.ZetaAsymp"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/ZetaConjPort.lean"
+    },
+    {
+      "module": "Section5",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/Section5.lean",
+      "sha256": "5aa4df38e3b89522f8bf824d9348041d4ad23927a108c169918cb1aaade7d194",
+      "application_imports": [
+        "Part1Fourier",
+        "Approximants",
+        "Decay",
+        "ZetaConjPort"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.Meromorphic.NormalForm"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/Section5.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.ZetaLogDeriv.v1.Conclusions",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Nodes/ZetaLogDeriv/v1/Conclusions.lean",
+      "sha256": "38b507692c28f630347ae6ca15e0ce0c146fd267052933eea25f40ff5ccdb2f4",
+      "application_imports": [],
+      "generic_imports": [
+        "Mathlib.NumberTheory.LSeries.RiemannZeta",
+        "Mathlib.Analysis.SpecialFunctions.Gamma.Digamma",
+        "Mathlib.Analysis.SpecialFunctions.Complex.Log"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/IEANTN/Nodes/ZetaLogDeriv/v1/Conclusions.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.GammaAsymptotics.v2.Conclusions",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Nodes/GammaAsymptotics/v2/Conclusions.lean",
+      "sha256": "15a135392864908c3f6bd3fa8bc9ce70f20f99afc7292be3092c80b1c767da23",
+      "application_imports": [],
+      "generic_imports": [
+        "Mathlib.Analysis.SpecialFunctions.Gamma.Digamma",
+        "Mathlib.Analysis.SpecialFunctions.Complex.Log"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/IEANTN/Nodes/GammaAsymptotics/v2/Conclusions.lean"
+    },
+    {
+      "module": "ZetaInstance",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/ZetaInstance.lean",
+      "sha256": "c47ff9a79cc30428b8091a03ad005d311f331a6e91e356ad8cd785cc842b332d",
+      "application_imports": [
+        "Section5",
+        "IEANTN.Nodes.ZetaLogDeriv.v1.Conclusions",
+        "IEANTN.Nodes.GammaAsymptotics.v2.Conclusions"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/ZetaInstance.lean"
+    },
+    {
+      "module": "Section5Neg",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/Section5Neg.lean",
+      "sha256": "bb0a9bddb79f281cda1feadfe1eabd85ea70b7be5737de3fb9785fecf3cef31d",
+      "application_imports": [
+        "Section5"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/Section5Neg.lean"
+    },
+    {
+      "module": "ZetaInstanceNeg",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/ZetaInstanceNeg.lean",
+      "sha256": "51ac8b01f95e31a519edb5a6fa94ce2096bb950dd889b24d53077ac7aab254f9",
+      "application_imports": [
+        "ZetaInstance",
+        "Section5Neg"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/ZetaInstanceNeg.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.CH2.v2.Conclusions",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Nodes/CH2/v2/Conclusions.lean",
+      "sha256": "4252e1ef44aa15c9e21d806c7650ccaf94ae3338cfe522db6d502c60588e4f3b",
+      "application_imports": [],
+      "generic_imports": [
+        "Mathlib.Analysis.Fourier.FourierTransform",
+        "Mathlib.Analysis.SpecialFunctions.Complex.LogBounds"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/IEANTN/Nodes/CH2/v2/Conclusions.lean"
+    },
+    {
+      "module": "Section6",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/Section6.lean",
+      "sha256": "e569847a27f0ebfcd25fbf09d5442f9ddaec7ade542f163336f6d12762b3253f",
+      "application_imports": [
+        "ZetaInstanceNeg",
+        "IEANTN.Nodes.CH2.v2.Conclusions"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/Section6.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.CotangentSeries.v1.Conclusions",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Nodes/CotangentSeries/v1/Conclusions.lean",
+      "sha256": "ffdb2615d1ce6ee2e3f1beacb695ab6f41b3da6e018424a5fd9c0586e5cc0961",
+      "application_imports": [],
+      "generic_imports": [
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Cotangent",
+        "Mathlib.NumberTheory.LSeries.HurwitzZetaValues"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/IEANTN/Nodes/CotangentSeries/v1/Conclusions.lean"
+    },
+    {
+      "module": "Section7",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/Section7.lean",
+      "sha256": "c1fab34a2acd1a74f79bade52fd9774f697265f09c27634064c04f1439b1691b",
+      "application_imports": [
+        "IEANTN.Nodes.CotangentSeries.v1.Conclusions"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.Complex.Trigonometric",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Bounds",
+        "Mathlib.NumberTheory.LSeries.HurwitzZetaValues",
+        "Mathlib.Analysis.Real.Pi.Bounds",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.DerivHyp"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/Section7.lean"
+    },
+    {
+      "module": "Section6Res",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/Section6Res.lean",
+      "sha256": "a66927d09315c94dc5a5ef60796a455f2bf680d5d18c11e55878857ebf47ea13",
+      "application_imports": [
+        "Section6",
+        "Section7",
+        "IEANTN.Vocabulary.Zeta"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/Section6Res.lean"
+    },
+    {
+      "module": "Section6Zeros",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/Section6Zeros.lean",
+      "sha256": "ec192fa1f6acb82884b08348f2fe1aa18bc21a620f3d7b93260b2c526dff0d77",
+      "application_imports": [
+        "Section6Res"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/Section6Zeros.lean"
+    },
+    {
+      "module": "Section7Weights",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/Section7Weights.lean",
+      "sha256": "e4c11659238f1aa9fabb3dcb998ec9e32187893122616e1198e2f4ba080d00a6",
+      "application_imports": [
+        "Section6Zeros"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/Section7Weights.lean"
+    },
+    {
+      "module": "Section7Tritura",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/Section7Tritura.lean",
+      "sha256": "6846743b98eb6d031adf18950aa4f242306b9d2ecf7c6b3c1d03e8f1c9ceff82",
+      "application_imports": [
+        "Section7Weights"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/Section7Tritura.lean"
+    },
+    {
+      "module": "DigammaReal",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/DigammaReal.lean",
+      "sha256": "1e0c3c379baca8c8b99a0b09da28c443d4a3c27e2689304af9022a546f5e5817",
+      "application_imports": [],
+      "generic_imports": [
+        "Mathlib.Analysis.SpecialFunctions.Gamma.BohrMollerup",
+        "Mathlib.Analysis.SpecialFunctions.Gamma.Deriv",
+        "Mathlib.Analysis.SpecialFunctions.Gamma.Digamma",
+        "Mathlib.Analysis.Convex.Deriv",
+        "Mathlib.Analysis.Calculus.Deriv.MeanValue"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/DigammaReal.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.ZetaLogDerivValues.v1.Conclusions",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Nodes/ZetaLogDerivValues/v1/Conclusions.lean",
+      "sha256": "bf7ef8d1a7f84c7f7fdd4b4ac4d1594536cec172f68188fe7b7c80f7d25a89e1",
+      "application_imports": [
+        "IEANTN.Vocabulary.Numerics"
+      ],
+      "generic_imports": [
+        "Mathlib.NumberTheory.LSeries.RiemannZeta",
+        "Mathlib.NumberTheory.Harmonic.EulerMascheroni"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/IEANTN/Nodes/ZetaLogDerivValues/v1/Conclusions.lean"
+    },
+    {
+      "module": "Section8",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/Section8.lean",
+      "sha256": "91b107b2b5176cf5a473f5c75841466199d40d06d3080a416a001bfecca071f6",
+      "application_imports": [
+        "Section7",
+        "DigammaReal",
+        "IEANTN.Nodes.ZetaLogDerivValues.v1.Conclusions",
+        "IEANTN.Nodes.ZetaLogDeriv.v1.Conclusions",
+        "IEANTN.Nodes.GammaAsymptotics.v2.Conclusions"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Complex",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.DerivHyp",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Bounds",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.ComplexDeriv",
+        "Mathlib.Analysis.Calculus.MeanValue",
+        "Mathlib.Analysis.Real.Pi.Bounds",
+        "Mathlib.Analysis.SpecialFunctions.Pow.Complex",
+        "Mathlib.Analysis.SpecialFunctions.Pow.Deriv",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic",
+        "Mathlib.Analysis.SpecialFunctions.ImproperIntegrals",
+        "Mathlib.Analysis.Complex.CauchyIntegral",
+        "Mathlib.MeasureTheory.Integral.IntegralEqImproper",
+        "Mathlib.Analysis.Complex.ExponentialBounds",
+        "Mathlib.NumberTheory.LSeries.Dirichlet"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/Section8.lean"
+    },
+    {
+      "module": "Section6Weight",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/Section6Weight.lean",
+      "sha256": "3c71e6a8717bb445ec06b61441e31401621d34fe8eba579de29b9223a98c6c84",
+      "application_imports": [
+        "Section6Zeros"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/Section6Weight.lean"
+    },
+    {
+      "module": "Section6Contour",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/Section6Contour.lean",
+      "sha256": "d656e439312b768de7adecedda7780ff7977e9accf4d5941e68804d4edeb5571",
+      "application_imports": [
+        "Section8",
+        "Section6Weight"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/Section6Contour.lean"
+    },
+    {
+      "module": "ZetaReal01",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/ZetaReal01.lean",
+      "sha256": "46e5e5dcd4375fd9e47732f997e69470cc28c0e812b7ad60f33f8bc648b310d4",
+      "application_imports": [
+        "Section7"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.MellinTransform",
+        "Mathlib.NumberTheory.Harmonic.ZetaAsymp",
+        "Mathlib.MeasureTheory.Integral.IntegralEqImproper",
+        "Mathlib.MeasureTheory.Function.Floor",
+        "Mathlib.Analysis.SpecialFunctions.ImproperIntegrals",
+        "Mathlib.Analysis.Complex.Convex"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/ZetaReal01.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.ZeroCount.v1.Conclusions",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Nodes/ZeroCount/v1/Conclusions.lean",
+      "sha256": "8e8d6408e9cbea09e17c32cd92152133c78f690b84b72f9d4df2bf6f71a38a13",
+      "application_imports": [
+        "IEANTN.Vocabulary.Zeta"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/IEANTN/Nodes/ZeroCount/v1/Conclusions.lean"
+    },
+    {
+      "module": "Section6Hyp",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/Section6Hyp.lean",
+      "sha256": "3d70aafcf19bbf8f5dacad611a562b598686b9873ccc4178470bebc11102d450",
+      "application_imports": [
+        "Section6Contour",
+        "ZetaReal01",
+        "IEANTN.Nodes.ZeroCount.v1.Conclusions"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/Section6Hyp.lean"
+    },
+    {
+      "module": "Section7Zeros",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/Section7Zeros.lean",
+      "sha256": "3eed2d788f959c28d8048d94f4b6caeec069822aab65dedfce65e281b3a6c454",
+      "application_imports": [
+        "Section6Hyp"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/Section7Zeros.lean"
+    },
+    {
+      "module": "Section7Adar",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/Section7Adar.lean",
+      "sha256": "a0746db10d7182ff0bc3bf500f51c0834eb9136837ab4488156436af9bea1332",
+      "application_imports": [
+        "Section7Tritura",
+        "Section7Zeros"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/Section7Adar.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.PlattZeroSum.v1.Conclusions",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Nodes/PlattZeroSum/v1/Conclusions.lean",
+      "sha256": "1b25b6767d28aa3433b8d5b4245ed4374f8225815fd30183f033a31deda34cb2",
+      "application_imports": [
+        "IEANTN.Vocabulary.Zeta"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/IEANTN/Nodes/PlattZeroSum/v1/Conclusions.lean"
+    },
+    {
+      "module": "Section7Vihuela",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/Section7Vihuela.lean",
+      "sha256": "f3880c257e0338b399552f0011e167c822b0412ebf33f8ffa1952d10bf01029b",
+      "application_imports": [
+        "Section7Adar",
+        "IEANTN.Nodes.PlattZeroSum.v1.Conclusions"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/Section7Vihuela.lean"
+    },
+    {
+      "module": "Section81Janframe",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/Section81Janframe.lean",
+      "sha256": "4fcc398cd87d10f1fdd5ecb1c670b5eba63c69239426c3b9eaea5c557617f9ce",
+      "application_imports": [
+        "Section7Vihuela"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/Section81Janframe.lean"
+    },
+    {
+      "module": "GammaGaussSeries",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/GammaGaussSeries.lean",
+      "sha256": "6e947437b267b5dbb2c3299b93a8ca477c487579f084817a13d2881ce5f6b7d0",
+      "application_imports": [],
+      "generic_imports": [
+        "Mathlib.Analysis.SpecialFunctions.Gamma.Digamma",
+        "Mathlib.Analysis.PSeries"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/GammaGaussSeries.lean"
+    },
+    {
+      "module": "GammaRecurrence",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/GammaRecurrence.lean",
+      "sha256": "8cf6e3db8bf6d9a24d5352ed3d98a9731eb64564f42c835d4701568f313f245f",
+      "application_imports": [
+        "GammaGaussSeries"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/GammaRecurrence.lean"
+    },
+    {
+      "module": "GammaRealAsymptotic",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/GammaRealAsymptotic.lean",
+      "sha256": "289bf36620d96d8d10eec86bac6bcfaa0619f8dfe354e48a9644cdd5aa8b24db",
+      "application_imports": [],
+      "generic_imports": [
+        "Mathlib.Analysis.SpecialFunctions.Gamma.BohrMollerup",
+        "Mathlib.Analysis.SpecialFunctions.Gamma.Deriv",
+        "Mathlib.Analysis.Convex.Deriv",
+        "Mathlib.Analysis.Calculus.Deriv.MeanValue"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/GammaRealAsymptotic.lean"
+    },
+    {
+      "module": "GammaComplexToReal",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/GammaComplexToReal.lean",
+      "sha256": "7bf1413db128f24a8f7a508fc1070492753e5213e5501e25faec5817881177a6",
+      "application_imports": [
+        "GammaRealAsymptotic"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.SpecialFunctions.Gamma.Digamma"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/GammaComplexToReal.lean"
+    },
+    {
+      "module": "GammaOscillation",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/GammaOscillation.lean",
+      "sha256": "bf4bfbce7006f048dcc66cc37f17354285525c715adadf2bb112c6be297f649c",
+      "application_imports": [
+        "GammaRecurrence",
+        "GammaComplexToReal"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/GammaOscillation.lean"
+    },
+    {
+      "module": "GammaPeriodic",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/GammaPeriodic.lean",
+      "sha256": "2242fc4f9284f7d08c2e98df269edb2f211d00090d6315219b037c9cca4f1692",
+      "application_imports": [],
+      "generic_imports": [
+        "Mathlib.Analysis.Normed.Group.Basic",
+        "Mathlib.Analysis.SpecificLimits.Basic"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/GammaPeriodic.lean"
+    },
+    {
+      "module": "GammaRealIdentity",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/GammaRealIdentity.lean",
+      "sha256": "f236e8201977a2c8d8309a2a1e0e2c657f2262b234f3eec880a2b3c2f062be54",
+      "application_imports": [
+        "GammaOscillation",
+        "GammaPeriodic"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/GammaRealIdentity.lean"
+    },
+    {
+      "module": "GammaAnalytic",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/GammaAnalytic.lean",
+      "sha256": "24fd69168a4197f850fc8c24a3405730fc1e634492df61c06d60361104f2767f",
+      "application_imports": [
+        "GammaRealIdentity"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.Complex.LocallyUniformLimit",
+        "Mathlib.Analysis.Analytic.IsolatedZeros",
+        "Mathlib.Analysis.Complex.Convex"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/GammaAnalytic.lean"
+    },
+    {
+      "module": "Section81Titch",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/Section81Titch.lean",
+      "sha256": "7052f6d3ba5ef33c6007a2326b582292c9d134265f0eb89061d1eed0edbfb59e",
+      "application_imports": [
+        "Section81Janframe",
+        "GammaAnalytic",
+        "IEANTN.Nodes.ZetaHadamard.v1.Conclusions"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/Section81Titch.lean"
+    },
+    {
+      "module": "Section81",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/Section81.lean",
+      "sha256": "dc7b6a35488f8e48a76c8d900ff4a18473617fd0195ad27ce7755b28926a5864",
+      "application_imports": [],
+      "generic_imports": [
+        "Mathlib.Analysis.SpecialFunctions.Integrals.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic",
+        "Mathlib.Analysis.SpecialFunctions.ImproperIntegrals",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.ArctanDeriv",
+        "Mathlib.Analysis.SpecialFunctions.Arsinh",
+        "Mathlib.Analysis.Complex.ExponentialBounds"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/Section81.lean"
+    },
+    {
+      "module": "GammaStrip",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/GammaStrip.lean",
+      "sha256": "736b95e70f6c48060609b76abff26a06c25cf12d2643b6a836223fd0b490aa6a",
+      "application_imports": [
+        "GammaAnalytic"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/GammaStrip.lean"
+    },
+    {
+      "module": "Section81Saghar",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/Section81Saghar.lean",
+      "sha256": "cce3664234b4e49f043f2b7fb6608c773d988c9b949ba2b4033071c0d534d00e",
+      "application_imports": [
+        "Section81Titch",
+        "Section81",
+        "GammaStrip",
+        "IEANTN.Nodes.ZetaLogDeriv.v1.Conclusions"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/Section81Saghar.lean"
+    },
+    {
+      "module": "Section81Hardin",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/Section81Hardin.lean",
+      "sha256": "da41c5da3a6dc2cf63f2dc9c0c0608bc1639556b2efdc9ccd470f58e61a99ab2",
+      "application_imports": [
+        "Section81Saghar",
+        "Section6Hyp"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/Section81Hardin.lean"
+    },
+    {
+      "module": "Section9",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/Section9.lean",
+      "sha256": "cba026ebb52fbf471c52a78dd4ab68d997441131b7c3cf640d8a739b0b42bfdd",
+      "application_imports": [
+        "Section81Hardin"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/Section9.lean"
+    },
+    {
+      "module": "Section9Limit",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/Section9Limit.lean",
+      "sha256": "6d3d8f2132f19331c865c9df1eb1b0c15eef4f2cba07e5a73827a2a94c3175c7",
+      "application_imports": [
+        "Section9",
+        "IEANTN.Nodes.CH2.v1.Conclusions"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/Section9Limit.lean"
+    },
+    {
+      "module": "Section9Cor13",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/Section9Cor13.lean",
+      "sha256": "d91161db95ddcf7766ad5a6bb8ec196a9c145a02b93723b222b57a479b3a234e",
+      "application_imports": [
+        "Section9Limit",
+        "IEANTN.Nodes.PlattTrudgian.v1.Conclusions",
+        "IEANTN.Nodes.Buthe.v1.Conclusions"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/Section9Cor13.lean"
+    },
+    {
+      "module": "PNTFormal",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/PNTFormal.lean",
+      "sha256": "41cc7ce147ec7580cd0732ed9054b99bf8f36ca8b0e9c046ee1fd80d2a810135",
+      "application_imports": [
+        "FullRH",
+        "Section9Cor13"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/PNTFormal.lean"
+    },
+    {
+      "module": "PNTScalar",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/PNTScalar.lean",
+      "sha256": "73b7fa1d1d35b5ecd567a06975b780a77b790572ebb6f547e20a9b572437c5a3",
+      "application_imports": [
+        "PNTFormal"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/PNTScalar.lean"
+    },
+    {
+      "module": "Recovered7",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/Recovered7.lean",
+      "sha256": "5aa28fc9943439731980a0f4d58a689d7923e1c29781bddea7c06b19205f7870",
+      "application_imports": [
+        "Section7Vihuela"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/Recovered7.lean"
+    },
+    {
+      "module": "Recovered9",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/Recovered9.lean",
+      "sha256": "bce9f074dd9882731bb7c1834b9c338bdc69bbbff8504a12dddd54994cf93091",
+      "application_imports": [
+        "Section9",
+        "Recovered7"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/Recovered9.lean"
+    },
+    {
+      "module": "RecoveredLimit",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/RecoveredLimit.lean",
+      "sha256": "66d90af44e4bf12944ba1f0c40e9119765e80f98fff61b69775a18600f54f985",
+      "application_imports": [
+        "Section9Limit",
+        "Recovered9"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/RecoveredLimit.lean"
+    },
+    {
+      "module": "ZeroAbel",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/ZeroAbel.lean",
+      "sha256": "00f867b1cb01907345f07a525bf68b3446150f029829cfef2f660d7c2aa120eb",
+      "application_imports": [
+        "Section7Zeros"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/ZeroAbel.lean"
+    },
+    {
+      "module": "DiscreteZeroCount",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/DiscreteZeroCount.lean",
+      "sha256": "08c8ef73a40a53f5e2341ba2acb562e3ab058c42ddc31f3007a479c86763d229",
+      "application_imports": [
+        "ZeroAbel"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/DiscreteZeroCount.lean"
+    },
+    {
+      "module": "NumericalZeroLadder",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/NumericalZeroLadder.lean",
+      "sha256": "2773fca848c53d0c2808b51160476de7355a12452267d1f7f3b034f70105a0a2",
+      "application_imports": [
+        "DiscreteZeroCount"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/NumericalZeroLadder.lean"
+    },
+    {
+      "module": "ZeroCountIntegral",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/ZeroCountIntegral.lean",
+      "sha256": "fd7290f548a2ceb7a7fa2249d71abfec8507a89f763f92ee3b373e8a13912cd6",
+      "application_imports": [
+        "NumericalZeroLadder"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/ZeroCountIntegral.lean"
+    },
+    {
+      "module": "RecoveredLowSum",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/RecoveredLowSum.lean",
+      "sha256": "a334503a17263214887ae3d75b2f8c3c225a29cf669eae501748df7ff76047fc",
+      "application_imports": [
+        "ZeroCountIntegral"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/RecoveredLowSum.lean"
+    },
+    {
+      "module": "RecoveredPNT",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/RecoveredPNT.lean",
+      "sha256": "eea4f2890e918bd5993f10158e0b6af23b5510db6438401891ad73fc4699da2a",
+      "application_imports": [
+        "PNTScalar",
+        "RecoveredLimit",
+        "RecoveredLowSum"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/RecoveredPNT.lean"
+    },
+    {
+      "module": "ClosedCH2Compat",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/ClosedCH2Compat.lean",
+      "sha256": "21942f715c78d43c2de7d519150727f201d3235b130511bc3009125782df3fc8",
+      "application_imports": [
+        "Part1Fourier",
+        "IEANTN.Nodes.CH2.v2.Conclusions"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/ClosedCH2Compat.lean"
+    },
+    {
+      "module": "ClosedZeta",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/ClosedZeta.lean",
+      "sha256": "679afaebc777181d16239ca6bba579e30732c438a826253a926d1edb5a3bed88",
+      "application_imports": [
+        "IEANTN.Nodes.ZetaLogDeriv.v1.Conclusions"
+      ],
+      "generic_imports": [
+        "Mathlib"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/ClosedZeta.lean"
+    },
+    {
+      "module": "RecoveredPNTClosed",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/RecoveredPNTClosed.lean",
+      "sha256": "6bc42ec9ed8725760e70bcab8510a3acf9b4f8e4794eabbd57078a0a1cac5162",
+      "application_imports": [
+        "RecoveredPNT",
+        "ClosedCH2Compat",
+        "GammaStrip",
+        "ClosedZeta"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/RecoveredPNTClosed.lean"
+    },
+    {
+      "module": "ThetaRelay",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/ThetaRelay.lean",
+      "sha256": "42bb90c7d58e798aa306e1cf1c42598b28dbd0d1cdc21e770ba6a78175332489",
+      "application_imports": [
+        "FullRH"
+      ],
+      "generic_imports": [
+        "Mathlib.Tactic",
+        "Mathlib.Analysis.Real.Pi.Bounds"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/ThetaRelay.lean"
+    },
+    {
+      "module": "NetworkConsumers",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/NetworkConsumers.lean",
+      "sha256": "c699b511ecb70c8d5415d28d746bf27f0016d49d46e66f37a3c0534d3701629e",
+      "application_imports": [
+        "IEANTN.Nodes.RHSmoothingInputs.v1.Conclusions",
+        "IEANTN.Nodes.RHSmoothing.v1.Conclusions",
+        "IEANTN.Nodes.PrimeKernelInputs.v1.Conclusions",
+        "IEANTN.Nodes.PrimeInterval.v2.Conclusions",
+        "IEANTN.Nodes.PrimeQuantile.v1.Conclusions",
+        "IEANTN.Nodes.Lcm.v4.Conclusions",
+        "IEANTN.Nodes.Primorial.v2.Conclusions",
+        "IEANTN.Nodes.RH.v1.Conclusions",
+        "PsiClosedElementary",
+        "OcticConsumer",
+        "OcticCubes",
+        "RecoveredPNTClosed",
+        "ThetaRelay"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/integration/frozen-source/NetworkConsumers.lean"
+    },
+    {
+      "module": "PurePiConsumers",
+      "path": "Solutions/RHLimit.v1/pi/PurePiConsumers.lean",
+      "sha256": "e402f1b19e706dc4e9f806ad4f9f9121bdba1e93f943b0d3aa4a186a22179cc2",
+      "application_imports": [
+        "PurePiBounds",
+        "NetworkConsumers",
+        "IEANTN.Vocabulary.ErrorTerms"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "NormalizedFormula",
+      "path": "Solutions/RHLimit.v1/pi/NormalizedFormula.lean",
+      "sha256": "95399f3475749ede6ad6115ffa19742659bd35f4fcb8ab653448f6b9957601ae",
+      "application_imports": [
+        "PurePiConsumers"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "PurePiRay",
+      "path": "Solutions/RHLimit.v1/pi/PurePiRay.lean",
+      "sha256": "bdcc92c3d629b8db7d9ecfeb2d55bcb73a77ec2fd94643a320e2c02c16270945",
+      "application_imports": [
+        "NormalizedFormula"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "IEANTN.Nodes.BoxMellinInputs.v1.Conclusions",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Nodes/BoxMellinInputs/v1/Conclusions.lean",
+      "sha256": "ec1b3edfa907cb07d06c9f98824bf3388cb72c953e847a5cec9acfed21ff2176",
+      "application_imports": [
+        "IEANTN.Vocabulary.RHSmoothing"
+      ],
+      "generic_imports": [
+        "Mathlib.NumberTheory.Harmonic.EulerMascheroni"
+      ],
+      "original_path": "IEANTN/Nodes/BoxMellinInputs/v1/Conclusions.lean"
+    },
+    {
+      "module": "StieltjesTrapezoid",
+      "path": "Solutions/RHLimit.v1/analytic/StieltjesTrapezoid.lean",
+      "sha256": "df135aace992421431fce203c3d97b373640dd837dc549adfae30fe0c1b01505",
+      "application_imports": [
+        "IEANTN.Nodes.BoxMellinInputs.v1.Conclusions"
+      ],
+      "generic_imports": [
+        "Mathlib"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.DudekPlatt.v3.Conclusions",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Nodes/DudekPlatt/v3/Conclusions.lean",
+      "sha256": "e30db1a432e6f90700e55212583e560deca0e006b7c46eea5dc4e38f7fae318c",
+      "application_imports": [
+        "IEANTN.Vocabulary.PrimeCounting"
+      ],
+      "generic_imports": [],
+      "original_path": "IEANTN/Nodes/DudekPlatt/v3/Conclusions.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.DudekPlattNumerics.v6.Conclusions",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/IEANTN/Nodes/DudekPlattNumerics/v6/Conclusions.lean",
+      "sha256": "cb9978a273bf1514ad605b52740854254389d4aa1e591bb07d528cecc606aea1",
+      "application_imports": [
+        "IEANTN.Nodes.DudekPlatt.v3.Conclusions"
+      ],
+      "generic_imports": [],
+      "original_path": "IEANTN/Nodes/DudekPlattNumerics/v6/Conclusions.lean"
+    },
+    {
+      "module": "RamanujanPV.QuantitativeTail",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/RamanujanPV/QuantitativeTail.lean",
+      "sha256": "9ab8cba2f93ff2f712f59c5f43685f8e9bb7b8ed866a1328115b0a39cd547e13",
+      "application_imports": [
+        "RamanujanPV.Intervals",
+        "IEANTN.Nodes.DudekPlatt.v3.Conclusions",
+        "IEANTN.Nodes.DudekPlattNumerics.v6.Conclusions"
+      ],
+      "generic_imports": [
+        "Mathlib"
+      ],
+      "original_path": "Solutions/RamanujanSourcePV.v1/RamanujanPV/QuantitativeTail.lean"
+    },
+    {
+      "module": "RamanujanPV.AnalyticTransition",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/RamanujanPV/AnalyticTransition.lean",
+      "sha256": "b0f55eab34c6a8009f24a09e31c428a3e6c7ddf4168a63c166b9a0d4a276c3c9",
+      "application_imports": [
+        "RamanujanPV.QuantitativeTail"
+      ],
+      "generic_imports": [
+        "Mathlib"
+      ],
+      "original_path": "Solutions/RamanujanSourcePV.v1/RamanujanPV/AnalyticTransition.lean"
+    },
+    {
+      "module": "CLogMathLower",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/CLogMathLower.lean",
+      "sha256": "59bd8345fb4ed9c2c0af4e197c35846caf4e8c907bdcba2b0a68a9296632e56f",
+      "application_imports": [
+        "RamanujanPV.AnalyticTransition"
+      ],
+      "generic_imports": [
+        "Mathlib.Data.Nat.Log"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/parabolic/CLogMathLower.lean"
+    },
+    {
+      "module": "LCMSourcePV.RestrictedC",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LCMSourcePV/RestrictedC.lean",
+      "sha256": "4442a24f59ff243f36649903767beb444b8099753532528f86df55efa388ef88",
+      "application_imports": [],
+      "generic_imports": [
+        "Mathlib"
+      ],
+      "original_path": "Solutions/RamanujanSourcePV.v1/LCMSourcePV/RestrictedC.lean"
+    },
+    {
+      "module": "RamanujanPV.WideScalar",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/RamanujanPV/WideScalar.lean",
+      "sha256": "d2a7cdb5d13ece248a477b4d95c2b6499076e680c82b7873747d38301954c361",
+      "application_imports": [
+        "LCMSourcePV.RestrictedC"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RamanujanSourcePV.v1/RamanujanPV/WideScalar.lean"
+    },
+    {
+      "module": "WitnessCGrammar",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/WitnessCGrammar.lean",
+      "sha256": "57fcfa86a5e443cc6989ea65e92e6284657e24a7f62726b4dda048281c5d8b8b",
+      "application_imports": [
+        "LCMSourcePV.RestrictedC"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RamanujanSourcePV.v1/WitnessCGrammar.lean"
+    },
+    {
+      "module": "LCMSourcePV.ASTLoops",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LCMSourcePV/ASTLoops.lean",
+      "sha256": "e496bf461b8878b2d29e4b679287cf2bdf3237eb78b70ff5f4811d0103eca78c",
+      "application_imports": [
+        "WitnessCGrammar"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTLoops.lean"
+    },
+    {
+      "module": "LCMSourcePV.ASTDeterminism",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/LCMSourcePV/ASTDeterminism.lean",
+      "sha256": "ca942c44520448fc52eca0b83e5e1769929e6b71a93b0776306089ebca70e74f",
+      "application_imports": [
+        "LCMSourcePV.ASTLoops"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RamanujanSourcePV.v1/LCMSourcePV/ASTDeterminism.lean"
+    },
+    {
+      "module": "RamanujanPV.FiniteScalarMachine",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/RamanujanPV/FiniteScalarMachine.lean",
+      "sha256": "c39483b851be2479e36edbd4b7728b1872bf616d71a02be893d3b71677cf23c9",
+      "application_imports": [
+        "RamanujanPV.WideScalar",
+        "LCMSourcePV.ASTLoops",
+        "LCMSourcePV.ASTDeterminism"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarMachine.lean"
+    },
+    {
+      "module": "RamanujanPV.FiniteScalarWords",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/RamanujanPV/FiniteScalarWords.lean",
+      "sha256": "749bc38f0e466f6b2ced238a309e7feb4309728887be7e9309ad3dbed96aeb57",
+      "application_imports": [
+        "RamanujanPV.FiniteScalarMachine"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarWords.lean"
+    },
+    {
+      "module": "RamanujanPV.FiniteScalarRules",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/RamanujanPV/FiniteScalarRules.lean",
+      "sha256": "c1d1d0486362375424b0576f5f230d808ed7b6246f25c2b6449c8629a79e269d",
+      "application_imports": [
+        "RamanujanPV.FiniteScalarWords"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteScalarRules.lean"
+    },
+    {
+      "module": "RamanujanPV.FiniteLogSource",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/RamanujanPV/FiniteLogSource.lean",
+      "sha256": "d68705d028e0fd22d3b026691f9b7f88dd8407fb709a6daddf81d374bd83dae3",
+      "application_imports": [
+        "LCMSourcePV.ASTLoops"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogSource.lean"
+    },
+    {
+      "module": "RamanujanPV.FiniteLogBounds",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/RamanujanPV/FiniteLogBounds.lean",
+      "sha256": "6a2b48c0fe8dc30fb5fbae77a43a745d5c07ab857ea110733033e453b54eb04f",
+      "application_imports": [
+        "RamanujanPV.AnalyticTransition"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogBounds.lean"
+    },
+    {
+      "module": "RamanujanPV.FiniteLogNormalizationBounds",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/RamanujanPV/FiniteLogNormalizationBounds.lean",
+      "sha256": "5af5019947a1b06b1c6a826d64e2540aa1d25e0ad3a59e62d3b3f5965e9fc5cc",
+      "application_imports": [
+        "RamanujanPV.FiniteLogBounds"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogNormalizationBounds.lean"
+    },
+    {
+      "module": "RamanujanPV.FiniteLogNormalize",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/RamanujanPV/FiniteLogNormalize.lean",
+      "sha256": "50e1f5109e1938942ba64fee645ea7298e204d240efc0e0330bca49048a8a6de",
+      "application_imports": [
+        "RamanujanPV.FiniteScalarRules",
+        "RamanujanPV.FiniteLogSource",
+        "RamanujanPV.FiniteLogNormalizationBounds"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogNormalize.lean"
+    },
+    {
+      "module": "RamanujanPV.FiniteLogCeil",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/RamanujanPV/FiniteLogCeil.lean",
+      "sha256": "cfdd6be9f8cfaf9b00c98cc4f8ca25920b9364f007dea8d48f06ba1f83593995",
+      "application_imports": [
+        "RamanujanPV.FiniteScalarRules",
+        "RamanujanPV.FiniteLogSource",
+        "RamanujanPV.AnalyticTransition"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogCeil.lean"
+    },
+    {
+      "module": "RamanujanPV.FiniteLogServices",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/RamanujanPV/FiniteLogServices.lean",
+      "sha256": "961dca3ab91295a750d4872d39d11d942ef110e0df9687d40187f531ea72b3c8",
+      "application_imports": [
+        "RamanujanPV.FiniteLogCeil"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogServices.lean"
+    },
+    {
+      "module": "RamanujanPV.FiniteCellWords",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/RamanujanPV/FiniteCellWords.lean",
+      "sha256": "daae98928a9ae7802edfa185d908ddfa28ecfc25e8560955d99ab69a17710422",
+      "application_imports": [
+        "RamanujanPV.FiniteScalarRules"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteCellWords.lean"
+    },
+    {
+      "module": "RamanujanPV.FiniteLogSeriesRules",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/RamanujanPV/FiniteLogSeriesRules.lean",
+      "sha256": "f4a98a12283d2034c9c23684f2b3b51c2885c5d77c54b36b7b1f60933d9be282",
+      "application_imports": [
+        "RamanujanPV.FiniteLogServices",
+        "RamanujanPV.FiniteCellWords"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogSeriesRules.lean"
+    },
+    {
+      "module": "RamanujanPV.FiniteLogUpperPrefix",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/RamanujanPV/FiniteLogUpperPrefix.lean",
+      "sha256": "b0d19d1d1e6280ab803c96e3dd5953e84896e758ca962c723fc6c41e921fa2f2",
+      "application_imports": [
+        "RamanujanPV.FiniteLogNormalize",
+        "RamanujanPV.FiniteLogSeriesRules"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogUpperPrefix.lean"
+    },
+    {
+      "module": "RamanujanPV.FiniteLogNormalizationUnique",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/RamanujanPV/FiniteLogNormalizationUnique.lean",
+      "sha256": "b60c98014cd33557b53cceedca312d867798ef50a035c30d22852a32c903a61d",
+      "application_imports": [
+        "RamanujanPV.FiniteLogNormalize"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogNormalizationUnique.lean"
+    },
+    {
+      "module": "RamanujanPV.FinitePredicateBounds",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/RamanujanPV/FinitePredicateBounds.lean",
+      "sha256": "8d3aeb35642aa05d85d1a2075769d4cd0ad46f32715c0769ee8d7601c6825eb6",
+      "application_imports": [],
+      "generic_imports": [
+        "Mathlib.Data.Nat.Basic",
+        "Mathlib.Tactic"
+      ],
+      "original_path": "Solutions/RamanujanSourcePV.v1/RamanujanPV/FinitePredicateBounds.lean"
+    },
+    {
+      "module": "RamanujanPV.FiniteLogSeriesInit",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/RamanujanPV/FiniteLogSeriesInit.lean",
+      "sha256": "72a02f09ff8cc749a0b4cd0f85db412d838349f5f4291d14c79ffc9100139108",
+      "application_imports": [
+        "RamanujanPV.FiniteLogSeriesRules",
+        "RamanujanPV.FiniteLogBounds",
+        "RamanujanPV.FinitePredicateBounds"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogSeriesInit.lean"
+    },
+    {
+      "module": "RamanujanPV.FiniteLogSeriesReturn",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/RamanujanPV/FiniteLogSeriesReturn.lean",
+      "sha256": "6bc5ed2ea542a2dea7d5ce6aa1053a2acea0193a50d8267174dd59fd4e2fb9a5",
+      "application_imports": [
+        "RamanujanPV.FiniteLogSeriesInit"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogSeriesReturn.lean"
+    },
+    {
+      "module": "RamanujanPV.FiniteLogSeriesLoop",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/RamanujanPV/FiniteLogSeriesLoop.lean",
+      "sha256": "bceaf6bdbca91fa675da1c0b1ca527dc1ab705c7734aa79492bc8e82a472f6b5",
+      "application_imports": [
+        "RamanujanPV.FiniteLogServices",
+        "RamanujanPV.FiniteLogNormalize",
+        "RamanujanPV.FiniteLogBounds",
+        "RamanujanPV.FiniteCellWords"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogSeriesLoop.lean"
+    },
+    {
+      "module": "RamanujanPV.FiniteLogSeriesExecute",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/RamanujanPV/FiniteLogSeriesExecute.lean",
+      "sha256": "d712090373df8b6d10ee884537cf76ca4868e1799fcdf81829ec2a4f0116eaea",
+      "application_imports": [
+        "RamanujanPV.FiniteLogSeriesReturn",
+        "RamanujanPV.FiniteLogSeriesLoop"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogSeriesExecute.lean"
+    },
+    {
+      "module": "RamanujanPV.FiniteLogUpperExecute",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/RamanujanPV/FiniteLogUpperExecute.lean",
+      "sha256": "f9a9da814a7e5b9da37583e14c2f2f5e991f076b4cebe3b5eb33f879442a2702",
+      "application_imports": [
+        "RamanujanPV.FiniteLogUpperPrefix",
+        "RamanujanPV.FiniteLogNormalizationUnique",
+        "RamanujanPV.FiniteLogSeriesExecute"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RamanujanSourcePV.v1/RamanujanPV/FiniteLogUpperExecute.lean"
+    },
+    {
+      "module": "CLogSource",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/CLogSource.lean",
+      "sha256": "a891c7f2377b6d26e04569c61d9522400e9947f208b246632b53de69c8e1dcaa",
+      "application_imports": [
+        "CLogMathLower",
+        "RamanujanPV.FiniteLogUpperExecute"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/parabolic/CLogSource.lean"
+    },
+    {
+      "module": "CLogNativeRows",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/CLogNativeRows.lean",
+      "sha256": "8dd5587c695dcb48d11a57196cf0a200866c0224d7aa2fc6dff8fa955074fe20",
+      "application_imports": [
+        "CLogSource"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/parabolic/CLogNativeRows.lean"
+    },
+    {
+      "module": "EulerLower",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/EulerLower.lean",
+      "sha256": "09a37c6f72dcbeabfe427c65139396f2fd30bf9ea5c20dca37abe1b4cacd3bb1",
+      "application_imports": [],
+      "generic_imports": [
+        "Mathlib.NumberTheory.Harmonic.EulerMascheroni",
+        "Mathlib.Analysis.Calculus.Deriv.MeanValue",
+        "Mathlib.Analysis.SpecialFunctions.Log.Deriv"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/parabolic/EulerLower.lean"
+    },
+    {
+      "module": "CLogMoment",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/CLogMoment.lean",
+      "sha256": "4d5f9bdb90b9955a308092d991c76962a69c8ddf17cca383bc6d4aa8713dd8a0",
+      "application_imports": [
+        "CLogNativeRows",
+        "PsiClosedElementary",
+        "EulerLower"
+      ],
+      "generic_imports": [
+        "Mathlib.NumberTheory.Harmonic.EulerMascheroni",
+        "Mathlib.Analysis.PSeries"
+      ],
+      "original_path": "Solutions/RHContinuation.v1/parabolic/CLogMoment.lean"
+    },
+    {
+      "module": "CLogMomentNetwork",
+      "path": "Solutions/RHLimit.v1/pi/frozen-source/CLogMomentNetwork.lean",
+      "sha256": "e980fe3fce59bd60252b3b5211513fcf2fc4e0881a6d418bbeaf4cde8c1ec9e0",
+      "application_imports": [
+        "CLogMoment",
+        "IEANTN.Nodes.BoxMellinInputs.v1.Conclusions",
+        "IEANTN.Nodes.RHSmoothingInputs.v1.Conclusions",
+        "IEANTN.Nodes.RHSmoothing.v1.Conclusions"
+      ],
+      "generic_imports": [],
+      "original_path": "Solutions/RHContinuation.v1/parabolic/CLogMomentNetwork.lean"
+    },
+    {
+      "module": "BoxMomentReduced",
+      "path": "Solutions/RHLimit.v1/analytic/BoxMomentReduced.lean",
+      "sha256": "32154cf0b2b3216393fcf23d318209f4e9c7fd9e7ed779762d5bc02adedce5d9",
+      "application_imports": [
+        "StieltjesTrapezoid",
+        "CLogMomentNetwork"
+      ],
+      "generic_imports": []
+    },
+    {
+      "module": "SourceBoxPi",
+      "path": "Solutions/RHLimit.v1/pi/SourceBoxPi.lean",
+      "sha256": "53fb0cf86303e3905eb391067f9a4aa3eee6b3282e5f7cd98fd3f40f12cc8c7f",
+      "application_imports": [
+        "PurePiRay",
+        "BoxMomentReduced"
+      ],
+      "generic_imports": []
+    }
+  ],
+  "no_prebuilt_application_or_LeanCert_objects": true,
+  "final_roots": [
+    "RHLimit.PurePi.ch_pi_stronger_classical",
+    "RHLimit.PurePi.ch_at_100",
+    "RHLimit.PurePi.box_at_100",
+    "RHLimit.PurePi.source_box_Epi",
+    "RHLimit.PurePi.source_box_Epi_at_100"
+  ],
+  "source_first_PV_scope": "Reused actual finite-log C source\u2192AST\u2192execution\u2192127-word bounds\u2192moment\u2192box psi\u2192ordinary pi. New analysis and kernel-only scalar enclosures are not PV."
+}

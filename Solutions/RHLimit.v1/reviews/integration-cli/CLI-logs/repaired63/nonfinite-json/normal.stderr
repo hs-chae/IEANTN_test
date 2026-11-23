@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "/data/ivy-rh-limit-20261122/reviews/integration-cli/repaired-spec-v1/cases/nonfinite-json/network/Solutions/RHLimit.v1/scripts/reproduce_integration.py", line 88, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/data/ivy-rh-limit-20261122/reviews/integration-cli/repaired-spec-v1/cases/nonfinite-json/network/Solutions/RHLimit.v1/scripts/reproduce_integration.py", line 32, in main
+    basis=a.basis.resolve();spectral=a.spectral.resolve();out=a.out.resolve();base,br=u.validate_basis(basis);sm,sr=validate_spectral(basis,spectral)
+                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ivy-rh-limit-20261122/reviews/integration-cli/repaired-spec-v1/cases/nonfinite-json/network/Solutions/RHLimit.v1/scripts/reproduce_pi_resources.py", line 15, in validate_basis
+    m=read(S/'pi/SOURCE_CLOSURE.json');r=read(basis/'RESULT.json');b=read(basis/'BUILD.json')
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ivy-rh-limit-20261122/reviews/integration-cli/repaired-spec-v1/cases/nonfinite-json/network/Solutions/RHLimit.v1/scripts/reproduce_pi_complete.py", line 26, in read
+    return json.loads(Path(p).read_bytes(),object_pairs_hook=pairs,parse_float=finite,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/__init__.py", line 359, in loads
+    return cls(**kw).decode(s)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ivy-rh-limit-20261122/reviews/integration-cli/repaired-spec-v1/cases/nonfinite-json/network/Solutions/RHLimit.v1/scripts/reproduce_pi_complete.py", line 27, in <lambda>
+    parse_constant=lambda _:(_ for _ in()).throw(ValueError('nonfinite JSON')))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ivy-rh-limit-20261122/reviews/integration-cli/repaired-spec-v1/cases/nonfinite-json/network/Solutions/RHLimit.v1/scripts/reproduce_pi_complete.py", line 27, in <genexpr>
+    parse_constant=lambda _:(_ for _ in()).throw(ValueError('nonfinite JSON')))
+ValueError: nonfinite JSON

@@ -1,0 +1,10 @@
+--- a/Solutions/RHLimit.v1/scripts/reproduce_integration.py
++++ b/Solutions/RHLimit.v1/scripts/reproduce_integration.py
+@@ -30,6 +30,7 @@
+ def main():
+  p=argparse.ArgumentParser(allow_abbrev=False);p.add_argument('--basis',type=Path,required=True);p.add_argument('--spectral',type=Path,required=True);p.add_argument('--resource-replay',type=Path);p.add_argument('--out',type=Path,required=True);p.add_argument('--check',action='store_true');a=p.parse_args()
+  basis=a.basis.resolve();spectral=a.spectral.resolve();out=a.out.resolve();base,br=u.validate_basis(basis);sm,sr=validate_spectral(basis,spectral)
++ need(not(br.get('resource_complete_default_recipe')is True and a.resource_replay is not None),'resource replay is only supported for historicaltwo-stagebasis')
+  if br.get('resource_complete_default_recipe')is not True:
+   need(a.resource_replay is not None,'initial two-stage source run needs explicit independent23resource replay')
+   rr=read(a.resource_replay/'RESULT.json');need(rr['status']=='PASS_EXPLICIT_C_RESOURCE_AND_FRESH23_DEPENDENT_PROOF_REPLAY','resource replay incomplete')

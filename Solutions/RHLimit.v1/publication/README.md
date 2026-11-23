@@ -1,9 +1,13 @@
-# RHLimit publication preparation
+# RHLimit publication and verification
 
-This directory prepares the new study's source and evidence distribution. No
-real study archive may be created until root explicitly supplies ROOT_FINAL_READY.
-Current accepted controls use toy source trees only; they do not claim the study
-has been frozen, delivered, or independently rerun from its final archive.
+The frozen candidate completed the actual six-route, 620-command source replay.
+The final publication adds a narrowly documented legacy receipt-check repair and
+separate full final-consumer replays. Exact provenance and the final-archive
+execution boundary are recorded in `../ledgers/REPRODUCIBILITY_FINAL.json`.
+The helper controls below are toy CLI controls; they are separate from the real
+mathematical runs. Every source freeze still requires an exact ROOT_FINAL_READY
+receipt against the reviewed plan. The original candidate and its outcomes are
+preserved.
 
 The source plan includes all new `Solutions/RHLimit.v1` files except enumerated
 private/runtime/paper exclusions, the exact reviewed canonical file whitelist,

@@ -1,0 +1,28 @@
+--- a/Solutions/RHLimit.v1/scripts/reproduce_integration.py
++++ b/Solutions/RHLimit.v1/scripts/reproduce_integration.py
+@@ -35,10 +35,21 @@
+   rr=read(a.resource_replay/'RESULT.json');need(rr['status']=='PASS_EXPLICIT_C_RESOURCE_AND_FRESH23_DEPENDENT_PROOF_REPLAY','resource replay incomplete')
+   need(sr['resource23_RESULT_sha256']==sha(a.resource_replay/'RESULT.json'),'spectral/resource proof association')
+   need(rr['basis_RESULT_sha256']==sha(basis/'RESULT.json')and rr['resource_manifest_sha256']==sha(S/'pi/RESOURCES.json'),'resource replay basis/C association')
+-  need(rr['BUILD_sha256']==sha(a.resource_replay/'BUILD.json'),'resource replay BUILD')
+-  for row in read(a.resource_replay/'BUILD.json')['modules']:
+-   rel=row['module'].replace('.','/');need(type(row['returncode'])is int and row['returncode']==0 and sha(a.resource_replay/'objects'/(rel+'.olean'))==row['object_sha256'],'resource replay object')
+-  need(len(read(a.resource_replay/'BUILD.json')['modules'])==23,'complete23resource replay')
++  rb=read(a.resource_replay/'BUILD.json');selected=read(S/'pi/RESOURCE_CLOSURE.json')
++  need(rr['BUILD_sha256']==sha(a.resource_replay/'BUILD.json')and rb['status']=='PASS','resource replay BUILD')
++  need(rr['source_manifest_sha256']==sha(S/'pi/RESOURCE_CLOSURE.json'),'resource source manifest')
++  need(len(rb['modules'])==len(selected['modules'])==23 and selected['modules']==base['modules'][238:],'complete23resource replay')
++  need(rr['basis_BUILD_sha256']==sha(basis/'BUILD.json'),'resource basis BUILD association')
++  need(sha(a.resource_replay/'reproduce.executed.py')==rr['controller_sha256']==sha(S/'scripts/reproduce_pi_resources.py'),'resource controller identity')
++  need(rr['default_complete_controller_sha256']==sha(S/'scripts/reproduce_pi_complete.py'),'resource default controller identity')
++  for want,row in zip(selected['modules'],rb['modules']):
++   mod=want['module'];rel=mod.replace('.','/')
++   need(row['module']==mod and type(row['returncode'])is int and row['returncode']==0 and sha(a.resource_replay/'objects'/(rel+'.olean'))==row['object_sha256'],'resource replay object')
++   need(sha(N/want['path'])==want['sha256']==row['source_sha256']==sha(a.resource_replay/'source'/(rel+'.lean')),'resource source identity')
++   need(sha(a.resource_replay/'logs'/(mod+'.stdout'))==row['stdout_sha256']and sha(a.resource_replay/'logs'/(mod+'.stderr'))==row['stderr_sha256'],'resource logs')
++   audit((a.resource_replay/'logs'/(mod+'.stdout')).read_text())
++  for payload in read(S/'pi/RESOURCES.json')['resources']:
++   need(sha(a.resource_replay/'source'/payload['relative_runtime_path'])==payload['sha256'],'resource C include identity')
+  m=read(S/'integration/SOURCE_CLOSURE.json');need(len(m['modules'])==24,'exact final24source extension');done={r['module']for r in base['modules']+sm['modules']}
+  for row in m['modules']:
+   need(row['module']not in done and set(row['application_imports'])<=done,'canonical source order/identity')
