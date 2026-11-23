@@ -1,0 +1,55 @@
+{
+  "status": "PASS_SIX_ACTUAL_PREVIEW_AND_FRESHNESS_CLI_CONTROLS",
+  "checker_sha256": "77f6b4c96f73ff9c4acaca02f55e8895dbd69133cfe23cd26d1c21d8f163f2d5",
+  "cases": [
+    {
+      "optimization": [],
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-limit-20261122/publication/preview_cleanup_final.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/CLEANUP_PREVIEW_CONTROL_normal.json"
+      ],
+      "returncode": 0,
+      "stdout": "{\"status\": \"VERIFIED_PREVIEW_ONLY_NOT_DELETED\", \"eligible_olean_copies\": 602, \"unmatched_preserved\": 165, \"eligible_logical_bytes\": 548641920, \"eligible_allocated_entry_bytes\": 549875712, \"stage_members\": 3095, \"plot_targets\": [{\"path\": \"/data/ivy-rh-limit-20261122/reviews/resource-figure/venv\", \"file_entries\": 2948, \"logical_bytes_sum\": 131936560, \"allocated_bytes_sum_counting_hardlink_entries\": 139636736, \"symlink_entries\": 4, \"unique_file_inodes\": 2948}, {\"path\": \"/data/ivy-rh-limit-20261122/reviews/resource-figure/uv-cache\", \"file_entries\": 2940, \"logical_bytes_sum\": 141316630, \"allocated_bytes_sum_counting_hardlink_entries\": 149016576, \"symlink_entries\": 11, \"unique_file_inodes\": 2940}], \"receipt_sha256\": \"1ce86dc29149297ef338c5a3fb753dd3700327d56a267b3fe03d8610d5005331\"}\n",
+      "receipt_sha256": "1ce86dc29149297ef338c5a3fb753dd3700327d56a267b3fe03d8610d5005331",
+      "repeat_freshness_rejection_returncode": 1,
+      "repeat_stderr": "Traceback (most recent call last):\n  File \"/data/ivy-rh-limit-20261122/publication/preview_cleanup_final.py\", line 26, in <module>\n    need(not out.exists(),'fresh preview output')\n  File \"/data/ivy-rh-limit-20261122/publication/preview_cleanup_final.py\", line 8, in need\n    if not ok:raise ValueError(msg)\n              ^^^^^^^^^^^^^^^^^^^^^\nValueError: fresh preview output\n"
+    },
+    {
+      "optimization": [
+        "-O"
+      ],
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/data/ivy-rh-limit-20261122/publication/preview_cleanup_final.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/CLEANUP_PREVIEW_CONTROL_-O.json"
+      ],
+      "returncode": 0,
+      "stdout": "{\"status\": \"VERIFIED_PREVIEW_ONLY_NOT_DELETED\", \"eligible_olean_copies\": 602, \"unmatched_preserved\": 165, \"eligible_logical_bytes\": 548641920, \"eligible_allocated_entry_bytes\": 549875712, \"stage_members\": 3095, \"plot_targets\": [{\"path\": \"/data/ivy-rh-limit-20261122/reviews/resource-figure/venv\", \"file_entries\": 2948, \"logical_bytes_sum\": 131936560, \"allocated_bytes_sum_counting_hardlink_entries\": 139636736, \"symlink_entries\": 4, \"unique_file_inodes\": 2948}, {\"path\": \"/data/ivy-rh-limit-20261122/reviews/resource-figure/uv-cache\", \"file_entries\": 2940, \"logical_bytes_sum\": 141316630, \"allocated_bytes_sum_counting_hardlink_entries\": 149016576, \"symlink_entries\": 11, \"unique_file_inodes\": 2940}], \"receipt_sha256\": \"eadc79e4af6608bb24b1bbbaa316bc158510dea9f4315167e2e8f708d8334cd6\"}\n",
+      "receipt_sha256": "eadc79e4af6608bb24b1bbbaa316bc158510dea9f4315167e2e8f708d8334cd6",
+      "repeat_freshness_rejection_returncode": 1,
+      "repeat_stderr": "Traceback (most recent call last):\n  File \"/data/ivy-rh-limit-20261122/publication/preview_cleanup_final.py\", line 26, in <module>\n    need(not out.exists(),'fresh preview output')\n  File \"/data/ivy-rh-limit-20261122/publication/preview_cleanup_final.py\", line 8, in need\n    if not ok:raise ValueError(msg)\n              ^^^^^^^^^^^^^^^^^^^^^\nValueError: fresh preview output\n"
+    },
+    {
+      "optimization": [
+        "-OO"
+      ],
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-limit-20261122/publication/preview_cleanup_final.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/CLEANUP_PREVIEW_CONTROL_-OO.json"
+      ],
+      "returncode": 0,
+      "stdout": "{\"status\": \"VERIFIED_PREVIEW_ONLY_NOT_DELETED\", \"eligible_olean_copies\": 602, \"unmatched_preserved\": 165, \"eligible_logical_bytes\": 548641920, \"eligible_allocated_entry_bytes\": 549875712, \"stage_members\": 3095, \"plot_targets\": [{\"path\": \"/data/ivy-rh-limit-20261122/reviews/resource-figure/venv\", \"file_entries\": 2948, \"logical_bytes_sum\": 131936560, \"allocated_bytes_sum_counting_hardlink_entries\": 139636736, \"symlink_entries\": 4, \"unique_file_inodes\": 2948}, {\"path\": \"/data/ivy-rh-limit-20261122/reviews/resource-figure/uv-cache\", \"file_entries\": 2940, \"logical_bytes_sum\": 141316630, \"allocated_bytes_sum_counting_hardlink_entries\": 149016576, \"symlink_entries\": 11, \"unique_file_inodes\": 2940}], \"receipt_sha256\": \"c22a128f7a1885ac1dd4abfd41c67a98c48f6c27a23fa86662da70a7356fcc0f\"}\n",
+      "receipt_sha256": "c22a128f7a1885ac1dd4abfd41c67a98c48f6c27a23fa86662da70a7356fcc0f",
+      "repeat_freshness_rejection_returncode": 1,
+      "repeat_stderr": "Traceback (most recent call last):\n  File \"/data/ivy-rh-limit-20261122/publication/preview_cleanup_final.py\", line 26, in <module>\n    need(not out.exists(),'fresh preview output')\n  File \"/data/ivy-rh-limit-20261122/publication/preview_cleanup_final.py\", line 8, in need\n    if not ok:raise ValueError(msg)\n              ^^^^^^^^^^^^^^^^^^^^^\nValueError: fresh preview output\n"
+    }
+  ],
+  "deletions_performed": false
+}

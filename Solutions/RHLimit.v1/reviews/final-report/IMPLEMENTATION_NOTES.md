@@ -1,0 +1,3 @@
+The first Git-link diagnostic incorrectly required the publication repository to be remote.origin. This workspace uses a separate publication remote; all17 pinned Git paths had already resolved. Recheck against all configured remote repository paths, preserving the origin/publication distinction. No source/math mismatch was identified.
+
+The initial browser diagnostic selected a scrollable table inside a closed details disclosure. This region was correctly hidden and could not receive focus. The checker was updated to open/close each disclosure with actual keyboard events, leave it open for reading-region tests, then close it after reading. This is a checker correction; no report layout/source edit was requested. Original failed-v1 receipts remain preserved.

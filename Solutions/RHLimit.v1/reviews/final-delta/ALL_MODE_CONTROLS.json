@@ -1,0 +1,84 @@
+{
+  "status": "PASS_SIX_ACTUAL_SOURCE_DELTA_CLI_CONTROLS",
+  "checker_sha256": "6b749671fa630653a054abfcd83832f7008eb3816e1786d392c01b2b1c893452",
+  "cases": [
+    {
+      "optimization": [],
+      "positive_command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-limit-20261122/publication/verify_final_delta.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/final-delta-normal-control"
+      ],
+      "positive_returncode": 0,
+      "positive_stdout": "{\"status\": \"PASS_STRICT_CANDIDATE_TO_FINAL_SOURCE_AND_SINGLE_ACTIVE_VALIDATOR_DELTA\", \"math_C_sources\": 970, \"fixed_manifests\": 12, \"other_active_controllers\": 5, \"top_helpers\": 11, \"changed_candidate_paths\": 8, \"added_evidence_paths\": 2778, \"receipt_sha256\": \"2b20e9c35d734a64dc90fff8ea7d804ac692784c4e5b02243138ac3565462329\"}\n",
+      "receipt_sha256": "2b20e9c35d734a64dc90fff8ea7d804ac692784c4e5b02243138ac3565462329",
+      "negative_command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-limit-20261122/publication/verify_final_delta.py",
+        "--candidate",
+        "/data/ivy-rh-limit-20261122/publication/absent-candidate-control",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/final-delta-missing-normal"
+      ],
+      "negative_returncode": 1,
+      "negative_stderr": "Traceback (most recent call last):\n  File \"/data/ivy-rh-limit-20261122/publication/verify_final_delta.py\", line 24, in <module>\n    need(sha(C/'BUNDLE_MANIFEST.json')=='7685c69ec1d036839a69508e4c09e43b31c21633c9202ce23643d42b38ca0675','frozen candidate identity')\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/ivy-rh-limit-20261122/publication/verify_final_delta.py\", line 11, in sha\n    need(f.is_file()and not f.is_symlink(),'regular file required:'+str(f));h=hashlib.sha256()\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/ivy-rh-limit-20261122/publication/verify_final_delta.py\", line 9, in need\n    if not ok:raise ValueError(msg)\n              ^^^^^^^^^^^^^^^^^^^^^\nValueError: regular file required:/data/ivy-rh-limit-20261122/publication/absent-candidate-control/BUNDLE_MANIFEST.json\n",
+      "negative_output_created": false
+    },
+    {
+      "optimization": [
+        "-O"
+      ],
+      "positive_command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/data/ivy-rh-limit-20261122/publication/verify_final_delta.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/final-delta--O-control"
+      ],
+      "positive_returncode": 0,
+      "positive_stdout": "{\"status\": \"PASS_STRICT_CANDIDATE_TO_FINAL_SOURCE_AND_SINGLE_ACTIVE_VALIDATOR_DELTA\", \"math_C_sources\": 970, \"fixed_manifests\": 12, \"other_active_controllers\": 5, \"top_helpers\": 11, \"changed_candidate_paths\": 8, \"added_evidence_paths\": 2778, \"receipt_sha256\": \"75fae6b7df64d112d6137f7389e3401992fd32eea986dd935bedf65599e2988f\"}\n",
+      "receipt_sha256": "75fae6b7df64d112d6137f7389e3401992fd32eea986dd935bedf65599e2988f",
+      "negative_command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/data/ivy-rh-limit-20261122/publication/verify_final_delta.py",
+        "--candidate",
+        "/data/ivy-rh-limit-20261122/publication/absent-candidate-control",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/final-delta-missing--O"
+      ],
+      "negative_returncode": 1,
+      "negative_stderr": "Traceback (most recent call last):\n  File \"/data/ivy-rh-limit-20261122/publication/verify_final_delta.py\", line 24, in <module>\n    need(sha(C/'BUNDLE_MANIFEST.json')=='7685c69ec1d036839a69508e4c09e43b31c21633c9202ce23643d42b38ca0675','frozen candidate identity')\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/ivy-rh-limit-20261122/publication/verify_final_delta.py\", line 11, in sha\n    need(f.is_file()and not f.is_symlink(),'regular file required:'+str(f));h=hashlib.sha256()\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/ivy-rh-limit-20261122/publication/verify_final_delta.py\", line 9, in need\n    if not ok:raise ValueError(msg)\n              ^^^^^^^^^^^^^^^^^^^^^\nValueError: regular file required:/data/ivy-rh-limit-20261122/publication/absent-candidate-control/BUNDLE_MANIFEST.json\n",
+      "negative_output_created": false
+    },
+    {
+      "optimization": [
+        "-OO"
+      ],
+      "positive_command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-limit-20261122/publication/verify_final_delta.py",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/final-delta--OO-control"
+      ],
+      "positive_returncode": 0,
+      "positive_stdout": "{\"status\": \"PASS_STRICT_CANDIDATE_TO_FINAL_SOURCE_AND_SINGLE_ACTIVE_VALIDATOR_DELTA\", \"math_C_sources\": 970, \"fixed_manifests\": 12, \"other_active_controllers\": 5, \"top_helpers\": 11, \"changed_candidate_paths\": 8, \"added_evidence_paths\": 2778, \"receipt_sha256\": \"8cbf86be979ad7ce6d4b1a31563b70415a7a25f5309f901dd8875d8664631423\"}\n",
+      "receipt_sha256": "8cbf86be979ad7ce6d4b1a31563b70415a7a25f5309f901dd8875d8664631423",
+      "negative_command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-limit-20261122/publication/verify_final_delta.py",
+        "--candidate",
+        "/data/ivy-rh-limit-20261122/publication/absent-candidate-control",
+        "--out",
+        "/data/ivy-rh-limit-20261122/publication/final-delta-missing--OO"
+      ],
+      "negative_returncode": 1,
+      "negative_stderr": "Traceback (most recent call last):\n  File \"/data/ivy-rh-limit-20261122/publication/verify_final_delta.py\", line 24, in <module>\n    need(sha(C/'BUNDLE_MANIFEST.json')=='7685c69ec1d036839a69508e4c09e43b31c21633c9202ce23643d42b38ca0675','frozen candidate identity')\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/ivy-rh-limit-20261122/publication/verify_final_delta.py\", line 11, in sha\n    need(f.is_file()and not f.is_symlink(),'regular file required:'+str(f));h=hashlib.sha256()\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/ivy-rh-limit-20261122/publication/verify_final_delta.py\", line 9, in need\n    if not ok:raise ValueError(msg)\n              ^^^^^^^^^^^^^^^^^^^^^\nValueError: regular file required:/data/ivy-rh-limit-20261122/publication/absent-candidate-control/BUNDLE_MANIFEST.json\n",
+      "negative_output_created": false
+    }
+  ],
+  "scientific_replays_executed": 0
+}
