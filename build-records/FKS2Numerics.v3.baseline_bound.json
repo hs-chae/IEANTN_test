@@ -1,0 +1,422 @@
+{
+ "schema": "ieantn-build-record/1",
+ "notice": "Local build record written by `python scripts/ieantn.py build-record`. It says that this proof compiled here and states its challenge. It is not a Comparator receipt.",
+ "conclusion": "FKS2Numerics.v3.baseline_bound",
+ "theorem": "FKS2Numerics.v3.challenge_baseline_bound",
+ "solution": "Solutions/FKS2Numerics.v3",
+ "status": "passed",
+ "reasons": [],
+ "statement_matches_challenge": true,
+ "statement": "FKS2Numerics.v3.baseline_bound",
+ "hypotheses": [],
+ "axioms": {
+  "standard": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "native_decide": [
+   {
+    "axiom": "FKS2Scalar.sum1_checks._native.native_decide.ax_1_1",
+    "theorem": "FKS2Scalar.sum1_checks",
+    "file": "Solutions/FKS2Numerics.v2/applications/fks2_scalar_fp/lean/FKS2Scalar/Enclosure.lean",
+    "line": 31,
+    "proposition": "∀ k ∈ Finset.Icc 3 43,\n  FKS2Scalar.expCheck (FKS2Scalar.x1 k) (FKS2Scalar.expLo (FKS2Scalar.x1 k)) (FKS2Scalar.expHi (FKS2Scalar.x1 k)) = true"
+   },
+   {
+    "axiom": "FKS2Scalar.sum2_checks._native.native_decide.ax_1_1",
+    "theorem": "FKS2Scalar.sum2_checks",
+    "file": "Solutions/FKS2Numerics.v2/applications/fks2_scalar_fp/lean/FKS2Scalar/Enclosure.lean",
+    "line": 36,
+    "proposition": "∀ k ∈ Finset.Icc 3 44,\n  FKS2Scalar.expCheck (FKS2Scalar.x2lo k) (FKS2Scalar.expLo (FKS2Scalar.x2lo k))\n        (FKS2Scalar.expHi (FKS2Scalar.x2lo k)) =\n      true ∧\n    FKS2Scalar.expCheck (FKS2Scalar.x2hi k) (FKS2Scalar.expLo (FKS2Scalar.x2hi k))\n        (FKS2Scalar.expHi (FKS2Scalar.x2hi k)) =\n      true"
+   },
+   {
+    "axiom": "FKS2SumBridge.extracted_sum_indexing._native.native_decide.ax_1_1",
+    "theorem": "FKS2SumBridge.extracted_sum_indexing",
+    "file": "Solutions/FKS2Numerics.v2/applications/fks2_sum_bridge/lean/FKS2SumBridge/Analysis.lean",
+    "line": 28,
+    "proposition": "FKS2SumBridge.terms1.sum = ∑ k ∈ Finset.Icc 3 43, FKS2SumBridge.term1 k ∧\n  FKS2SumBridge.terms2.sum = ∑ k ∈ Finset.Icc 3 44, FKS2SumBridge.term2 k"
+   },
+   {
+    "axiom": "FKS2SumBridge.concrete_trace_checks._native.native_decide.ax_1_1",
+    "theorem": "FKS2SumBridge.concrete_trace_checks",
+    "file": "Solutions/FKS2Numerics.v2/applications/fks2_sum_bridge/lean/FKS2SumBridge/Instances.lean",
+    "line": 93,
+    "proposition": "FKS2SumBridge.trace1.steps.length = 41 ∧\n  FKS2SumBridge.trace2.steps.length = 42 ∧\n    (List.map FKS2SumBridge.counterOf FKS2SumBridge.trace1.steps = do\n        let a ← List.map (fun j => j + 3) (List.range 41)\n        pure ↑a) ∧\n      (List.map FKS2SumBridge.counterOf FKS2SumBridge.trace2.steps = do\n          let a ← List.map (fun j => j + 3) (List.range 42)\n          pure ↑a) ∧\n        (∀ step ∈ FKS2SumBridge.trace1.steps,\n            FKS2SumBridge.stepCheck \"s1\" step = true ∧ FKS2SumBridge.inputCheck (FKS2SumBridge.termOf step) = true) ∧\n          (∀ step ∈ FKS2SumBridge.trace2.steps,\n              FKS2SumBridge.stepCheck \"s2\" step = true ∧ FKS2SumBridge.inputCheck (FKS2SumBridge.termOf step) = true) ∧\n            FKS2SumBridge.chainCheck \"s1\" FKS2SumBridge.trace1.steps 0 FKS2SumBridge.acc1 = true ∧\n              FKS2SumBridge.chainCheck \"s2\" FKS2SumBridge.trace2.steps 0 FKS2SumBridge.acc2 = true ∧\n                FKS2Scalar.get FKS2SumBridge.fullFrame.env \"s1\" = some FKS2SumBridge.acc1 ∧\n                  FKS2Scalar.get FKS2SumBridge.fullFrame.env \"s2\" = some FKS2SumBridge.acc2"
+   },
+   {
+    "axiom": "FKS2Correction.z_exp_checks._native.native_decide.ax_1_1",
+    "theorem": "FKS2Correction.z_exp_checks",
+    "file": "Solutions/FKS2Numerics.v3/FKS2Correction/Enclosure.lean",
+    "line": 45,
+    "proposition": "FKS2Scalar.expCheck (2 * FKS2Correction.zLo) (FKS2Scalar.expLo (2 * FKS2Correction.zLo))\n      (FKS2Scalar.expHi (2 * FKS2Correction.zLo)) =\n    true ∧\n  FKS2Scalar.expCheck (2 * FKS2Correction.zHi) (FKS2Scalar.expLo (2 * FKS2Correction.zHi))\n        (FKS2Scalar.expHi (2 * FKS2Correction.zHi)) =\n      true ∧\n    FKS2Scalar.expCheck (-15) (FKS2Scalar.expLo (-15)) (FKS2Scalar.expHi (-15)) = true ∧\n      FKS2Scalar.expCheck (-20) (FKS2Scalar.expLo (-20)) (FKS2Scalar.expHi (-20)) = true"
+   },
+   {
+    "axiom": "FKS2Correction.target_enclosure._native.native_decide.ax_1_1",
+    "theorem": "FKS2Correction.target_enclosure",
+    "file": "Solutions/FKS2Numerics.v3/FKS2Correction/Enclosure.lean",
+    "line": 62,
+    "proposition": "0 ≤ FKS2Correction.uLo ∧\n  0 ≤ FKS2Scalar.expLo (2 * FKS2Correction.zLo) ∧\n    0 ≤ FKS2Scalar.expLo (-15) ∧ 0 ≤ FKS2Scalar.expLo (-20) ∧ 0 ≤ FKS2Scalar.s1lo ∧ 0 ≤ FKS2Scalar.s2lo"
+   },
+   {
+    "axiom": "FKS2Correction.baseline_prefix_execution._native.native_decide.ax_1_1",
+    "theorem": "FKS2Correction.baseline_prefix_execution",
+    "file": "Solutions/FKS2Numerics.v3/FKS2Correction/Source300.lean",
+    "line": 79,
+    "proposition": "StateT.run\n      (FKS2Scalar.evalBlock FKS2Scalar.round64 FKS2Correction.baselineProgram 1024 { env := [] }\n        (List.take 6 (FKS2Correction.configuredMain \"121.096\").body))\n      [] =\n    some (FKS2SumBridge.trace1.result, FKS2SumBridge.trace1.events) ∧\n  StateT.run\n        (FKS2Scalar.evalBlock FKS2Scalar.round64 FKS2Correction.baselineProgram 1024 { env := [] }\n          (List.take 7 (FKS2Correction.configuredMain \"121.096\").body))\n        [] =\n      some (FKS2SumBridge.trace2.result, FKS2SumBridge.trace2.events) ∧\n    (FKS2Scalar.get FKS2Correction.baselineFrame.env \"s1\").getD 0 = FKS2SumBridge.acc1 ∧\n      (FKS2Scalar.get FKS2Correction.baselineFrame.env \"s2\").getD 0 = FKS2SumBridge.acc2"
+   },
+   {
+    "axiom": "FKS2Correction.composition_checks._native.native_decide.ax_1_1",
+    "theorem": "FKS2Correction.composition_checks",
+    "file": "Solutions/FKS2Numerics.v3/FKS2Correction/Whole.lean",
+    "line": 53,
+    "proposition": "0 < FKS2Correction.prefactor ∧\n  0 < FKS2Correction.sumCoefficient ∧\n    |FKS2Correction.baselineQ - FKS2Correction.hybridRat FKS2Correction.acc1 FKS2Correction.acc2| ≤\n        FKS2Correction.suffixError ∧\n      FKS2Correction.comparisonHi - FKS2Correction.comparisonLo ≤ FKS2Correction.coefficientError ∧\n        0 ≤ FKS2SumBridge.specError1 ∧\n          0 ≤ FKS2SumBridge.specError2 ∧\n            0 ≤ FKS2Correction.totalError ∧\n              FKS2Correction.totalError ≤ 1 / 10 ^ 68 ∧\n                FKS2Correction.baselineQ + FKS2Correction.totalError ≤ 11 / 10 ^ 62"
+   }
+  ],
+  "other": []
+ },
+ "embedded_files": [
+  {
+   "path": "Solutions/FKS2Numerics.v2/applications/fks2_scalar_fp/fks2.c",
+   "sha256": "a0fde9cefcbf3064b4a47bf85889fc459db89b6c68ceabe579254ecbb34b06a6",
+   "embedded_by": "Solutions/FKS2Numerics.v2/applications/fks2_scalar_fp/lean/FKS2Scalar/Source.lean",
+   "copy_in_build_matches": null
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v2/applications/sum_stability/sum.c",
+   "sha256": "4496baa80e34ff06ca0d3ca8a1992a513c95ac15252c344aaf9a235e615941dd",
+   "embedded_by": "Solutions/FKS2Numerics.v2/applications/sum_stability/lean/SumStability/Source.lean",
+   "copy_in_build_matches": null
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v3/c/baseline.c",
+   "sha256": "9893599de3561ab8da90396530ad95a31ee0d2beaaabbdc3f20969ad34a912c9",
+   "embedded_by": "Solutions/FKS2Numerics.v3/FKS2Correction/Source300.lean",
+   "copy_in_build_matches": true
+  }
+ ],
+ "packages_pinned_by_manifest": [],
+ "files": [
+  {
+   "path": "IEANTN/Nodes/BKLNW/v1/Conclusions.lean",
+   "sha256": "bd7b9773acc01f43c0acdc2ab8aaf2d1be85bf7446a8200705a319009acd962a"
+  },
+  {
+   "path": "IEANTN/Nodes/BKLNW/v1/Tables.lean",
+   "sha256": "e8f10d8e017d00431a982f618c40fa86f98505b188b7f69906d6bb6b664f8731"
+  },
+  {
+   "path": "IEANTN/Nodes/FKS/v1/Conclusions.lean",
+   "sha256": "b88c3ddee6e0ce912a44362ed9c063358567bbc90780133afbbcf637e0bd1875"
+  },
+  {
+   "path": "IEANTN/Nodes/FKS/v2/Conclusions.lean",
+   "sha256": "38d179e62683913f5ab86d26c05d059b0898275aaf6dbc5943d1c96b0e61e763"
+  },
+  {
+   "path": "IEANTN/Nodes/FKS2/v2/Conclusions.lean",
+   "sha256": "47520ba9c51caa359e66c203d08ca10a51c1bc03245738805cf4969fa26c7f31"
+  },
+  {
+   "path": "IEANTN/Nodes/FKS2Numerics/v1/Conclusions.lean",
+   "sha256": "3e37c240dd4f8951483acac4925d33a1cfdca64da496398167a0ba1f5a736cff"
+  },
+  {
+   "path": "IEANTN/Nodes/FKS2Numerics/v2/Conclusions.lean",
+   "sha256": "7249eb74496bd6e436fe8e8e30f4de31332269bc1614a40bd452647968e8d12b"
+  },
+  {
+   "path": "IEANTN/Nodes/FKS2Numerics/v3/Conclusions.lean",
+   "sha256": "fb6ad252b9aea86328d85bf09677d3906cb672c948458b432b7a7ffad5b69f04"
+  },
+  {
+   "path": "IEANTN/Nodes/PrimeInterval/v1/Conclusions.lean",
+   "sha256": "ee21dc15c92106e52f8405f35b27141310e3b0de53067eed1684ecd67aef4fe8"
+  },
+  {
+   "path": "IEANTN/Vocabulary.lean",
+   "sha256": "75866c2cb6eb7cf86015f5aff5e2a7c453396888bca1e51ef453953722d62ba4"
+  },
+  {
+   "path": "IEANTN/Vocabulary/ErrorTerms.lean",
+   "sha256": "8027fc677653f3d86229a586404f9d4ab2ca6c8404d8ccc18df056b22c2e01bc"
+  },
+  {
+   "path": "IEANTN/Vocabulary/Goldbach.lean",
+   "sha256": "2ee6ad691c12271da34f445c9cd42367a5c0bc3ced973bbdb3db8949e13b7293"
+  },
+  {
+   "path": "IEANTN/Vocabulary/Numerics.lean",
+   "sha256": "6dda8dda76515740e4ebb87af352f5eb4712f3b0038e84d2138b445d3be5b736"
+  },
+  {
+   "path": "IEANTN/Vocabulary/PowerError.lean",
+   "sha256": "5c213c0bf94d6a2d1cd4106fa68e76fe1586098d23310ce40fca34d69191a6c0"
+  },
+  {
+   "path": "IEANTN/Vocabulary/PrimeCounting.lean",
+   "sha256": "2863183b4c78aa1abd3be714dceeef534d6f3141c20a8df10c47b13aa38731d5"
+  },
+  {
+   "path": "IEANTN/Vocabulary/PrimeGaps.lean",
+   "sha256": "5c7168269e729f01ed0d17620bf9b6c134442e56ae2efbb018cbaa979916f18f"
+  },
+  {
+   "path": "IEANTN/Vocabulary/ZeroFreeHalfPlane.lean",
+   "sha256": "c4093b0a652ec21bb446736389639e0a7a8217f4e7258fc0276c69eb203f7b8c"
+  },
+  {
+   "path": "IEANTN/Vocabulary/Zeta.lean",
+   "sha256": "42e239de4c1151d03ed94ee4c0c51d031f974faa6998f447e85845665bb846ef"
+  },
+  {
+   "path": "Solutions/FKS2.v2/Growth.lean",
+   "sha256": "900f537404fc8c917dd85d8f81475de2350926a3a92b8b5dba82b25960a01c51"
+  },
+  {
+   "path": "Solutions/FKS2.v2/PsiToTheta.lean",
+   "sha256": "4cfb72d73b04d022574ed6953c0e59cf0c29fc6f7995abd0581dde0afc82d350"
+  },
+  {
+   "path": "Solutions/FKS2.v2/lake-manifest.json",
+   "sha256": "cf7235c2c3ebec2b1a2bb76369eacb8efcd11cf2bf1e67de8d040417ba5391f6"
+  },
+  {
+   "path": "Solutions/FKS2.v2/lakefile.toml",
+   "sha256": "3171ef40bd3986d4cb9c7dcb59256718006cd43b8f516f728155831f2a623829"
+  },
+  {
+   "path": "Solutions/FKS2.v2/lean-toolchain",
+   "sha256": "108ca2895820de2c74101f81de81756b41ca0165dfdc8ced16a82c3f810152d0"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v2/applications/fks2_scalar_fp/fks2.c",
+   "sha256": "a0fde9cefcbf3064b4a47bf85889fc459db89b6c68ceabe579254ecbb34b06a6"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v2/applications/fks2_scalar_fp/lean/FKS2Scalar/Budget.lean",
+   "sha256": "c403c2fe58e84f809e006288d86904f3262b6bbd19daf1ad56a5786cc76506d6"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v2/applications/fks2_scalar_fp/lean/FKS2Scalar/Enclosure.lean",
+   "sha256": "6adfeb8241c180db8e8a26f417ca9b5e1e3331e641384ac75be2d74ee277ff22"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v2/applications/fks2_scalar_fp/lean/FKS2Scalar/ExpCertificate.lean",
+   "sha256": "1b5762ee10249f376b96dcc31d9518e7bc2129075af6212f7b492ebc05a5e5b9"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v2/applications/fks2_scalar_fp/lean/FKS2Scalar/HelperAudit.lean",
+   "sha256": "9ab1167daff677a83f1535f2792faeb54e9f8ce58402bc33755644e00e4ef021"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v2/applications/fks2_scalar_fp/lean/FKS2Scalar/Model.lean",
+   "sha256": "04deb9b7fa507725890eed1414ef1734fb30b1db9314b5859fd46e7430c6f109"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v2/applications/fks2_scalar_fp/lean/FKS2Scalar/Result.lean",
+   "sha256": "2e14079d0c92c64ad52237c1ec8168d3604745984edd1ec2f014b6a74cddc61c"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v2/applications/fks2_scalar_fp/lean/FKS2Scalar/Source.lean",
+   "sha256": "b40412c0ead71cd87a62201d7a318ddeb2ddf6e948a43dd538cb21d20997a414"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v2/applications/fks2_scalar_fp/lean/FKS2Scalar/SourceSafety.lean",
+   "sha256": "f33adf05d5e8a3f3b77a9dda3b0b4e94afaacc338c0dc1541b8a6798a0fb9c37"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v2/applications/fks2_scalar_fp/lean/FKS2Scalar/Target.lean",
+   "sha256": "e51833f7fd8c69a101b0122899bc24d0cc4c0e4cff875bc5f6cfae7cc66d8e72"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v2/applications/fks2_sum_bridge/lean/FKS2SumBridge/Analysis.lean",
+   "sha256": "fcab889cbdbc95f5767e94776fd30637fb7c574782e7dd66cb4c9cb043c761f1"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v2/applications/fks2_sum_bridge/lean/FKS2SumBridge/Instances.lean",
+   "sha256": "4531e39b14690cdf5afa2eeda23d4a35d55462807d4475ba52c7cee2d43086d9"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v2/applications/fks2_sum_bridge/lean/FKS2SumBridge/Integration.lean",
+   "sha256": "5a34ae7a81b726b32be28072de9757ed65e7f2726fb3fb845cc44a33ab574fab"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v2/applications/fks2_sum_bridge/lean/FKS2SumBridge/NodeBound.lean",
+   "sha256": "96ee00b0e68f22b2848181845ebc1bac515bc84e3b49b5ed80e2bb165ce41ce7"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v2/applications/fks2_sum_bridge/lean/FKS2SumBridge/Result.lean",
+   "sha256": "ea7b1e9cff5d589050f986d68a6bd2424563246354dbd95093e2f21de3aec1cd"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v2/applications/fks2_sum_bridge/lean/FKS2SumBridge/Rounding.lean",
+   "sha256": "ecf06af568375cd8a71ec88f1a6dc89f1ba4e51e0e1e16393fbded35882d9102"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v2/applications/fks2_sum_bridge/lean/FKS2SumBridge/Specification.lean",
+   "sha256": "a71c56f60dbf872ed1ffa586973847e0a16b432b42362c1def9f8f7c90dfef97"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v2/applications/fks2_sum_bridge/lean/FKS2SumBridge/Trace.lean",
+   "sha256": "ab95a829e5bd0cfd3991942b6a1f9e903d145ac6809ed4285aab448862a415b9"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v2/applications/fks2_sum_bridge/lean/FKS2SumBridge/Whole.lean",
+   "sha256": "39b1fa7e4385160cd1da57a3ef51c9cf8b343d72bd8e5c9c33cb65ce613eaf4b"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v2/applications/sum_stability/lean/SumStability/Analysis.lean",
+   "sha256": "d0caeb6731d272367e81ada0499d27f4b8fa7193139e0b0e41a11f5636577068"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v2/applications/sum_stability/lean/SumStability/Examples.lean",
+   "sha256": "f38c0235e239d8401befdcbb90e32843fdcfaef6c9f918e46baddb566cacd969"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v2/applications/sum_stability/lean/SumStability/Result.lean",
+   "sha256": "ff51c386070ff0db4db5f766761f31f7f049099afbe62f9fdfa8f1054f8661ea"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v2/applications/sum_stability/lean/SumStability/Rounding.lean",
+   "sha256": "2fb4b639e3e996491f865737aa02b038408fecc7602afe5538605f2a537ac9b5"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v2/applications/sum_stability/lean/SumStability/Source.lean",
+   "sha256": "2716aae82618ee8eb1cf22fb91a54b47f2fee5977dce508ad73ae8d4bc881cf9"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v2/applications/sum_stability/sum.c",
+   "sha256": "4496baa80e34ff06ca0d3ca8a1992a513c95ac15252c344aaf9a235e615941dd"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v2/lake-manifest.json",
+   "sha256": "9bbaa745180695ca475c7901b2c7989839cea5e0b04952bff1faedfe93034503"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v2/lakefile.toml",
+   "sha256": "616235d8f1f9a60154cc8ff5ef1816b62258a3e02cea186abf712281e8719804"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v2/lean-toolchain",
+   "sha256": "8190e75a201741065fe508b28955dd64dd72d090babe5f70ce6848879d68ae88"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v3/FKS2Correction/Audit300.lean",
+   "sha256": "d51843669ad9a8ed7065e77bf87940605f64fb9cc86f6a458e6b5096e0eee006"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v3/FKS2Correction/Consumer.lean",
+   "sha256": "107bdb6f4dedbe28b3df4576dcfe25f798d51f79df53d98c5d7ab35ac7e7a3f0"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v3/FKS2Correction/Enclosure.lean",
+   "sha256": "4abfa6b5b186a385021dbeee99b12235a8deb1e74a75f8516f583e083566dae1"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v3/FKS2Correction/PrimeCriterion.lean",
+   "sha256": "f3a1a360535aec6771c24ea227ffe1a275059e7f23267f9d45c652b84f36c086"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v3/FKS2Correction/Source300.lean",
+   "sha256": "0682dbebf422bd18d33fae715ab170ad7b8c198fef79f480ae11d907f1491db1"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v3/FKS2Correction/Target.lean",
+   "sha256": "1f3765ccc6b5a839a06029cb8d1a7b1fbcc30192c1771eba9c925c5120ad096a"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v3/FKS2Correction/Toolkit.lean",
+   "sha256": "71acecd42317ff6b6cece1fcc9c1c1e02f4c42dc41276bf9c6af9b8c47e2fd27"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v3/FKS2Correction/Whole.lean",
+   "sha256": "13c829fa4761a4f1d959cb3a5799696c4a22d7083f748b555c7960a96727f404"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v3/Solution.lean",
+   "sha256": "948af72fd854f6b6c1e8a1a430d6a04ce9648164c30eae3761380a4a662fa870"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v3/c/baseline.c",
+   "sha256": "9893599de3561ab8da90396530ad95a31ee0d2beaaabbdc3f20969ad34a912c9"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v3/lake-manifest.json",
+   "sha256": "d4c8a8548449931e5bb8cbd869f5cf8345c4eb8f4265fa06e7af4e4a7f49a4bf"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v3/lakefile.toml",
+   "sha256": "226251941d854b70704145861acf1045b534424e53f098761c15fae59301f9d4"
+  },
+  {
+   "path": "Solutions/FKS2Numerics.v3/lean-toolchain",
+   "sha256": "8190e75a201741065fe508b28955dd64dd72d090babe5f70ce6848879d68ae88"
+  },
+  {
+   "path": "lake-manifest.json",
+   "sha256": "acdb77f510a7241e6353bb1a12c37edcabd00f388a19227f8a15f667a355d4c8"
+  },
+  {
+   "path": "lakefile.toml",
+   "sha256": "781e7748852484c623e5ae20d1bdcb19bd52a73707f133dfb937b61fccb6062d"
+  },
+  {
+   "path": "lean-toolchain",
+   "sha256": "8190e75a201741065fe508b28955dd64dd72d090babe5f70ce6848879d68ae88"
+  }
+ ],
+ "lean": {
+  "version": "4.34.0-rc2",
+  "githash": "6a10ac8c22beadecabdbb0919c2b50214762f91d"
+ },
+ "run": {
+  "build": {
+   "steps": [
+    {
+     "command": "lake build",
+     "rc": 0,
+     "seconds": 15.5
+    },
+    {
+     "command": "lake build FKS2Correction.Audit300",
+     "rc": 0,
+     "seconds": 2.2
+    },
+    {
+     "command": "lake env lean Solution.lean -o <scratch>/Solution.olean -i <scratch>/Solution.ilean",
+     "rc": 0,
+     "seconds": 3.7
+    }
+   ],
+   "recompiled_for_embedded_sources": [
+    "Solutions/FKS2Numerics.v3/FKS2Correction/Source300.lean",
+    "Solutions/FKS2Numerics.v2/applications/fks2_scalar_fp/lean/FKS2Scalar/Source.lean",
+    "Solutions/FKS2Numerics.v2/applications/sum_stability/lean/SumStability/Source.lean"
+   ]
+  },
+  "extract_solution": {
+   "command": "lake env lean --run scripts/BuildRecordExtract.lean Solution FKS2Numerics.v3.challenge_baseline_bound",
+   "cwd": "Solutions/FKS2Numerics.v3",
+   "rc": 0,
+   "seconds": 13.9
+  },
+  "extract_challenge": {
+   "command": "lake env lean --run scripts/BuildRecordExtract.lean IEANTN.Nodes.FKS2Numerics.v3.Challenge FKS2Numerics.v3.challenge_baseline_bound",
+   "cwd": ".",
+   "rc": 0,
+   "seconds": 7.6
+  }
+ },
+ "checked_at_utc": "2026-11-23T06:33:10+00:00",
+ "pins": {
+  "lean_toolchain": "leanprover/lean4:v4.34.0-rc2",
+  "mathlib": "71a80585ee495fc24472fd0eaffc89d94e4fd8d6",
+  "repository_commit": "cfe413a23bf535faed3f412ddf4471f51b64fd11",
+  "working_tree_clean": true
+ },
+ "tools": {
+  "build_record.py": "a7d1d6acb57f01d3999da29a9784154b7f2c523869b04a551f1337721a5af689",
+  "BuildRecordExtract.lean": "66b111e3ffd8f058026f46a5df42a9fd8ab7003de1366f117671710ecf3ea0e9"
+ }
+}
