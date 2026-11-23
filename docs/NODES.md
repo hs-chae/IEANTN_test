@@ -219,6 +219,18 @@ Notes:
   there at `Solutions/<node>/Solution.lean`, and the conclusion should carry the `issue` where
   removing the obstruction is tracked. `status` reports it as unverified; see
   [ARCHITECTURE.md](ARCHITECTURE.md) section 3.
+  It must also say which obstruction it is, as `reason`: `native_decide` (the proof uses
+  `native_decide`, so no receipt is possible under the current rules) or `workflow-cannot-run`
+  (standard axioms only; the workflow cannot run it as it stands). Its evidence is a build record,
+  `build-records/<Node>.<conclusion>.json`, written by
+  `python scripts/ieantn.py build-record <node>`: the proof compiled here, states its challenge,
+  and rests on the axioms it lists. `check` fails a record whose hashed files have changed, and
+  fails a `reason` that disagrees with the axioms the record lists. See the README section
+  "Structure: computed results".
+- `computation` (optional, any kind) records what a computed number came from: `files` (path from
+  the repository root, `role` one of `program`, `input`, `data`, `output`, and `sha256`), an
+  optional `output`, and `external` entries (`url` and `checksum`, or `checksum: none published`)
+  for computations outside the repository. `check` re-hashes every file named.
 - Editing a node's metadata with `new-version` or `deprecate` requires `ruamel.yaml`
   (`pip install ruamel.yaml`), which preserves comments. The read-only checks need only PyYAML,
   so CI does not install it.

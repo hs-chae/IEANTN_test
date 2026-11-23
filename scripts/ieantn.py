@@ -68,6 +68,9 @@ VERIFY_SCRIPT = ROOT / "scripts" / "verify-comparator.sh"
 RECEIPTS = ROOT / "receipts"
 CHANGES = ROOT / "changes"
 SOLUTIONS = ROOT / "Solutions"
+#: `<Node>.<conclusion>.json` per conclusion: what `build-record` found when it compiled a
+#: solution. See `BUILD_RECORD_SCHEMA`.
+BUILD_RECORDS = ROOT / "build-records"
 
 #: Where a spun-off Challenge says it came from.
 REPOSITORY_URL = "https://github.com/teorth/IEANTN"
@@ -125,11 +128,11 @@ def import_status(conclusion: dict) -> str:
 PRIMITIVE_KINDS = {"lean-comparator", "lean-noncompliant", "numerical", "literature", "asserted",
                    "none-yet"}
 
-#: A complete Lean proof that no receipt is available for. Two cases, which a reader of the views
-#: need not distinguish: the proof uses an axiom Comparator does not permit -- `native_decide`
-#: goes through `Lean.ofReduceBool` -- or the verification workflow cannot be run on it as it
-#: stands, because of a dependency the network has not admitted to its trust base, or a build no
-#: runner will finish. The proof is in this repository under `Solutions/`, where anyone may build
+#: A complete Lean proof that no receipt is available for. Two cases, recorded in the
+#: justification's `reason` (see `NONCOMPLIANT_REASONS`): the proof uses an axiom Comparator does
+#: not permit -- `native_decide` goes through `Lean.ofReduceBool` -- or the verification workflow
+#: cannot be run on it as it stands, because of a dependency the network has not admitted to its
+#: trust base, or a build no runner will finish. The proof is in this repository under `Solutions/`, where anyone may build
 #: it; what is missing is our own certificate that it proves the challenge. So it is a leaf of the
 #: trust graph -- what a reader relies on is the author's report that it builds and audits -- and
 #: it is kept apart from `none-yet` because "nobody has written a proof" and "the proof is written
@@ -142,6 +145,37 @@ JUSTIFICATION_KINDS = PRIMITIVE_KINDS | DERIVED_KINDS
 #: Kinds meaning "checked by Lean in this repository". Everything else is a leaf of the trust
 #: graph: something the network takes on faith, however reasonably.
 VERIFIED_KINDS = {"lean-comparator"}
+
+#: Why a `lean-noncompliant` proof has no receipt; required on every such justification as
+#: `reason`. They are different obstacles. `native_decide` means the proof itself rests on Lean's
+#: compiler: each use adds an axiom Comparator does not permit, so no receipt is possible under
+#: the current rules, however long anyone waits. `workflow-cannot-run` means standard axioms only:
+#: the verification workflow cannot run on the proof as it stands (an unadmitted dependency, or a
+#: build no runner finishes), and a receipt is a matter of running it somewhere that can.
+#: `check` holds the reason to the axioms in the conclusion's build record when there is one.
+NONCOMPLIANT_REASONS = {"native_decide", "workflow-cannot-run"}
+
+#: What a computed result came from, as `computation` on a justification. Without it a number's
+#: provenance is prose in `note`, which no tool can check. With it, `check` re-hashes every file
+#: named, so an edited program or data file fails until the record is updated:
+#:
+#:     computation:
+#:       files:                  # in this repository; path from the repository root
+#:         - {path: Solutions/X.v1/c/sum.c, role: program, sha256: <64 hex>}
+#:       output: "0x3cc0fd404ee3d945"     # optional: the value the program produced
+#:       external:               # optional: computations not in this repository
+#:         - {url: https://..., checksum: "md5:..."}   # or checksum: "none published"
+#:       description: ...        # optional
+#:
+#: At least one of `files` and `external` must be present.
+COMPUTATION_ROLES = {"program", "input", "data", "output"}
+
+#: `build-records/<Node>.<conclusion>.json`, written by `build-record` (scripts/build_record.py)
+#: when it compiles a solution: whether the build passed, whether the solution theorem states the
+#: generated challenge, every axiom the proof uses (each `native_decide` step named), and the
+#: SHA-256 of every file the proof was built from. It is a local record, not a receipt. `check`
+#: re-hashes those files, so a record describes the files on disk or fails as stale.
+BUILD_RECORD_SCHEMA = "ieantn-build-record/1"
 
 NODE_STATUSES = {
     "template",              # scaffolded, not yet filled in; refused by check-graph
@@ -180,7 +214,7 @@ def _set_root(path: pathlib.Path) -> None:
     the tooling cannot be pointed somewhere unexpected by accident.
     """
     global ROOT, NODES_DIR, VOCAB_DIR, BRIDGES_DIR, FINGERPRINTS, STATE, GRAPH, PAGES, VERIFY_SCRIPT
-    global RECEIPTS, CHANGES, SOLUTIONS
+    global RECEIPTS, CHANGES, SOLUTIONS, BUILD_RECORDS
     ROOT = path
     NODES_DIR = ROOT / "IEANTN" / "Nodes"
     VOCAB_DIR = ROOT / "IEANTN" / "Vocabulary"
@@ -193,6 +227,7 @@ def _set_root(path: pathlib.Path) -> None:
     RECEIPTS = ROOT / "receipts"
     CHANGES = ROOT / "changes"
     SOLUTIONS = ROOT / "Solutions"
+    BUILD_RECORDS = ROOT / "build-records"
 VERSION_RE = re.compile(r"^v(\d+)$")
 
 
@@ -2062,6 +2097,168 @@ def receipt_path(conclusion_key: str) -> pathlib.Path:
     return RECEIPTS / f"{conclusion_key}.json"
 
 
+def sha256_file(path: pathlib.Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for block in iter(lambda: handle.read(1 << 20), b""):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def build_record_path(conclusion_key: str) -> pathlib.Path:
+    return BUILD_RECORDS / f"{conclusion_key}.json"
+
+
+def load_build_record(conclusion_key: str) -> dict | None:
+    """The conclusion's build record, or `None` when there is none or it does not parse."""
+    path = build_record_path(conclusion_key)
+    if not path.is_file():
+        return None
+    try:
+        record = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeError, json.JSONDecodeError):
+        return None
+    return record if isinstance(record, dict) else None
+
+
+def stale_build_files(record: dict) -> list[str]:
+    """The files a build record hashed that are now missing or different."""
+    changed: list[str] = []
+    for entry in record.get("files") or []:
+        if not isinstance(entry, dict) or not isinstance(entry.get("path"), str):
+            changed.append(str(entry))
+            continue
+        path = ROOT / entry["path"]
+        if not path.is_file() or sha256_file(path) != entry.get("sha256"):
+            changed.append(entry["path"])
+    return changed
+
+
+def native_steps(record: dict) -> list[dict]:
+    steps = (record.get("axioms") or {}).get("native_decide") or []
+    return [step for step in steps if isinstance(step, dict)]
+
+
+def build_record_state(conclusion_key: str) -> tuple[str, str]:
+    """`current`, `stale`, `failed`, `not built` or `unreadable`, with a one-line detail.
+
+    `current` is the only state in which the record says anything about the proof now: it
+    compiled, states its challenge, and every file it was built from is unchanged since.
+    """
+    path = build_record_path(conclusion_key)
+    if not path.is_file():
+        return "not built", "no build record; run `python scripts/ieantn.py build-record <node>`"
+    record = load_build_record(conclusion_key)
+    if record is None or record.get("schema") != BUILD_RECORD_SCHEMA:
+        return "unreadable", f"{rel(path)} does not parse as a build record"
+    if record.get("status") == "not-built":
+        return "not built", "; ".join(record.get("reasons") or []) or "the build did not run"
+    if record.get("status") != "passed" or record.get("statement_matches_challenge") is not True:
+        return "failed", "; ".join(record.get("reasons") or []) or "the record says it failed"
+    changed = stale_build_files(record)
+    if changed:
+        return "stale", (f"{len(changed)} file(s) changed since it was recorded, e.g. "
+                         f"{changed[0]}; re-run `python scripts/ieantn.py build-record <node>`")
+    count = len(native_steps(record))
+    return "current", ("compiles and states its challenge; "
+                       + (f"{count} native_decide step(s)" if count else "standard axioms only"))
+
+
+def computation_problems(computation: object) -> list[str]:
+    """What is wrong with a justification's `computation` record; empty when nothing is."""
+    if not isinstance(computation, dict):
+        return ["`computation` must be a mapping"]
+    found: list[str] = []
+    unknown = set(computation) - {"files", "output", "external", "description"}
+    if unknown:
+        found.append(f"`computation` has unknown field(s) {', '.join(sorted(unknown))}")
+    files = computation.get("files") or []
+    external = computation.get("external") or []
+    if not files and not external:
+        found.append("`computation` names no file and no external computation")
+    if not isinstance(files, list) or not isinstance(external, list):
+        return found + ["`computation.files` and `computation.external` must be lists"]
+    for entry in files:
+        if not isinstance(entry, dict) or not isinstance(entry.get("path"), str):
+            found.append(f"`computation.files` entry {entry!r} has no `path`")
+            continue
+        path = (ROOT / entry["path"]).resolve()
+        if not path.is_relative_to(ROOT.resolve()):
+            found.append(f"`{entry['path']}` is outside the repository")
+            continue
+        if entry.get("role") not in COMPUTATION_ROLES:
+            found.append(f"`{entry['path']}`: role `{entry.get('role')}` is not one of "
+                         + ", ".join(sorted(COMPUTATION_ROLES)))
+        if not path.is_file():
+            found.append(f"`{entry['path']}` does not exist")
+        elif sha256_file(path) != entry.get("sha256"):
+            found.append(f"`{entry['path']}` does not match its recorded sha256: the program or "
+                         "data changed, so the number may no longer be what it produces")
+    for entry in external:
+        if not isinstance(entry, dict) or not str(entry.get("url") or "").startswith(
+                ("https://", "http://")):
+            found.append(f"`computation.external` entry {entry!r} needs an http(s) `url`")
+        elif not str(entry.get("checksum") or "").strip():
+            found.append(f"`{entry['url']}`: give its `checksum`, or `none published`")
+    return found
+
+
+def check_computations() -> bool:
+    """`reason` on every `lean-noncompliant`, `computation` records, and build records."""
+    problems = Problems()
+    nodes = load_nodes()
+    keys: set[str] = set()
+    not_built: list[str] = []
+    for node_id, node in sorted(nodes.items()):
+        where = rel(node["_dir"] / "formalization.yaml")
+        for conclusion in conclusions_of(node):
+            key = f"{node_id}.{conclusion.get('id')}"
+            keys.add(key)
+            for justification in justifications_of(conclusion):
+                jid = justification.get("id")
+                kind = justification.get("kind")
+                reason = justification.get("reason")
+                if kind == NONCOMPLIANT_KIND and reason not in NONCOMPLIANT_REASONS:
+                    problems.add(where, f"`{key}`, justification `{jid}`: `{NONCOMPLIANT_KIND}` "
+                                 "needs `reason`, one of " + ", ".join(sorted(NONCOMPLIANT_REASONS)))
+                if kind != NONCOMPLIANT_KIND and reason is not None:
+                    problems.add(where, f"`{key}`, justification `{jid}`: `reason` belongs only "
+                                 f"on `{NONCOMPLIANT_KIND}`")
+                if "computation" in justification:
+                    for problem in computation_problems(justification["computation"]):
+                        problems.add(where, f"`{key}`, justification `{jid}`: {problem}")
+            designated = designated_of(conclusion) or {}
+            state, detail = build_record_state(key)
+            if state == "not built":
+                if designated.get("kind") == NONCOMPLIANT_KIND:
+                    not_built.append(key)
+                continue
+            if state != "current":
+                problems.add(where, f"`{key}`: build record {state}: {detail}")
+                continue
+            record = load_build_record(key) or {}
+            if record.get("conclusion") != key:
+                problems.add(where, f"`{key}`: its build record is for `{record.get('conclusion')}`")
+            if designated.get("kind") == NONCOMPLIANT_KIND:
+                count = len(native_steps(record))
+                reason = designated.get("reason")
+                if count and reason != "native_decide":
+                    problems.add(where, f"`{key}`: reason `{reason}`, but the build record lists "
+                                 f"{count} native_decide step(s)")
+                if not count and reason == "native_decide":
+                    problems.add(where, f"`{key}`: reason `native_decide`, but the build record "
+                                 "lists none")
+    if BUILD_RECORDS.is_dir():
+        for path in sorted(BUILD_RECORDS.glob("*.json")):
+            if path.stem not in keys:
+                problems.add(rel(path), f"`{path.stem}` is not a conclusion of the network")
+    if not_built:
+        problems.warn("build-records", f"{len(not_built)} `{NONCOMPLIANT_KIND}` conclusion(s) "
+                      "have no build record, so nothing here has compiled them: "
+                      + ", ".join(not_built))
+    return problems.report("computations and build records")
+
+
 def load_receipt(conclusion_key: str) -> dict | None:
     path = receipt_path(conclusion_key)
     if not path.is_file():
@@ -2406,6 +2603,9 @@ def status() -> bool:
                 lights["-"] += 1
                 print(f"  -       {key}")
                 print("          a Lean proof this network has not certified; see its `note`")
+                state, detail = build_record_state(key)
+                reason = (designated_of(conclusion) or {}).get("reason") or "no `reason` given"
+                print(f"          no receipt because: {reason}; build record {state}: {detail}")
                 continue
             if kind != "lean-comparator":
                 lights["-"] += 1
@@ -2737,7 +2937,13 @@ def report() -> bool:
             for source in bridge_sources(justification):
                 result |= leaves(source, seen)
         elif kind not in VERIFIED_KINDS:
-            note = f"  [{kind}]" + (f", {spares} other justification(s) available" if spares else "")
+            label = str(kind)
+            if kind == NONCOMPLIANT_KIND:
+                label += (f": {justification.get('reason') or 'no reason'}, "
+                          f"build record {build_record_state(key)[0]}")
+            elif "computation" in justification:
+                label += ", computation recorded"
+            note = f"  [{label}]" + (f", {spares} other justification(s) available" if spares else "")
             result.add(f"{key}{note}")
         for dependency in conclusion.get("imports") or []:
             result |= leaves(f"{dependency.get('node')}.{dependency.get('conclusion')}", seen)
@@ -5024,6 +5230,11 @@ def main() -> int:
     picture.add_argument("--check", action="store_true", help="fail instead of rewriting")
     per_node = sub.add_parser("pages")
     per_node.add_argument("--check", action="store_true", help="fail instead of rewriting")
+    recorded = sub.add_parser(
+        "build-record",
+        help="compile a solution and write build-records/<Node>.<conclusion>.json")
+    recorded.add_argument("node", help="e.g. FKS2Numerics.v5")
+    recorded.add_argument("--conclusion", help="one conclusion, even if it is not lean-noncompliant")
     partial = sub.add_parser("progress")
     partial.add_argument("node", help="e.g. FKS2.v1")
     partial.add_argument("--write", action="store_true",
@@ -5105,6 +5316,10 @@ def main() -> int:
         return 0 if graph(args.check) else 1
     if args.command == "pages":
         return 0 if pages(args.check) else 1
+    if args.command == "build-record":
+        import build_record  # scripts/build_record.py; only this command needs it
+
+        return 0 if build_record.main(args.node, args.conclusion) else 1
     if args.command == "progress":
         return 0 if progress(args.node, args.write) else 1
     if args.command == "verify":
@@ -5130,7 +5345,7 @@ def main() -> int:
         # reports a stale one and does not fail on it. See DERIVED_NOTE.
         return 0 if all(
             [check_closure(), check_graph(), check_pins(), check_receipts(online=False),
-             gen_challenges(True), state(True, advisory=True), graph(True, advisory=True),
+             check_computations(), gen_challenges(True), state(True, advisory=True), graph(True, advisory=True),
              pages(True, advisory=True)]
         ) else 1
     return 2

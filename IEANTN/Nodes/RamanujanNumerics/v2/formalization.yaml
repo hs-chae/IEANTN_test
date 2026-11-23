@@ -30,6 +30,21 @@ conclusions:
   justifications:
   - id: source-model
     kind: lean-noncompliant
+    reason: native_decide
+    computation:
+      files:
+        - path: Solutions/FKS2Numerics.v2/applications/fks2_scalar_fp/fks2.c
+          role: program
+          sha256: a0fde9cefcbf3064b4a47bf85889fc459db89b6c68ceabe579254ecbb34b06a6
+        - path: Solutions/FKS2Numerics.v2/applications/sum_stability/sum.c
+          role: program
+          sha256: 4496baa80e34ff06ca0d3ca8a1992a513c95ac15252c344aaf9a235e615941dd
+        - path: Solutions/RamanujanNumerics.v1/c/baseline.c
+          role: program
+          sha256: 4f468d7f31d5bdd678f8692337ff6c21b0747828c0248685671c2a69b82f9be2
+        - path: Solutions/RamanujanNumerics.v2/c/updated.c
+          role: program
+          sha256: 3de9c2d75ed984719aee22f05f0217a605e72f419a737134f269074b34c09f5c
     note: New actual literal operands/positive offset and finite native certificate;
       same frozen generic source/math infrastructure. No official receipt; compiler/hardware
       remain trusted.

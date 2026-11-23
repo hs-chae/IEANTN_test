@@ -70,6 +70,7 @@ python scripts/ieantn.py status         # green / yellow / orange / BROKEN per c
 python scripts/ieantn.py diff           # what your branch degrades, and for whom
 python scripts/ieantn.py housekeeping   # the derived task queue
 python scripts/ieantn.py progress <node> [--write]   # where a partial solution's holes are
+python scripts/ieantn.py build-record <node>   # compile a solution; write build-records/ (README: Structure)
 python scripts/ieantn.py state          # STATE.md
 python scripts/ieantn.py graph          # GRAPH.md, two Mermaid diagrams
 python scripts/ieantn.py verify <node> --branch <branch>   # dispatch a verification and follow it

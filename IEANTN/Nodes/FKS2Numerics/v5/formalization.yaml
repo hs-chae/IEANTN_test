@@ -44,6 +44,19 @@ conclusions:
   justifications:
   - id: source-transport
     kind: lean-noncompliant
+    reason: native_decide
+    computation:
+      files:
+        - path: Solutions/FKS2Numerics.v2/applications/fks2_scalar_fp/fks2.c
+          role: program
+          sha256: a0fde9cefcbf3064b4a47bf85889fc459db89b6c68ceabe579254ecbb34b06a6
+        - path: Solutions/FKS2Numerics.v2/applications/sum_stability/sum.c
+          role: program
+          sha256: 4496baa80e34ff06ca0d3ca8a1992a513c95ac15252c344aaf9a235e615941dd
+        - path: Solutions/FKS2Numerics.v5/c/fks2_table4_transport.c
+          role: program
+          sha256: 0685e913a08957ec941753e0e4ffd3de33756e828976c7ae2332545e378313e7
+      output: "0x3cc0fd404ee3d945"
     note: Full source-model execution,30upward input certificates, actual source-facing
       sum.c stability theorem, exact power-of-two scaling and explicit suffix-operation
       error. Whole-ray bounded-anchor FKS2 transport consumes the resulting C upper

@@ -42,6 +42,15 @@ conclusions:
   justifications:
   - id: checked-source-stability
     kind: lean-noncompliant
+    reason: native_decide
+    computation:
+      files:
+        - path: Solutions/FKS2Numerics.v2/applications/fks2_scalar_fp/fks2.c
+          role: program
+          sha256: a0fde9cefcbf3064b4a47bf85889fc459db89b6c68ceabe579254ecbb34b06a6
+        - path: Solutions/FKS2Numerics.v2/applications/sum_stability/sum.c
+          role: program
+          sha256: 4496baa80e34ff06ca0d3ca8a1992a513c95ac15252c344aaf9a235e615941dd
     note: Complete checked multiplier proof in Solutions/FKS2Numerics.v2/Solution.lean
       uses the original selected C execution, general symbolic binary64 summation
       theorem and audited finite native certificates. Native facts are outside Comparator
