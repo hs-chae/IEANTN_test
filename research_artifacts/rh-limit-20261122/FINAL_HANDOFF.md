@@ -1,0 +1,17 @@
+# Completed RH research pass
+
+The mathematical/report source snapshot is `9b836c9c8f8ca3914cc5f8b0970a555dfbe5679f`; the report links exact mathematical sources at `a8b2d5631c7e6de5bfdf2b7d576633fcb11eab56`. Publication is on `hs-chae/IEANTN_test`, branch `research/rh-full-network-20261122`. Owner main was preserved.
+
+Completed results are the explicit ordinary-prime-counting bounds, sharper GM transfer, all-real Ramanujan margin from 620 billion with the entire old profile retained, four closed octic contracts, unconditional Stieltjes support, finite absolute Stieltjes/Fourier bridge, and the Nicolas mass interface. These are conditional on the exact named source/analytic inputs displayed in the standalone report. No optimality or best-known claim is made.
+
+The frozen candidate completed 620 source compilation commands across six routes, including actual C execution, with 340 unique modules in the main closure. All 17 selected final theorem identities passed standard-axiom audits; no native execution axiom remains in those closures. Independent canonical review covers 53 written-source identities. Only the two identified C components have source-first PV status; other numerical/analytic proofs are kernel proofs.
+
+After the full candidate run, the optional historical proof-bank provenance guard was tightened. Its final source SHA is `857ba8bf9f670e5df415dba16c84cf72c3168c6aa49df0cf1649bdd7f1d404cf`. All 99 actual guard cases and six outer-packet cases passed across normal, -O and -OO Python. Both complete final-consumer modes were rebuilt under that version. All 970 original mathematical/C source files and 12 parameter/source manifests are unchanged. The final archive was restored and source-preflight checked; it was not subjected to a second full 620-command run after the guard-only repair. This distinction is explicit in the report and receipts.
+
+The original full-run source archive is `7035c795dd16cba6f9e249f03541d44a91a1fdb724f03498efb86ec8bb5733f2`. The delivered final archive is `9a9f589eece294b1e005ef072ad29b663f072e6142ffa9b9e376c1136f14add3`, 23,862,946 bytes, in four parts. The full HTML report is `7c2d74e0f9b58288cdaab4ac9835ea0e8c0a3647bc7a1dec8d8f8cf6964e6d0f`, 881,842 bytes, with 35 static formulas and an offline resource figure.
+
+All nine requested deliverable files were actually uploaded. Discord metadata was reread, every attachment downloaded and hashed, and the actual downloaded parts reconstructed and restored with all 5,912 manifest entries checked. `DELIVERY_VERIFIED.json` records the exact messages/file identities; `GITHUB_READBACK.json` records actual published artifact-byte checks. The source package README gives clean-environment reproduction commands.
+
+All original experimental outcomes remain unchanged. Official Comparator receipts, the box's four analytic inputs, octic explicit-formula/infinite-zero inputs, the 0.076 transfer, the 610-billion target and full finite-prime-count source-first proof remain outside this completed pass. Earlier separate program-migration/QRH work retains its own status.
+
+All RH proof compiler jobs finished. Accepted proof banks, locked inputs and original sources are preserved. Cleanup removed only 602 verified duplicate development objects, archive-backed source staging and checked plotting temporaries; 165 unmatched objects remain. Download-only reconstruction staging was removed after actual-byte verification. The original downloaded files, compressed archives, source/receipts and accepted proof artifacts remain available.
