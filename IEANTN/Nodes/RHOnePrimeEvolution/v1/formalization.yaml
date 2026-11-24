@@ -1,0 +1,249 @@
+version: v0.4
+node:
+  id: RHOnePrimeEvolution.v1
+  family: RHOnePrimeEvolution
+  version: v1
+  kind: pipeline
+  status: awaiting-verification
+project:
+  name: Strict-open RH one-prime frontier
+  description: Continuous strict-open one-prime frontier, uniform coefficient0.8768, bounded0.8357/0.8512
+    improvements and finite/analytic source separation.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+conclusions:
+- id: kernel_ratio_lower
+  declaration: RHOnePrimeEvolution.v1.kernel_ratio_lower
+  challenge: RHOnePrimeEvolution.v1.challenge_kernel_ratio_lower
+  imports: []
+  imports_status: none
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: Actual conditional proof in Solutions/RHOnePrimeEvolution.v1/OnePrimeNetwork.lean, imported
+      by Solution.lean. Kernel, exact-type and proof-value audits are separate from the pending official
+      Comparator workflow receipt. The custom isolated source builder resolves the inherited flat
+      proof modules; ordinary standalone Lake build is not yet a completed reproduction route.
+  designated: local-kernel-proof
+- id: late_open_08768
+  declaration: RHOnePrimeEvolution.v1.late_open_08768
+  challenge: RHOnePrimeEvolution.v1.challenge_late_open_08768
+  imports:
+  - node: CMSCosineInput.v1
+    conclusion: obstruction
+  - node: RH.v1
+    conclusion: hypothesis
+  - node: RHOnePrimeEvolution.v1
+    conclusion: kernel_ratio_lower
+  imports_status: identified
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: Actual conditional proof in Solutions/RHOnePrimeEvolution.v1/OnePrimeNetwork.lean, imported
+      by Solution.lean. Kernel, exact-type and proof-value audits are separate from the pending official
+      Comparator workflow receipt. The custom isolated source builder resolves the inherited flat
+      proof modules; ordinary standalone Lake build is not yet a completed reproduction route.
+  designated: local-kernel-proof
+- id: uniform_open_08768
+  declaration: RHOnePrimeEvolution.v1.uniform_open_08768
+  challenge: RHOnePrimeEvolution.v1.challenge_uniform_open_08768
+  imports:
+  - node: RHOnePrimeEvolution.v1
+    conclusion: late_open_08768
+  - node: PrimeGapTable.v1
+    conclusion: gaps
+  imports_status: identified
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: Actual conditional proof in Solutions/RHOnePrimeEvolution.v1/OnePrimeNetwork.lean, imported
+      by Solution.lean. Kernel, exact-type and proof-value audits are separate from the pending official
+      Comparator workflow receipt. The custom isolated source builder resolves the inherited flat
+      proof modules; ordinary standalone Lake build is not yet a completed reproduction route.
+  designated: local-kernel-proof
+- id: finite_slab_open_08301
+  declaration: RHOnePrimeEvolution.v1.finite_slab_open_08301
+  challenge: RHOnePrimeEvolution.v1.challenge_finite_slab_open_08301
+  imports:
+  - node: CMSCosineInput.v1
+    conclusion: obstruction
+  - node: RH.v1
+    conclusion: hypothesis
+  imports_status: identified
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: Actual conditional proof in Solutions/RHOnePrimeEvolution.v1/OnePrimeNetwork.lean, imported
+      by Solution.lean. Kernel, exact-type and proof-value audits are separate from the pending official
+      Comparator workflow receipt. The custom isolated source builder resolves the inherited flat
+      proof modules; ordinary standalone Lake build is not yet a completed reproduction route.
+  designated: local-kernel-proof
+- id: finite_absolute_1551
+  declaration: RHOnePrimeEvolution.v1.finite_absolute_1551
+  challenge: RHOnePrimeEvolution.v1.challenge_finite_absolute_1551
+  imports:
+  - node: PrimeGapTable.v1
+    conclusion: gaps
+  imports_status: identified
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: Actual conditional proof in Solutions/RHOnePrimeEvolution.v1/OnePrimeNetwork.lean, imported
+      by Solution.lean. Kernel, exact-type and proof-value audits are separate from the pending official
+      Comparator workflow receipt. The custom isolated source builder resolves the inherited flat
+      proof modules; ordinary standalone Lake build is not yet a completed reproduction route.
+  designated: local-kernel-proof
+- id: consecutive_gap_08768
+  declaration: RHOnePrimeEvolution.v1.consecutive_gap_08768
+  challenge: RHOnePrimeEvolution.v1.challenge_consecutive_gap_08768
+  imports:
+  - node: RHOnePrimeEvolution.v1
+    conclusion: uniform_open_08768
+  imports_status: identified
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: Actual conditional proof in Solutions/RHOnePrimeEvolution.v1/OnePrimeNetwork.lean, imported
+      by Solution.lean. Kernel, exact-type and proof-value audits are separate from the pending official
+      Comparator workflow receipt. The custom isolated source builder resolves the inherited flat
+      proof modules; ordinary standalone Lake build is not yet a completed reproduction route.
+  designated: local-kernel-proof
+- id: continuous_late
+  declaration: RHOnePrimeEvolution.v1.continuous_late
+  challenge: RHOnePrimeEvolution.v1.challenge_continuous_late
+  imports:
+  - node: CMSCosineInput.v1
+    conclusion: obstruction
+  - node: RH.v1
+    conclusion: hypothesis
+  imports_status: identified
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: Actual source-conditional proof in Solutions/RHOnePrimeEvolution.v1/OnePrimeNetwork.lean
+      and its inherited analytic modules. Official Comparator receipt pending; custom fresh source-closure
+      reproduction is separate evidence. Explicit source inputs remain external, and kernel numerics
+      are not PV.
+  designated: local-kernel-proof
+- id: continuous_improves_uniform
+  declaration: RHOnePrimeEvolution.v1.continuous_improves_uniform
+  challenge: RHOnePrimeEvolution.v1.challenge_continuous_improves_uniform
+  imports: []
+  imports_status: none
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: Actual source-conditional proof in Solutions/RHOnePrimeEvolution.v1/OnePrimeNetwork.lean
+      and its inherited analytic modules. Official Comparator receipt pending; custom fresh source-closure
+      reproduction is separate evidence. Explicit source inputs remain external, and kernel numerics
+      are not PV.
+  designated: local-kernel-proof
+- id: continuous_uniform
+  declaration: RHOnePrimeEvolution.v1.continuous_uniform
+  challenge: RHOnePrimeEvolution.v1.challenge_continuous_uniform
+  imports:
+  - node: RHOnePrimeEvolution.v1
+    conclusion: continuous_late
+  - node: PrimeGapTable.v1
+    conclusion: gaps
+  imports_status: identified
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: Actual source-conditional proof in Solutions/RHOnePrimeEvolution.v1/OnePrimeNetwork.lean
+      and its inherited analytic modules. Official Comparator receipt pending; custom fresh source-closure
+      reproduction is separate evidence. Explicit source inputs remain external, and kernel numerics
+      are not PV.
+  designated: local-kernel-proof
+- id: bounded_open_08357
+  declaration: RHOnePrimeEvolution.v1.bounded_open_08357
+  challenge: RHOnePrimeEvolution.v1.challenge_bounded_open_08357
+  imports:
+  - node: CMSCosineInput.v1
+    conclusion: obstruction
+  - node: RH.v1
+    conclusion: hypothesis
+  - node: PrimeGapTable.v1
+    conclusion: gaps
+  imports_status: identified
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: Actual source-conditional proof in Solutions/RHOnePrimeEvolution.v1/OnePrimeNetwork.lean
+      and its inherited analytic modules. Official Comparator receipt pending; custom fresh source-closure
+      reproduction is separate evidence. Explicit source inputs remain external, and kernel numerics
+      are not PV.
+  designated: local-kernel-proof
+- id: bounded_open_08512
+  declaration: RHOnePrimeEvolution.v1.bounded_open_08512
+  challenge: RHOnePrimeEvolution.v1.challenge_bounded_open_08512
+  imports:
+  - node: CMSCosineInput.v1
+    conclusion: obstruction
+  - node: RH.v1
+    conclusion: hypothesis
+  - node: PrimeGapTable.v1
+    conclusion: gaps
+  imports_status: identified
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: Actual source-conditional proof in Solutions/RHOnePrimeEvolution.v1/OnePrimeNetwork.lean
+      and its inherited analytic modules. Official Comparator receipt pending; custom fresh source-closure
+      reproduction is separate evidence. Explicit source inputs remain external, and kernel numerics
+      are not PV.
+  designated: local-kernel-proof
+- id: bounded_open_08185
+  declaration: RHOnePrimeEvolution.v1.bounded_open_08185
+  challenge: RHOnePrimeEvolution.v1.challenge_bounded_open_08185
+  imports:
+  - node: CMSCosineInput.v1
+    conclusion: obstruction
+  - node: RH.v1
+    conclusion: hypothesis
+  - node: PrimeGapTable.v1
+    conclusion: gaps
+  imports_status: identified
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: Actual source-conditional proof in Solutions/RHOnePrimeEvolution.v1/OnePrimeNetwork.lean
+      and its inherited analytic modules. Official Comparator receipt pending; custom fresh source-closure
+      reproduction is separate evidence. Explicit source inputs remain external, and kernel numerics
+      are not PV.
+  designated: local-kernel-proof
+sources:
+- id: CMS2019
+  title: Fourier optimization and prime gaps
+  authors:
+  - Emanuel Carneiro
+  - Micah B. Milinovich
+  - Kannan Soundararajan
+  type: paper
+  relationship: adapts
+  url: https://arxiv.org/abs/1708.04122v2
+  note: Section6.3equation6.16andtheactualcosinekernel. Sharperroundingandfinitefrontierarenotanewextremalkernelorbest-knownclaim.
+- id: Nicely2019
+  title: First occurrence prime gaps,12August2019
+  authors:
+  - Thomas R. Nicely
+  type: other
+  relationship: background
+  url: https://oeis.org/A000101/a000101.pdf
+  note: Theboundedgapupperclaimremainsexplicitandexternallyreported;thecompletehistoricalprogramverificationisnotprovided.
+limitations:
+- NotMathlib-onlyRH;sourceCMS616andreportedfinitegapsareexplicit.
+- NumericalkernelproofsandLucasprimalitycertificatesarenotsource-firstPV. No native_decideintheacceptednewproofchain.
+- Newer2026preprintclaimsuniform0.85125,so0.8768isnotclaimedbestknown;finite0.8301andfullfunctioncomparisonsmustremainseparate.
+- OfficialComparatorreceiptandordinarycleanLakewrapperpending;customfreshtransitivekernelreproductionistherequestedlocalroute.

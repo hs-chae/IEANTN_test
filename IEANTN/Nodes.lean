@@ -29,6 +29,7 @@ import IEANTN.Nodes.CH2.v6.Challenge
 import IEANTN.Nodes.CH2.v7.Challenge
 import IEANTN.Nodes.CH2.v8.Challenge
 import IEANTN.Nodes.CH2.v9.Challenge
+import IEANTN.Nodes.CMSCosineInput.v1.Challenge
 import IEANTN.Nodes.Chebyshev.v1.Challenge
 import IEANTN.Nodes.ChebyshevNumerics.v1.Challenge
 import IEANTN.Nodes.ChengGraham2004.v1.Challenge
@@ -73,6 +74,7 @@ import IEANTN.Nodes.GammaAsymptotics.v1.Challenge
 import IEANTN.Nodes.GammaAsymptotics.v2.Challenge
 import IEANTN.Nodes.Goldbach.v1.Challenge
 import IEANTN.Nodes.Goldbach.v2.Challenge
+import IEANTN.Nodes.Goldbach.v3.Challenge
 import IEANTN.Nodes.GoldbachCountNumerics.v1.Challenge
 import IEANTN.Nodes.GreenSmooth.v1.Challenge
 import IEANTN.Nodes.HPY.v1.Challenge
@@ -107,6 +109,7 @@ import IEANTN.Nodes.PlattTrudgian2021.v1.Tables
 import IEANTN.Nodes.PlattTrudgian2021.v1.Challenge
 import IEANTN.Nodes.PlattTrudgian2021.v2.Challenge
 import IEANTN.Nodes.PlattZeroSum.v1.Challenge
+import IEANTN.Nodes.PrimeGapTable.v1.Challenge
 import IEANTN.Nodes.PrimeInterval.v1.Challenge
 import IEANTN.Nodes.PrimeInterval.v1.Examples
 import IEANTN.Nodes.PrimeInterval.v2.Challenge
@@ -116,9 +119,11 @@ import IEANTN.Nodes.PrimeKernelInputs.v1.Challenge
 import IEANTN.Nodes.PrimeKernelInputs.v2.Challenge
 import IEANTN.Nodes.PrimeKernelInputs.v3.Challenge
 import IEANTN.Nodes.PrimeKernelInputs.v4.Challenge
+import IEANTN.Nodes.PrimePowerPopulation.v1.Challenge
 import IEANTN.Nodes.PrimeQuantile.v1.Challenge
 import IEANTN.Nodes.PrimeQuantile.v2.Challenge
 import IEANTN.Nodes.PrimeQuantile.v3.Challenge
+import IEANTN.Nodes.PrimeQuantile.v4.Challenge
 import IEANTN.Nodes.Primorial.v1.Challenge
 import IEANTN.Nodes.Primorial.v2.Challenge
 import IEANTN.Nodes.Primorial.v3.Challenge
@@ -135,6 +140,7 @@ import IEANTN.Nodes.QRHPropagation.v2.Challenge
 import IEANTN.Nodes.QRHPropagation.v3.Challenge
 import IEANTN.Nodes.RH.v1.Challenge
 import IEANTN.Nodes.RHAdapters.v1.Challenge
+import IEANTN.Nodes.RHOnePrimeEvolution.v1.Challenge
 import IEANTN.Nodes.RHPrimeCounting.v1.Challenge
 import IEANTN.Nodes.RHPrimeCounting.v2.Challenge
 import IEANTN.Nodes.RHPrimeCounting.v3.Challenge

@@ -1,0 +1,305 @@
+{
+  "status": "PASS_15_ACTUAL_CLI_ROUTES_ALL3_OPTIMIZATION_MODES",
+  "seconds": 11.353787397965789,
+  "rows": [
+    {
+      "name": "gaussian",
+      "mode": [],
+      "command": [
+        "/data/ivy-rh-one-prime-20261124/analytic/arb-venv/bin/python",
+        "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/analytic/external-certifiers-frozen-v1/certify_gaussian_objective.py",
+        "--candidate",
+        "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/analytic/seeds/A36over11-degree20.json",
+        "--A",
+        "36/11",
+        "--out",
+        "/data/ivy-rh-one-prime-20261124/analytic/external-controls-v1/mode0/gaussian"
+      ],
+      "returncode": 0,
+      "seconds": 1.4744442626833916,
+      "expected_success": true,
+      "reason": "PASS_DIRECTED_ARB_AND_EXACT_STURM_WRITTEN_IDENTITIES_NOT_LEAN_OR_PV",
+      "validator_sha256": "c32ad04a69c36a4a36f0fff7b9f3dd8be7c478fa163d72fd59343f02ecfe5d5a"
+    },
+    {
+      "name": "fourier",
+      "mode": [],
+      "command": [
+        "/data/ivy-rh-one-prime-20261124/analytic/arb-venv/bin/python",
+        "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/analytic/external-certifiers-frozen-v1/check_fourier_gaussian.py",
+        "--candidate",
+        "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/analytic/seeds/A36over11-degree20.json",
+        "--out",
+        "/data/ivy-rh-one-prime-20261124/analytic/external-controls-v1/mode0/fourier"
+      ],
+      "returncode": 0,
+      "seconds": 0.37948308512568474,
+      "expected_success": true,
+      "reason": "PASS_EXACT_MONOMIAL_FOURIER_IDENTITY_AND_7_DIRECT_ARB_INTEGRALS",
+      "validator_sha256": "0a0fdb4aa474ba8ab4482112172255af913632f545be948977edb8c0b76604a8"
+    },
+    {
+      "name": "hat",
+      "mode": [],
+      "command": [
+        "/data/ivy-rh-one-prime-20261124/analytic/arb-venv/bin/python",
+        "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/analytic/external-certifiers-frozen-v1/certify_hat_witness.py",
+        "--witness",
+        "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/analytic/hat-witnesses/asymp-m100.json",
+        "--out",
+        "/data/ivy-rh-one-prime-20261124/analytic/external-controls-v1/mode0/hat"
+      ],
+      "returncode": 0,
+      "seconds": 0.5740386806428432,
+      "expected_success": true,
+      "reason": "PASS_DIRECTED_ARB_EXACT_HAT_OBJECTIVE_NOT_LEAN_OR_PV",
+      "validator_sha256": "cab8a356fb4b726220d3dbb6b62c5a7ce20d2041814f8c4c164ae2b88c55b555"
+    },
+    {
+      "name": "bad-grid",
+      "mode": [],
+      "command": [
+        "/data/ivy-rh-one-prime-20261124/analytic/arb-venv/bin/python",
+        "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/analytic/external-certifiers-frozen-v1/certify_hat_witness.py",
+        "--witness",
+        "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/analytic/hat-witnesses/asymp-m100.json",
+        "--grid",
+        "1001",
+        "--out",
+        "/data/ivy-rh-one-prime-20261124/analytic/external-controls-v1/mode0/bad-grid"
+      ],
+      "returncode": 1,
+      "seconds": 0.06095690838992596,
+      "expected_success": false,
+      "reason": "invalid grid/source parameters",
+      "validator_sha256": "cab8a356fb4b726220d3dbb6b62c5a7ce20d2041814f8c4c164ae2b88c55b555"
+    },
+    {
+      "name": "wrong-threshold",
+      "mode": [],
+      "command": [
+        "/data/ivy-rh-one-prime-20261124/analytic/arb-venv/bin/python",
+        "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/analytic/external-certifiers-frozen-v1/certify_hat_witness.py",
+        "--witness",
+        "/data/ivy-rh-one-prime-20261124/analytic/external-controls-v1/wrong-threshold.json",
+        "--out",
+        "/data/ivy-rh-one-prime-20261124/analytic/external-controls-v1/mode0/wrong-threshold"
+      ],
+      "returncode": 1,
+      "seconds": 0.564893214032054,
+      "expected_success": false,
+      "reason": "FAIL_TARGET_OBJECTIVE",
+      "validator_sha256": "cab8a356fb4b726220d3dbb6b62c5a7ce20d2041814f8c4c164ae2b88c55b555"
+    },
+    {
+      "name": "gaussian",
+      "mode": [
+        "-O"
+      ],
+      "command": [
+        "/data/ivy-rh-one-prime-20261124/analytic/arb-venv/bin/python",
+        "-O",
+        "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/analytic/external-certifiers-frozen-v1/certify_gaussian_objective.py",
+        "--candidate",
+        "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/analytic/seeds/A36over11-degree20.json",
+        "--A",
+        "36/11",
+        "--out",
+        "/data/ivy-rh-one-prime-20261124/analytic/external-controls-v1/mode1/gaussian"
+      ],
+      "returncode": 0,
+      "seconds": 2.5956885535269976,
+      "expected_success": true,
+      "reason": "PASS_DIRECTED_ARB_AND_EXACT_STURM_WRITTEN_IDENTITIES_NOT_LEAN_OR_PV",
+      "validator_sha256": "c32ad04a69c36a4a36f0fff7b9f3dd8be7c478fa163d72fd59343f02ecfe5d5a"
+    },
+    {
+      "name": "fourier",
+      "mode": [
+        "-O"
+      ],
+      "command": [
+        "/data/ivy-rh-one-prime-20261124/analytic/arb-venv/bin/python",
+        "-O",
+        "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/analytic/external-certifiers-frozen-v1/check_fourier_gaussian.py",
+        "--candidate",
+        "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/analytic/seeds/A36over11-degree20.json",
+        "--out",
+        "/data/ivy-rh-one-prime-20261124/analytic/external-controls-v1/mode1/fourier"
+      ],
+      "returncode": 0,
+      "seconds": 0.3770216181874275,
+      "expected_success": true,
+      "reason": "PASS_EXACT_MONOMIAL_FOURIER_IDENTITY_AND_7_DIRECT_ARB_INTEGRALS",
+      "validator_sha256": "0a0fdb4aa474ba8ab4482112172255af913632f545be948977edb8c0b76604a8"
+    },
+    {
+      "name": "hat",
+      "mode": [
+        "-O"
+      ],
+      "command": [
+        "/data/ivy-rh-one-prime-20261124/analytic/arb-venv/bin/python",
+        "-O",
+        "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/analytic/external-certifiers-frozen-v1/certify_hat_witness.py",
+        "--witness",
+        "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/analytic/hat-witnesses/asymp-m100.json",
+        "--out",
+        "/data/ivy-rh-one-prime-20261124/analytic/external-controls-v1/mode1/hat"
+      ],
+      "returncode": 0,
+      "seconds": 0.5710024815052748,
+      "expected_success": true,
+      "reason": "PASS_DIRECTED_ARB_EXACT_HAT_OBJECTIVE_NOT_LEAN_OR_PV",
+      "validator_sha256": "cab8a356fb4b726220d3dbb6b62c5a7ce20d2041814f8c4c164ae2b88c55b555"
+    },
+    {
+      "name": "bad-grid",
+      "mode": [
+        "-O"
+      ],
+      "command": [
+        "/data/ivy-rh-one-prime-20261124/analytic/arb-venv/bin/python",
+        "-O",
+        "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/analytic/external-certifiers-frozen-v1/certify_hat_witness.py",
+        "--witness",
+        "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/analytic/hat-witnesses/asymp-m100.json",
+        "--grid",
+        "1001",
+        "--out",
+        "/data/ivy-rh-one-prime-20261124/analytic/external-controls-v1/mode1/bad-grid"
+      ],
+      "returncode": 1,
+      "seconds": 0.059899820014834404,
+      "expected_success": false,
+      "reason": "invalid grid/source parameters",
+      "validator_sha256": "cab8a356fb4b726220d3dbb6b62c5a7ce20d2041814f8c4c164ae2b88c55b555"
+    },
+    {
+      "name": "wrong-threshold",
+      "mode": [
+        "-O"
+      ],
+      "command": [
+        "/data/ivy-rh-one-prime-20261124/analytic/arb-venv/bin/python",
+        "-O",
+        "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/analytic/external-certifiers-frozen-v1/certify_hat_witness.py",
+        "--witness",
+        "/data/ivy-rh-one-prime-20261124/analytic/external-controls-v1/wrong-threshold.json",
+        "--out",
+        "/data/ivy-rh-one-prime-20261124/analytic/external-controls-v1/mode1/wrong-threshold"
+      ],
+      "returncode": 1,
+      "seconds": 0.568929810076952,
+      "expected_success": false,
+      "reason": "FAIL_TARGET_OBJECTIVE",
+      "validator_sha256": "cab8a356fb4b726220d3dbb6b62c5a7ce20d2041814f8c4c164ae2b88c55b555"
+    },
+    {
+      "name": "gaussian",
+      "mode": [
+        "-OO"
+      ],
+      "command": [
+        "/data/ivy-rh-one-prime-20261124/analytic/arb-venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/analytic/external-certifiers-frozen-v1/certify_gaussian_objective.py",
+        "--candidate",
+        "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/analytic/seeds/A36over11-degree20.json",
+        "--A",
+        "36/11",
+        "--out",
+        "/data/ivy-rh-one-prime-20261124/analytic/external-controls-v1/mode2/gaussian"
+      ],
+      "returncode": 0,
+      "seconds": 2.5681091621518135,
+      "expected_success": true,
+      "reason": "PASS_DIRECTED_ARB_AND_EXACT_STURM_WRITTEN_IDENTITIES_NOT_LEAN_OR_PV",
+      "validator_sha256": "c32ad04a69c36a4a36f0fff7b9f3dd8be7c478fa163d72fd59343f02ecfe5d5a"
+    },
+    {
+      "name": "fourier",
+      "mode": [
+        "-OO"
+      ],
+      "command": [
+        "/data/ivy-rh-one-prime-20261124/analytic/arb-venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/analytic/external-certifiers-frozen-v1/check_fourier_gaussian.py",
+        "--candidate",
+        "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/analytic/seeds/A36over11-degree20.json",
+        "--out",
+        "/data/ivy-rh-one-prime-20261124/analytic/external-controls-v1/mode2/fourier"
+      ],
+      "returncode": 0,
+      "seconds": 0.37049893848598003,
+      "expected_success": true,
+      "reason": "PASS_EXACT_MONOMIAL_FOURIER_IDENTITY_AND_7_DIRECT_ARB_INTEGRALS",
+      "validator_sha256": "0a0fdb4aa474ba8ab4482112172255af913632f545be948977edb8c0b76604a8"
+    },
+    {
+      "name": "hat",
+      "mode": [
+        "-OO"
+      ],
+      "command": [
+        "/data/ivy-rh-one-prime-20261124/analytic/arb-venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/analytic/external-certifiers-frozen-v1/certify_hat_witness.py",
+        "--witness",
+        "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/analytic/hat-witnesses/asymp-m100.json",
+        "--out",
+        "/data/ivy-rh-one-prime-20261124/analytic/external-controls-v1/mode2/hat"
+      ],
+      "returncode": 0,
+      "seconds": 0.5668929852545261,
+      "expected_success": true,
+      "reason": "PASS_DIRECTED_ARB_EXACT_HAT_OBJECTIVE_NOT_LEAN_OR_PV",
+      "validator_sha256": "cab8a356fb4b726220d3dbb6b62c5a7ce20d2041814f8c4c164ae2b88c55b555"
+    },
+    {
+      "name": "bad-grid",
+      "mode": [
+        "-OO"
+      ],
+      "command": [
+        "/data/ivy-rh-one-prime-20261124/analytic/arb-venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/analytic/external-certifiers-frozen-v1/certify_hat_witness.py",
+        "--witness",
+        "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/analytic/hat-witnesses/asymp-m100.json",
+        "--grid",
+        "1001",
+        "--out",
+        "/data/ivy-rh-one-prime-20261124/analytic/external-controls-v1/mode2/bad-grid"
+      ],
+      "returncode": 1,
+      "seconds": 0.05755354277789593,
+      "expected_success": false,
+      "reason": "invalid grid/source parameters",
+      "validator_sha256": "cab8a356fb4b726220d3dbb6b62c5a7ce20d2041814f8c4c164ae2b88c55b555"
+    },
+    {
+      "name": "wrong-threshold",
+      "mode": [
+        "-OO"
+      ],
+      "command": [
+        "/data/ivy-rh-one-prime-20261124/analytic/arb-venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/analytic/external-certifiers-frozen-v1/certify_hat_witness.py",
+        "--witness",
+        "/data/ivy-rh-one-prime-20261124/analytic/external-controls-v1/wrong-threshold.json",
+        "--out",
+        "/data/ivy-rh-one-prime-20261124/analytic/external-controls-v1/mode2/wrong-threshold"
+      ],
+      "returncode": 1,
+      "seconds": 0.5626946277916431,
+      "expected_success": false,
+      "reason": "FAIL_TARGET_OBJECTIVE",
+      "validator_sha256": "cab8a356fb4b726220d3dbb6b62c5a7ce20d2041814f8c4c164ae2b88c55b555"
+    }
+  ],
+  "script_sha256": "e7331ddcb82e65ec64ed61fc53d6b97075906bdd2eaa4acf9b81f4de2e498169",
+  "scope": "External arithmetic repeatability and negative-case behavior only; notLean/PV/analytic proof"
+}

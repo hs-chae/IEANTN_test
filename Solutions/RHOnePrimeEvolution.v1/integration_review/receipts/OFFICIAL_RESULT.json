@@ -1,0 +1,69 @@
+{
+  "status": "PASS_GENUINE_LAKE_CORE_HASH_FINGERPRINT",
+  "failure": null,
+  "core_modules": 373,
+  "completed": 373,
+  "seconds": 179.41565012186766,
+  "builds": [],
+  "reused_core": {
+    "receipt": "/data/ivy-rh-one-prime-20261124/integration-review/lake-v1/RESULT.json",
+    "sha256": "a55d0103ec40a93beeafb0d458ed2634640c5741cea81707252919d92e8e570e",
+    "completed_modules": 373,
+    "scope": "Earlier genuine sequential Lake core build, reused explicitly; new run executes native hash build and genuine fingerprints."
+  },
+  "subsequent": [
+    {
+      "name": "hash-executable",
+      "command": [
+        "/usr/bin/prlimit",
+        "--as=68719476736",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lake",
+        "build",
+        "ieantn_hash"
+      ],
+      "returncode": 0,
+      "seconds": 161.40257456712425,
+      "stdout_sha256": "ca56984271ebbc9d390380ac2c3ee110577374f3ae818235c292578749f75972",
+      "stderr_sha256": "71780c9a791d0ee1475c15d3c4c1a38575710cef2a830d5e8601221625acee58"
+    },
+    {
+      "name": "fingerprint",
+      "command": [
+        "/usr/bin/prlimit",
+        "--as=68719476736",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "python3",
+        "scripts/ieantn.py",
+        "fingerprint"
+      ],
+      "returncode": 0,
+      "seconds": 9.363659363240004,
+      "stdout_sha256": "9bd18b1b67128982966ed0330df5adb4db5d61bfdc13b777a9cb77f66cd8d826",
+      "stderr_sha256": "b59d5d10ebbffa655a49abe07701052319190accec7bb52d58e8e7d16b6a9a09"
+    },
+    {
+      "name": "fingerprint-check",
+      "command": [
+        "/usr/bin/prlimit",
+        "--as=68719476736",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "python3",
+        "scripts/ieantn.py",
+        "fingerprint",
+        "--check"
+      ],
+      "returncode": 0,
+      "seconds": 8.6377049125731,
+      "stdout_sha256": "447f3fdbf68cdfed75b6a54a66136bd20f717bc7a6f64aab8c1b892ee10c0fe1",
+      "stderr_sha256": "ce9112e68700a0622563719715d5ddafb21d8d82a2e1705a21ddd13b210912be"
+    }
+  ],
+  "scope": "Official bookkeeping/core build includes permanent Challenge sorries. It is not proof completion, PV, or source audit."
+}

@@ -1,0 +1,133 @@
+version: v0.4
+node:
+  id: PrimePowerPopulation.v1
+  family: PrimePowerPopulation
+  version: v1
+  kind: pipeline
+  status: awaiting-verification
+project:
+  name: PrimePowerPopulation.v1
+  description: Explicit quantitative primes between powers from the preserved octic
+    family; adaptive disjoint cells improve cube counts without new analytic inputs.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+conclusions:
+- id: cube_population_all_real
+  declaration: PrimePowerPopulation.v1.cube_population_all_real
+  challenge: PrimePowerPopulation.v1.challenge_cube_population_all_real
+  imports:
+  - node: PrimeInterval.v4
+    conclusion: optimized_strict_family
+  imports_status: identified
+  justifications:
+  - id: local-source-proof
+    kind: lean-noncompliant
+    note: Actual complete conditional Lean proof in Solutions/PrimePowerPopulation.v1/Solution.lean,
+      consuming the corresponding proved power population function. Official Comparator
+      workflow receipt is pending; custom source replay and axiom/body audit are separate
+      evidence.
+  designated: local-source-proof
+- id: cube_density_all_real
+  declaration: PrimePowerPopulation.v1.cube_density_all_real
+  challenge: PrimePowerPopulation.v1.challenge_cube_density_all_real
+  imports:
+  - node: PrimeInterval.v4
+    conclusion: optimized_strict_family
+  imports_status: identified
+  justifications:
+  - id: local-source-proof
+    kind: lean-noncompliant
+    note: Actual complete conditional Lean proof in Solutions/PrimePowerPopulation.v1/Solution.lean,
+      consuming the corresponding proved power population function. Official Comparator
+      workflow receipt is pending; custom source replay and axiom/body audit are separate
+      evidence.
+  designated: local-source-proof
+- id: cube_density_natural
+  declaration: PrimePowerPopulation.v1.cube_density_natural
+  challenge: PrimePowerPopulation.v1.challenge_cube_density_natural
+  imports:
+  - node: PrimeInterval.v4
+    conclusion: optimized_strict_family
+  imports_status: identified
+  justifications:
+  - id: local-source-proof
+    kind: lean-noncompliant
+    note: Actual complete conditional Lean proof in Solutions/PrimePowerPopulation.v1/Solution.lean,
+      consuming the corresponding proved power population function. Official Comparator
+      workflow receipt is pending; custom source replay and axiom/body audit are separate
+      evidence.
+  designated: local-source-proof
+- id: higher_power_population
+  declaration: PrimePowerPopulation.v1.higher_power_population
+  challenge: PrimePowerPopulation.v1.challenge_higher_power_population
+  imports:
+  - node: PrimeInterval.v4
+    conclusion: optimized_strict_family
+  imports_status: identified
+  justifications:
+  - id: local-source-proof
+    kind: lean-noncompliant
+    note: Actual complete conditional Lean proof in Solutions/PrimePowerPopulation.v1/Solution.lean,
+      consuming the corresponding proved power population function. Official Comparator
+      workflow receipt is pending; custom source replay and axiom/body audit are separate
+      evidence.
+  designated: local-source-proof
+- id: cube_frontier
+  declaration: PrimePowerPopulation.v1.cube_frontier
+  challenge: PrimePowerPopulation.v1.challenge_cube_frontier
+  imports:
+  - node: PrimeInterval.v4
+    conclusion: optimized_strict_family
+  imports_status: identified
+  justifications:
+  - id: local-source-proof
+    kind: lean-noncompliant
+    note: Actual complete conditional Lean proof in Solutions/PrimePowerPopulation.v1/Solution.lean,
+      consuming the corresponding proved power population function. Official Comparator
+      workflow receipt is pending; custom source replay and axiom/body audit are separate
+      evidence.
+  designated: local-source-proof
+- id: density_improves_648
+  declaration: PrimePowerPopulation.v1.density_improves_648
+  challenge: PrimePowerPopulation.v1.challenge_density_improves_648
+  imports: []
+  imports_status: none
+  justifications:
+  - id: local-source-proof
+    kind: lean-noncompliant
+    note: Actual complete conditional Lean proof in Solutions/PrimePowerPopulation.v1/Solution.lean,
+      consuming the corresponding proved power population function. Official Comparator
+      workflow receipt is pending; custom source replay and axiom/body audit are separate
+      evidence.
+  designated: local-source-proof
+sources:
+- id: RHOnePrimeEvolution20261124
+  title: 'RH one-prime and network evolution: quantitative power intervals'
+  authors:
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: Original derived consumers in Solutions/RHOnePrimeEvolution.v1/powers. The
+    underlying octic kernel and analytic inputs are inherited from PrimeInterval.v4,
+    not newly claimed here.
+limitations:
+- Local kernel source checking is separate from an official Comparator workflow receipt;
+  no receipt or lean-comparator designation is fabricated.
+- The mathematical input is exactly PrimeInterval.v4.optimized_strict_family. Its
+  upstream RH plus Green/Nicolas/BPT source predicates remain explicit. No new source-first
+  PV claim.
+- Pinned Lake project packaging is supplied; source closure is compiled through the
+  explicit replay procedure. An untested ordinary lake build is not asserted successful.
+- No claim of optimality, best-known power intervals, or comparison with every stronger
+  premise-union PNT route.

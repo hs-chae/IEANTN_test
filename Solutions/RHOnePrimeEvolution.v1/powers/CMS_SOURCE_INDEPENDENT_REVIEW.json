@@ -1,0 +1,331 @@
+{
+  "status": "PASS_SOURCE_MATHEMATICAL_CORRESPONDENCE_WITH_EXPLICIT_B_INPUT",
+  "reviewer": "independent powers_network subagent",
+  "timestamp_utc": "2026-11-24T20:13:42.734131+00:00",
+  "scope": "CMS source-first mathematical audit of new source predicate, literal kernel ratio, window geometry, scalar contradiction and strict-open endpoint transfer; not a complete CMS formalization or a global literature census",
+  "primary": {
+    "url": "https://arxiv.org/pdf/1708.04122v2",
+    "sha256": "45b6c7f991831a2dc456c10285206cb17a53ef46c6ae15e43cfa5671554b0dce",
+    "bytes": 706231,
+    "locators": [
+      "Section4.2 norm of H and Fourier pair",
+      "Section4.3.1 and(4.7) lambda optimization",
+      "(5.7),(5.8) logarithmic-window parameters",
+      "Section6.2,(6.11) lambda=.9 and kernel J",
+      "Section6.3,(6.16), page26: J sqrt(a)(2piDelta)<=log(1/(2piDelta))+1.16"
+    ],
+    "independent_local_pdf_page_extractions": [
+      {
+        "page": 11,
+        "path": "/data/ivy-rh-one-prime-20261124/powers/cms-source-review/CMS1708.04122v2_page11.txt",
+        "sha256": "8209af468ea0947eb16408a9683eab5df1357b47252fca0280c7297f0d5c0815"
+      },
+      {
+        "page": 14,
+        "path": "/data/ivy-rh-one-prime-20261124/powers/cms-source-review/CMS1708.04122v2_page14.txt",
+        "sha256": "ffb36ec2d1ff63fd7002b267e7b4773d472789e247e47c26543cff446ed7188c"
+      },
+      {
+        "page": 19,
+        "path": "/data/ivy-rh-one-prime-20261124/powers/cms-source-review/CMS1708.04122v2_page19.txt",
+        "sha256": "50218ca8632f76f791b43bf10a18e6702f0f870fe744cead080f9c5995a2acad"
+      },
+      {
+        "page": 24,
+        "path": "/data/ivy-rh-one-prime-20261124/powers/cms-source-review/CMS1708.04122v2_page24.txt",
+        "sha256": "85bc6c9ebdfce5ba936d83b3d5130e45a2ddc44b5b0ef0f051de319cd949f8c7"
+      },
+      {
+        "page": 26,
+        "path": "/data/ivy-rh-one-prime-20261124/powers/cms-source-review/CMS1708.04122v2_page26.txt",
+        "sha256": "a75ba468fff18a8c5ca07d7cc43f00e8d58a6fc671524e069436ad6d0e526f10"
+      }
+    ]
+  },
+  "files": [
+    {
+      "path": "comparisons/CMSKernelNumerics.lean",
+      "sha256": "e2c8b23780989fd7b6c6a991f6489824ae1469c5d9f811cc042bccb93f8044b9",
+      "declarations": [
+        {
+          "physical_LF_line": 21,
+          "declaration_line": "noncomputable def sincPoly (x : ℝ) : ℝ :="
+        },
+        {
+          "physical_LF_line": 24,
+          "declaration_line": "noncomputable def sincUpper (x : ℝ) : ℝ := sincPoly x + x^13/87178291200"
+        },
+        {
+          "physical_LF_line": 26,
+          "declaration_line": "lemma sin_taylor14 (x : ℝ) :"
+        },
+        {
+          "physical_LF_line": 33,
+          "declaration_line": "lemma sinc_le_upper {x : ℝ} (hx : 0 ≤ x) : sinc x ≤ sincUpper x := by"
+        },
+        {
+          "physical_LF_line": 49,
+          "declaration_line": "lemma integral_upper_exact :"
+        },
+        {
+          "physical_LF_line": 58,
+          "declaration_line": "theorem sine_integral_upper : (∫ x in (0 : ℝ)..π, sinc x) ≤ 463/250 := by"
+        },
+        {
+          "physical_LF_line": 75,
+          "declaration_line": "theorem cosine_kernel_numerator_lower :"
+        },
+        {
+          "physical_LF_line": 85,
+          "declaration_line": "theorem cosine_kernel_ratio_lower (hpos : 0 < ∫ x in (0 : ℝ)..π, sinc x) :"
+        },
+        {
+          "physical_LF_line": 91,
+          "declaration_line": "theorem sine_integral_pos : 0 < ∫ x in (0 : ℝ)..π, sinc x := by"
+        },
+        {
+          "physical_LF_line": 98,
+          "declaration_line": "noncomputable def cmsJ : ℝ :="
+        },
+        {
+          "physical_LF_line": 101,
+          "declaration_line": "theorem actual_cmsJ_lower : (2281/2000 : ℝ) ≤ cmsJ :="
+        }
+      ]
+    },
+    {
+      "path": "analytic/CMSPrimeFrontier.lean",
+      "sha256": "708046e3797dfa5c9b16b9363a84620bb24748dd1b35ed49bf5939f5f48f1379",
+      "declarations": [
+        {
+          "physical_LF_line": 22,
+          "declaration_line": "def HasPrimeClosed (x y : ℝ) : Prop :="
+        },
+        {
+          "physical_LF_line": 36,
+          "declaration_line": "def SourceCMS616 : Prop :="
+        },
+        {
+          "physical_LF_line": 43,
+          "declaration_line": "theorem closed_prime_from_margin (hCMS : SourceCMS616) (rh : RiemannHypothesis)"
+        },
+        {
+          "physical_LF_line": 55,
+          "declaration_line": "theorem closed_prime_0877 (hCMS : SourceCMS616) (rh : RiemannHypothesis)"
+        },
+        {
+          "physical_LF_line": 66,
+          "declaration_line": "theorem closed_prime_083 (hCMS : SourceCMS616) (rh : RiemannHypothesis)"
+        },
+        {
+          "physical_LF_line": 76,
+          "declaration_line": "lemma margin_mono_coefficient {c d L : ℝ} (hcd : c ≤ d) (hL : 0 ≤ L) :"
+        },
+        {
+          "physical_LF_line": 84,
+          "declaration_line": "theorem closed_prime_on_slab (hCMS : SourceCMS616) (rh : RiemannHypothesis)"
+        }
+      ]
+    },
+    {
+      "path": "analytic/CMSGeometry.lean",
+      "sha256": "ec4f436624317c6dc613cac0a8155c03ec267dc42a8db8908a0a4289a8917b2b",
+      "declarations": [
+        {
+          "physical_LF_line": 14,
+          "declaration_line": "noncomputable def ratio (c L : ℝ) : ℝ := c * L / exp (L / 2)"
+        },
+        {
+          "physical_LF_line": 15,
+          "declaration_line": "noncomputable def halfLogSpan (c L : ℝ) : ℝ := log (1 + ratio c L) / 2"
+        },
+        {
+          "physical_LF_line": 16,
+          "declaration_line": "noncomputable def mainScale (c L : ℝ) : ℝ :="
+        },
+        {
+          "physical_LF_line": 18,
+          "declaration_line": "noncomputable def logScale (c L : ℝ) : ℝ := log (1 / halfLogSpan c L)"
+        },
+        {
+          "physical_LF_line": 20,
+          "declaration_line": "lemma exp_dominates {L : ℝ} (hL : 44 ≤ L) : 250 * L ^ 2 ≤ exp (L / 2) := by"
+        },
+        {
+          "physical_LF_line": 32,
+          "declaration_line": "lemma ratio_bounds {c L : ℝ} (hc : (4 / 5 : ℝ) ≤ c) (hc1 : c ≤ 1)"
+        },
+        {
+          "physical_LF_line": 43,
+          "declaration_line": "lemma halfLogSpan_pos {c L : ℝ} (hc : (4 / 5 : ℝ) ≤ c) (hc1 : c ≤ 1)"
+        },
+        {
+          "physical_LF_line": 49,
+          "declaration_line": "lemma halfLogSpan_lower {c L : ℝ} (hc : (4 / 5 : ℝ) ≤ c) (hc1 : c ≤ 1)"
+        },
+        {
+          "physical_LF_line": 65,
+          "declaration_line": "lemma logScale_upper {c L : ℝ} (hc : (4 / 5 : ℝ) ≤ c) (hc1 : c ≤ 1)"
+        },
+        {
+          "physical_LF_line": 76,
+          "declaration_line": "lemma mainScale_nonneg {c L : ℝ} (hc : (4 / 5 : ℝ) ≤ c) (hc1 : c ≤ 1)"
+        },
+        {
+          "physical_LF_line": 81,
+          "declaration_line": "lemma mainScale_lower {c L : ℝ} (hc : (4 / 5 : ℝ) ≤ c) (hc1 : c ≤ 1)"
+        }
+      ]
+    },
+    {
+      "path": "analytic/CMSScalarFrontier.lean",
+      "sha256": "ad531351c9b26441b345ea871572171fb34bcb970da595ef86e90deda5fb67c9",
+      "declarations": [
+        {
+          "physical_LF_line": 19,
+          "declaration_line": "theorem log_sub_linear_antitone {a d L B : ℝ}"
+        },
+        {
+          "physical_LF_line": 37,
+          "declaration_line": "noncomputable def jFloor : ℝ := 2281 / 2000"
+        },
+        {
+          "physical_LF_line": 38,
+          "declaration_line": "noncomputable def effectiveCost (c : ℝ) : ℝ := (1 - jFloor * c) / 2"
+        },
+        {
+          "physical_LF_line": 39,
+          "declaration_line": "noncomputable def margin (c L : ℝ) : ℝ :="
+        },
+        {
+          "physical_LF_line": 45,
+          "declaration_line": "theorem obstruction_impossible {c L J m z : ℝ}"
+        },
+        {
+          "physical_LF_line": 59,
+          "declaration_line": "theorem margin_positive_on_slab {c A B L : ℝ}"
+        },
+        {
+          "physical_LF_line": 73,
+          "declaration_line": "theorem tail_margin_positive {L : ℝ} (hL : 0 ≤ L)"
+        },
+        {
+          "physical_LF_line": 82,
+          "declaration_line": "theorem power_two_endpoint {c B : ℝ} (n : ℕ)"
+        },
+        {
+          "physical_LF_line": 97,
+          "declaration_line": "theorem slab_083 {L : ℝ} (hlo : 44 ≤ L) (hhi : L ≤ 60) :"
+        },
+        {
+          "physical_LF_line": 104,
+          "declaration_line": "theorem slab_0844 {L : ℝ} (hlo : 60 ≤ L) (hhi : L ≤ 120) :"
+        },
+        {
+          "physical_LF_line": 111,
+          "declaration_line": "theorem slab_0856 {L : ℝ} (hlo : 120 ≤ L) (hhi : L ≤ 240) :"
+        },
+        {
+          "physical_LF_line": 118,
+          "declaration_line": "theorem slab_0864 {L : ℝ} (hlo : 240 ≤ L) (hhi : L ≤ 480) :"
+        },
+        {
+          "physical_LF_line": 125,
+          "declaration_line": "theorem slab_087 {L : ℝ} (hlo : 480 ≤ L) (hhi : L ≤ 960) :"
+        },
+        {
+          "physical_LF_line": 132,
+          "declaration_line": "theorem slab_0873 {L : ℝ} (hlo : 960 ≤ L) (hhi : L ≤ 1920) :"
+        },
+        {
+          "physical_LF_line": 139,
+          "declaration_line": "theorem slab_0875 {L : ℝ} (hlo : 1920 ≤ L) (hhi : L ≤ 3840) :"
+        },
+        {
+          "physical_LF_line": 146,
+          "declaration_line": "theorem slab_0876 {L : ℝ} (hlo : 3840 ≤ L) (hhi : L ≤ 7680) :"
+        },
+        {
+          "physical_LF_line": 153,
+          "declaration_line": "theorem slab_08765 {L : ℝ} (hlo : 7680 ≤ L) (hhi : L ≤ 15360) :"
+        },
+        {
+          "physical_LF_line": 160,
+          "declaration_line": "theorem tail_0877 {L : ℝ} (hL : 44 ≤ L) :"
+        }
+      ]
+    },
+    {
+      "path": "analytic/CMSOpenTransfer.lean",
+      "sha256": "63790271b6a7824fd899d1c4a9bcd4afe6dd6e2822b787ba32f63536f8bf2d0f",
+      "declarations": [
+        {
+          "physical_LF_line": 16,
+          "declaration_line": "def HasPrimeOpen (x y : ℝ) : Prop :="
+        },
+        {
+          "physical_LF_line": 19,
+          "declaration_line": "lemma sqrt_log_shift {x : ℝ} (hx : 1 ≤ x) :"
+        },
+        {
+          "physical_LF_line": 44,
+          "declaration_line": "lemma large_width {x : ℝ} (hx : exp 44 ≤ x) :"
+        },
+        {
+          "physical_LF_line": 59,
+          "declaration_line": "lemma shifted_window_strictly_inside {c x : ℝ} (hc : 0 ≤ c) (hc1 : c ≤ 1)"
+        },
+        {
+          "physical_LF_line": 73,
+          "declaration_line": "lemma open_of_shifted_closed {c x : ℝ} (hc : 0 ≤ c) (hc1 : c ≤ 1)"
+        },
+        {
+          "physical_LF_line": 83,
+          "declaration_line": "theorem open_prime_08771 (hCMS : SourceCMS616) (rh : RiemannHypothesis)"
+        },
+        {
+          "physical_LF_line": 92,
+          "declaration_line": "lemma shift_below_next_exp {B x : ℝ} (hB : 0 ≤ B) (hx : x ≤ exp B) :"
+        },
+        {
+          "physical_LF_line": 101,
+          "declaration_line": "theorem open_prime_08301 (hCMS : SourceCMS616) (rh : RiemannHypothesis)"
+        }
+      ]
+    }
+  ],
+  "findings": [],
+  "checked_mathematics": [
+    {
+      "claim": "literal_kernel_ratio",
+      "assessment": "H(x)=cos(2pi x)/(1-16x²), F(x)=H(x/.9); source norm equals Si(pi)/2 and leakage equals1-sin(.45pi), hence J=(4sin(.45pi)-3)/(.45Si(pi)); matches cmsJ exactly."
+    },
+    {
+      "claim": "kernel_numerics",
+      "assessment": "Taylor order14 absolute remainder after division by x yields x^13/14!; the integrated remainder coefficient is pi^14/(14*14!). Sinc is sin(x)/x, so the source normalization matches. Positive integral and denominator are proved. Rational lower1.1405 is valid and slack."
+    },
+    {
+      "claim": "source_domain",
+      "assessment": "Source(6.16) retains RH, source no-prime assumption, lambda=.9, .5<=c<=1 and x>=4e18; L>=44 is inside that source domain. Proposed SourceCMS616 is an adapted explicit B premise, not a theorem proved from the old Green/Nicolas/BPT package."
+    },
+    {
+      "claim": "source_window",
+      "assessment": "t=log(1+c L exp(-L/2))/2 and a=exp(L+t) give a exp(-t)=expL and a exp(t)=expL+c sqrt(expL)L. mainScale=sqrt(a)t; logScale=log(1/t). Source closed-no-prime implication is safe even if its proof first uses a half-open interval."
+    },
+    {
+      "claim": "strict_open_transfer",
+      "assessment": "Closed theorem is applied at x+1. Actual geometric lemma spends1/10000 coefficient and proves its right endpoint strictly below the target; left prime>=x+1>x. No silent change of endpoint convention."
+    },
+    {
+      "claim": "continuum",
+      "assessment": "Scalar slab result uses an explicit antitone log-linear function, kernel log(2) bounds at slab endpoints, and real inequalities, not finite sampling."
+    }
+  ],
+  "qualifications": [
+    "RH plus SourceCMS616 is B+D, not Mathlib RH alone. CMS Brun-Titchmarsh, explicit formula, zero counts, kernel Fourier/norm identities and infinite tails remain in the disclosed source predicate.",
+    "Paper Section6.2 already gives optimized lambda .892422 and C(4)>=1.141186=(.8762...)^-1. Beating rounded .88 using its own obstruction is an explicit quantitative sharpening of that printed theorem, not a new extremal kernel or asymptotic novelty claim.",
+    "The literal formula for lambda=.9 evaluates about1.14085154648 in ordinary scouting; paper(6.11) prints1.1405..., an imprecise lower approximation. The formal proof uses the exact formula and a proved lower bound, so this approximation discrepancy causes no material invalidity.",
+    "The finite coefficient .8301 on exp44<=x<=exp59 is not an asymptotic theorem beating .8358.",
+    "Source Lemma7 initially excludes a zero ordinate at its denominator parameter. The subsequent entire kernel has removable singularities; that source-level limiting/continuity interpretation remains inside SourceCMS616, not a new proved Lean zero-ordinate adapter."
+  ]
+}

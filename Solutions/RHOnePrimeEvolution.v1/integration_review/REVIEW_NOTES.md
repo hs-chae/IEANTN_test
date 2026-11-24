@@ -1,0 +1,7 @@
+# Independent canonical consumer review
+
+The first development audit reached all 25 axiom/value gates, then rejected its own final explicit endpoint identity because opening both Lean and Real made an unqualified log ambiguous. The audit identity was corrected to Real.log; original failed compiler evidence remains in integration-review/dev-v1. This was an audit elaboration error, not a mathematical node error.
+
+The development-v2 finite-ceiling control changed <2^64 to ≤2^64. As q is prime and 2^64 composite, this only pinned syntax and did not expand the actual prime domain. The final control instead changes the ceiling to 2^65, which genuinely expands the requested finite range. Preserve dev-v2 as historical evidence and use the corrected final controls. No mathematical finding is claimed from the original equivalent endpoint.
+
+The first genuine hash-executable build requested missing generic native-link C objects and added files to shared generic caches, violating intended read-only cache reuse. It was stopped cleanly after 74.2 seconds; all 373 successful core Lake module receipts and the interrupted hash logs are preserved. All nine generic packages still had clean tracked source. Subsequent writable native-link work uses full exact pinned package copies in owned /data scratch. No shared-cache files were deleted or claimed to have passed an unavailable pre-run full object-hash comparison. See CACHE_CORRECTION.json.

@@ -1,0 +1,102 @@
+#!/usr/bin/env python3
+"""Compile the new frontier consumers against an explicitly supplied proof bank.
+
+This incremental frontdoor reuses frozen accepted application proof objects. It is
+not a claim of a fresh transitive build, official Comparator verification or PV.
+The campaign's combined clean build is separate.
+"""
+from pathlib import Path
+import argparse
+import hashlib
+import json
+import os
+import re
+import subprocess
+import sys
+import time
+
+HERE = Path(__file__).resolve().parent
+MODULES = ['FiniteGapBridge', 'FiniteGapSourceConsumer', 'FiniteGapRefined',
+           'HybridPrimeFrontier', 'HybridSharperPrimeFrontier', 'FiniteGapAudit', 'PopulationFrontier', 'GoldbachExtendedRange',
+           'GoldbachNumericalBand', 'FrontierAudit']
+
+
+def digest(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--context', type=Path, required=True)
+    parser.add_argument('--proof-bank', type=Path, required=True)
+    parser.add_argument('--extra-proof-bank', type=Path, action='append', default=[])
+    parser.add_argument('--out', type=Path, required=True)
+    parser.add_argument('--modules', nargs='+', choices=MODULES,
+                        default=[m for m in MODULES if m != 'FiniteGapAudit'])
+    args = parser.parse_args()
+    ctx = json.loads(args.context.read_text())
+    if not (args.proof_bank / 'OcticOptimizedCertified.olean').is_file():
+        raise ValueError('proof bank lacks frozen octic consumer')
+    args.out.mkdir(parents=True, exist_ok=False)
+    objects = args.out / 'objects'
+    objects.mkdir()
+    sources = args.out / 'source'
+    sources.mkdir()
+    for module in args.modules:
+        (sources / (module + '.lean')).write_bytes((HERE / (module + '.lean')).read_bytes())
+    (args.out / 'reproduce.executed.py').write_bytes(Path(__file__).read_bytes())
+    (args.out / 'CONTEXT.executed.json').write_bytes(args.context.read_bytes())
+    (args.out / 'COMMAND.json').write_text(json.dumps(sys.argv, indent=2)+'\n')
+    compiler = Path(ctx['compiler'])
+    if digest(compiler) != ctx['compiler_sha256']:
+        raise ValueError('compiler identity mismatch')
+    env = os.environ.copy()
+    env['LEAN_PATH'] = ':'.join(map(str, [objects, *args.extra_proof_bank, args.proof_bank, *ctx['generic_libraries']]))
+    env['PYTHONDONTWRITEBYTECODE'] = '1'
+    rows = []
+    started = time.monotonic()
+    for module in args.modules:
+        source = sources / (module + '.lean')
+        obj = objects / (module + '.olean')
+        command = ['/usr/bin/prlimit', '--as=68719476736', '--',
+                   '/usr/bin/time', '-v', str(compiler), '--root=' + str(sources),
+                   '-j2', '-o', str(obj), str(source)]
+        t0 = time.monotonic()
+        process = subprocess.run(command, env=env, capture_output=True)
+        stdout = args.out / (module + '.stdout')
+        stderr = args.out / (module + '.stderr')
+        stdout.write_bytes(process.stdout)
+        stderr.write_bytes(process.stderr)
+        row = {'module': module, 'command': command, 'seconds': time.monotonic()-t0,
+               'returncode': process.returncode, 'source_sha256': digest(source),
+               'stdout_sha256': digest(stdout), 'stderr_sha256': digest(stderr)}
+        if obj.exists():
+            row['object_sha256'] = digest(obj)
+        match = re.search(rb'Maximum resident set size \(kbytes\): (\d+)', process.stderr)
+        if match:
+            row['peak_child_RSS_KiB'] = int(match.group(1))
+        for label, key in [('User time (seconds)', 'user_seconds'),
+                           ('System time (seconds)', 'system_seconds')]:
+            match = re.search(re.escape(label.encode()) + rb': ([0-9.]+)', process.stderr)
+            if match:
+                row[key] = float(match.group(1))
+        rows.append(row)
+        (args.out / 'PROGRESS.json').write_text(json.dumps(rows, indent=2)+'\n')
+        print(module, process.returncode, f'{row["seconds"]:.2f}s', flush=True)
+        if process.returncode != 0:
+            raise RuntimeError('Lean compilation failed: '+module)
+        if b'sorryAx' in process.stdout or b'Lean.ofReduceBool' in process.stdout:
+            raise RuntimeError('unapproved axiom in printed theorem closure')
+    result = {'status': 'PASS_INCREMENTAL_SOURCE_COMPILES', 'modules': rows,
+              'seconds': time.monotonic()-started,
+              'reproduce_sha256': digest(args.out / 'reproduce.executed.py'),
+              'compiler_sha256': digest(compiler),
+              'context_sha256': digest(args.context),
+              'proof_bank': str(args.proof_bank.resolve()),
+              'owned_disk_logical_bytes': sum(p.stat().st_size for p in args.out.rglob('*') if p.is_file()),
+              'boundary': 'kernel-checked conditional mathematics; frozen application objects reused; not source-first PV'}
+    (args.out / 'RESULT.json').write_text(json.dumps(result, indent=2)+'\n')
+
+
+if __name__ == '__main__':
+    main()

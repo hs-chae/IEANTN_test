@@ -1,0 +1,330 @@
+{
+  "status": "COMPLETED_BOUNDED_PRIMARY_REVIEW_AND_ACTUAL_REPRODUCTION_NO_MATERIAL_PAPER_ERROR_FOUND",
+  "updated_utc": "2026-11-24T20:59:50.225125+00:00",
+  "reviewer": "count_frontier; mathematically independent of campaign analytic author",
+  "selection_rule_author": "Root task dated2026-11-24, with relevance extensions explicitly recorded here",
+  "requested_population": [
+    "Theorems1and3;Tables1and3;Eq15\u201321;integerverifier onwitnessgap/grh/ap,G1048576;formalstatus\u00a75;currentfullfunctioncomparison"
+  ],
+  "actual_additional_coverage": [
+    "Theorem2 Eq2 ordinary-RHq1 specializationp10, neededforwholepopulationcomparison",
+    "allfiveTable1 rows independently rerun, notonlythethreeprioritized",
+    "originalArbTheorem3Table3/verifierunchanged",
+    "retunedc=.811writtencompetitor pluskernelpositivityofitsconservative scalar onwholeL44..60"
+  ],
+  "excluded_and_pending": [
+    "No exhaustive review ofeveryexternalcitation orall18manuscriptpages.",
+    "Theorem4globaldualcertificates andfullGRHuniform-qargumentoutsideboundedrequest.",
+    "OriginalLean4.33.1project notindependentlyrebuilt here; actualsource/archivedaxioms/\u00a75 inspected.",
+    "No completeLeanproofofvariable-c extension ofpublishedEq20\u201321.",
+    "No source-to-AST/execution-correctness verification fororiginalPython/Arb/LeanFFT code."
+  ],
+  "primary_identity": {
+    "title": "Rational Fourier certificates for prime gaps, explicit intervals, and arithmetic progressions",
+    "author": "Rafael Blanquer Robles",
+    "date": "2026-11-21",
+    "version": 2,
+    "url": "https://zenodo.org/records/24429650",
+    "doi": "10.5281/zenodo.24429650",
+    "status": "preprint; notpeerreviewed",
+    "live_latest_record_checked": 24429650,
+    "latest_metadata": "/data/ivy-rh-one-prime-20261124/published2026-independent-v1/ZENODO_LATEST.json",
+    "pdf_sha256": "2f15da8545766012902e6dcc46f9bc4daa9951661dae2cc4809b97fd729dc380",
+    "pdf_md5_matches_live": "e62e24f3150ff0e2d8e8d27fb4b89fa8",
+    "supplement_sha256": "e354818288972e88ca0a1cf2b332e1446e1bacc99291c6aa44b26c2f2837fd81",
+    "all45_original_archive_members_match_preserved_source_before_and_after_runs": true
+  },
+  "source_statements": [
+    {
+      "locator": "Theorem1,p1;proof\u00a72.2p6;Table1p5",
+      "hypothesis": "ordinaryRH",
+      "formula": "limsup_n (p_(n+1)-p_n)/(sqrt(p_n)*log(p_n)) <=0.834050619151 <0.834051",
+      "range": "asymptotic; no explicit x-onset",
+      "numerics": "gapwitnessm65;preciseprintedendpointreproducedwithArb, independentintegerbound0.834050622349 is slightlyweaker"
+    },
+    {
+      "locator": "Theorem2 Eq2,p2;ordinaryq1,2 paragraph at end\u00a73,p10",
+      "hypothesis": "Theorem2 GRH generally;forfixedmoduliq1andq2 onlyordinaryRH isrequired explicitly bysource",
+      "formula": "inf{c>0:liminf_x [pi(x+c*sqrt(x)*log(x))-pi(x)]/sqrt(x)>alpha}<min(0.851127043+1.505827*alpha,0.85124642+1.505237*alpha)",
+      "domain": "alpha>=0,ordinaryprimesq1;asymptoticnon-explicitonset;originalcountleft-open/right-closed",
+      "warning": "Printedupperbounds oninfima, notoptimalattainedconstants."
+    },
+    {
+      "locator": "Theorem3,p2;proof\u00a74 pp11\u201314;Table3p14",
+      "hypothesis": "ordinaryRH, NOTGRH despitewitnessfilename-grh",
+      "formula": "forallrealx>=4,existsprimep withx<p<=x+(681/800)*sqrt(x)*log(x)",
+      "count_formula": "forx>=4e18,t=logx, pi(x+(681/800)*sqrt(x)*log(x))-pi(x)>=sqrt(x)/(M*t)*(sigma*t+beta*log((681/800)*t*log(2)/2)-kappa)",
+      "exact_decimal_constants": {
+        "M": "0.692749379842",
+        "sigma": "0.00000164065364394",
+        "beta": "0.78353189999069",
+        "kappa": "1.101508373007"
+      },
+      "example": "atx=1e20,atleast295541549primes",
+      "finite_input": "OHP\u00a72.2/CMS1708.04122v2 Eq1.15p6:allprime11<=p_n<=4e18 satisfygap<log(p_n)^2;exactCMSstatementrechecked."
+    }
+  ],
+  "analytical_checks": [
+    {
+      "locator": "Lemma5,Eqs4\u20135,pp3\u20134",
+      "check": "Tent/Fourier scaling verified: F(u)=sinc(u/m)^2*P(u/m)/m. Periodization sumsinc(t+k)^2=1 givesnorm identity; |P|signchanges arehandled via interpolatingP before convexabsolutevalue, not differentiating|P| twice."
+    },
+    {
+      "locator": "Eq15,p11",
+      "check": "Independentlychecked 2pi,d,Delta=d/(2pi),pole andgamma normalization. Arithmetic transform supportedpositivefrequencies; addingk(i/2) cancelsgamma part down toactualtrivialzero integral. Bothsign zeros andmultiplicities retained."
+    },
+    {
+      "locator": "Eq16,p12",
+      "check": "N_zeta countspositiveordinates andfactor2 coversbothsigns. Scalingu=DeltaT givesmain2integral andcorrectnormlog coefficient. Stieltjesendpoint atQroot hasN-Q=0; O(u^-2)tails removeinfiniteboundary; derivative/logmoments bounded withg0/g1."
+    },
+    {
+      "locator": "Eq17,p12;Eq18,p13",
+      "check": "Layercake componentcount includesallupwardcrossings andrightwingentrance at1; reflection givesfactor2. Semiopenblockswithfloor(s/sqrta)+1 havepositiveextralength andcanbeshiftedto coverbothcomponentends. p=x chargedleftwing;p=x+h staysinterior."
+    },
+    {
+      "locator": "Eq19,p13",
+      "check": "Eachk>=2 rootdifference <=lambda*sqrt(Yplus), weight<=M*log(Yplus)/(2sqrt(Yminus)), atmostlog(Yplus)/log2 exponents. Replacementt->tstar usesdecreaseoft^j*exp(-t/2), j<=3,tstar>6."
+    },
+    {
+      "locator": "Eq20,p13;Eq21/Table3,p14",
+      "check": "Interiorlog/sqrtweight monotonic, polecoefficientpositive, d*sqrt(a)>=ct/2-.001 andlog(1/d)<=t/2-log(c*t*log2/2) signs align. OriginalArbconstantchecks andsmallx/endpointguards allpassedunchanged."
+    }
+  ],
+  "formal_status": {
+    "locator": "\u00a75,p15;certificates/lean/PrimeGapAudit/AnalyticBridge.lean:261\u2013335;Certificate.lean:279\u2013306;lean-axioms.txt",
+    "proved_in_original_source": "Integrability/periodicquadrature pluskernelrationalmargin/fixedpointparameter arithmetic forbaseline0.83412 and0.85125 atG2^18.",
+    "native_assisted": "TwoFFTsample-sumfacts use native_decide; archivedaxioms include named native_decide.ax leaves.",
+    "remaining_hypotheses": "AnalyticVerification fields Fourieridentification/denominatoridentification/normBound; normbridge retainsperiodization/FFTrounding inputs; RH/GRH adapters take the analyticreduction asparameter.",
+    "not_claimed": "Not a fullMathlibRH-onlyproof ofpaperTheorems1or3; notsource-firstPV. This isdisclosedbythepaper andisnotitselfamathematicalrefutation."
+  },
+  "matched_comparison_findings": [
+    {
+      "type": "currentbenchmarklimitation_not_an_errorintheLeanbound",
+      "a_actual_formal_side": {
+        "declaration": "RHOnePrime.Hybrid.all_real_open_08768",
+        "file": "frontier/HybridSharperPrimeFrontier.lean",
+        "formula": "SourceGapB+SourceCMS616+RH ->forallrealx>=exp24,existsprimep:x<p<x+0.8768sqrt(x)log(x)",
+        "blueprint": "No standaloneBlueprintlabel;newmoduleimportsactualprime-sourceconsumers;inheritedcountnodePrimeInterval.v4 isseparate.",
+        "physical_LF_line": 14,
+        "source_sha256": "ba3816211c97852c438b986c568c4491b0d06586307f74d608c07cb353cca479"
+      },
+      "b_primary_source": {
+        "locator": "BlanquerRobles2026v2 Theorem3,p2",
+        "formula": "RH ->forallrealx>=4,existsprimep:x<p<=x+0.85125sqrt(x)log(x)"
+      },
+      "c_precise_effect": "0.8768>0.85125 andexp24>4; currentuniformcoefficient isnot a newglobalrecord. Endpointstrictnessdiffers andmustbehandled, butcannotjustifyexcludingthestrongerpaper. Ourfiniteabsolute1551 branch usesdifferent/largerfinitegapinput andmustbecomparedseparately."
+    },
+    {
+      "type": "correctedcomparatorcoverage_not_afalsehistoricaltheorem",
+      "a_actual_formal_side": {
+        "declaration": "RHOnePrime.Frontier.displayed_curve_comparison",
+        "file": "frontier/PopulationFrontier.lean",
+        "formula": "oldChirrecurve0.8358(1+2alpha),crossing10033/29152",
+        "blueprint": "NostandaloneBlueprintlabel;inheritedPrimeInterval.v4 genericcount isactualinput.",
+        "physical_LF_line": 30,
+        "source_sha256": "10017bceb93b0db876d1cc7c4b57e2d97362cbf5b17263a47b6918695eaa6d01"
+      },
+      "b_primary_source": {
+        "locator": "BlanquerRobles2026v2 Theorem2 Eq2,p2;ordinaryq1paragraphp10",
+        "formula": "min(0.851127043+1.505827alpha,0.85124642+1.505237alpha)"
+      },
+      "c_precise_effect": "The oldcomparisonremainscorrectbutisnotthecompletecurrentcomparator. Newexactkernelproofgivescrossing17267233/38023700\u22480.4541176424.Atalpha1,ours2.14891875<2.35648342;actualwidthdomain[1.03,16],explicitvsasymptoticandsmallpositiveepsilonforstrictliminfstayvisible."
+    },
+    {
+      "type": "crediblefullfunctioncounterfactual_competitor_notastatedpublishedtheorem",
+      "a_actual_formal_side": {
+        "declaration": "RHOnePrime.CMSTight.open_prime_08185",
+        "file": "analytic/CMSTightSlab.lean",
+        "formula": "SourceCMS616+RH,exp44<=x<=exp59,strict-openprimewindow0.8185sqrt(x)log(x)",
+        "blueprint": "No standaloneBlueprintlabel for thisslabconsumer.",
+        "physical_LF_line": 65,
+        "source_sha256": "3b0245febff87cf74e719083efb7a7e779f428cf16bd9b8dedd119d1196138c8"
+      },
+      "b_primary_source": {
+        "locator": "BlanquerRobles2026v2 Eq15\u201321,pp11\u201314;Table3p14",
+        "formula": "Kx>=sqrt(x)/(M*t)*[(c*D-U)*t/2+U*log(c*t*log2/2)-.001D-K],fixedc681/800intheprintedpaper"
+      },
+      "c_precise_effect": "Retainingoldmax-cbudgets for0<c<=681/800 givesawrittenparameterextension; c=.811 haspositiveconservative margin overL44..60, nowkernelproved>=.0007. Provedgenericendpointshiftwouldgive.8111strict-openonL44..59, crediblebetterthan.8185. AnalyticparameterextensionandFourierkernelcertificateareNOTclosedinLeanhere;notpromotedtoverifiednetwork."
+    }
+  ],
+  "retuned_allowance_derivation": [
+    {
+      "term": "c*D*t/2",
+      "source": "Eq20\u201321/Table3,p14",
+      "bound": "atc=.811,useD>=.92045248904315389 =>positive-mainterm>=c*D_lower*t/2"
+    },
+    {
+      "term": "-U*t/2",
+      "source": "Eq21/Table3,p14",
+      "bound": "U<=.78353189999070 =>negative-leadingterm>=-U_upper*t/2"
+    },
+    {
+      "term": "+U*log(c*t*log2/2)",
+      "source": "Eq21/Table3,p14",
+      "bound": "logarithmpositiveonL44..60;U>=.78353189999069 =>term>=U_lower*log(c*t*log2/2)"
+    },
+    {
+      "term": "-.001D-K",
+      "source": "Eq21/Table3,p14",
+      "bound": "fixedmax-cDandKretained; .001D+K<1.101508373007 =>constantterm>-kappa_upper"
+    },
+    {
+      "term": "uniformparameterbudgets",
+      "source": "\u00a74setup,p11;Eqs16,18,19,pp12\u201313",
+      "bound": "c<=cstar impliesactuald<=old_dstar; keepoldlambda*,Delta*,Yminus*,D,K envelopes. Polelowercoefficientis deliberately keptatoldDsoits-.001D allowancealso staysold. Writtenargument,not a newassumedLeanreduction."
+    },
+    {
+      "term": "wholecontinuum",
+      "source": "newRetunedPublishedScalar.lean,actualkernelreceipt",
+      "bound": "Pade2u/(u+2)+Mathliblog2bound provesendpointslargerthan.0007; logconcavity givesmargin>=.0007 forEVERYreal44<=t<=60."
+    }
+  ],
+  "actual_resources": [
+    {
+      "run": "integer-grid20",
+      "result_sha256": "dae347e22dc2ad819d54b87399b131ab7524589b97e46bf631e4bf58fb011e35",
+      "seconds": 16.632691141217947,
+      "status": "PASS_ORIGINAL_INTEGER_VERIFIER_THREE_WITNESSES_GRID2POW20",
+      "actual_peak_child_RSS_KiB": 203212,
+      "user_seconds": 16.33,
+      "system_seconds": 0.29,
+      "observed_process_OOM_events": 0
+    },
+    {
+      "run": "original-Arb-three",
+      "result_sha256": "2468e3a017bc11a7228b9e70c11d5b2f46592392a169784e395e393e598b1865",
+      "seconds": 5.545150155201554,
+      "status": "PASS_UNCHANGED_ORIGINAL_ARb_THREE_FOURIER_QUOTIENTS",
+      "actual_peak_child_RSS_KiB": 334736,
+      "user_seconds": 5.09,
+      "system_seconds": 0.44,
+      "observed_process_OOM_events": 0
+    },
+    {
+      "run": "original-explicit-Arb",
+      "result_sha256": "dff48571dc14b3a82ef248658b184e92f24c356b8011f358e8ec4e4c148ee012",
+      "seconds": 1.9248791504651308,
+      "status": "PASS_UNCHANGED_ORIGINAL_ARb_EXPLICIT_AND_TABLE3_CONSTANT_CHECKS",
+      "actual_peak_child_RSS_KiB": 336212,
+      "user_seconds": 1.76,
+      "system_seconds": 0.16,
+      "observed_process_OOM_events": 0
+    },
+    {
+      "run": "exact-curve-kernel01",
+      "result_sha256": "2483de252e3bef19ae25f30d0349b48fd8c45542ea7da6b7cb6f93f31b76af59",
+      "seconds": 4.726347658783197,
+      "status": "PASS_KERNEL_ALGEBRA_ONLY_NOT_ANALYTIC_SOURCE_PROOF",
+      "actual_peak_child_RSS_KiB": 6881692,
+      "user_seconds": 2.92,
+      "system_seconds": 2.05,
+      "observed_process_OOM_events": 0
+    },
+    {
+      "run": "retuned-scalar-kernel02",
+      "result_sha256": "2632cd8d769d6def19e17759e222afa9d9e14bc3aeaccd579276fb0e6d88730f",
+      "seconds": 5.761291829869151,
+      "status": "PASS_KERNEL_ALGEBRA_ONLY_NOT_ANALYTIC_SOURCE_PROOF",
+      "actual_peak_child_RSS_KiB": 6897808,
+      "user_seconds": 4.38,
+      "system_seconds": 1.93,
+      "observed_process_OOM_events": 0
+    },
+    {
+      "run": "remaining_Table1_integer",
+      "seconds": 11.47709689848125,
+      "actual_peak_child_RSS_KiB": 203432,
+      "observed_process_OOM_events": 0
+    },
+    {
+      "run": "remaining_Table1_Arb",
+      "seconds": 3.7888005543500185,
+      "actual_peak_child_RSS_KiB": 334800,
+      "observed_process_OOM_events": 0
+    }
+  ],
+  "reproduction": {
+    "script": "comparisons/Published2026Review/reproduce_published.py",
+    "script_sha256": "860a8e5c11d7bfaf794451433608311035156bc24ee31b63909cc8cfab9f190c",
+    "actual_default_clean_setup_and_reproduction_receipt": "/data/ivy-rh-one-prime-20261124/published2026-independent-v1/reproduction01/RESULT.json",
+    "postcheck_three_modes": "/data/ivy-rh-one-prime-20261124/published2026-independent-v1/postcheck-controls01/RESULT.json",
+    "exact_kernel_proofs": [
+      {
+        "file": "comparisons/Published2026Review/WholePopulationComparison2026.lean",
+        "sha256": "ebfdee48013c55b107710bb30b963a21c096cefc79e43f287b12d9f5b3657f8b",
+        "declarations": [
+          {
+            "name": "displayed_curve_iff",
+            "physical_LF_line": 26
+          },
+          {
+            "name": "nonnegative_density_curve_iff",
+            "physical_LF_line": 40
+          },
+          {
+            "name": "active_paper_branch",
+            "physical_LF_line": 44
+          },
+          {
+            "name": "exact_alpha_one",
+            "physical_LF_line": 49
+          },
+          {
+            "name": "exact_alpha_zero",
+            "physical_LF_line": 57
+          }
+        ],
+        "actual_receipt_sha256": "2483de252e3bef19ae25f30d0349b48fd8c45542ea7da6b7cb6f93f31b76af59",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "scope": "kernelrealconstant/algebra/logconcavityproofsONLY; not sourceanalyticalreduction orFFTprogramproof"
+      },
+      {
+        "file": "comparisons/Published2026Review/RetunedPublishedScalar.lean",
+        "sha256": "0773ce7df108810de9559e6d215d633b95b36f57051231973785175499519017",
+        "declarations": [
+          {
+            "name": "endpoint44",
+            "physical_LF_line": 24
+          },
+          {
+            "name": "endpoint60",
+            "physical_LF_line": 40
+          },
+          {
+            "name": "whole_slab_lower",
+            "physical_LF_line": 58
+          },
+          {
+            "name": "whole_slab_positive",
+            "physical_LF_line": 83
+          }
+        ],
+        "actual_receipt_sha256": "2632cd8d769d6def19e17759e222afa9d9e14bc3aeaccd579276fb0e6d88730f",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "scope": "kernelrealconstant/algebra/logconcavityproofsONLY; not sourceanalyticalreduction orFFTprogramproof"
+      }
+    ],
+    "random_seeds": "none;fixedrationalwitnesses/grid",
+    "resource_policy": "64GiBAScap and7200sCPUcappernumericalrun,actualneedsfarbelowcap; no obsolete4GiBlimit",
+    "source_first_PV": false,
+    "peak_disk": "notcontinuouslysampled;finalownedusageandcleanupseparatelyrecorded",
+    "cleanup": "verifiedregenerableduplicatedvenvremoved55599104allocatedfilebytes;alloriginalsources,45-filearchive,acceptedproofobjects,smallcertificatesandresultsretained;firstvenvkeptforactivecampaignuse"
+  },
+  "further_written_only_route": {
+    "source": "PaperTheorem1/CMSordinary-RHgaproute withF_gap; paper\u00a73 peak-height commentp10",
+    "exact_witness_peak": "0.673955774603",
+    "ordinary_Fourier_penalty": "36/11",
+    "ordinary_slope_from_exact_rational_nodes": "2M/D=1.499774280230712...",
+    "candidate_upper_curve": ".834050623+1.499775alpha",
+    "status": "WRITTEN_DERIVED_CANDIDATE_ONLY_NOT_THE_PAPERS_STATED_THEOREM2_NOT_LEAN_PROVED_NOT_A_GLOBAL_STANDINGS_CLAIM",
+    "reason": "A peak-height version oftheordinaryCMSgap reduction would use(norm+2alphaM)/D;needs explicit proof-levelgeneralization beforecounting itasatheorem. LiteralprintedEq2comparisonremains17267233/38023700."
+  }
+}

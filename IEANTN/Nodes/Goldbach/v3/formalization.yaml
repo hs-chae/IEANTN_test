@@ -1,0 +1,88 @@
+version: v0.4
+node:
+  id: Goldbach.v3
+  family: Goldbach
+  version: v3
+  kind: pipeline
+  status: awaiting-verification
+project:
+  name: Goldbach.v3
+  description: New non-Ramanujan arithmetic consumers of the frozen strict octic count
+    family, preserving earlier versions and exact finite-input boundaries.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+conclusions:
+- id: sorted_count_extended
+  declaration: Goldbach.v3.sorted_count_extended
+  challenge: Goldbach.v3.challenge_sorted_count_extended
+  imports:
+  - node: PrimeInterval.v4
+    conclusion: optimized_strict_family
+  imports_status: identified
+  justifications:
+  - id: local-conditional-kernel-proof
+    kind: lean-noncompliant
+    note: Actual typed conditional proof in Solutions/Goldbach.v3/Solution.lean and
+      Solutions/RHOnePrimeEvolution.v1/frontier. Official Comparator dispatch/receipt
+      pending; source-closure packaging and local compiler/value/axiom evidence are
+      recorded separately. No native execution axiom or source-first PV claim.
+  designated: local-conditional-kernel-proof
+- id: sorted_count_full_finite_range
+  declaration: Goldbach.v3.sorted_count_full_finite_range
+  challenge: Goldbach.v3.challenge_sorted_count_full_finite_range
+  imports:
+  - node: PrimeInterval.v4
+    conclusion: optimized_strict_family
+  imports_status: identified
+  justifications:
+  - id: local-conditional-kernel-proof
+    kind: lean-noncompliant
+    note: Actual typed conditional proof in Solutions/Goldbach.v3/Solution.lean and
+      Solutions/RHOnePrimeEvolution.v1/frontier. Official Comparator dispatch/receipt
+      pending; source-closure packaging and local compiler/value/axiom evidence are
+      recorded separately. No native execution axiom or source-first PV claim.
+  designated: local-conditional-kernel-proof
+- id: sorted_count_750m_band
+  declaration: Goldbach.v3.sorted_count_750m_band
+  challenge: Goldbach.v3.challenge_sorted_count_750m_band
+  imports:
+  - node: PrimeInterval.v4
+    conclusion: optimized_strict_family
+  imports_status: identified
+  justifications:
+  - id: local-conditional-kernel-proof
+    kind: lean-noncompliant
+    note: Actual typed conditional proof in Solutions/Goldbach.v3/Solution.lean and
+      Solutions/RHOnePrimeEvolution.v1/frontier. Official Comparator dispatch/receipt
+      pending; source-closure packaging and local compiler/value/axiom evidence are
+      recorded separately. No native execution axiom or source-first PV claim.
+  designated: local-conditional-kernel-proof
+sources:
+- id: RHOnePrimeEvolution20261124
+  title: One-prime and non-Ramanujan network evolution
+  authors:
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: Project-internal new elementary transfers, not externally attributed new theorems.
+    Sources/assumptions for the inherited count statement are recorded in PrimeInterval.v4
+    and its predecessor inputs.
+limitations:
+- Original node versions and outcomes are unchanged. Official Comparator verification
+  is pending; no author-written workflow receipt is supplied.
+- The imported count statement ultimately remains conditional on RH and the general
+  Green/Nicolas/BPT source propositions; numerical moment checks are kernel verification,
+  not source-first PV.
+- Finite binary Goldbach remains an explicit antecedent inside each conclusion. Its
+  computation is not newly verified or labelled PV.

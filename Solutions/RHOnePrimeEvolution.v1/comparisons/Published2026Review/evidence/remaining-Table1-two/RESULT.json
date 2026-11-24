@@ -1,0 +1,94 @@
+{
+  "status": "PASS_TWO_REMAINING_TABLE1_WITNESSES_INTEGER_AND_ARB",
+  "runs": [
+    {
+      "label": "integer",
+      "command": [
+        "/usr/bin/prlimit",
+        "--as=68719476736",
+        "--cpu=7200",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "python3",
+        "-B",
+        "/data/ivy-rh-one-prime-20261124/published-fourier-2026-source-v1/certificates/certify_integer.py",
+        "/data/ivy-rh-one-prime-20261124/published-fourier-2026-source-v1/certificates/witness-rh.json",
+        "/data/ivy-rh-one-prime-20261124/published-fourier-2026-source-v1/certificates/witness-grh-m80.json",
+        "--grid-size",
+        "1048576"
+      ],
+      "seconds": 11.47709689848125,
+      "outputs": [
+        {
+          "file": "witness-rh.json",
+          "threshold": "20853/25000",
+          "grid_size": 1048576,
+          "ratio_upper_bound": "0.834116470085",
+          "fft_error_upper": "0.000000000000001457079626",
+          "integration_error_upper": "0.000000135128749005",
+          "margin_lower": "16052578409284789381951514957548876629183647111995914379/5076275991661864704000000000000000000000000000000000000000000"
+        },
+        {
+          "file": "witness-grh-m80.json",
+          "threshold": "170233/200000",
+          "grid_size": 1048576,
+          "ratio_upper_bound": "0.851163425373",
+          "fft_error_upper": "0.000000000000002118183022",
+          "integration_error_upper": "0.000000383360887540",
+          "margin_lower": "25029177814252758142849634388493531401172556063052375104513/17276305161883922547148800000000000000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "label": "Arb",
+      "command": [
+        "/usr/bin/prlimit",
+        "--as=68719476736",
+        "--cpu=7200",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "/data/ivy-rh-one-prime-20261124/published2026-independent-v1/venv/bin/python",
+        "-B",
+        "/data/ivy-rh-one-prime-20261124/published-fourier-2026-source-v1/certificates/certify.py",
+        "/data/ivy-rh-one-prime-20261124/published-fourier-2026-source-v1/certificates/witness-rh.json",
+        "/data/ivy-rh-one-prime-20261124/published-fourier-2026-source-v1/certificates/witness-grh-m80.json",
+        "--grid-size",
+        "1048576"
+      ],
+      "seconds": 3.7888005543500185,
+      "outputs": [
+        {
+          "file": "witness-rh.json",
+          "m": 55,
+          "support": "275/55",
+          "A": "36/11",
+          "threshold": "20853/25000",
+          "grid_size": 1048576,
+          "F_zero": "[1.000000000000236363636363636 +/- 3.69e-28]",
+          "positive_tail": "[0.03182359903591590909124170431 +/- 1.90e-30]",
+          "L1_upper_bound": "[0.7472432709270586538951016038 +/- 1.98e-30]",
+          "interpolation_error": "[1.333667295888371667212190241e-7 +/- 5.89e-36]",
+          "ratio_upper_bound": "[0.8341164681180581403351159423 +/- 3.38e-29]",
+          "margin": "[3.164036577191624651569430042e-6 +/- 3.88e-34]"
+        },
+        {
+          "file": "witness-grh-m80.json",
+          "m": 80,
+          "support": "400/80",
+          "A": "4",
+          "threshold": "170233/200000",
+          "grid_size": 1048576,
+          "F_zero": "[1.000000000000162500000000000 +/- 3.62e-29]",
+          "positive_tail": "[0.01998403304477109466907555260 +/- 1.45e-30]",
+          "L1_upper_bound": "[0.7831247082975026777967400206 +/- 3.20e-29]",
+          "interpolation_error": "[3.783620302861521898538889288e-7 +/- 3.62e-35]",
+          "ratio_upper_bound": "[0.8511634199396627495352212102 +/- 2.05e-29]",
+          "margin": "[1.453756425281339745208444467e-6 +/- 3.34e-34]"
+        }
+      ]
+    }
+  ],
+  "boundary": "ordinarynumericE; no kernel/source-firstPV claim"
+}
