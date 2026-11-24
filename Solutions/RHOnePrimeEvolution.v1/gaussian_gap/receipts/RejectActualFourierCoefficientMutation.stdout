@@ -1,0 +1,25 @@
+/data/ivy-rh-one-prime-20261124/gaussian-gap/final-acceptance-v1/source/RejectActualFourierCoefficientMutation.lean:16:77: error: unsolved goals
+⊢ False
+/data/ivy-rh-one-prime-20261124/gaussian-gap/final-acceptance-v1/source/RejectActualFourierCoefficientMutation.lean:21:65: error: Tactic `decide` failed for proposition
+  evenTransformCoeffs normEvenSource = wingSource
+because its `Decidable` instance
+  instDecidableEqList (evenTransformCoeffs normEvenSource) wingSource
+did not reduce to `isTrue` or `isFalse`.
+
+Reduction got stuck at the `Decidable` instance
+  match evenTransformCoeffs normEvenSource with
+  | [] =>
+    match wingSource with
+    | [] => isTrue ⋯
+    | head :: tail => isFalse ⋯
+  | a :: as =>
+    match wingSource with
+    | [] => isFalse ⋯
+    | b :: bs =>
+      match decEq a b with
+      | isTrue hab =>
+        match as.hasDecEq bs with
+        | isTrue habs => isTrue ⋯
+        | isFalse nabs => isFalse ⋯
+      | isFalse nab => isFalse ⋯
+'RHOnePrime.GaussianFourier.actual_even_transform' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

@@ -1,0 +1,5 @@
+# Preserved development failures
+
+consumer-v1 failed because the explicit numerical proof-bank search path omitted the LeanCert foundation. consumer-v2 resolved that bank using the fresh30source numerical replay, then rejected an audit-owned identifier containing reserved uppercase Sigma in the population proof. The gap, denominator, genuine Fourier eligibility and objective proofs already printed only Std3; the failed population compilation printed sorryAx and was rejected (no object accepted). Rename to hsum fixes the lexer error. No explicit sorry/axiom was introduced. Original failed receipts/logs remain unchanged.
+
+canonical-dev-v1 compiled all new vocabulary, source modules, numerical eligibility, direct ANT consumers and both numerical-node adapters. Its final canonical ANT module was correctly rejected because Lean resolved the IEANTN prefix from the new object directory and did not fall through to a later bank for the unchanged RH interface. The correction is to compile the three unchanged RH vocabulary/interface sources in the same fresh output, not to weaken an input or reuse a Challenge proof.

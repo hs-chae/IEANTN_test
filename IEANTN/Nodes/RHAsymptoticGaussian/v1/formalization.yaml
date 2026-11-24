@@ -1,0 +1,108 @@
+version: v0.4
+node:
+  id: RHAsymptoticGaussian.v1
+  family: RHAsymptoticGaussian
+  version: v1
+  kind: pipeline
+  status: awaiting-verification
+project:
+  name: RHAsymptoticGaussian.v1
+  description: A certified polynomial-Gaussian Fourier witness propagates to asymptotic
+    normalized prime gaps and an entire population-width curve, with generic published
+    CMS inputs explicit.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+conclusions:
+- id: normalized_gap
+  declaration: RHAsymptoticGaussian.v1.normalized_gap
+  challenge: RHAsymptoticGaussian.v1.challenge_normalized_gap
+  imports:
+  - node: CMSFunctionalInput.v1
+    conclusion: gap_reduction
+  - node: RH.v1
+    conclusion: hypothesis
+  - node: GaussianFourierWitness.v1
+    conclusion: objective_witness
+  imports_status: identified
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: Actual complete Lean proof in the corresponding Solution adapter and Solutions/RHOnePrimeEvolution.v1/gaussian_gap/.
+      Numerical Fourier/integral proofs and exact type/value/axiom audits remain separate
+      from the pending official Comparator receipt. No source-first PV claim.
+  designated: local-kernel-proof
+- id: gap_below_printed_2026
+  declaration: RHAsymptoticGaussian.v1.gap_below_printed_2026
+  challenge: RHAsymptoticGaussian.v1.challenge_gap_below_printed_2026
+  imports:
+  - node: RHAsymptoticGaussian.v1
+    conclusion: normalized_gap
+  imports_status: identified
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: Actual complete Lean proof in the corresponding Solution adapter and Solutions/RHOnePrimeEvolution.v1/gaussian_gap/.
+      Numerical Fourier/integral proofs and exact type/value/axiom audits remain separate
+      from the pending official Comparator receipt. No source-first PV claim.
+  designated: local-kernel-proof
+- id: population_curve
+  declaration: RHAsymptoticGaussian.v1.population_curve
+  challenge: RHAsymptoticGaussian.v1.challenge_population_curve
+  imports:
+  - node: CMSFunctionalInput.v1
+    conclusion: population_reduction
+  - node: RH.v1
+    conclusion: hypothesis
+  - node: GaussianFourierWitness.v1
+    conclusion: objective_witness
+  imports_status: identified
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: Actual complete Lean proof in the corresponding Solution adapter and Solutions/RHOnePrimeEvolution.v1/gaussian_gap/.
+      Numerical Fourier/integral proofs and exact type/value/axiom audits remain separate
+      from the pending official Comparator receipt. No source-first PV claim.
+  designated: local-kernel-proof
+- id: population_count
+  declaration: RHAsymptoticGaussian.v1.population_count
+  challenge: RHAsymptoticGaussian.v1.challenge_population_count
+  imports:
+  - node: RHAsymptoticGaussian.v1
+    conclusion: population_curve
+  imports_status: identified
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: Actual complete Lean proof in the corresponding Solution adapter and Solutions/RHOnePrimeEvolution.v1/gaussian_gap/.
+      Numerical Fourier/integral proofs and exact type/value/axiom audits remain separate
+      from the pending official Comparator receipt. No source-first PV claim.
+  designated: local-kernel-proof
+sources:
+- id: CMS2019
+  title: Fourier optimization and prime gaps
+  authors:
+  - Emanuel Carneiro
+  - Micah B. Milinovich
+  - Kannan Soundararajan
+  type: paper
+  relationship: adapts
+  url: https://arxiv.org/abs/1708.04122v2
+  note: Theorem3/Corollary4 and optimization definition(1.3), B definition/bound(1.11)-(1.12);
+    no H-only explicit-onset reduction is used for the Gaussian.
+limitations:
+- Source mathematical reductions remain explicit literature-backed inputs; this is
+  not RH-only derivation inside Mathlib.
+- No explicit onset, global best-known claim, optimality, or source-first PV is asserted.
+- Population intervals use the exact source half-open endpoint convention and require
+  positive width epsilon.

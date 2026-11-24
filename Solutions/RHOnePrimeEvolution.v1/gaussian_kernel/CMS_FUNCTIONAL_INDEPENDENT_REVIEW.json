@@ -1,0 +1,81 @@
+{
+  "status": "INDEPENDENT_PRIMARY_FORMULA_AND_DERIVED_INTERFACE_REVIEW_PASS_AT_RECORDED_SOURCE_HASHES",
+  "reviewer": "powers_network",
+  "scope": "Exact source-facing generic CMS functional gap/population interfaces; no claim of full original Iwaniec proof audit",
+  "source": {
+    "file": "Solutions/RHOnePrimeEvolution.v1/sources/CMS1708.04122v2.pdf",
+    "sha256": "45b6c7f991831a2dc456c10285206cb17a53ef46c6ae15e43cfa5671554b0dce",
+    "locators": [
+      "p2 Eq1.3 definitionofC+(A) andclassA+",
+      "p5 Eq1.11 definitionofBrunTitchmarshB",
+      "p5 Eq1.12 1<=B<=36/11",
+      "p5 Theorem3 Eq1.13",
+      "p5 Corollary4 Eq1.14"
+    ]
+  },
+  "blueprint": "No standalone Blueprint label for this new functional interface; IEANTN/Vocabulary/CMSFunctional.lean is its definitions-only imported vocabulary",
+  "checked_sources": [
+    {
+      "file": "IEANTN/Vocabulary/CMSFunctional.lean",
+      "sha256": "40390e5de266dccbc335698017508711afc271e67618ecdfe91084935db92c28"
+    },
+    {
+      "file": "Solutions/RHOnePrimeEvolution.v1/gaussian_gap/CMSFunctionalGapSource.lean",
+      "sha256": "c1240aee4690ef9cb5a48bfa89b716d1049b52acd9e3d7c3c65da9e2fd8a1846"
+    },
+    {
+      "file": "Solutions/RHOnePrimeEvolution.v1/gaussian_gap/CMSPopulationFunctionalSource.lean",
+      "sha256": "6e764fd06ed71a947256949829e92ba3bd9df64eeba0d1c90f22db290ba38a85"
+    }
+  ],
+  "actual_Lean_declarations": [
+    {
+      "file": "IEANTN/Vocabulary/CMSFunctional.lean",
+      "declaration": "IEANTN.CMSFunctional.Eligible",
+      "line": 24,
+      "source_sha256": "40390e5de266dccbc335698017508711afc271e67618ecdfe91084935db92c28"
+    },
+    {
+      "file": "IEANTN/Vocabulary/CMSFunctional.lean",
+      "declaration": "IEANTN.CMSFunctional.SourceCMSFunctional",
+      "line": 54,
+      "source_sha256": "40390e5de266dccbc335698017508711afc271e67618ecdfe91084935db92c28"
+    },
+    {
+      "file": "IEANTN/Vocabulary/CMSFunctional.lean",
+      "declaration": "IEANTN.CMSFunctional.SourceCMSPopulation",
+      "line": 77,
+      "source_sha256": "40390e5de266dccbc335698017508711afc271e67618ecdfe91084935db92c28"
+    },
+    {
+      "file": "Solutions/RHOnePrimeEvolution.v1/gaussian_gap/CMSFunctionalGapSource.lean",
+      "declaration": "RHOnePrime.CMSFunctional.zero_based_of_paper",
+      "line": 21,
+      "source_sha256": "c1240aee4690ef9cb5a48bfa89b716d1049b52acd9e3d7c3c65da9e2fd8a1846"
+    },
+    {
+      "file": "Solutions/RHOnePrimeEvolution.v1/gaussian_gap/CMSPopulationFunctionalSource.lean",
+      "declaration": "RHOnePrime.CMSFunctional.population_from_functional",
+      "line": 29,
+      "source_sha256": "6e764fd06ed71a947256949829e92ba3bd9df64eeba0d1c90f22db290ba38a85"
+    }
+  ],
+  "primary_source_claims": {
+    "Cplus": "supremum of(F0-A*exterior_positive_Fourier_integral)/L1norm overnonzeroevencontinuousrealL1functions",
+    "B": "limsup[pi(x+sqrtx)-pi(x)]/(sqrtx/logx),with1<=B<=36/11",
+    "population": "RH=>inf{c>0:liminf normalizedhalfopencount>alpha}<=(1+2alpha)/Cplus(B),alpha>=0",
+    "gaps": "RH=>limsup consecutiveprimegap/(sqrtprime*logprime)<=1/Cplus(B)"
+  },
+  "derived_allowance_steps": [
+    "Actual Fourier identification ties suppliedGtoFhat; exterior{|t|>1}equalscomplementof[-1,1].",
+    "LeakJ>=0, A=36/11>=B, so F0-BJ>=F0-AJ=dA>0.",
+    "The actual eligible nonzero continuous integrable F has massm>0; hence Cplus(B)>=dA/m>0.",
+    "Reciprocal monotonicity gives1/Cplus(B)<=m/dA, exactly the generic gap source input.",
+    "Multiply by nonnegative1+2alpha forpopulation; the formal consumer requires strictc>(1+2alpha)*ratio andusesnonempty-infimum approximation plus upward closure.",
+    "GoodCoefficient usesanactualpositiveeventualmargin, equivalenttosourcestrictliminf>alpha; noinfimumattainmentorfiniteexplicitonsetisclaimed.",
+    "Sourceprimeindex1 shiftsformalzero-basedNat.nthby1; eventualstatementsignorethetotalizedindex0convention."
+  ],
+  "material_mismatch_found": false,
+  "source_boundary": "These are explicit universal literature-backed B propositions. Neither SourceCMSFunctional nor SourceCMSPopulation is proved from RH in Lean; they are never registered as new axioms. Fourier/numerical coefficients are absentfromthe universal source inputs.",
+  "antecedent_limit": "CMS Eq1.12 directlystatesandattributesB<=36/11toIwaniecTheorem14. This review checked the named CMS statement, not a separate original-Iwaniec source claim."
+}

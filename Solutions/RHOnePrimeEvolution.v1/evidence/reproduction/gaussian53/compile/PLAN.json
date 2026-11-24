@@ -1,0 +1,590 @@
+{
+  "status": "FROZEN_SOURCE_PLAN_NOT_ACCEPTANCE",
+  "roots": [
+    "GaussianCanonicalAudit",
+    "GaussianAsymptoticConsumers",
+    "GaussianFourierWitnessSolution",
+    "RHAsymptoticGaussianSolution"
+  ],
+  "modules": [
+    {
+      "module": "IEANTN.Vocabulary.CMSFunctional",
+      "source_sha256": "40390e5de266dccbc335698017508711afc271e67618ecdfe91084935db92c28",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/IEANTN/Vocabulary/CMSFunctional.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/IEANTN/Vocabulary/CMSFunctional.lean",
+      "imports": [
+        "Mathlib.Analysis.Fourier.FourierTransform",
+        "Mathlib.NumberTheory.PrimeCounting",
+        "Mathlib.NumberTheory.LSeries.RiemannZeta"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.GaussianFourierWitness.v1.Conclusions",
+      "source_sha256": "8f49943f272b8d08c2e9366ca318b409f70f670dcd8f0c9faa87ad5225630b96",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/IEANTN/Nodes/GaussianFourierWitness/v1/Conclusions.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/IEANTN/Nodes/GaussianFourierWitness/v1/Conclusions.lean",
+      "imports": [
+        "IEANTN.Vocabulary.CMSFunctional"
+      ]
+    },
+    {
+      "module": "LeanCert.Core.Interval",
+      "source_sha256": "3b7e7c4200cbb10a35444d56bb6217ba17af1c1b5e565ecdb9fe87e683589565",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/LeanCert/Core/Interval.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/LeanCert/Core/Interval.lean",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.Integrals.Basic",
+        "Mathlib.Topology.Order.Basic"
+      ]
+    },
+    {
+      "module": "LeanCert.Core.IntervalRat.Basic",
+      "source_sha256": "dec62f02adb351ec8aa3397294ddf914b01b0e6c1c2f8f9864562b1d3111552c",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/LeanCert/Core/IntervalRat/Basic.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/LeanCert/Core/IntervalRat/Basic.lean",
+      "imports": [
+        "LeanCert.Core.Interval",
+        "Mathlib.Data.Rat.Cast.Order",
+        "Mathlib.Algebra.Order.Field.Basic"
+      ]
+    },
+    {
+      "module": "LeanCert.Core.Expr",
+      "source_sha256": "2cbe45500242ef521c414d7d4b4feac885cdcdae1f77c913eaa3597df87b83fb",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/LeanCert/Core/Expr.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/LeanCert/Core/Expr.lean",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Arctan",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Sinc",
+        "Mathlib.Analysis.SpecialFunctions.ExpDeriv",
+        "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Arsinh",
+        "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+        "Mathlib.NumberTheory.Harmonic.EulerMascheroni",
+        "Mathlib.Analysis.SpecialFunctions.Gaussian.GaussianIntegral",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic"
+      ]
+    },
+    {
+      "module": "LeanCert.Core.IntervalRat.LogReduction",
+      "source_sha256": "5526e5fc0d5447cea71dbe1debf274c2cc1532a5c40b7deee871b53a4dff09c7",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/LeanCert/Core/IntervalRat/LogReduction.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/LeanCert/Core/IntervalRat/LogReduction.lean",
+      "imports": [
+        "Mathlib.Data.Rat.Defs",
+        "Mathlib.Data.Nat.Log",
+        "Mathlib.Basic.Real.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+        "LeanCert.Core.Expr"
+      ]
+    },
+    {
+      "module": "LeanCert.Core.DerivativeIntervals",
+      "source_sha256": "d50d7a368033ed7905a92445700ceb8e95ec41e31c08b7ed49bf585d68fcf0f9",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/LeanCert/Core/DerivativeIntervals.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/LeanCert/Core/DerivativeIntervals.lean",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.ExpDeriv",
+        "Mathlib.Analysis.SpecialFunctions.Log.Deriv",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Arctan",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.ArctanDeriv",
+        "Mathlib.Analysis.SpecialFunctions.Arsinh",
+        "Mathlib.Analysis.Calculus.MeanValue"
+      ]
+    },
+    {
+      "module": "LeanCert.Core.Taylor",
+      "source_sha256": "2c3d2aef304c46b10ca430c224d00abaa876daca6f8c94cce66b5fbc7cee354e",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/LeanCert/Core/Taylor.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/LeanCert/Core/Taylor.lean",
+      "imports": [
+        "Mathlib.Analysis.Calculus.Taylor",
+        "Mathlib.Analysis.SpecialFunctions.ExpDeriv",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv",
+        "Mathlib.Analysis.SpecialFunctions.Log.Deriv",
+        "LeanCert.Core.DerivativeIntervals"
+      ]
+    },
+    {
+      "module": "LeanCert.Core.IntervalRat.Taylor",
+      "source_sha256": "d7c3988d53312a5055998f2c9c3057daaabdaba07b933fa8635cd85a943838c2",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/LeanCert/Core/IntervalRat/Taylor.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/LeanCert/Core/IntervalRat/Taylor.lean",
+      "imports": [
+        "LeanCert.Core.IntervalRat.Basic",
+        "LeanCert.Core.IntervalRat.LogReduction",
+        "LeanCert.Core.Taylor",
+        "LeanCert.Core.Expr",
+        "Mathlib.Analysis.Complex.ExponentialBounds",
+        "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+        "Mathlib.Analysis.SpecificLimits.Normed",
+        "Mathlib.Analysis.Real.Pi.Bounds",
+        "Mathlib.Data.List.Range"
+      ]
+    },
+    {
+      "module": "GaussianCell",
+      "source_sha256": "771b8d96c0033bd39ba33495212a79d7e8ce9cfa471a20d9a30a61117377ef7b",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/GaussianCell.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/GaussianCell.lean",
+      "imports": [
+        "LeanCert.Core.IntervalRat.Taylor",
+        "Mathlib.Analysis.SpecialFunctions.Integrals.Basic",
+        "Mathlib.Topology.Algebra.Polynomial",
+        "Mathlib.Tactic"
+      ]
+    },
+    {
+      "module": "GaussianQuadrature",
+      "source_sha256": "2d478d1467d34694050e716431ad9ab2612ef92aab835a98a7d9abc76b64b539",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/GaussianQuadrature.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/GaussianQuadrature.lean",
+      "imports": [
+        "GaussianCell"
+      ]
+    },
+    {
+      "module": "GaussianCoeffs",
+      "source_sha256": "2586e82b896b2281bb26d4d9ebab06cb86aa94acf0bed7f11ecf193fff9c63f0",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/GaussianCoeffs.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/GaussianCoeffs.lean",
+      "imports": [
+        "GaussianQuadrature"
+      ]
+    },
+    {
+      "module": "GaussianExpUpper",
+      "source_sha256": "e6347c834d54a9c0599fb1aa8ca4c1f425c48bfdffd93b54f94a84bc1f3b23c8",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/GaussianExpUpper.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/GaussianExpUpper.lean",
+      "imports": [
+        "GaussianCoeffs"
+      ]
+    },
+    {
+      "module": "GaussianCoeffArithmetic",
+      "source_sha256": "31571ad37d1d1d8bea0af399916ba3921807b87c8070125e51f9ac16c5d1568e",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/GaussianCoeffArithmetic.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/GaussianCoeffArithmetic.lean",
+      "imports": [
+        "GaussianExpUpper"
+      ]
+    },
+    {
+      "module": "GaussianMajorant",
+      "source_sha256": "a3a305f53a5342193e96ff985d2d89c815fbaac8e20095d3abfc751692ecc464",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/GaussianMajorant.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/GaussianMajorant.lean",
+      "imports": [
+        "GaussianCoeffArithmetic"
+      ]
+    },
+    {
+      "module": "GaussianCertificate",
+      "source_sha256": "0d1b5ffdc6177fc2eb81f3400e247f3a62a2af8719eb8ac21605c6767f7f22ae",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/GaussianCertificate.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/GaussianCertificate.lean",
+      "imports": [
+        "GaussianMajorant"
+      ]
+    },
+    {
+      "module": "GaussianTail",
+      "source_sha256": "6178a5bef92b7b2fcedcbb7beaae3604654c90b1e78b5a801f1222dabc10d497",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/GaussianTail.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/GaussianTail.lean",
+      "imports": [
+        "GaussianCertificate",
+        "Mathlib.Analysis.SpecialFunctions.Gaussian.GaussianIntegral",
+        "Mathlib.Analysis.Calculus.Deriv.MeanValue"
+      ]
+    },
+    {
+      "module": "GaussianRays",
+      "source_sha256": "c8ab54d475d1a7b03ac35995399359f1cf7c863a1b68fee1f8bdae611a37baea",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/GaussianRays.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/GaussianRays.lean",
+      "imports": [
+        "GaussianTail",
+        "Mathlib.MeasureTheory.Integral.IntegralEqImproper"
+      ]
+    },
+    {
+      "module": "GaussianAssembly",
+      "source_sha256": "dd91fabcd6de1196f055a124d53d9f47d18b86d0b53857ab78bab25e4a0af2f2",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/GaussianAssembly.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/GaussianAssembly.lean",
+      "imports": [
+        "GaussianCertificate"
+      ]
+    },
+    {
+      "module": "GaussianSources",
+      "source_sha256": "67a23736850425efedb6f7b020a2f5ed4b3ff0f35fc801d90a696a15013648fa",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/GaussianSources.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/GaussianSources.lean",
+      "imports": [
+        "GaussianCertificate"
+      ]
+    },
+    {
+      "module": "GaussianCells00",
+      "source_sha256": "4ae46276db392bc57b5098faf6878ca538c76ec59026d71d8837f0dbf26de289",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/GaussianCells00.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/GaussianCells00.lean",
+      "imports": [
+        "GaussianSources"
+      ]
+    },
+    {
+      "module": "GaussianCells01",
+      "source_sha256": "7c6be11bb86a93386f977506d99bd3ac2c2e0619294c83d561b0822cfd84dd13",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/GaussianCells01.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/GaussianCells01.lean",
+      "imports": [
+        "GaussianSources"
+      ]
+    },
+    {
+      "module": "GaussianCells02",
+      "source_sha256": "7dbdaa511af48353229cb4db062ac679d3a79446ad0cce92a623dfb12ebcc1f4",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/GaussianCells02.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/GaussianCells02.lean",
+      "imports": [
+        "GaussianSources"
+      ]
+    },
+    {
+      "module": "GaussianCells03",
+      "source_sha256": "64077250c052e5685cf207b3b08323b9c0017923a9fa3698ec4c01d6b4321eae",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/GaussianCells03.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/GaussianCells03.lean",
+      "imports": [
+        "GaussianSources"
+      ]
+    },
+    {
+      "module": "GaussianCells04",
+      "source_sha256": "57d3ff6d1f9dc77f73044045afccf0288aa3b2d9e327e7ee8c21d04e377d115c",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/GaussianCells04.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/GaussianCells04.lean",
+      "imports": [
+        "GaussianSources"
+      ]
+    },
+    {
+      "module": "GaussianCells05",
+      "source_sha256": "721deb213e626ceb7147e9d031d58fa9cd9ed288fac75fce84e80f67785d5129",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/GaussianCells05.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/GaussianCells05.lean",
+      "imports": [
+        "GaussianSources"
+      ]
+    },
+    {
+      "module": "GaussianCells06",
+      "source_sha256": "d2c09f2646c40131ea5f1e778fa1fbe2274d73b141cfa1bc58e7b0570bc2bb2d",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/GaussianCells06.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/GaussianCells06.lean",
+      "imports": [
+        "GaussianSources"
+      ]
+    },
+    {
+      "module": "GaussianCells07",
+      "source_sha256": "938ce7fd9ff825f9d7f6cc0ed06924a1a23f9b91647d15158a0745699b2d0f7d",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/GaussianCells07.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/GaussianCells07.lean",
+      "imports": [
+        "GaussianSources"
+      ]
+    },
+    {
+      "module": "GaussianFiniteNorm",
+      "source_sha256": "fbbac76618ae34a664b3648ff062e8e6ba163723606972bf5ac8b495699fc240",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/GaussianFiniteNorm.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/GaussianFiniteNorm.lean",
+      "imports": [
+        "GaussianAssembly",
+        "GaussianCells00",
+        "GaussianCells01",
+        "GaussianCells02",
+        "GaussianCells03",
+        "GaussianCells04",
+        "GaussianCells05",
+        "GaussianCells06",
+        "GaussianCells07"
+      ]
+    },
+    {
+      "module": "GaussianFiniteWing",
+      "source_sha256": "9a184909a6a107959f28a614b48700eb0b7e0684ec330ef4cc11cca590e4b6ae",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/GaussianFiniteWing.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/GaussianFiniteWing.lean",
+      "imports": [
+        "GaussianAssembly",
+        "GaussianCells00",
+        "GaussianCells01",
+        "GaussianCells02",
+        "GaussianCells03",
+        "GaussianCells04",
+        "GaussianCells05",
+        "GaussianCells06",
+        "GaussianCells07"
+      ]
+    },
+    {
+      "module": "GaussianFullRays",
+      "source_sha256": "813b3d7be7c248ec7f3b4724394975e9c45c2529f97952d551633f0d5e39c8be",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/GaussianFullRays.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/GaussianFullRays.lean",
+      "imports": [
+        "GaussianRays",
+        "GaussianFiniteNorm",
+        "GaussianFiniteWing",
+        "Mathlib.Analysis.Real.Pi.Bounds"
+      ]
+    },
+    {
+      "module": "GaussianPhysical",
+      "source_sha256": "90d645e50fab0267965b40ad1dffce49fb47cec5ba8b829ac4940257cf9e2590",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/GaussianPhysical.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/GaussianPhysical.lean",
+      "imports": [
+        "GaussianFullRays"
+      ]
+    },
+    {
+      "module": "GaussianWings",
+      "source_sha256": "23c6aaa23358e8bd4c19fdef0c68c9740174d9fa9017c833bcf3002562d6b075",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/GaussianWings.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/GaussianWings.lean",
+      "imports": [
+        "GaussianPhysical"
+      ]
+    },
+    {
+      "module": "GaussianFourierCore",
+      "source_sha256": "36db77970aa02c09623e2cd18c1a23434ab3a6766cc2dd32edbd8ecb0da3e5ea",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/GaussianFourierCore.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/GaussianFourierCore.lean",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.Gaussian.FourierTransform",
+        "Mathlib.Analysis.Fourier.FourierTransformDeriv",
+        "Mathlib.Analysis.Complex.RealDeriv",
+        "Mathlib.Analysis.Calculus.Deriv.Polynomial",
+        "GaussianSources"
+      ]
+    },
+    {
+      "module": "GaussianFourierPolynomial",
+      "source_sha256": "57f6d5de97a166ace7b0aa69076f68ef277e9ce2a6f00fecb93530482a6aa906",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/GaussianFourierPolynomial.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/GaussianFourierPolynomial.lean",
+      "imports": [
+        "GaussianFourierCore"
+      ]
+    },
+    {
+      "module": "GaussianFourierEven",
+      "source_sha256": "695bef4cbb3f52298b2a57f4fa6e071a67c8f8e0f8292b3a9ab2f04477cdb36e",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/GaussianFourierEven.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/GaussianFourierEven.lean",
+      "imports": [
+        "GaussianFourierPolynomial"
+      ]
+    },
+    {
+      "module": "GaussianRationalTransform",
+      "source_sha256": "d97ab69ce6a45bcc3ad08b7b51851d388bae87ac0185196e1b3994695136beaf",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/GaussianRationalTransform.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/GaussianRationalTransform.lean",
+      "imports": [
+        "GaussianFourierEven",
+        "GaussianCoeffArithmetic"
+      ]
+    },
+    {
+      "module": "GaussianActualTransform",
+      "source_sha256": "f9803ca86cc6b03fd0834ad60ceb6cdfe44c4ad282be54df3ca16e9cfeb38c0d",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/GaussianActualTransform.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/GaussianActualTransform.lean",
+      "imports": [
+        "GaussianRationalTransform",
+        "GaussianPhysical"
+      ]
+    },
+    {
+      "module": "GaussianActualFourier",
+      "source_sha256": "c7a4d7630c4931bcb63883b49885c7fc8617ab3ee2b27b652239de6f2c022d49",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/GaussianActualFourier.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/GaussianActualFourier.lean",
+      "imports": [
+        "GaussianActualTransform"
+      ]
+    },
+    {
+      "module": "GaussianEligibility",
+      "source_sha256": "675345ca401a3ac99239f95015f468d5b894a28fb92318d9cef40ea699092417",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/GaussianEligibility.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/GaussianEligibility.lean",
+      "imports": [
+        "IEANTN.Vocabulary.CMSFunctional",
+        "GaussianWings",
+        "GaussianActualFourier"
+      ]
+    },
+    {
+      "module": "GaussianNumericalWitness",
+      "source_sha256": "a658b43d98c339ddcad00a7b0401a2053a8b193c590457f3bcbeafd7efbc7b2a",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/GaussianNumericalWitness.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/GaussianNumericalWitness.lean",
+      "imports": [
+        "IEANTN.Nodes.GaussianFourierWitness.v1.Conclusions",
+        "GaussianEligibility"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.CMSFunctionalInput.v1.Conclusions",
+      "source_sha256": "21753fbed2b46524ea49d54a91bd1a7158a3b94effcf8baee710fc42835efa1f",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/IEANTN/Nodes/CMSFunctionalInput/v1/Conclusions.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/IEANTN/Nodes/CMSFunctionalInput/v1/Conclusions.lean",
+      "imports": [
+        "IEANTN.Vocabulary.CMSFunctional"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.RHAsymptoticGaussian.v1.Conclusions",
+      "source_sha256": "4d97b80eff1a1ee58ca1dc8e9f07e9c2840f388ef075e55f5619cffc54cd05fc",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/IEANTN/Nodes/RHAsymptoticGaussian/v1/Conclusions.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/IEANTN/Nodes/RHAsymptoticGaussian/v1/Conclusions.lean",
+      "imports": [
+        "IEANTN.Vocabulary.CMSFunctional"
+      ]
+    },
+    {
+      "module": "IEANTN.Vocabulary.Zeta",
+      "source_sha256": "42e239de4c1151d03ed94ee4c0c51d031f974faa6998f447e85845665bb846ef",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/IEANTN/Vocabulary/Zeta.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/IEANTN/Vocabulary/Zeta.lean",
+      "imports": [
+        "Mathlib.NumberTheory.LSeries.RiemannZeta",
+        "Mathlib.Analysis.Meromorphic.Order",
+        "Mathlib.Analysis.SpecialFunctions.Pow.Real"
+      ]
+    },
+    {
+      "module": "IEANTN.Vocabulary.ZeroFreeHalfPlane",
+      "source_sha256": "c4093b0a652ec21bb446736389639e0a7a8217f4e7258fc0276c69eb203f7b8c",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/IEANTN/Vocabulary/ZeroFreeHalfPlane.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/IEANTN/Vocabulary/ZeroFreeHalfPlane.lean",
+      "imports": [
+        "Mathlib.NumberTheory.LSeries.RiemannZeta"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.RH.v1.Conclusions",
+      "source_sha256": "84d39ecb7fa86c04e58fe97f47350132d58da3f3cef5e9420442d2e3b0505502",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/IEANTN/Nodes/RH/v1/Conclusions.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/IEANTN/Nodes/RH/v1/Conclusions.lean",
+      "imports": [
+        "IEANTN.Vocabulary.Zeta",
+        "IEANTN.Vocabulary.ZeroFreeHalfPlane"
+      ]
+    },
+    {
+      "module": "CMSFunctionalGapSource",
+      "source_sha256": "c1240aee4690ef9cb5a48bfa89b716d1049b52acd9e3d7c3c65da9e2fd8a1846",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/CMSFunctionalGapSource.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/CMSFunctionalGapSource.lean",
+      "imports": [
+        "IEANTN.Vocabulary.CMSFunctional",
+        "Mathlib.Tactic"
+      ]
+    },
+    {
+      "module": "CMSPopulationFunctionalSource",
+      "source_sha256": "6e764fd06ed71a947256949829e92ba3bd9df64eeba0d1c90f22db290ba38a85",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/CMSPopulationFunctionalSource.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/CMSPopulationFunctionalSource.lean",
+      "imports": [
+        "CMSFunctionalGapSource"
+      ]
+    },
+    {
+      "module": "GaussianCanonicalConsumers",
+      "source_sha256": "58e1c01eca29a7add1942901abe68b2917a67e5f9111cb4ddfd909596f02f676",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/GaussianCanonicalConsumers.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/GaussianCanonicalConsumers.lean",
+      "imports": [
+        "IEANTN.Nodes.CMSFunctionalInput.v1.Conclusions",
+        "IEANTN.Nodes.GaussianFourierWitness.v1.Conclusions",
+        "IEANTN.Nodes.RHAsymptoticGaussian.v1.Conclusions",
+        "IEANTN.Nodes.RH.v1.Conclusions",
+        "CMSPopulationFunctionalSource"
+      ]
+    },
+    {
+      "module": "GaussianCanonicalAudit",
+      "source_sha256": "92e9ea17c0e4f8d5e581011d895acc0a62484f85565e5f2a6aef1b9710cf7905",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/GaussianCanonicalAudit.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/GaussianCanonicalAudit.lean",
+      "imports": [
+        "Lean",
+        "GaussianNumericalWitness",
+        "GaussianCanonicalConsumers"
+      ]
+    },
+    {
+      "module": "GaussianAsymptoticConsumers",
+      "source_sha256": "e1c53bc1124cf9976b8da2ca6ed55567b325e5db649e74757e0adee37423d8d6",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/GaussianAsymptoticConsumers.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/GaussianAsymptoticConsumers.lean",
+      "imports": [
+        "CMSPopulationFunctionalSource",
+        "GaussianEligibility"
+      ]
+    },
+    {
+      "module": "GaussianFourierWitnessSolution",
+      "source_sha256": "91c7e51584b759bf0446131f8e64b71e22b9dd336eef8470a65e7fc09a9c008d",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/GaussianFourierWitnessSolution.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/GaussianFourierWitnessSolution.lean",
+      "imports": [
+        "GaussianNumericalWitness"
+      ]
+    },
+    {
+      "module": "RHAsymptoticGaussianSolution",
+      "source_sha256": "d289630ff9a0447b9f4b23a246c20b4d8e8d582025af9d666a220908f02a1435",
+      "origin": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/packet/source/RHAsymptoticGaussianSolution.lean",
+      "executed": "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/compile/source/RHAsymptoticGaussianSolution.lean",
+      "imports": [
+        "GaussianCanonicalConsumers"
+      ]
+    }
+  ],
+  "compiler": "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+  "compiler_sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+  "jobs": 2,
+  "controller_sha256": "1c9baac1576f30a8a434360fe7929e129c02b7e83f7a6c2fbdb6061407d91216",
+  "BASELINE_IMPORTS_sha256": "1c680eec1ca780b8849a5672cdbd1a20dbdb698bf879dcb154bcf8d0151551be",
+  "LOCAL_CONTEXT_sha256": "c6ae74a6eb126487de3051a7c34d303f9a40e802968d6979247c0b133ea810f4",
+  "per_process_AS_bytes": 68719476736,
+  "generic_paths": [
+    "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/.lake/packages/mathlib/.lake/build/lib/lean",
+    "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/.lake/packages/plausible/.lake/build/lib/lean",
+    "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/.lake/packages/LeanSearchClient/.lake/build/lib/lean",
+    "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/.lake/packages/importGraph/.lake/build/lib/lean",
+    "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/.lake/packages/proofwidgets/.lake/build/lib/lean",
+    "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/.lake/packages/aesop/.lake/build/lib/lean",
+    "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/.lake/packages/Qq/.lake/build/lib/lean",
+    "/data/ivy-rh-one-prime-20261124/gaussian-gap/relocated-v1/run/.lake/packages/batteries/.lake/build/lib/lean"
+  ],
+  "predecessor_application_objects_used": false,
+  "host_meminfo": "MemTotal:       1584989924 kB\nMemFree:        555892604 kB\nMemAvailable:   1152454044 kB\nBuffers:        31929148 kB\nCached:         689623488 kB\nSwapCached:       203064 kB\nActive:         348193696 kB\nInactive:       597247540 kB\nActive(anon):    3430628 kB\nInactive(anon): 394098384 kB\nActive(file):   344763068 kB\nInactive(file): 203149156 kB\nUnevictable:       27980 kB\nMlocked:           27980 kB\nSwapTotal:       8388604 kB\nSwapFree:          16744 kB\nDirty:             17504 kB\nWriteback:             0 kB\nAnonPages:      223713324 kB\nMapped:         178344500 kB\nShmem:          173631044 kB\nKReclaimable:   57763788 kB\nSlab:           67905000 kB\nSReclaimable:   57763788 kB\nSUnreclaim:     10141212 kB\nKernelStack:      398528 kB\nPageTables:      1561868 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:    800883564 kB\nCommitted_AS:   863985760 kB\nVmallocTotal:   13743895347199 kB\nVmallocUsed:     8558568 kB\nVmallocChunk:          0 kB\nPercpu:           553984 kB\nHardwareCorrupted:     0 kB\nAnonHugePages:    278528 kB\nShmemHugePages:        0 kB\nShmemPmdMapped:        0 kB\nFileHugePages:         0 kB\nFilePmdMapped:         0 kB\nHugePages_Total:       0\nHugePages_Free:        0\nHugePages_Rsvd:        0\nHugePages_Surp:        0\nHugepagesize:       2048 kB\nHugetlb:               0 kB\nDirectMap4k:    493595236 kB\nDirectMap2M:    949991424 kB\nDirectMap1G:    166723584 kB\n",
+  "scope": "Selected transitive kernel proof closure; no new source-first PV."
+}

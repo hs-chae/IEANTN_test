@@ -1,0 +1,169 @@
+{
+  "schema": "independent-oneprime-report-source-fidelity-v3",
+  "created_utc": "2026-11-24T21:29:23.544180+00:00",
+  "reviewer": "count_frontier",
+  "status": "PASS_SCOPED_DELTA_SOURCE_MATH_FIDELITY",
+  "parent_review": {
+    "file": "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/comparisons/Published2026Review/REPORT_SOURCE_FIDELITY_v2.json",
+    "bytes": 27543,
+    "sha256": "3bdf28952b00d8a4c244a2842baa83b383dc5557741d6dda5617d3f1a6044c6f"
+  },
+  "scope": "Only actual v2-to-current one-prime deltas, requested whole short paper-ready summary, Korean label transform, and expanded exact index-inversion display. Prior v2 stays preserved. No new research, global current-source census, build acceptance or source-first PV claim.",
+  "reviewed_current_files": [
+    {
+      "file": "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/reports/oneprime_sections.py",
+      "bytes": 31794,
+      "sha256": "bdfaad4202aee27832a7cf76efb7a1c14a5d6361032e985869412663c80d6b73"
+    },
+    {
+      "file": "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/reports/paper_sections.py",
+      "bytes": 3623,
+      "sha256": "bd4567348a79e72e5c8c5839a9a2645fcab871327a6e0bf9eb851ea6e0441b0f"
+    },
+    {
+      "file": "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/reports/ko_math_labels.py",
+      "bytes": 2699,
+      "sha256": "96def11db863d4c6137f07fd293de2bca5dc80d3b4cbdf52040534b5c3070180"
+    },
+    {
+      "file": "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/reports/NETWORK_FORMULAS.json",
+      "bytes": 10973,
+      "sha256": "4dca0daa8a2a17f9d52efa046ac09203f74bc67d681efefb68f9c4bb70d0d144"
+    },
+    {
+      "file": "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/reports/network_sections.py",
+      "bytes": 46510,
+      "sha256": "834a66e924266c1fc06470c0637334149b758701ef7a18f97beb8393d62b5766"
+    }
+  ],
+  "primary_inputs": [
+    {
+      "file": "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/sources/CMS1708.04122v2.pdf",
+      "bytes": 706231,
+      "sha256": "45b6c7f991831a2dc456c10285206cb17a53ef46c6ae15e43cfa5671554b0dce"
+    },
+    {
+      "file": "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/sources/CMS1708.04122v2.txt",
+      "bytes": 99106,
+      "sha256": "84888f82535a4bdacc207cf417fb9973df0b3655b0aa28674728f34b6814821c"
+    }
+  ],
+  "delta_rows": [
+    {
+      "id": "Fourier-functional-and-penalty",
+      "a_report": "OP_fourier defines negative2pi Fourier normalization and exterior positive mass A(F); OP_hat/table now use eta solely for scalar penalty.",
+      "b_primary": "CMS section1.1,Eqs1.1-1.3,p2 Fourier normalization; actual rational-hat inverse checked in prior v2.",
+      "c_verdict": "PASS. Separating eta from A(F) removes notation collision; numerical ratios and source algorithms unchanged."
+    },
+    {
+      "id": "Brun-Titchmarsh-penalty",
+      "a_report": "OP_penalties displays B=limsup [pi(x+sqrtx)-pi(x)]/(sqrtx/logx)<=36/11 and distinguishes asymptotic eta36/11 from explicit eta4.",
+      "b_primary": "CMS Eqs1.11-1.12,Theorem3/Eq1.13,Corollary4/Eq1.14,p5; explicit Brun-Titchmarsh Eq6.10 and chosenA4 in section6.2,p24, used in section6.3,p26.",
+      "c_verdict": "PASS. Asymptotic penalty is not called a finite-x upper bound. Each E ratio still lacks its final analytic/onset proof; no new prime theorem is inferred."
+    },
+    {
+      "id": "compact-physical-barrier",
+      "a_report": "OP_barrier assumes k continuous nonzero nonnegative supported[-1,1], hatkL1; T=normhatk/mass>=.5, plus source-conditionedT>=1/d0 approximately.911.",
+      "b_primary": "CMS classA and subclassE in Eq1.2,p2 are continuous integrable COMPLEX functions with transform supported[-1,1], no evenness requirement; Theorem1(a.4)/Eq1.5,p3 gives C(infinity)<=d0=1.09769... .",
+      "c_verdict": "PASS. mass>0; Fourier inversion yields hat(F)(t)=k(-t) forF=hatk, andF0=mass. ThusT=normF/absF0>=1/d0. Elementary bound follows mass<=2supk<=2normhatk. No finite truncated decimal is treated as exact; this barrier is expressly for the chosen absolute-Fourier method, not RH prime gaps. Neither this source allowance nor the new Fourier argument is claimed newly Lean-proved."
+    },
+    {
+      "id": "pointwise-index-inversion",
+      "a_report": "NET_index_inversion expands Cstar=max(1.03,1.02391875+9/8(m/sqrtx-4.2/logx)), retains<=16 and special min2.15 with stronger fixed allowance.",
+      "b_primary": "Project-internal exact algebra in frontier/PopulationFrontier.lean:indexWidth,clampedIndexWidth,specialAllowance,effectiveIndexWidth,effective_index_frontier; externally supported antecedents remain the fixed octic package.",
+      "c_verdict": "PASS. Expanded display matches existing definitions and actual natural-m/real-x domains; this is not a new extrapolated width or new source claim."
+    },
+    {
+      "id": "paper-ready-summary",
+      "a_report": "Current paper_sections.py defines f,N before use, gives source-conditional continuous/finite results, cube counts, index origin, Goldbach band, exact numerical/PV limits and strong2026 countercomparison.",
+      "b_primary": "All listed mathematical statements checked against exact prior v2 theorem matrix and consumers. CMS/Blanquer primary locators independently reviewed; historic finite gap premise remainsB.",
+      "c_verdict": "PASS. Stated x>=exp44 finite consequences are valid weaker-domain consequences; no newly optimized record, RH-only source-erasure or PV claim. Zero-based nth prime has offset added to pi(floorx), and m0 is first prime strictly above x."
+    },
+    {
+      "id": "Korean-label-transform",
+      "a_report": "ko_math_labels.py substitutes only text-label payloads; even integer correctly becomes 짝수.",
+      "b_primary": "Project-owned localization, no external mathematical attribution.",
+      "c_verdict": "PASS. Executed every current OP+NETWORK display through actual translate; all math tokens outside text payloads stayed byte-identical and no untranslated label remained.",
+      "display_count": 73
+    }
+  ],
+  "actual_translation_checks": [
+    "OP_objects",
+    "OP_old",
+    "OP_uniform",
+    "OP_coefficient",
+    "OP_continuous",
+    "OP_bounded",
+    "OP_hybrid",
+    "OP_kernel",
+    "OP_fourier",
+    "OP_norm",
+    "OP_numeric",
+    "OP_geometry",
+    "OP_source",
+    "OP_margin",
+    "OP_shift",
+    "OP_gap_source",
+    "OP_gap_finite",
+    "OP_gap",
+    "OP_benchmarks",
+    "OP_retune",
+    "OP_hat",
+    "OP_penalties",
+    "OP_barrier",
+    "OP_experiments",
+    "OP_lee_arxiv",
+    "OP_lee_journal",
+    "OP_lee26",
+    "NET_cube_density",
+    "NET_cube_natural",
+    "NET_rich_shifted",
+    "NET_goldbach_numeric",
+    "NET_objects",
+    "NET_prime_index",
+    "NET_inherited_family",
+    "NET_preserved_fixed",
+    "NET_single_cube",
+    "NET_single_fit",
+    "NET_exp_conversion",
+    "NET_higher_powers",
+    "NET_cube_max",
+    "NET_density_gain",
+    "NET_partition_parameters",
+    "NET_partition_geometry",
+    "NET_partition_sum",
+    "NET_ceiling_cases",
+    "NET_partition_final",
+    "NET_alpha_width",
+    "NET_alpha_finite",
+    "NET_alpha_domain",
+    "NET_alpha_limit",
+    "NET_chirre_source",
+    "NET_br_source_definitions",
+    "NET_br_source_statement",
+    "NET_br_ordinary",
+    "NET_alpha_crossing",
+    "NET_epsilon_choice",
+    "NET_br_explicit",
+    "NET_shifted_derivation",
+    "NET_shifted_indices",
+    "NET_index_inversion",
+    "NET_goldbach_objects",
+    "NET_goldbach_factors",
+    "NET_goldbach_domain",
+    "NET_goldbach_divisor",
+    "NET_goldbach_frontier",
+    "NET_goldbach_numeric_detail",
+    "NET_goldbach_shift",
+    "NET_cms_entire_extension",
+    "NET_alpha_one_strict",
+    "NET_lee_constant",
+    "NET_lee_source",
+    "NET_lee_open_derivation",
+    "NET_lee_limiting"
+  ],
+  "unresolved_scoped_source_math_issues": [],
+  "owned_running_jobs": 0,
+  "source_or_report_body_edits_by_reviewer": false,
+  "no_new_mathematical_or_PV_claim": true
+}

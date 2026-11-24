@@ -1,0 +1,42 @@
+GAUSSIAN_ROOT GaussianFourierWitness.v1.challenge_integral_fourier_witness axioms=[propext,
+ Classical.choice,
+ Quot.sound] input_uses=[]
+GAUSSIAN_ROOT GaussianFourierWitness.v1.challenge_objective_witness axioms=[propext,
+ Classical.choice,
+ Quot.sound] input_uses=[(hNumeric, true)]
+GAUSSIAN_ROOT RHAsymptoticGaussian.v1.challenge_normalized_gap axioms=[propext,
+ Classical.choice,
+ Quot.sound] input_uses=[(hCMS, true), (rh, true), (hNumeric, true)]
+GAUSSIAN_ROOT RHAsymptoticGaussian.v1.challenge_gap_below_printed_2026 axioms=[propext,
+ Classical.choice,
+ Quot.sound] input_uses=[(hgap, true)]
+GAUSSIAN_ROOT RHAsymptoticGaussian.v1.challenge_population_curve axioms=[propext,
+ Classical.choice,
+ Quot.sound] input_uses=[(hCMS, true), (rh, true), (hNumeric, true)]
+GAUSSIAN_ROOT RHAsymptoticGaussian.v1.challenge_population_count axioms=[propext,
+ Classical.choice,
+ Quot.sound] input_uses=[(hcurve, true), (α, true), (hα, true), (ε, true), (hε, true)]
+GAUSSIAN_ROOT RHOnePrime.GaussianGap.gaussian_eligible axioms=[propext, Classical.choice, Quot.sound] input_uses=[]
+GAUSSIAN_ROOT RHOnePrime.GaussianFourier.fourier_actual_physical axioms=[propext,
+ Classical.choice,
+ Quot.sound] input_uses=[]
+GAUSSIAN_ROOT RHOnePrime.GaussianKernel.physical_norm_upper axioms=[propext, Classical.choice, Quot.sound] input_uses=[]
+GAUSSIAN_ROOT RHOnePrime.GaussianKernel.physical_full_wings_upper axioms=[propext,
+ Classical.choice,
+ Quot.sound] input_uses=[]
+GAUSSIAN_ROOT RHOnePrime.GaussianKernel.physicalF_zero_lower axioms=[propext,
+ Classical.choice,
+ Quot.sound] input_uses=[]
+GAUSSIAN_VALUE_EDGE GaussianFourierWitness.v1.challenge_integral_fourier_witness->RHOnePrime.GaussianGap.gaussian_eligible
+GAUSSIAN_VALUE_EDGE GaussianFourierWitness.v1.challenge_integral_fourier_witness->RHOnePrime.GaussianKernel.physical_norm_upper
+GAUSSIAN_VALUE_EDGE GaussianFourierWitness.v1.challenge_integral_fourier_witness->RHOnePrime.GaussianKernel.physical_full_wings_upper
+GAUSSIAN_VALUE_EDGE GaussianFourierWitness.v1.challenge_integral_fourier_witness->RHOnePrime.GaussianKernel.physicalF_zero_lower
+GAUSSIAN_VALUE_EDGE RHOnePrime.GaussianGap.gaussian_eligible->RHOnePrime.GaussianFourier.fourier_actual_physical
+GAUSSIAN_VALUE_EDGE RHOnePrime.GaussianGap.gaussian_eligible->RHOnePrime.GaussianFourier.integrable_physicalF
+GAUSSIAN_VALUE_EDGE RHOnePrime.GaussianGap.gaussian_eligible->RHOnePrime.GaussianFourier.integrable_physicalG
+GAUSSIAN_VALUE_EDGE RHOnePrime.GaussianGap.gaussian_eligible->RHOnePrime.GaussianFourier.continuous_physicalF
+GAUSSIAN_VALUE_EDGE RHOnePrime.GaussianGap.gaussian_eligible->RHOnePrime.GaussianFourier.physicalF_even
+GAUSSIAN_VALUE_EDGE RHAsymptoticGaussian.v1.challenge_normalized_gap->RHOnePrime.CMSFunctional.gap_from_functional
+GAUSSIAN_VALUE_EDGE RHAsymptoticGaussian.v1.challenge_population_curve->RHOnePrime.CMSFunctional.population_from_functional
+GAUSSIAN_VALUE_EDGE RHAsymptoticGaussian.v1.challenge_population_count->RHOnePrime.CMSFunctional.eventual_count_of_good
+GAUSSIAN_CANONICAL_AUDIT_PASS roots=11 edges=12

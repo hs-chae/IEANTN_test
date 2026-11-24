@@ -1,0 +1,102 @@
+{
+  "status": "PASS_REGENERATED_CERTIFICATES_AND_FRESH_LEAN_REPLAY",
+  "commands": [
+    [
+      "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+      "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/gaussian_kernel/prototype_cells.py",
+      "--candidate",
+      "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/gaussian_kernel/CANDIDATE_DEGREE12.json",
+      "--out",
+      "/data/ivy-rh-one-prime-20261124/gaussian-kernel/full-reproduce01/partition.json"
+    ],
+    [
+      "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+      "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/gaussian_kernel/generate_kernel_cells.py",
+      "--candidate",
+      "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/gaussian_kernel/CANDIDATE_DEGREE12.json",
+      "--partition",
+      "/data/ivy-rh-one-prime-20261124/gaussian-kernel/full-reproduce01/partition.json",
+      "--output",
+      "/data/ivy-rh-one-prime-20261124/gaussian-kernel/full-reproduce01/regenerated",
+      "--chunk-size",
+      "72"
+    ],
+    [
+      "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+      "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/scripts/rebuild_closure.py",
+      "--repository",
+      "/data/ivy-rh-one-prime-20261124/network",
+      "--run",
+      "/data/ivy-rh-one-prime-20261124/gaussian-kernel/full-reproduce01/lean",
+      "--source-dir",
+      "/data/ivy-rh-one-prime-20261124/network/Solutions/RHOnePrimeEvolution.v1/gaussian_kernel",
+      "--roots",
+      "GaussianNumericalAudit",
+      "--jobs",
+      "2"
+    ]
+  ],
+  "candidate_sha256": "f841fc685e123ac64019e17d40301130acd4b831f50034eb59da7c0c46c0b6e6",
+  "source_generator_sha256": "46eca6d46d4a3a7ecf862c74054ebbae9d80faa0a5bb8e0865bd0926dc54bef2",
+  "partition_generator_sha256": "c1625e9b040444c461027c09bcaafebeba858048155f8b4ff1a5d5b57ba371e9",
+  "generated_sources": [
+    {
+      "module": "GaussianCells00",
+      "regenerated_sha256": "4ae46276db392bc57b5098faf6878ca538c76ec59026d71d8837f0dbf26de289",
+      "committed_sha256": "4ae46276db392bc57b5098faf6878ca538c76ec59026d71d8837f0dbf26de289",
+      "exact_match": true
+    },
+    {
+      "module": "GaussianCells01",
+      "regenerated_sha256": "7c6be11bb86a93386f977506d99bd3ac2c2e0619294c83d561b0822cfd84dd13",
+      "committed_sha256": "7c6be11bb86a93386f977506d99bd3ac2c2e0619294c83d561b0822cfd84dd13",
+      "exact_match": true
+    },
+    {
+      "module": "GaussianCells02",
+      "regenerated_sha256": "7dbdaa511af48353229cb4db062ac679d3a79446ad0cce92a623dfb12ebcc1f4",
+      "committed_sha256": "7dbdaa511af48353229cb4db062ac679d3a79446ad0cce92a623dfb12ebcc1f4",
+      "exact_match": true
+    },
+    {
+      "module": "GaussianCells03",
+      "regenerated_sha256": "64077250c052e5685cf207b3b08323b9c0017923a9fa3698ec4c01d6b4321eae",
+      "committed_sha256": "64077250c052e5685cf207b3b08323b9c0017923a9fa3698ec4c01d6b4321eae",
+      "exact_match": true
+    },
+    {
+      "module": "GaussianCells04",
+      "regenerated_sha256": "57d3ff6d1f9dc77f73044045afccf0288aa3b2d9e327e7ee8c21d04e377d115c",
+      "committed_sha256": "57d3ff6d1f9dc77f73044045afccf0288aa3b2d9e327e7ee8c21d04e377d115c",
+      "exact_match": true
+    },
+    {
+      "module": "GaussianCells05",
+      "regenerated_sha256": "721deb213e626ceb7147e9d031d58fa9cd9ed288fac75fce84e80f67785d5129",
+      "committed_sha256": "721deb213e626ceb7147e9d031d58fa9cd9ed288fac75fce84e80f67785d5129",
+      "exact_match": true
+    },
+    {
+      "module": "GaussianCells06",
+      "regenerated_sha256": "d2c09f2646c40131ea5f1e778fa1fbe2274d73b141cfa1bc58e7b0570bc2bb2d",
+      "committed_sha256": "d2c09f2646c40131ea5f1e778fa1fbe2274d73b141cfa1bc58e7b0570bc2bb2d",
+      "exact_match": true
+    },
+    {
+      "module": "GaussianCells07",
+      "regenerated_sha256": "938ce7fd9ff825f9d7f6cc0ed06924a1a23f9b91647d15158a0745699b2d0f7d",
+      "committed_sha256": "938ce7fd9ff825f9d7f6cc0ed06924a1a23f9b91647d15158a0745699b2d0f7d",
+      "exact_match": true
+    },
+    {
+      "module": "GaussianSources",
+      "regenerated_sha256": "67a23736850425efedb6f7b020a2f5ed4b3ff0f35fc801d90a696a15013648fa",
+      "committed_sha256": "67a23736850425efedb6f7b020a2f5ed4b3ff0f35fc801d90a696a15013648fa",
+      "exact_match": true
+    }
+  ],
+  "python": "3.11.14 (main, Jan 14 2026, 19:35:32) [Clang 21.1.4 ]",
+  "random_seeds": "none; deterministic exact rational regeneration",
+  "seconds": 321.6406273841858,
+  "fresh_receipt_sha256": "c31b7a8f0da8010395657200f16299578b9fe45c4eaa3d22388a84ad6efed09f"
+}

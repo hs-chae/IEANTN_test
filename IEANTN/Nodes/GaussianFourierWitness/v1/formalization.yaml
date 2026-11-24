@@ -1,0 +1,69 @@
+version: v0.4
+node:
+  id: GaussianFourierWitness.v1
+  family: GaussianFourierWitness
+  version: v1
+  kind: computation
+  status: awaiting-verification
+project:
+  name: GaussianFourierWitness.v1
+  description: Genuine integral Fourier witness, kernel-proved whole-real mass/positive
+    exterior leakage/value at zero, then exact inverse objective.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+conclusions:
+- id: integral_fourier_witness
+  declaration: GaussianFourierWitness.v1.integral_fourier_witness
+  challenge: GaussianFourierWitness.v1.challenge_integral_fourier_witness
+  imports: []
+  imports_status: none
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: Actual complete Lean proof in the corresponding Solution adapter and Solutions/RHOnePrimeEvolution.v1/gaussian_gap/.
+      Numerical Fourier/integral proofs and exact type/value/axiom audits remain separate
+      from the pending official Comparator receipt. No source-first PV claim.
+  designated: local-kernel-proof
+- id: objective_witness
+  declaration: GaussianFourierWitness.v1.objective_witness
+  challenge: GaussianFourierWitness.v1.challenge_objective_witness
+  imports:
+  - node: GaussianFourierWitness.v1
+    conclusion: integral_fourier_witness
+  imports_status: identified
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: Actual complete Lean proof in the corresponding Solution adapter and Solutions/RHOnePrimeEvolution.v1/gaussian_gap/.
+      Numerical Fourier/integral proofs and exact type/value/axiom audits remain separate
+      from the pending official Comparator receipt. No source-first PV claim.
+  designated: local-kernel-proof
+sources:
+- id: CMS2019
+  title: Fourier optimization and prime gaps
+  authors:
+  - Emanuel Carneiro
+  - Micah B. Milinovich
+  - Kannan Soundararajan
+  type: paper
+  relationship: adapts
+  url: https://arxiv.org/abs/1708.04122v2
+  note: Theorem3/Corollary4 and optimization definition(1.3), B definition/bound(1.11)-(1.12);
+    no H-only explicit-onset reduction is used for the Gaussian.
+limitations:
+- Source mathematical reductions remain explicit literature-backed inputs; this is
+  not RH-only derivation inside Mathlib.
+- No explicit onset, global best-known claim, optimality, or source-first PV is asserted.
+- Population intervals use the exact source half-open endpoint convention and require
+  positive width epsilon.

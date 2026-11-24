@@ -1,58 +1,98 @@
-# Reproduce the RH one-prime and network evolution campaign
+# Reproduce the one-prime and network evolution study
 
-This directory adds source-conditional mathematical theorems, not a source-first C/C++/CUDA PV result. Read the four offline reports and the theorem matrix first. The CMS analytic inequality and the historical finite-gap computation are explicit assumptions. The existing octic Green/Nicolas/BPT package is unchanged.
+The two proof packets are self-contained application-source closures. They require the pinned generic Lean/Mathlib libraries, Linux, Python 3.11, GNU time and prlimit. They do not read a predecessor application proof bank or any private numerical dataset. Each complete child pipeline was actually executed after relocation; the small combined launcher was also checked through both real child CLIs.
 
-## Exact environment
+The mathematical statements are source-conditional. Published CMS analytic reductions remain explicit propositions, as do the inherited Green/Nicolas/BPT inputs and the historical finite-gap or finite-Goldbach hypotheses where stated. All new Gaussian integrals, actual Fourier identity, numerical objective and resulting conditional ANT consumers are kernel proved. None of this is labelled source-first C/C++/CUDA PV.
 
-- Linux x86-64; Python3.11; GNU time and prlimit; Git; Node20 for report rendering only.
+## Pins and prerequisites
+
 - Lean `leanprover/lean4:v4.34.0-rc2`.
-- Mathlib `71a80585ee495fc24472fd0eaffc89d94e4fd8d6`; all transitive generic revisions are in `scripts/LOCAL_CONTEXT.json` and the repository `lake-manifest.json`.
-- Baseline repository3539bbba83db8345db1c43f37a9ddb6d8baf3ab0. The final source commit is recorded in SOURCE_PIN.json when published. No default-branch or historical-result replacement is intended.
-- At the original launch RAM available and free disk were measured separately. Four source-build workers, each capped at64GiB address space, were used; actual measured RSS is in the execution receipts. A lower worker count is supported. This is not an obsolete4GiB rerun.
+- Mathlib `71a80585ee495fc24472fd0eaffc89d94e4fd8d6`; exact transitive revisions are in both packet manifests and `lake-manifest.json`.
+- The first eight generic proof libraries are mathlib, plausible, LeanSearchClient, importGraph, proofwidgets, aesop, Qq and batteries. Cli is additionally pinned in the generic dependency manifest but is not a selected proof library.
+- The mathematical source commit is in `SOURCE_PIN.json`; the initial additive checkpoint is `f997750b9f5ba6771d226d682d8aab7e4861b315`, based on `3539bbba83db8345db1c43f37a9ddb6d8baf3ab0`.
+- Both original run controllers preserve a 256 GiB available-host-RAM admission reserve and a 64 GiB per-compiler address-space cap. This is the shared study host policy, not the measured mathematical memory demand. The 300-source run with four workers sampled38.735 GiB aggregate compiler RAM; the 53-source run with two workers sampled7.862 GiB. Exact per-process GNU peaks and the sampled process-tree traces are retained. Use a host meeting the preserved admission policy; no obsolete4 GiB cap is imposed.
 
-The compact evidence bundle contains a byte-identified selected source closure and a self-contained frontend under `portable/`. Generic toolchain/Mathlib packages are fetched at their exact pinned revisions rather than bundled as huge compilation caches. The portable frontend copies and hashes all application sources before executing Lean, and it never imports predecessor application objects.
+No generic source revision may be silently updated. Cached generic libraries are an explicit trusted dependency; the application proofs are rebuilt from the supplied source. Compiler, runtime, OS and hardware correctness remain infrastructure assumptions.
 
-## Clean-environment proof reproduction
+## Prepare a clean generic environment
 
-1. Install the pinned Lean toolchain with elan. Obtain this exact Git revision or unpack the evidence bundle. The repository's checked-in `lake-manifest.json` must remain unchanged.
-2. In the repository root, obtain the pinned generic dependencies and their Mathlib cache using the normal Lake cache procedure (`lake exe cache get`). This step reuses generic dependencies, not any IEANTN or campaign proof objects. Do not run `lake update` to silently change dependency revisions. To build generic libraries from source instead, use the pinned manifest and `lake build Mathlib`.
-3. Run `python3 Solutions/RHOnePrimeEvolution.v1/portable/reproduce.py --help`. Supply the colon-separated generic library paths and the actual pinned Lean binary as shown by the help. The frontend validates generic revisions, the source manifest and imports, freezes the controller and sources, and rebuilds the complete selected transitive application closure in a fresh output directory.
-4. The selected roots include the actual final consumer audit. Read its24headline exact-type/axiom/body/input-use checks in the generated compiler log; require a successful execution receipt and the matching source/object hashes. `FinalConsumerAudit.lean` is a checked audit of actual theorem values, not an assumption of their correctness.
-5. The historical runtime reader and development helpers in `scripts/` are source-location-bound evidence tools. Use the portable frontend for relocated clean reproduction; do not edit a historical receipt or bypass its path/hash guards.
+Install elan, Git, Python and the stated GNU utilities. Obtain the exact source commit in `SOURCE_PIN.json` in a fresh checkout, leaving its `lake-manifest.json` unchanged. From that checkout:
 
-A full fresh portable replay is recorded separately from focused development builds. Its receipt states exactly which application modules were rebuilt and which generic objects were reused. The original execution receipt and source hashes remain unchanged.
+```sh
+elan toolchain install leanprover/lean4:v4.34.0-rc2
+lake exe cache get
+```
 
-## Reproduce the original research numerical experiments
+These are generic dependency preparation commands. Do not use `lake update` to change the pins. The selected proof libraries must lie under the normal `.lake/packages/` layout; the frozen controller deliberately rejects arbitrary application search paths. The same exact dependency pins are present in the pinned Mathlib manifest. A source build of generic libraries is possible at those revisions, but was not substituted for the recorded generic-cache boundary.
 
-The external experiments are E, not new verified-network numerical providers. They require Python packages pinned in the individual experiment receipts. Preserve the distinction between the Gaussian optimizer (untrusted witness generator), rational witness coefficients, and interval-checking scripts.
+Prepare explicit arguments using the actual pinned Lean executable, not an unspecified default toolchain:
 
-- `analytic/screen_kernels.py --help`: deterministic initial multi-kernel screen.
-- `analytic/search_gaussian.py --help`: Fourier-eigenbasis optimization and exact rational witness output. Preserve recorded degrees, Fourier convention, parameters and seeds from ANALYTIC_HANDOFF.json.
-- `analytic/certify_gaussian_objective.py --help`: exact polynomial identities, real-root isolation, Arb Gaussian moments and infinite tails. This is external interval verification, not Lean or source-first PV.
-- `analytic/sample_hat_witness.py --help` and `analytic/certify_hat_witness.py --help`: rational piecewise-linear FOURIER windows and actual external sample/cell/tail checks. The Fourier window is not the physical-space function.
-- `comparisons/Published2026Review/reproduce_published.py --help`: fetch the pinned public supplement, verify its archive SHA, create the pinned Python environment, and rerun all five printed Table1 rows plus Table3. The original source files stay unchanged. Assertion-based original upstream scripts are run with Python assertions enabled; their results are external computations, not an optimization-safe accepted Lean provider. The campaign's wrapper controls/receipts are separate.
+```sh
+python3 Solutions/RHOnePrimeEvolution.v1/scripts/prepare_proof_context.py \
+  --packages .lake/packages \
+  --compiler "$(elan which lean)" \
+  --output /absolute/fresh/path/proof_context.json
+```
 
-The relevant exact small witness packets, parameters, commands, source hashes, rounding modes and receipts are in the evidence bundle. Historical source/run association failures and solver failures are preserved as failed/provisional runs; final accepted external runs use frozen source copies. Any newly developed Gaussian kernel lemmas are explicitly separated from a completed Fourier objective certificate.
+This command checks every selected generic Git revision and tracked-source cleanliness, library existence and Lean version. Its output establishes dependency identity only; it is not a proof-execution receipt. The context helper and both actual packet check-only routes were exercised. In the shared original host, dependency packages were deliberately isolated for writable native hash builds; those private duplicate caches are regenerable and are not required by either delivered proof packet.
 
-## Reproduce the reports
+## Rebuild both complete proof packets
 
-Install build-time KaTeX0.16.47 in an owned Node directory. No reader-side CDN or JavaScript is used. From this directory run:
+From the study directory or its extracted evidence copy:
+
+```sh
+python3 scripts/reproduce_packets.py \
+  --context /absolute/path/proof_context.json \
+  --run-root /absolute/fresh/path/reproduced-study \
+  --jobs 2
+```
+
+The launcher runs these two actual front doors sequentially:
+
+| Packet | Application sources | Verified result |
+|---|---:|---|
+| `portable/reproduce.py` |300|Explicit continuous/cosine one-prime frontier, finite bridge, cube/Goldbach/index consumers,24canonical targets plus helper, six mathematical mutation controls.|
+| `gaussian_gap/portable/reproduce.py` |53|All Gaussian certificate providers and LeanCert foundations, genuine Fourier identity, raw numerical witness, objective, six new canonical targets,11root/12edge audit and six mathematical mutation controls.|
+
+Both accept `--compiler`, `--generic-lean-path`, `--run`, `--jobs` and `--check-only`. Run `--help` for the exact CLI. Run directories must be fresh. Source files and controller/context identities are copied and hashed before compilation. Acceptance is published atomically only after source/object/compiler/log readback and final semantic controls succeed. Exact source types, actual proof-body dependencies, consumed numerical/source parameters and transitive axioms are checked. Allowed axioms are only `propext`, `Classical.choice`, `Quot.sound`; no native execution axiom or `sorryAx` occurs in accepted final closures.
+
+The original successful relocated runs are in `evidence/reproduction/relocated300/` and `gaussian53/`. Their total wall times were1615.218 s and341.943 s respectively. Resource fields state exactly what was measured: aggregate RAM is sampled, individual GNU peaks are retained, and disk is final allocation rather than an exact peak. The source packet consistency hashes are not signatures or authenticity authorities; the published source commit and recorded SHA-256s identify the intended version.
+
+## Regenerate the numerical certificate itself
+
+`gaussian_kernel/reproduce.py` is the separate numerical-generation front door. It regenerates nine exact Lean certificate/data sources from the 13 original rational coefficients, checks byte identity, rebuilds the numerical closure and runs its exact-type/axiom audit. It needs neither SciPy nor Arb. Its actual full 32-source run and normal/`-O`/`-OO` regeneration checks passed; see `gaussian_kernel/VERIFICATION_RECEIPT.json` and its README.
+
+The 53-source packet independently includes every selected provider needed for the final result, so it can verify the delivered source without the untrusted optimizer or generator. The generic certificate soundness theorem validates real polynomial/exponential integrals, and all564 cells, true infinite tails and pi scaling are consumed. `gaussian_fourier/README.md` documents the proved Fourier recurrence and exact25-position coefficient association. `gaussian_gap/SOURCE_LEDGER.html` renders the actual primary CMS statements and the precise analytic input boundary.
+
+## Reproduce the external exploration and literature checks
+
+External experiments are E and do not supply an unverified premise to the canonical theorems. Preserve coefficients, Fourier penalties, source hashes, parameters, seeds and dependency versions from the individual receipts.
+
+- `analytic/screen_kernels.py`: deterministic multi-kernel screen; ordinary numerics.
+- `analytic/search_gaussian.py`: untrusted coefficient search. The degree 12 at penalty 36/11 value near 0.834009631 is the ordinary search estimate shown in the reports. A separate matching directed-Arb output was recovered and its coefficients verified; raw execution argv and a separate OS exit receipt were not saved, so that output retains its explicit E/provenance limitations. The kernel-proved loose bound is 0.834021.
+- `analytic/certify_gaussian_objective.py` and `certify_hat_witness.py`: external interval/certificate checks. The matched degree 40 value 0.833948868 and rational-hat bounds remain E. Match exact coefficients, penalty and normalization rather than degree labels.
+- `comparisons/Published2026Review/reproduce_published.py`: pinned public supplement and all five original Table1 rows plus Table3. Original assertion-based upstream scripts are run with assertions enabled; they are not an optimization-safe accepted Lean provider. The campaign wrappers and their receipts are separate.
+- `sources/fetch_sources.py`: exact seven primary-source byte identities. Nicely reports the below 2⁶⁴ / maximal 1550 gap claim with its stated practical qualifications; its explicitly public-domain 334,665-byte PDF is preserved because current scripted OEIS retrieval returns 403. The script records archived fallback rather than pretending it downloaded that file. All six other pinned originals were fetched and matched during the final source reproduction check.
+
+Failed solver attempts, source/run association failures and interrupted preliminary runs are retained as failed/provisional evidence. They are not promoted to successful mathematical certificates. The legacy297-source snapshot precedes a one-comment Lee clarification; the corrected source is covered by the later complete300-source replay. Do not bypass historical current-source/path guards or rewrite their receipts.
+
+## Reports, graph bookkeeping and evidence
+
+The five offline HTML files use strict build-time KaTeX0.16.47, static MathML and the embedded licensed STIX font. They require no runtime JavaScript, CDN or browser extension. To regenerate from the accepted run evidence:
 
 ```sh
 python3 reports/build_matrix.py
-python3 reports/build_reports.py --katex /absolute/path/to/node_modules/katex --run /absolute/path/to/fresh-final-all-v1
+python3 reports/build_reports.py \
+  --katex /absolute/path/to/node_modules/katex \
+  --run /absolute/path/to/relocated300/compile
 ```
 
-The renderer uses strict KaTeX to emit static MathML, strips hidden raw-TeX annotations, and embeds the pinned STIX font. Font identity/license are supplied under reports/fonts/. The browser verification checks all four reports on desktop and mobile with network access disabled, compares the actual DOM prose to the generated source text, and checks internal links and horizontal overflow.
+The renderer consumes source/receipt data separately from mathematical acceptance. Full offline phone/desktop, native keyboard, complete DOM-prose preservation and actual local-source link checks are run with `reports/check_report_browser.py`. The 30-row theorem matrix contains full quantified contracts, physical source identities, typed antecedents, endpoints and limitations.
 
-The exact primary-source versions, hashes and download URLs are recorded in sources/DOWNLOADS.json and the comparison review. Primary papers are kept as original research evidence; the public package supplies provenance/download instructions rather than assuming permission to republish entire papers. A fetch failure is not evidence for a source claim.
+The genuine repository commands `gen-challenges`, `check-graph`, native `ieantn_hash`, `fingerprint` and `fingerprint --check` were executed, covering 380 ordinary core modules after the new nodes. Generated Challenge templates deliberately retain the repository's proof placeholders; accepted Solution proofs do not import them. Official Comparator approval remains absent: its actual entry point stopped at missing cargo. No local report or verifier is presented as that approval, and metadata retains local-review status.
 
-## Canonical IEANTN integration and limits
+`evidence/reproduction/COMPILER_AUDIT_LOGS.zip` contains 1814 byte-identified copied compiler/control logs plus their original manifest. Nineteen JSON/CSV/source-delta files remain readable alongside it. The deterministic archive, every member and the retained files were checked in normal/`-O`/`-OO`, including metadata/payload mutation controls. `evidence/log_archive.py` and `test_log_archive.py` reproduce those checks. All original accepted run artifacts remain preserved independently.
 
-`python3 scripts/ieantn.py gen-challenges`, `check-graph`, and the genuine fingerprint/hash route are distinct from solution proof checking. The core generated Challenges deliberately contain the project's permanent proof placeholders. Accepted solution closures import Conclusions and mathematical proofs, not those Challenges. Node approval status remains local until an official workflow issues its own receipt. A locally constructed audit or report must never be called that official approval.
+## Storage cleanup
 
-The selected root inventory is exactly the24headline theorem contracts in four new proved node versions, plus two explicitly external input nodes. It is not a source-claim census of the entire repository. The matrix contains the exact physical source identities, quantified statements, assumptions and limitations for each headline.
-
-## Safe storage cleanup
-
-Keep original sources, locked inputs, accepted proof banks, small rational certificates, parameter/seed files, execution commands, hashes, failure receipts and required evidence. Only previewed experiment-owned duplicate caches or regenerable scratch may be removed after the corresponding reproduction route actually passes. The cleanup receipt lists the exact path, hashes, retained copy and regeneration procedure. End-of-run disk measurements are not exact peak-disk measurements.
+Only previewed experiment-owned duplicate caches, verified copied logs and regenerable failed/intermediate objects may be removed after their reproduction routes pass. Never remove the original sources, locked inputs, accepted proof artifacts, essential coefficient data, source/proof receipts or the only regeneration copy. The final cleanup receipt states exact targets and retained replacements. Historical outcomes and the default Git branch are preserved; new proof work is additive research.
