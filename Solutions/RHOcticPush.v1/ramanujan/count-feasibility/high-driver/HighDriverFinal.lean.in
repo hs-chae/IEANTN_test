@@ -1,0 +1,38 @@
+-- PENDING TEMPLATE ONLY. Compile only after the unchanged exhaustive Final passes.
+import HighDriverContract
+import RamanujanPV.HighTransitionCount.Final
+import HighDecodedOutputs
+
+namespace RHOcticPush.HighDriverFinal
+open RamanujanPV RamanujanPV.QuotientCMachine
+open RamanujanPV.QuotientDriverInit RamanujanPV.QuotientDriverExecution
+
+theorem count : Nat.primeCounting 1490000000000 = 55206486339 :=
+  RamanujanPV.HighTransitionCount.pi_1490000000000
+
+theorem actual_high_main_output
+    (layout : Layout) (token : Nat) (world : World) {final : DriverState}
+    (run : DriverRun token HighDriverSource.program.main.body
+      (initialDriver layout token world) (.returned final (.core (.i32 0)))) :
+    final.world.buffered = [] ∧ final.world.committed =
+      world.committed ++ world.buffered ++ wordBytes 55206486339 :=
+  HighDriverContract.output_of_exact_count count layout token world run
+
+theorem complete_canonical_verified_word :
+    ∃ final, DriverRun 32000000 HighDriverSource.program.main.body
+        (initialDriver canonicalLayout 32000000 ⟨[], []⟩)
+        (.returned final (.core (.i32 0))) ∧
+      final.world.buffered = [] ∧ final.world.committed = wordBytes 55206486339 := by
+  simpa only [count] using HighDriverContract.complete_canonical_model_run
+
+theorem every_finished_decoded_pi :
+    ∀ i, i < HighTransitionCount.entryCount → (HighTransitionCount.nodes.get i).kind = 2 →
+      Nat.primeCounting (HighTransitionCount.nodes.get i).v =
+        (HighTransitionCount.nodes.get i).value :=
+  HighDecodedOutputs.finished_pi HighTransitionCount.entries_checked
+
+#print axioms count
+#print axioms actual_high_main_output
+#print axioms complete_canonical_verified_word
+#print axioms every_finished_decoded_pi
+end RHOcticPush.HighDriverFinal

@@ -15,6 +15,7 @@ parser.add_argument('--status', type=Path, required=True)
 parser.add_argument('--katex', type=Path, required=True)
 parser.add_argument('--out', type=Path, required=True)
 args = parser.parse_args()
+args.katex = args.katex.resolve()
 status = json.loads(args.status.read_text())
 if status.get('status') not in {'DRAFT_RESEARCH_IN_PROGRESS', 'REVIEWED_RESEARCH_RESULTS'}:
     raise SystemExit('Missing explicit research status')
@@ -43,6 +44,69 @@ def card(title, text, tone='blue'):
     return '<article class="card '+tone+'"><h3>'+title+'</h3>'+text+'</article>'
 def section(anchor,title,text):
     return '<section id="'+anchor+'"><h2>'+title+'</h2>'+text+'</section>'
+
+def reproduction_observation(lang):
+    prose = status.get('clean_reproduction_summary_'+lang.lower())
+    return '<p>'+html.escape(prose)+'</p>' if prose else ''
+
+def ram_bridge(lang):
+    text = ('The factorial coefficients come from the shifted logarithmic-integral expansion and the convolution obtained by squaring its finite polynomial. A bounds the remaining analytic expansion terms, including the square of the factorial remainder. D_aR bounds the two prime-counting errors, their cross term and their square. The existing signed consumer therefore gives the following lower bound before the piecewise maxima and finite bands are assembled.'
+            if lang == 'EN' else
+            '계승 계수는 이동한 로그 적분의 전개와 유한 다항식의 제곱에서 나온 합성곱이다. A는 계승 나머지의 제곱까지 포함한 해석 전개 오차를 제한하고 D_aR은 두 소수계수 오차·교차항·제곱항을 제한한다. 기존 부호 보존 소비 정리는 아래 하한을 주며, 이후 구간별 최댓값과 유한 구간 여유를 결합한다.')
+    return '<p>'+text+'</p>'+m('ram_lower_bridge')
+
+def ram_assumptions(lang):
+    data = json.loads((HERE/'RAMANUJAN_INPUTS.json').read_text())
+    names = {'R1':'RH', 'R2':'GM', 'R3':'Buthe2018', 'R4':'Buthe2018',
+             'R5':'Buthe2018', 'R6':'Buthe2018', 'R7':'Buthe2018',
+             'R8':'Buthe2018', 'R9':'Buthe2016', 'A1':'Nicolas', 'A2':'Hildebrand'}
+    intro = ('R1–R9 are the unchanged original nine inputs. A1 and A2 are the two additional inputs for the606-billion global theorem. They remain explicit literature propositions, not new numerical program outputs. The definitions of π, ψ, J and principal-value li are those fixed above. Indexed packet names in A1 and A2 are local to those input rows, distinct from the integration-by-parts packets.'
+             if lang == 'EN' else
+             'R1–R9는 보존한 원래 아홉 입력이고 A1·A2는6060억 전역 정리에 추가한 두 입력이다. 새 수치 프로그램 출력이 아니라 명시적인 문헌 명제로 남는다. π·ψ·J·주값 li는 앞에서 정의한 실제 산술 함수다. A1·A2의 첨자가 있는 영점 항 이름은 각 입력 행 안에서만 쓰며 부분 적분 절의 항과 구분한다.')
+    body = '<p>'+intro+'</p>'+m('ram_partial_RH')
+    for row in data['inputs']:
+        ident = row['actual_Lean']
+        title = row['id']+' · '+row['readable_name']
+        url = data['primary_urls'].get(names[row['id']])
+        primary = source(url, row['primary_locator']) if url else html.escape(row['primary_locator'])
+        body += ('<h3>'+html.escape(title)+'</h3>'+m('ram_input_'+row['id'])+
+                 '<p>'+link(ident['file']+'#L'+str(ident['physical_line']),
+                            ident['declaration'])+'; '+primary+'.</p>')
+    tables = ('Both complete dyadic tables follow. Each row gives X and the two lower/upper pairs; its interval is the closed real interval [X,2X]. All displayed decimals are exact rationals. The last row reaches2X=1.024×10¹⁹, and its full interval is part of the table hypothesis; the separate finite theorem inputs have their own stated10¹⁹ cutoff.'
+              if lang == 'EN' else
+              '아래는 두 dyadic 표의 전체 행이다. 각 행은 X와 두 하한·상한 쌍을 주며 구간은 닫힌 실수 구간 [X,2X]다. 표시된 십진수 상수는 모두 정확한 유리수다. 마지막 행의2X=1.024×10¹⁹까지가 표 전제의 범위이며 별도 유한 정리 입력의10¹⁹ 상한과 구분한다.')
+    endpoint = ('The2016 source uses half weight at prime endpoints. In the full-RH application here, choose nonprime x_j just above x, below the next prime, and choose a strictly larger height T_j for each. The following continuous limit gives the ordinary right-count value without an added half-unit allowance. We do not claim a formal proof of every fixed-partial-height endpoint variant of the preserved input.'
+                if lang == 'EN' else
+                '2016년 원문은 소수 끝점에서 절반 가중치를 사용한다. 여기의 완전한 RH 적용에서는 x 바로 위·다음 소수 아래의 비소수 x_j와 각 점에 대해 더 큰 높이 T_j를 선택한다. 연속 극한으로 반 단위 여유를 추가하지 않고 일반 오른쪽 계수값을 얻는다. 보존한 입력의 모든 고정 부분 높이 끝점 변형을 형식화했다고 주장하지 않는다.')
+    body += '<p>'+tables+'</p>'+m('ram_full_tables')+'<p>'+endpoint+'</p>'+m('ram_endpoint_transfer')
+    return '<details><summary>'+('Exact mathematical assumptions and complete finite tables' if lang == 'EN' else '정확한 수학 전제와 전체 유한 표')+'</summary>'+body+'</details>'
+
+def tier_legend(lang):
+    if lang == 'EN':
+        entries = [
+            ('A','Fully checked Lean theorem conditional on RH alone.'),
+            ('B','Checked Lean theorem conditional on additional explicit analytic or literature propositions.'),
+            ('C','Source-first program verification: actual executable source, verified execution model, correctness and mathematical output consumer.'),
+            ('D','Kernel-checked numerical certificate; this alone is not source-first PV.'),
+            ('E','Written proof with independent checks.'),
+            ('F','Exploratory numerical candidate.'),
+            ('G','Open conjectural target.')]
+        title = 'How to read the verification labels'
+        note = 'B+D means that a source-conditional mathematical proof uses kernel-checked numerical leaves. It does not imply A or C. The exact remaining link is stated for each result.'
+    else:
+        entries = [
+            ('A','RH만을 조건으로 하는 완전히 확인된 Lean 정리.'),
+            ('B','명시적인 추가 해석·문헌 명제를 조건으로 하는 확인된 Lean 정리.'),
+            ('C','Source-first 프로그램 검증: 실제 실행 소스, 검증된 실행 모델, 정확성 증명과 수학적 출력 소비 정리의 연결.'),
+            ('D','커널로 확인한 수치 인증서. 이것만으로 source-first PV가 되지는 않는다.'),
+            ('E','독립 검토를 거친 서면 증명.'),
+            ('F','탐색적인 수치 후보.'),
+            ('G','열린 추측 또는 목표.')]
+        title = '검증 등급을 읽는 방법'
+        note = 'B+D는 문헌 조건을 명시한 수학 증명에서 커널로 검증한 수치 부분을 사용한다는 뜻이다. A나 C를 뜻하지 않는다. 각 결과에서 남아 있는 연결을 별도로 명시한다.'
+    return ('<details open><summary>'+title+'</summary><ul>'+''.join(
+        '<li><strong>'+key+'</strong> — '+value+'</li>' for key,value in entries)+
+        '</ul><p>'+note+'</p></details>')
 
 def metadata_graph(lang):
     folder = HERE/'network'
@@ -84,12 +148,16 @@ def measurements(lang):
     return table+'</table></div>'
 
 finite = status.get('finite_count_snapshot', {})
-finite_en = ('<p><strong>Recorded count status:</strong> '+html.escape(str(finite.get('status','not established')))+
+count_status_en = ('Full numerical proof accepted' if finite.get('final_accepted') is True
+                   else 'Exhaustive numerical proof incomplete')
+count_status_ko = ('전체 수치 증명 승인' if finite.get('final_accepted') is True
+                   else '전체 수치 증명 미완료')
+finite_en = ('<p><strong>Recorded count status:</strong> '+count_status_en+
              '; '+str(finite.get('arithmetic','not established'))+'/'+str(finite.get('total_arithmetic',2768))+
              ' arithmetic parts, '+str(finite.get('observed_live_workers','not established'))+
              ' observed live workers at '+html.escape(str(finite.get('snapshot_utc','not established')))+
              '. This is a dated snapshot, not a claim that workers remain live after publication.</p>')
-finite_ko = ('<p><strong>기록한 계수 검증 상태:</strong> '+html.escape(str(finite.get('status','미확인')))+
+finite_ko = ('<p><strong>기록한 계수 검증 상태:</strong> '+count_status_ko+
              '; 산술 부분 '+str(finite.get('arithmetic','미확인'))+'/'+str(finite.get('total_arithmetic',2768))+
              ', 확인한 실행 중 작업 '+str(finite.get('observed_live_workers','미확인'))+'개. 관측 시각 '+
              html.escape(str(finite.get('snapshot_utc','미확인')))+
@@ -104,14 +172,14 @@ conditional_en = ('The two actual Fourier moment caps have been proved by kernel
                   'The analytic adapters below compile, but the full kernel certificate has not yet been accepted. '
                   'Every octic conclusion in this draft remains conditional on the two actual moment caps. ')
 conditional_en += ('RH and three general published inputs remain explicit: Green’s smooth explicit formula, '
-                   'Nicolas’s inverse-square zero identity and BPT’s off-ordinate zero-count bound. '
+                   'Nicolas’s full spectral summability/bound and BPT’s off-ordinate zero-count bound. '
                    'These literature theorems, including external computations used by BPT, are not proved from Mathlib in this campaign.')
 conditional_ko = ('실제 푸리에 모멘트 상한 두 개를 커널로 검증하고 최종 정리 안에서 직접 구성했다. '
                   '기존 octic 전용 해석 가정은 모두 해소했다. ' if octic_done else
                   '아래 해석 연결 정리는 컴파일되지만 전체 커널 인증서는 아직 승인되지 않았다. '
                   '이 초안의 octic 결론에는 실제 모멘트 상한 두 개가 여전히 조건으로 남는다. ')
 conditional_ko += ('RH와 일반 문헌 정리 세 개는 명시적 가정이다. Green의 매끄러운 명시적 공식, '
-                   'Nicolas의 영점 역제곱 합 항등식, BPT의 영점 높이를 피한 계수 상한이다. '
+                   'Nicolas의 전체 스펙트럼 합 가능성·상한, BPT의 영점 높이를 피한 계수 상한이다. '
                    'BPT가 사용한 외부 수치 계산까지 Mathlib에서 새로 증명한 것은 아니다.')
 
 font_bytes = (HERE/'fonts/STIXGeneral.ttf').read_bytes()
@@ -121,6 +189,7 @@ if hashlib.sha256(font_bytes).hexdigest() != font_meta['sha256']:
 font_style = '@font-face{font-family:ReportSTIX;src:url(data:font/ttf;base64,'+base64.b64encode(font_bytes).decode()+')}math{font-family:ReportSTIX,serif}'
 font_license = (HERE/'fonts/LICENSE.txt').read_text()
 font_style += '.network-diagram svg{display:block;width:1350px;max-width:none;height:auto}'
+font_style += 'p,li,a,summary{overflow-wrap:anywhere}'
 css = font_style + '''body{margin:0;background:#f4f6fa;color:#192334;font:16px/1.65 system-ui,sans-serif}main{max-width:1120px;margin:auto;padding:30px 20px 70px}h1{font-size:2.1rem;line-height:1.2}h2{font-size:1.55rem;margin-top:2.7rem;border-bottom:2px solid #cbd4e3;padding-bottom:8px}h3{font-size:1.12rem;margin:0 0 10px}p{margin:12px 0}a{color:#164fa3;text-underline-offset:3px}nav{display:flex;gap:14px;flex-wrap:wrap;padding:12px 0}nav a{padding:5px 0}.card{background:white;border:1px solid #d7dfeb;border-left:5px solid #316cbd;border-radius:9px;padding:18px;margin:14px 0}.green{border-left-color:#23835a}.amber{border-left-color:#c8840b}.red{border-left-color:#b83d3d}.pill{display:inline-block;border-radius:20px;background:#e1eaf7;color:#143e76;padding:4px 12px;font-weight:650;font-size:.9rem}.muted{color:#536177}.formula{background:#fafbfe;border-radius:5px;padding:12px 8px;overflow-x:auto;margin:13px 0}.formula math{font-size:1.06rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:.82rem}table{border-collapse:collapse;width:100%;background:white}th,td{padding:11px 12px;border:1px solid #d6deea;text-align:left;vertical-align:top}th{background:#e8eef7;font-weight:700}.tablewrap{overflow-x:auto}code{font-size:.85em;overflow-wrap:anywhere}details{background:#fff;border:1px solid #d7dfeb;border-radius:7px;padding:12px;margin:14px 0}summary{cursor:pointer;font-weight:650}summary:focus-visible,a:focus-visible{outline:3px solid #e0911c;outline-offset:3px}.chain{display:flex;flex-wrap:wrap;gap:8px}.chain span{border:1px solid #b6c8e3;background:#eaf1fb;padding:8px 12px;border-radius:5px}footer{border-top:1px solid #ccd5e3;margin-top:40px;padding-top:16px;font-size:.9rem}@media(max-width:600px){main{padding:22px 12px}h1{font-size:1.65rem}.card{padding:14px}th,td{min-width:120px;padding:9px}.formula math{font-size:.92rem}}@media print{body{background:white}main{max-width:none;padding:0}.card,details{break-inside:avoid}a{color:inherit}nav{display:none}}'''
 
 ram_inputs = json.loads((CAMPAIGN/'ramanujan/RESULTS.json').read_text())['source_inputs']
@@ -138,6 +207,10 @@ source_links = (
 
 contents_en = []
 contents_en.append(section('results','Results and the exact proof boundary',
+ '<p>This research closes the actual octic and Box analytic proof obligations, derives stronger prime-counting functions, and connects them to arithmetic consumers. RH remains a hypothesis. The strongest analytic results also take explicitly named general literature propositions; those source theorems are not silently promoted into new Lean axioms.</p>'+
+ '<p class="muted">Wide formulas and tables scroll horizontally. On a keyboard, focus the formula or table with Tab, then use the arrow keys.</p>'+
+ m('arithmetic_notation')+
+ '<p>Every prime sum is over actual primes, and the prime-power sums include every positive integer exponent. The symbol li denotes the principal-value logarithmic integral; it differs from the offset integral Li₂ by the constant li(2). That constant is paid explicitly in every ordinary-prime transfer. Throughout, L=log(x) or L=log(u), as specified beside each bound. Except in Green’s explicitly marked all-zero formula, ρ ranges over distinct nontrivial zeta zeros; mρ is the multiplicity and γρ the imaginary part. The symbol γ denotes Euler’s constant. The Box section defines the first Stieltjes constant γ₁ by its actual limiting sequence.</p>'+
  card('A stronger full PNT bound, with the same four inputs',m('feedback_clean')+
       '<p>The complete bound is stronger than this convenient corollary. It preserves the previous entire exp(35) ray and decreases its whole right side by more than1.67√x/log(x) for every real x≥exp(100). The exact inputs are RH, general integrated Perron, Nicolas and BPT. The new prime-square argument is acyclic: first π≤J, then a lower-scale J upper bound, then a sharper prime-power correction. Four source files,39 proof roots, independent mathematical reviews and a source-fresh718-module closure passed. This is mathematical kernel verification, not new source-first PV.</p>','green')+
  card('Original 2.15 target: '+badge_en, '<p>'+conditional_en+'</p>'+m('fixed')+
@@ -150,14 +223,14 @@ contents_en.append(section('results','Results and the exact proof boundary',
       'rather than subtracting two unrelated absolute error bars. The degree-20 main-term remainder is tightened '
       'from 1/1000 to 3/8000 on the actual logarithmic domain. Above 640 billion the full old nonlinear profile is retained.</p>'+
       '<div class="tablewrap"><table><tr><th>Every real x at or above</th><th>Proved normalized margin</th></tr>'+rows+'</table></div>'+ 
-      '<details><summary>The entire retained nonlinear Ramanujan function</summary>'+m('ram_coefficients')+m('ram_tail_terms')+m('ram_retained_profile')+'<p>These are the exact factorial coefficients, remainder and two retained maxima from the original640-billion consumer; the proof does not replace that function with a coarse constant.</p></details>'+
+      '<details><summary>The entire retained nonlinear Ramanujan function</summary>'+m('ram_coefficients')+m('ram_tail_terms')+ram_bridge('EN')+m('ram_retained_profile')+'<p>These are the exact factorial coefficients, remainder and two retained maxima from the original640-billion consumer; the proof does not replace that function with a coarse constant.</p></details>'+
       '<p>'+link('Solutions/RHOcticPush.v1/ramanujan/RamStrongOverlay.lean','Actual full consumer')+'.</p>', 'green')+
  card('A separate spectral-to-Ramanujan synthesis',m('ram606')+
       '<p>The actual signed spectral profile now supplies a normalized margin of at least0.001 from606 billion. Five kernel-checked closed real intervals join606 to610 billion; the exact previous stronger profile is retained above610 billion. This uses the full function P at both heights, not the0.055 coefficient whose onset is higher. The global premise set is strictly larger: the old nine inputs plus Nicolas and general Perron, eleven in total. It is not a same-premise improvement or a published-onset record. All four source files, independent44-identity review and the additive source-fresh723 closure have passed.</p>','green')+
  card('Other completed mathematics','<p>The evolved GM function improves the full ordinary-prime-counting envelope; '
       'correlated Nicolas weights give actual multi-height Euler-product inequalities; the Box work proves full Fourier '
       'reconstruction and a justified Mellin series/integral interchange, while improving an existing moment cap.</p>', 'blue')+
- card('Actual signed spectral target and stronger coefficient',m('spectral_profile')+m('spectral_actual')+'<p>These are the unchanged arithmetic compensation error and the entire real rays. The proof retains complex phases through integration by parts, then uses Nicolas’s positive inverse-square zero mass. Exact inputs are RH, Nicolas’s identity and the general integrated Perron formula; GM and Büthe error estimates are not assumptions.</p>','green')+
+ card('Actual signed spectral target and stronger coefficient',m('spectral_profile')+m('spectral_actual')+'<p>These are the unchanged arithmetic compensation error and the entire real rays. The proof retains complex phases through integration by parts, then uses Nicolas’s positive inverse-square zero mass. Exact inputs are RH, Nicolas’s spectral summability/bound and the general integrated Perron formula; GM and Büthe error estimates are not assumptions.</p>','green')+
  card('What remains incomplete','<p>The full finite prime-count '
       'source-first verification route remains open. This is not a claim to have verified every numerical program in IEANTN. '
       'New source grammar and whole-main model proofs are complete for the counter and high driver; the exact finite-output proof and compiled-run/model applicability boundaries are reported separately below.</p>', 'amber')))
@@ -167,15 +240,15 @@ contents_en.append(section('octic','The octic proof: an infinite analytic argume
  'is the object integrated and estimated in Lean.</p>'+m('kernel')+m('moments')+
  '<div class="chain"><span>Actual source explicit formula</span><span>Smooth octic approximations</span><span>Mellin/Fourier normalization</span>'
  '<span>All zeros + multiplicities</span><span>Full BPT integral</span><span>Certified moments</span><span>Prime powers + strict prime count</span></div>'+
- '<h3>Why the explicit formula adapter is substantive</h3><p>A normalized smooth bump convolves the actual octic kernel. '
+ '<h3>Why the explicit formula adapter is substantive</h3><p>Let φ_j be the normalized even nonnegative smooth bump of radius ε_j below. Its convolution k_j tends to k. Here L is the logarithmic center of the kernel window, rather than automatically log(u); the all-real coverage argument selects L so that a=u. The weight w_j is zero on nonpositive arguments. Taking W_j(t)=w_j(2t) and X=2 meets Green’s support convention. '
  'The proof establishes support, nonnegativity, compactness, smoothness and pointwise convergence. It proves the actual Mellin '
  'normalization and its critical-line Fourier frequency, identifies all proper zeros and their orders, and passes to the '
  'original weighted Mangoldt population through genuine dominated limits. Trivial zeros are summed with their exact geometric series.</p>'+
- m('mellin')+m('green')+'<p>'+source_links+'</p>'+
- '<h3>The entire infinite zero sum</h3><p>The BPT bridge first bounds arbitrary finite subsums, then proves summability and takes '
+ m('octic_physical')+m('mellin')+m('green')+'<p>'+source_links+'</p>'+
+ '<h3>The entire infinite zero sum</h3><p>Write N(T) for the multiplicity-weighted count of positive ordinates in the closed interval (0,T]. The published source is used only off ordinates; the displayed all-height closed-count estimate is the adapter output. The BPT bridge first bounds arbitrary finite subsums, then proves summability and takes '
  'the actual infinite limit. The required regularity, weighted integrability and vanishing boundary term follow from the proved '
  'decay of the actual Fourier transform and its derivative. Conjugate pairing and the low-height exclusion include multiplicity '
- 'and possible real-axis packets; no unverified finite zero table stands in for an infinite tail.</p>'+m('bpt')+m('infinite')+'<p>This generic infinite-tail display requires a≥2π and the linked Stieltjes regularity, weighted integrability, and vanishing-boundary hypotheses; the actual scaled octic transform satisfies all of them in the cited bridge.</p>'+
+ 'and possible real-axis packets; no unverified finite zero table stands in for an infinite tail.</p>'+m('zero_count_def')+m('bpt')+m('infinite')+'<p>This generic infinite-tail display requires a≥2π and the linked Stieltjes regularity, weighted integrability, and vanishing-boundary hypotheses; the actual scaled octic transform satisfies all of them in the cited bridge.</p>'+
  '<p>The final paper does not separately define its counting convention at an ordinate jump. The new Lean endpoint adapter therefore '
  'uses the published bound only away from ordinates. Actual local finiteness gives an immediate right interval with constant closed count; '
  'continuity then transfers the inequality to every closed endpoint, including 2π, with no extra constant.</p>'+
@@ -192,11 +265,11 @@ contents_en.append(section('octic','The octic proof: an infinite analytic argume
  'valid for every integer shift. Thus correctness does not assume that the shift-selection heuristic worked. '
  'All original LeanCert sources remain unchanged. Kernel checking is verification tier D; it is not source-first PV.</p>'+
  '<p>The full-range scalar proof turns those actual moments into the original zero bound, preserving the fixed prime-power '
- 'budget 0.0155 and the family budget 0.058.</p>'+m('zerofixed')+
+ 'budget 0.0155 and the family budget 0.058.</p>'+m('octic_zero_def')+m('zerofixed')+m('octic_count_bridge')+
  '<p>'+link('Solutions/RHOcticPush.v1/octic/OcticEndpointSourceConsumer.lean','Strict endpoint source consumer')+'; '+
  link('Solutions/RHOcticPush.v1/moments/OcticMomentAssembly.lean','Actual complete-moment assembly')+'; '+
  link('Solutions/RHOcticPush.v1/moments/endpoint/OcticFiniteCaps.lean','Finite certificate-to-integral interface')+'. '
- 'No independent Blueprint label exists for these new internal lemmas; their public correspondence is the PrimeKernelInputs, '
+ 'In the last display S_p is the weighted prime population and S_Λ the weighted Mangoldt population. Since0≤k≤1 and log(t)/√t decreases for log(t)≥2, the upper inequality converts the analytic lower bound into an actual prime cardinality. Continuous forward coverage supplies a=u and b≤u+C√u log(u), and the scalar margin produces the strict bound on that whole real ray. No independent Blueprint label exists for these new internal lemmas; their public correspondence is the PrimeKernelInputs, '
  'PrimeInterval and PrimeQuantile node chain.</p>'))
 
 contents_en.append(section('frontier','Stronger bounds and matched comparisons',
@@ -208,9 +281,9 @@ contents_en.append(section('frontier','Stronger bounds and matched comparisons',
  'would not establish a limiting normalized count strictly above one.</p>'+
  '<div class="tablewrap"><table><tr><th>Comparator</th><th>Actual scope</th><th>Permitted conclusion</th></tr>'+
  '<tr><td>'+source('https://arxiv.org/pdf/2005.02393v3','Chirre–Pereira Júnior–de Laat, §1.3, pp.1–2')+'</td><td>'+m('cpdl')+'</td><td>Asymptotic family; α=1 gives a coefficient below 2.5074. Compare the entire population target, not only a one-prime gap.</td></tr>'+
- '<tr><td>'+source('https://arxiv.org/pdf/1708.04122v2','Carneiro–Milinovich–Soundararajan')+'</td><td>Explicit one-prime interval coefficient 0.88; asymptotic prime-population family also available.</td><td>One prime in a shorter interval is a different observable from more than √u primes.</td></tr>'+
+ '<tr><td>'+source('https://arxiv.org/pdf/1708.04122v2#page=5','Carneiro–Milinovich–Soundararajan, Theorem5, printed p.5')+'</td><td>'+m('cms_one_prime')+'The same paper also states an asymptotic prime-population family.</td><td>One prime in a shorter interval is a different observable from more than √u primes.</td></tr>'+
  '<tr><td>'+source('https://arxiv.org/pdf/1407.1901','Dudek–Platt, Theorem 1.3 and Lemma 3.4')+'</td><td>Last integer Ramanujan counterexample 38,358,837,682 under RH; finite real-range verification is part of the paper.</td><td>607 billion is not a new published onset record. The new result supplies a formal quantitative margin profile and signed transfer.</td></tr>'+
- '<tr><td>'+source('https://arxiv.org/html/2312.05628v4','Lee–Nosal v4, Theorems 1.1 and 1.2')+'</td><td>'+m('lee_strong')+m('lee')+'</td><td>The complete new Box function is strictly below both displayed normalized ψ functions for every real log(x)≥35. This unconditional scalar comparison is proved in BoxVsLee.lean; the actual Box theorem has RH plus its three explicit general source inputs. The additional height-dependent Lemma3.3 family and finite-range competitors prevent a global best-known claim.</td></tr>'+
+ '<tr><td>'+source('https://arxiv.org/html/2312.05628v4','Lee–Nosal v4, Theorems 1.1 and 1.2')+'</td><td>'+m('boxfunctions')+m('lee_strong')+m('lee')+'</td><td>The complete new Box function is strictly below both displayed normalized ψ functions for every real log(x)≥35. This unconditional scalar comparison is proved in BoxVsLee.lean; the actual Box theorem has RH plus its three explicit general source inputs. The additional height-dependent Lemma3.3 family and finite-range competitors prevent a global best-known claim.</td></tr>'+
  '<tr><td>'+source('https://arxiv.org/pdf/1202.0729v2','Nicolas, equation (2.19)')+'</td><td>Actual scaled logarithmic Euler-product profile, x&gt;599.</td><td>The new joint/existential result is compared with the sum of these full profiles, not marketed as a one-point constant record.</td></tr></table></div>'+
  '<p>A global best-known-result claim is not established. The report records the primary families inspected, exact observables '
  'and remaining literature/formalization boundaries. It does not transfer discoveries retroactively to earlier frozen exposure arms.</p>'+m('box_lee_comparison')+'<p>'+link('Solutions/RHOcticPush.v1/comparisons/BoxVsLee.lean','All-real comparison with both exact displayed Lee–Nosal functions')+'. The comparison is of complete envelopes, not actual measured errors or a finite grid.</p>'))
@@ -225,30 +298,36 @@ contents_en.append(section('additional-literature','Further whole-function liter
  '<p><strong>Concrete mismatch and impact.</strong> The absolute ordinate in the printed Eq.(10) includes both conjugate zeros. The cited table constant counts positive ordinates. Independently of that table’s computation, BPT and elementary integration already contradict the printed both-sign upper bound:</p>'+m('positive_inverse_derivation')+
  '<p>The kernel proof uses no RH, finite zero table or native execution fact. A second independent source/Lean review and recompilation confirmed this precise mismatch. It does not refute the paper’s final PNT conclusions. We have not proved a replacement closed-endpoint upper bound; the cited table has a strict-open cutoff. The printed Lemma3.3 row is not promoted into the verified network, and the published final theorem families remain comparison limitations.</p>','amber')))
 
+contents_en.append(section('nl-comparison','Comparing both objectives with the original 2.43 parabolic window',
+ '<p>The earlier locked NL report used the following complete parabolic window. Its width tends to the coefficient2.43; at finite heights, comparing that number alone would discard the logarithmic terms. We therefore compare the actual endpoints and count functions at the same left endpoint.</p>'+m('nl_parabolic_full')+m('nl_matched_comparison')+
+ '<p>A pure Lean proof establishes both scalar comparisons for every real L≥24, using a tangent bound for log(L),0&lt;δ≤0.0003 and sinh(δ)≥δ. A separate arithmetic consumer applies the actual new octic theorem and proves the old count objective in a strictly shorter interval. Its additional condition a≥exp(24) is essential: a at L=24 is slightly smaller than exp(24).</p>'+
+ '<p>The old analytic argument remains a written, independently reviewed result; this comparison does not retroactively formalize the original NL arm. The new arithmetic consumer explicitly uses RH, Green, Nicolas and BPT. The original and new transitive source packages differ, so this is a quantitative width/count comparison on the common eligible domain, with that assumption distinction retained.</p>'+
+ '<p>'+link('Solutions/RHExposureStudy.v1/locked/NL_RH/files/Intervals.md','Original locked NL parabolic statement and proof')+'; '+link('Solutions/RHOcticPush.v1/comparisons/NLParabolicComparison.lean','Whole-function scalar comparisons')+'; '+link('Solutions/RHOcticPush.v1/comparisons/NLParabolicConsumer.lean','Actual strict-prime consumer')+'.</p>'))
+
 contents_en.append(section('gm','Recovering information lost by separate error bars',
- '<p>Let J denote Riemann’s prime-power counting function. Its difference from the ordinary prime-counting function is proved '
+ '<p>This section compares the earlier GM method retrospectively. Its error E is exactly the signed compensation D defined above.</p>'+'<p>Let J denote Riemann’s prime-power counting function. Its difference from the ordinary prime-counting function is proved '
  'separately, with actual prime-power and offset-integral corrections.</p>'+m('gmerror')+m('gmoldnew')+m('gmminimum')+
  '<p>The new b=5 function is not uniformly smaller near its first eligible point: its paid anchor constant is larger. '
  'Taking the minimum preserves the old full domain. A separate theorem proves a strict gain greater than 1/2 on every x≥exp(24).</p>'+
- m('pitransfer')+m('Q')+
+ m('pitransfer')+
  '<p>The prime-counting envelope is genuinely consumed. Its gain is measured relative to the same old ordinary-π envelope '
  'including the same offset correction; common minima elsewhere may mask that component gain.</p>'+
  '<h3>The pair estimate that enables the Ramanujan advance</h3>'+m('gmpair')+m('gmpairbound')+m('gmprimitive')+
  '<p>The shared integral from the anchor to y cancels before an absolute value is applied. The coefficient multiplying the remaining '
  'anchor error is e−K rather than e+K. The actual Ramanujan cell proof also keeps the quadratic error term, the signs of upper/lower '
  'bounds, all real endpoints and the source-table eligibility checks.</p>'+
- '<h3>A rigorous negative result for the unsigned method</h3>'+m('gmunsigned')+
+ '<h3>A rigorous negative result for the unsigned method</h3>'+m('gm_transport_def')+m('gmunsigned')+
  '<p>The proof uses the actual nonnegative GM majorant on [x/4,x] and its upper endpoint. Each contributes '
  '0.0462√x/log²x. This is a limitation of that unsigned allowance, not an impossibility theorem about the true oscillatory error '
- 'and not a proof of optimality. The signed approach below now proves the actual 0.076 target and the stronger 0.055 high-ray bound.</p>'+
+ 'and not a proof of optimality. The signed approach in the preceding spectral section proves the actual 0.076 target and the stronger 0.055 high-ray bound.</p>'+
  '<p>'+link('Solutions/RHOcticPush.v1/spectral/GMPair.lean')+'; '+link('Solutions/RHOcticPush.v1/spectral/GMUnsignedObstruction.lean')+'. '
- 'The GM primitive is the actual integral of ψ minus its main term. The four source terms are preserved verbatim from Theorem 1.1.</p>'))
+ 'G is the displayed nonnegative envelope for the actual integral of ψ minus its main term. The four source terms are preserved verbatim from Theorem 1.1.</p>'))
 
 contents_en.append(section('signed-transfer','A complete signed spectral transfer and a cheaper prime-counting proof',
- m('spectral_profile')+m('spectral_signed')+
- '<p>The proof keeps the actual multiplicity and complex phase until after this identity. Full coefficient summability, compact domination and countable-support Fubini justify summing it over every actual zero. On RH the norm of each square coefficient is exactly the existing nonnegative Nicolas weight; its complete mass is β. The leading factor is β rather than the threefold allowance paid by the unsigned GM method.</p>'+m('spectral_remainder')+
- '<p>The low integral is bounded by eight analytic logarithmic slabs, followed by a proved majorant derivative on the entire tail. The initially proposed denominator L−6 had the wrong derivative direction and was rejected before any final claim; the valid proof uses L−8. The anchor is the actual |D(3)|≤2, proved from the principal-value definition of li and exact finite Mangoldt sums. Linear and full trivial-zero integrals are paid separately.</p>'+m('spectral_actual')+m('spectral_pi')+
- '<p>For the actual Box profile f, the whole prime-counting and interval consumers construct all four former Box providers internally. They require only RH, general Perron, Nicolas and BPT. Within that existing Box input union, the ordinary-π branch now drops the old GM and two Büthe ψ/J inputs. The earlier GM and new standalone compensation providers use different source sets; a comparison of their functions does not hide that distinction. The prime-power function Q and offset allowance2 remain included.</p>'+
+ m('spectral_profile')+m('spectral_mass_cap')+m('spectral_signed')+
+ '<p>The proof keeps the actual multiplicity and complex phase until after this identity. Full coefficient summability, compact domination and countable-support Fubini justify summing it over every actual zero. On RH the norm of each square coefficient is exactly the existing nonnegative Nicolas weight; its complete mass is at most β. The leading factor is β rather than the threefold allowance paid by the unsigned GM method.</p>'+m('spectral_remainder')+
+ '<p>Under RH the existing Nicolas source gives the displayed summable mass cap by a genuine right limit x→1+. The low integral is bounded by eight analytic logarithmic slabs, followed by a proved majorant derivative on the entire tail. The initially proposed denominator L−6 had the wrong derivative direction and was rejected before any final claim; the valid proof uses L−8. The anchor is the actual |D(3)|≤2, proved from the principal-value definition of li and exact finite Mangoldt sums. Linear and full trivial-zero integrals are paid separately.</p>'+m('spectral_actual')+m('Q')+m('spectral_pi')+
+ '<p>For the actual Box profile f, the whole prime-counting and interval consumers construct all four former Box providers internally. They require only RH, general Perron, Nicolas and BPT. Within that existing Box input union, the ordinary-π branch now drops the old GM and two Büthe ψ/J inputs. The earlier GM and new standalone compensation providers use different source sets; a comparison of their functions does not hide that distinction. The displayed Q is the complete prime-power allowance. The baseline B_* is defined in the retrospective GM section below as the minimum of its two complete error functions. Thus the last line compares the old and new compensation components on identical domains; it keeps Q and the offset allowance2 unchanged.</p>'+
  '<p>'+link('Solutions/RHOcticPush.v1/spectral-076/SpectralFinal.lean','Actual compensation conclusions')+'; '+link('Solutions/RHOcticPush.v1/spectral-076/SpectralPi.lean','Actual π and interval consumers')+'; '+link('Solutions/RHOcticPush.v1/spectral-076/SpectralComparison.lean','Whole-function strict gain')+'. No global best-known or optimality claim is established.</p>'))
 
 contents_en.append(section('clean-pnt','The whole function and its simpler PNT corollary',
@@ -258,18 +337,18 @@ contents_en.append(section('clean-pnt','The whole function and its simpler PNT c
  link('Solutions/RHOcticPush.v1/spectral-076/corollary/BoxClassicalCorollary.lean','Actual four-input ordinary-prime-counting theorem')))
 
 contents_en.append(section('feedback','Prime-square feedback: a new mathematical reuse of the full bound',
- m('boxfunctions')+m('spectral_profile')+m('feedback_upper')+
+ m('feedback_upper')+
  '<p>Higher prime powers are nonnegative, so ordinary π is at most Riemann J. The existing ψ bound and signed compensation estimate therefore provide an upper bound for J before any ordinary-π error estimate is used. At half the logarithmic height, that full function bounds the isolated square term π(√x)/2. This is a one-pass derivation and does not assume the improved conclusion.</p>'+
  m('feedback_q')+m('feedback_full')+
- '<p>The actual lower-scale input starts at35, so raw feedback applies from L=70. The minimum preserves the entire old35-ray, including its full function below70. The positive exp(L/4)/2 allowance, higher-power floor-height tail, spectral profile P and offset2 are all retained. Above100, the derived simpler J upper bound gives the following strict comparison of whole functions:</p>'+
+ '<p>Here Q₀ is exactly the earlier complete function Q. The actual lower-scale input starts at35, so raw feedback applies from L=70. The minimum preserves the entire old35-ray, including its full function below70. The positive exp(L/4)/2 allowance, higher-power floor-height tail, spectral profile P and offset2 are all retained. Above100, the derived simpler J upper bound gives the following strict comparison of whole functions:</p>'+
  m('feedback_whole_gain')+m('feedback_clean')+m('feedback_budget')+m('feedback_points')+
  '<p>The scalar proof uses0≤L/2−log L≤L/2−4.6 and π≤22/7 on the entire L≥100 ray. At the onset, the numbers are bounding-function coefficients; no prime count at exp(100) was computed. The full effective function is smaller than the clean21/50 corollary.</p>'+
  '<p>The actual Box branch uses exactly RH.v1.hypothesis, IntegratedPerron.v1.formula, Nicolas.v1.spectral_bound and BPTOffOrdinate.v1.bound, as did its previous whole function. The generic point-ψ transfer now also needs BPT for the lower-scale Box argument; the same-premise claim is specifically about the actual four-input Box branch. This extension improves ordinary π and interval bounds; it does not change ψ, LCM or primorial functions.</p>'+
  '<p>'+link('Solutions/RHOcticPush.v1/spectral-076/feedback/FeedbackPiUpper.lean','Independent J upper bound')+'; '+link('Solutions/RHOcticPush.v1/spectral-076/feedback/FeedbackPrimePowers.lean','Actual prime-square correction')+'; '+link('Solutions/RHOcticPush.v1/spectral-076/feedback/FeedbackPi.lean','Actual whole π and interval consumers')+'; '+link('Solutions/RHOcticPush.v1/spectral-076/feedback/FeedbackCorollary.lean','Clean21/50 corollary')+'. No optimality or global best-known claim is established.</p>'))
 
 contents_en.append(section('spectral','Positive spectral weights give actual joint Euler-product theorems',
- m('nicolasbeta')+m('fejer')+m('euler')+m('four')+m('block')+
- '<p>The full zero weights are summable and nonnegative under RH and the exact Nicolas input. Applying the polynomial pointwise '
+ m('nicolasbeta')+m('fejer')+m('euler')+m('nicolas_individual')+m('four')+m('block')+
+ '<p>The full zero weights are summable and nonnegative under RH and the Nicolas spectral bound. The displayed individual source inequality is the separate link from those spectral weights to the actual normalized Euler product; applying it at x,x²,x³,x⁴ and then the positive polynomial gives the stated joint arithmetic bound. Applying the polynomial pointwise '
  'before summing gives the joint result. The independent bound would pay 10β in the four weighted profiles; the joint proof pays 2.5β. '
  'The exact gain is therefore 7.5β. A weighted-average argument yields the finite-block existential consequence.</p>'+
  '<p>This theorem concerns four actual Euler products at related heights, with the logarithmic normalization displayed. It does not '
@@ -279,11 +358,11 @@ contents_en.append(section('spectral','Positive spectral weights give actual joi
 contents_en.append(section('box','Box/Mellin: both exact moment identities are proved',
  m('boxmoments')+m('boxseries')+
  '<p>The complete Fourier series and nonnegative form justify the actual full-strip integral exchange. Euler beta/reflection, positive Laplace kernels and justified product Fubini evaluate the actual cosine Mellin integral.</p>'+m('boxgamma')+m('boxfactor')+
- '<p>Harmonic telescoping evaluates H at zero. Uniform summable derivative bounds differentiate H and the actual Euler integral series for zeta. Its exact finite coefficient sums equal the original Stieltjes sequence, so the derivative is linked to the actual original constant, not a replacement definition. Differentiating Gamma reflection and duplication proves the needed second derivative; a proved L’Hôpital limit supplies a genuine second-order remainder.</p>'+m('boxnotation')+m('boxderivatives')+m('boxcoefficients')+
+ '<p>Harmonic telescoping evaluates H at zero. Uniform summable derivative bounds differentiate H and the actual Euler integral series for zeta. Its exact finite coefficient sums equal the original Stieltjes sequence, so the derivative is linked to the actual original constant, not a replacement definition. The same Gamma/cosine expression defines the prefactor G_Box for |s|&lt;1; the derivatives at zero below concern that local extension. Differentiating Gamma reflection and duplication proves its needed second derivative; a proved L’Hôpital limit supplies a genuine second-order remainder.</p>'+m('boxnotation')+m('boxderivatives')+m('box_expansion')+m('boxcoefficients')+
  card('Two complete original predicates, no mathematical parameters','<p>The actual first_moment and second_moment_identity predicates include genuine integrability and the original J, q and Stieltjes limit. Both now compile without RH, external source propositions or numerical moment assumptions. They are constructed inside the new downstream consumer.</p>'+link('Solutions/RHOcticPush.v1/box/derivatives/BoxSecondMoment.lean','Exact second-moment proof')+'; '+link('Solutions/RHOcticPush.v1/box/gamma/BoxFirstMoment.lean','Exact first-moment proof')+'.','green')+
- m('boxgain')+
- '<p>The positive logarithmic tail improves the cap from0.70875 to0.70871. Actual ψ, ordinary π, LCM logarithmic growth and primorial consumers use the resulting whole function; the π-component gain is e^(L/2)/L times the displayed gain.</p>'+
- card('Original full zero estimate proved',m('boxzerobound')+'<p>The exact original zero-estimate predicate is now derived from the general Nicolas and BPT inputs, with RH inside the predicate. The proof uses actual complex packets, both signs, multiplicity, finite low-height counting and the entire infinite quadratic tail. All four original Box predicates now have actual proof providers. The averaged explicit formula is derived from the following genuine general Perron theorem; its unformalized source proposition remains explicit.</p>'+link('Solutions/RHOcticPush.v1/box/zero/BoxZeroEstimate.lean','Actual full zero estimate')+'.','green')+m('perron_general')+m('perron_transport')+'<p>Hildebrand, Theorem 5.18/(5.32), printed p.166; absolute convergence (5.34), p.167. The multiplicity convention is explicitly corroborated by Grenié–Molteni, equation (1.3a), p.2. The constant C cancels under the displayed operator; the proof uses the actual discontinuous ψ primitive and the entire zero/trivial sums. The combined consumer constructs all four providers internally.</p>'+link('Solutions/RHOcticPush.v1/integration/additive/BoxFullNetwork.lean','Actual complete Box network')+
+ m('box_actual')+m('boxgain')+
+ '<p>Subtracting the Mellin pole leaves the displayed one-sided expansion; the actual integrals J₀ and J₁ are its constant and linear coefficients. Their identification is proved by domination and the Laurent-product limit. The positive logarithmic tail improves the cap from0.70875 to0.70871. Actual ψ, ordinary π, LCM logarithmic growth and primorial consumers use the resulting whole function; the π-component gain is e^(L/2)/L times the displayed gain.</p>'+
+ card('Original full zero estimate proved',m('boxpacket')+m('boxzerobound')+'<p>Here σ is the real logarithmic shift, independent of the Mellin variable s above; mρ is the actual zero multiplicity. The exact original zero-estimate predicate is now derived from the general Nicolas and BPT inputs, with RH inside the predicate. The proof uses actual complex packets, both signs, multiplicity, finite low-height counting and the entire infinite quadratic tail. All four original Box predicates now have actual proof providers. The averaged explicit formula is derived from the following genuine general Perron theorem; its unformalized source proposition remains explicit.</p>'+link('Solutions/RHOcticPush.v1/box/zero/BoxZeroEstimate.lean','Actual full zero estimate')+'.','green')+m('perron_primary')+m('perron_general')+m('perron_transport')+m('perron_constant_transport')+'<p>The first display is Hildebrand’s actual Theorem5.18/(5.32), printed p.166; absolute convergence is (5.34), p.167. The next display is the weaker Lean source contract: it keeps the additive constant existential and uses only x&gt;1. The source zero sum is interpreted with multiplicities, as explicitly corroborated by the cited GM formulation. The following lines show exactly why no bound on the source constant is needed. The multiplicity convention is explicitly corroborated by Grenié–Molteni, equation (1.3a), p.2. The constant C cancels under the displayed operator; the proof uses the actual discontinuous ψ primitive and the entire zero/trivial sums. The Box formula is applied only at the two shifts σ=±1; the separate zero estimate is stronger and allows every σ≤1. The Box scale δ here differs from the octic scale (CL/2−1)exp(−L/2). The combined consumer constructs all four providers internally.</p>'+link('Solutions/RHOcticPush.v1/integration/additive/BoxFullNetwork.lean','Actual complete Box network')+
  '<p>No standalone Blueprint label exists for the new internal coefficient lemmas. Their correspondence is the original BoxMellinInputs.v1 module and RHSmoothing node family. Original four-binder consumers and outcomes are preserved; the additive consumer supplies both proved moments internally.</p>'))
 
 # Complete leading-claim premise matrix. Conditional providers are not hidden.
@@ -291,7 +370,7 @@ combined_inputs = json.loads((HERE/'COMBINED_PRIMARY_INPUTS.json').read_text())[
 all_input_details = '<details><summary>All 27 explicit binders in the preserved primary combined consumer / 기존 통합 정리 입력 27개</summary><ul>'+''.join('<li><code>'+html.escape(x['declaration'])+'</code></li>' for x in combined_inputs)+'</ul><p>The two primary sharp-octic binders are historical conditional inputs. The later certified supplement discharges them from general sources and constructed moment proofs; the preserved primary record is not rewritten.</p></details>'
 matrix = '<h3>Whole-function and assumption matrix / 전체 함수·가정 비교</h3><div class="tablewrap"><table><tr><th>Claim / conclusion</th><th>Whole function and domain</th><th>Entire transitive input list</th><th>Verification and consumer</th></tr>'
 matrix += '<tr><td>Octic original and evolved</td><td>'+m('fixed')+m('family')+m('strongfamily')+m('strongfixed')+m('strongsmall')+m('narrowest')+'</td><td>RiemannHypothesis; SourceGreenSmooth; SourceNicolas119; SourceBPTOffOrdinate. The actual moment caps must be constructed, not added as external hypotheses. Original two octic assumptions are retained only in the preserved primary record.</td><td>Analytic adapters B; finite moment checking D; final source-built consumer status follows the gate above. No new source-first PV.</td></tr>'
-matrix += '<tr><td>Sorted Goldbach triple counts</td><td>'+m('triples')+m('triplehyp')+m('triplebound')+'</td><td>RiemannHypothesis; SourceGreenSmooth; SourceNicolas119; SourceBPTOffOrdinate; GoldbachEvenUpTo(H), plus the displayed geometric conditions. Actual moment caps are constructed internally.</td><td>Actual finite-set injection and optimized prime-count consumer. Does not prove the finite binary input or a global ternary-existence record. No new source-first PV.</td></tr>'
+matrix += '<tr><td>Sorted Goldbach triple counts</td><td>'+m('triples')+m('goldbach_input')+m('triplehyp')+m('triplebound')+'</td><td>RiemannHypothesis; SourceGreenSmooth; SourceNicolas119; SourceBPTOffOrdinate; GoldbachEvenUpTo(H), plus the displayed geometric conditions. Actual moment caps are constructed internally.</td><td>Actual finite-set injection and optimized prime-count consumer. Does not prove the finite binary input or a global ternary-existence record. No new source-first PV.</td></tr>'
 matrix += '<tr><td>GM actual compensation and ordinary π</td><td>'+m('gmoldnew')+m('gmminimum')+m('pitransfer')+'</td><td>SharedRH.hypothesis; GM_Q_Theorem1_1; Buthe.v1.theorem_2_psi; Buthe.v1.theorem_2_li_minus_riemann_pi. The generic π transfer additionally takes the actual ψ-profile inequality for the displayed f; it is not a proof of that profile. Actual Box consumer uses the full Box list below.</td><td>Kernel mathematics, same four source inputs. Actual J, actual ordinary π, signed pair and Ramanujan consumers; no native execution leaf in audited roots.</td></tr>'
 matrix += '<tr><td>Ramanujan</td><td>Full piecewise profile in the table above, every real x≥607 billion, exact inherited profile at640 billion onward.</td><td>'+''.join('<div><code>'+html.escape(x)+'</code></div>' for x in ram_inputs)+'</td><td>Same nine-input union. Source/model C components reused under their explicit renderer/model contract; new real-cell numerics kernel-only. Full source replay is separately recorded.</td></tr>'
 matrix += '<tr><td>Actual signed compensation</td><td>'+m('spectral_profile')+m('spectral_actual')+'</td><td>RiemannHypothesis; NicolasContinuation.SourceNicolas119; general SourceIntegratedPsi (supplied from IntegratedPerron.v1.formula through the proved normalization). No GM, Büthe, BPT or desired-error premise.</td><td>Actual complete signed infinite-zero proof B; anchor, entire remainder and all-real scalar inequalities kernel-only. Actual π/interval consumers use the result.</td></tr>'
@@ -299,7 +378,7 @@ matrix += '<tr><td>Full prime-square feedback and strongest clean ordinary-π co
 matrix += '<tr><td>Separate606-billion spectral synthesis</td><td>'+m('ram606')+'Actual strict Ramanujan inequality and normalized margin≥0.001 on every real x≥606b. The old full stronger profile is exactly retained above610b.</td><td>'+''.join('<div><code>'+html.escape(x)+'</code></div>' for x in ram_spectral_inputs)+'The global input set strictly contains the old nine. The local typed consumer uses RHPrimeCounting.v5.compensation_profile and Büthe table1/li-minus-pi/li-greater-pi.</td><td>B+D; four source files,44 written identities,30 printed standard-axiom roots; five closed whole-interval kernel certificates. Independent source/math review and canonical source-fresh723 replay passed. No new PV or finite-prefix coverage claim.</td></tr>'
 matrix += '<tr><td>Box ψ / ordinary π / LCM / primorial</td><td>'+m('boxfunctions')+m('spectral_pi')+'ψ error≤√x f(log x), x≥exp35. The new ordinary-π transfer uses the same f and the new complete compensation function. LCM log growth uses ψ; primorial adds the proved1.01√x prime-power allowance.</td><td>RiemannHypothesis; IntegratedPerron.v1.formula; SourceNicolas119; SourceBPTOffOrdinate. All four old Box predicates are constructed internally. The new ordinary-π/interval branch requires no additional GM or Büthe input. Primorial additionally uses Buthe2016.v1.theorem_2_psi. General Perron/Nicolas/BPT are explicit B-tier literature propositions.</td><td>Actual consumers B, numerical C-log contract reused; no newly completed whole-pipeline PV. A component gain does not imply an active global-minimum improvement. Old GM-dependent consumers are preserved separately.</td></tr>'
 matrix += '<tr><td>Nicolas joint products</td><td>'+m('four')+m('block')+'</td><td>RiemannHypothesis; NicolasContinuation.SourceNicolas119; NicolasContinuation.SourceNicolas219. No additional desired product bound is a premise.</td><td>Kernel mathematics B and actual Nicolas.v2 consumer. Joint/existential result, not a one-point coefficient record.</td></tr></table></div>'
-contents_en.append(section('matrix','Complete leading-claim matrix',matrix+all_input_details))
+contents_en.append(section('matrix','Complete leading-claim matrix',tier_legend('EN')+matrix+all_input_details))
 
 def matrix_row(label, formulas, premises, proof):
     return '<tr><td>'+label+'</td><td>'+formulas+'</td><td>'+premises+'</td><td>'+proof+'</td></tr>'
@@ -308,7 +387,7 @@ matrix_ko = '<h3>전체 함수와 가정</h3><div class="tablewrap"><table><tr><
 matrix_ko += matrix_row('기존·개선 octic',m('fixed')+m('family')+m('strongfamily')+m('strongfixed')+m('strongsmall')+m('narrowest'),
     'RiemannHypothesis; SourceGreenSmooth; SourceNicolas119; SourceBPTOffOrdinate. 실제 모멘트 상한은 정리 내부에서 증명으로 구성하며 추가 외부 가정이 아니다. 원래 octic 조건 두 개는 보존한 이전 기록에만 남는다.',
     '해석 연결은 B, 유한 수치 커널 검증은 D다. 새 source-first PV라고 부르지 않는다. 전체 소스 재현 상태는 앞의 검증 기록을 따른다.')
-matrix_ko += matrix_row('정렬된 Goldbach 삼중항 개수',m('triples')+m('triplehyp')+m('triplebound'),
+matrix_ko += matrix_row('정렬된 Goldbach 삼중항 개수',m('triples')+m('goldbach_input')+m('triplehyp')+m('triplebound'),
     'RiemannHypothesis; SourceGreenSmooth; SourceNicolas119; SourceBPTOffOrdinate; GoldbachEvenUpTo(H)와 표시된 기하 조건. 실제 모멘트 상한은 내부에서 구성한다.',
     '실제 유한 집합의 단사 대응과 개선된 소수 개수 정리를 사용한다. 유한 이진 Goldbach 입력이나 전역 삼진 존재 기록을 새로 증명한 것은 아니다.')
 matrix_ko += matrix_row('GM 보정과 일반 π',m('gmoldnew')+m('gmminimum')+m('pitransfer'),
@@ -353,10 +432,19 @@ contents_en.append(section('network','What IEANTN propagation actually means her
  'demonstrates a causal advantage of the earlier exposure condition.</p>'))
 
 contents_en.append(section('goldbach','A genuine new arithmetic consumer: sorted Goldbach counts',
- m('triples')+m('triplehyp')+m('triplebound')+
+ m('triples')+m('goldbach_input')+m('triplehyp')+m('triplebound')+
  '<p>Every prime in the proved strict window leaves an even residual between4 andH. The explicit finite binary input supplies a prime pair. Sorting that pair gives a≤b, and the large-window prime is larger than both. Distinct window primes give distinct largest coordinates, so the injection proves a lower bound for actual sorted triples, with no permutation double counting.</p>'+
  '<p>The source-closed consumer uses the certified moments internally. At the original2.15 width a separate consumer transfers the stronger fixed-width population too. The finite binary theorem and the displayed geometry are real additional hypotheses. This neither proves binary Goldbach nor claims a new global ternary-existence record.</p>'+
  '<p>'+link('Solutions/RHOcticPush.v1/goldbach/GoldbachTripleCount.lean','Actual finite set and injection')+'; '+link('Solutions/RHOcticPush.v1/octic/OcticOptimizedCertified.lean','Optimized source-closed consumer')+'. No standalone Blueprint label existed for this new transfer; its canonical Goldbach-count node records the prime-interval dependency.</p>'))
+
+contents_en.append(section('downstream','Which arithmetic conclusions actually change',
+ '<h3>Consecutive prime indices and cubes</h3>'+m('prime_quantiles')+m('cubes_consumer')+
+ '<p>The sequence q is indexed from zero. The strict prime-count bound supplies every index in the displayed block, not only one prime or an unspecified selected index. The larger same-width population enlarges that block. Its actual consumer is PrimeQuantile.v3.optimized_octic_block. The existing successive-cubes consumer also remains usable; it is an RH consequence with the octic source inputs, not a new cubes record.</p>'+
+ '<h3>LCM and prime products</h3>'+m('arithmetic_products')+
+ '<p>The exact identities ψ(n)=log(lcm(1,…,n)) and θ(n)=log(∏p≤n p) transfer the entire Box function to these arithmetic objects. LCM growth uses RH, general Perron, Nicolas and BPT; the primorial relay additionally uses Buthe2016.v1.theorem_2_psi for its1.01√n prime-power allowance. The displayed improvement compares the original and sharpened Box moment functions, with the same downstream assumptions. It is not a new small-n six-prime witness or finite LCM-certificate result. The later prime-square feedback changes ordinary π, not these ψ/θ functions.</p>'+
+ '<h3>Negative applicability results matter</h3>'+m('mertens_masking')+m('mertens_weight_gap')+
+ '<p>The first-Mertens observable here is the weighted prime sum A, distinct from the Möbius sum M. Büthe’s finite ψ allowance0.94 applies for11&lt;x≤10^19. On the displayed common domain exp(35)≤x≤10^19, its minimum with the Box component is still0.94. Thus this component change alone gives no strict gain in the active minimum used by the existing first-Mertens route. There is also a distinct spectral issue: the existing Mertens input uses the ordinate weight wᴹ, while the Nicolas cap controls w. Direct substitution would omit the positive correction displayed above; no replacement numerical moment bound is claimed. The Nicolas joint theorem improves correlated Euler-product information. It is not a new bound for the Möbius sum M(x): that problem needs information about reciprocal-zeta residues absent from the inverse-square zero-mass input.</p>'+
+ '<p>'+link('IEANTN/Nodes/PrimeQuantile/v3/Conclusions.lean','Exact prime-index and cube contracts')+'; '+link('Solutions/RHOcticPush.v1/integration/OcticVerifiedEvolution.lean','Actual interval-to-quantile proof')+'; '+link('Solutions/RHOcticPush.v1/integration/additive/BoxFullNetwork.lean','Actual ψ-to-LCM/primorial composition')+'; '+link('Solutions/RHOcticPush.v1/spectral/FiniteApplicability.lean','Whole-ray inactive-component comparison')+'.</p>'))
 
 contents_en.append(section('pv','Program verification, finite coverage and infrastructure trust',
  card('No relabeling of kernel checks as source-first PV','<p>PV means actual C/C++/CUDA source correspondence to a formal execution model, '
@@ -374,7 +462,7 @@ contents_en.append(section('pv','Program verification, finite coverage and infra
  'The original long-running workers and locked data are preserved.</p>'+
  '<p>The first full recovery verified 528 new modules and reached787 of2,768 arithmetic parts before a clean, requested drain. All active children finished naturally; the original five long-running workers were untouched. The additive resource-only V2 controller completed source/hash/dependency transport before launching numerical workers. It admits at most22 workers adaptively, preserving a512 GiB host reserve and accounting for active jobs’ potential growth. A partial counter does not establish final acceptance. Aggregate RSS/PSS, individual peaks, elapsed time and disk use are recorded; unavailable kernel OOM attribution stays unknown.</p>'+
  '<p>The old driver’s <code>main</code> and literal 38,358,837,683 remain unchanged. A separate additive C driver actually ran the same counter at 1,490,000,000,000 and wrote eight little-endian stdout bytes decoding to55,206,486,339 in1.116 seconds, with19.94 MiB peak RSS. Its formal whole-main theorem proves source-owned initialization, the counter call, output bytes and cleanup for every successful model execution; a constructive canonical model run is also proved. The fixed numerical output adapter still needs the full kernel count certificate. Four new Lean modules now prove an independently specified C11-fragment surface grammar, general guarded-renderer soundness and actual acceptance of both C texts. A new source-indexed whole-main existence proof consumes both generic soundness theorems. The fresh application append is separate. These claims do not include general C name binding, type checking, header interpretation or ISO-C operational adequacy; compiled-run and model applicability contracts remain explicit. This bounded frontend covers the counter and high driver, not the separate reused logarithm/coefficient programs.</p>'+
- '<p>The source-fresh32-module whole application and the additive five-module grammar replay have passed, producing a37-module scoped closure. The grammar audit checks all186 compiler-owned theorems against standard axioms,19 proof-value edges and11 required endpoints. All36 actual normal/−O/−OO grammar controls and57 application-readback decisions passed. These counts refer to different checked scopes, not additional numerical algorithms.</p>'+
+ '<p>The source-fresh32-module whole application and the additive five-module grammar replay have passed, producing a37-module scoped closure. The grammar audit checks all186 compiler-owned theorems against standard axioms,19 proof-value edges and11 required endpoints. All36 actual normal/−O/−OO grammar controls passed. The historical application-reader V2 passed57 decisions; its separately preserved V3 passed60, including rejection of nested fixture-output paths. The mathematical application sources and original run are unchanged. These counts refer to different checked scopes, not additional numerical algorithms.</p>'+
  '<p>The original90,670,946-record data was deterministically regenerated in25 minutes56.59 seconds with42.97 GiB peak RSS: the packed SHA-256, all3,464 original Lean source hashes and all2,469 new pure-check recipes matched. After independent readback, exactly12,171,195,019 bytes of regenerable duplicate data were removed. Original inputs, accepted proofs and current verification inputs remain preserved. A separate source-clean complement covers the original994-module foundation; its status is disclosed in the status receipt rather than inferred from historical cached objects.</p>'))
 
 contents_en.append(section('reproduce','Reproduce, inspect and retain the essential evidence',
@@ -389,7 +477,7 @@ contents_en.append(section('reproduce','Reproduce, inspect and retain the essent
  '<p>Substantial resources are admitted from actual available RAM and free disk independently. There is no obsolete 4 GiB cap. '
  'The earlier numerical moment batch used eight single-CPU lanes. Historical primary builds used a128 GiB address-space ceiling; repaired clean builds use64 GiB. The large count leaves use128 GiB and their final assembly256 GiB address ceilings. These ceilings are not physical RAM measurements. '
  'Actual observed use, rather than those ceilings, is recorded in the receipts.</p>'+
- measurements('EN')+'<p>Source-closure sets overlap and must not be added as disjoint totals. Per-child high-water RSS, sampled aggregate RSS/PSS and sampled owned-file bytes have different measurement scopes. OOM events are attributed only when supported by owned process evidence.</p>'+
+ reproduction_observation('EN')+measurements('EN')+'<p>Source-closure sets overlap and must not be added as disjoint totals. Per-child high-water RSS, sampled aggregate RSS/PSS and sampled owned-file bytes have different measurement scopes. OOM events are attributed only when supported by owned process evidence.</p>'+
  '<details><summary>Exact transitive Ramanujan input list</summary><ul>'+''.join('<li><code>'+html.escape(x)+'</code></li>' for x in ram_inputs)+'</ul></details>'+
  '<p>See the bundled README and immutable source/certificate manifests for clean setup and exact commands. Generated arrays are '
  'deterministic proposals which must pass the checker again; no CSV is accepted as a theorem. Cleanup is restricted to verified '
@@ -399,6 +487,10 @@ contents_en.append(section('reproduce','Reproduce, inspect and retain the essent
 
 # The Korean exposition uses the same displayed mathematical contracts and explicit status gate.
 contents_ko = [section('results','핵심 결과와 정확한 증명 경계',
+ '<p>이 연구는 실제 octic·Box 해석 증명 의무를 해소하고 더 강한 소수계수 함수를 산술 소비 정리에 연결한다. RH는 가정으로 남는다. 가장 강한 해석 결과에도 명시적으로 이름 붙인 일반 문헌 명제가 필요하며, 이를 새 Lean 공리로 조용히 바꾸지 않는다.</p>'+
+ '<p class="muted">넓은 수식과 표는 가로로 스크롤할 수 있다. 키보드에서는 Tab으로 수식이나 표를 선택한 뒤 방향키를 사용한다.</p>'+
+ m('arithmetic_notation')+
+ '<p>소수 합은 실제 소수에 대해, 소수 거듭제곱 합은 모든 양의 정수 지수에 대해 계산한다. li는 주값 로그 적분이며 오프셋 적분 Li₂와 상수 li(2)만큼 다르다. 일반 소수계수 연결에서 이 상수를 명시적으로 지불한다. L은 각 식에서 정한 log(x) 또는 log(u)다. 모든 영점을 명시적으로 더하는 Green 공식을 제외하면 ρ는 서로 다른 비자명한 제타 영점을 나타내며 mρ는 중복도, γρ는 허수부다. γ는 Euler 상수이고 첫 Stieltjes 상수 γ₁은 Box 절에서 실제 극한 수열로 정의한다.</p>'+
  card('같은 네 입력으로 얻은 더 강한 PNT 전체 상한',m('feedback_clean')+
       '<p>전체 함수는 이 간단한 따름정리보다 더 강하다. exp(35) 이상의 이전 전체 범위를 보존하고 exp(100) 이상 모든 실수에서 전체 우변을1.67√x/log(x)보다 많이 줄인다. 정확한 입력은 RH, 일반 적분 Perron 공식, Nicolas와 BPT다. 먼저 π≤J를 증명하고 낮은 높이의 J 상한으로 실제 소수 제곱 항을 제한하므로 순환 논증이 없다. 소스 네 개, 증명 루트39개, 독립 수학 검토와 소스에서 새로 빌드한718개 범위가 통과했다. 수학적 커널 검증이며 새 source-first PV가 아니다.</p>','green')+
  card('기존 2.15 목표: '+badge_ko,'<p>'+conditional_ko+'</p>'+m('fixed')+
@@ -408,20 +500,21 @@ contents_ko = [section('results','핵심 결과와 정확한 증명 경계',
       '<p>기존 아홉 입력을 유지한다. 두 독립 오차 상한을 더하는 대신 공통 적분을 먼저 소거한다. '
       '20차 계수 프로그램이 사용하는 실제 구간에서 주항 나머지를 1/1000에서 3/8000으로 줄였다. '
       '6400억 이상에서는 기존 비선형 오차 여유 함수를 그대로 보존한다.</p>'+
-      '<details><summary>보존한 비선형 라마누잔 함수 전체</summary>'+m('ram_coefficients')+m('ram_tail_terms')+m('ram_retained_profile')+'<p>원래6400억 소비 정리의 정확한 팩토리얼 계수, 나머지와 두 최댓값을 모두 유지한다. 이 함수를 거친 상수로 바꾸지 않는다.</p></details>'+
+      '<details><summary>보존한 비선형 라마누잔 함수 전체</summary>'+m('ram_coefficients')+m('ram_tail_terms')+ram_bridge('KO')+m('ram_retained_profile')+'<p>원래6400억 소비 정리의 정확한 팩토리얼 계수, 나머지와 두 최댓값을 모두 유지한다. 이 함수를 거친 상수로 바꾸지 않는다.</p></details>'+
       '<div class="tablewrap"><table><tr><th>이 값 이상의 모든 실수 x</th><th>증명된 정규화 여유</th></tr>'+rows+'</table></div>','green')+
  card('별도의 스펙트럼–라마누잔 결합',m('ram606')+'<p>실제 부호 보존 오차 함수를 사용하여6060억 이상 모든 실수에서 정규화 여유0.001을 증명했다. 닫힌 실수 구간 다섯 개를 커널로 검증하여6060억부터6100억까지 빠짐없이 연결하고,6100억 이상에서는 이전의 더 강한 전체 함수를 그대로 유지한다. 기존 입력 아홉 개에 Nicolas와 일반 Perron을 더하여 총 열한 개를 사용하는 별도 결과다. 동일 전제의 개선이나 문헌상 시작점 기록을 주장하지 않는다. Lean 소스 네 개, 독립44개 선언 검토와 canonical을 포함한 소스 재현723개가 통과했다.</p>','green')+
- card('실제 부호 보존 오차 상한과 더 강한 계수',m('spectral_profile')+m('spectral_actual')+'<p>원래 산술 보정 오차의 전체 실수 구간에 대한 정리다. 부분 적분 전까지 복소 위상을 유지한 뒤 Nicolas의 양의 영점 역제곱 질량을 사용한다. 정확한 입력은 RH, Nicolas 항등식과 일반 적분 Perron 공식이다. GM 또는 Büthe의 오차 상한을 가정하지 않는다.</p>','green')+
+ card('실제 부호 보존 오차 상한과 더 강한 계수',m('spectral_profile')+m('spectral_actual')+'<p>원래 산술 보정 오차의 전체 실수 구간에 대한 정리다. 부분 적분 전까지 복소 위상을 유지한 뒤 Nicolas의 양의 영점 역제곱 질량을 사용한다. 정확한 입력은 RH, Nicolas의 스펙트럼 상한과 일반 적분 Perron 공식이다. GM 또는 Büthe의 오차 상한을 가정하지 않는다.</p>','green')+
  card('남아 있는 작업','<p>'
       '전체 유한 소수계수 계산의 source-first PV는 미완료다. IEANTN의 모든 수치 프로그램을 검증했다고 주장하지 않는다. '
       '계수 프로그램과 높은 입력 드라이버의 새 소스 문법·전체 main 모델 증명은 완료했다. 고정된 유한 출력 증명과 실제 컴파일 실행에 대한 모델 적용 경계는 아래에서 별도로 설명한다.</p>','amber')),
  section('octic','Octic: 실제 무한합과 유한 커널 검증을 연결하는 방법',
+ '<p>φ_j는 반지름 ε_j인 정규화된 짝함수 비음수 매끄러운 bump이고 k_j=φ_j*k다. L은 물리적 커널 중심의 로그이며 전 범위 덮개가 a=u인 L을 선택한다. w_j는 t≤0에서0이고 W_j(t)=w_j(2t), X=2로 Green의 지지집합 조건을 만족한다. 푸리에 부호와 척도는 아래 식과 같다.</p>'+
  '<p>수치식에 임의로 이름을 붙인 것이 아니라 아래 실제 적분의 푸리에 변환을 검증한다.</p>'+m('kernel')+m('moments')+
  '<p>매끄러운 범프와 실제 커널을 합성곱하여 지지집합·매끄러움·부호·수렴을 증명한다. '
  '실제 Mellin/Fourier 정규화, 영점의 차수와 켤레 대응, 자명한 영점의 기하급수, Mangoldt 합의 극한을 모두 연결한다. '
- '사용하는 일반 명시적 공식 자체는 공개된 문헌 입력으로 남는다.</p>'+m('mellin')+m('green')+'<p>'+source_links+'</p>'+
+ '사용하는 일반 명시적 공식 자체는 공개된 문헌 입력으로 남는다.</p>'+m('octic_physical')+m('mellin')+m('green')+'<p>'+source_links+'</p>'+
  '<p>BPT 연결은 임의의 유한 부분합에서 출발해 합의 수렴과 무한 극한을 증명한다. '
- '실제 변환과 도함수의 감쇠로 적분 가능성과 경계항 소멸을 확인한다. 작은 영점 높이, 실수축, 중복도와 켤레쌍도 포함한다.</p>'+m('bpt')+m('infinite')+
+ '실제 변환과 도함수의 감쇠로 적분 가능성과 경계항 소멸을 확인한다. 작은 영점 높이, 실수축, 중복도와 켤레쌍도 포함한다.</p>'+'<p>N(T)는 양의 높이 구간 (0,T]의 중복도를 센 닫힌 영점 개수다. 원문은 영점 높이가 아닌 곳에서만 사용하고 표시된 모든 높이의 닫힌 구간 상한은 새 끝점 연결의 결론이다.</p>'+m('zero_count_def')+m('bpt')+m('infinite')+
  '<p>표시된 일반 무한 꼬리 식은 a≥2π와 연결된 Stieltjes 정칙성, 가중 적분 가능성 및 경계항 소멸을 전제로 한다. 실제로 축척한 octic 변환에 대해 이 조건을 모두 증명했다.</p>'+
  '<p>문헌에서 영점 높이의 계단점 규약을 추측하지 않는다. 그 높이를 피한 상한에서 시작하여 '
  '실제 영점 집합의 국소 유한성과 오른쪽 극한으로 닫힌 끝점 계수까지 옮긴다. 추가 상수는 없다.</p>'+
@@ -432,7 +525,7 @@ contents_ko = [section('results','핵심 결과와 정확한 증명 경계',
  '<p>로그 모멘트에서 [0,1]의 음수 기여를 버리지 않는다. 끝점의 실제 함수값, 로그값, 위쪽으로 반올림한 셀 상한, '
  '정수 합계, 무한 꼬리와 최종 실제 적분 연결을 각각 검증한다. 기존 삼각함수 축약의 [−1,1] 대체 구간이 너무 넓은 '
  '문제는 중앙 주기 선택으로 개선했다. 어느 정수 주기를 고르든 성립하는 일반 정리가 건전성을 보장한다. '
- '이는 커널 인증서 검증이며 source-first PV가 아니다.</p>'+m('endpoint')+m('zerofixed')),
+ '이는 커널 인증서 검증이며 source-first PV가 아니다.</p>'+m('endpoint')+m('octic_zero_def')+m('zerofixed')+m('octic_count_bridge')+'<p>S_Λ는 실제 Mangoldt 가중합, S_p는 실제 소수 가중합이다. 0≤k≤1과 log(t)/√t의 감소 성질로 마지막 부등식이 실제 소수 개수를 준다. 연속적인 전 범위 덮개가 a=u, b≤u+C√u log(u)를 공급하며 정량적 스칼라 여유로 최종 엄밀한 개수 하한을 얻는다.</p>'),
  section('frontier','더 강한 결론과 공정한 비교',
  '<p>동일한 실제 모멘트 정보로 별도의 더 강한 범위를 얻는다. 아래 결과의 수치 검증 상태는 첫 카드의 상태와 같다. '
  '기존 2.15 정리와 고정 예산은 덮어쓰지 않는다. 같은 고정 배열에서 더 강한 실제 모멘트 상한도 얻는다.</p>'+m('strongcaps')+m('strongfamily')+m('strongfixed')+m('strongsmall')+m('narrowest')+
@@ -440,48 +533,48 @@ contents_ko = [section('results','핵심 결과와 정확한 증명 경계',
  '모든 좌표에서 이전 결과를 지배한다고 말하지 않는다. 1+4.2/log(u)만으로는 정규화 개수의 극한 하한이 1보다 크다고 '
  '결론 낼 수 없다. 2.149 결과에는 고정된 양의 주항 여유가 있다.</p>'+m('cpdl')+
  '<p>Chirre–Pereira Júnior–de Laat의 §1.3은 위 점근적 가족을 제공한다. α=1에서는 계수 2.5074보다 작은 값이 나온다. '
- 'CMS의 0.88은 소수 한 개에 관한 명시적 구간이며 √u개 이상이라는 목표와 다르다. '
+ 'CMS의 정리5(인쇄면5쪽)는 RH와 x≥4 아래 폭(22/25)√x log(x)의 닫힌 구간에 소수 한 개를 보장한다. 이는 √u개 이상이라는 목표와 다르다. '
  'Dudek–Platt는 이미 RH 아래 마지막 정수 반례를 38,358,837,682로 찾았다. 따라서 6070억을 새로운 문헌상 시작점 기록으로 '
- '홍보하지 않는다. 이번 결과의 가치는 형식화된 정량적 여유와 부호를 보존한 연결이다.</p>'+m('lee_strong')+m('lee')+
+ '홍보하지 않는다. 이번 결과의 가치는 형식화된 정량적 여유와 부호를 보존한 연결이다.</p>'+m('cms_one_prime')+m('boxfunctions')+m('lee_strong')+m('lee')+
  '<p>Lee–Nosal 최신 v4의 정리1.1과1.2에 표시된 두 전체 ψ 함수보다 새 Box 함수가 모든 실수 log(x)≥35에서 엄밀히 작음을 증명했다. 이는 실제 오차 측정이나 유한 표본이 아닌 전체 함수의 조건 없는 스칼라 비교다. 실제 Box 산술 정리는 RH와 명시된 일반 문헌 입력 세 개를 사용한다. 보조정리3.3의 높이 가족과 유한 구간의 다른 상한도 비교해야 하므로 세계 최선은 주장하지 않는다. '
  '세계 최선이라는 주장은 확립하지 않았다.</p>'+m('box_lee_comparison')+'<p>'+link('Solutions/RHOcticPush.v1/comparisons/BoxVsLee.lean','표시된 두 전체 함수의 실제 전 구간 비교 증명')+'.</p>'),
- section('gm','공통 오차를 소거하여 얻은 실제 개선',m('gmerror')+m('gmoldnew')+m('gmminimum')+
+ section('gm','공통 오차를 소거하여 얻은 실제 개선','<p>앞에서 정의한 보정 D와 여기서 쓰는 오차 E는 같은 산술 함수다. 이 절은 이전 GM 방법을 비교하는 설명이다.</p>'+m('gmerror')+m('gmoldnew')+m('gmminimum')+
  '<p>새 함수의 초기 상수는 더 크기 때문에 시작 구간 전체에서 무조건 더 작지는 않다. '
- '이전 함수와의 최솟값을 사용하여 원래 범위를 보존하고, exp(24) 이상 모든 실수에서 1/2보다 큰 개선을 증명한다.</p>'+m('pitransfer')+m('Q')+
+ '이전 함수와의 최솟값을 사용하여 원래 범위를 보존하고, exp(24) 이상 모든 실수에서 1/2보다 큰 개선을 증명한다.</p>'+m('pitransfer')+
  m('gmpair')+m('gmpairbound')+m('gmprimitive')+
  '<p>앵커에서 y까지의 공통 적분을 절댓값을 취하기 전에 소거한다. 남는 앵커 오차의 계수는 e+K가 아니라 e−K다. '
- '실제 라마누잔 소비 정리는 이차 오차항, 상·하한의 부호, 문헌 표의 적용 구간, 실수 끝점까지 확인한다.</p>'+m('gmunsigned')+
+ '실제 라마누잔 소비 정리는 이차 오차항, 상·하한의 부호, 문헌 표의 적용 구간, 실수 끝점까지 확인한다.</p>'+m('gm_transport_def')+m('gmunsigned')+
  '<p>마지막 부등식은 양의 GM majorant를 그대로 사용하는 방법에 대한 엄밀한 한계다. 실제 진동 오차에 대한 불가능성이나 '
- '최적성 정리가 아니다. 다음의 별도 부호 보존 증명은 실제 0.076 목표와 높은 구간의 0.055 상한까지 증명한다.</p>'),
+ '최적성 정리가 아니다. 앞의 별도 부호 보존 증명은 실제 0.076 목표와 높은 구간의 0.055 상한까지 증명한다.</p>'),
  section('signed-transfer','전체 부호 보존 오차 증명과 더 적은 입력을 쓰는 소수계수 연결',
- m('spectral_profile')+m('spectral_signed')+
- '<p>실제 무한 영점합에서 복소 위상을 부분 적분까지 보존한다. 원래 ρ(ρ+1) 분모가 정확한 경계항과 ρ² 분모의 적분으로 바뀐다. 전체 합·적분 교환과 균등 지배를 증명한 뒤에만 RH를 사용하여 노름을 취한다. 그 결과 Nicolas의 실제 양의 역제곱 질량을 한 번 지불하며, 부호를 버린 GM 방법의 세 배 비용을 피한다.</p>'+m('spectral_remainder')+m('spectral_actual')+
- '<p>앵커의 실제 |D(3)|≤2, 3부터 x까지 전체 나머지 적분과 모든 L≥24의 스칼라 부등식은 문헌 오차 상한 없이 커널로 증명했다. 잘못 제안된 분모 L−6 원시함수는 도함수가 적분함수보다 작아 폐기했다. 최종 증명은 L−8 분모와 실제 낮은 구간 여덟 조각을 사용한다.</p>'+m('spectral_pi')+
- '<p>실제 Box 함수 f에 대한 보통 π와 구간 정리는 원래 Box 조건 네 개를 내부에서 증명한다. 입력은 RH, 일반 Perron, Nicolas와 BPT뿐이다. 기존 Box 입력 합집합 안에서는 GM과 두 Büthe ψ/J 입력을 제거한다. 독립적인 이전 GM 공급자와 새 공급자는 문헌 입력 집합이 다르므로 함수 비교와 동일 전제 비교를 구분한다. 소수 거듭제곱 함수 Q와 여유 상수2는 그대로 포함한다.</p>'+
+ m('spectral_profile')+m('spectral_mass_cap')+m('spectral_signed')+
+ '<p>실제 무한 영점합에서 복소 위상을 부분 적분까지 보존한다. 원래 ρ(ρ+1) 분모가 정확한 경계항과 ρ² 분모의 적분으로 바뀐다. RH 아래 합 가능한 전체 가중치의 질량은 표시된 β 이하이며, Nicolas 입력의 x→1+ 극한에서 얻는다. 전체 합·적분 교환과 균등 지배를 증명한 뒤에만 RH를 사용하여 노름을 취한다. 그 결과 Nicolas의 실제 양의 역제곱 질량을 한 번 지불하며, 부호를 버린 GM 방법의 세 배 비용을 피한다.</p>'+m('spectral_remainder')+m('spectral_actual')+
+ '<p>앵커의 실제 |D(3)|≤2, 3부터 x까지 전체 나머지 적분과 모든 L≥24의 스칼라 부등식은 문헌 오차 상한 없이 커널로 증명했다. 잘못 제안된 분모 L−6 원시함수는 도함수가 적분함수보다 작아 폐기했다. 최종 증명은 L−8 분모와 실제 낮은 구간 여덟 조각을 사용한다.</p>'+m('Q')+m('spectral_pi')+
+ '<p>실제 Box 함수 f에 대한 보통 π와 구간 정리는 원래 Box 조건 네 개를 내부에서 증명한다. 입력은 RH, 일반 Perron, Nicolas와 BPT뿐이다. 기존 Box 입력 합집합 안에서는 GM과 두 Büthe ψ/J 입력을 제거한다. 독립적인 이전 GM 공급자와 새 공급자는 문헌 입력 집합이 다르므로 함수 비교와 동일 전제 비교를 구분한다. 표시된 Q는 전체 소수 거듭제곱 여유다. B_*는 뒤의 GM 비교 절에서 정의하는 이전 두 전체 오차 함수의 최솟값이다. Q와 오프셋 여유2는 그대로 포함한다.</p>'+
  '<p>'+link('Solutions/RHOcticPush.v1/spectral-076/SpectralFinal.lean','실제 보정 오차 결론')+'; '+link('Solutions/RHOcticPush.v1/spectral-076/SpectralPi.lean','실제 π·구간 소비 정리')+'; '+link('Solutions/RHOcticPush.v1/spectral-076/SpectralComparison.lean','전체 함수의 엄밀한 개선')+'. 세계 최선 또는 최적성 주장은 확립하지 않았다.</p>'),
  section('clean-pnt','전체 함수에서 얻은 중간 단계의 간단한 PNT 따름정리',
  m('pnt_clean04')+m('pnt_clean_gain')+m('pnt_clean_budget')+m('pnt_clean_points')+
  '<p>새 네 입력 경로와 동일한 exp(100) 시작점에서 이전1/3 표시보다 강한2/5를 증명했다. 이전1/3 결과의 문헌 입력 묶음은 다르며,2/5에서21/50으로의 후속 개선이 정확히 같은 네 입력을 유지하는 비교다. 이 결과는 아래21/50보다 먼저 증명한 중간 단계다. 전체 함수는 이 간단한 표시보다 더 강하다. 전체 실수 L≥100에서 t=L/2−4.6,0≤L/2−log L≤t,log2≤0.7과π≤22/7을 사용한다. 이전 GM 수학 정리를 가정하지 않으며, 점에서 표시한 값은 실제 소수 오차가 아닌 상한 함수의 계수다.</p>'),
  section('feedback','소수 제곱 항 보정: 전체 상한을 실제로 다시 사용하는 새 연결',
- m('boxfunctions')+m('spectral_profile')+m('feedback_upper')+
+ m('feedback_upper')+
  '<p>고차 소수 거듭제곱의 기여가 비음수이므로 π(y)≤J(y)다. 기존 ψ 상한과 부호를 보존한 보정에서 J의 전체 상한을 먼저 얻고, 로그 높이의 절반에서 실제 제곱 항 π(√x)/2를 제한한다. 새 π 오차 상한을 전제로 넣지 않는 한 번의 비순환 논증이다.</p>'+
  m('feedback_q')+m('feedback_full')+
- '<p>낮은 높이 입력은35부터 유효하므로 원래 함수에 직접 적용하는 보정은 L=70부터 사용한다. 이전 함수와의 최솟값으로 L≥35 전체 범위를 보존하며70 미만에서는 정확히 이전 함수다. 양의 exp(L/4)/2 항, 높은 거듭제곱과 정수 높이의 꼬리, P와 오프셋2를 모두 유지한다.100 이상에서는 더 간단한 J 상한으로 다음 전체 함수의 엄밀한 개선을 얻는다.</p>'+
+ '<p>Q₀는 앞에서 정의한 전체 함수 Q와 같다. 낮은 높이 입력은35부터 유효하므로 원래 함수에 직접 적용하는 보정은 L=70부터 사용한다. 이전 함수와의 최솟값으로 L≥35 전체 범위를 보존하며70 미만에서는 정확히 이전 함수다. 양의 exp(L/4)/2 항, 높은 거듭제곱과 정수 높이의 꼬리, P와 오프셋2를 모두 유지한다.100 이상에서는 더 간단한 J 상한으로 다음 전체 함수의 엄밀한 개선을 얻는다.</p>'+
  m('feedback_whole_gain')+m('feedback_clean')+m('feedback_budget')+m('feedback_points')+
  '<p>전체 L≥100에서0≤L/2−log L≤L/2−4.6과π≤22/7로 스칼라 여유를 증명한다. 시작점의 수치는 상한 함수의 계수이며 exp(100)에서 실제 소수 개수를 계산한 것이 아니다. 전체 유효 함수는21/50 따름정리보다 더 강하다.</p>'+
  '<p>실제 Box 경로는 이전과 정확히 같은 RH.v1.hypothesis, IntegratedPerron.v1.formula, Nicolas.v1.spectral_bound, BPTOffOrdinate.v1.bound를 사용한다. 일반적인 한 점의 ψ 입력을 받는 연결에는 낮은 높이 Box 논증을 위해 BPT가 추가되므로 동일 전제라는 주장은 실제 네 입력 Box 경로에 한정한다. 이 추가 결과는 일반 π와 구간 상한을 개선하며 ψ·LCM·primorial 함수를 바꾸지 않는다.</p>'+
  '<p>'+link('Solutions/RHOcticPush.v1/spectral-076/feedback/FeedbackPiUpper.lean','독립 J 상한')+'; '+link('Solutions/RHOcticPush.v1/spectral-076/feedback/FeedbackPrimePowers.lean','실제 제곱 항 보정')+'; '+link('Solutions/RHOcticPush.v1/spectral-076/feedback/FeedbackPi.lean','전체 π·구간 소비 정리')+'; '+link('Solutions/RHOcticPush.v1/spectral-076/feedback/FeedbackCorollary.lean','21/50 따름정리')+'. 최적성이나 세계 최선은 주장하지 않는다.</p>'),
- section('spectral','양의 영점 가중치와 실제 오일러 곱',m('nicolasbeta')+m('fejer')+m('euler')+m('four')+m('block')+
+ section('spectral','양의 영점 가중치와 실제 오일러 곱',m('nicolasbeta')+m('fejer')+m('euler')+m('nicolas_individual')+m('four')+m('block')+
  '<p>실제 중복도를 포함하는 무한합의 가중치가 비음수이고 합 가능하다는 사실을 사용한다. '
- '각 영점에 제곱 다항식 부등식을 적용한 뒤 합한다. 독립적인 네 상한에서는 10β를 지불하지만 결합 정리는 2.5β만 '
+ '표시한 Nicolas의 개별 부등식이 영점합과 실제 정규화 오일러 곱을 연결한다. 이 문헌 입력을 네 높이 x,x²,x³,x⁴에 적용하고 각 영점의 제곱 다항식 부등식을 합한다. 독립적인 네 상한에서는 10β를 지불하지만 결합 정리는 2.5β만 '
  '지불하여 정확히 7.5β를 회복한다. 하나의 높이마다 더 좋은 계수를 얻었다는 주장이 아니라, 관련된 네 높이의 결합 및 '
  '유한 블록 안에서 적어도 한 곳에 대한 실제 산술 정리다.</p>'),
  section('box','Box/Mellin: 실제 모멘트 항등식 두 개 완료',m('boxmoments')+m('boxseries')+
  '<p>전체 푸리에 급수와 비음수 코사인 형태에서 실제 무한급수·적분 교환을 증명했다. Beta·Gamma 반사 공식, 양의 Laplace 적분과 Fubini 정리로 실제 Mellin 적분값을 계산한다.</p>'+m('boxgamma')+m('boxfactor')+
- '<p>조화수의 망원합으로 H(0)를 구하고, 합 가능한 균등 도함수 상한으로 실제 급수를 미분한다. 유한 계수합은 원래 Stieltjes 수열과 정확히 같으므로 새 상수를 원하는 값으로 정의하지 않는다. Gamma 반사·배가 공식을 미분하고 실제 L’Hôpital 극한으로 이차 나머지를 확인한다.</p>'+m('boxnotation')+m('boxderivatives')+m('boxcoefficients')+
- card('원래의 두 전체 모멘트 조건 증명 완료','<p>실제 적분 가능성과 원래 J, q, Stieltjes 극한을 포함한다. RH·외부 문헌 명제·수치 모멘트 가정 없이 컴파일되며 새 소비 정리 안에서 두 증명을 직접 구성한다.</p>','green')+m('boxgain')+
- '<p>양의 로그 급수 꼬리로 상한을 0.70875에서 0.70871로 개선하고 실제 ψ, 보통 π, LCM 로그 성장과 primorial 성장에 연결한다.</p>'+
- card('원래 전체 영점 상한 증명 완료',m('boxzerobound')+'<p>일반 Nicolas·BPT 입력과 명제 안의 RH를 사용하여 실제 전체 합 가능성과 원래 영점 상한을 증명했다. 양·음 높이, 중복도, 낮은 높이의 실제 유한 계수, 전체 이차 꼬리와 복소 이동을 모두 포함한다. 평균 명시적 공식도 아래 일반 적분 Perron 정리에서 유도하여 원래 Box 조건 네 개에 대한 증명 공급자를 모두 완성했다. 일반 문헌 정리 자체는 형식화되지 않은 명시적 가정으로 남는다.</p>'+link('Solutions/RHOcticPush.v1/box/zero/BoxZeroEstimate.lean','실제 전체 영점 상한')+'.','green')+m('perron_general')+m('perron_transport')+'<p>Hildebrand 정리 5.18/(5.32), 인쇄면 166쪽과 절대 수렴식 (5.34), 167쪽을 사용한다. 중복도 규약은 Grenié–Molteni 식 (1.3a), 2쪽에서 명시적으로 확인했다. 상수 C는 표시된 연산에서 소거하며, 불연속인 실제 ψ의 원시함수와 전체 영점·자명한 영점 합을 사용한다. 통합 소비 정리는 네 증명 공급자를 내부에서 구성한다.</p>'+link('Solutions/RHOcticPush.v1/integration/additive/BoxFullNetwork.lean','실제 전체 Box 네트워크')),
+ '<p>조화수의 망원합으로 H(0)를 구하고, 합 가능한 균등 도함수 상한으로 실제 급수를 미분한다. 유한 계수합은 원래 Stieltjes 수열과 정확히 같으므로 새 상수를 원하는 값으로 정의하지 않는다. 같은 Gamma·코사인 식은 |s|&lt;1에서 전인자 G_Box를 정의하며 아래 s=0에서의 도함수는 이 국소 확장에 관한 것이다. Gamma 반사·배가 공식을 미분하고 실제 L’Hôpital 극한으로 이차 나머지를 확인한다.</p>'+m('boxnotation')+m('boxderivatives')+m('box_expansion')+m('boxcoefficients')+
+ card('원래의 두 전체 모멘트 조건 증명 완료','<p>실제 적분 가능성과 원래 J, q, Stieltjes 극한을 포함한다. RH·외부 문헌 명제·수치 모멘트 가정 없이 컴파일되며 새 소비 정리 안에서 두 증명을 직접 구성한다.</p>','green')+m('box_actual')+m('boxgain')+
+ '<p>Mellin 극점을 빼면 표시한 s→0+ 전개를 얻으며 실제 적분 J₀와 J₁은 각각 상수항과 일차항이다. 지배 수렴과 Laurent 곱 극한으로 이 식별을 증명한다. 양의 로그 급수 꼬리로 상한을 0.70875에서 0.70871로 개선하고 실제 ψ, 보통 π, LCM 로그 성장과 primorial 성장에 연결한다.</p>'+
+ card('원래 전체 영점 상한 증명 완료',m('boxpacket')+m('boxzerobound')+'<p>일반 Nicolas·BPT 입력과 명제 안의 RH를 사용하여 실제 전체 합 가능성과 원래 영점 상한을 증명했다. 양·음 높이, 중복도, 낮은 높이의 실제 유한 계수, 전체 이차 꼬리와 복소 이동을 모두 포함한다. 평균 명시적 공식도 아래 일반 적분 Perron 정리에서 유도하여 원래 Box 조건 네 개에 대한 증명 공급자를 모두 완성했다. 일반 문헌 정리 자체는 형식화되지 않은 명시적 가정으로 남는다.</p>'+link('Solutions/RHOcticPush.v1/box/zero/BoxZeroEstimate.lean','실제 전체 영점 상한')+'.','green')+m('perron_primary')+m('perron_general')+m('perron_transport')+m('perron_constant_transport')+'<p>첫 표시는 Hildebrand 정리5.18/(5.32), 인쇄면166쪽의 실제 원문 식이며 절대 수렴은 식(5.34),167쪽에서 사용한다. 다음 표시는 더 약한 Lean 문헌 계약으로 덧셈 상수의 존재만 유지하고 x&gt;1에서 사용한다. 원문의 영점 합은 인용한 GM 공식에서 명시한 중복도 규약으로 해석한다. 뒤 계산은 왜 원문 상수의 크기 상한이 필요하지 않은지 정확히 보여 준다. 중복도 규약은 Grenié–Molteni 식 (1.3a), 2쪽에서 명시적으로 확인했다. 상수 C는 표시된 연산에서 소거하며, 불연속인 실제 ψ의 원시함수와 전체 영점·자명한 영점 합을 사용한다. 여기 σ는 Mellin 변수 s와 독립인 실수 로그 이동이고 mρ는 실제 영점 중복도다. Box 공식은 두 이동 σ=±1에서만 적용하며, 별도의 영점 상한은 더 강하게 모든 σ≤1을 다룬다. 여기 Box의 δ는 octic의 (CL/2−1)exp(−L/2)와 다르다. 통합 소비 정리는 네 증명 공급자를 내부에서 구성한다.</p>'+link('Solutions/RHOcticPush.v1/integration/additive/BoxFullNetwork.lean','실제 전체 Box 네트워크')),
  section('additional-literature','추가 전체 함수 문헌 비교의 한계',
  '<p>'+source('https://arxiv.org/html/2403.11814v4','Lee v4, 정리 1.1, 2026년 7월 25일')+'은 아래 θ 전체 함수를 준다. 큰 C에서는 이 함수가 이번 결과보다 강할 수 있으므로 전체 함수 우월성을 주장하지 않는다.</p>'+m('lee_L')+m('lee_short')+
  '<p>'+source('https://doi.org/10.1093/qmath/haad031','Lee, 정리 3.2와 표 4, 인쇄면 1515쪽')+'는 아래의 더 늦은 시작점 가족을 서술한다. 두 연속 구간을 이용하면 충분히 늦은 시작점에서 소수가 많은 구간의 계수를 2에 임의로 가깝게 할 수 있다는 추론이 나온다. 이 추론의 명시적 시작점을 형식화하지 않았으며 해당 문헌의 증명 구절 감사도 남아 있다. 출판된 주장을 비교 한계로 유지하고 점근적 기록을 주장하지 않는다.</p>'+m('lee_published')+
@@ -491,7 +584,12 @@ contents_ko = [section('results','핵심 결과와 정확한 증명 경계',
  '<p><strong>먼저 명시된 원문, 다음으로 인용된 입력.</strong> '+source('https://arxiv.org/pdf/2312.05628v4#page=4','Lee–Nosal v4, §2 식(10), 인쇄면4쪽')+'는 첫 부등식을 표시한다. 그 문장이 인용한 '+source('https://arxiv.org/pdf/2204.02588v3#page=5','Fiori–Kadiri–Swidinsky v3, 식(2.4)·표1, 5쪽')+'은 두 번째 줄의 양의 높이만 계산한다.</p>'+m('lee_eq10_printed')+m('fks_table_positive')+
  '<p><strong>정확한 차이와 영향.</strong> 식(10)의 절댓값 높이는 양·음 켤레 영점을 모두 포함하지만 인용된 표의 상수는 양의 높이만 센다. 표의 계산 자체를 가정하지 않고도 BPT와 직접 적분으로 표시된 양·음 전체 상한을 배제한다.</p>'+m('positive_inverse_derivation')+
  '<p>이 커널 증명에는 RH·유한 영점 표·native 실행 사실이 없다. 별도의 독립 원문·Lean 검토와 재컴파일에서도 정확한 차이를 확인했다. 최종 PNT 결론을 반박한 것은 아니다. 인용된 표의 끝점은 엄격히 열린 구간이며, 이를 닫힌 끝점 상한으로 바꾸는 정리는 증명하지 않았다. 표시된 보조정리3.3의 행을 검증된 네트워크로 승격하지 않고 최종 출판 정리의 가족은 계속 비교 한계로 유지한다.</p>','amber')),
- section('matrix','주요 결과의 전체 함수와 전제',matrix_ko+all_input_details_ko),
+ section('nl-comparison','원래2.43 포물선 구간과 폭·개수 목표를 함께 비교',
+ '<p>이전에 고정한 NL 결과는 아래의 전체 포물선 구간을 사용했다. 폭의 계수는2.43으로 수렴하지만 유한 높이에서 이 숫자만 비교하면 로그 항을 버리게 된다. 같은 실제 왼쪽 끝점에서 전체 구간과 개수 함수를 비교한다.</p>'+m('nl_parabolic_full')+m('nl_matched_comparison')+
+ '<p>순수 Lean 증명은 log(L)의 접선 상한,0&lt;δ≤0.0003과 sinh(δ)≥δ를 이용하여 모든 실수 L≥24에서 두 스칼라 비교를 증명한다. 별도의 실제 산술 소비 정리는 새 octic 정리를 적용하여 더 짧은 구간에서 이전의 전체 개수 목표보다 큰 하한을 얻는다. 추가 조건 a≥exp(24)가 필수다. L=24에서 a는 exp(24)보다 조금 작다.</p>'+
+ '<p>이전 해석 논증은 독립 검토한 서면 결과로 남으며 원래 NL 실험군을 소급해서 형식화했다고 주장하지 않는다. 새 산술 소비 정리는 RH·Green·Nicolas·BPT를 명시적으로 사용한다. 이전과 새 추이적 문헌 전제 묶음이 다르다는 조건을 유지한 채 공통 적용 범위의 폭과 개수 함수를 비교한다.</p>'+
+ '<p>'+link('Solutions/RHExposureStudy.v1/locked/NL_RH/files/Intervals.md','고정한 원래 NL 문장과 증명')+'; '+link('Solutions/RHOcticPush.v1/comparisons/NLParabolicComparison.lean','전체 함수의 스칼라 비교')+'; '+link('Solutions/RHOcticPush.v1/comparisons/NLParabolicConsumer.lean','실제 엄밀한 소수 개수 소비 정리')+'.</p>'),
+ section('matrix','주요 결과의 전체 함수와 전제',tier_legend('KO')+matrix_ko+all_input_details_ko),
  section('network','IEANTN에서 실제로 재사용되는 구조',
  '<p>노드의 결론은 타입이 있는 명제이고 Solution은 이름이 붙은 이전 결론에서 새 결론을 증명하는 Lean 증명이다. '
  '공유 vocabulary가 실제 산술 대상과 정규화를 고정한다. 새 버전은 기존 결과를 보존하며, 실제 통합 소비 정리가 '
@@ -499,7 +597,15 @@ contents_ko = [section('results','핵심 결과와 정확한 증명 경계',
  '<p>생성된 Challenge는 문제 명세이며 완료된 증명이 아니다. 증명 경로에서 제외한다. 공식 Comparator 영수증을 '
  '수동으로 만들지 않는다. Goldbach, Möbius/Mertens 등도 적용 가능성을 점검하며, 개선되지 않은 노드나 비활성 최솟값은 '
  '그대로 구분한다. 새 결과를 과거에 고정한 실험군의 발견으로 소급하지 않는다.</p>'+metadata_graph('KO')),
- section('goldbach','실제 산술 소비 정리: 정렬된 Goldbach 표현 개수',m('triples')+m('triplehyp')+m('triplebound')+'<p>엄밀한 소수 구간의 각 소수 p에 대해 n−p는 4 이상 H 이하인 짝수다. 명시된 유한 이진 Goldbach 가정에서 소수 쌍을 고른 뒤 작은 순서대로 정렬한다. p는 n/2보다 크므로 가장 큰 항이다. 서로 다른 p는 서로 다른 마지막 좌표를 주기 때문에 중복 없는 실제 정렬 삼중항 개수의 하한을 얻는다. 순열을 여러 표현으로 중복 계산하지 않는다.</p><p>수치 모멘트는 소비 정리 안에서 직접 구성한다. 이진 Goldbach와 표시된 기하 조건은 실제 추가 가정이다. 이진 추측을 증명하거나 전역적인 삼진 존재 기록을 주장하는 결과가 아니다.</p>'),
+ section('goldbach','실제 산술 소비 정리: 정렬된 Goldbach 표현 개수',m('triples')+m('goldbach_input')+m('triplehyp')+m('triplebound')+'<p>엄밀한 소수 구간의 각 소수 p에 대해 n−p는 4 이상 H 이하인 짝수다. 명시된 유한 이진 Goldbach 가정에서 소수 쌍을 고른 뒤 작은 순서대로 정렬한다. p는 n/2보다 크므로 가장 큰 항이다. 서로 다른 p는 서로 다른 마지막 좌표를 주기 때문에 중복 없는 실제 정렬 삼중항 개수의 하한을 얻는다. 순열을 여러 표현으로 중복 계산하지 않는다.</p><p>수치 모멘트는 소비 정리 안에서 직접 구성한다. 이진 Goldbach와 표시된 기하 조건은 실제 추가 가정이다. 이진 추측을 증명하거나 전역적인 삼진 존재 기록을 주장하는 결과가 아니다.</p>'),
+ section('downstream','어떤 산술 결론이 실제로 달라지는가',
+ '<h3>연속된 소수 인덱스와 세제곱 구간</h3>'+m('prime_quantiles')+m('cubes_consumer')+
+ '<p>q의 인덱스는0부터 시작한다. 엄밀한 소수 개수 하한은 한 소수나 이름 없는 선택값만이 아니라 표시한 블록의 모든 인덱스를 제한한다. 같은 폭에서 더 큰 소수 개수를 보장하므로 이 블록이 커진다. 실제 소비 정리는 PrimeQuantile.v3.optimized_octic_block이다. 기존 연속 세제곱 구간 정리도 계속 사용할 수 있다. Octic의 명시적 문헌 입력을 포함한 RH 결과이며 새로운 세제곱 기록을 주장하지 않는다.</p>'+
+ '<h3>LCM과 소수 곱</h3>'+m('arithmetic_products')+
+ '<p>정확한 항등식 ψ(n)=log(lcm(1,…,n))과 θ(n)=log(∏p≤n p)으로 Box 전체 함수를 실제 산술 대상으로 옮긴다. LCM 성장은 RH·일반 Perron·Nicolas·BPT를 사용한다. Primorial에는1.01√n 소수 거듭제곱 여유를 위해 Buthe2016.v1.theorem_2_psi가 추가된다. 표시된 개선은 동일한 후속 가정에서 원래 Box 모멘트 함수와 더 강한 함수를 비교한다. 작은 n의 여섯 소수 증인이나 유한 LCM 인증서의 새 결과가 아니다. 후속 소수 제곱 보정은 일반 π를 개선하며 이 ψ·θ 함수를 바꾸지 않는다.</p>'+
+ '<h3>적용되지 않는 경우도 구분한다</h3>'+m('mertens_masking')+m('mertens_weight_gap')+
+ '<p>이 첫 Mertens 관측량은 가중 소수 합 A이며 Möbius 합 M과 다르다. Büthe의 유한 ψ 여유0.94는11&lt;x≤10^19에서 적용한다. 공통 구간 exp(35)≤x≤10^19의 표시된 최솟값은 그대로0.94다. 따라서 이 구성요소 개선만으로 기존 첫 Mertens 경로의 활성 최솟값이 더 작아지지는 않는다. 영점 가중치도 구분해야 한다. 기존 Mertens 입력은 높이 역제곱 wᴹ을 쓰고 Nicolas 상한은 w를 제한한다. 바로 대입하면 위의 양의 보정항을 빠뜨리며, 이를 대체할 새 수치 모멘트 상한을 주장하지 않는다. Nicolas 결합 정리는 관련된 오일러 곱 정보를 개선한다. 그러나 역제곱 영점 질량만으로는 역수 제타 함수의 유수 정보가 부족하므로 이를 Möbius 합 M(x)의 새 상한으로 바꾸지 않는다.</p>'+
+ '<p>'+link('IEANTN/Nodes/PrimeQuantile/v3/Conclusions.lean','정확한 소수 인덱스·세제곱 계약')+'; '+link('Solutions/RHOcticPush.v1/integration/OcticVerifiedEvolution.lean','실제 구간에서 소수 인덱스로의 증명')+'; '+link('Solutions/RHOcticPush.v1/integration/additive/BoxFullNetwork.lean','실제 ψ에서 LCM·primorial로의 연결')+'; '+link('Solutions/RHOcticPush.v1/spectral/FiniteApplicability.lean','전체 구간의 비활성 구성요소 비교')+'.</p>'),
  section('pv','프로그램 검증과 유한 범위의 정확한 상태',
  '<p>PV는 실제 C/C++/CUDA 소스와 실행 모델의 대응, 프로그램의 수학적 정확성, 출력과 최종 산술 정리의 연결을 의미한다. '
  '새 octic 수치는 커널 인증서 검증이다. 새 source-first C 프로그램의 검증이라고 바꾸어 부르지 않는다.</p>'+
@@ -511,8 +617,8 @@ contents_ko = [section('results','핵심 결과와 정확한 증명 경계',
  '약 163초의 독립 재실행 두 번과 약 30.8 GiB 개별 최고 RSS를 기록했다. 추가 순수 재귀 변형은 동일 수치 부분과 일반 연결을 빈 공리 목록으로 182.04초에 증명했으며 개별 최고 RSS는 30.70 GiB였다. Nat.brecOn이 propext의 원인이라는 이전 설명은 잘못되어 철회한다. 기존 비균형 작업은 며칠째 실행 중이었다. '
  '이는 조건이 맞춰진 속도 벤치마크나 전체 9,067만 레코드 완료가 아니다. 원래 작업과 고정 입력은 보존한다.</p>'+
  '<p>첫 전체 복구에서는 새 모듈528개를 검증하여 산술 부분2,768개 중787개에 도달한 뒤 요청된 정상 종료를 마쳤다. 실행 중인 자식 작업은 모두 자연 종료했으며 기존의 장기 작업5개는 건드리지 않았다. 자원 정책만 바꾼 별도 V2는 실제 소스·해시·의존성 이관을 마친 뒤 수치 작업을 시작했다. 최대22개를 적응적으로 허용하고 호스트용512 GiB와 실행 중 작업의 잠재적 메모리 증가를 남긴다. 부분 계수는 최종 승인 영수증이 아니다. 전체 RSS/PSS, 개별 최고 메모리, 시간과 디스크를 기록하고 확인할 수 없는 커널 OOM 귀속은 미확인으로 남긴다.</p>'+
- '<p>기존 드라이버의 <code>main</code>과 입력38,358,837,683은 보존했다. 별도 추가 C 드라이버는 동일한 계수 프로그램을1,490,000,000,000에서 실제 실행하여55,206,486,339로 해석되는 little-endian 이진 바이트8개를 stdout에 썼다.1.116초, 최고 RSS19.94 MiB를 기록했다. 전체 main 모델 정리는 소스 자체 초기화·계수 함수 호출·출력 바이트·정리를 모든 성공 실행에 대해 증명하며, 구체적인 표준 모델 실행의 존재도 증명했다. 고정 수치 출력 연결에는 아직 전체 커널 계수 인증서가 필요하다. 새 Lean 모듈 네 개에서 독립적인 C11 부분 표면 문법, 일반 guarded-renderer 건전성과 실제 C 텍스트 두 개의 승인을 증명했다. 새 소스 인덱스 main 존재 정리는 두 일반 건전성 정리를 실제로 사용한다. 별도의 새 소스 재현은 진행 중이다. 일반 C 이름 결합·타입 검사·헤더 해석·ISO-C 실행 의미의 적합성을 증명한 것은 아니며, 실제 컴파일 실행과 모델 적용 계약을 명시적으로 남긴다. 이 프런트엔드는 계수 프로그램과 높은 입력 드라이버를 다루며 별도로 재사용한 로그·계수 생성 프로그램을 검증한 것은 아니다.</p>'+
- '<p>전체 애플리케이션32개 모듈의 새 소스 재현과 문법5개 모듈의 추가 재현을 모두 통과하여37개 범위를 확인했다. 문법 감사는 컴파일러가 소유한 실제 정리186개 전체의 표준 공리, 증명 본문 연결19개와 필수 도착점11개를 검사한다. 실제 일반/−O/−OO 문법 대조36개와 애플리케이션 재검사 판정57개가 통과했다. 서로 다른 검증 범위의 계수이며 새로운 수치 알고리즘 수가 아니다.</p>'+
+ '<p>기존 드라이버의 <code>main</code>과 입력38,358,837,683은 보존했다. 별도 추가 C 드라이버는 동일한 계수 프로그램을1,490,000,000,000에서 실제 실행하여55,206,486,339로 해석되는 little-endian 이진 바이트8개를 stdout에 썼다.1.116초, 최고 RSS19.94 MiB를 기록했다. 전체 main 모델 정리는 소스 자체 초기화·계수 함수 호출·출력 바이트·정리를 모든 성공 실행에 대해 증명하며, 구체적인 표준 모델 실행의 존재도 증명했다. 고정 수치 출력 연결에는 아직 전체 커널 계수 인증서가 필요하다. 새 Lean 모듈 네 개에서 독립적인 C11 부분 표면 문법, 일반 guarded-renderer 건전성과 실제 C 텍스트 두 개의 승인을 증명했다. 새 소스 인덱스 main 존재 정리는 두 일반 건전성 정리를 실제로 사용한다. 해당 문법과 애플리케이션의 새 소스 재현37개는 통과했다. 고정된 수치 출력의 Final과 캐시 없는 기반 재현은 별도 미완료 작업이다. 일반 C 이름 결합·타입 검사·헤더 해석·ISO-C 실행 의미의 적합성을 증명한 것은 아니며, 실제 컴파일 실행과 모델 적용 계약을 명시적으로 남긴다. 이 프런트엔드는 계수 프로그램과 높은 입력 드라이버를 다루며 별도로 재사용한 로그·계수 생성 프로그램을 검증한 것은 아니다.</p>'+
+ '<p>전체 애플리케이션32개 모듈의 새 소스 재현과 문법5개 모듈의 추가 재현을 모두 통과하여37개 범위를 확인했다. 문법 감사는 컴파일러가 소유한 실제 정리186개 전체의 표준 공리, 증명 본문 연결19개와 필수 도착점11개를 검사한다. 실제 일반/−O/−OO 문법 대조36개가 통과했다. 이전 애플리케이션 검사기 V2의57개 판정과 별도 보존한 V3의60개 판정도 통과했다. V3에는 중첩된 임시 출력 경로를 거부하는 검사 세 개가 포함된다. 수학적 애플리케이션 소스와 원래 실행은 바꾸지 않았다. 서로 다른 검증 범위의 계수이며 새로운 수치 알고리즘 수가 아니다.</p>'+
  '<p>원래90,670,946개 레코드를25분56.59초, 최고 RSS42.97 GiB로 결정적으로 재생성했다. 압축 데이터 SHA-256, 원래 Lean 소스3,464개의 모든 해시와 순수 검사식2,469개가 일치했다. 독립 검토 후 재생성 가능한 중복 데이터만 정확히12,171,195,019바이트 삭제했다. 원래 입력·승인된 증명·현재 검증 입력은 보존했다. 기존994개 기반의 캐시 없는 소스 재현은 별도 추가 작업이며 최종 상태를 영수증에 명시한다. 과거 캐시 객체만으로 완료를 추정하지 않는다.</p>'),
  section('reproduce','재현과 증거 보존',
  '<p>기준 커밋은 <code>0e2638852a08de84e25f1d179a36356fb12333a5</code>, Lean은 4.34.0-rc2, '
@@ -522,7 +628,7 @@ contents_ko = [section('results','핵심 결과와 정확한 증명 경계',
  '<p>Python 검증기는 일반 모드, −O, −OO와 변조 시험을 거친다. 실제 가용 RAM과 디스크를 독립적으로 확인하여 자원을 '
  '배정하며 과거 4 GiB 제한을 적용하지 않는다. 실패한 개발 시도, 시간 초과, 스레드 생성 실패와 OOM 증거를 구분한다. '
  '없는 토큰 수치를 파일 수나 시간으로 추측하지 않는다.</p>'+
- '<p>초기 모멘트 수치 배치는 단일 CPU 작업8개를 사용했다. 과거 기본 빌드의 주소 공간 제한은128 GiB, 수정한 깨끗한 빌드는64 GiB다. 큰 계수 증명의 부분 작업에는128 GiB, 최종 조립에는256 GiB 주소 공간 제한을 사용한다. 이 제한값은 실제 물리 RAM 측정치가 아니다.</p>'+measurements('KO')+
+ '<p>초기 모멘트 수치 배치는 단일 CPU 작업8개를 사용했다. 과거 기본 빌드의 주소 공간 제한은128 GiB, 수정한 깨끗한 빌드는64 GiB다. 큰 계수 증명의 부분 작업에는128 GiB, 최종 조립에는256 GiB 주소 공간 제한을 사용한다. 이 제한값은 실제 물리 RAM 측정치가 아니다.</p>'+reproduction_observation('KO')+measurements('KO')+
  '<p>소스 범위 집합은 서로 겹치므로 단순히 더하지 않는다. 개별 최고 RSS, 표본으로 관측한 전체 RSS/PSS와 실험 소유 파일 크기는 다른 측정 범위다. OOM은 실제 소유 프로세스 증거가 있을 때만 귀속한다.</p>'+
  '<p>재현 README와 고정 매니페스트에 정확한 명령이 있다. 생성된 수치 배열은 다시 검증해야 하는 결정적 제안일 뿐 '
  '그 자체가 정리의 전제가 아니다. 재생성 가능성이 확인된 실험 전용 임시 파일만 정리하고 원문·고정 입력·승인된 증명 '
@@ -530,18 +636,70 @@ contents_ko = [section('results','핵심 결과와 정확한 증명 경계',
  '<details><summary>라마누잔 정리의 정확한 입력 아홉 개</summary><ul>'+''.join('<li><code>'+html.escape(x)+'</code></li>' for x in ram_inputs)+'</ul></details>'+
  '<details><summary>기계 판독 최종 상태와 영수증</summary><pre>'+html.escape(json.dumps(status,indent=2,ensure_ascii=False))+'</pre></details>')]
 
+contents_en.append(section('ram-inputs', 'Exact Ramanujan hypotheses', ram_assumptions('EN')))
+contents_ko.append(section('ram-inputs', '정확한 라마누잔 전제', ram_assumptions('KO')))
+
+def argument_order(parts):
+    order = ['results','octic','frontier','box','signed-transfer','clean-pnt',
+             'feedback','gm','spectral','nl-comparison','downstream','goldbach',
+             'network','matrix','ram-inputs','additional-literature','pv','reproduce']
+    keyed = {re.match(r'<section id="([^"]+)"', item).group(1): item for item in parts}
+    if len(keyed) != len(parts):
+        raise ValueError('Repeated report section identity')
+    return [keyed.pop(name) for name in order if name in keyed]+list(keyed.values())
+
+contents_en, contents_ko = argument_order(contents_en), argument_order(contents_ko)
 args.out.mkdir(parents=True)
-for lang, contents, title in [('EN', contents_en, 'RH octic and full-network research'),
-                              ('KO', contents_ko, 'RH octic 및 전체 네트워크 연구')]:
+for lang, contents, title in [('EN', contents_en, 'RH Limit Breakthrough Campaign'),
+                              ('KO', contents_ko, 'RH 한계 돌파 연구')]:
     names = [('results','Results' if lang=='EN' else '결과'),('octic','Octic'),('frontier','Comparisons' if lang=='EN' else '비교'),
              ('gm','GM / Ramanujan'),('spectral','Spectral' if lang=='EN' else '영점'),('box','Box / Mellin'),
              ('network','IEANTN'),('matrix','Assumptions' if lang=='EN' else '전제'),('goldbach','Goldbach'),('pv','PV / finite counts' if lang=='EN' else 'PV / 유한 계수'),('reproduce','Reproduce' if lang=='EN' else '재현')]
     nav = '<nav aria-label="'+('Contents' if lang=='EN' else '목차')+'">'+''.join('<a href="#'+a+'">'+b+'</a>' for a,b in names)+'</nav>'
     draft = status['status']!='REVIEWED_RESEARCH_RESULTS'
     stamp = ('DRAFT • final source replay and review pending' if lang=='EN' else '초안 • 전체 소스 재현·검토 진행 중') if draft else ('Reviewed results • remaining gaps disclosed' if lang=='EN' else '검토된 결과 • 미완료 조건 공개')
-    page = '<!doctype html><!--'+font_license+'--><html lang="'+('en' if lang=='EN' else 'ko')+'"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>'+title+'</title><style>'+css+'</style></head><body><main><p class="pill">'+stamp+'</p><h1>'+title+'</h1><p class="muted">23 November 2026 · additive continuation · owner research branch · RH remains a hypothesis</p>'+nav+''.join(contents)+'<footer>Static offline HTML / MathML. No browser extension, CDN, JavaScript execution or external math font is required to read this report. Claims follow the explicit status receipt; source links open separately.</footer></main></body></html>'
+    subtitle = ('23 November 2026 · additive continuation · owner research branch · RH remains a hypothesis' if lang=='EN'
+                else '2026년 11월23일 시작한 추가 연구 · 소유자 연구 브랜치 · RH는 가정')
+    footer = ('Static offline HTML / MathML. No browser extension, CDN, JavaScript execution or external math font is required to read this report. Claims follow the explicit status receipt; source links open separately.' if lang=='EN'
+              else '정적으로 렌더링한 오프라인 HTML / MathML이다. 수학을 읽기 위해 브라우저 확장·CDN·JavaScript 실행·외부 수학 글꼴이 필요하지 않다. 결론은 명시된 상태 영수증을 따르며 소스 링크는 별도로 열린다.')
+    page = '<!doctype html><!--'+font_license+'--><html lang="'+('en' if lang=='EN' else 'ko')+'"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>'+title+'</title><style>'+css+'</style></head><body><main><p class="pill">'+stamp+'</p><h1>'+title+'</h1><p class="muted">'+subtitle+'</p>'+nav+''.join(contents)+'<footer>'+footer+'</footer></main></body></html>'
     page = page.replace('<div class="tablewrap">', '<div class="tablewrap" tabindex="0" role="region" aria-label="Comparison table">')
     (args.out/('RH_OCTIC_RESEARCH_'+lang+'.html')).write_text(page)
+
+# A separate mathematical exposition keeps the research argument together.
+# Detailed execution ledgers remain in the two complete reports and bundle.
+paper_title = 'Explicit prime windows and PNT feedback from verified kernel estimates'
+paper_intro = section('abstract', 'Abstract',
+ '<p>We close the kernel-specific analytic obligations in an explicit octic prime-window argument from named general literature propositions, proving its actual Fourier moment bounds by kernel-checked interval calculation and analytic tails. The resulting whole-ray frontier gives more than √u primes in intervals of width2.14891875√u log(u) for every real u≥exp(24), and a stronger population at unchanged width2.15. A separate Box/Mellin argument proves both exact moment identities and its explicit-formula and infinite-zero adapters. Retaining complex phases through a weighted integration-by-parts identity yields a signed compensation profile with coefficients0.076 and0.055 on their exact rays. Reusing that information at half the logarithmic height gives a noncircular prime-square correction and a stronger complete ordinary-prime-counting function, including a clean21/50 subtractive corollary. Typed arithmetic consumers retain quantitative Ramanujan, prime-index, product and Goldbach-count information. RH and every additional source proposition are explicit; numerical certificate checking, source-program verification and execution observations remain distinct.</p>')
+paper_notation = section('notation','Objects and assumptions',
+ m('arithmetic_notation')+
+ '<p>RH is a hypothesis throughout. Except in the explicitly marked Green all-zero formula, ρ denotes a distinct nontrivial zeta zero, mρ its multiplicity and γρ its imaginary part. Euler’s constant is γ. The principal-value logarithmic integral li differs from Li₂ by li(2); the ordinary-prime transfers retain that offset.</p>'+
+ '<p>The octic branch takes RH, Green’s general smooth explicit formula, Nicolas’s full spectral summability/bound and BPT’s count estimate away from ordinates. The signed compensation branch takes RH, general integrated Perron and Nicolas. The complete Box ordinary-π branch additionally uses BPT. All three are checked Lean derivations from these explicit literature propositions, rather than a Mathlib-only formalization of the cited source theorems. The entire nine- and eleven-input Ramanujan packages are stated below.</p>')
+paper_ram = section('ramanujan','Signed transfer to the quantitative Ramanujan inequality',
+ m('ram')+m('ram_coefficients')+m('ram_tail_terms')+ram_bridge('EN')+m('ram_retained_profile')+m('ram606')+
+ '<p>The original nine-input route preserves its exact nonlinear profile above640 billion and proves margins0.0001 from607 billion,0.001 from610 billion,0.01 from619 billion and0.0125 from620 billion. Combining the shared compensation terms before taking absolute values replaces the anchor coefficient e+K by e−K; the full quadratic deficit term is retained. Five additional closed real-interval certificates use the new signed profile at both logarithmic heights and supply margin0.001 from606 billion. This latter global result has the old nine inputs plus Nicolas and general Perron. It is not a same-premise onset record. Dudek–Platt’s smaller published last-counterexample threshold remains a comparison limitation.</p>'+
+ ram_assumptions('EN')+
+ '<p>The606-billion global package adds A1 and A2 to R1–R9. Its local typed transport uses the complete compensation profile and the actual R5, R7 and R8 statements above.</p>')
+by_id = {re.match(r'<section id="([^"]+)"', item).group(1): item for item in contents_en}
+paper_order = ['octic','frontier','box','signed-transfer','feedback','gm',
+               'nl-comparison','spectral','downstream','goldbach','network','additional-literature']
+paper_parts = [paper_intro, paper_notation]
+for key in paper_order:
+    part = by_id[key]
+    if key == 'frontier':
+        part = part.replace('Its status is the same as the numerical gate above;',
+                            'The actual moment certificates and analytic tails establish these inequalities;')
+    paper_parts.append(part)
+    if key == 'gm':
+        paper_parts.append(paper_ram)
+paper_parts.append(section('proof-boundary','Mathematical and computational proof boundaries',
+ tier_legend('EN')+
+ '<p>The mathematical consumer interfaces fix actual arithmetic objects and their full domains. A compiled proof may be conditional on RH and genuine general literature inputs while fully discharging the kernel-specific predicates. The source packages, rather than only a rounded coefficient, determine which comparisons use identical hypotheses. Pure function comparisons do not assert measured arithmetic errors or a global published minimum.</p>'+
+ '<p>Numerical endpoint and all-real interval certificates are checked by the Lean kernel. They are not source-first PV. The finite prime-counter work separately connects the actual C source fragments to an independently specified syntax and an execution model, with explicit compiler, header, ABI, runtime, stdio, OS, hardware and model-applicability contracts. Its fixed numerical-output and clean-reproduction status follows the dated receipt in the complete research report; no unfinished numerical output is used as a premise of the analytic theorems here.</p>'+
+ '<p>No optimality or global best-known-result claim is made. The displayed Lee–Nosal function comparison covers the two exact theorem envelopes, while its additional height family and other finite bounds remain relevant. The separate as-written reciprocal-zero normalization finding does not refute the paper’s final PNT conclusions. The original independent experimental outcomes are preserved; these new connections are coordinator synthesis after those outcomes were locked.</p>'))
+paper = '<!doctype html><!--'+font_license+'--><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>'+paper_title+'</title><style>'+css+'</style></head><body><main><p class="pill">'+('Draft mathematical exposition' if status['status']!='REVIEWED_RESEARCH_RESULTS' else 'Reviewed mathematical exposition')+'</p><h1>'+paper_title+'</h1><p class="muted">Source-conditional Lean mathematics · explicit real domains · preserved experimental outcomes</p>'+''.join(paper_parts)+'<footer>All mathematics is statically rendered for offline reading. The complete bilingual reports and reproducibility bundle provide the exact source, claim and execution receipts.</footer></main></body></html>'
+paper = paper.replace('<div class="tablewrap">','<div class="tablewrap" tabindex="0" role="region" aria-label="Comparison table">')
+(args.out/'RH_OCTIC_PAPER_EN.html').write_text(paper)
 manifest = {'status':'REPORTS_GENERATED_FROM_EXPLICIT_STATUS','draft':status['status']!='REVIEWED_RESEARCH_RESULTS',
             'status_sha256':hashlib.sha256(args.status.read_bytes()).hexdigest(),
             'renderer':'KaTeX0.16.47 build-time nativeMathML, no runtime/CDN',

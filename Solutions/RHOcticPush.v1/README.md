@@ -1,4 +1,4 @@
-# RH octic full-network research campaign (23 November 2026)
+# RH Limit Breakthrough Campaign (23 November 2026)
 
 This additive research branch starts from `0e2638852a08de84e25f1d179a36356fb12333a5`.
 Original experiments, mathematical sources, and published outcomes are preserved.
@@ -10,9 +10,11 @@ Original experiments, mathematical sources, and published outcomes are preserved
 This is active research, with completed mathematical results and separately
 pending acceptance gates. Read `ledgers/EXECUTIVE_THEOREMS.json` for the leading
 claims, exact written identities, entire premise lists and limitations. It is
-an executive selection, not an exhaustive source-provenance census. The broader
-attempt ledger is `ledgers/RESEARCH_LEDGER.json`; the immutable pre-research
-contracts are `BASELINE_THEOREMS.json`.
+an executive selection, not an exhaustive source-provenance census.
+`ledgers/RESEARCH_LEDGER.json` records result families;
+`ledgers/SERIOUS_ATTEMPTS.json` records 39 serious mathematical routes, including
+rejected methods and limitations. Its explicit selection rule is in the ledger
+README. The immutable pre-research contracts are `BASELINE_THEOREMS.json`.
 
 The current branch is `research/rh-octic-full-network-20261123` on the owner's
 `hs-chae/IEANTN_test` repository. Reviewed publication checkpoints and their exact
@@ -51,8 +53,26 @@ finite numerical checks have empty axiom lists. No new mathematical axiom,
 * **Ramanujan.** `ramanujan/RamStrongOverlay.lean` proves a positive normalized
   margin from 607 billion, stronger bands from 610/619/620 billion, and the exact
   inherited nonlinear profile from 640 billion. The nine original source inputs
-  are unchanged. Any later `signed-spectral/` extension is a separate source
-  package and is not covered by the frozen 607-billion receipt.
+  are unchanged. The completed `signed-spectral/` extension proves margin 0.001
+  from 606 billion using five closed real-interval certificates. Its global
+  eleven-input package adds Nicolas and general Perron to those nine inputs;
+  this is a separate theorem, not a same-premise improvement or published
+  onset record.
+* **Ordinary prime-counting feedback.** The four frozen files in
+  `spectral-076/feedback/` first derive an upper bound for actual pi from J,
+  then use it at half the logarithmic height to improve the prime-square
+  correction without circularity. The complete new error function equals the
+  old one below logarithmic height 70, is never weaker above it, and gains more
+  than 1.67 exp(L/2)/L for every real L at least 100. Its clean corollary is
+  |pi(x) - Li2(x)| < sqrt(x)(log(x)/(8 pi) - 21/50) for all x at least exp(100).
+  The actual Box route retains exactly RH, integrated Perron, Nicolas and BPT.
+* **Comparisons.** `comparisons/BoxVsLee.lean` proves strict domination of the
+  two exact displayed Lee--Nosal theorem envelopes on the whole ray L >= 35.
+  This does not cover their complete height family or all published bounds.
+  `NLParabolicComparison.lean` and `NLParabolicConsumer.lean` compare both full
+  functions in the archived 2.43-style argument and construct the actual
+  shorter prime interval. The common arithmetic domain additionally requires
+  the old left endpoint to be at least exp(24).
 * **Further arithmetic.** `spectral/` contains same-premise whole-function GM
   improvements, signed common-prefix cancellation and correlated Nicolas
   Euler-product inequalities. `goldbach/` and the optimized octic consumer give
@@ -81,9 +101,16 @@ The additive high-input C driver actually executed the unchanged counter. Its
 whole-main formal model proves source-owned initialization, counter invocation,
 output bytes and lifetime behavior; its fresh 32-module application route has
 passed. The fixed numerical output adapter still requires the exhaustive kernel
-Final theorem. Independently specified C11-fragment syntax and generic guarded
-renderer soundness are separate active work. Exact rendering/token equality by
-itself does not prove that source text parses as the intended AST.
+Final theorem. The independently specified C11-fragment character grammar and
+general guarded-renderer soundness have now passed the fresh 37-module route,
+with 186 compiler theorem constants, 19 proof-value edges, 11 required endpoints
+and 36 adversarial CLI controls. The constructive source-indexed main theorem
+actually consumes both source-grammar proofs. This is restricted syntactic
+correspondence, not a proof of full ISO-C operational adequacy.
+
+The thousands of generated modules are arithmetic chunks for this one fixed
+90-million-record certificate. This campaign does not attempt to complete all
+IEANTN numerical programs or unrelated admitted proofs.
 
 **PV means source-first program verification only.** Native observations,
 `native_decide`, kernel numerical evaluation and ordinary certificate checking
@@ -95,12 +122,25 @@ model theorem or historical directory name.
 ## Reproduction and evidence
 
 `integration/README.md` describes actual source-built closures and the fresh
-reproduction path. A 693-source mathematical closure has passed; the additive
-19-source spectral/canonical route and fully relocated clean-environment replay
-have distinct status receipts. A missing pinned generic Mathlib object stopped
+reproduction path. Source-fresh mathematical closures through 734 modules,
+the separate three-module NL comparison, and the complete recovered 723-source
+pipeline have passed. These source sets overlap and must not be added together.
+An additional compact source-only run compiled all 454 first-stage Lean sources,
+then exposed two omitted runtime inputs. The failure is preserved. The corrected
+packet has passed the actual 127-input C-log and 25-row high-log/coefficient
+workloads, and a strictly checked same-campaign 114-source prefix recovery.
+Its remaining mathematical stages are running from pinned generic libraries;
+this is recorded as a resumed source-only pipeline. The versioned controllers
+and an exact reconstruction recipe for the earlier reader packet are included.
+A missing pinned generic Mathlib object stopped
 the initial relocated route; its failure is preserved and prerequisite repair
 does not change the mathematical source. An official Comparator receipt remains
 pending a compatible approved worker; local proof builds are not that receipt.
+`integration/continuation/bootstrap_generic.py` has actually reproduced the
+pinned generic setup from clean public dependency checkouts.
+`regenerate_moments.py` has reproduced all 128 generated Lean files and three
+proposal JSON files byte-for-byte. These deterministic proposals remain
+untrusted until their corresponding kernel proofs are checked.
 
 Deterministic regeneration has reproduced the packed prime-count data, every
 one of its 3,464 original Lean source hashes and all 2,469 pure-check recipes.

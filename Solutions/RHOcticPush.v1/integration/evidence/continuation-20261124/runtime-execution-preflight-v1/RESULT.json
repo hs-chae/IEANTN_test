@@ -1,0 +1,77 @@
+{
+  "status": "PASS_ACTUAL_C127_FOUR_HIGH_LOG_INPUTS_AND21_COEFFICIENTS_FROM_REPAIRED_PACKET",
+  "source_packet_sha256": "33ba74591aa93898477b4d0620931c054aaa6d287210adefeb49cf0ae673a209",
+  "stages": [
+    {
+      "phase": "C127",
+      "command": [
+        "/usr/bin/time",
+        "-v",
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-B",
+        "/data/ivy-rh-octic-20261123/integration/public739-runtime-source-v1/source/Solutions/RHContinuation.v1/parabolic/native_log_workload.py",
+        "--out",
+        "/data/ivy-rh-octic-20261123/integration/runtime-execution-preflight-v1/C127"
+      ],
+      "returncode": 0,
+      "seconds": 0.072849091142416,
+      "script_sha256": "8a4098ae3c5fb4b6ce4344c1589e3c029618e3531e9344fd3d543bb190d1dccf",
+      "stdout_sha256": "7417e9580193646943f06bfe7a8555528b03b67dddc06d6d1d823446d30bf7d6",
+      "stderr_sha256": "613167884340a13a942d29d04fa0c23676d76db6fb1c254bf44cecd7fc418732"
+    },
+    {
+      "phase": "C4high21coeff",
+      "command": [
+        "/usr/bin/time",
+        "-v",
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-B",
+        "/data/ivy-rh-octic-20261123/integration/public739-runtime-source-v1/source/Solutions/RHOcticPush.v1/ramanujan/reproduce_c_inputs.py",
+        "--out",
+        "/data/ivy-rh-octic-20261123/integration/runtime-execution-preflight-v1/C4high21coeff"
+      ],
+      "returncode": 0,
+      "seconds": 0.12017102353274822,
+      "script_sha256": "bbcc621391f4a5954cdf3a738c6baee78fb6a6666ce4b63e84468cab262e7068",
+      "stdout_sha256": "dcd0dba35669c64faf1bb82d57f327daed238811fad48d4af975aa6100288178",
+      "stderr_sha256": "70303c4fbc22cdbc483aada6b4c3d5e2f1f27c85703534b32c78c616e1f472e3"
+    }
+  ],
+  "all127_source_model_formal_rows_byteidentical": true,
+  "high_log_inputs": [
+    610000000000,
+    619000000000,
+    620000000000,
+    640000000000
+  ],
+  "high_log_rows": [
+    {
+      "n": 610000000000,
+      "output": 29837144450886,
+      "two": 549755813888,
+      "k": 39
+    },
+    {
+      "n": 619000000000,
+      "output": 29853248245101,
+      "two": 549755813888,
+      "k": 39
+    },
+    {
+      "n": 620000000000,
+      "output": 29855023082658,
+      "two": 549755813888,
+      "k": 39
+    },
+    {
+      "n": 640000000000,
+      "output": 29889931145622,
+      "two": 549755813888,
+      "k": 39
+    }
+  ],
+  "C4high21coeff_RECEIPT_sha256": "58ab6aa1044ce75008e29a7834f10713e3d7a4492f3f3b6f081b7eda89dc77f6",
+  "C127_NATIVE_sha256": "9bc1f42f7d6f01635c68cb9674a86029f66456013467b0090b4bf4571e7bd746",
+  "new_prime_count_coverage_proved": false,
+  "qualification": "Actual unchanged C compilation/execution source-build-run preflight. Full accepted formal compound consumer remains separate; executionreceipt alone is not PV."
+}

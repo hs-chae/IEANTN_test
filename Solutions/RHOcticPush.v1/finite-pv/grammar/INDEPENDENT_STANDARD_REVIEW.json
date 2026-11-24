@@ -1,0 +1,85 @@
+{
+  "status": "PASS_RESTRICTED_ACTUAL_TWO_SOURCE_SURFACE_CORRESPONDENCE_WITH_EXPLICIT_BOUNDARIES",
+  "reviewer": "rh_ramanujan_finite independent read-only normative review",
+  "scope": [
+    "CounterGrammar.lean allproductions/helpers",
+    "CounterRendererSound.lean generalacceptance/soundness andfixedpreludes",
+    "CounterSourceSyntax.lean actualfiniteguards/sourcebytes",
+    "CounterGrammarConsumer.lean source-indexedrun construction/consumption"
+  ],
+  "source_freeze_sha256": "7171748c1553de96603dcd249c62fb0c5a968e2c64c1b71f375ebe62ef9ac3e6",
+  "all4source_hashes_readback": true,
+  "primary": {
+    "title": "WG14 N1570 public C11 committee draft, April12 2011",
+    "url": "https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf",
+    "sha256": "208969fec021e4f4ce87a1873765298c73e7bbb5209b1c5868967c7adfc8492e"
+  },
+  "Blueprint": "No standalone Blueprint label for this new program-verification research. Exact application correspondence: high-driver/HighDriverContract.lean and original RamanujanPV.QuotientCSourceV2/QuotientDriverSource; existing execution semantics and numerical claims preserved.",
+  "production_checks": [
+    {
+      "Lean": "Identifier/BindingName",
+      "primary_section": "§6.4.1–6.4.2.1;§7.1.3",
+      "primary_PDF_pages": "PDF76–78,200",
+      "comparison": "ASCII letters first, digits/underscore later, C11keywords andstdinttypedef excluded; bindings protectstdio names. Strict supported subset; actual identifiers are short/nonreserved and every actual reference was manually checked against parameters, locals, functions or stdio."
+    },
+    {
+      "Lean": "Decimal/natural",
+      "primary_section": "§6.4.4.1",
+      "primary_PDF_pages": "PDF80–82",
+      "comparison": "Independent base10 digit folding and <2^63; leading zeros excluded except0. Zero is the C octal-zero spelling with the same value, a harmless aligned convention. Integer typing/conversions are separate."
+    },
+    {
+      "Lean": "Expression/unary,binary,index,call",
+      "primary_section": "§6.4p4;§6.5.1–6.5.3;§6.5.5–6.5.9;§6.5.16",
+      "primary_PDF_pages": "PDF76,96–106,110–119",
+      "comparison": "Every compound operand is parenthesized; names/numbers/postfix calls provide unambiguous token boundaries. Assignment/indexlvalues andprefix++/--/& shapes checked. No cast or postfixincrement production; actual code uses neither."
+    },
+    {
+      "Lean": "Declaration/Parameter/TypeName",
+      "primary_section": "§6.7;§6.7.6;§6.7.9;§7.20.1.1",
+      "primary_PDF_pages": "PDF126–127,146–157,307",
+      "comparison": "Onlyint/uint64_t/uint64_t* with explicitname andoptionalinitializer. uint64_t depends on the documentedstdint implementation contract. No declaration is accepted as a controlled statement."
+    },
+    {
+      "Lean": "Statement/BlockItem/Condition",
+      "primary_section": "§6.8.2–6.8.6.4",
+      "primary_PDF_pages": "PDF165–172",
+      "comparison": "Blocks contain declarations/statements; null/evaluation/return statements terminate withsemicolon. Everyif hasmatchedelse; forhasoneordinarydeclarationinitializer, semicolon-delimitedcondition andstep; while/for bodies are statements. Actual nested branches/loops have the intended attachment."
+    },
+    {
+      "Lean": "FunctionSyntax/PrototypeSyntax/Arrays/Globals",
+      "primary_section": "§6.9.1–6.9.2;§6.7.6.2–6.7.6.3",
+      "primary_PDF_pages": "PDF148–154,174–176",
+      "comparison": "Functions require a compound body; actual counter2definitions, driver4parameterprototype,2positive staticarrays, intmain with emptyparameters. Arraycapacity1500000 is unchanged. Scope/type/linkage constraints are not generally enforced by this surface grammar."
+    },
+    {
+      "Lean": "Prelude/CommentBody/commentChar",
+      "primary_section": "§5.1.1.2phases1–3;§6.4.9;§6.10.2",
+      "primary_PDF_pages": "PDF28–29,93,182–183",
+      "comparison": "Frozenv3 excludesbackslash/questionmark andliteral*/ and permitsASCIIcommentcharacters; phase1trigraph andphase2splicing cannot create a terminator. Actual fixedcopyright hasonlybasiccharacters. Fixedstdint/stdio includes are recognized; contents/headerimplementation remainexternal."
+    },
+    {
+      "Lean": "CounterProgram/DriverProgram",
+      "primary_section": "§5.1.1.1;§6.9;§6.10",
+      "primary_PDF_pages": "PDF28,173–178",
+      "comparison": "Independent source-spelling derivations describe preprocessing source plusfunction/global structure, not a fullpreprocessedISO-Ctypedtranslationunit. Driverenforcesint main/noformalparameters. This is genuine AST-structural correspondence in the specified surfacefragment; not tokenlistequality."
+    }
+  ],
+  "general_boundary": {
+    "not_full_ISO_C11_conformance": true,
+    "name_resolution": "Generic Identifier checks lexical form, not declaration scope. Examplecounterguardcanacceptafunctionreturningundeclaredunknown. N1570§6.5.1p2/footnote91(PDF96) requiresdeclaration. Accordinglytheprovedtargetisindependentlyspecifiedsurfacegrammar; well-scopedtyping/header/operationaladequacyisaseparatecontract, notestablishedbycheckedCounter_soundalone. Actual2sourcesbindingswereinspectedandmatchtheirfixedAST/applicationproofs.",
+    "typing": "No general C typechecker, integer-conversion, linkage/constraint or header-expansion theorem is claimed. Existing mathematicalexecutioncorrectness remains ontheunchangedtypedmodel with documentedplatform/APIinterpretation.",
+    "character_encoding": "Actual program/comment bytes arebasicASCII. Physicalfileencoding/standardheaderresolutionandcompilerconformanceareinfrastructurecontracts.",
+    "not_entire_C_language": true
+  },
+  "repaired_history": {
+    "old_commentBody": "Earlier draft merelyexcludedliteral*/; backslash-newlinecouldcreateaterminator duringphase2. Both reviewersnoticedthis beforefinalfreeze. Actualfixedcopyrightwasalreadysafe; frozenv3nowguardsarbitrarycomments too. No currentactual-source mismatch iscounted."
+  },
+  "proof_consumption": {
+    "actual_source_derivations": "actual_counter_syntax andactual_driver_syntax usegeneralchecked_soundtheorems; possible_source_success constructssource-indexedrunwithbothderivations.",
+    "count_final_requirement": "Every-source-outputconditionallemmaaloneunpacksanddiscardsgrammardata. Finalcount-boundselectedconsumermustincludecomplete_canonical_source_run/existentialsource-runconstruction, so actualFinal andbothgrammar_soundnesstheoremsoccurinthevaluepath. Root/finiteagentagreedthis; exhaustivecountstillpending."
+  },
+  "no_actual_source_mismatch_found": true,
+  "formal_claim": "GeneralLeanacceptanceimpliesindependentlyspecifiedcharactergrammar. Normativecomparisonhereisaread-onlyaudit, notamechanizedproof ofallISO-Cconstraints.",
+  "no_new_complete_source_first_PV_claim": true
+}

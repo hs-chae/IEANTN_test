@@ -1,0 +1,682 @@
+{
+  "status": "PASS_ALL36_COUNTER_GRAMMAR_CLI_CONTROLS",
+  "controller_sha256": "c00f09064db3f5915054f1abce991a35a16d8b35ada23b382a696358dcdfe892",
+  "controls_sha256": "379fd05e8c01dcea610db4852e1d50f633defe3f948d965addd8d14f86950e2c",
+  "accepted_result_sha256": "cd91e39f0fafecffb75be1babe764cefb98f33d2643a95d4865566f2f7402d3b",
+  "seconds": 6.530950795859098,
+  "cases": [
+    {
+      "case": "normal-valid",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/finite-pv/grammar/reproduce.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/counter-grammar-fresh5-v1"
+      ],
+      "returncode": 0,
+      "seconds": 0.20146585255861282,
+      "expected_rejection": null,
+      "stdout": "normal-valid.stdout",
+      "stdout_sha256": "2e9b24628cbe72bc51da3a2844cd9963d3fba4000abe9a98b3fc512e0b044d13",
+      "stderr": "normal-valid.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mutated_result_sha256": "cd91e39f0fafecffb75be1babe764cefb98f33d2643a95d4865566f2f7402d3b",
+      "cleanup": "original preserved"
+    },
+    {
+      "case": "normal-source",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/finite-pv/grammar/reproduce.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/counter-grammar-controls-v1/experiment-owned-regenerable-copies/normal-source"
+      ],
+      "returncode": 1,
+      "seconds": 0.17535961419343948,
+      "expected_rejection": "source/object hash association",
+      "stdout": "normal-source.stdout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "normal-source.stderr",
+      "stderr_sha256": "25eee470e74ffe54587d0ef14a5640b97f1e7f5926217b4bafe803d2f539d6dc",
+      "mutated_result_sha256": "cd91e39f0fafecffb75be1babe764cefb98f33d2643a95d4865566f2f7402d3b",
+      "cleanup": "verified regenerable mutant copy removed"
+    },
+    {
+      "case": "normal-object",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/finite-pv/grammar/reproduce.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/counter-grammar-controls-v1/experiment-owned-regenerable-copies/normal-object"
+      ],
+      "returncode": 1,
+      "seconds": 0.16964548639953136,
+      "expected_rejection": "source/object hash association",
+      "stdout": "normal-object.stdout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "normal-object.stderr",
+      "stderr_sha256": "25eee470e74ffe54587d0ef14a5640b97f1e7f5926217b4bafe803d2f539d6dc",
+      "mutated_result_sha256": "cd91e39f0fafecffb75be1babe764cefb98f33d2643a95d4865566f2f7402d3b",
+      "cleanup": "verified regenerable mutant copy removed"
+    },
+    {
+      "case": "normal-foreign_dependency",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/finite-pv/grammar/reproduce.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/counter-grammar-controls-v1/experiment-owned-regenerable-copies/normal-foreign_dependency"
+      ],
+      "returncode": 1,
+      "seconds": 0.1786137893795967,
+      "expected_rejection": "foreign/drifted application object",
+      "stdout": "normal-foreign_dependency.stdout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "normal-foreign_dependency.stderr",
+      "stderr_sha256": "5a762f8bf0a16781584ea13ab20aa5fef87b67d1b549de0928409eaf70495064",
+      "mutated_result_sha256": "8714587b6b7a11f985540dbd418e4d119674972c886601b232c78f8e212895b6",
+      "cleanup": "verified regenerable mutant copy removed"
+    },
+    {
+      "case": "normal-omitted_dependency",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/finite-pv/grammar/reproduce.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/counter-grammar-controls-v1/experiment-owned-regenerable-copies/normal-omitted_dependency"
+      ],
+      "returncode": 1,
+      "seconds": 0.17415520548820496,
+      "expected_rejection": "omitted declared application import",
+      "stdout": "normal-omitted_dependency.stdout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "normal-omitted_dependency.stderr",
+      "stderr_sha256": "22ed04f6c98d93d3bffd0595e95c2cebd50abc1b5f3aa9eacc64636a9164a27d",
+      "mutated_result_sha256": "f7cc6032674e110c3d9c0d035b285ec2f56f864c2dc5367508362992fae2b595",
+      "cleanup": "verified regenerable mutant copy removed"
+    },
+    {
+      "case": "normal-native_axiom",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/finite-pv/grammar/reproduce.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/counter-grammar-controls-v1/experiment-owned-regenerable-copies/normal-native_axiom"
+      ],
+      "returncode": 1,
+      "seconds": 0.17615991085767746,
+      "expected_rejection": "nonstandard or native numerical proof axiom",
+      "stdout": "normal-native_axiom.stdout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "normal-native_axiom.stderr",
+      "stderr_sha256": "d6501fbf22c26960abeabe2e5b5525c6d507e7d911055aa47ef09e260cadfc60",
+      "mutated_result_sha256": "8853037f4ecbcef59af2ec206dac327fff652cbfd671d6db826ce196dc3bbc8c",
+      "cleanup": "verified regenerable mutant copy removed"
+    },
+    {
+      "case": "normal-missing_value_path",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/finite-pv/grammar/reproduce.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/counter-grammar-controls-v1/experiment-owned-regenerable-copies/normal-missing_value_path"
+      ],
+      "returncode": 1,
+      "seconds": 0.17984003014862537,
+      "expected_rejection": "final source-run consumes",
+      "stdout": "normal-missing_value_path.stdout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "normal-missing_value_path.stderr",
+      "stderr_sha256": "e55460a742d98a5b5b7b4641eb15fa19f1f38a3130787d028161fa40668d07d4",
+      "mutated_result_sha256": "6c12d7fea96c2291b2e61eef1e2a0f80abf4a83d4d609d4597607f519c9c0010",
+      "cleanup": "verified regenerable mutant copy removed"
+    },
+    {
+      "case": "normal-float_counter",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/finite-pv/grammar/reproduce.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/counter-grammar-controls-v1/experiment-owned-regenerable-copies/normal-float_counter"
+      ],
+      "returncode": 1,
+      "seconds": 0.18654131516814232,
+      "expected_rejection": "strict integer result metadata",
+      "stdout": "normal-float_counter.stdout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "normal-float_counter.stderr",
+      "stderr_sha256": "ed83b3187451927a6c291f93c51190c9892d8a4cc1463f479a47d94eb70733dd",
+      "mutated_result_sha256": "0eecef559092a941806d72ad68069127c0a47abae657b6306c1536ee914523b6",
+      "cleanup": "verified regenerable mutant copy removed"
+    },
+    {
+      "case": "normal-bool_counter",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/finite-pv/grammar/reproduce.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/counter-grammar-controls-v1/experiment-owned-regenerable-copies/normal-bool_counter"
+      ],
+      "returncode": 1,
+      "seconds": 0.18415071442723274,
+      "expected_rejection": "strict integer result metadata",
+      "stdout": "normal-bool_counter.stdout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "normal-bool_counter.stderr",
+      "stderr_sha256": "ed83b3187451927a6c291f93c51190c9892d8a4cc1463f479a47d94eb70733dd",
+      "mutated_result_sha256": "3a4df86ea236b3230115800ccf01c4d7c329837207e1a2acd2d1f3433738e8ef",
+      "cleanup": "verified regenerable mutant copy removed"
+    },
+    {
+      "case": "normal-bool_resource",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/finite-pv/grammar/reproduce.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/counter-grammar-controls-v1/experiment-owned-regenerable-copies/normal-bool_resource"
+      ],
+      "returncode": 1,
+      "seconds": 0.18537897616624832,
+      "expected_rejection": "strict integer resource admission",
+      "stdout": "normal-bool_resource.stdout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "normal-bool_resource.stderr",
+      "stderr_sha256": "33c0be031b28575361f507fdaaec716e4373490c2fc1382db97d881406c944c9",
+      "mutated_result_sha256": "02e50e878eb6f7bcaa1408ee36543e5e8ee85bbc6f1e1e8c0309c337676b4b1a",
+      "cleanup": "verified regenerable mutant copy removed"
+    },
+    {
+      "case": "normal-duplicate_JSON",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/finite-pv/grammar/reproduce.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/counter-grammar-controls-v1/experiment-owned-regenerable-copies/normal-duplicate_JSON"
+      ],
+      "returncode": 1,
+      "seconds": 0.04900178126990795,
+      "expected_rejection": "duplicate JSON key",
+      "stdout": "normal-duplicate_JSON.stdout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "normal-duplicate_JSON.stderr",
+      "stderr_sha256": "9e54fa9b022fd2f820145eaeca134171c7c483ebcf8c2ccea53d2997ffb9906e",
+      "mutated_result_sha256": "43a3ecc3afca7d348a2b11844243740ffbe5ef260ef4ad4aa11cdf4291eafca1",
+      "cleanup": "verified regenerable mutant copy removed"
+    },
+    {
+      "case": "normal-relocated",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/finite-pv/grammar/reproduce.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/counter-grammar-controls-v1/experiment-owned-regenerable-copies/normal-relocated"
+      ],
+      "returncode": 0,
+      "seconds": 0.1941944770514965,
+      "expected_rejection": null,
+      "stdout": "normal-relocated.stdout",
+      "stdout_sha256": "2e9b24628cbe72bc51da3a2844cd9963d3fba4000abe9a98b3fc512e0b044d13",
+      "stderr": "normal-relocated.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mutated_result_sha256": "cd91e39f0fafecffb75be1babe764cefb98f33d2643a95d4865566f2f7402d3b",
+      "cleanup": "verified regenerable mutant copy removed"
+    },
+    {
+      "case": "O-valid",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/finite-pv/grammar/reproduce.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/counter-grammar-fresh5-v1"
+      ],
+      "returncode": 0,
+      "seconds": 0.19153348356485367,
+      "expected_rejection": null,
+      "stdout": "O-valid.stdout",
+      "stdout_sha256": "61e029faab6f2da02e643bbab630f8ddb439e51fb0f970dd461a7d297c4b42df",
+      "stderr": "O-valid.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mutated_result_sha256": "cd91e39f0fafecffb75be1babe764cefb98f33d2643a95d4865566f2f7402d3b",
+      "cleanup": "original preserved"
+    },
+    {
+      "case": "O-source",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/finite-pv/grammar/reproduce.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/counter-grammar-controls-v1/experiment-owned-regenerable-copies/O-source"
+      ],
+      "returncode": 1,
+      "seconds": 0.16981581784784794,
+      "expected_rejection": "source/object hash association",
+      "stdout": "O-source.stdout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "O-source.stderr",
+      "stderr_sha256": "25eee470e74ffe54587d0ef14a5640b97f1e7f5926217b4bafe803d2f539d6dc",
+      "mutated_result_sha256": "cd91e39f0fafecffb75be1babe764cefb98f33d2643a95d4865566f2f7402d3b",
+      "cleanup": "verified regenerable mutant copy removed"
+    },
+    {
+      "case": "O-object",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/finite-pv/grammar/reproduce.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/counter-grammar-controls-v1/experiment-owned-regenerable-copies/O-object"
+      ],
+      "returncode": 1,
+      "seconds": 0.1690026056021452,
+      "expected_rejection": "source/object hash association",
+      "stdout": "O-object.stdout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "O-object.stderr",
+      "stderr_sha256": "25eee470e74ffe54587d0ef14a5640b97f1e7f5926217b4bafe803d2f539d6dc",
+      "mutated_result_sha256": "cd91e39f0fafecffb75be1babe764cefb98f33d2643a95d4865566f2f7402d3b",
+      "cleanup": "verified regenerable mutant copy removed"
+    },
+    {
+      "case": "O-foreign_dependency",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/finite-pv/grammar/reproduce.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/counter-grammar-controls-v1/experiment-owned-regenerable-copies/O-foreign_dependency"
+      ],
+      "returncode": 1,
+      "seconds": 0.17972328886389732,
+      "expected_rejection": "foreign/drifted application object",
+      "stdout": "O-foreign_dependency.stdout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "O-foreign_dependency.stderr",
+      "stderr_sha256": "5a762f8bf0a16781584ea13ab20aa5fef87b67d1b549de0928409eaf70495064",
+      "mutated_result_sha256": "8714587b6b7a11f985540dbd418e4d119674972c886601b232c78f8e212895b6",
+      "cleanup": "verified regenerable mutant copy removed"
+    },
+    {
+      "case": "O-omitted_dependency",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/finite-pv/grammar/reproduce.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/counter-grammar-controls-v1/experiment-owned-regenerable-copies/O-omitted_dependency"
+      ],
+      "returncode": 1,
+      "seconds": 0.17042865976691246,
+      "expected_rejection": "omitted declared application import",
+      "stdout": "O-omitted_dependency.stdout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "O-omitted_dependency.stderr",
+      "stderr_sha256": "22ed04f6c98d93d3bffd0595e95c2cebd50abc1b5f3aa9eacc64636a9164a27d",
+      "mutated_result_sha256": "f7cc6032674e110c3d9c0d035b285ec2f56f864c2dc5367508362992fae2b595",
+      "cleanup": "verified regenerable mutant copy removed"
+    },
+    {
+      "case": "O-native_axiom",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/finite-pv/grammar/reproduce.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/counter-grammar-controls-v1/experiment-owned-regenerable-copies/O-native_axiom"
+      ],
+      "returncode": 1,
+      "seconds": 0.1670169811695814,
+      "expected_rejection": "nonstandard or native numerical proof axiom",
+      "stdout": "O-native_axiom.stdout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "O-native_axiom.stderr",
+      "stderr_sha256": "d6501fbf22c26960abeabe2e5b5525c6d507e7d911055aa47ef09e260cadfc60",
+      "mutated_result_sha256": "8853037f4ecbcef59af2ec206dac327fff652cbfd671d6db826ce196dc3bbc8c",
+      "cleanup": "verified regenerable mutant copy removed"
+    },
+    {
+      "case": "O-missing_value_path",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/finite-pv/grammar/reproduce.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/counter-grammar-controls-v1/experiment-owned-regenerable-copies/O-missing_value_path"
+      ],
+      "returncode": 1,
+      "seconds": 0.17785919643938541,
+      "expected_rejection": "final source-run consumes",
+      "stdout": "O-missing_value_path.stdout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "O-missing_value_path.stderr",
+      "stderr_sha256": "e55460a742d98a5b5b7b4641eb15fa19f1f38a3130787d028161fa40668d07d4",
+      "mutated_result_sha256": "6c12d7fea96c2291b2e61eef1e2a0f80abf4a83d4d609d4597607f519c9c0010",
+      "cleanup": "verified regenerable mutant copy removed"
+    },
+    {
+      "case": "O-float_counter",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/finite-pv/grammar/reproduce.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/counter-grammar-controls-v1/experiment-owned-regenerable-copies/O-float_counter"
+      ],
+      "returncode": 1,
+      "seconds": 0.1907645072788,
+      "expected_rejection": "strict integer result metadata",
+      "stdout": "O-float_counter.stdout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "O-float_counter.stderr",
+      "stderr_sha256": "ed83b3187451927a6c291f93c51190c9892d8a4cc1463f479a47d94eb70733dd",
+      "mutated_result_sha256": "0eecef559092a941806d72ad68069127c0a47abae657b6306c1536ee914523b6",
+      "cleanup": "verified regenerable mutant copy removed"
+    },
+    {
+      "case": "O-bool_counter",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/finite-pv/grammar/reproduce.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/counter-grammar-controls-v1/experiment-owned-regenerable-copies/O-bool_counter"
+      ],
+      "returncode": 1,
+      "seconds": 0.18706815503537655,
+      "expected_rejection": "strict integer result metadata",
+      "stdout": "O-bool_counter.stdout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "O-bool_counter.stderr",
+      "stderr_sha256": "ed83b3187451927a6c291f93c51190c9892d8a4cc1463f479a47d94eb70733dd",
+      "mutated_result_sha256": "3a4df86ea236b3230115800ccf01c4d7c329837207e1a2acd2d1f3433738e8ef",
+      "cleanup": "verified regenerable mutant copy removed"
+    },
+    {
+      "case": "O-bool_resource",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/finite-pv/grammar/reproduce.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/counter-grammar-controls-v1/experiment-owned-regenerable-copies/O-bool_resource"
+      ],
+      "returncode": 1,
+      "seconds": 0.18630388379096985,
+      "expected_rejection": "strict integer resource admission",
+      "stdout": "O-bool_resource.stdout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "O-bool_resource.stderr",
+      "stderr_sha256": "33c0be031b28575361f507fdaaec716e4373490c2fc1382db97d881406c944c9",
+      "mutated_result_sha256": "02e50e878eb6f7bcaa1408ee36543e5e8ee85bbc6f1e1e8c0309c337676b4b1a",
+      "cleanup": "verified regenerable mutant copy removed"
+    },
+    {
+      "case": "O-duplicate_JSON",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/finite-pv/grammar/reproduce.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/counter-grammar-controls-v1/experiment-owned-regenerable-copies/O-duplicate_JSON"
+      ],
+      "returncode": 1,
+      "seconds": 0.0335298553109169,
+      "expected_rejection": "duplicate JSON key",
+      "stdout": "O-duplicate_JSON.stdout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "O-duplicate_JSON.stderr",
+      "stderr_sha256": "9e54fa9b022fd2f820145eaeca134171c7c483ebcf8c2ccea53d2997ffb9906e",
+      "mutated_result_sha256": "43a3ecc3afca7d348a2b11844243740ffbe5ef260ef4ad4aa11cdf4291eafca1",
+      "cleanup": "verified regenerable mutant copy removed"
+    },
+    {
+      "case": "O-relocated",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/finite-pv/grammar/reproduce.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/counter-grammar-controls-v1/experiment-owned-regenerable-copies/O-relocated"
+      ],
+      "returncode": 0,
+      "seconds": 0.18707175552845,
+      "expected_rejection": null,
+      "stdout": "O-relocated.stdout",
+      "stdout_sha256": "61e029faab6f2da02e643bbab630f8ddb439e51fb0f970dd461a7d297c4b42df",
+      "stderr": "O-relocated.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mutated_result_sha256": "cd91e39f0fafecffb75be1babe764cefb98f33d2643a95d4865566f2f7402d3b",
+      "cleanup": "verified regenerable mutant copy removed"
+    },
+    {
+      "case": "OO-valid",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/finite-pv/grammar/reproduce.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/counter-grammar-fresh5-v1"
+      ],
+      "returncode": 0,
+      "seconds": 0.19147546961903572,
+      "expected_rejection": null,
+      "stdout": "OO-valid.stdout",
+      "stdout_sha256": "5f47d9ee483f231d9473576ad777cf5be2fbfc3ad1d0da2e7165943bac701ef2",
+      "stderr": "OO-valid.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mutated_result_sha256": "cd91e39f0fafecffb75be1babe764cefb98f33d2643a95d4865566f2f7402d3b",
+      "cleanup": "original preserved"
+    },
+    {
+      "case": "OO-source",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/finite-pv/grammar/reproduce.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/counter-grammar-controls-v1/experiment-owned-regenerable-copies/OO-source"
+      ],
+      "returncode": 1,
+      "seconds": 0.17976438999176025,
+      "expected_rejection": "source/object hash association",
+      "stdout": "OO-source.stdout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "OO-source.stderr",
+      "stderr_sha256": "25eee470e74ffe54587d0ef14a5640b97f1e7f5926217b4bafe803d2f539d6dc",
+      "mutated_result_sha256": "cd91e39f0fafecffb75be1babe764cefb98f33d2643a95d4865566f2f7402d3b",
+      "cleanup": "verified regenerable mutant copy removed"
+    },
+    {
+      "case": "OO-object",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/finite-pv/grammar/reproduce.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/counter-grammar-controls-v1/experiment-owned-regenerable-copies/OO-object"
+      ],
+      "returncode": 1,
+      "seconds": 0.1626404356211424,
+      "expected_rejection": "source/object hash association",
+      "stdout": "OO-object.stdout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "OO-object.stderr",
+      "stderr_sha256": "25eee470e74ffe54587d0ef14a5640b97f1e7f5926217b4bafe803d2f539d6dc",
+      "mutated_result_sha256": "cd91e39f0fafecffb75be1babe764cefb98f33d2643a95d4865566f2f7402d3b",
+      "cleanup": "verified regenerable mutant copy removed"
+    },
+    {
+      "case": "OO-foreign_dependency",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/finite-pv/grammar/reproduce.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/counter-grammar-controls-v1/experiment-owned-regenerable-copies/OO-foreign_dependency"
+      ],
+      "returncode": 1,
+      "seconds": 0.17139721661806107,
+      "expected_rejection": "foreign/drifted application object",
+      "stdout": "OO-foreign_dependency.stdout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "OO-foreign_dependency.stderr",
+      "stderr_sha256": "5a762f8bf0a16781584ea13ab20aa5fef87b67d1b549de0928409eaf70495064",
+      "mutated_result_sha256": "8714587b6b7a11f985540dbd418e4d119674972c886601b232c78f8e212895b6",
+      "cleanup": "verified regenerable mutant copy removed"
+    },
+    {
+      "case": "OO-omitted_dependency",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/finite-pv/grammar/reproduce.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/counter-grammar-controls-v1/experiment-owned-regenerable-copies/OO-omitted_dependency"
+      ],
+      "returncode": 1,
+      "seconds": 0.16682294756174088,
+      "expected_rejection": "omitted declared application import",
+      "stdout": "OO-omitted_dependency.stdout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "OO-omitted_dependency.stderr",
+      "stderr_sha256": "22ed04f6c98d93d3bffd0595e95c2cebd50abc1b5f3aa9eacc64636a9164a27d",
+      "mutated_result_sha256": "f7cc6032674e110c3d9c0d035b285ec2f56f864c2dc5367508362992fae2b595",
+      "cleanup": "verified regenerable mutant copy removed"
+    },
+    {
+      "case": "OO-native_axiom",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/finite-pv/grammar/reproduce.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/counter-grammar-controls-v1/experiment-owned-regenerable-copies/OO-native_axiom"
+      ],
+      "returncode": 1,
+      "seconds": 0.16686580702662468,
+      "expected_rejection": "nonstandard or native numerical proof axiom",
+      "stdout": "OO-native_axiom.stdout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "OO-native_axiom.stderr",
+      "stderr_sha256": "d6501fbf22c26960abeabe2e5b5525c6d507e7d911055aa47ef09e260cadfc60",
+      "mutated_result_sha256": "8853037f4ecbcef59af2ec206dac327fff652cbfd671d6db826ce196dc3bbc8c",
+      "cleanup": "verified regenerable mutant copy removed"
+    },
+    {
+      "case": "OO-missing_value_path",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/finite-pv/grammar/reproduce.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/counter-grammar-controls-v1/experiment-owned-regenerable-copies/OO-missing_value_path"
+      ],
+      "returncode": 1,
+      "seconds": 0.16833704337477684,
+      "expected_rejection": "final source-run consumes",
+      "stdout": "OO-missing_value_path.stdout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "OO-missing_value_path.stderr",
+      "stderr_sha256": "e55460a742d98a5b5b7b4641eb15fa19f1f38a3130787d028161fa40668d07d4",
+      "mutated_result_sha256": "6c12d7fea96c2291b2e61eef1e2a0f80abf4a83d4d609d4597607f519c9c0010",
+      "cleanup": "verified regenerable mutant copy removed"
+    },
+    {
+      "case": "OO-float_counter",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/finite-pv/grammar/reproduce.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/counter-grammar-controls-v1/experiment-owned-regenerable-copies/OO-float_counter"
+      ],
+      "returncode": 1,
+      "seconds": 0.1813522670418024,
+      "expected_rejection": "strict integer result metadata",
+      "stdout": "OO-float_counter.stdout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "OO-float_counter.stderr",
+      "stderr_sha256": "ed83b3187451927a6c291f93c51190c9892d8a4cc1463f479a47d94eb70733dd",
+      "mutated_result_sha256": "0eecef559092a941806d72ad68069127c0a47abae657b6306c1536ee914523b6",
+      "cleanup": "verified regenerable mutant copy removed"
+    },
+    {
+      "case": "OO-bool_counter",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/finite-pv/grammar/reproduce.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/counter-grammar-controls-v1/experiment-owned-regenerable-copies/OO-bool_counter"
+      ],
+      "returncode": 1,
+      "seconds": 0.19412373937666416,
+      "expected_rejection": "strict integer result metadata",
+      "stdout": "OO-bool_counter.stdout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "OO-bool_counter.stderr",
+      "stderr_sha256": "ed83b3187451927a6c291f93c51190c9892d8a4cc1463f479a47d94eb70733dd",
+      "mutated_result_sha256": "3a4df86ea236b3230115800ccf01c4d7c329837207e1a2acd2d1f3433738e8ef",
+      "cleanup": "verified regenerable mutant copy removed"
+    },
+    {
+      "case": "OO-bool_resource",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/finite-pv/grammar/reproduce.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/counter-grammar-controls-v1/experiment-owned-regenerable-copies/OO-bool_resource"
+      ],
+      "returncode": 1,
+      "seconds": 0.19453668408095837,
+      "expected_rejection": "strict integer resource admission",
+      "stdout": "OO-bool_resource.stdout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "OO-bool_resource.stderr",
+      "stderr_sha256": "33c0be031b28575361f507fdaaec716e4373490c2fc1382db97d881406c944c9",
+      "mutated_result_sha256": "02e50e878eb6f7bcaa1408ee36543e5e8ee85bbc6f1e1e8c0309c337676b4b1a",
+      "cleanup": "verified regenerable mutant copy removed"
+    },
+    {
+      "case": "OO-duplicate_JSON",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/finite-pv/grammar/reproduce.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/counter-grammar-controls-v1/experiment-owned-regenerable-copies/OO-duplicate_JSON"
+      ],
+      "returncode": 1,
+      "seconds": 0.035349948331713676,
+      "expected_rejection": "duplicate JSON key",
+      "stdout": "OO-duplicate_JSON.stdout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "OO-duplicate_JSON.stderr",
+      "stderr_sha256": "9e54fa9b022fd2f820145eaeca134171c7c483ebcf8c2ccea53d2997ffb9906e",
+      "mutated_result_sha256": "43a3ecc3afca7d348a2b11844243740ffbe5ef260ef4ad4aa11cdf4291eafca1",
+      "cleanup": "verified regenerable mutant copy removed"
+    },
+    {
+      "case": "OO-relocated",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/finite-pv/grammar/reproduce.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/counter-grammar-controls-v1/experiment-owned-regenerable-copies/OO-relocated"
+      ],
+      "returncode": 0,
+      "seconds": 0.17722684517502785,
+      "expected_rejection": null,
+      "stdout": "OO-relocated.stdout",
+      "stdout_sha256": "5f47d9ee483f231d9473576ad777cf5be2fbfc3ad1d0da2e7165943bac701ef2",
+      "stderr": "OO-relocated.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mutated_result_sha256": "cd91e39f0fafecffb75be1babe764cefb98f33d2643a95d4865566f2f7402d3b",
+      "cleanup": "verified regenerable mutant copy removed"
+    }
+  ],
+  "cleanup": "Only copied experiment-owned regenerable mutant trees removed; accepted originals/evidence preserved."
+}

@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/data/ivy-rh-octic-20261123/integration/public723-source-v1/source/Solutions/RHOcticPush.v1/integration/corrected/reproduce.py", line 202, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/data/ivy-rh-octic-20261123/integration/public723-source-v1/source/Solutions/RHOcticPush.v1/integration/corrected/reproduce.py", line 195, in main
+    stages.append(run_stage(out,'C-log127',[sys.executable,str(R/'Solutions/RHContinuation.v1/parabolic/native_log_workload.py'),'--out',str(out/'C-log127')],env))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ivy-rh-octic-20261123/integration/public723-source-v1/source/Solutions/RHOcticPush.v1/integration/corrected/reproduce.py", line 97, in run_stage
+    t=time.monotonic();cp=subprocess.run(['/usr/bin/time','-v',*cmd],env=env,text=True,capture_output=True);(out/(name+'.stdout')).write_text(cp.stdout);(out/(name+'.stderr')).write_text(cp.stderr);need(cp.returncode==0,'stage failed:'+name);return {'name':name,'command':cmd,'returncode':cp.returncode,'seconds':time.monotonic()-t,'stdout_sha256':sha(out/(name+'.stdout')),'stderr_sha256':sha(out/(name+'.stderr'))}
+                                                                                                                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ivy-rh-octic-20261123/integration/public723-source-v1/source/Solutions/RHOcticPush.v1/integration/corrected/reproduce.py", line 16, in need
+    if not x:raise ValueError(msg)
+             ^^^^^^^^^^^^^^^^^^^^^
+ValueError: stage failed:C-log127

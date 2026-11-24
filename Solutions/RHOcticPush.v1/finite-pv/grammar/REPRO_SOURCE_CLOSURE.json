@@ -1,0 +1,465 @@
+{
+  "schema": "RH_COUNTER_GRAMMAR_FRESH5_V1",
+  "modules": [
+    {
+      "module": "CounterGrammar",
+      "sha256": "e43862321899b0762ca0b80761ec09d5d20fe59a56971fb88a258002def8b2e3",
+      "application_imports": [
+        "WitnessCGrammar",
+        "RamanujanPV.QuotientDriverSource"
+      ]
+    },
+    {
+      "module": "CounterRendererSound",
+      "sha256": "153c6024f63d9994b943cea9b3c5e05e0d89af0ff39d74f3178da02c85ecfe0d",
+      "application_imports": [
+        "CounterGrammar"
+      ]
+    },
+    {
+      "module": "CounterSourceSyntax",
+      "sha256": "21cdb2d45ed06850792e7eba4bb224b1af0c0dbb136b3b1f1738ffffd67efff4",
+      "application_imports": [
+        "CounterRendererSound",
+        "HighDriverSource"
+      ]
+    },
+    {
+      "module": "CounterGrammarConsumer",
+      "sha256": "bd42e6d5c75c3dc004d36d18a776542cead3e87c6a13a6dfddef4b7eb6b0e27e",
+      "application_imports": [
+        "CounterSourceSyntax",
+        "HighDriverContract"
+      ]
+    },
+    {
+      "module": "CounterSyntaxAudit",
+      "sha256": "3c521614c8e8f02ff473ec1f8052d3cf536c326d540cd704faa4a46515afb0c7",
+      "application_imports": [
+        "CounterGrammarConsumer"
+      ]
+    }
+  ],
+  "owned_modules": [
+    "CounterGrammar",
+    "CounterRendererSound",
+    "CounterSourceSyntax",
+    "CounterGrammarConsumer"
+  ],
+  "base_controller_sha256": "cccd380b9e7654debacdd910497d411094a9b798f15319b59dc2db406e58fef5",
+  "freeze_sha256": "7171748c1553de96603dcd249c62fb0c5a968e2c64c1b71f375ebe62ef9ac3e6",
+  "value_path_required": [
+    "RHOcticPush.CounterSyntax.checkedCounter_sound",
+    "RHOcticPush.CounterSyntax.checkedDriver_sound",
+    "RHOcticPush.CounterSyntax.counter_render_sound",
+    "RHOcticPush.CounterSyntax.driver_render_sound",
+    "RHOcticPush.CounterSyntax.expression_sound",
+    "RHOcticPush.CounterSyntax.statement_sound",
+    "RHOcticPush.CounterSyntax.actual_counter_profile",
+    "RHOcticPush.CounterSyntax.actual_driver_profile",
+    "RamanujanPV.QuotientCSourceV2.actual_source_bytes",
+    "RHOcticPush.HighDriverSource.actual_source_bytes",
+    "RHOcticPush.HighDriverContract.actual_source_model_main"
+  ],
+  "theorems": [
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterRendererSound.lean",
+      "line": 60,
+      "name": "RHOcticPush.CounterSyntax.mapM_separated"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterRendererSound.lean",
+      "line": 100,
+      "name": "RHOcticPush.CounterSyntax.expression_sound"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterRendererSound.lean",
+      "line": 176,
+      "name": "RHOcticPush.CounterSyntax.declaration_sound"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterRendererSound.lean",
+      "line": 196,
+      "name": "RHOcticPush.CounterSyntax.single_declaration_sound"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterRendererSound.lean",
+      "line": 222,
+      "name": "RHOcticPush.CounterSyntax.condition_sound"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterRendererSound.lean",
+      "line": 231,
+      "name": "RHOcticPush.CounterSyntax.statement_sound"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterRendererSound.lean",
+      "line": 345,
+      "name": "RHOcticPush.CounterSyntax.parameters_sound"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterRendererSound.lean",
+      "line": 358,
+      "name": "RHOcticPush.CounterSyntax.function_sound"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterRendererSound.lean",
+      "line": 374,
+      "name": "RHOcticPush.CounterSyntax.functions_sound"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterRendererSound.lean",
+      "line": 391,
+      "name": "RHOcticPush.CounterSyntax.prototype_sound"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterRendererSound.lean",
+      "line": 400,
+      "name": "RHOcticPush.CounterSyntax.array_sound"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterRendererSound.lean",
+      "line": 407,
+      "name": "RHOcticPush.CounterSyntax.globals_sound"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterRendererSound.lean",
+      "line": 422,
+      "name": "RHOcticPush.CounterSyntax.counter_prelude"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterRendererSound.lean",
+      "line": 427,
+      "name": "RHOcticPush.CounterSyntax.driver_prelude"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterRendererSound.lean",
+      "line": 436,
+      "name": "RHOcticPush.CounterSyntax.counter_render_sound"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterRendererSound.lean",
+      "line": 450,
+      "name": "RHOcticPush.CounterSyntax.driver_render_sound"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterRendererSound.lean",
+      "line": 474,
+      "name": "RHOcticPush.CounterSyntax.checkedCounter_sound"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterRendererSound.lean",
+      "line": 482,
+      "name": "RHOcticPush.CounterSyntax.checkedDriver_sound"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterSourceSyntax.lean",
+      "line": 14,
+      "name": "RHOcticPush.CounterSyntax.actual_counter_profile"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterSourceSyntax.lean",
+      "line": 17,
+      "name": "RHOcticPush.CounterSyntax.actual_driver_profile"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterSourceSyntax.lean",
+      "line": 19,
+      "name": "RHOcticPush.CounterSyntax.actual_counter_render"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterSourceSyntax.lean",
+      "line": 23,
+      "name": "RHOcticPush.CounterSyntax.actual_counter_accepted"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterSourceSyntax.lean",
+      "line": 28,
+      "name": "RHOcticPush.CounterSyntax.actual_driver_accepted"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterSourceSyntax.lean",
+      "line": 34,
+      "name": "RHOcticPush.CounterSyntax.actual_counter_syntax"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterSourceSyntax.lean",
+      "line": 37,
+      "name": "RHOcticPush.CounterSyntax.actual_driver_syntax"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterSourceSyntax.lean",
+      "line": 42,
+      "name": "RHOcticPush.CounterSyntax.mutation_bad_operator"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterSourceSyntax.lean",
+      "line": 45,
+      "name": "RHOcticPush.CounterSyntax.mutation_bad_identifier"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterSourceSyntax.lean",
+      "line": 48,
+      "name": "RHOcticPush.CounterSyntax.mutation_bad_type"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterSourceSyntax.lean",
+      "line": 51,
+      "name": "RHOcticPush.CounterSyntax.mutation_non_lvalue"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterSourceSyntax.lean",
+      "line": 54,
+      "name": "RHOcticPush.CounterSyntax.mutation_bad_assignment"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterSourceSyntax.lean",
+      "line": 57,
+      "name": "RHOcticPush.CounterSyntax.mutation_declaration_controlled"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterSourceSyntax.lean",
+      "line": 60,
+      "name": "RHOcticPush.CounterSyntax.mutation_bad_for_initializer"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterSourceSyntax.lean",
+      "line": 63,
+      "name": "RHOcticPush.CounterSyntax.mutation_nonblock_function"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterSourceSyntax.lean",
+      "line": 66,
+      "name": "RHOcticPush.CounterSyntax.checked_counter_exact"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterSourceSyntax.lean",
+      "line": 73,
+      "name": "RHOcticPush.CounterSyntax.checked_driver_exact"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterSourceSyntax.lean",
+      "line": 80,
+      "name": "RHOcticPush.CounterSyntax.mutation_counter_extra_semicolon"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterSourceSyntax.lean",
+      "line": 91,
+      "name": "RHOcticPush.CounterSyntax.mutation_driver_extra_semicolon"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterGrammarConsumer.lean",
+      "line": 27,
+      "name": "RHOcticPush.CounterSyntax.actual_source_model_main"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterGrammarConsumer.lean",
+      "line": 32,
+      "name": "RHOcticPush.CounterSyntax.possible_source_success"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterGrammarConsumer.lean",
+      "line": 45,
+      "name": "RHOcticPush.CounterSyntax.every_source_success"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterGrammarConsumer.lean",
+      "line": 55,
+      "name": "RHOcticPush.CounterSyntax.complete_canonical_source_run"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/finite-pv/grammar/CounterGrammarConsumer.lean",
+      "line": 65,
+      "name": "RHOcticPush.CounterSyntax.source_output_of_exact_count"
+    }
+  ],
+  "source_scope": "Four new scientific sources and one audit, above independently fresh31 application modules plus one prior audit. All exact C resources remain fixed in base sourceplan.",
+  "compiler_theorem_names": [
+    "LCMSourcePV.Witness.C.renderDecl.eq_1",
+    "LCMSourcePV.Witness.C.renderExpr.eq_1",
+    "LCMSourcePV.Witness.C.renderExpr.eq_10",
+    "LCMSourcePV.Witness.C.renderExpr.eq_11",
+    "LCMSourcePV.Witness.C.renderExpr.eq_2",
+    "LCMSourcePV.Witness.C.renderExpr.eq_3",
+    "LCMSourcePV.Witness.C.renderExpr.eq_4",
+    "LCMSourcePV.Witness.C.renderExpr.eq_5",
+    "LCMSourcePV.Witness.C.renderExpr.eq_6",
+    "LCMSourcePV.Witness.C.renderExpr.eq_7",
+    "LCMSourcePV.Witness.C.renderExpr.eq_8",
+    "LCMSourcePV.Witness.C.renderExpr.eq_9",
+    "LCMSourcePV.Witness.C.renderExpr.eq_def",
+    "LCMSourcePV.Witness.C.renderFunction.eq_1",
+    "LCMSourcePV.Witness.C.renderFunctions.eq_1",
+    "LCMSourcePV.Witness.C.renderStmt.eq_1",
+    "LCMSourcePV.Witness.C.renderStmt.eq_2",
+    "LCMSourcePV.Witness.C.renderStmt.eq_3",
+    "LCMSourcePV.Witness.C.renderStmt.eq_4",
+    "LCMSourcePV.Witness.C.renderStmt.eq_5",
+    "LCMSourcePV.Witness.C.renderStmt.eq_6",
+    "LCMSourcePV.Witness.C.renderStmt.eq_7",
+    "LCMSourcePV.Witness.C.renderStmt.eq_8",
+    "LCMSourcePV.Witness.C.renderStmt.eq_9",
+    "LCMSourcePV.Witness.C.renderStmt.eq_def",
+    "RHOcticPush.CounterSyntax.BlockItem.brecOn",
+    "RHOcticPush.CounterSyntax.Expression.brecOn",
+    "RHOcticPush.CounterSyntax.Expression.brecOn_1",
+    "RHOcticPush.CounterSyntax.GlobalsSyntax.brecOn",
+    "RHOcticPush.CounterSyntax.Separated.brecOn",
+    "RHOcticPush.CounterSyntax.SourceModelMain.application",
+    "RHOcticPush.CounterSyntax.SourceModelMain.counterAccepted",
+    "RHOcticPush.CounterSyntax.SourceModelMain.mainAccepted",
+    "RHOcticPush.CounterSyntax.Statement.brecOn",
+    "RHOcticPush.CounterSyntax.Statement.brecOn_1",
+    "RHOcticPush.CounterSyntax.actual_counter_accepted",
+    "RHOcticPush.CounterSyntax.actual_counter_accepted._proof_1_1",
+    "RHOcticPush.CounterSyntax.actual_counter_profile",
+    "RHOcticPush.CounterSyntax.actual_counter_profile._proof_1_1",
+    "RHOcticPush.CounterSyntax.actual_counter_render",
+    "RHOcticPush.CounterSyntax.actual_counter_syntax",
+    "RHOcticPush.CounterSyntax.actual_driver_accepted",
+    "RHOcticPush.CounterSyntax.actual_driver_profile",
+    "RHOcticPush.CounterSyntax.actual_driver_profile._proof_1_1",
+    "RHOcticPush.CounterSyntax.actual_driver_syntax",
+    "RHOcticPush.CounterSyntax.actual_source_model_main",
+    "RHOcticPush.CounterSyntax.arrayGuard.eq_1",
+    "RHOcticPush.CounterSyntax.array_sound",
+    "RHOcticPush.CounterSyntax.checkedCounter.eq_1",
+    "RHOcticPush.CounterSyntax.checkedCounter_sound",
+    "RHOcticPush.CounterSyntax.checkedDriver.eq_1",
+    "RHOcticPush.CounterSyntax.checkedDriver_sound",
+    "RHOcticPush.CounterSyntax.checked_counter_exact",
+    "RHOcticPush.CounterSyntax.checked_driver_exact",
+    "RHOcticPush.CounterSyntax.complete_canonical_source_run",
+    "RHOcticPush.CounterSyntax.condition_sound",
+    "RHOcticPush.CounterSyntax.copyrightBody.eq_1",
+    "RHOcticPush.CounterSyntax.counterRender.eq_1",
+    "RHOcticPush.CounterSyntax.counter_prelude",
+    "RHOcticPush.CounterSyntax.counter_prelude._proof_1_1",
+    "RHOcticPush.CounterSyntax.counter_prelude._proof_1_2",
+    "RHOcticPush.CounterSyntax.counter_render_sound",
+    "RHOcticPush.CounterSyntax.declarationGuard.eq_1",
+    "RHOcticPush.CounterSyntax.declaration_sound",
+    "RHOcticPush.CounterSyntax.driverGuard.eq_1",
+    "RHOcticPush.CounterSyntax.driverPrelude.eq_1",
+    "RHOcticPush.CounterSyntax.driver_prelude",
+    "RHOcticPush.CounterSyntax.driver_prelude._proof_1_1",
+    "RHOcticPush.CounterSyntax.driver_prelude._proof_1_2",
+    "RHOcticPush.CounterSyntax.driver_render_sound",
+    "RHOcticPush.CounterSyntax.every_source_success",
+    "RHOcticPush.CounterSyntax.expressionGuard._sparseCasesOn_1.else_eq",
+    "RHOcticPush.CounterSyntax.expressionGuard._sparseCasesOn_2.else_eq",
+    "RHOcticPush.CounterSyntax.expressionGuard.eq_1",
+    "RHOcticPush.CounterSyntax.expressionGuard.eq_2",
+    "RHOcticPush.CounterSyntax.expressionGuard.eq_3",
+    "RHOcticPush.CounterSyntax.expressionGuard.eq_4",
+    "RHOcticPush.CounterSyntax.expressionGuard.eq_5",
+    "RHOcticPush.CounterSyntax.expressionGuard.eq_6",
+    "RHOcticPush.CounterSyntax.expressionGuard.eq_7",
+    "RHOcticPush.CounterSyntax.expressionGuard.eq_8",
+    "RHOcticPush.CounterSyntax.expressionGuard.eq_def",
+    "RHOcticPush.CounterSyntax.expression_sound",
+    "RHOcticPush.CounterSyntax.functionGuard.eq_1",
+    "RHOcticPush.CounterSyntax.function_sound",
+    "RHOcticPush.CounterSyntax.functions_sound",
+    "RHOcticPush.CounterSyntax.globals_sound",
+    "RHOcticPush.CounterSyntax.instDecidableIdentifier._proof_1",
+    "RHOcticPush.CounterSyntax.instDecidableIdentifier._proof_2",
+    "RHOcticPush.CounterSyntax.instDecidableIdentifier._proof_3",
+    "RHOcticPush.CounterSyntax.itemGuard.eq_1",
+    "RHOcticPush.CounterSyntax.itemGuard.eq_2",
+    "RHOcticPush.CounterSyntax.itemGuard.eq_3",
+    "RHOcticPush.CounterSyntax.mapM_separated",
+    "RHOcticPush.CounterSyntax.mutation_bad_assignment",
+    "RHOcticPush.CounterSyntax.mutation_bad_assignment._proof_1_1",
+    "RHOcticPush.CounterSyntax.mutation_bad_for_initializer",
+    "RHOcticPush.CounterSyntax.mutation_bad_for_initializer._proof_1_1",
+    "RHOcticPush.CounterSyntax.mutation_bad_identifier",
+    "RHOcticPush.CounterSyntax.mutation_bad_identifier._proof_1_1",
+    "RHOcticPush.CounterSyntax.mutation_bad_operator",
+    "RHOcticPush.CounterSyntax.mutation_bad_operator._proof_1_1",
+    "RHOcticPush.CounterSyntax.mutation_bad_type",
+    "RHOcticPush.CounterSyntax.mutation_bad_type._proof_1_1",
+    "RHOcticPush.CounterSyntax.mutation_counter_extra_semicolon",
+    "RHOcticPush.CounterSyntax.mutation_counter_extra_semicolon._proof_1_1",
+    "RHOcticPush.CounterSyntax.mutation_declaration_controlled",
+    "RHOcticPush.CounterSyntax.mutation_declaration_controlled._proof_1_1",
+    "RHOcticPush.CounterSyntax.mutation_driver_extra_semicolon",
+    "RHOcticPush.CounterSyntax.mutation_driver_extra_semicolon._proof_1_1",
+    "RHOcticPush.CounterSyntax.mutation_non_lvalue",
+    "RHOcticPush.CounterSyntax.mutation_non_lvalue._proof_1_1",
+    "RHOcticPush.CounterSyntax.mutation_nonblock_function",
+    "RHOcticPush.CounterSyntax.mutation_nonblock_function._proof_1_1",
+    "RHOcticPush.CounterSyntax.parameterGuard.eq_1",
+    "RHOcticPush.CounterSyntax.parameters_sound",
+    "RHOcticPush.CounterSyntax.possible_source_success",
+    "RHOcticPush.CounterSyntax.printCondition.eq_1",
+    "RHOcticPush.CounterSyntax.printCondition.eq_2",
+    "RHOcticPush.CounterSyntax.prototypeGuard.eq_1",
+    "RHOcticPush.CounterSyntax.prototype_sound",
+    "RHOcticPush.CounterSyntax.single_declaration_sound",
+    "RHOcticPush.CounterSyntax.source_output_of_exact_count",
+    "RHOcticPush.CounterSyntax.statementGuard._sparseCasesOn_1.else_eq",
+    "RHOcticPush.CounterSyntax.statementGuard._sparseCasesOn_2.else_eq",
+    "RHOcticPush.CounterSyntax.statementGuard._sparseCasesOn_3.else_eq",
+    "RHOcticPush.CounterSyntax.statementGuard._sparseCasesOn_6.else_eq",
+    "RHOcticPush.CounterSyntax.statementGuard.eq_1",
+    "RHOcticPush.CounterSyntax.statementGuard.eq_10",
+    "RHOcticPush.CounterSyntax.statementGuard.eq_2",
+    "RHOcticPush.CounterSyntax.statementGuard.eq_3",
+    "RHOcticPush.CounterSyntax.statementGuard.eq_4",
+    "RHOcticPush.CounterSyntax.statementGuard.eq_5",
+    "RHOcticPush.CounterSyntax.statementGuard.eq_6",
+    "RHOcticPush.CounterSyntax.statementGuard.eq_7",
+    "RHOcticPush.CounterSyntax.statementGuard.eq_8",
+    "RHOcticPush.CounterSyntax.statementGuard.eq_9",
+    "RHOcticPush.CounterSyntax.statementGuard.eq_def",
+    "RHOcticPush.CounterSyntax.statement_sound",
+    "RamanujanPV.QuotientDriverSource.render.eq_1",
+    "_private.CounterGrammar.0.RHOcticPush.CounterSyntax.Identifier.match_1.eq_1",
+    "_private.CounterGrammar.0.RHOcticPush.CounterSyntax.Identifier.match_1.eq_2",
+    "_private.CounterRendererSound.0.LCMSourcePV.Witness.C.renderDecl.match_1.eq_1",
+    "_private.CounterRendererSound.0.LCMSourcePV.Witness.C.renderDecl.match_1.eq_2",
+    "_private.CounterRendererSound.0.LCMSourcePV.Witness.C.renderExpr.match_1.eq_1",
+    "_private.CounterRendererSound.0.LCMSourcePV.Witness.C.renderExpr.match_1.eq_10",
+    "_private.CounterRendererSound.0.LCMSourcePV.Witness.C.renderExpr.match_1.eq_11",
+    "_private.CounterRendererSound.0.LCMSourcePV.Witness.C.renderExpr.match_1.eq_2",
+    "_private.CounterRendererSound.0.LCMSourcePV.Witness.C.renderExpr.match_1.eq_3",
+    "_private.CounterRendererSound.0.LCMSourcePV.Witness.C.renderExpr.match_1.eq_4",
+    "_private.CounterRendererSound.0.LCMSourcePV.Witness.C.renderExpr.match_1.eq_5",
+    "_private.CounterRendererSound.0.LCMSourcePV.Witness.C.renderExpr.match_1.eq_6",
+    "_private.CounterRendererSound.0.LCMSourcePV.Witness.C.renderExpr.match_1.eq_7",
+    "_private.CounterRendererSound.0.LCMSourcePV.Witness.C.renderExpr.match_1.eq_8",
+    "_private.CounterRendererSound.0.LCMSourcePV.Witness.C.renderExpr.match_1.eq_9",
+    "_private.CounterRendererSound.0.LCMSourcePV.Witness.C.renderStmt.match_1.eq_1",
+    "_private.CounterRendererSound.0.LCMSourcePV.Witness.C.renderStmt.match_1.eq_2",
+    "_private.CounterRendererSound.0.LCMSourcePV.Witness.C.renderStmt.match_1.eq_3",
+    "_private.CounterRendererSound.0.LCMSourcePV.Witness.C.renderStmt.match_1.eq_4",
+    "_private.CounterRendererSound.0.LCMSourcePV.Witness.C.renderStmt.match_1.eq_5",
+    "_private.CounterRendererSound.0.LCMSourcePV.Witness.C.renderStmt.match_1.eq_6",
+    "_private.CounterRendererSound.0.LCMSourcePV.Witness.C.renderStmt.match_1.eq_7",
+    "_private.CounterRendererSound.0.LCMSourcePV.Witness.C.renderStmt.match_1.eq_8",
+    "_private.CounterRendererSound.0.LCMSourcePV.Witness.C.renderStmt.match_1.eq_9",
+    "_private.CounterRendererSound.0.RHOcticPush.CounterSyntax.declarationGuard.match_1.eq_1",
+    "_private.CounterRendererSound.0.RHOcticPush.CounterSyntax.declarationGuard.match_1.eq_2",
+    "_private.CounterRendererSound.0.RHOcticPush.CounterSyntax.expressionGuard.match_1.eq_1",
+    "_private.CounterRendererSound.0.RHOcticPush.CounterSyntax.expressionGuard.match_1.eq_2",
+    "_private.CounterRendererSound.0.RHOcticPush.CounterSyntax.expressionGuard.match_1.eq_3",
+    "_private.CounterRendererSound.0.RHOcticPush.CounterSyntax.expressionGuard.match_1.eq_4",
+    "_private.CounterRendererSound.0.RHOcticPush.CounterSyntax.expressionGuard.match_1.eq_5",
+    "_private.CounterRendererSound.0.RHOcticPush.CounterSyntax.expressionGuard.match_1.eq_6",
+    "_private.CounterRendererSound.0.RHOcticPush.CounterSyntax.expressionGuard.match_1.eq_7",
+    "_private.CounterRendererSound.0.RHOcticPush.CounterSyntax.expressionGuard.match_1.eq_8",
+    "_private.CounterRendererSound.0.RHOcticPush.CounterSyntax.statementGuard.match_1.eq_1",
+    "_private.CounterRendererSound.0.RHOcticPush.CounterSyntax.statementGuard.match_1.eq_2",
+    "_private.CounterRendererSound.0.RHOcticPush.CounterSyntax.statementGuard.match_1.eq_3",
+    "_private.CounterRendererSound.0.RHOcticPush.CounterSyntax.statementGuard.match_6.eq_1",
+    "_private.CounterRendererSound.0.RHOcticPush.CounterSyntax.statementGuard.match_6.eq_2",
+    "_private.CounterRendererSound.0.RHOcticPush.CounterSyntax.statementGuard.match_6.eq_3",
+    "_private.CounterRendererSound.0.RHOcticPush.CounterSyntax.statementGuard.match_6.eq_4",
+    "_private.CounterRendererSound.0.RHOcticPush.CounterSyntax.statementGuard.match_6.eq_5",
+    "_private.CounterRendererSound.0.RHOcticPush.CounterSyntax.statementGuard.match_6.eq_6",
+    "_private.CounterRendererSound.0.RHOcticPush.CounterSyntax.statementGuard.match_6.eq_7",
+    "_private.CounterRendererSound.0.RHOcticPush.CounterSyntax.statementGuard.match_6.eq_8",
+    "_private.CounterRendererSound.0.RHOcticPush.CounterSyntax.statementGuard.match_6.eq_9"
+  ]
+}

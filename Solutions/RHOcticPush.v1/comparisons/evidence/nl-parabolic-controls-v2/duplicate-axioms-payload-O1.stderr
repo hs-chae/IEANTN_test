@@ -1,0 +1,32 @@
+Traceback (most recent call last):
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/comparisons/reproduce_nl_parabolic.py", line 200, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/comparisons/reproduce_nl_parabolic.py", line 158, in main
+    need(a.foundation is None and a.out is None,'exclusive readback');validate(a.verify);print('PASS_NL_PARABOLIC_READBACK');return
+                                                                      ^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/comparisons/reproduce_nl_parabolic.py", line 105, in validate
+    rows=[payload(x.split('NL_PARABOLIC_THEOREM ',1)[1]) for x in out.splitlines() if 'NL_PARABOLIC_THEOREM {' in x]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/comparisons/reproduce_nl_parabolic.py", line 105, in <listcomp>
+    rows=[payload(x.split('NL_PARABOLIC_THEOREM ',1)[1]) for x in out.splitlines() if 'NL_PARABOLIC_THEOREM {' in x]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/comparisons/reproduce_nl_parabolic.py", line 28, in payload
+    return json.loads(text,object_pairs_hook=pairs,parse_float=finite,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/__init__.py", line 359, in loads
+    return cls(**kw).decode(s)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/comparisons/reproduce_nl_parabolic.py", line 24, in pairs
+    need(k not in d,'duplicate JSON payload key');d[k]=v
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/integration/corrected/reproduce.py", line 16, in need
+    if not x:raise ValueError(msg)
+             ^^^^^^^^^^^^^^^^^^^^^
+ValueError: duplicate JSON payload key

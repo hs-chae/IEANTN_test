@@ -1,0 +1,712 @@
+{
+  "targets": [
+    "RecoveredCountConsumer",
+    "SourceOutputAdapter",
+    "CounterSyntaxAudit"
+  ],
+  "selected_theorems": [
+    "RamanujanPV.PureCountWorkflowControl.part_0000",
+    "RamanujanPV.PureCountWorkflowControl.gaps_checked",
+    "RamanujanPV.PureCountWorkflowControl.entries_checked",
+    "RamanujanPV.PureCountWorkflowControl.root_1000",
+    "RamanujanPV.PureCountWorkflowControl.pi_1000",
+    "RHOcticPush.RecoveredCount.count",
+    "RHOcticPush.RecoveredCount.actual_C_model_execution",
+    "RHOcticPush.RecoveredCount.exact_source_bytes_and_execution",
+    "RHOcticPush.SourceOutputAdapter.canonical_source_output",
+    "RHOcticPush.SourceOutputAdapter.every_source_output"
+  ],
+  "modules": [
+    {
+      "module": "LCMSourcePV.RestrictedC",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/LCMSourcePV/RestrictedC.lean",
+      "source_sha256": "4442a24f59ff243f36649903767beb444b8099753532528f86df55efa388ef88",
+      "imports": [
+        "Mathlib"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.CSource",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/CSource.lean",
+      "source_sha256": "afb812a02fafe273230c1808c13a098f4b5d1abfdc7cc62f294c6087bd352ce0",
+      "imports": [
+        "LCMSourcePV.RestrictedC"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "WitnessCGrammar",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/WitnessCGrammar.lean",
+      "source_sha256": "57fcfa86a5e443cc6989ea65e92e6284657e24a7f62726b4dda048281c5d8b8b",
+      "imports": [
+        "LCMSourcePV.RestrictedC"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "LCMSourcePV.ASTLoops",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/LCMSourcePV/ASTLoops.lean",
+      "source_sha256": "e496bf461b8878b2d29e4b679287cf2bdf3237eb78b70ff5f4811d0103eca78c",
+      "imports": [
+        "WitnessCGrammar"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.CArithmetic",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/CArithmetic.lean",
+      "source_sha256": "a43eaa29da61ef83506088fd97807070fada57739c4e66d77b92bb4e04d4a9fa",
+      "imports": [
+        "RamanujanPV.CSource",
+        "LCMSourcePV.ASTLoops",
+        "Mathlib.NumberTheory.PrimeCounting"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.PrimeCount",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/PrimeCount.lean",
+      "source_sha256": "fb70b77baf77e18cb0ef080d455619848e1a9be889bbb3b7148917f687ea8628",
+      "imports": [
+        "RamanujanPV.CArithmetic"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientSieve",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/QuotientSieve.lean",
+      "source_sha256": "890b104df8bac9b4fecab2be313415ed973a458534f784d25a05a6d6aa617b3a",
+      "imports": [
+        "RamanujanPV.PrimeCount"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientAlgorithm",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/QuotientAlgorithm.lean",
+      "source_sha256": "904fd8729d29c57f7c0599707d48787ae74a1e912755556e7bf1dee77a296595",
+      "imports": [
+        "RamanujanPV.QuotientSieve"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientTreeCheck",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/QuotientTreeCheck.lean",
+      "source_sha256": "ad56ded1a0dab45882676177f31f89e11b6eec5448b2ab7ff2ce0f3140744daa",
+      "imports": [
+        "RamanujanPV.QuotientAlgorithm",
+        "Lean.Data.RArray"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientCertificateCode",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/QuotientCertificateCode.lean",
+      "source_sha256": "dc235a883aa063bfa8d9b5975654a7a2688fc9050f78fa65a27cc6e6419fb0f7",
+      "imports": [
+        "Lean.Data.RArray"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientDemandCheck",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/QuotientDemandCheck.lean",
+      "source_sha256": "01839254e99d9ad5b35fbfbe7cab7261a9e201d227e23b188a2669fa2fbd641a",
+      "imports": [
+        "RamanujanPV.QuotientTreeCheck",
+        "RamanujanPV.QuotientCertificateCode"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.PureCountWorkflowControl.Gaps",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/PureCountWorkflowControl/Gaps.lean",
+      "source_sha256": "fe8e5bdda92cc1667dbc088bb73b004cec7929622d9ee342be442820e5f37f69",
+      "imports": [
+        "RamanujanPV.QuotientCertificateCode"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.PureCountWorkflowControl.Data0000",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/PureCountWorkflowControl/Data0000.lean",
+      "source_sha256": "7236506b74c70711eae94ad756edd15dd96ca27ca215a69ba3f72960a61230a8",
+      "imports": [
+        "Lean.Data.RArray"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.PureCountWorkflowControl.Data",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/PureCountWorkflowControl/Data.lean",
+      "source_sha256": "89e83093506e74bb8654b1faf1fd238f4c45fecd9537bd3080790449c35762f0",
+      "imports": [
+        "RamanujanPV.QuotientCertificateCode",
+        "RamanujanPV.PureCountWorkflowControl.Gaps",
+        "RamanujanPV.PureCountWorkflowControl.Data0000"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.PureCountWorkflowControl.GapCheck",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/PureCountWorkflowControl/GapCheck.lean",
+      "source_sha256": "7f0ba3a7d55876419cafbaf30314ebe148823ce7685d01d9802b8a3a64d0ef5e",
+      "imports": [
+        "RamanujanPV.PureCountWorkflowControl.Data"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "BalancedCountCheck",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/BalancedCountCheck.lean",
+      "source_sha256": "462a5ec71e6415cbac6d9d7bd851a78fba6238c2556320affbaae9537bb1ca0f",
+      "imports": [
+        "RamanujanPV.QuotientDemandCheck"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "PureBalancedCheck",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/PureBalancedCheck.lean",
+      "source_sha256": "e38c63e0abef799d839d7501f2e0af5f06af2abba4d72d90f6574a387aba5faf",
+      "imports": [
+        "BalancedCountCheck"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.PureCountWorkflowControl.Check0000",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/PureCountWorkflowControl/Check0000.lean",
+      "source_sha256": "5a1cfa8d2903a7fc52af53d321c26e0a495782111775a7377bc66755a5939f45",
+      "imports": [
+        "RamanujanPV.PureCountWorkflowControl.Data",
+        "PureBalancedCheck"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.PureCountWorkflowControl.Final",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/PureCountWorkflowControl/Final.lean",
+      "source_sha256": "1587b5894e4488e6b2318a726a87e9e97701a2d97b9e3cf026ebad83adfa771c",
+      "imports": [
+        "RamanujanPV.QuotientDemandCheck",
+        "RamanujanPV.PureCountWorkflowControl.GapCheck",
+        "RamanujanPV.PureCountWorkflowControl.Check0000"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientCMachine",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/QuotientCMachine.lean",
+      "source_sha256": "e63f5fddead284ad07b2a8568af3b9cf0d44f2d8ca42da2c118603944ab4edab",
+      "imports": [
+        "RamanujanPV.CArithmetic",
+        "Mathlib.Logic.Function.Basic"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientCSourceV2",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/QuotientCSourceV2.lean",
+      "source_sha256": "0118e1c63aaeb80457ff5c21bc06e30896586797a6c2e7df1a48d137efc6dbcb",
+      "imports": [
+        "LCMSourcePV.ASTLoops"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientTables",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/QuotientTables.lean",
+      "source_sha256": "977185de118b66216fa3c80faaac34c14a257ce6e26d92cd5d80931351b91e25",
+      "imports": [
+        "RamanujanPV.QuotientSieve",
+        "Mathlib.Logic.Function.Basic"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientCInit",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/QuotientCInit.lean",
+      "source_sha256": "4ddacb9ed3387e9e73161f5da83a1996adb45f0e80256b557cf4bbb09ac04f17",
+      "imports": [
+        "RamanujanPV.QuotientCMachine",
+        "RamanujanPV.QuotientCSourceV2",
+        "RamanujanPV.QuotientTables"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientCSource",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/QuotientCSource.lean",
+      "source_sha256": "b0818abe21527e9aefa59166ca08e241b8c62e7c7d1bbe48c0650abe6bda976e",
+      "imports": [
+        "RamanujanPV.QuotientCSourceV2"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientSqrtExecute",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/QuotientSqrtExecute.lean",
+      "source_sha256": "2d02ee478feb8c22f5eae4fde1e727c5618bb3e795902fd97d0b4b5d6603a6b2",
+      "imports": [
+        "RamanujanPV.QuotientCMachine",
+        "RamanujanPV.QuotientCSource"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientWordBounds",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/QuotientWordBounds.lean",
+      "source_sha256": "e2ece772129aaee5b913aaae644ad048e3cc22f50ce58dc24b84f4d893f8d1d8",
+      "imports": [
+        "RamanujanPV.QuotientSieve"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientCExecute",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/QuotientCExecute.lean",
+      "source_sha256": "f33630b2c8d0c668df345e15ef8247f6a1ef8deb3c51d89b71dcb5749ec1f23f",
+      "imports": [
+        "RamanujanPV.QuotientCMachine",
+        "RamanujanPV.QuotientCSourceV2",
+        "RamanujanPV.QuotientTables",
+        "RamanujanPV.QuotientWordBounds"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientCFunctionPrefix",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/QuotientCFunctionPrefix.lean",
+      "source_sha256": "4aa21bd64d1d821e96f135188f8485597a68a46b71f0fef76da6afda1092c191",
+      "imports": [
+        "RamanujanPV.QuotientCInit",
+        "RamanujanPV.QuotientSqrtExecute",
+        "RamanujanPV.QuotientCExecute"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientCLarge",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/QuotientCLarge.lean",
+      "source_sha256": "f4bad60d75c50184282b7d3f7ab2b6acf34dfa587c5a041de9e7d25ef494379d",
+      "imports": [
+        "RamanujanPV.QuotientCExecute"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientCSmallLoop",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/QuotientCSmallLoop.lean",
+      "source_sha256": "cfd96197cdc23d71a60a8c6358973b04d918a6643d72010aba8a6c15353eabff",
+      "imports": [
+        "RamanujanPV.QuotientCExecute"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientCRound",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/QuotientCRound.lean",
+      "source_sha256": "a46de7cd30e33df2544e7ccac8608609d922c50d405bee62ad1981b118e1eaa1",
+      "imports": [
+        "RamanujanPV.QuotientCLarge",
+        "RamanujanPV.QuotientCSmallLoop",
+        "RamanujanPV.QuotientCInit"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientCWhole",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/QuotientCWhole.lean",
+      "source_sha256": "82704a9581a67167215223a5de0bb0a245c33d34c4bb809627aee2e2824fa8d5",
+      "imports": [
+        "RamanujanPV.QuotientCRound",
+        "RamanujanPV.QuotientCLarge"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "LCMSourcePV.ASTDeterminism",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/LCMSourcePV/ASTDeterminism.lean",
+      "source_sha256": "ca942c44520448fc52eca0b83e5e1769929e6b71a93b0776306089ebca70e74f",
+      "imports": [
+        "LCMSourcePV.ASTLoops"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientCDeterminism",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/QuotientCDeterminism.lean",
+      "source_sha256": "6f851fa5c9007f8f41e4743882a13ca3439b867bbafceba111e6f262dd27b771",
+      "imports": [
+        "RamanujanPV.QuotientCMachine",
+        "LCMSourcePV.ASTDeterminism"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientCFunction",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/QuotientCFunction.lean",
+      "source_sha256": "f2d1cbc98edaa36a9458c5d9b49951c256bd837defe76f5e45f1f266ae2bc095",
+      "imports": [
+        "RamanujanPV.QuotientCFunctionPrefix",
+        "RamanujanPV.QuotientCWhole",
+        "RamanujanPV.QuotientCDeterminism"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "IEANTN.Vocabulary.PrimeCounting",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/IEANTN/Vocabulary/PrimeCounting.lean",
+      "source_sha256": "2863183b4c78aa1abd3be714dceeef534d6f3141c20a8df10c47b13aa38731d5",
+      "imports": [
+        "Mathlib.NumberTheory.PrimeCounting",
+        "Mathlib.MeasureTheory.Integral.Bochner.Set",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.Intervals",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/Intervals.lean",
+      "source_sha256": "fa6c22921bd2b3fdce2cf174f4e188c9185e5c2693a014a83b3e4ff3fc343121",
+      "imports": [
+        "Mathlib",
+        "IEANTN.Vocabulary.PrimeCounting"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "IEANTN.Nodes.DudekPlatt.v3.Conclusions",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/IEANTN/Nodes/DudekPlatt/v3/Conclusions.lean",
+      "source_sha256": "e30db1a432e6f90700e55212583e560deca0e006b7c46eea5dc4e38f7fae318c",
+      "imports": [
+        "IEANTN.Vocabulary.PrimeCounting"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "IEANTN.Nodes.DudekPlattNumerics.v6.Conclusions",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/IEANTN/Nodes/DudekPlattNumerics/v6/Conclusions.lean",
+      "source_sha256": "cb9978a273bf1514ad605b52740854254389d4aa1e591bb07d528cecc606aea1",
+      "imports": [
+        "IEANTN.Nodes.DudekPlatt.v3.Conclusions"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuantitativeTail",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/QuantitativeTail.lean",
+      "source_sha256": "9ab8cba2f93ff2f712f59c5f43685f8e9bb7b8ed866a1328115b0a39cd547e13",
+      "imports": [
+        "Mathlib",
+        "RamanujanPV.Intervals",
+        "IEANTN.Nodes.DudekPlatt.v3.Conclusions",
+        "IEANTN.Nodes.DudekPlattNumerics.v6.Conclusions"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.AnalyticTransition",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/AnalyticTransition.lean",
+      "source_sha256": "b0f55eab34c6a8009f24a09e31c428a3e6c7ddf4168a63c166b9a0d4a276c3c9",
+      "imports": [
+        "Mathlib",
+        "RamanujanPV.QuantitativeTail"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.AnalyticGlue",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/AnalyticGlue.lean",
+      "source_sha256": "916a019f79ef53f2b579bb3fe9bcf272e35358868fcbd41658d78416ea81a479",
+      "imports": [
+        "RamanujanPV.Intervals",
+        "RamanujanPV.AnalyticTransition"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientCCell",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/QuotientCCell.lean",
+      "source_sha256": "721bd27bc032f572eadd6feb5a5777cbe49af94ad94b16d8ca92fa07541ed74a",
+      "imports": [
+        "RamanujanPV.QuotientCFunction",
+        "RamanujanPV.AnalyticGlue"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientDriverSource",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/QuotientDriverSource.lean",
+      "source_sha256": "63f555c2785856562fb4762ea464c3736cddafde63db5e69cc25745d4bcfff8f",
+      "imports": [
+        "RamanujanPV.QuotientCSourceV2"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientDriverInit",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/QuotientDriverInit.lean",
+      "source_sha256": "8b0018fc8efb2ad5223385ed14df8a25cb00251a9b8892c0b903943872af0a38",
+      "imports": [
+        "RamanujanPV.QuotientDriverSource",
+        "RamanujanPV.QuotientCMachine"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientCountRealization",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/QuotientCountRealization.lean",
+      "source_sha256": "502c3867e07c59712d801f87d745d88afd83bb0154c65f090ee86fd38bbd2b98",
+      "imports": [
+        "RamanujanPV.QuotientCCell",
+        "RamanujanPV.QuotientDriverInit"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RecoveredCountConsumer",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RecoveredCountConsumer.lean",
+      "source_sha256": "a5bfbde02248ee2fbd1bad6e7fbd4082c1454eb3248d81a6c023f1ef30eb67c4",
+      "imports": [
+        "RamanujanPV.PureCountWorkflowControl.Final",
+        "RamanujanPV.QuotientCountRealization"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "CounterGrammar",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/CounterGrammar.lean",
+      "source_sha256": "e43862321899b0762ca0b80761ec09d5d20fe59a56971fb88a258002def8b2e3",
+      "imports": [
+        "WitnessCGrammar",
+        "RamanujanPV.QuotientDriverSource"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "CounterRendererSound",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/CounterRendererSound.lean",
+      "source_sha256": "153c6024f63d9994b943cea9b3c5e05e0d89af0ff39d74f3178da02c85ecfe0d",
+      "imports": [
+        "CounterGrammar"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "HighDriverSource",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/HighDriverSource.lean",
+      "source_sha256": "9cf47f0e8f93cfe5eeb5ed133eadee6d8aa5768d39aa0310135dd47f8c4a7522",
+      "imports": [
+        "RamanujanPV.QuotientDriverSource"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "CounterSourceSyntax",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/CounterSourceSyntax.lean",
+      "source_sha256": "21cdb2d45ed06850792e7eba4bb224b1af0c0dbb136b3b1f1738ffffd67efff4",
+      "imports": [
+        "CounterRendererSound",
+        "HighDriverSource"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientCHeapShape",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/QuotientCHeapShape.lean",
+      "source_sha256": "25d38ca83d1e954251cccfa1a02aff74548500003b19bd7c561848b4891c0675",
+      "imports": [
+        "RamanujanPV.QuotientCMachine",
+        "RamanujanPV.QuotientCFunction"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientDriverExecution",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/QuotientDriverExecution.lean",
+      "source_sha256": "9007ca4c68af724aa78fbc096a124e158c801eddae618af33a237f69b2ad97b8",
+      "imports": [
+        "RamanujanPV.QuotientCFunction",
+        "RamanujanPV.QuotientCHeapShape",
+        "RamanujanPV.QuotientDriverInit"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "RamanujanPV.QuotientDriverSuccess",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/RamanujanPV/QuotientDriverSuccess.lean",
+      "source_sha256": "6959b1e3b2805d45796cc7650b0e0c23b04c24346809eff76b230d8e7396bdd1",
+      "imports": [
+        "RamanujanPV.QuotientDriverExecution"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "HighDriverRuntime",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/HighDriverRuntime.lean",
+      "source_sha256": "ae2b8bc2dfc98b51acb9f4376f989b5a34400bdf8c284a867cac89fdbdc3e8ea",
+      "imports": [
+        "HighDriverSource",
+        "RamanujanPV.QuotientDriverSuccess"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "HighDriverContract",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/HighDriverContract.lean",
+      "source_sha256": "a2e8cf13eb602d0e5b8f5ea129c5dc95025a37c334b7fdb96d4f6559d9ce15db",
+      "imports": [
+        "HighDriverRuntime"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "CounterGrammarConsumer",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/CounterGrammarConsumer.lean",
+      "source_sha256": "bd42e6d5c75c3dc004d36d18a776542cead3e87c6a13a6dfddef4b7eb6b0e27e",
+      "imports": [
+        "CounterSourceSyntax",
+        "HighDriverContract"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "SourceOutputAdapter",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/SourceOutputAdapter.lean",
+      "source_sha256": "a2464adc1028d351cbe886754318d9d0178356c035766f975d5de71a3c83fd6d",
+      "imports": [
+        "CounterGrammarConsumer"
+      ],
+      "memory_limit_bytes": 51539607552
+    },
+    {
+      "module": "CounterSyntaxAudit",
+      "root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/CounterSyntaxAudit.lean",
+      "source_sha256": "3c521614c8e8f02ff473ec1f8052d3cf536c326d540cd704faa4a46515afb0c7",
+      "imports": [
+        "CounterGrammarConsumer",
+        "Lean"
+      ],
+      "memory_limit_bytes": 51539607552
+    }
+  ],
+  "compiler": "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+  "compiler_sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+  "context": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHContinuation.v1/scripts/GENERIC_CONTEXT.json",
+  "context_sha256": "468f4033e3de8fce13f6e74ece33ca040b96c0d86b350dcf634cdcc92a11d399",
+  "script_sha256": "9c8d964cde78679423760001db62602a20b4b162c7a355c0c41e38657c412f8b",
+  "generic_libraries": [
+    "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/mathlib/.lake/build/lib/lean",
+    "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/plausible/.lake/build/lib/lean",
+    "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/LeanSearchClient/.lake/build/lib/lean",
+    "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/importGraph/.lake/build/lib/lean",
+    "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/proofwidgets/.lake/build/lib/lean",
+    "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/aesop/.lake/build/lib/lean",
+    "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/Qq/.lake/build/lib/lean",
+    "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/batteries/.lake/build/lib/lean",
+    "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/lib/lean"
+  ],
+  "old_application_objects_used": false,
+  "max_parallel_workers": 1,
+  "resource_scheduler": "PHYSICAL_RSS_FORECAST_V1",
+  "per_task_address_space_ceiling_bytes": 51539607552,
+  "maximum_profile_address_limit_bytes": 51539607552,
+  "host_reserve_bytes": 549755813888,
+  "initial_physical_forecast_bytes": 42520176231,
+  "completed_peak_safety_factor": [
+    6,
+    5
+  ],
+  "heavy_exclusive_address_threshold_bytes": 274877906944,
+  "resource_profile": {
+    "exact": {},
+    "prefix": {}
+  },
+  "default_memory_gib": 48,
+  "final_audit_memory_limit_bytes": 51539607552,
+  "host_memavailable_before_bytes": 891696611328,
+  "cpus": [
+    64
+  ],
+  "payloads": [
+    {
+      "path": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/c/verified_primecount.c",
+      "sha256": "a2569a2cc2ae7a0b327c8fd7da4c2640acfb68701798a767c1b7783c08ff3c23"
+    },
+    {
+      "path": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/c/verified_quotient_count.c",
+      "sha256": "85326ecb93d86c693d980352ebde59a350eef89b4f367c88b65fa88f58d991dd"
+    },
+    {
+      "path": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/c/verified_quotient_driver_high.c",
+      "sha256": "011738a2ee9879f25d3b24bf7b134ba20825105872a3e3d26d1a082db72140f7"
+    },
+    {
+      "path": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/source/c/verified_quotient_driver_n0.c",
+      "sha256": "51e4121a8c0750a06ac238c5cd455f991b4dcdf194fa2e3dc2a19bf4e5fdae72"
+    }
+  ]
+}

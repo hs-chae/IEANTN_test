@@ -1,0 +1,138 @@
+{
+  "schema": "RAMANUJAN_PACKED_DEMAND_CERTIFICATE_PROPOSAL_V1",
+  "status": "UNTRUSTED_PROPOSAL_REQUIRES_ALL_KERNEL_CHECKS",
+  "namespace": "RamanujanPV.PureCountWorkflowControl",
+  "queries": [
+    1000
+  ],
+  "results": [
+    {
+      "N": 1000,
+      "index": 162,
+      "value": 168,
+      "entry": [
+        2,
+        32,
+        1000,
+        168,
+        161,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "records": 163,
+  "arithmetic_updates": 86,
+  "finished_pi_records": 29,
+  "gaps": 12,
+  "packed_widths": [
+    2,
+    22,
+    42,
+    42,
+    32,
+    32,
+    32,
+    32,
+    22,
+    22,
+    22,
+    22
+  ],
+  "packed_bits": 324,
+  "packed_bytes_per_record": 41,
+  "packed_file": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/proposal/records.324bit.le",
+  "packed_sha256": "9a66f0c2deddb13535517ff875474c14d5e0a4cf8fada75b7720d4be0060b436",
+  "packed_bytes": 6683,
+  "data_chunk": 131072,
+  "proof_chunk": 32768,
+  "source_root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/proposal/source",
+  "modules": [
+    {
+      "module": "RamanujanPV.PureCountWorkflowControl.Data0000",
+      "kind": "data",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/proposal/source/RamanujanPV/PureCountWorkflowControl/Data0000.lean",
+      "source_root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/proposal/source",
+      "sha256": "7236506b74c70711eae94ad756edd15dd96ca27ca215a69ba3f72960a61230a8",
+      "bytes": 11124,
+      "dependencies": []
+    },
+    {
+      "module": "RamanujanPV.PureCountWorkflowControl.Gaps",
+      "kind": "data",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/proposal/source/RamanujanPV/PureCountWorkflowControl/Gaps.lean",
+      "source_root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/proposal/source",
+      "sha256": "fe8e5bdda92cc1667dbc088bb73b004cec7929622d9ee342be442820e5f37f69",
+      "bytes": 872,
+      "dependencies": [
+        "RamanujanPV.QuotientCertificateCode"
+      ]
+    },
+    {
+      "module": "RamanujanPV.PureCountWorkflowControl.Data",
+      "kind": "data",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/proposal/source/RamanujanPV/PureCountWorkflowControl/Data.lean",
+      "source_root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/proposal/source",
+      "sha256": "89e83093506e74bb8654b1faf1fd238f4c45fecd9537bd3080790449c35762f0",
+      "bytes": 586,
+      "dependencies": [
+        "RamanujanPV.QuotientCertificateCode",
+        "RamanujanPV.PureCountWorkflowControl.Gaps",
+        "RamanujanPV.PureCountWorkflowControl.Data0000"
+      ]
+    },
+    {
+      "module": "RamanujanPV.PureCountWorkflowControl.GapCheck",
+      "kind": "check",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/proposal/source/RamanujanPV/PureCountWorkflowControl/GapCheck.lean",
+      "source_root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/proposal/source",
+      "sha256": "7f0ba3a7d55876419cafbaf30314ebe148823ce7685d01d9802b8a3a64d0ef5e",
+      "bytes": 479,
+      "dependencies": [
+        "RamanujanPV.PureCountWorkflowControl.Data"
+      ]
+    },
+    {
+      "module": "RamanujanPV.PureCountWorkflowControl.Check0000",
+      "kind": "check",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/proposal/source/RamanujanPV/PureCountWorkflowControl/Check0000.lean",
+      "source_root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/proposal/source",
+      "sha256": "ee4e59d1698a04a7a68aa2762464bf21def8171ffc7164876533d5de3cb96f24",
+      "bytes": 496,
+      "dependencies": [
+        "RamanujanPV.PureCountWorkflowControl.Data"
+      ]
+    },
+    {
+      "module": "RamanujanPV.PureCountWorkflowControl.Final",
+      "kind": "final",
+      "source": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/proposal/source/RamanujanPV/PureCountWorkflowControl/Final.lean",
+      "source_root": "/data/ivy-rh-octic-20261123/ramanujan/portable-source-smoke-v1/base/proposal/source",
+      "sha256": "1587b5894e4488e6b2318a726a87e9e97701a2d97b9e3cf026ebad83adfa771c",
+      "bytes": 986,
+      "dependencies": [
+        "RamanujanPV.QuotientDemandCheck",
+        "RamanujanPV.PureCountWorkflowControl.GapCheck",
+        "RamanujanPV.PureCountWorkflowControl.Check0000"
+      ]
+    }
+  ],
+  "final_module": "RamanujanPV.PureCountWorkflowControl.Final",
+  "generator_sha256": "b196e9f711cf53f4242cb09d9a14da8982156a901e9c36a80df83bd6f297601f",
+  "algorithm_parent_generator_sha256": "c4b2b794fccb870af367ebed042cd256c35d91aadc5d7b90ad20487a4e209eda",
+  "resource_only_variant": true,
+  "cpus": [
+    64
+  ],
+  "memory_gib": 128,
+  "seed": null,
+  "generation_seconds": 0.0010712780058383942,
+  "total_seconds": 0.0025741737335920334,
+  "actual_peak_rss_bytes": 20172800,
+  "qualification": "The prime list, arithmetic rows, tree construction and Python proposer are untrusted. GapCheck and every Check module must compile; Final proves the actual prime-count conclusions from these completed kernel checks. This is ordinary kernel certificate arithmetic; it contributes to source-first PV only through a separately completed actual C source/AST/execution/output/application proof."
+}

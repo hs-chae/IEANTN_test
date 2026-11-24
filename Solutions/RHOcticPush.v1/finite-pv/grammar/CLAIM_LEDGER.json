@@ -1,0 +1,99 @@
+{
+  "schema": "RH_COUNTER_SOURCE_SYNTAX_CLAIM_LEDGER_V1",
+  "scope": "Exactly unchanged quotient counter and additive high-input main, within their canonical guarded surface syntax; no whole-language parser or all-program migration",
+  "source_freeze_sha256": "7171748c1553de96603dcd249c62fb0c5a968e2c64c1b71f375ebe62ef9ac3e6",
+  "primary_source": {
+    "title": "WG14N1570 C11 committee draft",
+    "URL": "https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf",
+    "sha256": "208969fec021e4f4ce87a1873765298c73e7bbb5209b1c5868967c7adfc8492e",
+    "exact_clause_audit": "INDEPENDENT_STANDARD_REVIEW.json",
+    "formal_status": "Normative correspondence is independently reviewed against exact clauses; Lean proves the separately stated character grammar, not all ISO-C constraints."
+  },
+  "Blueprint": "No standalone new Blueprint label; actual original source ASTs and high-driver application contract provide the exact correspondence.",
+  "claims": [
+    {
+      "declaration_namespace": "RHOcticPush.CounterSyntax",
+      "file_and_declaration": "CounterRendererSound.checkedCounter_sound",
+      "statement": "\u2200 source fs, checkedCounter source fs = true \u2192 CounterProgram source fs",
+      "proof_kind": "general structural Lean proof",
+      "inputs": [
+        "strict exact-byte checker acceptance",
+        "supported AST-profile guard"
+      ],
+      "limitations": [
+        "independent surface grammar; not name resolution, full C typing, header expansion or operational-model adequacy"
+      ]
+    },
+    {
+      "declaration_namespace": "RHOcticPush.CounterSyntax",
+      "file_and_declaration": "CounterRendererSound.checkedDriver_sound",
+      "statement": "\u2200 source unit, checkedDriver source unit = true \u2192 DriverProgram source unit",
+      "proof_kind": "general structural Lean proof",
+      "inputs": [
+        "strict exact-byte checker acceptance",
+        "prototype/global-array/main guard"
+      ],
+      "limitations": [
+        "fixed C11 include spellings; external header semantics remain separate"
+      ]
+    },
+    {
+      "declaration_namespace": "RHOcticPush.CounterSyntax",
+      "file_and_declaration": "CounterSourceSyntax.actual_counter_syntax",
+      "statement": "CounterProgram actual counter source actual functions",
+      "proof_kind": "actual fixed source binding",
+      "inputs": [
+        "existing kernel exact-byte theorem",
+        "kernel finite actual AST profile",
+        "general checker soundness"
+      ],
+      "limitations": [
+        "counter source and manually constructed AST unchanged"
+      ]
+    },
+    {
+      "declaration_namespace": "RHOcticPush.CounterSyntax",
+      "file_and_declaration": "CounterSourceSyntax.actual_driver_syntax",
+      "statement": "DriverProgram actual high-input main source actual translation unit",
+      "proof_kind": "actual fixed source binding",
+      "inputs": [
+        "existing kernel exact-byte theorem",
+        "kernel finite actual AST profile",
+        "general checker soundness"
+      ],
+      "limitations": [
+        "1490000000000 input and1500000capacity unchanged"
+      ]
+    },
+    {
+      "declaration_namespace": "RHOcticPush.CounterSyntax",
+      "file_and_declaration": "CounterGrammarConsumer.complete_canonical_source_run",
+      "statement": "\u2203 final, SourceDriverRun actual counter text actual main text canonicalLayout 32000000 emptyWorld final \u2227 buffered=[] \u2227 committed=wordBytes(Nat.primeCounting1490000000000)",
+      "proof_kind": "inhabited source-indexed preserved-model execution",
+      "inputs": [
+        "both actual strict checker acceptances\u2192independent grammar",
+        "existing application initialization/execution/arithmetic correctness"
+      ],
+      "limitations": [
+        "not a physical execution receipt; full ISO-C/compiled-model adequacy remains explicit"
+      ]
+    },
+    {
+      "declaration_namespace": "RHOcticPush.CounterSyntax",
+      "file_and_declaration": "CounterGrammarConsumer.source_output_of_exact_count",
+      "statement": "exact prime count55206486339 \u2192 every successful SourceDriverRun commits its eight-byte encoding",
+      "proof_kind": "conditional numerical adapter",
+      "inputs": [
+        "separate exact numerical theorem",
+        "source-indexed successful model run"
+      ],
+      "limitations": [
+        "does not discharge count; complete numerical Final plus inhabited source-run existential must be consumed by new selected final adapter"
+      ]
+    }
+  ],
+  "no_new_math_assumption": true,
+  "no_original_source_or_semantics_changed": true,
+  "source_first_PV_status": "INCOMPLETE AS FULL END_TO_END CLAIM: syntax and preserved model linked; separate exact count and compiler/header/model/runtime/source-build-run applicability remain explicit.",
+  "native_assisted_or_certificate_checking_relabelled_as_PV": false
+}

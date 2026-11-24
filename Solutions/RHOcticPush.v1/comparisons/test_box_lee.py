@@ -35,17 +35,20 @@ def main():
         elif name not in ['relocated-positive','restored-positive']:raise ValueError('unknown control')
         (clone/'RESULT.json').write_text(json.dumps(r,indent=2)+'\n')
     def trial(name,mode,accept):
-        label=name+'-O'+str(len(mode));cmd=[sys.executable,*mode,str(CONTROLLER),'--verify',str(clone)]
+        label=name+'-O'+str(modes.index(mode));cmd=[sys.executable,*mode,str(CONTROLLER),'--verify',str(clone)]
         cp=subprocess.run(cmd,capture_output=True,text=True)
         (out/(label+'.stdout')).write_text(cp.stdout);(out/(label+'.stderr')).write_text(cp.stderr)
         need((cp.returncode==0) is accept,'unexpected actual CLI decision:'+label)
-        return {'case':name,'mode':mode,'command':cmd,'returncode':cp.returncode,'expected_accept':accept,'stdout_sha256':sha(out/(label+'.stdout')),'stderr_sha256':sha(out/(label+'.stderr'))}
+        return {'case':name,'mode':mode,'command':cmd,'returncode':cp.returncode,'expected_accept':accept,'stdout':label+'.stdout','stderr':label+'.stderr','stdout_sha256':sha(out/(label+'.stdout')),'stderr_sha256':sha(out/(label+'.stderr'))}
     for name,accept in [('relocated-positive',True),('boolean-aggregate-RSS',False),('nonfinite-seconds',False),('duplicate-axioms-payload',False),('missing-direct-app-import',False),('restored-positive',True)]:
         apply(name)
         with ThreadPoolExecutor(max_workers=3) as pool:results=list(pool.map(lambda mode:trial(name,mode,accept),modes))
         rows.extend(results);(out/'PROGRESS.json').write_text(json.dumps({'completed':len(rows),'last':name})+'\n')
     restore();need(sha(run/'RESULT.json')==original_sha and (run/'RESULT.json').read_bytes()==original_result,'original preserved')
     need(len(rows)==18 and all(type(q['returncode']) is int and (q['returncode']==0) is q['expected_accept'] for q in rows),'all18 actual controls')
+    need(len({q['stdout'] for q in rows}) == len({q['stderr'] for q in rows}) == 18, 'unique per-mode output paths')
+    for row in rows:
+        need(sha(out/row['stdout']) == row['stdout_sha256'] and sha(out/row['stderr']) == row['stderr_sha256'], 'all36 actual raw log hashes')
     r={'status':'PASS_ALL18_ACTUAL_BOX_LEE_CLI_CONTROLS','controller_sha256':sha(CONTROLLER),'test_source_sha256':sha(__file__),'accepted_run':str(run),'accepted_RESULT_sha256':original_sha,'rows':rows,'seconds':time.monotonic()-start,'original_accepted_run_unchanged':True,'scope':'Strict readback and relocation controls for one new mathematical comparison source; no new mathematical result or source-first PV claim.'}
     tmp=out/'.RESULT.pending';tmp.write_text(json.dumps(r,indent=2,allow_nan=False)+'\n');os.replace(tmp,out/'RESULT.json');print(r['status'])
 if __name__=='__main__':main()

@@ -1,0 +1,11 @@
+{
+  "status": "RESOURCE_ADMISSION_ONLY_VARIANT_NO_ARITHMETIC_CHANGE",
+  "original_generator_sha256": "12af93553ce0bd3a1da567f1c6e43c36c7715a67f233e1bb86dd99da2c968d81",
+  "safe_generator_sha256": "b196e9f711cf53f4242cb09d9a14da8982156a901e9c36a80df83bd6f297601f",
+  "exact_removed_line": "need(meminfo['MemAvailable']>=1024**4 and meminfo['MemAvailable']>=((512+a.memory_gib)*1024**3),'genuinely available memory and host reserve')",
+  "exact_added_line": "need(meminfo['MemAvailable']>=((512+a.memory_gib)*1024**3),'genuinely available memory exceeds actual job cap plus512GiB host reserve; resource-only posthoc regeneration')",
+  "all_other_source_bytes_identical": true,
+  "reason": "The project initially measured over1TiB available and authorized large runs; while16 proof workers run, actual current RAM is lower. Admit this separately bounded64GiB address-space job only with512GiB host reserve and independently\u22651TiB free disk. Never fake MemAvailable.",
+  "scientific_validation": "Regenerated packed SHA and all3464 original Lean source hashes must exactly match the immutable original identity lock; generator identity/runtime metadata is recorded as a new resource-only reproduction.",
+  "new_verified_program_claim": false
+}

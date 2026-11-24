@@ -1,0 +1,509 @@
+--- Solutions/RHOcticPush.v1/ramanujan/count-feasibility/portable/scripts/reproduce_profiled_closure.py
++++ Solutions/RHOcticPush.v1/ramanujan/count-feasibility/portable-source-run/scripts/reproduce_physical_closure.py
+@@ -1,5 +1,12 @@
+ #!/usr/bin/env python3
+-"""Fresh-source replay with bounded per-module address-space profiles.
++"""Resource-only physical-aware variant of the pinned fresh-source replay engine.
++
++Compiler commands, numerical source discovery, mathematical checks and per-module
++address-space profiles are preserved. Physical admission uses current owned RSS,
++20% above completed peaks (at least39.6GiB for large ordinary workers), potential
++active growth and a512GiB host reserve. At most22 workers are dispatched. A256GiB
++profile is admitted alone with its whole ceiling reserved physically. The old
++virtual-address aggregate is not described as a physical memory measurement.
+ 
+ Only pinned generic libraries are reused. Every application dependency is rebuilt
+ from its exact source, including optional accepted local-table proof sources.
+@@ -13,6 +20,8 @@
+ import os
+ import re
+ import resource
++import signal
++import threading
+ import subprocess
+ import time
+ from concurrent.futures import ThreadPoolExecutor, wait, FIRST_COMPLETED
+@@ -22,6 +31,143 @@
+ S = Path(__file__).resolve().parents[1]
+ NETWORK = S.parents[1]
+ STANDARD = {'propext', 'Classical.choice', 'Quot.sound'}
++
++INITIAL_FORECAST=(198*(1<<30)+4)//5  # 39.6GiB, exact upward-rounded integer
++HEAVY_THRESHOLD=256*(1<<30)
++
++def physical_forecast(address_cap,completed_peak):
++    need(type(address_cap) is int and address_cap>0 and type(completed_peak) is int
++         and completed_peak>=0,'strict physical forecast inputs')
++    if address_cap>=HEAVY_THRESHOLD:return address_cap
++    return min(address_cap,max(INITIAL_FORECAST,(6*completed_peak+4)//5))
++
++def mem_available():
++    return int(next(x.split()[1] for x in Path('/proc/meminfo').read_text().splitlines()
++                    if x.startswith('MemAvailable:')))*1024
++
++def process_info(pid):
++    try:
++        root=Path('/proc')/str(pid)
++        fields=(root/'stat').read_text().rsplit(')',1)[1].split()
++        status=(root/'status').read_text().splitlines()
++        rss=next((int(x.split()[1])*1024 for x in status if x.startswith('VmRSS:')),0)
++        return {'start_ticks':fields[19],'RSS_bytes':rss,'state':fields[0]}
++    except (FileNotFoundError,ProcessLookupError):return None
++
++def owned_tree_rss(pid,start_ticks):
++    root=process_info(pid)
++    if root is None or root['start_ticks']!=start_ticks:return 0
++    total=0;pending=[pid];seen=set()
++    while pending:
++        current=pending.pop()
++        if current in seen:continue
++        seen.add(current);row=process_info(current)
++        if row is None:continue
++        total+=row['RSS_bytes']
++        try:
++            children=Path('/proc')/str(current)/'task'/str(current)/'children'
++            pending.extend(int(x) for x in children.read_text().split())
++        except (FileNotFoundError,ProcessLookupError):pass
++    return total
++
++def validate_physical_journal(directory,plan,result):
++    need(plan['resource_scheduler']==result['resource_scheduler']=='PHYSICAL_RSS_FORECAST_V1',
++         'physical forecast scheduler identity')
++    need(type(plan['max_parallel_workers']) is int and 1<=plan['max_parallel_workers']<=22,
++         'bounded actual physical workers')
++    need(type(plan['host_reserve_bytes']) is int and plan['host_reserve_bytes']>=512*(1<<30)
++         and type(plan['per_task_address_space_ceiling_bytes']) is int
++         and 0<plan['per_task_address_space_ceiling_bytes']<=300*(1<<30),
++         'separate actual host reserve and per-task AS ceiling')
++    need(type(plan['initial_physical_forecast_bytes']) is int
++         and plan['initial_physical_forecast_bytes']==INITIAL_FORECAST
++         and type(plan['completed_peak_safety_factor']) is list
++         and all(type(x) is int for x in plan['completed_peak_safety_factor'])
++         and plan['completed_peak_safety_factor']==[6,5]
++         and type(plan['heavy_exclusive_address_threshold_bytes']) is int
++         and plan['heavy_exclusive_address_threshold_bytes']==HEAVY_THRESHOLD,
++         'exact RSS forecasting rule')
++    records={x['module']:x for x in result['records']}
++    need(len(records)==len(result['records']),'unique physical journal compiler population')
++    need(all(type(x['peak_rss_bytes']) is int and x['peak_rss_bytes']>0 for x in records.values()),
++         'strict measured child RSS values')
++    caps={n:r['memory_limit_bytes'] for n,r in records.items()}
++    need(all(type(v) is int and 0<v<=plan['per_task_address_space_ceiling_bytes'] for v in caps.values()),
++         'strict individual AS limits')
++    reserved={};dispatched=set();peak=0
++    journal=directory/'SCHEDULE.jsonl'
++    need(journal.is_file(),'actual physical admission journal')
++    for line in journal.read_text().splitlines():
++        event=strict_json_text(line);name=event['module']
++        need(name in caps and type(event['module_address_limit_bytes']) is int
++             and event['module_address_limit_bytes']==caps[name],'actual module AS limit')
++        for field in ['running_workers_after','running_address_limits_after_bytes']:
++            need(type(event[field]) is int and event[field]>=0,'strict physical journal counter')
++        if event['event']=='reserve_before_submit':
++            need(name not in reserved and name not in dispatched,'unique actual dispatch')
++            need(type(event['running_workers_before']) is int
++                 and event['running_workers_before']==len(reserved)
++                 and type(event['running_address_limits_before_bytes']) is int
++                 and event['running_address_limits_before_bytes']==sum(reserved.values()),
++                 'actual prior worker and virtual-address totals')
++            snapshots=event['active']
++            need(type(snapshots) is list and len(snapshots)==len(reserved)
++                 and {q['module']for q in snapshots}==set(reserved),'all active worker observations')
++            growth=0
++            for row in snapshots:
++                need(type(row['observed_RSS_bytes']) is int and row['observed_RSS_bytes']>=0
++                     and type(row['physical_forecast_bytes']) is int
++                     and row['physical_forecast_bytes']==physical_forecast(caps[row['module']],peak),
++                     'actual RSS observations and learned forecasts')
++                need(type(row['potential_growth_bytes']) is int
++                     and row['potential_growth_bytes']==max(0,row['physical_forecast_bytes']-row['observed_RSS_bytes']),
++                     'active potential physical growth')
++                growth+=row['potential_growth_bytes']
++            for field in ['physical_forecast_bytes','completed_peak_RSS_bytes','host_reserve_bytes',
++                          'MemAvailable_bytes','active_potential_growth_bytes','required_available_bytes']:
++                need(type(event[field]) is int and event[field]>=0,'strict physical admission metadata')
++            need(event['completed_peak_RSS_bytes']==peak and
++                 event['host_reserve_bytes']==plan['host_reserve_bytes'] and
++                 event['physical_forecast_bytes']==physical_forecast(caps[name],peak) and
++                 event['active_potential_growth_bytes']==growth and
++                 event['required_available_bytes']==plan['host_reserve_bytes']+growth+event['physical_forecast_bytes']
++                 and event['MemAvailable_bytes']>=event['required_available_bytes'],
++                 'each actual admission preserves reserve plus potential growth')
++            need(not any(c>=HEAVY_THRESHOLD for c in reserved.values())
++                 and (caps[name]<HEAVY_THRESHOLD or not reserved),'heavy profiles run alone')
++            reserved[name]=caps[name];dispatched.add(name)
++            need(event['running_workers_after']==len(reserved)<=plan['max_parallel_workers']
++                 and event['running_address_limits_after_bytes']==sum(reserved.values()),
++                 'at most22 actual workers, AS sum informational only')
++        else:
++            need(event['event']=='release_after_completion' and name in reserved,'actual reservation release')
++            need(type(event['actual_peak_RSS_bytes']) is int and
++                 event['actual_peak_RSS_bytes']==records[name]['peak_rss_bytes'],'observed completed child peak')
++            peak=max(peak,event['actual_peak_RSS_bytes'])
++            need(type(event['completed_peak_RSS_bytes']) is int and event['completed_peak_RSS_bytes']==peak,
++                 'updated actual completed RSS maximum')
++            reserved.pop(name)
++            need(event['running_workers_after']==len(reserved) and
++                 event['running_address_limits_after_bytes']==sum(reserved.values()),'actual released totals')
++    need(not reserved and dispatched==set(records),'complete actual dispatch and drain')
++    need(sha(directory/'RESOURCE_SAMPLES.jsonl')==result['RESOURCE_SAMPLES_sha256'],
++         'actual owned RSS sample log identity')
++    samples=[strict_json_text(x)for x in (directory/'RESOURCE_SAMPLES.jsonl').read_text().splitlines()]
++    need(samples,'nonempty actual owned RSS samples')
++    for row in samples:
++        need(type(row['MemAvailable_bytes']) is int and row['MemAvailable_bytes']>=0
++             and type(row['owned_regular_disk_bytes']) is int
++             and 0<=row['owned_regular_disk_bytes']<=300*(1<<30)
++             and type(row['active']) is list
++             and all(type(q['observed_RSS_bytes']) is int and q['observed_RSS_bytes']>=0
++                     for q in row['active']),'strict measured resource samples')
++        need(type(row['owned_compiler_tree_RSS_bytes']) is int and
++             row['owned_compiler_tree_RSS_bytes']==sum(q['observed_RSS_bytes']for q in row['active']),
++             'actual compiler-tree aggregate sample')
++    need(type(result['sampled_peak_owned_compiler_tree_RSS_bytes']) is int and
++         result['sampled_peak_owned_compiler_tree_RSS_bytes']==max(q['owned_compiler_tree_RSS_bytes']for q in samples),
++         'observed aggregate RSS high-water sample, not exact physical peak')
++
+ 
+ 
+ 
+@@ -73,8 +219,9 @@
+     return result
+ 
+ 
+-def validate(directory):
+-    result = strict_json(directory / 'RESULT.json')
++def validate(directory,candidate=None):
++    result_path=Path(candidate) if candidate is not None else directory/'RESULT.json'
++    result = strict_json(result_path)
+     need(result['status'] == 'FRESH_SELECTED_SOURCE_CLOSURE_PASS', 'complete replay status')
+     need(result['old_application_objects_used'] is False, 'no old application objects')
+     plan = strict_json(directory / 'PLAN.json')
+@@ -98,36 +245,9 @@
+         need(sha(payload['path']) == payload['sha256'], 'source payload identity')
+     axioms = audit_axioms(Path(result['records'][-1]['stdout']).read_text(), plan['selected_theorems'])
+     need(axioms == result['axioms'], 'actual final theorem dependency audit')
+-    schedule = directory / 'SCHEDULE.jsonl'
+-    need(schedule.is_file(), 'actual memory reservation journal')
+-    reserved = {}
+-    dispatched = set()
+-    record_caps = {record['module']: record['memory_limit_bytes'] for record in result['records']}
+-    for line in schedule.read_text().splitlines():
+-        event = strict_json_text(line)
+-        need(event['module'] in record_caps and type(event['module_memory_limit_bytes']) is int
+-             and event['module_memory_limit_bytes'] == record_caps[event['module']],
+-             'journal cap equals the actual planned/compiler cap')
+-        if event['event'] == 'reserve_before_submit':
+-            need(event['aggregate_ceiling_bytes'] == plan['aggregate_memory_ceiling_bytes'],
+-                 'same aggregate policy at actual dispatch')
+-            need(event['module'] not in reserved and event['module'] not in dispatched,
+-                 'unique actual submitted task')
+-            need(event['running_caps_before_bytes'] == sum(reserved.values()), 'actual prior reserved sum')
+-            reserved[event['module']] = event['module_memory_limit_bytes']
+-            dispatched.add(event['module'])
+-            need(event['running_caps_after_bytes'] == sum(reserved.values()) and
+-                 sum(reserved.values()) <= plan['aggregate_memory_ceiling_bytes'],
+-                 'every actual dispatch respected aggregate memory')
+-        else:
+-            need(event['event'] == 'release_after_completion' and event['module'] in reserved,
+-                 'actual completion releases an active reservation')
+-            need(reserved.pop(event['module']) == event['module_memory_limit_bytes'], 'same resource cap released')
+-            need(event['running_caps_after_bytes'] == sum(reserved.values()), 'actual post-release sum')
+-    need(not reserved and dispatched == {r['module'] for r in result['records']},
+-         'every planned module and final audit dispatched and completed exactly once')
+-    return {'status': 'CHECKED_COMPLETE_SELECTED_REPLAY', 'modules': len(plan['modules']),
+-            'axioms': axioms, 'result_sha256': sha(directory / 'RESULT.json')}
++    validate_physical_journal(directory, plan, result)
++    return {'status': 'CHECKED_COMPLETE_SELECTED_REPLAY_PHYSICAL_FORECAST', 'modules': len(plan['modules']),
++            'axioms': axioms, 'result_sha256': sha(result_path)}
+ 
+ 
+ def main():
+@@ -138,7 +258,8 @@
+     parser.add_argument('--theorem', action='append', default=[])
+     parser.add_argument('--memory-gib', type=int, default=48)
+     parser.add_argument('--profile-json', type=Path)
+-    parser.add_argument('--aggregate-gib', type=int, default=300)
++    parser.add_argument('--address-ceiling-gib','--aggregate-gib',dest='aggregate_gib', type=int, default=300,
++                        help='Per-task virtual-address ceiling; legacy aggregate-gib alias retained, not an aggregate RAM limit')
+     parser.add_argument('--host-reserve-gib', type=int, default=512)
+     parser.add_argument('--application-source-root', type=Path, action='append', default=[])
+     parser.add_argument('--jobs', type=int, default=1)
+@@ -172,7 +293,7 @@
+     libraries.append(compiler.parent.parent / 'lib/lean')
+     cpus = {int(x) for x in args.cpus.split(',')}
+     need(0 < len(cpus) <= 64 and cpus <= os.sched_getaffinity(0), 'bounded actual CPU affinity')
+-    need(1 <= args.jobs <= len(cpus), 'parallel workers bounded by selected CPUs')
++    need(1 <= args.jobs <= min(22,len(cpus)), 'at most22 actual CPU lanes')
+     available = int(next(x.split()[1] for x in Path('/proc/meminfo').read_text().split('\n')
+                          if x.startswith('MemAvailable:'))) * 1024
+     need(1 <= args.memory_gib <= 300, 'owner-authorized per-worker ceiling')
+@@ -186,20 +307,21 @@
+             need(re.fullmatch(r'[A-Za-z_][A-Za-z0-9_]*(?:\.[A-Za-z_][A-Za-z0-9_]*)*', name) is not None,
+                  'exact resource module/prefix identity')
+             need(type(amount) is int and 1 <= amount <= 300, 'per-module resource ceiling')
+-    need(1 <= args.aggregate_gib <= 300, 'owner-authorized aggregate ceiling')
+-    memory_total = args.aggregate_gib << 30
+-    need(8 <= args.host_reserve_gib <= 4096, 'explicit adequate host reserve')
++    need(1 <= args.aggregate_gib <= 300, 'owner-authorized per-task AS ceiling')
++    address_ceiling = args.aggregate_gib << 30
++    need(512 <= args.host_reserve_gib <= 4096, 'at least512GiB host reserve')
+     host_reserve = args.host_reserve_gib << 30
+-    if memory_total > 48 << 30:
++    if address_ceiling > 48 << 30:
+         need(available >= 1024**4, 'high-resource run requires genuinely available1TiB RAM')
+-    need(available >= host_reserve + memory_total, 'actual host reserve plus aggregate ceiling')
++    need(available >= host_reserve + min(address_ceiling,INITIAL_FORECAST),
++         'actual host reserve plus initial physical forecast')
+     def module_memory(name):
+         amount = exact.get(name)
+         if amount is None:
+             matches = [(prefix, value) for prefix, value in prefixes.items()
+                        if name == prefix or name.startswith(prefix + '.')]
+             amount = max(matches, key=lambda pair: len(pair[0]))[1] if matches else args.memory_gib
+-        need(amount <= args.aggregate_gib, 'individual task fits aggregate ceiling')
++        need(amount <= args.aggregate_gib, 'individual AS profile fits per-task ceiling')
+         return amount << 30
+     worker_memory = max([args.memory_gib, *exact.values(), *prefixes.values()]) << 30
+     roots = [S, NETWORK]
+@@ -249,6 +371,8 @@
+         for name in re.findall(r'include_str\s+"([^"]+)"', source.read_text()):
+             payload = (source.parent / name).resolve()
+             payloads[str(payload)] = sha(payload)
++    need(all(not out.is_relative_to(root) and not root.is_relative_to(out) for root in roots),
++         'source and output namespaces must be disjoint')
+     out.mkdir()
+     (out / 'controller.py').write_bytes(Path(__file__).read_bytes())
+     (out / 'import-parser.py').write_bytes((S / 'scripts/rebuild_qrh_closure.py').read_bytes())
+@@ -261,8 +385,12 @@
+             'context': str(args.context.resolve()), 'context_sha256': sha(args.context),
+             'script_sha256': sha(__file__), 'generic_libraries': [str(x) for x in libraries],
+             'old_application_objects_used': False, 'max_parallel_workers': args.jobs,
+-            'aggregate_memory_ceiling_bytes': memory_total,
+-            'memory_ceiling_bytes': worker_memory, 'host_reserve_bytes': host_reserve,
++            'resource_scheduler': 'PHYSICAL_RSS_FORECAST_V1',
++            'per_task_address_space_ceiling_bytes': address_ceiling,
++            'maximum_profile_address_limit_bytes': worker_memory, 'host_reserve_bytes': host_reserve,
++            'initial_physical_forecast_bytes': INITIAL_FORECAST,
++            'completed_peak_safety_factor': [6,5],
++            'heavy_exclusive_address_threshold_bytes': HEAVY_THRESHOLD,
+             'resource_profile': profile, 'default_memory_gib': args.memory_gib,
+             'final_audit_memory_limit_bytes': module_memory('RamanujanPV.SelectedReplayAudit'),
+             'host_memavailable_before_bytes': available, 'cpus': sorted(cpus),
+@@ -275,6 +403,9 @@
+     env = dict(os.environ, LEAN_PATH=os.pathsep.join([str(objects), *map(str, libraries)]))
+     records = []
+     started = time.monotonic()
++    active_processes = {}
++    active_lock = threading.Lock()
++    resource_peak = {'sampled_owned_compiler_tree_RSS_bytes':0}
+     def compile_one(record):
+         module = record['module']
+         selected_memory = record['memory_limit_bytes']
+@@ -291,8 +422,17 @@
+         command = [str(compiler), '-j1', '-R', record['root'], str(source), '-o', str(obj)]
+         t = time.monotonic()
+         with (receipt / 'stdout').open('wb') as so, (receipt / 'stderr').open('wb') as se:
+-            run = subprocess.run(['/usr/bin/time', '-v', '-o', str(receipt / 'rusage'), *command],
+-                                 cwd=record['root'], env=env, preexec_fn=limits, stdout=so, stderr=se)
++            run = subprocess.Popen(['/usr/bin/time', '-v', '-o', str(receipt / 'rusage'), *command],
++                                   cwd=record['root'], env=env, preexec_fn=limits, stdout=so, stderr=se,
++                                   start_new_session=True)
++            stat=process_info(run.pid)
++            with active_lock:
++                active_processes[module]={'pid':run.pid,'start_ticks':stat['start_ticks'] if stat else None}
++            try:
++                run.wait()
++            finally:
++                with active_lock:
++                    active_processes.pop(module,None)
+         rss = re.search(r'Maximum resident set size \(kbytes\): (\d+)', (receipt / 'rusage').read_text())
+         need(rss is not None, 'actual peak RSS measurement')
+         result = {'module': module, 'source': str(source), 'source_sha256': record['source_sha256'],
+@@ -314,36 +454,103 @@
+         return result
+     completed = {}
+     pending = {record['module']: record for record in order}
++    peak_completed=0
++    address_limits={name:row['memory_limit_bytes'] for name,row in modules.items()}
++    requested_stop=[]
++    def request_stop(sig,frame):requested_stop.append(signal.Signals(sig).name)
++    for sig in [signal.SIGINT,signal.SIGTERM,signal.SIGUSR1]:signal.signal(sig,request_stop)
++    def snapshots(names):
++        with active_lock:
++            current=dict(active_processes)
++        rows=[]
++        for name in sorted(names):
++            identity=current.get(name)
++            rss=owned_tree_rss(identity['pid'],identity['start_ticks']) if identity else 0
++            budget=physical_forecast(address_limits[name],peak_completed)
++            rows.append({'module':name,'pid':identity['pid'] if identity else None,
++                         'start_ticks':identity['start_ticks'] if identity else None,
++                         'observed_RSS_bytes':rss,'physical_forecast_bytes':budget,
++                         'potential_growth_bytes':max(0,budget-rss)})
++        return rows
++    def admission(record,names):
++        rows=snapshots(names)
++        cap=record['memory_limit_bytes']
++        forecast=physical_forecast(cap,peak_completed)
++        growth=sum(x['potential_growth_bytes'] for x in rows)
++        avail=mem_available()
++        need_bytes=host_reserve+growth+forecast
++        return {'event':'reserve_before_submit','module':record['module'],
++                'module_address_limit_bytes':cap,'physical_forecast_bytes':forecast,
++                'completed_peak_RSS_bytes':peak_completed,'host_reserve_bytes':host_reserve,
++                'MemAvailable_bytes':avail,'active':rows,'active_potential_growth_bytes':growth,
++                'required_available_bytes':need_bytes,'running_workers_before':len(names),
++                'running_workers_after':len(names)+1,
++                'running_address_limits_before_bytes':sum(address_limits[n] for n in names),
++                'running_address_limits_after_bytes':sum(address_limits[n] for n in names)+cap,
++                'unix':time.time()}
++    def append_event(event):
++        with (out/'SCHEDULE.jsonl').open('a') as journal:
++            journal.write(json.dumps(event,sort_keys=True)+'\n')
++    def record_sample(names):
++        active=snapshots(names)
++        aggregate=sum(x['observed_RSS_bytes'] for x in active)
++        resource_peak['sampled_owned_compiler_tree_RSS_bytes']=max(
++            resource_peak['sampled_owned_compiler_tree_RSS_bytes'],aggregate)
++        amount=sum(p.stat().st_size for p in out.rglob('*') if p.is_file() and not p.is_symlink())
++        with (out/'RESOURCE_SAMPLES.jsonl').open('a') as log:
++            log.write(json.dumps({'unix':time.time(),'MemAvailable_bytes':mem_available(),
++                'owned_compiler_tree_RSS_bytes':aggregate,'owned_regular_disk_bytes':amount,
++                'active':active},sort_keys=True)+'\n')
++        need(amount<=300*(1<<30),'experiment-owned scratch cap300GiB')
++        if mem_available()<host_reserve and names:
++            with active_lock:
++                identities=dict(active_processes)
++            events=[]
++            for name in sorted(identities,reverse=True):
++                item=identities[name];current=process_info(item['pid'])
++                if current and current['start_ticks']==item['start_ticks']:
++                    os.killpg(item['pid'],signal.SIGTERM)
++                    events.append({'module':name,**item,'signal':'SIGTERM'})
++            atomic(out/'RESOURCE_STOP.json',{'status':'OWNED_HOST_RESERVE_STOP_NOT_OOM',
++                'MemAvailable_bytes':mem_available(),'host_reserve_bytes':host_reserve,
++                'owned_signals':events})
++            raise ValueError('actual available RAM fell below host reserve; owned workers stopped')
++    def save_stop():
++        atomic(out/'STOPPED.json',{'status':'REQUESTED_DRAIN_NOT_ACCEPTANCE',
++            'signals':requested_stop,'completed_modules':sorted(completed),
++            'pending_modules':sorted(pending),'owned_active_workers':[]})
+     with ThreadPoolExecutor(max_workers=args.jobs) as pool:
+-        running = {}
++        running={}
+         while pending or running:
+-            for name, record in list(pending.items()):
+-                if len(running) >= args.jobs:
+-                    break
+-                if all(dependency not in modules or dependency in completed for dependency in record['imports']):
+-                    reserved = sum(modules[active]['memory_limit_bytes'] for active in running.values())
+-                    if reserved + record['memory_limit_bytes'] > memory_total:
+-                        # Drain earlier work rather than starving this ready heavy module.
+-                        break
+-                    event = {'event': 'reserve_before_submit', 'module': name,
+-                             'module_memory_limit_bytes': record['memory_limit_bytes'],
+-                             'running_caps_before_bytes': reserved,
+-                             'running_caps_after_bytes': reserved + record['memory_limit_bytes'],
+-                             'aggregate_ceiling_bytes': memory_total}
+-                    with (out / 'SCHEDULE.jsonl').open('a') as journal:
+-                        journal.write(json.dumps(event, sort_keys=True) + '\n')
+-                    running[pool.submit(compile_one, record)] = name
+-                    del pending[name]
+-            need(bool(running), 'acyclic source dependency scheduling progress')
+-            done, _ = wait(running, return_when=FIRST_COMPLETED)
++            names=set(running.values())
++            record_sample(names)
++            if requested_stop and not running:
++                save_stop();return
++            for name,record in list(pending.items()):
++                if requested_stop:break
++                if len(running)>=args.jobs:break
++                if not all(d not in modules or d in completed for d in record['imports']):continue
++                names=set(running.values())
++                # Never overlap a heavy Final/audit profile with other workers.
++                if any(modules[n]['memory_limit_bytes']>=HEAVY_THRESHOLD for n in names):break
++                if record['memory_limit_bytes']>=HEAVY_THRESHOLD and names:break
++                event=admission(record,names)
++                if event['MemAvailable_bytes']<event['required_available_bytes']:break
++                append_event(event)
++                running[pool.submit(compile_one,record)]=name
++                del pending[name]
++            need(bool(running),'no source cycle and enough actual physical RAM for next worker')
++            done,_=wait(running,timeout=1,return_when=FIRST_COMPLETED)
+             for future in done:
+-                name = running.pop(future)
+-                completed[name] = future.result()
+-                reserved = sum(modules[active]['memory_limit_bytes'] for active in running.values())
+-                with (out / 'SCHEDULE.jsonl').open('a') as journal:
+-                    journal.write(json.dumps({'event': 'release_after_completion', 'module': name,
+-                        'module_memory_limit_bytes': modules[name]['memory_limit_bytes'],
+-                        'running_caps_after_bytes': reserved}, sort_keys=True) + '\n')
++                name=running.pop(future);completed[name]=future.result()
++                peak_completed=max(peak_completed,completed[name]['peak_rss_bytes'])
++                append_event({'event':'release_after_completion','module':name,
++                    'module_address_limit_bytes':modules[name]['memory_limit_bytes'],
++                    'actual_peak_RSS_bytes':completed[name]['peak_rss_bytes'],
++                    'completed_peak_RSS_bytes':peak_completed,
++                    'running_workers_after':len(running),
++                    'running_address_limits_after_bytes':sum(modules[n]['memory_limit_bytes'] for n in running.values()),
++                    'unix':time.time()})
+     records = [completed[record['module']] for record in order]
+     audit_source = out / 'source/RamanujanPV/SelectedReplayAudit.lean'
+     audit_source.parent.mkdir(parents=True)
+@@ -352,16 +559,27 @@
+     final_record = {'module': 'RamanujanPV.SelectedReplayAudit', 'source': str(audit_source),
+                  'root': str(out / 'source'), 'source_sha256': sha(audit_source),
+                  'memory_limit_bytes': module_memory('RamanujanPV.SelectedReplayAudit')}
+-    with (out / 'SCHEDULE.jsonl').open('a') as journal:
+-        journal.write(json.dumps({'event': 'reserve_before_submit', 'module': final_record['module'],
+-            'module_memory_limit_bytes': final_record['memory_limit_bytes'], 'running_caps_before_bytes': 0,
+-            'running_caps_after_bytes': final_record['memory_limit_bytes'],
+-            'aggregate_ceiling_bytes': memory_total}, sort_keys=True) + '\n')
+-    records.append(compile_one(final_record))
+-    with (out / 'SCHEDULE.jsonl').open('a') as journal:
+-        journal.write(json.dumps({'event': 'release_after_completion', 'module': final_record['module'],
+-            'module_memory_limit_bytes': final_record['memory_limit_bytes'],
+-            'running_caps_after_bytes': 0}, sort_keys=True) + '\n')
++    if requested_stop:
++        save_stop();return
++    address_limits[final_record['module']]=final_record['memory_limit_bytes']
++    final_event=admission(final_record,set())
++    need(final_event['MemAvailable_bytes']>=final_event['required_available_bytes'],
++         'actual physical RAM for separate final audit')
++    append_event(final_event)
++    with ThreadPoolExecutor(max_workers=1) as final_pool:
++        future=final_pool.submit(compile_one,final_record)
++        while not future.done():
++            record_sample({final_record['module']})
++            wait([future],timeout=1,return_when=FIRST_COMPLETED)
++        records.append(future.result())
++    peak_completed=max(peak_completed,records[-1]['peak_rss_bytes'])
++    append_event({'event':'release_after_completion','module':final_record['module'],
++        'module_address_limit_bytes':final_record['memory_limit_bytes'],
++        'actual_peak_RSS_bytes':records[-1]['peak_rss_bytes'],
++        'completed_peak_RSS_bytes':peak_completed,'running_workers_after':0,
++        'running_address_limits_after_bytes':0,'unix':time.time()})
++    if requested_stop:
++        save_stop();return
+     axioms = audit_axioms(Path(records[-1]['stdout']).read_text(), selected)
+     for record in records:
+         need(sha(record['source']) == record['source_sha256'], 'final source identity')
+@@ -374,8 +592,15 @@
+               'actual_replay_disk_bytes': sum(p.stat().st_size for p in out.rglob('*') if p.is_file()),
+               'oom_events': sum(r['oom_or_sigkill_event'] for r in records),
+               'axioms': axioms, 'records': records,
+-              'physical_native_association_claimed': False}
+-    atomic(out / 'RESULT.json', result)
++              'physical_native_association_claimed': False,
++              'resource_scheduler':'PHYSICAL_RSS_FORECAST_V1',
++              'RESOURCE_SAMPLES_sha256':sha(out/'RESOURCE_SAMPLES.jsonl'),
++              'sampled_peak_owned_compiler_tree_RSS_bytes':resource_peak['sampled_owned_compiler_tree_RSS_bytes'],
++              'resource_measurement':'GNUtime exact child RSS high-water; compiler-tree RSS sampled1s, not exact aggregate peak. Address-space caps are separate from physical forecasts.'}
++    candidate=out/'CANDIDATE.json'
++    atomic(candidate,result)
++    validate(out,candidate)
++    os.replace(candidate,out/'RESULT.json')
+     print(json.dumps(validate(out), sort_keys=True))
+ 
+ 

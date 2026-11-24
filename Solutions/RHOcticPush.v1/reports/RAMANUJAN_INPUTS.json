@@ -1,0 +1,1105 @@
+{
+  "status": "EXACT_ORIGINAL9_PLUS_ADDED2_SOURCE_SUPPORT_NO_NEW_PROOF",
+  "utc": "2026-11-24T07:53:57.126104+00:00",
+  "original_results": {
+    "file": "Solutions/RHOcticPush.v1/ramanujan/RESULTS.json",
+    "sha256": "9764fe66166a1f6156053aae4ffc16895b4209f5636896b349612506564423b3"
+  },
+  "exact_original_input_ids": [
+    "SharedRH.hypothesis",
+    "GM_Q_Theorem1_1",
+    "Buthe.v1.theorem_2_psi",
+    "Buthe.v1.theorem_2_li_minus_riemann_pi",
+    "Buthe.v1.table_1_interval_bounds",
+    "Buthe.v1.table_2_interval_bounds",
+    "Buthe.v1.theorem_2_li_minus_pi",
+    "Buthe.v1.theorem_2_li_gt_pi",
+    "Buthe2016.v1.theorem_2_li_minus_pi"
+  ],
+  "scope": "Exactly9 original source predicates plus2 additional606-billion sources; not a globalIEANTN audit.",
+  "boundary": "These remain explicit literature/RH assumptions. Tabledata is not newly kernel-certified program output. No original outcome, mathematical assumption or proof changed.",
+  "definitions_tex": "\\pi(x)=\\#\\{p\\le x:p\\text{ prime}\\},\\quad\\psi(x)=\\sum_{p^k\\le x,k\\ge1}\\log p,\\quad J(x)=\\sum_{p^k\\le x,k\\ge1}1/k;\\quad\\operatorname{li}\\text{ denotes principal-value logarithmic integral}.",
+  "inputs": [
+    {
+      "id": "R1",
+      "readable_name": "Riemann hypothesis",
+      "statement_tex": "\\forall\\rho\\in\\mathbb C:\\quad\\zeta(\\rho)=0,\\ \\rho\\ne1,\\ \\rho\\notin\\{-2,-4,-6,\\ldots\\}\\ \\Longrightarrow\\ \\Re\\rho=\\tfrac12.",
+      "domains": "All complex zeros except the negative even trivial zeros; pole1 excluded. This is exactly the pinned Mathlib RiemannHypothesis assertion.",
+      "actual_Lean": {
+        "file": "Solutions/RHLimit.v1/pi/frozen-source/SharedRH.lean",
+        "declaration": "hypothesis",
+        "physical_line": 12,
+        "source_sha256": "cd89ea0f3934a2b38893fa806b0ed81d73adb6d73081d203411371a46a55dc1c",
+        "source_excerpt": "def hypothesis : Prop := RiemannHypothesis"
+      },
+      "primary_locator": "Standard RH; Mathlib.NumberTheory.LSeries.RiemannZeta.RiemannHypothesis, physical185.",
+      "Blueprint_correspondence": "RH.v1.hypothesis"
+    },
+    {
+      "id": "R2",
+      "readable_name": "GM integrated ψ error",
+      "statement_tex": "\\mathrm{RH}\\Longrightarrow\\ \\forall x\\ge3:\\quad\\left|\\sum_{n\\le x}\\Lambda(n)(x-n)-\\frac{x^2}{2}\\right|\\le0.0462x^{3/2}+1.838x+1.9851+\\frac{0.5097}{x}.",
+      "domains": "Realx≥3; RH isR1. The actual finite Mangoldt primitive equals integral0..x ψ(t)dt−x²/2.",
+      "actual_Lean": {
+        "file": "Solutions/RHContinuation.v1/ramanujan/ActualGMTransfer.lean",
+        "declaration": "GM_Q_Theorem1_1",
+        "physical_line": 13,
+        "source_sha256": "a7b3400fc5b78254c6c835b741d1c4cafe270671b1fa10798ed2f7fec50e530f",
+        "source_excerpt": "def GM_Q_Theorem1_1 : Prop := SharedRH.hypothesis →\n  ∀ t : ℝ, 3 ≤ t → |gmPrimitive t| ≤ gmEnvelope t"
+      },
+      "primary_locator": "Grenié–Molteni1312.4465v4, Theorem1.1 rational-field specialization, printed/PDFp3.",
+      "Blueprint_correspondence": "RHPrimeCounting.v1.gm_source",
+      "supporting_definitions": [
+        {
+          "file": "Solutions/RHContinuation.v1/ramanujan/ActualGMTransfer.lean",
+          "declaration": "gmEnvelope",
+          "physical_line": 10,
+          "source_sha256": "a7b3400fc5b78254c6c835b741d1c4cafe270671b1fa10798ed2f7fec50e530f",
+          "source_excerpt": "noncomputable def gmEnvelope (t : ℝ) : ℝ :=\n  (231/5000:ℝ)*t*sqrt t+(919/500:ℝ)*t+19851/10000+(5097/10000:ℝ)/t\n/-- Exact published source bound on the actual primitive, not on desired J error. -/\ndef GM_Q_Theorem1_1 : Prop := SharedRH.hypothesis →\n  ∀ t : ℝ, 3 ≤ t → |gmPrimitive t| ≤ gmEnvelope t"
+        },
+        {
+          "file": "Solutions/RHContinuation.v1/ramanujan/ActualGMPrimitive.lean",
+          "declaration": "gmPrimitive",
+          "physical_line": 7,
+          "source_sha256": "db2b44f378f31a253a324692dd2ee1578763a2fc18da0603d82ba1dc0136730e",
+          "source_excerpt": "noncomputable def gmPrimitive (x : ℝ) : ℝ :=\n  (∑ n ∈ Finset.Icc 0 ⌊x⌋₊, (ArithmeticFunction.vonMangoldt n:ℝ)*(x-n))-x^2/2"
+        },
+        {
+          "file": "Solutions/RHContinuation.v1/ramanujan/ActualGMPrimitive.lean",
+          "declaration": "gmPrimitive_eq_integral",
+          "physical_line": 65,
+          "source_sha256": "db2b44f378f31a253a324692dd2ee1578763a2fc18da0603d82ba1dc0136730e",
+          "source_excerpt": "theorem gmPrimitive_eq_integral {x : ℝ} (hx : 0 ≤ x) :\n    gmPrimitive x = ∫ t in (0:ℝ)..x, Chebyshev.psi t-t := by\n  have hc : ContinuousOn gmPrimitive (Set.uIcc 0 x) := by\n    rw [Set.uIcc_of_le hx]\n    exact gmPrimitive_continuousOn le_rfl\n  have hd : ∀ t ∈ Set.Ioo (min 0 x) (max 0 x),\n      HasDerivWithinAt gmPrimitive (Chebyshev.psi t-t) (Set.Ioi t) t := by\n    intro t ht\n    rw [min_eq_left hx,max_eq_right hx] at ht\n    exact gmPrimitive_right_derivative ht.1.le\n  have hi : IntervalIntegrable (fun t : ℝ => Chebyshev.psi t-t) volume 0 x :=\n    Chebyshev.psi_mono.intervalIntegrable.sub (continuous_id.intervalIntegrable 0 x)\n  have h := intervalIntegral.integral_eq_sub_of_hasDeriv_right hc hd hi\n  simpa [gmPrimitive] using h.symm"
+        }
+      ]
+    },
+    {
+      "id": "R3",
+      "readable_name": "Finite ψ bound",
+      "statement_tex": "\\forall\\,11<x\\le10^{19}:\\quad|x-\\psi(x)|\\le0.94\\sqrt x.",
+      "domains": "Real11<x≤10^19. Fixed finite literature input, no fullRH condition inside this predicate.",
+      "actual_Lean": {
+        "file": "IEANTN/Nodes/Buthe/v1/Conclusions.lean",
+        "declaration": "theorem_2_psi",
+        "physical_line": 32,
+        "source_sha256": "06118da7c74732c2c063c0d7b6e8ea9eaf4249faed3207df4601ae4022831244",
+        "source_excerpt": "def theorem_2_psi : Prop :=\n  ∀ x : ℝ, 11 < x → x ≤ 10 ^ (19 : ℕ) → |x - Chebyshev.psi x| ≤ 0.94 * Real.sqrt x"
+      },
+      "primary_locator": "Büthe1511.02032v2, Theorem2,Eq.(1.5),p2.",
+      "Blueprint_correspondence": "Buthe.v1.theorem_2_psi"
+    },
+    {
+      "id": "R4",
+      "readable_name": "Finite Riemann-J bound",
+      "statement_tex": "\\forall\\,2\\le x\\le10^{19}:\\quad|\\operatorname{li}(x)-J(x)|<\\frac{\\sqrt x}{\\log x}.",
+      "domains": "Real2≤x≤10^19; J=π* is the Riemann prime-power count; li is principal-value, not offsetLi2.",
+      "actual_Lean": {
+        "file": "IEANTN/Nodes/Buthe/v1/Conclusions.lean",
+        "declaration": "theorem_2_li_minus_riemann_pi",
+        "physical_line": 54,
+        "source_sha256": "06118da7c74732c2c063c0d7b6e8ea9eaf4249faed3207df4601ae4022831244",
+        "source_excerpt": "def theorem_2_li_minus_riemann_pi : Prop :=\n  ∀ x : ℝ, 2 ≤ x → x ≤ 10 ^ (19 : ℕ) →\n    |li x - riemannPrimeCounting x| < Real.sqrt x / Real.log x"
+      },
+      "primary_locator": "Büthe1511.02032v2, Theorem2,Eq.(1.8),p2.",
+      "Blueprint_correspondence": "Buthe.v1.theorem_2_li_minus_riemann_pi"
+    },
+    {
+      "id": "R5",
+      "readable_name": "Full ψ dyadic table",
+      "statement_tex": "\\forall(X,m_-,m_+)\\in\\mathcal T_\\psi\\ \\forall t\\in[X,2X]:\\quad m_-\\le\\frac{t-\\psi(t)}{\\sqrt t}\\le m_+.",
+      "domains": "All31 exact rows below; both dyadic interval endpoints included.",
+      "actual_Lean": {
+        "file": "IEANTN/Nodes/Buthe/v1/Conclusions.lean",
+        "declaration": "table_1_interval_bounds",
+        "physical_line": 82,
+        "source_sha256": "06118da7c74732c2c063c0d7b6e8ea9eaf4249faed3207df4601ae4022831244",
+        "source_excerpt": "def table_1_interval_bounds : Prop :=\n  ∀ p ∈ table_1, ∀ t : ℝ,\n    p.1 ≤ t → t ≤ 2 * p.1 →\n      p.2.1 ≤ (t - Chebyshev.psi t) / Real.sqrt t ∧\n        (t - Chebyshev.psi t) / Real.sqrt t ≤ p.2.2"
+      },
+      "primary_locator": "Büthe1511.02032v2,Table1,p14. Eq.(6.2) is a different small-range statement.",
+      "Blueprint_correspondence": "Buthe.v1.table_1_interval_bounds"
+    },
+    {
+      "id": "R6",
+      "readable_name": "Full J dyadic table",
+      "statement_tex": "\\forall(X,m_-,m_+)\\in\\mathcal T_J\\ \\forall t\\in[X,2X]:\\quad m_-\\le\\frac{(\\operatorname{li}(t)-J(t))\\log t}{\\sqrt t}\\le m_+.",
+      "domains": "All31 exact rows below; both dyadic interval endpoints included.",
+      "actual_Lean": {
+        "file": "IEANTN/Nodes/Buthe/v1/Conclusions.lean",
+        "declaration": "table_2_interval_bounds",
+        "physical_line": 94,
+        "source_sha256": "06118da7c74732c2c063c0d7b6e8ea9eaf4249faed3207df4601ae4022831244",
+        "source_excerpt": "def table_2_interval_bounds : Prop :=\n  ∀ p ∈ table_2, ∀ t : ℝ,\n    p.1 ≤ t → t ≤ 2 * p.1 →\n      p.2.1 ≤ (li t - riemannPrimeCounting t) * Real.log t / Real.sqrt t ∧\n        (li t - riemannPrimeCounting t) * Real.log t / Real.sqrt t ≤ p.2.2"
+      },
+      "primary_locator": "Büthe1511.02032v2,Table2,p16; its transfer is Lemma2,p15.",
+      "Blueprint_correspondence": "Buthe.v1.table_2_interval_bounds"
+    },
+    {
+      "id": "R7",
+      "readable_name": "Finite ordinary-prime Li-gap upper bound",
+      "statement_tex": "\\forall\\,2\\le x\\le10^{19}:\\quad\\operatorname{li}(x)-\\pi(x)\\le\\frac{\\sqrt x}{\\log x}\\left(1.95+\\frac{3.9}{\\log x}+\\frac{19.5}{\\log^2x}\\right).",
+      "domains": "Real2≤x≤10^19; principal-value li and ordinaryπ.",
+      "actual_Lean": {
+        "file": "IEANTN/Nodes/Buthe/v1/Conclusions.lean",
+        "declaration": "theorem_2_li_minus_pi",
+        "physical_line": 64,
+        "source_sha256": "06118da7c74732c2c063c0d7b6e8ea9eaf4249faed3207df4601ae4022831244",
+        "source_excerpt": "def theorem_2_li_minus_pi : Prop :=\n  ∀ x : ℝ, 2 ≤ x → x ≤ 10 ^ (19 : ℕ) →\n    li x - primeCounting x ≤\n      Real.sqrt x / Real.log x *\n        (1.95 + 3.9 / Real.log x + 19.5 / (Real.log x) ^ (2 : ℕ))"
+      },
+      "primary_locator": "Büthe1511.02032v2,Theorem2,Eq.(1.9),p2.",
+      "Blueprint_correspondence": "Buthe.v1.theorem_2_li_minus_pi"
+    },
+    {
+      "id": "R8",
+      "readable_name": "Finite positive Li gap",
+      "statement_tex": "\\forall\\,2\\le x\\le10^{19}:\\quad0<\\operatorname{li}(x)-\\pi(x).",
+      "domains": "Real2≤x≤10^19; principal-value li and ordinaryπ.",
+      "actual_Lean": {
+        "file": "IEANTN/Nodes/Buthe/v1/Conclusions.lean",
+        "declaration": "theorem_2_li_gt_pi",
+        "physical_line": 74,
+        "source_sha256": "06118da7c74732c2c063c0d7b6e8ea9eaf4249faed3207df4601ae4022831244",
+        "source_excerpt": "def theorem_2_li_gt_pi : Prop :=\n  ∀ x : ℝ, 2 ≤ x → x ≤ 10 ^ (19 : ℕ) → 0 < li x - primeCounting x"
+      },
+      "primary_locator": "Büthe1511.02032v2,Theorem2,Eq.(1.10),p2.",
+      "Blueprint_correspondence": "Buthe.v1.theorem_2_li_gt_pi"
+    },
+    {
+      "id": "R9",
+      "readable_name": "Partial-RH ordinary-prime bound",
+      "statement_tex": "\\forall T\\in\\mathbb R:\\quad\\mathrm{RH}_{\\le T}\\Longrightarrow\\ \\forall x>2657:\\quad4.92\\sqrt{x/\\log x}\\le T\\Longrightarrow|\\pi(x)-\\operatorname{li}(x)|\\le\\frac{\\sqrt x\\log x}{8\\pi}.",
+      "domains": "RealT; realx>2657; applicable range impliesT>0. Exact partialRH: no zero with1/2<Reρ<1 and0≤Imρ≤T. FullRH supplies it for everyT.",
+      "actual_Lean": {
+        "file": "IEANTN/Nodes/Buthe2016/v1/Conclusions.lean",
+        "declaration": "theorem_2_li_minus_pi",
+        "physical_line": 93,
+        "source_sha256": "0b6ab451ea4776bb44d6a1680d748295baa68285a690efa4a9cb7b045e76972a",
+        "source_excerpt": "def theorem_2_li_minus_pi : Prop :=\n  ∀ T : ℝ, RiemannHypothesisUpTo T → ∀ x : ℝ, 2657 < x → withinRange T x →\n    |primeCounting x - li x| ≤ Real.sqrt x * Real.log x / (8 * Real.pi)"
+      },
+      "primary_locator": "Büthe1410.7015v4,Theorem2,Eq.(7.2),p13; half-weight counting convention at start§7,p12.",
+      "Blueprint_correspondence": "Buthe2016.v1.theorem_2_li_minus_pi",
+      "supporting_definitions": [
+        {
+          "file": "IEANTN/Nodes/Buthe2016/v1/Conclusions.lean",
+          "declaration": "withinRange",
+          "physical_line": 57,
+          "source_sha256": "0b6ab451ea4776bb44d6a1680d748295baa68285a690efa4a9cb7b045e76972a",
+          "source_excerpt": "noncomputable def withinRange (T x : ℝ) : Prop :=\n  4.92 * Real.sqrt (x / Real.log x) ≤ T"
+        },
+        {
+          "file": "IEANTN/Vocabulary/Zeta.lean",
+          "declaration": "RiemannHypothesisUpTo",
+          "physical_line": 92,
+          "source_sha256": "42e239de4c1151d03ed94ee4c0c51d031f974faa6998f447e85845665bb846ef",
+          "source_excerpt": "def RiemannHypothesisUpTo (T : ℝ) : Prop :=\n  IsEmpty (zetaZeroesIn (Set.Ioo (1 / 2) 1) (Set.Icc 0 T))"
+        }
+      ],
+      "endpoint_boundary": "Actual input uses ordinary right-countπ; source§7 uses half-weight endpoints. Prior selected-source audit explains fullRH right-limit transfer using strictly largerT and warns against silently treating a fixed partial-height boundary as a right-neighborhood. No new proof of every partial-height endpoint variant is claimed here."
+    },
+    {
+      "id": "A1",
+      "readable_name": "Added Nicolas spectral bound",
+      "statement_tex": "\\begin{gathered}\\beta=2+\\gamma-\\log\\pi-2\\log2,\\quad A_\\rho(x)=\\frac{m_\\rho x^{i\\gamma_\\rho}}{\\rho(1-\\rho)},\\quad W(x)=\\Re\\sum_\\rho A_\\rho(x),\\\\\\mathrm{RH}\\Longrightarrow\\ \\forall x>1:\\quad\\sum_\\rho A_\\rho(x)\\text{ is summable},\\quad|W(x)|\\le\\beta.\\end{gathered}",
+      "domains": "Realx>1; distinct zeros0<Reρ<1 with actual multiplicitymρ; γρ=Imρ. This actual source contract supplies a bound, not an assumed desired compensation conclusion.",
+      "actual_Lean": {
+        "file": "Solutions/RHContinuation.v1/signed/source/NicolasBaseline.lean",
+        "declaration": "SourceNicolas119",
+        "physical_line": 32,
+        "source_sha256": "86af0b1a9a062e1ef2081d3ec1eee023becb085c7bb645bfe8327fb6d581bd5b",
+        "source_excerpt": "def SourceNicolas119 : Prop := RiemannHypothesis → ∀ x:ℝ, 1<x →\n  Summable (spectralTerm x) ∧ |W x|≤beta\n/-- Exact full function in Nicolas's proof Eq(2.19), rather than the rounded\nProposition2.1 upper allowance2.062. Strict599<x is a conservative source subdomain. -/\ndef SourceNicolas219 : Prop := RiemannHypothesis → ∀ x:ℝ, 599<x →\n  Real.log (f x) ≤ -(W x+2)/(Real.sqrt x*Real.log x) +\n    (2+beta)/(Real.sqrt x*(Real.log x)^2) +\n    4*beta/(Real.sqrt x*(Real.log x)^3) + 1/(2*(x-1))"
+      },
+      "primary_locator": "Nicolas1202.0729v2,βEq.(1.3),spectralfamilyEq.(1.18),boundEq.(1.19),p4.",
+      "Blueprint_correspondence": "Nicolas.v1.spectral_bound",
+      "supporting_definitions": [
+        {
+          "file": "Solutions/RHContinuation.v1/signed/source/NicolasBaseline.lean",
+          "declaration": "beta",
+          "physical_line": 11,
+          "source_sha256": "86af0b1a9a062e1ef2081d3ec1eee023becb085c7bb645bfe8327fb6d581bd5b",
+          "source_excerpt": "noncomputable def beta : ℝ :=\n  2+Real.eulerMascheroniConstant-Real.log Real.pi-2*Real.log 2"
+        },
+        {
+          "file": "Solutions/RHContinuation.v1/signed/source/NicolasBaseline.lean",
+          "declaration": "Zero",
+          "physical_line": 23,
+          "source_sha256": "86af0b1a9a062e1ef2081d3ec1eee023becb085c7bb645bfe8327fb6d581bd5b",
+          "source_excerpt": "def Zero := {s : ℂ // 0<s.re ∧ s.re<1 ∧ riemannZeta s=0}\nnoncomputable def multiplicity (s : Zero) : ℕ :=\n  ((meromorphicOrderAt riemannZeta s.val).untopD 0).toNat\n/-- Nicolas Eq(1.18), ordinary positive real x and conjugate-paired real part. -/\nnoncomputable def spectralTerm (x : ℝ) (s : Zero) : ℂ :=\n  (multiplicity s:ℂ) * (x:ℂ)^(Complex.I*(s.val.im:ℂ)) / (s.val*(1-s.val))\nnoncomputable def W (x : ℝ) : ℝ := (∑' s : Zero,spectralTerm x s).re"
+        },
+        {
+          "file": "Solutions/RHContinuation.v1/signed/source/NicolasBaseline.lean",
+          "declaration": "multiplicity",
+          "physical_line": 24,
+          "source_sha256": "86af0b1a9a062e1ef2081d3ec1eee023becb085c7bb645bfe8327fb6d581bd5b",
+          "source_excerpt": "noncomputable def multiplicity (s : Zero) : ℕ :=\n  ((meromorphicOrderAt riemannZeta s.val).untopD 0).toNat\n/-- Nicolas Eq(1.18), ordinary positive real x and conjugate-paired real part. -/\nnoncomputable def spectralTerm (x : ℝ) (s : Zero) : ℂ :=\n  (multiplicity s:ℂ) * (x:ℂ)^(Complex.I*(s.val.im:ℂ)) / (s.val*(1-s.val))\nnoncomputable def W (x : ℝ) : ℝ := (∑' s : Zero,spectralTerm x s).re"
+        },
+        {
+          "file": "Solutions/RHContinuation.v1/signed/source/NicolasBaseline.lean",
+          "declaration": "spectralTerm",
+          "physical_line": 27,
+          "source_sha256": "86af0b1a9a062e1ef2081d3ec1eee023becb085c7bb645bfe8327fb6d581bd5b",
+          "source_excerpt": "noncomputable def spectralTerm (x : ℝ) (s : Zero) : ℂ :=\n  (multiplicity s:ℂ) * (x:ℂ)^(Complex.I*(s.val.im:ℂ)) / (s.val*(1-s.val))\nnoncomputable def W (x : ℝ) : ℝ := (∑' s : Zero,spectralTerm x s).re"
+        },
+        {
+          "file": "Solutions/RHContinuation.v1/signed/source/NicolasBaseline.lean",
+          "declaration": "W",
+          "physical_line": 29,
+          "source_sha256": "86af0b1a9a062e1ef2081d3ec1eee023becb085c7bb645bfe8327fb6d581bd5b",
+          "source_excerpt": "noncomputable def W (x : ℝ) : ℝ := (∑' s : Zero,spectralTerm x s).re"
+        }
+      ],
+      "canonical_alias": "Nicolas.v1.spectral_bound",
+      "derived_mass_bound": {
+        "file": "Solutions/RHLimit.v1/spectral/NicolasSpectralMass.lean",
+        "declaration": "mass_le_beta",
+        "physical_line": 103,
+        "source_sha256": "7a701da5188a231589cdfef3f8a2d73fa02f831d96b2429d674fb750f8fb38d4",
+        "source_excerpt": "theorem mass_le_beta (hRH : RiemannHypothesis)\n    (hN : NicolasContinuation.SourceNicolas119) :\n    (∑' z : Zero, weight z) ≤ NicolasContinuation.beta := by\n  have hs := weight_summable hRH hN\n  have hc := phase_sum_continuous hRH hs\n  have hc1 : ContinuousAt (fun x : ℝ => ∑' z : Zero, phaseTerm x z) 1 :=\n    hc.continuousAt (Ioi_mem_nhds (by norm_num : (0 : ℝ) < 1))\n  have ht : Tendsto (fun x : ℝ => (∑' z : Zero, phaseTerm x z).re)\n      (𝓝[>] (1 : ℝ)) (𝓝 (∑' z : Zero, weight z)) := by\n    have h : Tendsto (fun x : ℝ => (∑' z : Zero, phaseTerm x z).re)\n        (𝓝[>] (1 : ℝ)) (𝓝 ((∑' z : Zero, phaseTerm 1 z).re)) :=\n      (Complex.continuous_re.continuousAt.comp hc1).tendsto.mono_left nhdsWithin_le_nhds\n    simpa only [phase_sum_one hRH] using h\n  apply le_of_tendsto ht\n  filter_upwards [self_mem_nhdsWithin] with x hx\n  have hx1 : 1 < x := hx\n  have he : NicolasContinuation.W x = (∑' z : Zero, phaseTerm x z).re := by\n    unfold NicolasContinuation.W\n    congr 1\n    exact tsum_congr (source_term_eq_phase (by linarith : (0 : ℝ) < x))\n  rw [← he]\n  exact (le_abs_self _).trans (hN hRH x hx1).2"
+      },
+      "derived_mass_tex": "\\mathrm{RH}+\\mathrm{SourceNicolas119}\\Longrightarrow\\sum_\\rho m_\\rho/|\\rho|^2\\le\\beta.",
+      "mass_equality_warning": "PrimaryEq.(1.19) also states the spectral mass identity, but this actual Lean source predicate only assumes summability and|W|≤β. Its internal mass consequence is≤β, not a proved equality. Do not silently strengthen the formal input."
+    },
+    {
+      "id": "A2",
+      "readable_name": "Added general integrated Perron formula",
+      "statement_tex": "\\begin{gathered}\\psi_1(x)=\\int_0^x\\psi(t)dt,\\quad B_\\rho(x)=\\frac{m_\\rho x^{\\rho+1}}{\\rho(\\rho+1)},\\\\\\exists C\\in\\mathbb C\\ \\forall x>1:\\quad\\sum_\\rho B_\\rho(x)\\text{ is summable},\\\\\\psi_1(x)=\\frac{x^2}{2}-\\sum_\\rho B_\\rho(x)-x\\frac{\\zeta^\\prime(0)}{\\zeta(0)}+C-\\sum_{n\\ge1}\\frac{x^{1-2n}}{2n(2n-1)}.\\end{gathered}",
+      "domains": "Realx>1, equalityinℂ, one complexC independentofx, distinct nontrivial zeros with multiplicity. NoRH, smoothing scale, Box kernel or desired error assertion in this general source.",
+      "actual_Lean": {
+        "file": "IEANTN/Nodes/IntegratedPerron/v1/Conclusions.lean",
+        "declaration": "formula",
+        "physical_line": 26,
+        "source_sha256": "8066d6e2d9f49509b09ef75a2566978a8f9929a682d2ed5f72c5db9a5950ffaf",
+        "source_excerpt": "def formula : Prop := ∃ C : ℂ, ∀ x : ℝ, 1<x →\n  Summable (zeroPrimitive x) ∧\n  (psi1 x:ℂ)=(x:ℂ)^2/2-(∑' r,zeroPrimitive x r)-\n    (x:ℂ)*(deriv riemannZeta 0/riemannZeta 0)+C-\n      ((∑' n : ℕ,trivialPrimitive n x):ℝ)\nend IntegratedPerron.v1"
+      },
+      "primary_locator": "Hildebrand ANT2013.01.07,Theorem5.18/(5.32),p166; absolutezero convergence(5.34),p167; ψ1definition(5.21),p156. Multiplicity corroboration GM1312.4465v4,Eq.(1.3a),p2.",
+      "Blueprint_correspondence": "IntegratedPerron.v1.formula",
+      "actual_normalized_input": {
+        "file": "Solutions/RHOcticPush.v1/box/perron/BoxIntegratedDefs.lean",
+        "declaration": "SourceIntegratedPsi",
+        "physical_line": 28,
+        "source_sha256": "ec0cf4b03ad7bc5864557643103ad7dac164e38c5a5b6ecd1160fc0bf80233bc",
+        "source_excerpt": "def SourceIntegratedPsi : Prop := ∃ C : ℂ, ∀ x : ℝ, 1<x →\n  Summable (zeroPrimitive x) ∧\n  (psi1 x:ℂ)=(x:ℂ)^2/2-(∑' ρ,zeroPrimitive x ρ)-(x:ℂ)*(Real.log (2*Real.pi):ℂ)+C-\n    ((∑' n : ℕ,trivialPrimitive n x):ℝ)\nend RHOcticPush.BoxPerron"
+      },
+      "normalization_tex": "\\zeta^\\prime(0)/\\zeta(0)=\\log(2\\pi),\\quad\\int_0^x\\psi=\\int_1^x\\psi\\ (x>1).",
+      "normalization_proofs": [
+        {
+          "file": "Solutions/RHOcticPush.v1/box/perron/BoxIntegratedSource.lean",
+          "declaration": "integrated_source_normalized",
+          "physical_line": 20,
+          "source_sha256": "61080c79db689ef81bb12226977e11491959a688b69ddf81e287fe008f0542ed",
+          "source_excerpt": "theorem integrated_source_normalized (h : SourceIntegratedPsiRaw) :\n    SourceIntegratedPsi := by\n  obtain ⟨C, hC⟩ := h\n  refine ⟨C, ?_⟩\n  intro x hx\n  simpa only [RHOcticPush.BoxCDF.box_log_constant] using hC x hx"
+        },
+        {
+          "file": "Solutions/RHOcticPush.v1/box/perron/BoxIntegratedSource.lean",
+          "declaration": "psi1_integral_from_zero",
+          "physical_line": 29,
+          "source_sha256": "61080c79db689ef81bb12226977e11491959a688b69ddf81e287fe008f0542ed",
+          "source_excerpt": "theorem psi1_integral_from_zero (x : ℝ) : psi1 x = ∫ t in (0:ℝ)..x, Chebyshev.psi t := by\n  have hz : (∫ t in (0:ℝ)..1, Chebyshev.psi t) = 0 := by\n    calc\n      _ = ∫ _t in (0:ℝ)..1, (0:ℝ) := by\n        apply intervalIntegral.integral_congr\n        intro t ht\n        exact Chebyshev.psi_eq_zero_of_le_one (by\n          simpa only [max_eq_right (by norm_num : (0:ℝ) ≤ 1)] using ht.2)\n      _ = 0 := intervalIntegral.integral_zero\n  have he := intervalIntegral.integral_add_adjacent_intervals (μ := volume)\n    (Chebyshev.psi_mono.intervalIntegrable (a := 0) (b := 1))\n    (Chebyshev.psi_mono.intervalIntegrable (a := 1) (b := x))\n  simpa only [hz,zero_add,psi1] using he"
+        }
+      ],
+      "constant_note": "Source printsC=ζprime(-1)/ζ(-1). The actual weaker Lean contract keeps∃C because it cancels. Canonicalraw and provednormalized formulations are one added input, not two assumptions."
+    }
+  ],
+  "full_finite_tables": {
+    "source1": {
+      "file": "IEANTN/Nodes/Buthe/v1/Tables.lean",
+      "declaration": "table_1",
+      "physical_line": 34,
+      "source_sha256": "a5e96d99d74c6bb472792ac8cd689d09015e4de760d797659a4ceac7ddc79e92",
+      "source_excerpt": "def table_1 : List (ℝ × ℝ × ℝ) :=\n  [\n    (10 ^ 10, -0.77, 0.85),\n    (2 * 10 ^ 10, -0.75, 0.64),\n    (4 * 10 ^ 10, -0.73, 0.80),\n    (8 * 10 ^ 10, -0.80, 0.86),\n    (16 * 10 ^ 10, -0.88, 0.68),\n    (32 * 10 ^ 10, -0.88, 0.78),\n    (64 * 10 ^ 10, -0.66, 0.74),\n    (10 ^ 12, -0.80, 0.81),\n    (2 * 10 ^ 12, -0.79, 0.76),\n    (4 * 10 ^ 12, -0.73, 0.73),\n    (8 * 10 ^ 12, -0.80, 0.76),\n    (16 * 10 ^ 12, -0.80, 0.68),\n    (32 * 10 ^ 12, -0.67, 0.93),\n    (64 * 10 ^ 12, -0.78, 0.77),\n    (10 ^ 14, -0.79, 0.72),\n    (2 * 10 ^ 14, -0.60, 0.76),\n    (4 * 10 ^ 14, -0.65, 0.73),\n    (8 * 10 ^ 14, -0.81, 0.88),\n    (16 * 10 ^ 14, -0.66, 0.86),\n    (32 * 10 ^ 14, -0.74, 0.86),\n    (64 * 10 ^ 14, -0.73, 0.66),\n    (10 ^ 16, -0.88, 0.74),\n    (2 * 10 ^ 16, -0.87, 0.70),\n    (4 * 10 ^ 16, -0.65, 0.73),\n    (8 * 10 ^ 16, -0.82, 0.77),\n    (16 * 10 ^ 16, -0.71, 0.92),\n    (32 * 10 ^ 16, -0.78, 0.71),\n    (64 * 10 ^ 16, -0.94, 0.82),\n    (128 * 10 ^ 16, -0.94, 0.75),\n    (256 * 10 ^ 16, -0.82, 0.86),\n    (512 * 10 ^ 16, -0.83, 0.94)\n  ]"
+    },
+    "source2": {
+      "file": "IEANTN/Nodes/Buthe/v1/Tables.lean",
+      "declaration": "table_2",
+      "physical_line": 77,
+      "source_sha256": "a5e96d99d74c6bb472792ac8cd689d09015e4de760d797659a4ceac7ddc79e92",
+      "source_excerpt": "def table_2 : List (ℝ × ℝ × ℝ) :=\n  [\n    (10 ^ 10, -0.87, 0.95),\n    (2 * 10 ^ 10, -0.84, 0.73),\n    (4 * 10 ^ 10, -0.82, 0.89),\n    (8 * 10 ^ 10, -0.89, 0.95),\n    (16 * 10 ^ 10, -0.97, 0.76),\n    (32 * 10 ^ 10, -0.96, 0.86),\n    (64 * 10 ^ 10, -0.74, 0.82),\n    (10 ^ 12, -0.88, 0.89),\n    (2 * 10 ^ 12, -0.87, 0.84),\n    (4 * 10 ^ 12, -0.81, 0.81),\n    (8 * 10 ^ 12, -0.87, 0.84),\n    (16 * 10 ^ 12, -0.87, 0.76),\n    (32 * 10 ^ 12, -0.74, 1),\n    (64 * 10 ^ 12, -0.85, 0.84),\n    (10 ^ 14, -0.86, 0.79),\n    (2 * 10 ^ 14, -0.67, 0.83),\n    (4 * 10 ^ 14, -0.72, 0.80),\n    (8 * 10 ^ 14, -0.87, 0.95),\n    (16 * 10 ^ 14, -0.72, 0.93),\n    (32 * 10 ^ 14, -0.80, 0.92),\n    (64 * 10 ^ 14, -0.79, 0.72),\n    (10 ^ 16, -0.94, 0.80),\n    (2 * 10 ^ 16, -0.93, 0.76),\n    (4 * 10 ^ 16, -0.71, 0.79),\n    (8 * 10 ^ 16, -0.88, 0.83),\n    (16 * 10 ^ 16, -0.77, 0.98),\n    (32 * 10 ^ 16, -0.84, 0.77),\n    (64 * 10 ^ 16, -1, 0.88),\n    (128 * 10 ^ 16, -1, 0.80),\n    (256 * 10 ^ 16, -0.87, 0.91),\n    (512 * 10 ^ 16, -0.88, 0.99)\n  ]"
+    },
+    "count_each": 31,
+    "combined_rows": [
+      {
+        "X": "10000000000",
+        "X_tex": "10^{10}",
+        "psi_minus": "-0.77",
+        "psi_plus": "0.85",
+        "J_minus": "-0.87",
+        "J_plus": "0.95"
+      },
+      {
+        "X": "20000000000",
+        "X_tex": "2\\cdot10^{10}",
+        "psi_minus": "-0.75",
+        "psi_plus": "0.64",
+        "J_minus": "-0.84",
+        "J_plus": "0.73"
+      },
+      {
+        "X": "40000000000",
+        "X_tex": "4\\cdot10^{10}",
+        "psi_minus": "-0.73",
+        "psi_plus": "0.80",
+        "J_minus": "-0.82",
+        "J_plus": "0.89"
+      },
+      {
+        "X": "80000000000",
+        "X_tex": "8\\cdot10^{10}",
+        "psi_minus": "-0.80",
+        "psi_plus": "0.86",
+        "J_minus": "-0.89",
+        "J_plus": "0.95"
+      },
+      {
+        "X": "160000000000",
+        "X_tex": "16\\cdot10^{10}",
+        "psi_minus": "-0.88",
+        "psi_plus": "0.68",
+        "J_minus": "-0.97",
+        "J_plus": "0.76"
+      },
+      {
+        "X": "320000000000",
+        "X_tex": "32\\cdot10^{10}",
+        "psi_minus": "-0.88",
+        "psi_plus": "0.78",
+        "J_minus": "-0.96",
+        "J_plus": "0.86"
+      },
+      {
+        "X": "640000000000",
+        "X_tex": "64\\cdot10^{10}",
+        "psi_minus": "-0.66",
+        "psi_plus": "0.74",
+        "J_minus": "-0.74",
+        "J_plus": "0.82"
+      },
+      {
+        "X": "1000000000000",
+        "X_tex": "10^{12}",
+        "psi_minus": "-0.80",
+        "psi_plus": "0.81",
+        "J_minus": "-0.88",
+        "J_plus": "0.89"
+      },
+      {
+        "X": "2000000000000",
+        "X_tex": "2\\cdot10^{12}",
+        "psi_minus": "-0.79",
+        "psi_plus": "0.76",
+        "J_minus": "-0.87",
+        "J_plus": "0.84"
+      },
+      {
+        "X": "4000000000000",
+        "X_tex": "4\\cdot10^{12}",
+        "psi_minus": "-0.73",
+        "psi_plus": "0.73",
+        "J_minus": "-0.81",
+        "J_plus": "0.81"
+      },
+      {
+        "X": "8000000000000",
+        "X_tex": "8\\cdot10^{12}",
+        "psi_minus": "-0.80",
+        "psi_plus": "0.76",
+        "J_minus": "-0.87",
+        "J_plus": "0.84"
+      },
+      {
+        "X": "16000000000000",
+        "X_tex": "16\\cdot10^{12}",
+        "psi_minus": "-0.80",
+        "psi_plus": "0.68",
+        "J_minus": "-0.87",
+        "J_plus": "0.76"
+      },
+      {
+        "X": "32000000000000",
+        "X_tex": "32\\cdot10^{12}",
+        "psi_minus": "-0.67",
+        "psi_plus": "0.93",
+        "J_minus": "-0.74",
+        "J_plus": "1"
+      },
+      {
+        "X": "64000000000000",
+        "X_tex": "64\\cdot10^{12}",
+        "psi_minus": "-0.78",
+        "psi_plus": "0.77",
+        "J_minus": "-0.85",
+        "J_plus": "0.84"
+      },
+      {
+        "X": "100000000000000",
+        "X_tex": "10^{14}",
+        "psi_minus": "-0.79",
+        "psi_plus": "0.72",
+        "J_minus": "-0.86",
+        "J_plus": "0.79"
+      },
+      {
+        "X": "200000000000000",
+        "X_tex": "2\\cdot10^{14}",
+        "psi_minus": "-0.60",
+        "psi_plus": "0.76",
+        "J_minus": "-0.67",
+        "J_plus": "0.83"
+      },
+      {
+        "X": "400000000000000",
+        "X_tex": "4\\cdot10^{14}",
+        "psi_minus": "-0.65",
+        "psi_plus": "0.73",
+        "J_minus": "-0.72",
+        "J_plus": "0.80"
+      },
+      {
+        "X": "800000000000000",
+        "X_tex": "8\\cdot10^{14}",
+        "psi_minus": "-0.81",
+        "psi_plus": "0.88",
+        "J_minus": "-0.87",
+        "J_plus": "0.95"
+      },
+      {
+        "X": "1600000000000000",
+        "X_tex": "16\\cdot10^{14}",
+        "psi_minus": "-0.66",
+        "psi_plus": "0.86",
+        "J_minus": "-0.72",
+        "J_plus": "0.93"
+      },
+      {
+        "X": "3200000000000000",
+        "X_tex": "32\\cdot10^{14}",
+        "psi_minus": "-0.74",
+        "psi_plus": "0.86",
+        "J_minus": "-0.80",
+        "J_plus": "0.92"
+      },
+      {
+        "X": "6400000000000000",
+        "X_tex": "64\\cdot10^{14}",
+        "psi_minus": "-0.73",
+        "psi_plus": "0.66",
+        "J_minus": "-0.79",
+        "J_plus": "0.72"
+      },
+      {
+        "X": "10000000000000000",
+        "X_tex": "10^{16}",
+        "psi_minus": "-0.88",
+        "psi_plus": "0.74",
+        "J_minus": "-0.94",
+        "J_plus": "0.80"
+      },
+      {
+        "X": "20000000000000000",
+        "X_tex": "2\\cdot10^{16}",
+        "psi_minus": "-0.87",
+        "psi_plus": "0.70",
+        "J_minus": "-0.93",
+        "J_plus": "0.76"
+      },
+      {
+        "X": "40000000000000000",
+        "X_tex": "4\\cdot10^{16}",
+        "psi_minus": "-0.65",
+        "psi_plus": "0.73",
+        "J_minus": "-0.71",
+        "J_plus": "0.79"
+      },
+      {
+        "X": "80000000000000000",
+        "X_tex": "8\\cdot10^{16}",
+        "psi_minus": "-0.82",
+        "psi_plus": "0.77",
+        "J_minus": "-0.88",
+        "J_plus": "0.83"
+      },
+      {
+        "X": "160000000000000000",
+        "X_tex": "16\\cdot10^{16}",
+        "psi_minus": "-0.71",
+        "psi_plus": "0.92",
+        "J_minus": "-0.77",
+        "J_plus": "0.98"
+      },
+      {
+        "X": "320000000000000000",
+        "X_tex": "32\\cdot10^{16}",
+        "psi_minus": "-0.78",
+        "psi_plus": "0.71",
+        "J_minus": "-0.84",
+        "J_plus": "0.77"
+      },
+      {
+        "X": "640000000000000000",
+        "X_tex": "64\\cdot10^{16}",
+        "psi_minus": "-0.94",
+        "psi_plus": "0.82",
+        "J_minus": "-1",
+        "J_plus": "0.88"
+      },
+      {
+        "X": "1280000000000000000",
+        "X_tex": "128\\cdot10^{16}",
+        "psi_minus": "-0.94",
+        "psi_plus": "0.75",
+        "J_minus": "-1",
+        "J_plus": "0.80"
+      },
+      {
+        "X": "2560000000000000000",
+        "X_tex": "256\\cdot10^{16}",
+        "psi_minus": "-0.82",
+        "psi_plus": "0.86",
+        "J_minus": "-0.87",
+        "J_plus": "0.91"
+      },
+      {
+        "X": "5120000000000000000",
+        "X_tex": "512\\cdot10^{16}",
+        "psi_minus": "-0.83",
+        "psi_plus": "0.94",
+        "J_minus": "-0.88",
+        "J_plus": "0.99"
+      }
+    ],
+    "exact_rational_rows": {
+      "table_1": [
+        {
+          "X": "10000000000",
+          "X_tex": "10^{10}",
+          "minus": "-0.77",
+          "plus": "0.85",
+          "minus_rational": "-77/100",
+          "plus_rational": "17/20"
+        },
+        {
+          "X": "20000000000",
+          "X_tex": "2\\cdot10^{10}",
+          "minus": "-0.75",
+          "plus": "0.64",
+          "minus_rational": "-3/4",
+          "plus_rational": "16/25"
+        },
+        {
+          "X": "40000000000",
+          "X_tex": "4\\cdot10^{10}",
+          "minus": "-0.73",
+          "plus": "0.80",
+          "minus_rational": "-73/100",
+          "plus_rational": "4/5"
+        },
+        {
+          "X": "80000000000",
+          "X_tex": "8\\cdot10^{10}",
+          "minus": "-0.80",
+          "plus": "0.86",
+          "minus_rational": "-4/5",
+          "plus_rational": "43/50"
+        },
+        {
+          "X": "160000000000",
+          "X_tex": "16\\cdot10^{10}",
+          "minus": "-0.88",
+          "plus": "0.68",
+          "minus_rational": "-22/25",
+          "plus_rational": "17/25"
+        },
+        {
+          "X": "320000000000",
+          "X_tex": "32\\cdot10^{10}",
+          "minus": "-0.88",
+          "plus": "0.78",
+          "minus_rational": "-22/25",
+          "plus_rational": "39/50"
+        },
+        {
+          "X": "640000000000",
+          "X_tex": "64\\cdot10^{10}",
+          "minus": "-0.66",
+          "plus": "0.74",
+          "minus_rational": "-33/50",
+          "plus_rational": "37/50"
+        },
+        {
+          "X": "1000000000000",
+          "X_tex": "10^{12}",
+          "minus": "-0.80",
+          "plus": "0.81",
+          "minus_rational": "-4/5",
+          "plus_rational": "81/100"
+        },
+        {
+          "X": "2000000000000",
+          "X_tex": "2\\cdot10^{12}",
+          "minus": "-0.79",
+          "plus": "0.76",
+          "minus_rational": "-79/100",
+          "plus_rational": "19/25"
+        },
+        {
+          "X": "4000000000000",
+          "X_tex": "4\\cdot10^{12}",
+          "minus": "-0.73",
+          "plus": "0.73",
+          "minus_rational": "-73/100",
+          "plus_rational": "73/100"
+        },
+        {
+          "X": "8000000000000",
+          "X_tex": "8\\cdot10^{12}",
+          "minus": "-0.80",
+          "plus": "0.76",
+          "minus_rational": "-4/5",
+          "plus_rational": "19/25"
+        },
+        {
+          "X": "16000000000000",
+          "X_tex": "16\\cdot10^{12}",
+          "minus": "-0.80",
+          "plus": "0.68",
+          "minus_rational": "-4/5",
+          "plus_rational": "17/25"
+        },
+        {
+          "X": "32000000000000",
+          "X_tex": "32\\cdot10^{12}",
+          "minus": "-0.67",
+          "plus": "0.93",
+          "minus_rational": "-67/100",
+          "plus_rational": "93/100"
+        },
+        {
+          "X": "64000000000000",
+          "X_tex": "64\\cdot10^{12}",
+          "minus": "-0.78",
+          "plus": "0.77",
+          "minus_rational": "-39/50",
+          "plus_rational": "77/100"
+        },
+        {
+          "X": "100000000000000",
+          "X_tex": "10^{14}",
+          "minus": "-0.79",
+          "plus": "0.72",
+          "minus_rational": "-79/100",
+          "plus_rational": "18/25"
+        },
+        {
+          "X": "200000000000000",
+          "X_tex": "2\\cdot10^{14}",
+          "minus": "-0.60",
+          "plus": "0.76",
+          "minus_rational": "-3/5",
+          "plus_rational": "19/25"
+        },
+        {
+          "X": "400000000000000",
+          "X_tex": "4\\cdot10^{14}",
+          "minus": "-0.65",
+          "plus": "0.73",
+          "minus_rational": "-13/20",
+          "plus_rational": "73/100"
+        },
+        {
+          "X": "800000000000000",
+          "X_tex": "8\\cdot10^{14}",
+          "minus": "-0.81",
+          "plus": "0.88",
+          "minus_rational": "-81/100",
+          "plus_rational": "22/25"
+        },
+        {
+          "X": "1600000000000000",
+          "X_tex": "16\\cdot10^{14}",
+          "minus": "-0.66",
+          "plus": "0.86",
+          "minus_rational": "-33/50",
+          "plus_rational": "43/50"
+        },
+        {
+          "X": "3200000000000000",
+          "X_tex": "32\\cdot10^{14}",
+          "minus": "-0.74",
+          "plus": "0.86",
+          "minus_rational": "-37/50",
+          "plus_rational": "43/50"
+        },
+        {
+          "X": "6400000000000000",
+          "X_tex": "64\\cdot10^{14}",
+          "minus": "-0.73",
+          "plus": "0.66",
+          "minus_rational": "-73/100",
+          "plus_rational": "33/50"
+        },
+        {
+          "X": "10000000000000000",
+          "X_tex": "10^{16}",
+          "minus": "-0.88",
+          "plus": "0.74",
+          "minus_rational": "-22/25",
+          "plus_rational": "37/50"
+        },
+        {
+          "X": "20000000000000000",
+          "X_tex": "2\\cdot10^{16}",
+          "minus": "-0.87",
+          "plus": "0.70",
+          "minus_rational": "-87/100",
+          "plus_rational": "7/10"
+        },
+        {
+          "X": "40000000000000000",
+          "X_tex": "4\\cdot10^{16}",
+          "minus": "-0.65",
+          "plus": "0.73",
+          "minus_rational": "-13/20",
+          "plus_rational": "73/100"
+        },
+        {
+          "X": "80000000000000000",
+          "X_tex": "8\\cdot10^{16}",
+          "minus": "-0.82",
+          "plus": "0.77",
+          "minus_rational": "-41/50",
+          "plus_rational": "77/100"
+        },
+        {
+          "X": "160000000000000000",
+          "X_tex": "16\\cdot10^{16}",
+          "minus": "-0.71",
+          "plus": "0.92",
+          "minus_rational": "-71/100",
+          "plus_rational": "23/25"
+        },
+        {
+          "X": "320000000000000000",
+          "X_tex": "32\\cdot10^{16}",
+          "minus": "-0.78",
+          "plus": "0.71",
+          "minus_rational": "-39/50",
+          "plus_rational": "71/100"
+        },
+        {
+          "X": "640000000000000000",
+          "X_tex": "64\\cdot10^{16}",
+          "minus": "-0.94",
+          "plus": "0.82",
+          "minus_rational": "-47/50",
+          "plus_rational": "41/50"
+        },
+        {
+          "X": "1280000000000000000",
+          "X_tex": "128\\cdot10^{16}",
+          "minus": "-0.94",
+          "plus": "0.75",
+          "minus_rational": "-47/50",
+          "plus_rational": "3/4"
+        },
+        {
+          "X": "2560000000000000000",
+          "X_tex": "256\\cdot10^{16}",
+          "minus": "-0.82",
+          "plus": "0.86",
+          "minus_rational": "-41/50",
+          "plus_rational": "43/50"
+        },
+        {
+          "X": "5120000000000000000",
+          "X_tex": "512\\cdot10^{16}",
+          "minus": "-0.83",
+          "plus": "0.94",
+          "minus_rational": "-83/100",
+          "plus_rational": "47/50"
+        }
+      ],
+      "table_2": [
+        {
+          "X": "10000000000",
+          "X_tex": "10^{10}",
+          "minus": "-0.87",
+          "plus": "0.95",
+          "minus_rational": "-87/100",
+          "plus_rational": "19/20"
+        },
+        {
+          "X": "20000000000",
+          "X_tex": "2\\cdot10^{10}",
+          "minus": "-0.84",
+          "plus": "0.73",
+          "minus_rational": "-21/25",
+          "plus_rational": "73/100"
+        },
+        {
+          "X": "40000000000",
+          "X_tex": "4\\cdot10^{10}",
+          "minus": "-0.82",
+          "plus": "0.89",
+          "minus_rational": "-41/50",
+          "plus_rational": "89/100"
+        },
+        {
+          "X": "80000000000",
+          "X_tex": "8\\cdot10^{10}",
+          "minus": "-0.89",
+          "plus": "0.95",
+          "minus_rational": "-89/100",
+          "plus_rational": "19/20"
+        },
+        {
+          "X": "160000000000",
+          "X_tex": "16\\cdot10^{10}",
+          "minus": "-0.97",
+          "plus": "0.76",
+          "minus_rational": "-97/100",
+          "plus_rational": "19/25"
+        },
+        {
+          "X": "320000000000",
+          "X_tex": "32\\cdot10^{10}",
+          "minus": "-0.96",
+          "plus": "0.86",
+          "minus_rational": "-24/25",
+          "plus_rational": "43/50"
+        },
+        {
+          "X": "640000000000",
+          "X_tex": "64\\cdot10^{10}",
+          "minus": "-0.74",
+          "plus": "0.82",
+          "minus_rational": "-37/50",
+          "plus_rational": "41/50"
+        },
+        {
+          "X": "1000000000000",
+          "X_tex": "10^{12}",
+          "minus": "-0.88",
+          "plus": "0.89",
+          "minus_rational": "-22/25",
+          "plus_rational": "89/100"
+        },
+        {
+          "X": "2000000000000",
+          "X_tex": "2\\cdot10^{12}",
+          "minus": "-0.87",
+          "plus": "0.84",
+          "minus_rational": "-87/100",
+          "plus_rational": "21/25"
+        },
+        {
+          "X": "4000000000000",
+          "X_tex": "4\\cdot10^{12}",
+          "minus": "-0.81",
+          "plus": "0.81",
+          "minus_rational": "-81/100",
+          "plus_rational": "81/100"
+        },
+        {
+          "X": "8000000000000",
+          "X_tex": "8\\cdot10^{12}",
+          "minus": "-0.87",
+          "plus": "0.84",
+          "minus_rational": "-87/100",
+          "plus_rational": "21/25"
+        },
+        {
+          "X": "16000000000000",
+          "X_tex": "16\\cdot10^{12}",
+          "minus": "-0.87",
+          "plus": "0.76",
+          "minus_rational": "-87/100",
+          "plus_rational": "19/25"
+        },
+        {
+          "X": "32000000000000",
+          "X_tex": "32\\cdot10^{12}",
+          "minus": "-0.74",
+          "plus": "1",
+          "minus_rational": "-37/50",
+          "plus_rational": "1"
+        },
+        {
+          "X": "64000000000000",
+          "X_tex": "64\\cdot10^{12}",
+          "minus": "-0.85",
+          "plus": "0.84",
+          "minus_rational": "-17/20",
+          "plus_rational": "21/25"
+        },
+        {
+          "X": "100000000000000",
+          "X_tex": "10^{14}",
+          "minus": "-0.86",
+          "plus": "0.79",
+          "minus_rational": "-43/50",
+          "plus_rational": "79/100"
+        },
+        {
+          "X": "200000000000000",
+          "X_tex": "2\\cdot10^{14}",
+          "minus": "-0.67",
+          "plus": "0.83",
+          "minus_rational": "-67/100",
+          "plus_rational": "83/100"
+        },
+        {
+          "X": "400000000000000",
+          "X_tex": "4\\cdot10^{14}",
+          "minus": "-0.72",
+          "plus": "0.80",
+          "minus_rational": "-18/25",
+          "plus_rational": "4/5"
+        },
+        {
+          "X": "800000000000000",
+          "X_tex": "8\\cdot10^{14}",
+          "minus": "-0.87",
+          "plus": "0.95",
+          "minus_rational": "-87/100",
+          "plus_rational": "19/20"
+        },
+        {
+          "X": "1600000000000000",
+          "X_tex": "16\\cdot10^{14}",
+          "minus": "-0.72",
+          "plus": "0.93",
+          "minus_rational": "-18/25",
+          "plus_rational": "93/100"
+        },
+        {
+          "X": "3200000000000000",
+          "X_tex": "32\\cdot10^{14}",
+          "minus": "-0.80",
+          "plus": "0.92",
+          "minus_rational": "-4/5",
+          "plus_rational": "23/25"
+        },
+        {
+          "X": "6400000000000000",
+          "X_tex": "64\\cdot10^{14}",
+          "minus": "-0.79",
+          "plus": "0.72",
+          "minus_rational": "-79/100",
+          "plus_rational": "18/25"
+        },
+        {
+          "X": "10000000000000000",
+          "X_tex": "10^{16}",
+          "minus": "-0.94",
+          "plus": "0.80",
+          "minus_rational": "-47/50",
+          "plus_rational": "4/5"
+        },
+        {
+          "X": "20000000000000000",
+          "X_tex": "2\\cdot10^{16}",
+          "minus": "-0.93",
+          "plus": "0.76",
+          "minus_rational": "-93/100",
+          "plus_rational": "19/25"
+        },
+        {
+          "X": "40000000000000000",
+          "X_tex": "4\\cdot10^{16}",
+          "minus": "-0.71",
+          "plus": "0.79",
+          "minus_rational": "-71/100",
+          "plus_rational": "79/100"
+        },
+        {
+          "X": "80000000000000000",
+          "X_tex": "8\\cdot10^{16}",
+          "minus": "-0.88",
+          "plus": "0.83",
+          "minus_rational": "-22/25",
+          "plus_rational": "83/100"
+        },
+        {
+          "X": "160000000000000000",
+          "X_tex": "16\\cdot10^{16}",
+          "minus": "-0.77",
+          "plus": "0.98",
+          "minus_rational": "-77/100",
+          "plus_rational": "49/50"
+        },
+        {
+          "X": "320000000000000000",
+          "X_tex": "32\\cdot10^{16}",
+          "minus": "-0.84",
+          "plus": "0.77",
+          "minus_rational": "-21/25",
+          "plus_rational": "77/100"
+        },
+        {
+          "X": "640000000000000000",
+          "X_tex": "64\\cdot10^{16}",
+          "minus": "-1",
+          "plus": "0.88",
+          "minus_rational": "-1",
+          "plus_rational": "22/25"
+        },
+        {
+          "X": "1280000000000000000",
+          "X_tex": "128\\cdot10^{16}",
+          "minus": "-1",
+          "plus": "0.80",
+          "minus_rational": "-1",
+          "plus_rational": "4/5"
+        },
+        {
+          "X": "2560000000000000000",
+          "X_tex": "256\\cdot10^{16}",
+          "minus": "-0.87",
+          "plus": "0.91",
+          "minus_rational": "-87/100",
+          "plus_rational": "91/100"
+        },
+        {
+          "X": "5120000000000000000",
+          "X_tex": "512\\cdot10^{16}",
+          "minus": "-0.88",
+          "plus": "0.99",
+          "minus_rational": "-22/25",
+          "plus_rational": "99/100"
+        }
+      ]
+    },
+    "primary": "Büthe1511.02032v2, fullTable1p14/fullTable2p16, retainedprimarytext inspected againstall31rows.",
+    "retained_primary": {
+      "file": "Solutions/RHOcticPush.v1/ramanujan/sources/1511.02032v2.txt",
+      "sha256": "d41d4d3f69447340c7c80cbe7d97792de3c0aeba8ee435dd9d85130df7d03738"
+    },
+    "last_endpoint": "2*(512*10^16)=1.024*10^19; slightly beyond the separateTheorem2 ceiling10^19. Neither truncate this table nor extend Theorem2."
+  },
+  "roles": {
+    "original607": "Original9 inputunion, retainingexact nonlinear>=640b branch.",
+    "added606": "Original9+A1+A2=11. Local606..610 transport uses compensationprofile plus Büthetable1/li-minus-pi/li-positive. Strictlylarger globalinputset, notsame-premise onset improvement."
+  },
+  "primary_urls": {
+    "Buthe2018": "https://arxiv.org/pdf/1511.02032v2",
+    "Buthe2016": "https://arxiv.org/pdf/1410.7015v4",
+    "GM": "https://arxiv.org/pdf/1312.4465v4",
+    "Nicolas": "https://arxiv.org/pdf/1202.0729v2",
+    "Hildebrand": "https://faculty.math.illinois.edu/~hildebr/ant/main.pdf"
+  },
+  "prior_audits": [
+    {
+      "file": "Solutions/RHLimit.v1/spectral/SOURCE_INPUT_AUDIT.json",
+      "sha256": "9a816a8b9ed0d3f76ebb81f829016cf4f4ae24fd4b2d28fa99215b4e72d70646"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/box/perron/ROOT_PRIMARY_PERRON_CONTRACT_REVIEW.json",
+      "sha256": "dcd1fe520b24111ea694016d8c3f41765374ef60adfdbad7a89280edb71a4369"
+    },
+    {
+      "file": "Solutions/RHExposureStudy.v1/review/final-IEANTN/sources/buthe16-excerpts.json",
+      "sha256": "980d8ea436cfbf8028ff059095ec8c48576be63b891016bd460b46ea3fa8c42f"
+    },
+    {
+      "file": "Solutions/RHExposureStudy.v1/review/final-IEANTN/sources/buthe18-excerpts.json",
+      "sha256": "4b9a8b29165d922733fcc96ca14abd8fb3ff8536bbc98f701eefd994792e531f"
+    }
+  ]
+}
