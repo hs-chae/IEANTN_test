@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/data/ivy-rh-octic-20261123/finalizer-v2-proposal-v1/source_association.py", line 147, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/data/ivy-rh-octic-20261123/finalizer-v2-proposal-v1/source_association.py", line 139, in main
+    value=associate(a.accepted_source_root,a.delivered_root,a.ieantn_run,a.context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ivy-rh-octic-20261123/finalizer-v2-proposal-v1/source_association.py", line 69, in associate
+    for row in pins['sources']:compare(row['path'],row['sha256'],row['bytes'],'validator')
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ivy-rh-octic-20261123/finalizer-v2-proposal-v1/source_association.py", line 63, in compare
+    aa,bb=regular(a).read_bytes(),regular(b).read_bytes()
+                                  ^^^^^^^^^^
+  File "/data/ivy-rh-octic-20261123/finalizer-v2-proposal-v1/source_association.py", line 18, in regular
+    need(path.exists() and stat.S_ISREG(path.lstat().st_mode) and not path.is_symlink(),
+  File "/data/ivy-rh-octic-20261123/finalizer-v2-proposal-v1/source_association.py", line 15, in need
+    if not ok: raise ValueError(message)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: regular nonsymlink file: /data/ivy-rh-octic-20261123/finalizer-v2-proposal-v1/controls-v2/fixtures/missing-code-O0/Solutions/RHOcticPush.v1/ramanujan/count-feasibility/cold-foundation/source_basis.py

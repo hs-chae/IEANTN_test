@@ -1,0 +1,113 @@
+{
+  "status": "BOUNDED_STATIC_COLD305_READER_LOAD_GRAPH_AND_SOURCE_BOUND_PLAN",
+  "utc": "2026-11-24T15:44:43.389353+00:00",
+  "original_source_root": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network",
+  "extracted_publication_root": "/data/ivy-rh-octic-20261123/final-archive-verification-v1/extracted/publication",
+  "files": [
+    {
+      "path": "Solutions/RHOcticPush.v1/ramanujan/count-feasibility/ieantn-consumer/reproduce.py",
+      "sha256": "b519b155523c0631bcc0211fae92fe95d1e168df21e06e5d5d559e9a81fb7778",
+      "bytes": 26204,
+      "extracted_equal": true
+    },
+    {
+      "path": "Solutions/RHOcticPush.v1/ramanujan/count-feasibility/cold-foundation/remaining_stage.py",
+      "sha256": "27f8f3b4ffb0443e3880cc2bc928110c1ecd87143e8e5ff0f10cc26453bb729c",
+      "bytes": 35100,
+      "extracted_equal": true
+    },
+    {
+      "path": "Solutions/RHOcticPush.v1/ramanujan/count-feasibility/cold-foundation/data_stage.py",
+      "sha256": "d86e7a41775bc03d50350c4b00ad768636ba0b030a58abc9fb831a7488644980",
+      "bytes": 25065,
+      "extracted_equal": true
+    },
+    {
+      "path": "Solutions/RHOcticPush.v1/ramanujan/count-feasibility/cold-foundation/source_basis.py",
+      "sha256": "73d0c06722322c34ab7c1bd90b02685f1cb9be942dd0fb78f8e63a34b15fef63",
+      "bytes": 14140,
+      "extracted_equal": true
+    },
+    {
+      "path": "Solutions/RHOcticPush.v1/ramanujan/count-feasibility/recover_count_v2.py",
+      "sha256": "299b7a6ec84049af35c18f6e0cff2515b9115d49fbdd8cf7d0917c4564d16838",
+      "bytes": 39566,
+      "extracted_equal": true
+    },
+    {
+      "path": "Solutions/RHOcticPush.v1/ramanujan/count-feasibility/recovery_origin.py",
+      "sha256": "2cf5e608df6a852560814ab7e4cfef9ac4249ad927a06fbd9ae0dbdb7e8bbf99",
+      "bytes": 12722,
+      "extracted_equal": true
+    },
+    {
+      "path": "Solutions/RHOcticPush.v1/finite-pv/grammar/reproduce.py",
+      "sha256": "c00f09064db3f5915054f1abce991a35a16d8b35ada23b382a696358dcdfe892",
+      "bytes": 20779,
+      "extracted_equal": true
+    },
+    {
+      "path": "Solutions/RHOcticPush.v1/ramanujan/count-feasibility/high-driver/reproduce_application.py",
+      "sha256": "cccd380b9e7654debacdd910497d411094a9b798f15319b59dc2db406e58fef5",
+      "bytes": 14098,
+      "extracted_equal": true
+    },
+    {
+      "path": "Solutions/RHOcticPush.v1/ramanujan/count-feasibility/high-driver/readback_complete.py",
+      "sha256": "85a72b6497184963d9f0e058fc7b6cec0fce6971f9b9c73b11ae2f08048ee35b",
+      "bytes": 7853,
+      "extracted_equal": true
+    },
+    {
+      "path": "Solutions/RHOcticPush.v1/ramanujan/count-feasibility/portable/scripts/reproduce_profiled_closure.py",
+      "sha256": "ca34b6a525d03218a9410acae3010e87095771cbc61a5ce397ea2cdda55f5ee8",
+      "bytes": 21610,
+      "extracted_equal": true
+    },
+    {
+      "path": "Solutions/RHOcticPush.v1/ramanujan/count-feasibility/portable/scripts/rebuild_qrh_closure.py",
+      "sha256": "9f6b055fc40b2770170e83c5eb9911315a28ae4022e07da4ffae75e3a51255a2",
+      "bytes": 9323,
+      "extracted_equal": true
+    }
+  ],
+  "external_child_providers": [
+    {
+      "actual_execution_provider": "/data/ivy-rh-octic-20261123/ramanujan/cold-complement-v3/engine/Solutions/Replay/scripts/reproduce_profiled_closure.py",
+      "published_path": "Solutions/RHOcticPush.v1/ramanujan/count-feasibility/portable/scripts/reproduce_profiled_closure.py",
+      "sha256": "ca34b6a525d03218a9410acae3010e87095771cbc61a5ce397ea2cdda55f5ee8",
+      "matches_published": true
+    },
+    {
+      "actual_execution_provider": "/data/ivy-rh-octic-20261123/ramanujan/cold-complement-v3/engine/Solutions/Replay/scripts/rebuild_qrh_closure.py",
+      "published_path": "Solutions/RHOcticPush.v1/ramanujan/count-feasibility/portable/scripts/rebuild_qrh_closure.py",
+      "sha256": "9f6b055fc40b2770170e83c5eb9911315a28ae4022e07da4ffae75e3a51255a2",
+      "matches_published": true
+    }
+  ],
+  "load_edges": [
+    "own reproduce.closure\u2192remaining_stage; remaining imports data_stage and source_basis.",
+    "data_stage.controller\u2192recover_count_v2; numerical controller imports recovery_origin.",
+    "remaining.basis\u2192grammar reproduce\u2192high-driver reproduce_application; remaining.basis\u2192readback_complete\u2192reproduce_application.",
+    "data_stage.verify\u2192actual captured reproduce_profiled_closure subprocess --check; that engine imports sibling rebuild_qrh_closure."
+  ],
+  "source_path_failure": {
+    "data_stage_LF242": "plan.context must equal literal str(ROOT/Solutions/RHContinuation.v1/scripts/GENERIC_CONTEXT.json), and its file SHA; LF246 exact source-only data execution command binds that path.",
+    "source_root": "ROOT derives from resolved __file__ ancestry, so extracted source bytes change the expected pathname even when identical.",
+    "second_guard": "high-driver/readback_complete.py:89 independently derives the same original-ROOT generic context and compares complete canonical context.",
+    "failed_attempt": "V1 reader failed in data plan_check before D.verify/engine or remaining dependency probes. No accepted receipt/source/plan was changed by that failed reader."
+  },
+  "checked_but_not_loaded_on_cold305": [
+    "ieantn-consumer/SOURCE_CLOSURE.json providers and portable_basis_pins; portable-source-run/{readback.py,reproduce.py,SOURCE_CLOSURE.json} are pinned but portable reader is not imported for cold305.",
+    "portable/{CONTROLLERS.json,SOURCE_CLOSURE.json}, high-driver/SOURCE_FREEZE.json, grammar/REPRO_SOURCE_CLOSURE.json and exact declared source/resources remain ordinary acceptance inputs."
+  ],
+  "limits": "Static examination of the selected route, not an execution import trace. recover_count_v2 functions manifest/validate/old_study and recovery_origin.engine are not called by examined source_basis.transport; its actual C calls are command,leaf_text,reports,required. Root may conservatively byte-check complete published Python families. No generic stdlib/runtime expansion.",
+  "minimal_finalizer2": [
+    "Add required --accepted-source-root R for this source-bound historical check only; require original and extracted relevant files regular/nonsymlink and equal to explicit accepted/published hashes.",
+    "Bind own controller b519 and closure4bc to actual accepted ee218b receipt/executed copies; check every frozen declared provider/portable pin, relevant source/resource manifests and original context literal path/hash, without rewriting anything.",
+    "Check both actual bank engine scripts against delivered portable/scripts and CONTROLLERS hashes; execute unchanged original R reader in a fresh subprocess, serially under Root bank ownership.",
+    "Record source-bound original-location historical readback and extracted-byte association separately. Preserve actual extracted relocation failure; do not call this portable historical readback or a monolithic clean high execution.",
+    "Test source-association rejection and actual original reader routes in normal/-O/-OO with distinct logs and only fresh additive receipts; do not monkeypatch ROOT/context or alter frozen reader/plans/pins."
+  ],
+  "mutations": "Only this private diagnostic JSON. No reader/validator/Git/compiler/native job or bank mutation ran."
+}

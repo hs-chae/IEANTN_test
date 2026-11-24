@@ -1,0 +1,23 @@
+Traceback (most recent call last):
+  File "/data/ivy-rh-octic-20261123/finalizer-v2-proposal-v1/source_association.py", line 147, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/data/ivy-rh-octic-20261123/finalizer-v2-proposal-v1/source_association.py", line 141, in main
+    need(exact(strict(a.check_receipt),value),'exact source-association receipt')
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ivy-rh-octic-20261123/finalizer-v2-proposal-v1/source_association.py", line 34, in strict
+    return json.loads(regular(path).read_bytes().decode('utf-8'),object_pairs_hook=pairs,parse_constant=bad,parse_float=finite_float)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/__init__.py", line 359, in loads
+    return cls(**kw).decode(s)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ivy-rh-octic-20261123/finalizer-v2-proposal-v1/source_association.py", line 29, in bad
+    def bad(value): raise ValueError('nonfinite JSON: '+value)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: nonfinite JSON: NaN

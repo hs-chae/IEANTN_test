@@ -1,0 +1,53 @@
+{
+  "status": "PASS_NARROW_FINITE_FLOAT_DELTA",
+  "utc": "2026-11-24T15:57:33.941864+00:00",
+  "baseline_review_sha256": "9e53f5b527f80655665349e146a1869ab2f5f295ba8ce9f1e666e1c6814e6d8f",
+  "helper_sha256": "3820154035eb6558dae85c4bc2b86b6a5852001a771b2fa0bf3f8784fe6ace84",
+  "old_helper_preserved_sha256": "87a1667dbefb12b9afa6cbafa5897eed2a6de2f31596bc607ac08c3251dbc544",
+  "pins_unchanged_sha256": "ffa654d84b1245c38f36f5f3800c97b40815b5823501022c30a9578554ee7410",
+  "finalizer_unchanged_sha256": "6fd3da19a6e8b40c2fff49860e64bf64c18f4088ad3c4ea55a01a0b51afae46c",
+  "test_sha256": "4b210b216e05562fa7a59618fd4134a15373789f2f3e1848abed5dc0007eee4b",
+  "controls_RESULT_sha256": "e3ab8b66ef3768e5bbb337f58ab44eee5862719d87e16f17192ffbb056b6f858",
+  "delta": "Only importmath and explicitparse_float callback usingmath.isfinite were added. Finitefloat conversion preserves ordinary JSON decimals and rejects overflow1e999 before exactreceipt comparison. Existing duplicate-field/NaN checks remain. No assert/debug gate; behavior remains active under-O/-OO.",
+  "actual_controls": {
+    "status": "PASS_ACTUAL_ASSOCIATION_CLI_CONTROLS_ALL_THREE_PYTHON_MODES",
+    "decisions": 60,
+    "all60_expected_returncode_classes": true,
+    "overflow_three_distinct_CLIs_and_raw_logs": [
+      {
+        "label": "overflow-float-receipt-O0",
+        "returncode": 1,
+        "mode": [],
+        "stderr_hash_match": true,
+        "stdout_hash_match": true,
+        "specific_rejection": true
+      },
+      {
+        "label": "overflow-float-receipt-O1",
+        "returncode": 1,
+        "mode": [
+          "-O"
+        ],
+        "stderr_hash_match": true,
+        "stdout_hash_match": true,
+        "specific_rejection": true
+      },
+      {
+        "label": "overflow-float-receipt-O2",
+        "returncode": 1,
+        "mode": [
+          "-OO"
+        ],
+        "stderr_hash_match": true,
+        "stdout_hash_match": true,
+        "specific_rejection": true
+      }
+    ],
+    "parent_validators_invoked": false,
+    "compilers_invoked": false,
+    "bank_or_original_mutations": false
+  },
+  "history": "Old87ahelper and oldtest/controls-v1 retained; current382helper/pinsffa/finalizer6fd freeze checked. This closes the strict exponent-overflow parsing omission in the prior bounded code review.",
+  "findings": [],
+  "scope": "Tiny finite-float/test delta and actual60receipt only. No new probes, parentreader/compiler/proofjob/Git/source edit. Original serial bank readback and final artifact acceptance remain Root gates."
+}

@@ -88,9 +88,7 @@ under all three Python modes, exercises extracted analytic/finite read-only
 frontdoors, reproduces the three final HTML files byte for byte, and runs the
 frozen128-source/three-proposal regeneration recipe. It requires the actual
 accepted final IEANTN status and the exact published source commit in the
-extracted bundle. It also executes the extracted final IEANTN consumer reader
-on the actual accepted four-source append and its complete inherited basis.
-That is readback, not a fresh monolithic high computation. It performs no Lean
+extracted bundle. The delivered reader files, declared closure/context metadata and both actual bank-engine providers are first byte-associated with the original accepted source root. The unchanged original-location IEANTN reader then checks the actual accepted four-source append and complete inherited basis; the association is checked again afterward. This is source-bound historical readback, not relocated/portable verification of the old run or a fresh monolithic high computation. The clean portable full-high recipe and separately executed bounded N1000 run remain distinct. It performs no Lean
 compilation. The scientific completion
 receipts and actual clean reproduction route remain separately attributed.
 
@@ -108,9 +106,12 @@ python3 -B finalize_bundle.py --spec /path/to/ROOT_REVIEWED_SPEC.json \
   --context /path/to/GENERIC_CONTEXT.json \
   --finite-smoke /path/to/actual/portable-source-smoke-v1 \
   --ieantn-run /path/to/actual/ieantn-count-consumer-v2 \
+  --accepted-source-root /path/to/original/accepted/source/network \
   --native-cc /usr/bin/gcc-11 --native-cpu 64 \
   --katex /path/to/locked/node_modules/katex --out /path/to/fresh/final-validation
 ```
 
 Only after these real checks, final report review and Root approval should Root
 publish or deliver. This directory contains no credentials or delivery code.
+
+The standalone `source_association.py` CLI exercises only the byte association, without loading a historical validator or compiling proofs. Supply `--accepted-source-root`, `--delivered-root` and `--ieantn-run`, then either a fresh `--out receipt.json` or `--check-receipt receipt.json`. Its metadata receipt is not mathematical or source-first PV acceptance. The normal/`-O`/`-OO` controls use owned delivered-file fixtures; accepted sources, plans, contexts, proof objects and bank engines are preserved. No ROOT/context monkeypatch or historical receipt rewrite is used.

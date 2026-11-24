@@ -30,6 +30,7 @@ def main():
     parser.add_argument('--context', type=Path, required=True)
     parser.add_argument('--finite-smoke', type=Path, required=True)
     parser.add_argument('--ieantn-run', type=Path, required=True)
+    parser.add_argument('--accepted-source-root', type=Path, required=True)
     parser.add_argument('--native-cc', required=True)
     parser.add_argument('--native-cpu', type=int, required=True)
     parser.add_argument('--katex', type=Path, required=True)
@@ -144,9 +145,24 @@ def main():
     run('finite-smoke-reader', [sys.executable, '-B',
         str(extracted/'finite/project'/PREFIX/'ramanujan/count-feasibility/portable-source-run/reproduce.py'),
         '--check', str(args.finite_smoke)])
-    run('accepted-ieantn-append-reader', [sys.executable, '-B',
-        str(extracted/'publication'/PREFIX/'ramanujan/count-feasibility/ieantn-consumer/reproduce.py'),
+    association = extracted/'publication'/PREFIX/'scripts/release-preparation/source_association.py'
+    association_command = [sys.executable, '-B', str(association),
+        '--accepted-source-root', str(args.accepted_source_root),
+        '--delivered-root', str(extracted/'publication'), '--ieantn-run', str(args.ieantn_run)]
+    run('delivered-original-reader-source-association', association_command+
+        ['--out', str(args.out/'SOURCE_ASSOCIATION.json')])
+    association_receipt = read(args.out/'SOURCE_ASSOCIATION.json')
+    need(association_receipt['status'] == 'PASS_SOURCE_ASSOCIATION_METADATA_ONLY' and
+         association_receipt['mathematical_acceptance'] is False and
+         association_receipt['parent_reader_invoked'] is False,
+         'metadata association is separate from historical readback')
+    # This existing reader intentionally binds ROOT/context to the original source
+    # location. Do not weaken or monkeypatch it to accept a relocated old run.
+    run('original-source-bound-historical-ieantn-reader', [sys.executable, '-B',
+        str(args.accepted_source_root/PREFIX/'ramanujan/count-feasibility/ieantn-consumer/reproduce.py'),
         '--verify', str(args.ieantn_run)])
+    run('unchanged-reader-source-association-after-readback', association_command+
+        ['--check-receipt', str(args.out/'SOURCE_ASSOCIATION.json')])
     status = extracted/'publication'/PREFIX/'reports/FINAL_STATUS.json'
     actual_status = read(status)
     need(actual_status.get('FinalSourceDone') is True and
@@ -168,10 +184,11 @@ def main():
     save(args.out/'RESULT.json', dict(status='PASS_FINAL_ARCHIVE_PARTS_EXTRACTED_FRONTDOORS_AND_REPORT_REGENERATION',
         source_commit=spec['source_commit'], spec_sha256=sha(args.spec), commands=commands,
         native_observation=native_observation,
+        historical_reader=dict(scope='Unchanged original-location source-bound historical readback; extracted delivered-byte association checked before/after. Not relocated/portable old-run verification.', accepted_source_root=str(args.accepted_source_root), association_sha256=sha(args.out/'SOURCE_ASSOCIATION.json')),
         archive=identity(archive), parts_manifest_sha256=sha(parts/'EVIDENCE_PARTS.json'),
         part_bytes=PART_BYTES, parts=len(rows), seconds=time.monotonic()-started,
         mathematical_acceptance=False,
-        scope='Artifact and extracted-frontdoor checks, ordinary native output reproduction, and readback of the actual accepted four-source IEANTN append and its inherited basis. The native observation is neither a proof nor a formal physical trace; the append check is readback, not a fresh monolithic high computation. Prior actual scientific runs supply mathematical acceptance; no proof compilation is repeated here.'))
+        scope='Artifact and extracted-frontdoor checks, ordinary native output reproduction, and original-location source-bound historical readback of the accepted four-source IEANTN append and inherited basis, after association of every delivered reader provider and both bank engines. This is not relocated/portable historical-run verification. The native observation is neither a proof nor a formal physical trace; the append check is readback, not a fresh monolithic high computation. Prior actual scientific runs supply mathematical acceptance; no proof compilation is repeated here.'))
     print('PASS actual final archival, extraction, parts and report/proposal regeneration')
 
 
