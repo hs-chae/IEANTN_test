@@ -1,0 +1,63 @@
+{
+  "status": "INDEPENDENT_MATH_SOURCE_EXTENSION_PASS",
+  "reviewer": "rh_box_mellin",
+  "utc": "2026-11-23T19:50:28.926108+00:00",
+  "files": [
+    {
+      "file": "Solutions/RHOcticPush.v1/spectral/NicolasFourPoint.lean",
+      "sha256": "b01e9b6d6896ed8abd9328d6fe1177a5b0515ba33b6c034cc809108e6d4112f8"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/spectral/NicolasBlock.lean",
+      "sha256": "bb35b3bf8c295560d4d6a1c0d742578500487bc1a9922852ec28c473b3132768"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/spectral/GMComparison.lean",
+      "sha256": "8fe6c0aef2a6d35b4dbd2334908bef5b74ecb9b8e6745639ba73eade866351f5"
+    }
+  ],
+  "primary_source_correspondence": "Exact previously independently retrieved Nicolas Eq1.3/1.9/1.18/1.19/2.19 and GM Thm1.1Q are recorded in ROOT_INDEPENDENT_REVIEW.json; no new source predicate is introduced by these3files.",
+  "Blueprint": "No standalone declarationlabels for these new internal lemmas. Existing Nicolas/RHPrimeCounting/Buthe modules and source-owned construction correspondence as in ROOT_INDEPENDENT_REVIEW.json.",
+  "findings": [
+    {
+      "declarations": [
+        "four_harmonics",
+        "spectral_four",
+        "actual_product_four",
+        "four_envelope_identity",
+        "four_strictly_improves"
+      ],
+      "verdict": "confirmed",
+      "independent_derivation": "For c=cost, 4c+3cos2t+2cos3t+cos4t+5/2 = (4c\u00b2+2c\u22121)\u00b2/2\u22650; exact independent SymPy expansion residual0. Multiply actual nonnegative zero weights and sum via full summability. Since mass\u2264beta, sum\u2265\u22125beta/2. Weights4+3+2+1 total10, so mainterm20 and whole-profile gain(10\u22125/2)beta=15beta/2. All lower-order penalties remain at their respective actual arguments.",
+      "hypotheses": "Explicit RH, SourceNicolas119, SourceNicolas219; x>599; no finite-height-only source.",
+      "source_check": "Reviewed actual source definitions and prior primary PDF locators; beta positivity follows the independently valid coarse gamma/logpi/log2 lower combination.",
+      "limits": "Joint four-scale normalized-log-product inequality, not a stronger universal one-point bound or proof of0.076."
+    },
+    {
+      "declarations": [
+        "actual_product_block",
+        "block_coefficient_gain"
+      ],
+      "verdict": "confirmed",
+      "independent_derivation": "If each of the4actual scaled values is below2\u2212beta/4\u2212itsownpenalty, multiplying by4,3,2,1 andadding gives a strictupper below20\u2212(10/4)beta\u2212weightedpenalties, contradicting actual_product_four. beta>0 then gives the explicitcoefficientgain3beta/4 over2\u2212beta.",
+      "quantifiers": "For every x>599 there exists k in{1,2,3,4}; it does not assert the improved bound at everyx or at one fixedk.",
+      "source_check": "Only old genuine source119/219 are used. A published limsup statement with coefficient2+beta is a different observable/quantifier; no globalnovelty/bestknownclaim established."
+    },
+    {
+      "declarations": [
+        "ratio_derivative",
+        "ratio_mono",
+        "strict_gain_log",
+        "actual_J_evolved",
+        "preserves_old",
+        "evolved_strict"
+      ],
+      "verdict": "confirmed",
+      "independent_derivation": "Exact independent differentiation gives d[e^(L/2)/L\u00b3]/dL=e^(L/2)(L\u22126)/(2L4)\u22650 onL\u226524. Old\u2212b5 =0.1386e^(L/2)/[L(L\u22126)(L\u22125)]\u22121.07. The positive denominator\u2264L\u00b3 and the certifiedanchorlower1.57 imply old\u2212b5>0.5 uniformly. Piecewise eligibleminimum preserves the originalfullbound frome12 and avoids the earlier noted regression near e15.",
+      "hypotheses": "Same explicitRH, GM_Q_Theorem1_1, B\u00fcthepsi andB\u00fctheli\u2212J inputs asold. Positive log and square-root domains retained.",
+      "source_check": "GM rationalfield primitive andexact four source coefficients unchanged; actualanchorallowance paid by GMTransport, independently reviewed separately.",
+      "resolution_of_prior_qualification": "Confirmed: minimum plus late-ray stricttheorem correctly resolves the b5-only early-domain comparison issue."
+    }
+  ],
+  "axiom_scope": "Independent mathematical/source rederivation only; Root owns actual compiler receipts. No assumption was inferred proved merely because a consumer compiles."
+}

@@ -1,0 +1,77 @@
+version: v0.4
+node:
+  id: RHSmoothing.v2
+  family: RHSmoothing
+  version: v2
+  kind: pipeline
+  status: awaiting-verification
+project:
+  name: RHSmoothing.v2
+  description: Same-source positive-series correction strengthens the complete box psi function; exact
+    analytic obligations remain explicit.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+conclusions:
+- id: box_psi
+  declaration: RHSmoothing.v2.box_psi
+  challenge: RHSmoothing.v2.challenge_box_psi
+  imports:
+  - node: RH.v1
+    conclusion: hypothesis
+  - node: RHSmoothingInputs.v1
+    conclusion: box_explicit_formula
+  - node: RHSmoothingInputs.v1
+    conclusion: box_zero_estimate
+  - node: BoxMellinInputs.v1
+    conclusion: first_moment
+  - node: BoxMellinInputs.v1
+    conclusion: second_moment_identity
+  imports_status: identified
+  justifications:
+  - id: local-source-proof
+    kind: lean-noncompliant
+    note: Pinned Lean Solution and transitive standard-three-axiom checks; official Comparator receipt
+      not available. Actual source/metadata/consumer replay is recorded separately in the campaign, not
+      fabricated as an official receipt.
+  designated: local-source-proof
+- id: box_gain
+  declaration: RHSmoothing.v2.box_gain
+  challenge: RHSmoothing.v2.challenge_box_gain
+  imports: []
+  imports_status: none
+  justifications:
+  - id: local-source-proof
+    kind: lean-noncompliant
+    note: Pinned Lean Solution and transitive standard-three-axiom checks; official Comparator receipt
+      not available. Actual source/metadata/consumer replay is recorded separately in the campaign, not
+      fabricated as an official receipt.
+  designated: local-source-proof
+sources:
+- id: RHOcticPush20261123
+  title: Post-lock RH octic, correlated transport and full-network continuation
+  authors:
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: Actual proof/source files under Solutions/RHOcticPush.v1. No frozen experimental outcome or prior
+    node is changed; no best-known claim.
+limitations:
+- Official Comparator receipt pending. These are source-compiled conditional Lean edges, not proofs of
+  the external RH, explicit-formula, zero-estimate or exact Mellin premises.
+- New shared flat-source dependencies are built by the campaign resource-aware reproduction route; standalone
+  Comparator packaging and official dispatch remain separate.
+- C source/model/execution theorems and exact rendered-source identity are reused under an explicit renderer/model
+  interpretation contract. Independent source-parser soundness is not proved here; no new fully established
+  source-first PV or whole-pipeline PV is claimed. New numerical certificates and analysis are kernel-only.
+  Compiler/runtime/OS/ABI/hardware contracts remain.

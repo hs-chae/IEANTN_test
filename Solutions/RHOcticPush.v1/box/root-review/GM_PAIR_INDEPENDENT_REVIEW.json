@@ -1,0 +1,33 @@
+{
+  "status": "INDEPENDENT_SIGN_AND_SHARED_PREFIX_REVIEW_PASS",
+  "reviewer": "rh_box_mellin",
+  "utc": "2026-11-23T19:54:53.332508+00:00",
+  "file": "Solutions/RHOcticPush.v1/spectral/GMPair.lean",
+  "source_sha256": "100c8e1fc5829840dd1e8b2c02ba30b5e65e1e052206de00085707db72b7eae3",
+  "actual_observable": "E(t)=IEANTN.riemannPrimeCounting(t)-IEANTN.li(t)-(Chebyshev.psi(t)-t)/logt, with actual PV li and actual weighted prime-power J. It is not ordinarypi error.",
+  "Lean_evidence": {
+    "definition": "GMPair.lean error",
+    "identity": "ActualJIdentity.lean actual_riemann_compensation lines130-135, itself from actual finiteMangoldtAbel + actual li + actualJ identity",
+    "transport": "ActualGMTransfer.lean actual_gm_weighted_error lines93ff and gmTransport lines89ff; GMTransport.lean transport_upper and actual_J_b5"
+  },
+  "Blueprint": "No standalone label for new GMPair. Imported RHPrimeCounting and Buthe node source construction; actual compensation is a proved internal identity, not a renamed desired bound.",
+  "primary": "GM arXiv1312.4465v4 Theorem1.1Q printedp3, exact primitive envelope0.0462t^(3/2)+1.838t+1.9851+0.5097/t; inspected directly and PDF retained in this reviewdirectory. Same explicitly conditional RH + GM + B\u00fcthepsi + B\u00fctheli\u2212J sources.",
+  "independent_derivation": [
+    "Verified actual compensation sign: E(x)-E(y)=+integral_(y,x] (psi(t)-t)/(tlog\u00b2t)dt. No missing minus sign or prime-power conversion.",
+    "GM source controls the primitive of that actual integrand after rigorous parts; thus E(x)-E(y)<=gmTransport(y,x) for e15<=y<=x. Local transport uses both actual endpoint primitive allowances plus positive kernel.",
+    "Exact identity K E(x)-e E(y)=K(E(x)-E(y))+(e-K)(-E(y)); independently expanded symbolic difference0. Both coefficients used for upper estimates are nonnegative exactly under0<=K<=e.",
+    "The old full source bound gives -E(y)<=15.51+H5(y). Apply local transport majorant for the difference; the resulting budget is exactly K[H5(x)-H5(y)+2G(y)w(y)+1.838/logy]+(e-K)[15.51+H5(y)].",
+    "This cancels the common prefix BEFORE absolute values and is stronger information than two independent endpoint absolute bounds; no assumption about actual sign or phase of E is inserted.",
+    "actual_pair_lower is only the algebraic reversal of this upper bound; it is not an independent two-sided enclosure."
+  ],
+  "transitive_hypotheses": [
+    "SharedRH.hypothesis",
+    "GM_Q_Theorem1_1",
+    "Buthe.v1.theorem_2_psi",
+    "Buthe.v1.theorem_2_li_minus_riemann_pi",
+    "0<=K<=exp1",
+    "exp15<=y<=x"
+  ],
+  "remaining_integration_gate": "This review validates the GMPair theorem and source boundaries only. The actual Ramanujan consumer must still derive its own linear/error coefficientK, prove0<=K<=e uniformly, insert actualx/e,y and ordinaryprime-power corrections with correct signs, and certify every real slab. A positive numerical scout alone does not complete610b.",
+  "no_new_axiom_or_source_predicate": "No newly assumed compensation, desired RG margin, or unnamed signed-error source occurs in inspectedGMPair. Compilation/axiom receipt is Root-owned and separately checked."
+}

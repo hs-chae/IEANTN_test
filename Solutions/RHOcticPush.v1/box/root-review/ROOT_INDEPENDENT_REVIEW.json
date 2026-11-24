@@ -1,0 +1,87 @@
+{
+  "status": "INDEPENDENT_SOURCE_AND_MATHEMATICAL_REVIEW_PASS_WITH_COMPARISON_QUALIFICATION",
+  "reviewer": "rh_box_mellin",
+  "utc": "2026-11-23T19:37:11.592711+00:00",
+  "source_hashes": {
+    "Solutions/RHOcticPush.v1/spectral/NicolasMultipoint.lean": "0437d470e6f2027ff45958cc46801a49a7df41d635abd980257e9e1631fe2cc3",
+    "Solutions/RHOcticPush.v1/spectral/GMTransport.lean": "9cf4f9b196913b7c07d7b052c9d7fd363bcf94b74e81cdb16d5f4d5e381943d7",
+    "Solutions/RHContinuation.v1/signed/source/NicolasBaseline.lean": "86af0b1a9a062e1ef2081d3ec1eee023becb085c7bb645bfe8327fb6d581bd5b",
+    "Solutions/RHContinuation.v1/ramanujan/ActualGMTransfer.lean": "a7b3400fc5b78254c6c835b741d1c4cafe270671b1fa10798ed2f7fec50e530f"
+  },
+  "nicolas": {
+    "Lean_declarations": [
+      "RHOcticPush.Nicolas.two_harmonics",
+      "RHOcticPush.Nicolas.spectral_pair",
+      "RHOcticPush.Nicolas.retains_phase",
+      "RHOcticPush.Nicolas.actual_product_pair",
+      "RHOcticPush.Nicolas.envelope_identity"
+    ],
+    "Blueprint": "No standalone label for these new internal lemmas. Imported node correspondence IEANTN/Nodes/Nicolas/v1/Conclusions.lean and Solutions/RHContinuation.v1/signed/source/NicolasBaseline.lean.",
+    "primary": {
+      "url": "https://arxiv.org/pdf/1202.0729v2",
+      "locators": "Eq1.3 and1.9 printedp2; Eq1.18-1.19 printedp4; proof precedingEq2.18 and Eq2.19 printedp8",
+      "exact_source_claim": "beta=2+EulerGamma-log(pi)-2log2; W(x)=sum_rho x^(i Imrho)/(rho(1-rho)), x>1; underRH |W|<=beta and the absolute inverse-square zero mass isbeta. For x>599, log f(x)<=-(W(x)+2)/(sqrt(x)logx)+(2+beta)/(sqrt(x)log\u00b2x)+4beta/(sqrt(x)log\u00b3x)+1/(2(x-1)); f=e^gamma logtheta(x) prod_(p<=x)(1-1/p).",
+      "pdf_sha256": "d5ff55f73a832714ef9f9aa176ca5f69f4813de33d9949158f1f452183d49fc1"
+    },
+    "independent_derivation": [
+      "OnRH,1-rho=conj(rho), so every multiplicity/(rho(1-rho)) is nonnegative real. The old source supplies full summability, not a finite truncation.",
+      "2cos(t)+cos(2t)=2(cos(t)+1/2)^2-3/2 >=-3/2. Apply with t=Imrho logx, use log(x\u00b2)=2logx, then sum with actual nonnegative multiplicity weights.",
+      "Mass<=beta gives2W(x)+W(x\u00b2)>=-3beta/2. In each source2.19 multiply by positive sqrt(x)logx and use actual reciprocal-product identity; theta>1 and productpositivity are proved.",
+      "At x>599 both x and x\u00b2 are legal. Two first-scale terms plus one square-scale term give6-3beta/2-2penalty(x)-penalty(x\u00b2), improving the independent full-profile sum by exactly3beta/2."
+    ],
+    "verdict": "confirmed",
+    "limitations": "A joint scaled-log-product theorem, not a one-point improvement, exponentiated product-ratio identity,0.076 spectral closure, RH proof or complete source-first PV."
+  },
+  "GM": {
+    "Lean_declarations": [
+      "RHOcticPush.GM.derivative",
+      "RHOcticPush.GM.transport_upper",
+      "RHOcticPush.GM.actual_J_anchored",
+      "RHOcticPush.GM.actual_J_b5"
+    ],
+    "Blueprint": "No standalone label for new transport. Existing RHPrimeCounting and Buthe imported nodes plus exact GM_Q_Theorem1_1 in ActualGMTransfer.lean.",
+    "primary": {
+      "url": "https://arxiv.org/pdf/1312.4465v4",
+      "locator": "Theorem1.1 rational-field inequality, printedp3",
+      "exact_source_claim": "For every real x>=3, underGRH forQ, |psi_Q^(1)(x)-x\u00b2/2|<=0.0462x^(3/2)+1.838x+1.9851+0.5097/x. The primitive is integral_0^x psi, so this source matches actual gmPrimitive.",
+      "pdf_sha256": "35e0484a992c47b819a1cd845f9ae14cd4ed03ce5d735b32f7a98002755b0537"
+    },
+    "independent_derivative": "SymPy exact rational identity in s=sqrt(x),l=logx, using d/dx=(1/(2s))*d/ds+(1/s\u00b2)*d/dl: difference between displayed derivative and independent differentiation ofA_b is exactly0. This is a mathematical cross-check; Lean proof is separately compiled byRoot.",
+    "derivation": [
+      "For b>=4,H>b,P_b(H)> =0 and logt>=H, P_b(logt)=(b-4)logt+2b-b\u00b2>=0. Both extra derivative terms are nonnegative.",
+      "Integrate derivative majorant froma toz; actual gmTransport includes E(z)w(z)+E(a)w(a). The signed A_b endpoint algebra cancels E(z)w(z), leaves2E(a)w(a), and discards only -1.838/logz<=0.",
+      "Existing actual_J_from_GM gives transport from the sameanchor. Existing refinedJ bound pays the anchor; no unknown J-value or new source is assumed.",
+      "b5,H15 meets allscalarhypotheses exactly (P5(15)=0), x>=exp15. Anchorconstant is paid, not omitted."
+    ],
+    "verdict": "confirmed",
+    "comparison_qualification": "The b5 leading term is smaller than b6 forlogx>6, but the new full displayed additiveconstant15.51 exceeds old14.44. Newb5alone is NOT uniformly stronger fromexp15. Install the minimum or prove an explicit late crossover before a full-function improvement claim.",
+    "exploratory_not_certificate": [
+      {
+        "L": 15,
+        "old": 16.296256878841557,
+        "new_b5": 17.180631190957403
+      },
+      {
+        "L": 20,
+        "old": 25.343100568429325,
+        "new_b5": 25.686227197200704
+      },
+      {
+        "L": 21,
+        "old": 30.418821176668523,
+        "new_b5": 30.490144853126736
+      },
+      {
+        "L": 22,
+        "old": 38.01544330035914,
+        "new_b5": 37.698652517985074
+      },
+      {
+        "L": 30,
+        "old": 643.7258442008814,
+        "new_b5": 619.624410432846
+      }
+    ]
+  },
+  "no_new_model_or_source_claim": "Neither reviewed file proves literature inputs or compiler/runtime contracts. Both are kernel mathematics conditional on named genuine source statements."
+}

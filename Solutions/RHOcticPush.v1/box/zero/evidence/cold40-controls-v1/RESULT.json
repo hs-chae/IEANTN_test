@@ -1,0 +1,377 @@
+{
+  "status": "PASS_ALL19_BOX40_CLI_CONTROLS",
+  "controller_sha256": "ce1966ff0323199027dedd61f7b6a6f76cf59a65f228e1693c8b378d7237b5ee",
+  "controls_controller_sha256": "462e670117b3f57e82019abb480696206479776ff98d81a1941a53614beebcc8",
+  "original_RESULT_sha256": "b5a1583f75ccf1004f182b64d7c59d28f6e153236cd377e3332e6e57eb63055e",
+  "cases": [
+    {
+      "case": "valid",
+      "optimization": 0,
+      "original_RESULT_sha256": "b5a1583f75ccf1004f182b64d7c59d28f6e153236cd377e3332e6e57eb63055e",
+      "status": "PASS_EXPECTED_ACCEPT",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/box/zero/reproduce_zero.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/box-zero-cold40-v1"
+      ],
+      "returncode": 0,
+      "seconds": 49.78105686977506,
+      "stdout_sha256": "ed44a17b2a5f14917cfbd6d8333e141760306e32bd88da377a00c2f285f7c913",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "case": "source_mutation",
+      "optimization": 0,
+      "original_RESULT_sha256": "b5a1583f75ccf1004f182b64d7c59d28f6e153236cd377e3332e6e57eb63055e",
+      "mutated_source_sha256": "ae5c871fe0d7d0fbc7f7738b9ec7a33a6da02c166b365721713bb726ca9a0244",
+      "expected_error": "source/object association",
+      "status": "PASS_EXPECTED_REJECT",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/box/zero/reproduce_zero.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/box-zero-cold40-controls-v1/0-source_mutation/copy"
+      ],
+      "returncode": 1,
+      "seconds": 50.14734730683267,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e5e23304d7263fa01be45bb6b81c0275c8a59f0baece54d3b187b7c57b6a6224",
+      "cleanup": "Verified experiment-owned duplicate copy removed after checked control; accepted original and minimal mutation evidence retained."
+    },
+    {
+      "case": "object_mutation",
+      "optimization": 0,
+      "original_RESULT_sha256": "b5a1583f75ccf1004f182b64d7c59d28f6e153236cd377e3332e6e57eb63055e",
+      "mutated_object_sha256": "907d987f6242e0fce0a6ec1fc6a47219f63a6c4471c394849d448cbd400b671f",
+      "expected_error": "source/object association",
+      "status": "PASS_EXPECTED_REJECT",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/box/zero/reproduce_zero.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/box-zero-cold40-controls-v1/0-object_mutation/copy"
+      ],
+      "returncode": 1,
+      "seconds": 49.33135096915066,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e5e23304d7263fa01be45bb6b81c0275c8a59f0baece54d3b187b7c57b6a6224",
+      "cleanup": "Verified experiment-owned duplicate copy removed after checked control; accepted original and minimal mutation evidence retained."
+    },
+    {
+      "case": "foreign_dependency",
+      "optimization": 0,
+      "original_RESULT_sha256": "b5a1583f75ccf1004f182b64d7c59d28f6e153236cd377e3332e6e57eb63055e",
+      "mutated_probe_sha256": "12560e53215f3b61a8d6555b4d0347858192bdb3b8f7b8e5409a6018d00bcd34",
+      "expected_error": "foreign or drifted application object",
+      "status": "PASS_EXPECTED_REJECT",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/box/zero/reproduce_zero.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/box-zero-cold40-controls-v1/0-foreign_dependency/copy"
+      ],
+      "returncode": 1,
+      "seconds": 48.670188466086984,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "4fa4e4f7b8705ed03e9550867fe932e3809d0e8ed48f2e33220d96fd62bca3ec",
+      "cleanup": "Verified experiment-owned duplicate copy removed after checked control; accepted original and minimal mutation evidence retained."
+    },
+    {
+      "case": "nonstandard_axiom",
+      "optimization": 0,
+      "original_RESULT_sha256": "b5a1583f75ccf1004f182b64d7c59d28f6e153236cd377e3332e6e57eb63055e",
+      "mutated_audit_sha256": "103e8808d4a85426eba2181380800d1a943fe9e94b3c833d70b42d998460dfbe",
+      "expected_error": "nonstandard proof axiom or foreign theorem",
+      "status": "PASS_EXPECTED_REJECT",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/box/zero/reproduce_zero.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/box-zero-cold40-controls-v1/0-nonstandard_axiom/copy"
+      ],
+      "returncode": 1,
+      "seconds": 48.896175883710384,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "03311a32feafdefb83589abf028a7f0c47c96de6b8b7de9ae7cfd00ed8c44976",
+      "cleanup": "Verified experiment-owned duplicate copy removed after checked control; accepted original and minimal mutation evidence retained."
+    },
+    {
+      "case": "duplicate_json_key",
+      "optimization": 0,
+      "original_RESULT_sha256": "b5a1583f75ccf1004f182b64d7c59d28f6e153236cd377e3332e6e57eb63055e",
+      "mutated_RESULT_sha256": "7ae411482f12574a3b58ee65dc32453dea6b167ef1e80fe8d42411da20704b4a",
+      "expected_error": "duplicate JSON key",
+      "status": "PASS_EXPECTED_REJECT",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/box/zero/reproduce_zero.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/box-zero-cold40-controls-v1/0-duplicate_json_key/copy"
+      ],
+      "returncode": 1,
+      "seconds": 0.05034895800054073,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "07d669b6b97aa148484e30d29576eaab04feb9d878d29ebb83c2e6907b454338",
+      "cleanup": "Verified experiment-owned duplicate copy removed after checked control; accepted original and minimal mutation evidence retained."
+    },
+    {
+      "case": "valid",
+      "optimization": 1,
+      "original_RESULT_sha256": "b5a1583f75ccf1004f182b64d7c59d28f6e153236cd377e3332e6e57eb63055e",
+      "status": "PASS_EXPECTED_ACCEPT",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/box/zero/reproduce_zero.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/box-zero-cold40-v1"
+      ],
+      "returncode": 0,
+      "seconds": 50.207905780524015,
+      "stdout_sha256": "000f38d73f1b865ea434526cfb0eaf7a3a6ff4999f92156cf1aa866387bd96c6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "case": "source_mutation",
+      "optimization": 1,
+      "original_RESULT_sha256": "b5a1583f75ccf1004f182b64d7c59d28f6e153236cd377e3332e6e57eb63055e",
+      "mutated_source_sha256": "ae5c871fe0d7d0fbc7f7738b9ec7a33a6da02c166b365721713bb726ca9a0244",
+      "expected_error": "source/object association",
+      "status": "PASS_EXPECTED_REJECT",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/box/zero/reproduce_zero.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/box-zero-cold40-controls-v1/1-source_mutation/copy"
+      ],
+      "returncode": 1,
+      "seconds": 49.22360119409859,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e5e23304d7263fa01be45bb6b81c0275c8a59f0baece54d3b187b7c57b6a6224",
+      "cleanup": "Verified experiment-owned duplicate copy removed after checked control; accepted original and minimal mutation evidence retained."
+    },
+    {
+      "case": "object_mutation",
+      "optimization": 1,
+      "original_RESULT_sha256": "b5a1583f75ccf1004f182b64d7c59d28f6e153236cd377e3332e6e57eb63055e",
+      "mutated_object_sha256": "907d987f6242e0fce0a6ec1fc6a47219f63a6c4471c394849d448cbd400b671f",
+      "expected_error": "source/object association",
+      "status": "PASS_EXPECTED_REJECT",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/box/zero/reproduce_zero.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/box-zero-cold40-controls-v1/1-object_mutation/copy"
+      ],
+      "returncode": 1,
+      "seconds": 48.975478924810886,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e5e23304d7263fa01be45bb6b81c0275c8a59f0baece54d3b187b7c57b6a6224",
+      "cleanup": "Verified experiment-owned duplicate copy removed after checked control; accepted original and minimal mutation evidence retained."
+    },
+    {
+      "case": "foreign_dependency",
+      "optimization": 1,
+      "original_RESULT_sha256": "b5a1583f75ccf1004f182b64d7c59d28f6e153236cd377e3332e6e57eb63055e",
+      "mutated_probe_sha256": "12560e53215f3b61a8d6555b4d0347858192bdb3b8f7b8e5409a6018d00bcd34",
+      "expected_error": "foreign or drifted application object",
+      "status": "PASS_EXPECTED_REJECT",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/box/zero/reproduce_zero.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/box-zero-cold40-controls-v1/1-foreign_dependency/copy"
+      ],
+      "returncode": 1,
+      "seconds": 49.278586937114596,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "4fa4e4f7b8705ed03e9550867fe932e3809d0e8ed48f2e33220d96fd62bca3ec",
+      "cleanup": "Verified experiment-owned duplicate copy removed after checked control; accepted original and minimal mutation evidence retained."
+    },
+    {
+      "case": "nonstandard_axiom",
+      "optimization": 1,
+      "original_RESULT_sha256": "b5a1583f75ccf1004f182b64d7c59d28f6e153236cd377e3332e6e57eb63055e",
+      "mutated_audit_sha256": "103e8808d4a85426eba2181380800d1a943fe9e94b3c833d70b42d998460dfbe",
+      "expected_error": "nonstandard proof axiom or foreign theorem",
+      "status": "PASS_EXPECTED_REJECT",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/box/zero/reproduce_zero.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/box-zero-cold40-controls-v1/1-nonstandard_axiom/copy"
+      ],
+      "returncode": 1,
+      "seconds": 48.402752570807934,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "03311a32feafdefb83589abf028a7f0c47c96de6b8b7de9ae7cfd00ed8c44976",
+      "cleanup": "Verified experiment-owned duplicate copy removed after checked control; accepted original and minimal mutation evidence retained."
+    },
+    {
+      "case": "duplicate_json_key",
+      "optimization": 1,
+      "original_RESULT_sha256": "b5a1583f75ccf1004f182b64d7c59d28f6e153236cd377e3332e6e57eb63055e",
+      "mutated_RESULT_sha256": "7ae411482f12574a3b58ee65dc32453dea6b167ef1e80fe8d42411da20704b4a",
+      "expected_error": "duplicate JSON key",
+      "status": "PASS_EXPECTED_REJECT",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/box/zero/reproduce_zero.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/box-zero-cold40-controls-v1/1-duplicate_json_key/copy"
+      ],
+      "returncode": 1,
+      "seconds": 0.040187768638134,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "07d669b6b97aa148484e30d29576eaab04feb9d878d29ebb83c2e6907b454338",
+      "cleanup": "Verified experiment-owned duplicate copy removed after checked control; accepted original and minimal mutation evidence retained."
+    },
+    {
+      "case": "valid",
+      "optimization": 2,
+      "original_RESULT_sha256": "b5a1583f75ccf1004f182b64d7c59d28f6e153236cd377e3332e6e57eb63055e",
+      "status": "PASS_EXPECTED_ACCEPT",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/box/zero/reproduce_zero.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/box-zero-cold40-v1"
+      ],
+      "returncode": 0,
+      "seconds": 49.23114529252052,
+      "stdout_sha256": "469cccc4be946f3eb33921f0b3325068f36efbe774a3cb83b393b813718d45ab",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "case": "source_mutation",
+      "optimization": 2,
+      "original_RESULT_sha256": "b5a1583f75ccf1004f182b64d7c59d28f6e153236cd377e3332e6e57eb63055e",
+      "mutated_source_sha256": "ae5c871fe0d7d0fbc7f7738b9ec7a33a6da02c166b365721713bb726ca9a0244",
+      "expected_error": "source/object association",
+      "status": "PASS_EXPECTED_REJECT",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/box/zero/reproduce_zero.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/box-zero-cold40-controls-v1/2-source_mutation/copy"
+      ],
+      "returncode": 1,
+      "seconds": 48.480457454919815,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e5e23304d7263fa01be45bb6b81c0275c8a59f0baece54d3b187b7c57b6a6224",
+      "cleanup": "Verified experiment-owned duplicate copy removed after checked control; accepted original and minimal mutation evidence retained."
+    },
+    {
+      "case": "object_mutation",
+      "optimization": 2,
+      "original_RESULT_sha256": "b5a1583f75ccf1004f182b64d7c59d28f6e153236cd377e3332e6e57eb63055e",
+      "mutated_object_sha256": "907d987f6242e0fce0a6ec1fc6a47219f63a6c4471c394849d448cbd400b671f",
+      "expected_error": "source/object association",
+      "status": "PASS_EXPECTED_REJECT",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/box/zero/reproduce_zero.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/box-zero-cold40-controls-v1/2-object_mutation/copy"
+      ],
+      "returncode": 1,
+      "seconds": 48.96377461403608,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e5e23304d7263fa01be45bb6b81c0275c8a59f0baece54d3b187b7c57b6a6224",
+      "cleanup": "Verified experiment-owned duplicate copy removed after checked control; accepted original and minimal mutation evidence retained."
+    },
+    {
+      "case": "foreign_dependency",
+      "optimization": 2,
+      "original_RESULT_sha256": "b5a1583f75ccf1004f182b64d7c59d28f6e153236cd377e3332e6e57eb63055e",
+      "mutated_probe_sha256": "12560e53215f3b61a8d6555b4d0347858192bdb3b8f7b8e5409a6018d00bcd34",
+      "expected_error": "foreign or drifted application object",
+      "status": "PASS_EXPECTED_REJECT",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/box/zero/reproduce_zero.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/box-zero-cold40-controls-v1/2-foreign_dependency/copy"
+      ],
+      "returncode": 1,
+      "seconds": 49.73403256572783,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "4fa4e4f7b8705ed03e9550867fe932e3809d0e8ed48f2e33220d96fd62bca3ec",
+      "cleanup": "Verified experiment-owned duplicate copy removed after checked control; accepted original and minimal mutation evidence retained."
+    },
+    {
+      "case": "nonstandard_axiom",
+      "optimization": 2,
+      "original_RESULT_sha256": "b5a1583f75ccf1004f182b64d7c59d28f6e153236cd377e3332e6e57eb63055e",
+      "mutated_audit_sha256": "103e8808d4a85426eba2181380800d1a943fe9e94b3c833d70b42d998460dfbe",
+      "expected_error": "nonstandard proof axiom or foreign theorem",
+      "status": "PASS_EXPECTED_REJECT",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/box/zero/reproduce_zero.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/box-zero-cold40-controls-v1/2-nonstandard_axiom/copy"
+      ],
+      "returncode": 1,
+      "seconds": 49.12067714706063,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "03311a32feafdefb83589abf028a7f0c47c96de6b8b7de9ae7cfd00ed8c44976",
+      "cleanup": "Verified experiment-owned duplicate copy removed after checked control; accepted original and minimal mutation evidence retained."
+    },
+    {
+      "case": "duplicate_json_key",
+      "optimization": 2,
+      "original_RESULT_sha256": "b5a1583f75ccf1004f182b64d7c59d28f6e153236cd377e3332e6e57eb63055e",
+      "mutated_RESULT_sha256": "7ae411482f12574a3b58ee65dc32453dea6b167ef1e80fe8d42411da20704b4a",
+      "expected_error": "duplicate JSON key",
+      "status": "PASS_EXPECTED_REJECT",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/box/zero/reproduce_zero.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/box-zero-cold40-controls-v1/2-duplicate_json_key/copy"
+      ],
+      "returncode": 1,
+      "seconds": 0.041381947696208954,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "07d669b6b97aa148484e30d29576eaab04feb9d878d29ebb83c2e6907b454338",
+      "cleanup": "Verified experiment-owned duplicate copy removed after checked control; accepted original and minimal mutation evidence retained."
+    },
+    {
+      "case": "relocated_valid",
+      "optimization": 0,
+      "original_RESULT_sha256": "b5a1583f75ccf1004f182b64d7c59d28f6e153236cd377e3332e6e57eb63055e",
+      "status": "PASS_EXPECTED_ACCEPT",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-rh-octic-20261123/network/Solutions/RHOcticPush.v1/box/zero/reproduce_zero.py",
+        "--verify",
+        "/data/ivy-rh-octic-20261123/box-zero-cold40-controls-v1/0-relocated_valid/copy"
+      ],
+      "returncode": 0,
+      "seconds": 46.26999012567103,
+      "stdout_sha256": "ed44a17b2a5f14917cfbd6d8333e141760306e32bd88da377a00c2f285f7c913",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "cleanup": "Verified experiment-owned duplicate copy removed after checked control; accepted original and minimal mutation evidence retained."
+    }
+  ],
+  "optimization_modes": [
+    0,
+    1,
+    2
+  ],
+  "acceptance_assert_or_debug_used": false,
+  "cleanup": "Only fresh per-control duplicate copies were deleted after explicit scope checks."
+}

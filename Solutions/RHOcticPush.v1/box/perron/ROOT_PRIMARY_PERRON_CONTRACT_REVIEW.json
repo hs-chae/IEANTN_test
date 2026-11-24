@@ -1,0 +1,60 @@
+{
+  "status": "PASS_INDEPENDENT_SPECIFIC_PRIMARY_CONTRACT_REVIEW",
+  "reviewer": "Root",
+  "checked_utc": "2026-11-23T23:18:44.891499+00:00",
+  "scope": "Only actual general SourceIntegratedPsi contract, not wholepublication/provenancecensus",
+  "lean": {
+    "file": "Solutions/RHOcticPush.v1/box/perron/BoxIntegratedDefs.lean",
+    "declaration": "RHOcticPush.BoxPerron.SourceIntegratedPsi",
+    "line": 28,
+    "source_sha256": "ec0cf4b03ad7bc5864557643103ad7dac164e38c5a5b6ecd1160fc0bf80233bc",
+    "blueprint": "No standalone newBlueprint label; exactcorrespondence originalRHSmoothingInputs.v1.box_explicit_formula andBoxMellinInputs.v1 modules; sourcepremiseitself is generalintegratedPerron, notthatdesiredBoxformula"
+  },
+  "named_primary": {
+    "source": "Hildebrand Math531 notes, version2013.01.07",
+    "locators": [
+      "Th5.18/(5.32),printed/PDF166",
+      "psi1definition andPerronintegral,(5.21),printed156",
+      "absolutezeroconvergence(5.34),printed/PDF167"
+    ],
+    "actual_statement": "psi1(x)=x²/2−Σrho x^(rho+1)/(rho(rho+1))−x ζprime(0)/ζ(0)+ζprime(−1)/ζ(−1)−Σn≥1 x^(1−2n)/(2n(2n−1)),x≥1; Σrho1/|rho|² converges",
+    "precise_absence": "Hildebrand does notexplicitlyspelloutzero multiplicities inTh5.18 oraseparatezero-countsentencefoundinthisPDF. Thisisastandardnotationinterpretation, checkedindependentlyagainstthefollowingprimarysource."
+  },
+  "independent_corroboration": {
+    "url": "https://arxiv.org/pdf/1312.4465v4",
+    "source": "Grenie–Molteni, Explicit smoothed prime ideals theorems under GRH",
+    "locators": [
+      "Eq1.3a,p2 (beforeGRHhorizontal-localizationparagraph)",
+      "definitionZcountedwithmultiplicities,p2",
+      "Lemma3.3,p9",
+      "proof viaCauchyresidues,Section4,p10"
+    ],
+    "visually_checked_pages": [
+      2,
+      9
+    ],
+    "actual_specialization": "ForK=Q,r1=1,r2=0,dK=0, R^(1)_1,0=−f1^(1)=−Σn≥1x^(1−2n)/(2n(2n−1)); p2 defineszerofamilycountedwithmultiplicities, andp10describesCauchyresidues. Identity1.3aisunconditional; latererrorinequalitiesuseGRH."
+  },
+  "contract_comparison": [
+    "Lean usesx>1,avalidsubdomainofsourcex≥1.",
+    "Actualpsi1integralstarts1; source0..x agreesbecauseactualpsi=0below1, addressedinpopulationadapter.",
+    "Lean exp((rho+1)logx)usespositiverealx andactualordmultiplicity. FormalzeroPrimitive_derivativeandpacketidentitynowprovedwithoutRH.",
+    "Lean retainsΣactualzeroPrimitivesummability; sourcesabsoluteΣ1/|rho|² pluscriticalstrip ensureit, andsourcegeneralidentityisspecificallynoncircular.",
+    "Linearcoefficientζprime(0)/ζ(0)=log(2π)isindependentlyprovedexistingMathlib/pipelineinput.",
+    "AdditiveconstantisexistentialC; sourceexplicitζprime(−1)/ζ(−1)witnessesit, andactualtransportcancelsANYconstant. No unverifiednumericalvalueintroduced.",
+    "TrivialseriesnLeanstarts0andusesn+1, sameaswrittenn≥1; denominator/signmatchesprimary."
+  ],
+  "remaining_trust": "B-tierexplicitgeneralliteraturepremise, notformalderivationofthepublishedPerrontheoremfromMathlib; exactfullBoxadapterstillinflight",
+  "paper_identities": [
+    {
+      "file": "Solutions/RHOcticPush.v1/box/perron/sources/Hildebrand_ANT_20130107.pdf",
+      "sha256": "e882452e746c2c6daa2ae53209d5c3488dc692caad6ea586ad439f85e8e8279a",
+      "bytes": 838690
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/box/perron/sources/GM_1312.4465v4.pdf",
+      "sha256": "35e0484a992c47b819a1cd845f9ae14cd4ed03ce5d735b32f7a98002755b0537",
+      "bytes": 322942
+    }
+  ]
+}

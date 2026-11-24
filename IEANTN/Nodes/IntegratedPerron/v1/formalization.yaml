@@ -1,0 +1,65 @@
+version: v0.4
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+repository:
+  role: substantive-development
+node:
+  id: IntegratedPerron.v1
+  family: IntegratedPerron
+  version: v1
+  kind: paper
+  status: active
+project:
+  name: IntegratedPerron.v1
+  description: Genuine general unconditional integrated explicit formula, preserving actual zero multiplicities,
+    full convergence and source constants; explicit literature input.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+conclusions:
+- id: formula
+  declaration: IntegratedPerron.v1.formula
+  challenge: IntegratedPerron.v1.challenge_formula
+  imports: []
+  imports_status: none
+  justifications:
+  - id: hildebrand-gm-primary
+    kind: literature
+    source: Hildebrand2013
+    locator: Theorem5.18/(5.32) printed166; psi1 definition printed156; absolute convergence(5.34) printed167;
+      GM(2015)Eq(1.3a--b) printed2 and Lemma3.3 printed9 corroborate multiplicity and trivial-series conventions.
+    note: General unconditional integrated explicit formula, not a Box conclusion. Hildebrand does not
+      explicitly spell out the multiplicity convention; GM does. Exact additive constant is conservatively
+      existential and cancels under proved transport.
+  designated: hildebrand-gm-primary
+sources:
+- id: Hildebrand2013
+  title: Introduction to Analytic Number Theory, Math531 Fall2005, version2013.01.07
+  authors:
+  - A.J.Hildebrand
+  type: lecture-notes
+  url: https://eclass.uoa.gr/modules/document/file.php/MATH717/04.%20%CE%92%CE%BF%CE%B7%CE%B8%CE%AE%CE%BC%CE%B1%CF%84%CE%B1/Analytic-number-theory-Hildebrand.pdf
+  relationship: explicitly-cited
+  note: Primary PDF SHA256 e882452e746c2c6daa2ae53209d5c3488dc692caad6ea586ad439f85e8e8279a.
+- id: GM2015
+  title: Explicit versions of the prime ideal theorem for Dedekind zeta functions under GRH
+  authors:
+  - Loic Grenie
+  - Giuseppe Molteni
+  type: preprint
+  url: https://arxiv.org/pdf/1312.4465v4
+  relationship: background
+  note: The general integrated formula Eq1.3a precedes the GRH localization; the Q specialization has
+    nK=1,r1=1,r2=0,dK=1. The explicit multiplicity convention afterEq1.3b corroborates the weighted zero
+    family.
+limitations:
+- General published Perron formula and absolute convergence remain literature-backed, not Lean-proved.
+  Its source-free Box adapter is proved separately.
+- The x>1 restriction is a conservative subdomain of the published x>=1 formula. The source primitive
+  uses integral0..x; a proved psi-vanishing lemma transfers to integral1..x.

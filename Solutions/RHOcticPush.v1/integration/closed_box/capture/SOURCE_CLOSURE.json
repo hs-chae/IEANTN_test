@@ -1,0 +1,648 @@
+{
+  "schema": "RH_CLOSED_BOX33_SOURCE_CLOSURE_V1",
+  "foundation_modules": 660,
+  "new_modules": 33,
+  "owned_modules": [
+    "BoxIntegratedDefs",
+    "BoxIntegratedSource",
+    "BoxZeroUniform",
+    "BoxUniformIntegration",
+    "BoxZeroTransport",
+    "BoxTrivialSeries",
+    "BoxTrivialTransport",
+    "BoxWindowTransport",
+    "BoxPacketTransport",
+    "BoxTransportLinear",
+    "BoxWindowIdentities",
+    "BoxExplicitFormula",
+    "BoxZeroPrimitiveDerivative",
+    "BoxZeroPacketIdentity",
+    "BoxIntegratedPopulation",
+    "BoxMomentNode",
+    "BoxMomentEvolution",
+    "BoxFullNetwork",
+    "ExactBoxFullTypes"
+  ],
+  "modules": [
+    {
+      "module": "BoxIntegratedDefs",
+      "original_path": "Solutions/RHOcticPush.v1/box/perron/BoxIntegratedDefs.lean",
+      "sha256": "ec0cf4b03ad7bc5864557643103ad7dac164e38c5a5b6ecd1160fc0bf80233bc",
+      "application_imports": [
+        "IEANTN.Vocabulary.RHSmoothing"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.SpecialFunctions.Complex.LogDeriv",
+        "Mathlib.Analysis.Calculus.ParametricIntervalIntegral",
+        "Mathlib.Analysis.SpecialFunctions.Integrals.Basic"
+      ],
+      "path": "Solutions/RHOcticPush.v1/integration/closed_box/capture/frozen-source/BoxIntegratedDefs.lean"
+    },
+    {
+      "module": "BoxIntegratedSource",
+      "original_path": "Solutions/RHOcticPush.v1/box/perron/BoxIntegratedSource.lean",
+      "sha256": "61080c79db689ef81bb12226977e11491959a688b69ddf81e287fe008f0542ed",
+      "application_imports": [
+        "BoxIntegratedDefs",
+        "BoxCDFConstruction"
+      ],
+      "generic_imports": [],
+      "path": "Solutions/RHOcticPush.v1/integration/closed_box/capture/frozen-source/BoxIntegratedSource.lean"
+    },
+    {
+      "module": "BoxZeroUniform",
+      "original_path": "Solutions/RHOcticPush.v1/box/perron/BoxZeroUniform.lean",
+      "sha256": "3505d9f46de7d6371407a58062d652165dd5e950cda742f757b71d7c737d1606",
+      "application_imports": [
+        "BoxIntegratedDefs"
+      ],
+      "generic_imports": [
+        "Mathlib.MeasureTheory.Integral.DominatedConvergence"
+      ],
+      "path": "Solutions/RHOcticPush.v1/integration/closed_box/capture/frozen-source/BoxZeroUniform.lean"
+    },
+    {
+      "module": "BoxUniformIntegration",
+      "original_path": "Solutions/RHOcticPush.v1/box/perron/BoxUniformIntegration.lean",
+      "sha256": "213d5ea055125239ad05f237ca1a3854a42789c64d1327f555e77e63853e51e1",
+      "application_imports": [
+        "BoxZeroUniform"
+      ],
+      "generic_imports": [],
+      "path": "Solutions/RHOcticPush.v1/integration/closed_box/capture/frozen-source/BoxUniformIntegration.lean"
+    },
+    {
+      "module": "BoxZeroTransport",
+      "original_path": "Solutions/RHOcticPush.v1/box/perron/BoxZeroTransport.lean",
+      "sha256": "8601d241c0f1c813a6c85408267dddebef66f6b8cf7a17bdccc68b091a619ba0",
+      "application_imports": [
+        "BoxUniformIntegration"
+      ],
+      "generic_imports": [],
+      "path": "Solutions/RHOcticPush.v1/integration/closed_box/capture/frozen-source/BoxZeroTransport.lean"
+    },
+    {
+      "module": "BoxTrivialSeries",
+      "original_path": "Solutions/RHOcticPush.v1/box/perron/BoxTrivialSeries.lean",
+      "sha256": "6b19400331acff2fb4047eaf957bc8b0ab23a0aafa414b7852352ab17a19387a",
+      "application_imports": [
+        "BoxIntegratedDefs"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.Calculus.SmoothSeries",
+        "Mathlib.Analysis.SpecialFunctions.Complex.LogBounds",
+        "Mathlib.Analysis.SpecialFunctions.Pow.Deriv"
+      ],
+      "path": "Solutions/RHOcticPush.v1/integration/closed_box/capture/frozen-source/BoxTrivialSeries.lean"
+    },
+    {
+      "module": "BoxIntegratedPopulation",
+      "original_path": "Solutions/RHOcticPush.v1/box/perron/BoxIntegratedPopulation.lean",
+      "sha256": "47d2f0c907e91cfed87ee17161cae33e87deec6a31640341d91c2b1003e8228e",
+      "application_imports": [
+        "BoxIntegratedDefs"
+      ],
+      "generic_imports": [
+        "Mathlib.Topology.Algebra.Order.Floor",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.IntegrationByParts",
+        "Mathlib.Analysis.Complex.RealDeriv"
+      ],
+      "path": "Solutions/RHOcticPush.v1/integration/closed_box/capture/frozen-source/BoxIntegratedPopulation.lean"
+    },
+    {
+      "module": "BoxTrivialTransport",
+      "original_path": "Solutions/RHOcticPush.v1/box/perron/BoxTrivialTransport.lean",
+      "sha256": "fc7ccf3de012a345d94a0e52ba42df15f196445de824fc7b64eb278ed05a9974",
+      "application_imports": [
+        "BoxTrivialSeries",
+        "BoxIntegratedPopulation"
+      ],
+      "generic_imports": [],
+      "path": "Solutions/RHOcticPush.v1/integration/closed_box/capture/frozen-source/BoxTrivialTransport.lean"
+    },
+    {
+      "module": "BoxWindowTransport",
+      "original_path": "Solutions/RHOcticPush.v1/box/perron/BoxWindowTransport.lean",
+      "sha256": "c338c0a98d3b56e107283be2398a4819442d4359b85cc1c2a93465ceba9a118a",
+      "application_imports": [
+        "BoxIntegratedPopulation"
+      ],
+      "generic_imports": [],
+      "path": "Solutions/RHOcticPush.v1/integration/closed_box/capture/frozen-source/BoxWindowTransport.lean"
+    },
+    {
+      "module": "BoxZeroPrimitiveDerivative",
+      "original_path": "Solutions/RHOcticPush.v1/box/perron/BoxZeroPrimitiveDerivative.lean",
+      "sha256": "c40ddaa867282a102496d0bea6fdee4e7f708b7725ad5e9ce66798605ac77009",
+      "application_imports": [
+        "BoxZeroUniform"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.Complex.RealDeriv"
+      ],
+      "path": "Solutions/RHOcticPush.v1/integration/closed_box/capture/frozen-source/BoxZeroPrimitiveDerivative.lean"
+    },
+    {
+      "module": "BoxZeroPacketIdentity",
+      "original_path": "Solutions/RHOcticPush.v1/box/perron/BoxZeroPacketIdentity.lean",
+      "sha256": "3de245fecc2ec48bbdbfdf651d57a37768f2bcbcd24fadd8358d6ec52dad68cf",
+      "application_imports": [
+        "BoxZeroPrimitiveDerivative"
+      ],
+      "generic_imports": [],
+      "path": "Solutions/RHOcticPush.v1/integration/closed_box/capture/frozen-source/BoxZeroPacketIdentity.lean"
+    },
+    {
+      "module": "BoxPacketTransport",
+      "original_path": "Solutions/RHOcticPush.v1/box/perron/BoxPacketTransport.lean",
+      "sha256": "c2d986df9c0c10ba71504ded3a93a8b3b9d29672517d196c3f61b474bb076f58",
+      "application_imports": [
+        "BoxWindowTransport",
+        "BoxZeroPacketIdentity",
+        "BoxZeroTransport"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.Real.Pi.Bounds"
+      ],
+      "path": "Solutions/RHOcticPush.v1/integration/closed_box/capture/frozen-source/BoxPacketTransport.lean"
+    },
+    {
+      "module": "BoxTransportLinear",
+      "original_path": "Solutions/RHOcticPush.v1/box/perron/BoxTransportLinear.lean",
+      "sha256": "c2d972abd3443422ffb6966c83d2aac466e36e1d34296b8223d4e02906543d91",
+      "application_imports": [
+        "BoxPacketTransport",
+        "BoxTrivialTransport"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.Normed.Group.FunctionSeries"
+      ],
+      "path": "Solutions/RHOcticPush.v1/integration/closed_box/capture/frozen-source/BoxTransportLinear.lean"
+    },
+    {
+      "module": "BoxWindowIdentities",
+      "original_path": "Solutions/RHOcticPush.v1/box/perron/BoxWindowIdentities.lean",
+      "sha256": "cda91390dafbc42051d839e54e59c52d55130f36a7a80fa5db8a844df141b2ec",
+      "application_imports": [
+        "BoxTransportLinear"
+      ],
+      "generic_imports": [],
+      "path": "Solutions/RHOcticPush.v1/integration/closed_box/capture/frozen-source/BoxWindowIdentities.lean"
+    },
+    {
+      "module": "BoxExplicitFormula",
+      "original_path": "Solutions/RHOcticPush.v1/box/perron/BoxExplicitFormula.lean",
+      "sha256": "f566b4f162249864009f982884319f47296fc8da50a7b08e57c671941e58d651",
+      "application_imports": [
+        "BoxWindowIdentities",
+        "BoxIntegratedSource",
+        "IEANTN.Nodes.RHSmoothingInputs.v1.Conclusions"
+      ],
+      "generic_imports": [],
+      "path": "Solutions/RHOcticPush.v1/integration/closed_box/capture/frozen-source/BoxExplicitFormula.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.BoxMellinInputs.v2.Conclusions",
+      "original_path": "IEANTN/Nodes/BoxMellinInputs/v2/Conclusions.lean",
+      "sha256": "616a991ff2410d8c970007834466d6cf33ba3fd1a20b02bfbb4225a87750d765",
+      "application_imports": [
+        "IEANTN.Nodes.BoxMellinInputs.v1.Conclusions"
+      ],
+      "generic_imports": [],
+      "path": "Solutions/RHOcticPush.v1/integration/closed_box/capture/frozen-source/IEANTN/Nodes/BoxMellinInputs/v2/Conclusions.lean"
+    },
+    {
+      "module": "BoxMomentNode",
+      "original_path": "Solutions/RHOcticPush.v1/integration/additive/BoxMomentNode.lean",
+      "sha256": "b58faa957b74d9bcf6b755ec3c2dfb6e53fa8c93dd6c9916b33956d074e48439",
+      "application_imports": [
+        "BoxFirstMoment",
+        "BoxSecondMoment",
+        "StieltjesTrapezoid",
+        "IEANTN.Nodes.BoxMellinInputs.v2.Conclusions"
+      ],
+      "generic_imports": [],
+      "path": "Solutions/RHOcticPush.v1/integration/closed_box/capture/frozen-source/BoxMomentNode.lean"
+    },
+    {
+      "module": "PublicBoxMellinInputsV2",
+      "original_path": "Solutions/BoxMellinInputs.v2/Solution.lean",
+      "sha256": "c772f4067ea1eb6be9b9a6888ab408257f113a273e5abca7bae0a2d7948096f2",
+      "application_imports": [
+        "BoxMomentNode"
+      ],
+      "generic_imports": [],
+      "path": "Solutions/RHOcticPush.v1/integration/closed_box/capture/frozen-source/PublicBoxMellinInputsV2.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.IntegratedPerron.v1.Conclusions",
+      "original_path": "IEANTN/Nodes/IntegratedPerron/v1/Conclusions.lean",
+      "sha256": "8066d6e2d9f49509b09ef75a2566978a8f9929a682d2ed5f72c5db9a5950ffaf",
+      "application_imports": [
+        "IEANTN.Vocabulary.RHSmoothing"
+      ],
+      "generic_imports": [
+        "Mathlib.Analysis.SpecialFunctions.Complex.LogDeriv"
+      ],
+      "path": "Solutions/RHOcticPush.v1/integration/closed_box/capture/frozen-source/IEANTN/Nodes/IntegratedPerron/v1/Conclusions.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.RHSmoothingInputs.v2.Conclusions",
+      "original_path": "IEANTN/Nodes/RHSmoothingInputs/v2/Conclusions.lean",
+      "sha256": "e30d409ab713c92e42646f51731046103a14795df01b7143bcb8a19ec7864043",
+      "application_imports": [
+        "IEANTN.Nodes.RHSmoothingInputs.v1.Conclusions"
+      ],
+      "generic_imports": [],
+      "path": "Solutions/RHOcticPush.v1/integration/closed_box/capture/frozen-source/IEANTN/Nodes/RHSmoothingInputs/v2/Conclusions.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.RHSmoothing.v3.Conclusions",
+      "original_path": "IEANTN/Nodes/RHSmoothing/v3/Conclusions.lean",
+      "sha256": "4eef4243e45daf18844d3d33cc09b98970533609f1b1c5d70750709daf14b1dd",
+      "application_imports": [
+        "IEANTN.Nodes.RHSmoothing.v2.Conclusions"
+      ],
+      "generic_imports": [],
+      "path": "Solutions/RHOcticPush.v1/integration/closed_box/capture/frozen-source/IEANTN/Nodes/RHSmoothing/v3/Conclusions.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.Lcm.v6.Conclusions",
+      "original_path": "IEANTN/Nodes/Lcm/v6/Conclusions.lean",
+      "sha256": "24fda86741583cbcbb7021534888de4d0db2f2fbf44aa19070e5e6651fffd19a",
+      "application_imports": [
+        "IEANTN.Nodes.Lcm.v5.Conclusions"
+      ],
+      "generic_imports": [],
+      "path": "Solutions/RHOcticPush.v1/integration/closed_box/capture/frozen-source/IEANTN/Nodes/Lcm/v6/Conclusions.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.RHPrimeCounting.v4.Conclusions",
+      "original_path": "IEANTN/Nodes/RHPrimeCounting/v4/Conclusions.lean",
+      "sha256": "1cfd613895b22240d3393e9016815ad39fc7ace00b2aa3e8761dd838eb84e5f0",
+      "application_imports": [
+        "IEANTN.Nodes.RHPrimeCounting.v3.Conclusions"
+      ],
+      "generic_imports": [],
+      "path": "Solutions/RHOcticPush.v1/integration/closed_box/capture/frozen-source/IEANTN/Nodes/RHPrimeCounting/v4/Conclusions.lean"
+    },
+    {
+      "module": "IEANTN.Nodes.Primorial.v4.Conclusions",
+      "original_path": "IEANTN/Nodes/Primorial/v4/Conclusions.lean",
+      "sha256": "4e75e1be706d234063b7873c0aa1f50a66fadc9c0bf526495767879cf4c2f991",
+      "application_imports": [
+        "IEANTN.Nodes.Primorial.v3.Conclusions"
+      ],
+      "generic_imports": [],
+      "path": "Solutions/RHOcticPush.v1/integration/closed_box/capture/frozen-source/IEANTN/Nodes/Primorial/v4/Conclusions.lean"
+    },
+    {
+      "module": "BoxFullNetwork",
+      "original_path": "Solutions/RHOcticPush.v1/integration/additive/BoxFullNetwork.lean",
+      "sha256": "9ba8952e66fb885b164db6c1bfeb84e4fe214b6162d0220e15d54aa255e978b8",
+      "application_imports": [
+        "BoxExplicitFormula",
+        "BoxMomentNode",
+        "BoxZeroEstimate",
+        "NodeProviders",
+        "PrimorialEvolution",
+        "IEANTN.Nodes.IntegratedPerron.v1.Conclusions",
+        "IEANTN.Nodes.BPTOffOrdinate.v1.Conclusions",
+        "IEANTN.Nodes.RHSmoothingInputs.v2.Conclusions",
+        "IEANTN.Nodes.RHSmoothing.v3.Conclusions",
+        "IEANTN.Nodes.Lcm.v6.Conclusions",
+        "IEANTN.Nodes.RHPrimeCounting.v4.Conclusions",
+        "IEANTN.Nodes.Primorial.v4.Conclusions"
+      ],
+      "generic_imports": [],
+      "path": "Solutions/RHOcticPush.v1/integration/closed_box/capture/frozen-source/BoxFullNetwork.lean"
+    },
+    {
+      "module": "PublicRHSmoothingInputsV2",
+      "original_path": "Solutions/RHSmoothingInputs.v2/Solution.lean",
+      "sha256": "ea774a1cb6222b40ef4dc4bc65fcbc81e2937a3156ff171ad39e97980e4be2f0",
+      "application_imports": [
+        "BoxFullNetwork"
+      ],
+      "generic_imports": [],
+      "path": "Solutions/RHOcticPush.v1/integration/closed_box/capture/frozen-source/PublicRHSmoothingInputsV2.lean"
+    },
+    {
+      "module": "PublicRHSmoothingV3",
+      "original_path": "Solutions/RHSmoothing.v3/Solution.lean",
+      "sha256": "ea774a1cb6222b40ef4dc4bc65fcbc81e2937a3156ff171ad39e97980e4be2f0",
+      "application_imports": [
+        "BoxFullNetwork"
+      ],
+      "generic_imports": [],
+      "path": "Solutions/RHOcticPush.v1/integration/closed_box/capture/frozen-source/PublicRHSmoothingV3.lean"
+    },
+    {
+      "module": "PublicLcmV6",
+      "original_path": "Solutions/Lcm.v6/Solution.lean",
+      "sha256": "ea774a1cb6222b40ef4dc4bc65fcbc81e2937a3156ff171ad39e97980e4be2f0",
+      "application_imports": [
+        "BoxFullNetwork"
+      ],
+      "generic_imports": [],
+      "path": "Solutions/RHOcticPush.v1/integration/closed_box/capture/frozen-source/PublicLcmV6.lean"
+    },
+    {
+      "module": "PublicRHPrimeCountingV4",
+      "original_path": "Solutions/RHPrimeCounting.v4/Solution.lean",
+      "sha256": "ea774a1cb6222b40ef4dc4bc65fcbc81e2937a3156ff171ad39e97980e4be2f0",
+      "application_imports": [
+        "BoxFullNetwork"
+      ],
+      "generic_imports": [],
+      "path": "Solutions/RHOcticPush.v1/integration/closed_box/capture/frozen-source/PublicRHPrimeCountingV4.lean"
+    },
+    {
+      "module": "PublicPrimorialV4",
+      "original_path": "Solutions/Primorial.v4/Solution.lean",
+      "sha256": "ea774a1cb6222b40ef4dc4bc65fcbc81e2937a3156ff171ad39e97980e4be2f0",
+      "application_imports": [
+        "BoxFullNetwork"
+      ],
+      "generic_imports": [],
+      "path": "Solutions/RHOcticPush.v1/integration/closed_box/capture/frozen-source/PublicPrimorialV4.lean"
+    },
+    {
+      "module": "BoxMomentEvolution",
+      "original_path": "Solutions/RHOcticPush.v1/integration/additive/BoxMomentEvolution.lean",
+      "sha256": "1c5589bd0668999b6965e6b312b9e0f5ae9db9b61a241d852f303037bec6dc87",
+      "application_imports": [
+        "BoxMomentNode",
+        "BoxZeroEstimate",
+        "BoxImproved",
+        "IEANTN.Nodes.RHSmoothing.v2.Conclusions",
+        "IEANTN.Nodes.Lcm.v5.Conclusions"
+      ],
+      "generic_imports": [],
+      "path": "Solutions/RHOcticPush.v1/integration/closed_box/capture/frozen-source/BoxMomentEvolution.lean"
+    },
+    {
+      "module": "ExactBoxFullTypes",
+      "original_path": "Solutions/RHOcticPush.v1/integration/additive/ExactBoxFullTypes.lean",
+      "sha256": "f270717990ad9bf0ee5d9cb4888426af3231627321891cc21e1d4a95d17c6ef6",
+      "application_imports": [
+        "BoxFullNetwork"
+      ],
+      "generic_imports": [],
+      "path": "Solutions/RHOcticPush.v1/integration/closed_box/capture/frozen-source/ExactBoxFullTypes.lean"
+    },
+    {
+      "module": "FinalClosedBoxAudit",
+      "original_path": null,
+      "path": "Solutions/RHOcticPush.v1/integration/closed_box/capture/frozen-source/FinalClosedBoxAudit.lean",
+      "sha256": "eb98d048c851d831017a5848c68a2f2fe5bfcde6e59505b0181194945ad341ab",
+      "application_imports": [
+        "FinalSupplementAudit",
+        "BoxIntegratedDefs",
+        "BoxIntegratedSource",
+        "BoxZeroUniform",
+        "BoxUniformIntegration",
+        "BoxZeroTransport",
+        "BoxTrivialSeries",
+        "BoxIntegratedPopulation",
+        "BoxTrivialTransport",
+        "BoxWindowTransport",
+        "BoxZeroPrimitiveDerivative",
+        "BoxZeroPacketIdentity",
+        "BoxPacketTransport",
+        "BoxTransportLinear",
+        "BoxWindowIdentities",
+        "BoxExplicitFormula",
+        "IEANTN.Nodes.BoxMellinInputs.v2.Conclusions",
+        "BoxMomentNode",
+        "PublicBoxMellinInputsV2",
+        "IEANTN.Nodes.IntegratedPerron.v1.Conclusions",
+        "IEANTN.Nodes.RHSmoothingInputs.v2.Conclusions",
+        "IEANTN.Nodes.RHSmoothing.v3.Conclusions",
+        "IEANTN.Nodes.Lcm.v6.Conclusions",
+        "IEANTN.Nodes.RHPrimeCounting.v4.Conclusions",
+        "IEANTN.Nodes.Primorial.v4.Conclusions",
+        "BoxFullNetwork",
+        "PublicRHSmoothingInputsV2",
+        "PublicRHSmoothingV3",
+        "PublicLcmV6",
+        "PublicRHPrimeCountingV4",
+        "PublicPrimorialV4",
+        "BoxMomentEvolution",
+        "ExactBoxFullTypes"
+      ],
+      "generic_imports": [
+        "Lean"
+      ]
+    }
+  ],
+  "roots": [
+    "BoxIntegratedDefs",
+    "BoxIntegratedSource",
+    "BoxZeroUniform",
+    "BoxUniformIntegration",
+    "BoxZeroTransport",
+    "BoxTrivialSeries",
+    "BoxIntegratedPopulation",
+    "BoxTrivialTransport",
+    "BoxWindowTransport",
+    "BoxZeroPrimitiveDerivative",
+    "BoxZeroPacketIdentity",
+    "BoxPacketTransport",
+    "BoxTransportLinear",
+    "BoxWindowIdentities",
+    "BoxExplicitFormula",
+    "IEANTN.Nodes.BoxMellinInputs.v2.Conclusions",
+    "BoxMomentNode",
+    "PublicBoxMellinInputsV2",
+    "IEANTN.Nodes.IntegratedPerron.v1.Conclusions",
+    "IEANTN.Nodes.RHSmoothingInputs.v2.Conclusions",
+    "IEANTN.Nodes.RHSmoothing.v3.Conclusions",
+    "IEANTN.Nodes.Lcm.v6.Conclusions",
+    "IEANTN.Nodes.RHPrimeCounting.v4.Conclusions",
+    "IEANTN.Nodes.Primorial.v4.Conclusions",
+    "BoxFullNetwork",
+    "PublicRHSmoothingInputsV2",
+    "PublicRHSmoothingV3",
+    "PublicLcmV6",
+    "PublicRHPrimeCountingV4",
+    "PublicPrimorialV4",
+    "BoxMomentEvolution",
+    "ExactBoxFullTypes",
+    "FinalClosedBoxAudit"
+  ],
+  "final_roots": [
+    "BoxMellinInputs.v2.challenge_first_moment",
+    "BoxMellinInputs.v2.challenge_second_moment_identity",
+    "BoxMellinInputs.v2.challenge_stieltjes_trapezoid",
+    "Goldbach.v2.challenge_octic_fixed_sorted_count",
+    "Goldbach.v2.challenge_octic_sorted_count",
+    "Goldbach.v2.challenge_octic_sorted_family",
+    "Lcm.v5.challenge_box_growth",
+    "Lcm.v5.challenge_recovered_growth",
+    "Lcm.v6.challenge_box_growth",
+    "Nicolas.v2.challenge_four_gain",
+    "Nicolas.v2.challenge_product_block",
+    "Nicolas.v2.challenge_product_four",
+    "Nicolas.v2.challenge_spectral_four",
+    "PrimeInterval.v3.challenge_count_215",
+    "PrimeInterval.v3.challenge_count_family",
+    "PrimeInterval.v4.challenge_count_215",
+    "PrimeInterval.v4.challenge_count_family",
+    "PrimeInterval.v4.challenge_optimized_count_215",
+    "PrimeInterval.v4.challenge_optimized_count_family",
+    "PrimeInterval.v4.challenge_optimized_strict_215",
+    "PrimeInterval.v4.challenge_optimized_strict_family",
+    "PrimeInterval.v4.challenge_strict_214891875",
+    "PrimeInterval.v4.challenge_strict_2149_uniform",
+    "PrimeKernelInputs.v3.challenge_octic_215_explicit_formula",
+    "PrimeKernelInputs.v3.challenge_octic_family_explicit_formula",
+    "PrimeKernelInputs.v4.challenge_octic_215_zero_estimate",
+    "PrimeKernelInputs.v4.challenge_octic_family_zero_estimate",
+    "PrimeKernelInputs.v4.challenge_optimized_215_zero_estimate",
+    "PrimeKernelInputs.v4.challenge_optimized_family_zero_estimate",
+    "PrimeQuantile.v2.challenge_octic_block",
+    "PrimeQuantile.v2.challenge_successive_cubes",
+    "PrimeQuantile.v3.challenge_octic_block",
+    "PrimeQuantile.v3.challenge_optimized_octic_block",
+    "PrimeQuantile.v3.challenge_successive_cubes",
+    "Primorial.v3.challenge_box_growth",
+    "Primorial.v4.challenge_box_growth",
+    "RHPrimeCounting.v3.challenge_box_Li",
+    "RHPrimeCounting.v3.challenge_box_interval",
+    "RHPrimeCounting.v3.challenge_ch_Li",
+    "RHPrimeCounting.v3.challenge_paired_transfer",
+    "RHPrimeCounting.v3.challenge_refined_transfer",
+    "RHPrimeCounting.v3.challenge_transfer_gain",
+    "RHPrimeCounting.v4.challenge_box_Li",
+    "RHPrimeCounting.v4.challenge_box_interval",
+    "RHSmoothing.v2.challenge_box_gain",
+    "RHSmoothing.v2.challenge_box_psi",
+    "RHSmoothing.v3.challenge_box_gain",
+    "RHSmoothing.v3.challenge_box_psi",
+    "RHSmoothingInputs.v2.challenge_box_explicit_formula",
+    "RHSmoothingInputs.v2.challenge_box_zero_estimate",
+    "RamanujanGap.v5.challenge_full_profile",
+    "RamanujanGap.v5.challenge_margin_607b",
+    "RamanujanGap.v5.challenge_profile_gain",
+    "RamanujanGap.v5.challenge_ramanujan",
+    "RamanujanGap.v5.challenge_retains_original_margin"
+  ],
+  "body_roots": [
+    "BoxMellinInputs.v2.challenge_first_moment",
+    "BoxMellinInputs.v2.challenge_second_moment_identity",
+    "BoxMellinInputs.v2.challenge_stieltjes_trapezoid",
+    "Goldbach.v2.challenge_octic_fixed_sorted_count",
+    "Goldbach.v2.challenge_octic_sorted_count",
+    "Goldbach.v2.challenge_octic_sorted_family",
+    "Lcm.v5.challenge_box_growth",
+    "Lcm.v5.challenge_recovered_growth",
+    "Lcm.v6.challenge_box_growth",
+    "Nicolas.v2.challenge_four_gain",
+    "Nicolas.v2.challenge_product_block",
+    "Nicolas.v2.challenge_product_four",
+    "Nicolas.v2.challenge_spectral_four",
+    "PrimeInterval.v3.challenge_count_215",
+    "PrimeInterval.v3.challenge_count_family",
+    "PrimeInterval.v4.challenge_count_215",
+    "PrimeInterval.v4.challenge_count_family",
+    "PrimeInterval.v4.challenge_optimized_count_215",
+    "PrimeInterval.v4.challenge_optimized_count_family",
+    "PrimeInterval.v4.challenge_optimized_strict_215",
+    "PrimeInterval.v4.challenge_optimized_strict_family",
+    "PrimeInterval.v4.challenge_strict_214891875",
+    "PrimeInterval.v4.challenge_strict_2149_uniform",
+    "PrimeKernelInputs.v3.challenge_octic_215_explicit_formula",
+    "PrimeKernelInputs.v3.challenge_octic_family_explicit_formula",
+    "PrimeKernelInputs.v4.challenge_octic_215_zero_estimate",
+    "PrimeKernelInputs.v4.challenge_octic_family_zero_estimate",
+    "PrimeKernelInputs.v4.challenge_optimized_215_zero_estimate",
+    "PrimeKernelInputs.v4.challenge_optimized_family_zero_estimate",
+    "PrimeQuantile.v2.challenge_octic_block",
+    "PrimeQuantile.v2.challenge_successive_cubes",
+    "PrimeQuantile.v3.challenge_octic_block",
+    "PrimeQuantile.v3.challenge_optimized_octic_block",
+    "PrimeQuantile.v3.challenge_successive_cubes",
+    "Primorial.v3.challenge_box_growth",
+    "Primorial.v4.challenge_box_growth",
+    "RHPrimeCounting.v3.challenge_box_Li",
+    "RHPrimeCounting.v3.challenge_box_interval",
+    "RHPrimeCounting.v3.challenge_ch_Li",
+    "RHPrimeCounting.v3.challenge_paired_transfer",
+    "RHPrimeCounting.v3.challenge_refined_transfer",
+    "RHPrimeCounting.v3.challenge_transfer_gain",
+    "RHPrimeCounting.v4.challenge_box_Li",
+    "RHPrimeCounting.v4.challenge_box_interval",
+    "RHSmoothing.v2.challenge_box_gain",
+    "RHSmoothing.v2.challenge_box_psi",
+    "RHSmoothing.v3.challenge_box_gain",
+    "RHSmoothing.v3.challenge_box_psi",
+    "RHSmoothingInputs.v2.challenge_box_explicit_formula",
+    "RHSmoothingInputs.v2.challenge_box_zero_estimate",
+    "RamanujanGap.v5.challenge_full_profile",
+    "RamanujanGap.v5.challenge_margin_607b",
+    "RamanujanGap.v5.challenge_profile_gain",
+    "RamanujanGap.v5.challenge_ramanujan",
+    "RamanujanGap.v5.challenge_retains_original_margin",
+    "RHOcticPush.Network.fully_derived_box_network"
+  ],
+  "new_canonical_roots": [
+    "BoxMellinInputs.v2.challenge_first_moment",
+    "BoxMellinInputs.v2.challenge_second_moment_identity",
+    "BoxMellinInputs.v2.challenge_stieltjes_trapezoid",
+    "Lcm.v6.challenge_box_growth",
+    "Primorial.v4.challenge_box_growth",
+    "RHPrimeCounting.v4.challenge_box_Li",
+    "RHPrimeCounting.v4.challenge_box_interval",
+    "RHSmoothing.v3.challenge_box_gain",
+    "RHSmoothing.v3.challenge_box_psi",
+    "RHSmoothingInputs.v2.challenge_box_explicit_formula",
+    "RHSmoothingInputs.v2.challenge_box_zero_estimate"
+  ],
+  "literal_sources": [
+    "IntegratedPerron.v1.formula"
+  ],
+  "canonical_metadata": [
+    {
+      "path": "IEANTN/Nodes/BoxMellinInputs/v2/formalization.yaml",
+      "sha256": "3add5283bc26bfba2a525b50ad81d23624405d464cf049ed9845e3fc32fd727e"
+    },
+    {
+      "path": "IEANTN/Nodes/IntegratedPerron/v1/formalization.yaml",
+      "sha256": "59e25ef830437b821b6c75fcfe43a99e5016b08f79810ac188c4363c7ebe77d9"
+    },
+    {
+      "path": "IEANTN/Nodes/RHSmoothingInputs/v2/formalization.yaml",
+      "sha256": "3f23546e24e84fa9ca6b141ef99131d95acdaa603a5c6561ef2ef40b4b8d180c"
+    },
+    {
+      "path": "IEANTN/Nodes/RHSmoothing/v3/formalization.yaml",
+      "sha256": "fc3107c2e563cd62dc14a8137ea8ff177b3a58ef21315809f6329f740ff3b3e0"
+    },
+    {
+      "path": "IEANTN/Nodes/Lcm/v6/formalization.yaml",
+      "sha256": "f8358a350b615650b41b100d12b31af26778574d03d6b976c8761ad5ef075025"
+    },
+    {
+      "path": "IEANTN/Nodes/RHPrimeCounting/v4/formalization.yaml",
+      "sha256": "cc0ed89101fa056432e5034583e1f0e5d0c0670065973dd877b7f0cd2e34239d"
+    },
+    {
+      "path": "IEANTN/Nodes/Primorial/v4/formalization.yaml",
+      "sha256": "b5b79f31a10005c5135ee19fe894142657da7446a07b71fcd18bce58866f4f40"
+    }
+  ],
+  "freezes": [
+    {
+      "path": "Solutions/RHOcticPush.v1/box/perron/SOURCE_FREEZE.json",
+      "sha256": "6f8c6957cc80c151314ad02c536e7b4855b2213df976d923c0372f02bfd55f9c"
+    }
+  ],
+  "selector_sha256": "7c5e3f627692a94e6eccadcdf51173a84750524c3782a1d237550a779209ed2e",
+  "all_source_count": 693,
+  "exact_type_inventory": {
+    "path": "Solutions/RHOcticPush.v1/integration/additive/EXACT_FULL_TYPES.json",
+    "sha256": "2321b171d18ce715985a914afae992812b964f739b68515778e5429f8fa9932d"
+  },
+  "source_claim": "General published Perron remains an explicit B-tier source; both noarg moments and actualzero source adapter supplied. No old Box predicate assumed by final assembledconsumer. No source-firstPV claim."
+}

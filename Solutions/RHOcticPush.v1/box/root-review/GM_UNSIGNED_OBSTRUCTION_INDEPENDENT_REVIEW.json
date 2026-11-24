@@ -1,0 +1,52 @@
+{
+  "status": "PASS_INDEPENDENT_MATHEMATICAL_REDERIVATION",
+  "actual_Lean": {
+    "file": "Solutions/RHOcticPush.v1/spectral/GMUnsignedObstruction.lean",
+    "sha256": "0985e31f2070dc261fe8e73d54f9a761380f304f6e45bdf456e05ea78dc19f17",
+    "declarations": [
+      {
+        "name": "envelope_nonneg",
+        "line": 7
+      },
+      {
+        "name": "kernel_nonneg",
+        "line": 10
+      },
+      {
+        "name": "unsigned_integrand_lower",
+        "line": 14
+      },
+      {
+        "name": "reciprocal_sqrt_integral",
+        "line": 40
+      },
+      {
+        "name": "unsigned_boundary_lower",
+        "line": 60
+      },
+      {
+        "name": "unsigned_transport_lower",
+        "line": 77
+      },
+      {
+        "name": "unsigned_exceeds_076",
+        "line": 132
+      }
+    ]
+  },
+  "Blueprint": "No standalone Blueprint label for this new internal method-limitation proof; correspondence is the imported old SpectralGMRefined.gmTransport/GM_Q_Theorem1_1 source contract and the current spectral module.",
+  "primary_source": {
+    "url": "https://arxiv.org/pdf/1312.4465v4",
+    "locator": "Theorem1.1 Q estimate, printedp3",
+    "claim": "The adopted four-term positive envelope has leading term0.0462*x^(3/2). The source does not assert the new positive-majorant lower bound; that bound is proved internally."
+  },
+  "independent_derivation": [
+    "For t>1 and t<=x, G(t)>=0.0462*t*sqrt(t) and K(t)>=1/(t^2*log(t)^2)>=1/(t^2*log(x)^2), so G(t)K(t)>=0.0462/(sqrt(t)*log(x)^2). Every multiplier is nonnegative.",
+    "Since3<=a and4a<=x, the interval[x/4,x] lies inside[a,x] and is bounded away from0/1. Nonnegative integral monotonicity is legal; the short integral of1/sqrt(t) equals sqrt(x), because2sqrt(x)\u22122sqrt(x/4)=sqrt(x).",
+    "The upper endpoint term G(x)w(x) contributes at least another0.0462*sqrt(x)/log(x)^2; the lower anchor is nonnegative and may be dropped. Total positive budget is therefore at least0.0924*sqrt(x)/log(x)^2.",
+    "On this domain sqrt(x)/log(x)^2 is strictly positive and0.0924>0.076, so the adopted unsigned budget is strictly larger than the0.076 allowance."
+  ],
+  "interpretation": "This is a rigorous obstruction for the UNMODIFIED positive unsigned gmTransport majorant. It is not a lower bound for the true signed/absolute arithmetic error, not impossibility of an oscillatory0.076 theorem, and not optimality. Cancellation, shared-prefix pairing or a different source method can avoid the obstruction.",
+  "new_analytic_assumptions": [],
+  "proof_receipt": "Parent supplied pinned CLI v4 standard-three-axiom acceptance; final supplemental source replay still required."
+}

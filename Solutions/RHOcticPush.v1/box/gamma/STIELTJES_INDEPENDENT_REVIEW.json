@@ -1,0 +1,61 @@
+{
+  "reviewer": "rh_octic_analytic",
+  "date_utc": "2026-11-23T22:23:31.774677+00:00",
+  "status": "PASS_INDEPENDENT_BODY_AND_CONTRACT_REVIEW_NOT_A_FRESH_RECOMPILE",
+  "files": [
+    {
+      "file": "Solutions/RHOcticPush.v1/box/stieltjes/StieltjesFinite.lean",
+      "sha256": "63f8fd879f2e20ca262c8733d9a758f6bc03292029d370d0b4556e4389e2936a",
+      "receipt": "Solutions/RHOcticPush.v1/box/stieltjes/evidence/StieltjesFinite/RECEIPT.json",
+      "identity_matches": true,
+      "accepted_development": true
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/box/stieltjes/StieltjesRegular.lean",
+      "sha256": "b3d549330cfa61caf885890b9c9e4541aef6c83bd25fd1a44e774a340363be24",
+      "receipt": "Solutions/RHOcticPush.v1/box/stieltjes/evidence/StieltjesRegular/RECEIPT.json",
+      "identity_matches": true,
+      "accepted_development": true
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/box/stieltjes/StieltjesDerivative.lean",
+      "sha256": "f080601166082ad63c399406dc78a1c634b083b62e1ff5ba7811b90c5df6ffb6",
+      "receipt": "Solutions/RHOcticPush.v1/box/stieltjes/evidence/StieltjesDerivative/RECEIPT.json",
+      "identity_matches": true,
+      "accepted_development": true
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/box/stieltjes/StieltjesConstant.lean",
+      "sha256": "fd94e3e3c9d8790829df7c6db277e32be8212ff8fc63be41f87e0f961134d5bd",
+      "receipt": "Solutions/RHOcticPush.v1/box/stieltjes/evidence/StieltjesConstant/RECEIPT.json",
+      "identity_matches": true,
+      "accepted_development": true
+    }
+  ],
+  "actual_code_and_Blueprint": "Exact canonical BoxMellinInputs.v1.gamma1 is limUnder of sum k in Icc2N log(k)/k - log(N)^2/2. No standalone Blueprint label for this additive derivation; correspondence is IEANTN/Nodes/BoxMellinInputs/v1/Conclusions.lean and Solutions/RHContinuation.v1/parabolic/BOX_MELLIN_EXACT.md. New finite and regular-zeta helpers are project-internal proofs, not externally attributed assumptions.",
+  "source_or_independent_mathematics": "Mathlib ZetaAsymptotics.termTSum is the actual full interval-integral series and term_tsum_one identifies its value at1 as1-EulerGamma. Entire riemannZeta0 and its actual >1 Dirichlet series give realRegular(s)=1-s*T(s) on s>=1. Previously proved canonical stieltjes_trapezoid supplies actual convergence of the locked sequence, not a desired Laurent coefficient.",
+  "checks": [
+    {
+      "topic": "finite-index shift",
+      "finding": "N unit integrals start at n=1 and end at n=N+1. Their primitive telescopes exactly to stieltjesSeq(N+1); N=0 gives seq1=0. Thus no missing n=1 logarithm or endpoint correction."
+    },
+    {
+      "topic": "coefficient sign",
+      "finding": "coefficient n = term n 1 + termDerivative n 1 because the derivative contributes -(x-n)*log(x)/x^2. Therefore gamma1=T(1)+Tprime(1), and derivative of1-s*T(s) at1 is -gamma1. This sign agrees with the exact canonical second_moment_identity, not a separately assumed Stieltjes convention."
+    },
+    {
+      "topic": "right-derivative uniqueness",
+      "finding": "realRegular is independently differentiable at every real argument from entire riemannZeta0. Equality to1-s*T(s) is needed only on Ici1, including1, and uniqueDiffWithinAt_Ici identifies the already existing full derivative. No inference from a one-sided limit alone to unproved differentiability is made."
+    },
+    {
+      "topic": "shift",
+      "finding": "regularizedZeta(s)=realRegular(1+s); actual chain rule has derivative1 at0, giving unchanged negative gamma1."
+    },
+    {
+      "topic": "actual infinite sums",
+      "finding": "Own frozen StieltjesDerivative establishes uniform summable4/(n+1)^(3/2) derivative bound on the open strip s>3/4. Constant module independently proves derivative-series summability before splitting tsum. No finite truncation substitutes for an infinite derivative."
+    }
+  ],
+  "material_findings": [],
+  "trust": "Ordinary kernel mathematics, only standard3. No source-firstPV label, no numerical native leaf, no new source predicate. This independent read-only review checked exact source/receipt hashes; full fresh source replay is Parent separate gate."
+}

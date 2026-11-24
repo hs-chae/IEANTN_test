@@ -1,0 +1,54 @@
+version: v0.4
+node:
+  id: BPTOffOrdinate.v1
+  family: BPTOffOrdinate
+  version: v1
+  kind: paper
+  status: active
+project:
+  name: BPTOffOrdinate.v1
+  description: Exact common off-ordinate restriction of BPT Corollary1, with an actual proved endpoint
+    transfer in the consuming solution. Literature-backed, not a formal proof of BPT.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+conclusions:
+- id: bound
+  declaration: BPTOffOrdinate.v1.bound
+  challenge: BPTOffOrdinate.v1.challenge_bound
+  imports: []
+  imports_status: none
+  justifications:
+  - id: bpt-primary
+    kind: literature
+    source: BPT2022
+    locator: Corollary1 printed743/PDF4; multiplicity paragraph printed754/PDF15
+    note: "Bound restricted conservatively to T>2\u03C0 not a positive zero ordinate. Source does\
+      \ not specify N at jumps; consuming right-limit proof derives closed-count bound at everyT\u2265\
+      2\u03C0 without an added error."
+  designated: bpt-primary
+sources:
+- id: BPT2022
+  title: The mean square of the error term in the prime number theorem
+  authors:
+  - Richard P. Brent
+  - David J. Platt
+  - Timothy S. Trudgian
+  type: journal-article
+  url: https://maths-people.anu.edu.au/~brent/pd/rpb274-final.pdf
+  relationship: explicitly-cited
+  note: "J. Number Theory238(2022),740\u2013762. Retained primary SHA2564be3667cbe07ab6a24930e8835923362ae12af946b622fa73c89fd654e9fae34.\
+    \ Published bound depends on external numerical verification, not reverified here."
+limitations:
+- This published input and its source computations are not formally proved here. Only the off-ordinate-to-closed
+  endpoint adapter is Lean-proved.

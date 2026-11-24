@@ -1,0 +1,39 @@
+{
+  "status": "PASS_INDEPENDENT_READ_ONLY_BODY_AND_CONTRACT_REVIEW_NOT_FRESH_RECOMPILE",
+  "reviewer": "rh_octic_analytic",
+  "date_utc": "2026-11-23T22:56:26.591355+00:00",
+  "file": "Solutions/RHOcticPush.v1/box/zero/BoxZeroShift.lean",
+  "sha256": "e61c930256e8259c137f66bc0ef918f6b884fda4b5ebc2e140b8190852ca4b25",
+  "receipt": "/data/ivy-rh-octic-20261123/box-zero-shift-tail-v2/RECEIPT.json",
+  "actual_declarations": [
+    "RHOcticPush.BoxZero.H_zero",
+    "RHOcticPush.BoxZero.shift_global",
+    "RHOcticPush.BoxZero.shift_tail"
+  ],
+  "Blueprint_correspondence": "No standalone Blueprint label; auxiliary analytic bridge on original IEANTN.RHSmoothing.zeroPacket/fourier box, supporting unchanged RHSmoothingInputs.v1.box_zero_estimate.",
+  "source_or_mathematics": "Project-internal exact compact-interval calculus. H usesactualreal exp(epsilon*u)/2 andactualcomplex phase exp(i*y*u), not a sampled/certified surrogate. Mathlib complex-exponential remainder and ordinary complex1IBP are used with their domains proved.",
+  "checks": [
+    "H_zero proves the original Fourier normalization, including y=0, not a sin/y totalization mismatch.",
+    "exp_defect is an actual exponential-series remainder bound, valid for allrealx. amplitude_bound controls norm with epsilon>=0 and u\u2208[-1,1].",
+    "Global shift bound usesexact integral[-1,1]|u|=1, giving epsilon*exp(epsilon)/2.",
+    "Tail proof usesactualamplitude derivative andphase primitive1/(iy), withy>0 andbothendpointterms retained. Endpointtotal epsilon*exp(epsilon)/y plusderivativeintegral epsilon*exp(epsilon)/y gives2epsilon*exp(epsilon)/y.",
+    "All compact integrability/continuity andreal-to-complex derivatives are present. No asymptotic or infinite-tail premise is imported."
+  ],
+  "material_findings": [],
+  "remaining_obligation": "ConnectingactualRHzeroPacketanditsdenominator/phase/source multiplicity toH remains separate RootBoxZeroPacket work; this file alone doesnotprovebox_zero_estimate.",
+  "axioms": [
+    {
+      "name": "RHOcticPush.BoxZero.H_zero",
+      "axioms": "propext, Classical.choice, Quot.sound"
+    },
+    {
+      "name": "RHOcticPush.BoxZero.shift_global",
+      "axioms": "propext, Classical.choice, Quot.sound"
+    },
+    {
+      "name": "RHOcticPush.BoxZero.shift_tail",
+      "axioms": "propext, Classical.choice, Quot.sound"
+    }
+  ],
+  "trust": "Only standard3 kernel mathematics; noPVclaim,nativeexecution,newsourcepremise orRH assumption in these generic shiftbounds."
+}

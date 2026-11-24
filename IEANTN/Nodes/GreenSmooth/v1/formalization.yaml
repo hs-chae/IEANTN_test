@@ -1,0 +1,57 @@
+version: v0.4
+node:
+  id: GreenSmooth.v1
+  family: GreenSmooth
+  version: v1
+  kind: paper
+  status: active
+project:
+  name: GreenSmooth.v1
+  description: General smooth Mellin explicit formula, exactly matched to Ben Green Chapter7 with all-zero
+    multiplicity and explicit convergence; literature-backed, not a Lean proof.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+conclusions:
+- id: formula
+  declaration: GreenSmooth.v1.formula
+  challenge: GreenSmooth.v1.challenge_formula
+  imports: []
+  imports_status: none
+  justifications:
+  - id: green-primary
+    kind: literature
+    source: GreenPNT
+    locator: "Definition7.1/Theorem7.1 and multiplicity remark printed40 (PDF44); Lemma7.1 equations7.8\u2013\
+      7.11 printed43\u201344 (PDF47\u201348)"
+    note: Primary formula, domains and multiplicity independently reviewed. Absolute convergence is a
+      written consequence of smooth Mellin decay, zero counting and geometric trivial-zero weights. No
+      formal proof of the published general formula is claimed.
+  designated: green-primary
+sources:
+- id: GreenPNT
+  title: The Prime Number Theorem
+  authors:
+  - Ben Green
+  type: lecture-notes
+  url: https://people.maths.ox.ac.uk/greenbj/papers/primenumbers.pdf
+  relationship: explicitly-cited
+  note: SHA256c5655e4668dabb7ef43f507ca132849fee24f3237d3eea3681fc6efa9d1e77f2. Definition/Theorem positive-exponent
+    convention takes precedence over a later explanatory negative-sign typo.
+limitations:
+- General source formula and its absolute-convergence consequence are literature-backed, not Lean-proved.
+  The canonical node does not assert an octic zero estimate, a prime-count inequality or RH.
+- C source/model/execution theorems and exact rendered-source identity are reused under an explicit renderer/model
+  interpretation contract. Independent source-parser soundness is not proved here; no new fully established
+  source-first PV or whole-pipeline PV is claimed. New numerical certificates and analysis are kernel-only.
+  Compiler/runtime/OS/ABI/hardware contracts remain.

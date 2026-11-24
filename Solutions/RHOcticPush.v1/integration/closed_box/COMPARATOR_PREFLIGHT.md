@@ -1,0 +1,9 @@
+# Local Comparator packaging preflight
+
+No official verification receipt was created. The repository requires a successful `verify.yml` GitHub run approved through its verification environment; its author-written `record-receipt` route is not a substitute. Of the22 frozen new nodes,19 have55 proved challenge declarations and3 are deliberately explicit literature leaves.
+
+The actual tool source commits match repository pins. A fresh isolated core built successfully in221.45seconds. A deterministic application-source Lake package was prepared, and the exact Mellin node build reached its real Gamma/Stieltjes proofs. The required runtime boundary failed its concrete prerequisite: in the pinned standard best-effort mode, an owned probe could write outside its sole permitted experiment directory. Strict mode rejected the host ABI1 against its requested ABI9 features. The owned application build was stopped before any Comparator/NanoDa acceptance; no flag was weakened and no host setting changed. A compatible approved worker remains required.
+
+The ordering mistake was launching the isolated application build concurrently with the prerequisite probe. Future attempts must pass that probe first. Its generic Mathlib hook rebuilt cache modules, but tracked generic source commits remained pinned and clean; all9 mathematical-context source pins were rechecked. No accepted application proof-object bank was modified. Original stdout/stderr/process metadata and the failed probe remain under the owned comparator-preflight tree.
+
+A read-only status probe had a Python spacing typo before producing any result; the corrected readback was used. A first tiny Lake package probe used a nonexistent working directory and was rejected before execution; the subsequent owned probe succeeded. These were preparation failures, not mathematical proof failures.

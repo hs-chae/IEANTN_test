@@ -1,0 +1,103 @@
+version: v0.4
+node:
+  id: Nicolas.v2
+  family: Nicolas
+  version: v2
+  kind: pipeline
+  status: awaiting-verification
+project:
+  name: Nicolas.v2
+  description: Positive infinite-zero weights give an actual four-scale Euler-product bound and an existential
+    improved scale.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+conclusions:
+- id: spectral_four
+  declaration: Nicolas.v2.spectral_four
+  challenge: Nicolas.v2.challenge_spectral_four
+  imports:
+  - node: RH.v1
+    conclusion: hypothesis
+  - node: Nicolas.v1
+    conclusion: spectral_bound
+  imports_status: identified
+  justifications:
+  - id: local-source-proof
+    kind: lean-noncompliant
+    note: Pinned Lean Solution and transitive standard-three-axiom checks; official Comparator receipt
+      not available. Actual source/metadata/consumer replay is recorded separately in the campaign, not
+      fabricated as an official receipt.
+  designated: local-source-proof
+- id: product_four
+  declaration: Nicolas.v2.product_four
+  challenge: Nicolas.v2.challenge_product_four
+  imports:
+  - node: RH.v1
+    conclusion: hypothesis
+  - node: Nicolas.v1
+    conclusion: log_f_upper_full
+  - node: Nicolas.v2
+    conclusion: spectral_four
+  imports_status: identified
+  justifications:
+  - id: local-source-proof
+    kind: lean-noncompliant
+    note: Pinned Lean Solution and transitive standard-three-axiom checks; official Comparator receipt
+      not available. Actual source/metadata/consumer replay is recorded separately in the campaign, not
+      fabricated as an official receipt.
+  designated: local-source-proof
+- id: product_block
+  declaration: Nicolas.v2.product_block
+  challenge: Nicolas.v2.challenge_product_block
+  imports:
+  - node: Nicolas.v2
+    conclusion: product_four
+  imports_status: identified
+  justifications:
+  - id: local-source-proof
+    kind: lean-noncompliant
+    note: Pinned Lean Solution and transitive standard-three-axiom checks; official Comparator receipt
+      not available. Actual source/metadata/consumer replay is recorded separately in the campaign, not
+      fabricated as an official receipt.
+  designated: local-source-proof
+- id: four_gain
+  declaration: Nicolas.v2.four_gain
+  challenge: Nicolas.v2.challenge_four_gain
+  imports: []
+  imports_status: none
+  justifications:
+  - id: local-source-proof
+    kind: lean-noncompliant
+    note: Pinned Lean Solution and transitive standard-three-axiom checks; official Comparator receipt
+      not available. Actual source/metadata/consumer replay is recorded separately in the campaign, not
+      fabricated as an official receipt.
+  designated: local-source-proof
+sources:
+- id: RHOcticPush20261123
+  title: Post-lock RH octic, correlated transport and full-network continuation
+  authors:
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: Actual proof/source files under Solutions/RHOcticPush.v1. No frozen experimental outcome or prior
+    node is changed; no best-known claim.
+limitations:
+- Official Comparator receipt pending. These are source-compiled conditional Lean edges, not proofs of
+  the external RH, explicit-formula, zero-estimate or exact Mellin premises.
+- New shared flat-source dependencies are built by the campaign resource-aware reproduction route; standalone
+  Comparator packaging and official dispatch remain separate.
+- C source/model/execution theorems and exact rendered-source identity are reused under an explicit renderer/model
+  interpretation contract. Independent source-parser soundness is not proved here; no new fully established
+  source-first PV or whole-pipeline PV is claimed. New numerical certificates and analysis are kernel-only.
+  Compiler/runtime/OS/ABI/hardware contracts remain.

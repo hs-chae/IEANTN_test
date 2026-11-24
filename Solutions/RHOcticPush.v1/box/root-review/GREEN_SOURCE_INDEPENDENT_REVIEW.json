@@ -1,0 +1,51 @@
+{
+  "status": "PASS_INDEPENDENT_PRIMARY_CONTRACT_REVIEW_WITH_LOCATOR_CORRECTION",
+  "actual_Lean": {
+    "file": "Solutions/RHOcticPush.v1/octic/OcticGreenSource.lean",
+    "sha256": "b7ce6366a059c1c731c9dca8d970e93ad869780d404f398a2ba8106d969f4393",
+    "declaration": "RHOcticPush.GreenSource.SourceGreenSmooth",
+    "line": 31
+  },
+  "Blueprint": "No standalone Blueprint label for new derivation; canonical GreenSmooth.v1/formula and PrimeKernelInputs.v3 map the source; the existing mathematical target is IEANTN/Vocabulary/PrimeWindows.lean ExplicitFormula.",
+  "primary": {
+    "url": "https://people.maths.ox.ac.uk/greenbj/papers/primenumbers.pdf",
+    "sha256": "c5655e4668dabb7ef43f507ca132849fee24f3237d3eea3681fc6efa9d1e77f2",
+    "locators": [
+      "Definition7.1 and Theorem7.1 with multiplicity/pole remark: printed40, PDF44",
+      "Mellin inversion Proposition7.1: printed41, PDF45",
+      "Mellin decay Lemma7.1 equations7.8\u20137.11: printed43\u201344, PDF47\u201348"
+    ]
+  },
+  "source_claim": "For smooth compact real W supported in [1,infinity) and X>1, sum_n Lambda(n) W(n/X)=X integral W\u2212sum_{all zeros rho} X^rho Mellin(W,rho), Mellin(W,s)=integral_positive W(t)t^s dt/t. Multiplicity is the order of the zero, as the immediately following all-orders remark specifies.",
+  "checks": [
+    {
+      "fragment": "W regularity/domain",
+      "result": "ContDiff real infinity, HasCompactSupport, and Function.support subset Ici1 match smooth compact support in [1,infinity); compact t-support excludes0. Smoothness forces flat endpoint jets and all actual applications establish these conditions."
+    },
+    {
+      "fragment": "Mellin normalization",
+      "result": "Positive exponent agrees with named Definition7.1 and the displayed Theorem7.1. A later explanatory line on the same source page contains a negative sign, inconsistent with the Definition and contour expansion7.2. That aside does not reverse the named source contract."
+    },
+    {
+      "fragment": "all-zero indexing and pole",
+      "result": "ProperZero excludes1 explicitly, sums all actual zeta zeros, and multiplies by zetaOrder. The separate positive main term accounts for the simple pole at1; no extraneous constant survives for weights supported away from0."
+    },
+    {
+      "fragment": "absolute summability",
+      "result": "For nontrivial zeros, Lemma7.1 rapid vertical decay together with the source zero-count/finite-order bounds gives absolute convergence. For negative even zeros, compact integrability and X>1 give geometric domination X^(\u22122n). Summable is an explicit written consequence of this general source analysis, not a separately Lean-proved theorem."
+    },
+    {
+      "fragment": "Nat indices and t integral",
+      "result": "vonMangoldt0=0, so the additional Nat index0 contributes0. W=0 for t<1 makes the all-real main integral equal to the positive-real integral."
+    }
+  ],
+  "precise_locator_issue": {
+    "old": "OcticGreenSource comment attributes decay to Proposition7.1",
+    "correct": "Lemma7.1 pp43\u201344; Proposition7.1 gives inversion",
+    "impact": "Provenance locator only; the actual formula, hypotheses and derived numeric conclusions align. Author notified to correct comment before final capture."
+  },
+  "general_source_is_formalized": false,
+  "RH_only_215_proved": false,
+  "remaining_sharp_zero_predicate": "PrimeKernelInputs.v2.octic_215_zero_estimate exactly original 0.0155 prime-power budget path; not discharged by this source audit.",
+  "review_is_not_full_ANT_source_census": true
+}
