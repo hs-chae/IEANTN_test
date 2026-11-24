@@ -7,8 +7,9 @@ Original experiments, mathematical sources, and published outcomes are preserved
 
 ## Start here
 
-This is active research, with completed mathematical results and separately
-pending acceptance gates. Read `ledgers/EXECUTIVE_THEOREMS.json` for the leading
+This research pass is complete at the stated proof and trust boundaries. All
+scoped proof/control gates, final report reviews, archive checks and actual
+file delivery passed. Read `CAMPAIGN_COMPLETE.md` for the final status and limits. Read `ledgers/EXECUTIVE_THEOREMS.json` for the leading
 claims, exact written identities, entire premise lists and limitations. It is
 an executive selection, not an exhaustive source-provenance census.
 `ledgers/RESEARCH_LEDGER.json` records result families;
@@ -123,7 +124,7 @@ The original30 full-reader regression controls have also passed: six real
 positive readers and24 specific negative cases, with1225 original receipt/log
 files byte-unchanged. Their exact result is
 `072277cb94306ce41f49e98b8c75366c70b453314b31a81bcaa2e10fcb62c4a7`.
-Final report, bundle and publication acceptance remain separate. No canonical numerical node or complete finite Ramanujan coverage
+Final report, bundle and publication acceptance are recorded separately in `CAMPAIGN_COMPLETE.md`. No canonical numerical node or complete finite Ramanujan coverage
 is added.
 
 The thousands of generated modules are arithmetic chunks for this one fixed
