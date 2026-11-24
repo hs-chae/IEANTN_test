@@ -107,7 +107,7 @@ python3 -B finalize_bundle.py --spec /path/to/ROOT_REVIEWED_SPEC.json \
   --builder /path/to/publication/Solutions/RHOcticPush.v1/scripts/build_evidence_bundle.py \
   --context /path/to/GENERIC_CONTEXT.json \
   --finite-smoke /path/to/actual/portable-source-smoke-v1 \
-  --ieantn-run /path/to/actual/ieantn-count-consumer-v1 \
+  --ieantn-run /path/to/actual/ieantn-count-consumer-v2 \
   --native-cc /usr/bin/gcc-11 --native-cpu 64 \
   --katex /path/to/locked/node_modules/katex --out /path/to/fresh/final-validation
 ```

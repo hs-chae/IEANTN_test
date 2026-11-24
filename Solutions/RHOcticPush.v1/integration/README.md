@@ -7,8 +7,8 @@ comparison consumers. These are overlapping proof closures, not739 new theorems.
 The original583 IEANTN source, metadata and fingerprint files remain preserved.
 
 The accepted exact count and its same-point source-first IEANTN consumer are a
-separate completed proof chain. The original30 full-reader regressions and final
-report/bundle/publication checks remain separate checkpoint gates. An official
+separate completed proof chain. The original30 full-reader regressions have also passed; final
+report/bundle/publication checks remain separate artifact gates. An official
 IEANTN Comparator receipt is still absent.
 
 ## Current analytic reproduction
@@ -66,8 +66,8 @@ This completes the selected same-point source-first proof chain at its stated
 model/platform boundary. Its numerical witness is kernel-derived. It adds no
 canonical numerical node, new count target, complete finite Ramanujan coverage,
 native correctness proof or formal physical execution trace. The30 original
-full-reader regressions remain pending independently of this accepted24-case
-study at this checkpoint.
+full-reader regressions also passed independently of this accepted24-case study,
+with result `072277cb94306ce41f49e98b8c75366c70b453314b31a81bcaa2e10fcb62c4a7`.
 
 The clean monolithic full-high portable recipe regenerates the locked numerical
 workload and can supply the separate four-source append through its supported

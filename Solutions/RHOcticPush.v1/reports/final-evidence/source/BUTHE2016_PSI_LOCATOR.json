@@ -1,0 +1,34 @@
+{
+  "status": "CHECKED_NAMED_PRIMARY_LOCATOR_WITH_EXPLICIT_SOURCE_CONVENTION",
+  "created_utc": "2026-11-24T15:19:29.961794+00:00",
+  "actual_Lean_Blueprint": {
+    "file": "IEANTN/Nodes/Buthe2016/v1/Conclusions.lean",
+    "declaration": "Buthe2016.v1.theorem_2_psi",
+    "physical_line": 65,
+    "sha256": "0b6ab451ea4776bb44d6a1680d748295baa68285a690efa4a9cb7b045e76972a",
+    "blueprint_correspondence": "IEANTN/Nodes/Buthe2016/v1/formalization.yaml, theorem_2_psi literature justification"
+  },
+  "primary": {
+    "url": "https://arxiv.org/pdf/1410.7015v4#page=13",
+    "title": "Estimating pi(x) and related functions under partial RH assumptions",
+    "author": "Jan Büthe",
+    "version": "arXiv1410.7015v4,25May2022",
+    "locator": "Theorem2, FIRST UNNUMBERED psi estimate, printedp13/PDF13",
+    "extraction_lines": [
+      1489,
+      1498
+    ],
+    "recoverable_claim": "Partial RH up toT>0 and4.92sqrt(x/logx)≤T imply |psi(x)−x|≤sqrt(x)log²x/(8pi), x>59.",
+    "not_the_psi_locator": "Eq7.1 is the Riemann prime-power count; Eq7.2 is ordinary pi.",
+    "source_convention": "§2, printedp2, defines half weight at a prime-power endpoint."
+  },
+  "actual_formal_contract_display_tex": "\\begin{gathered}\\mathrm{RH}_{\\le T},\\quad x>59,\\quad4.92\\sqrt{x/\\log x}\\le T\\quad\\Longrightarrow\\quad|\\psi(x)-x|\\le\\frac{\\sqrt x\\log^2x}{8\\pi},\\\\\\mathrm{RH}\\Longrightarrow\\mathrm{RH}_{\\le T}\\text{ for every finite }T,\\qquad T(x)=4.92\\sqrt{x/\\log x}.\\end{gathered}",
+  "precise_boundary": {
+    "formal_input": "The unchanged Lean source proposition uses ordinary Chebyshev.psi and remains an explicit B-tier hypothesis, not a newly proved translation of every partial-height endpoint case.",
+    "consumed_full_RH_path": "FullRH.buthe_all_psi uses the unchanged input with T=4.92sqrt(x/logx), then ThetaRelay consumes it on the whole ray.",
+    "mathematical_source_consequence": "Under full RH, non-prime-power points decreasing to x from above, with individually enlarged heights, recover the ordinary right-count psi bound by continuity of the displayed envelope.",
+    "not_claimed": "No new formal fixed-height endpoint adapter; no source binder change.",
+    "positive_height": "Forx>59 the range condition itself forcesT>0."
+  },
+  "source_or_proof_files_changed": false
+}

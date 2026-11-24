@@ -187,12 +187,12 @@ add('FINITE-COUNT', 'FINITE-COUNT', 'ramanujan/count-feasibility/ieantn-consumer
     new='Actual IEANTN real prime count at1490000000000 equals55206486339; same-run source-output consumer fully accepted with4fresh compiles and24controls',
     domain='Same locked90,670,946records; original sources and numerical statement unchanged',
     premises=[],
-    tier='C+D source-first same-point IEANTN theorem with kernel-derived numerical witness; separate30reader regressions pending', same_premises=True,
+    tier='C+D source-first same-point IEANTN theorem with kernel-derived numerical witness; all24point controls and30reader regressions passed', same_premises=True,
     method='Preserved pure balanced checker plus independent C grammar, application execution correctness, same-run byte injectivity and existing IEANTN floor/cast vocabulary',
     certificate='Warm exact count7af53640...8d5f1 GNU3:41:35; cold69512c2e559...19720 with697compiler records; remaining305e4c4c641...577d0 GNU1:08:19; actual four-source append ee218b4172e4e53db7568c21ecba01444b98d416944d2245203905caca343b47; actual24 controls694fe11ab65d31482accd9e173cacf6e4b94b09ddeab72a1ce1a4d2fc5cf63e7; separate32768 comparison preserved',
     consumers='Actual source-indexed run output is consumed by the existing IEANTN real function;33proof-value edges verify both source grammar paths, generic counter correctness and numeric witness',
     literature='Not a published prime-count record or finite Ramanujan coverage',
-    limitation='Numerical witness remains kernel-derived; platform/model contracts remain explicit; no formal physical trace or complete finite Ramanujan coverage; original30reader regression suite still running')
+    limitation='Numerical witness remains kernel-derived; platform/model contracts remain explicit; no formal physical trace or complete finite Ramanujan coverage; original30reader regression suite passed; final artifacts separately reviewed')
 add('HIGH-C-MAIN', 'FINITE-COUNT', 'ramanujan/count-feasibility/high-driver/HighDriverContract.lean', 'actual_source_model_main',
     old='Original driver literal38358837683 preserved',
     new='Additive actual C highmain1490000000000; native emits8little-endian bytes decoding to55206486339; whole-main source-owned initialization/call/output/lifetime model proof',

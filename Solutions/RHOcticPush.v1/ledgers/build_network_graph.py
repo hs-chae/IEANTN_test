@@ -117,8 +117,8 @@ def focus_svg(graph, custom_rows=None, key='ramanujan'):
         ('Nicolas.v1.spectral_bound','Nicolas zero information',0,160),
         ('RHPrimeCounting.v5.compensation_profile','Signed compensation profile',270,80),
         ('Buthe.v1.table_1_interval_bounds','Finite Chebyshev table',0,280),
-        ('Buthe.v1.theorem_2_li_minus_pi','Lower Li gap bound',0,360),
-        ('Buthe.v1.theorem_2_li_gt_pi','Upper Li gap bound',0,440),
+        ('Buthe.v1.theorem_2_li_minus_pi','Upper bound for li−π',0,360),
+        ('Buthe.v1.theorem_2_li_gt_pi','Positivity of li−π',0,440),
         ('RamanujanGap.v6.local_606b','606–610 billion margin',540,280),
         ('RamanujanGap.v5.full_profile','Retained stronger profile',270,540),
         ('RamanujanGap.v6.full_profile','Retained whole-ray profile',810,280),
@@ -139,7 +139,14 @@ def focus_svg(graph, custom_rows=None, key='ramanujan'):
         if edge['source'] not in positions or edge['target'] not in positions:
             continue
         x,y = positions[edge['source']];a,b = positions[edge['target']]
-        parts.append(f'<path d="M{x+230},{y+28} C{x+260},{y+28} {a-30},{b+28} {a},{b+28}" '
+        if (key == 'prime-square-feedback' and edge['source'] == 'RH.v1.hypothesis'
+                and edge['target'] == 'RHSmoothing.v3.box_psi'):
+            # Keep this independent RH edge below the intervening signed box.
+            route = (f'M{x+230},{y+28} C{x+250},{y+28} {x+245},{y+80} {x+270},{y+80} '
+                     f'L{a-40},{y+80} C{a-15},{y+80} {a-20},{b+28} {a},{b+28}')
+        else:
+            route = f'M{x+230},{y+28} C{x+260},{y+28} {a-30},{b+28} {a},{b+28}'
+        parts.append(f'<path d="{route}" '
                      'fill="none" stroke="#53708d" stroke-width="2" marker-end="url(#graph-arrow-'+key+')"/>')
         shown.append(edge)
     for key,label,x,y in rows:
@@ -179,7 +186,7 @@ def main():
         ('RHSmoothing.v3.box_psi','Actual Box psi bound',540,0),
         ('RHPrimeCounting.v6.box_Li','Effective ordinary-pi bound',810,280),
         ('RHPrimeCounting.v6.box_interval','Actual interval count',1080,200),
-        ('RHPrimeCounting.v6.clean_pi','Clean21/50 corollary',1080,360)]
+        ('RHPrimeCounting.v6.clean_pi','Clean 21/50 corollary',1080,360)]
     svg,selection=focus_svg(graph,feedback_rows,'prime-square-feedback')
     (a.out/'NETWORK_FEEDBACK.svg').write_text(svg)
     (a.out/'FEEDBACK_SELECTION.json').write_text(json.dumps(selection,indent=2,ensure_ascii=False)+'\n')

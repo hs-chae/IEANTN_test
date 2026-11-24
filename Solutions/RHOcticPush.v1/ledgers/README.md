@@ -9,8 +9,8 @@ in IEANTN.
 `RESEARCH_LEDGER.json` groups the completed mathematical results and the accepted
 same-point finite source-first IEANTN chain. The complete739 analytic union,
 cold305 complement, four-source IEANTN append and24 controls have passed. The
-separate30 full-reader regressions and final release checks remain pending at
-this checkpoint. The clean monolithic full-high portable recipe is prepared,
+separate30 full-reader regressions have also passed; final release/artifact
+checks are recorded separately. The clean monolithic full-high portable recipe is prepared,
 not an additional executed uninterrupted campaign. Source, execution and
 external-workflow receipts remain separate; historical snapshots are preserved.
 

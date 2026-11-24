@@ -119,8 +119,11 @@ its24-control receipt is
 `694fe11ab65d31482accd9e173cacf6e4b94b09ddeab72a1ce1a4d2fc5cf63e7`.
 The exact theorem/source identities and measurements are in
 `ramanujan/count-feasibility/ieantn-consumer/ACCEPTED_SUMMARY.json`.
-The original 30 full-reader regression controls are running at this checkpoint;
-final report, bundle and publication acceptance remain separate. No canonical numerical node or complete finite Ramanujan coverage
+The original30 full-reader regression controls have also passed: six real
+positive readers and24 specific negative cases, with1225 original receipt/log
+files byte-unchanged. Their exact result is
+`072277cb94306ce41f49e98b8c75366c70b453314b31a81bcaa2e10fcb62c4a7`.
+Final report, bundle and publication acceptance remain separate. No canonical numerical node or complete finite Ramanujan coverage
 is added.
 
 The thousands of generated modules are arithmetic chunks for this one fixed
