@@ -1,3 +1,16 @@
+> **Historical opening snapshot; superseded on2026-11-23.**
+> The attempt log below records earlier unfinished states and is preserved verbatim.
+> All four original Box predicates now have compiled providers consumed by the
+> accepted source-fresh693 closure: both exact Mellin identities are unconditional;
+> the original zero estimate is derived from Nicolas/BPT; the unconditional
+> averaged explicit formula is derived from genuinely general published Perron.
+> The later712-source spectral network also passed its actual proof/type/body
+> gates. These are kernel proofs with explicit B-tier general source inputs,
+> not RH-only proofs of the published inputs or whole-pipeline source-first PV.
+> Current receipts: [Box693](../integration/evidence/closed-box33-v1/RESULT.json),
+> [spectral712](../integration/evidence/spectral19-v1/RESULT.json), and the exact
+> [final Box source capture](../integration/closed_box/capture/SOURCE_CLOSURE.json).
+
 # Attempt record and exact status
 
 The direct Mellin-value route was recovered from the actual canonical source

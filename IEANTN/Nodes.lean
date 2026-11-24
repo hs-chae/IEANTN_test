@@ -150,6 +150,7 @@ import IEANTN.Nodes.RamanujanGap.v2.Challenge
 import IEANTN.Nodes.RamanujanGap.v3.Challenge
 import IEANTN.Nodes.RamanujanGap.v4.Challenge
 import IEANTN.Nodes.RamanujanGap.v5.Challenge
+import IEANTN.Nodes.RamanujanGap.v6.Challenge
 import IEANTN.Nodes.RamanujanNumerics.v1.Challenge
 import IEANTN.Nodes.RamanujanNumerics.v2.Challenge
 import IEANTN.Nodes.RamareSaouter2003.v1.Challenge
