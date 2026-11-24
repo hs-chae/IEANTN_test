@@ -1,0 +1,73 @@
+{
+  "schema": "RH_EXISTING_IEANTN_PI_APPEND_V1",
+  "files": [
+    {
+      "module": "IEANTN.Vocabulary.PrimeCounting",
+      "source": "IEANTN/Vocabulary/PrimeCounting.lean",
+      "sha256": "2863183b4c78aa1abd3be714dceeef534d6f3141c20a8df10c47b13aa38731d5",
+      "application_imports": [],
+      "axiom_roots": []
+    },
+    {
+      "module": "WordBytesBounded",
+      "source": "Solutions/RHOcticPush.v1/ramanujan/count-feasibility/ieantn-consumer/WordBytesBounded.lean",
+      "sha256": "311015f103f87b08504a1c73a0afd75bd187a3b20cc8067580681cc841b1a386",
+      "application_imports": [
+        "RamanujanPV.QuotientDriverExecution"
+      ],
+      "axiom_roots": [
+        "RHOcticPush.IEANTNCount.wordBytes_injective_below"
+      ]
+    },
+    {
+      "module": "IEANTNCountConsumer",
+      "source": "Solutions/RHOcticPush.v1/ramanujan/count-feasibility/ieantn-consumer/IEANTNCountConsumer.lean",
+      "sha256": "b03cc1984b8559b272ec6e3e83bbeed04914b5f92db8b2fbdc78a84bb9bb4711",
+      "application_imports": [
+        "CountSourceFinal",
+        "WordBytesBounded",
+        "IEANTN.Vocabulary.PrimeCounting"
+      ],
+      "axiom_roots": [
+        "RHOcticPush.IEANTNCount.fixed_count_from_same_source_run",
+        "RHOcticPush.IEANTNCount.primeCounting_fixed_point"
+      ]
+    },
+    {
+      "module": "IEANTNCountConsumerAudit",
+      "source": "Solutions/RHOcticPush.v1/ramanujan/count-feasibility/ieantn-consumer/IEANTNCountConsumerAudit.lean",
+      "sha256": "10803fe5cbd87caafc902f746d53b540a1afcbd89a82bd57e5e2f04e974a31b7",
+      "application_imports": [
+        "IEANTNCountConsumer"
+      ],
+      "axiom_roots": []
+    }
+  ],
+  "providers": [
+    {
+      "file": "remaining_stage.py",
+      "sha256": "27f8f3b4ffb0443e3880cc2bc928110c1ecd87143e8e5ff0f10cc26453bb729c"
+    },
+    {
+      "file": "data_stage.py",
+      "sha256": "d86e7a41775bc03d50350c4b00ad768636ba0b030a58abc9fb831a7488644980"
+    },
+    {
+      "file": "source_basis.py",
+      "sha256": "73d0c06722322c34ab7c1bd90b02685f1cb9be942dd0fb78f8e63a34b15fef63"
+    }
+  ],
+  "target": [
+    1490000000000,
+    55206486339
+  ],
+  "new_point": false,
+  "canonical_node": false,
+  "full_Ramanujan_finite_coverage": false,
+  "portable_basis_pins": {
+    "readback.py": "89fb94eec03b83b7a12574cf1e6f5d1652278f989bdb1eeaec72208fcf8d0066",
+    "reproduce.py": "e6728a1108aa1e90152a4d2a57055ce9af0cb0ee84d51f92ce6a2c3147fbac41",
+    "SOURCE_CLOSURE.json": "3bacaa4e6f9e4339c45e4ff99e6cb9c0c160271184fb5755cdfa6f5ab29f8963"
+  },
+  "resource_policy_sha256": "ce76843bad5c19b568d9e057acd50b667e75ecc7699be3645ce357a0d44c02cb"
+}

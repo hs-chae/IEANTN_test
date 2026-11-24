@@ -6,11 +6,13 @@ premise list, mathematical mechanism, consumer and comparison limitation. This
 is an explicitly selected executive index, not a census of all source claims
 in IEANTN.
 
-`RESEARCH_LEDGER.json` groups the completed mathematical results and the still
-incomplete finite-count chain. Its source and execution receipts are separate:
-a result can have a checked conditional mathematical proof while a new clean
-reproduction or an external workflow remains unfinished. Historical versions
-are preserved under `history/`.
+`RESEARCH_LEDGER.json` groups the completed mathematical results and the accepted
+same-point finite source-first IEANTN chain. The complete739 analytic union,
+cold305 complement, four-source IEANTN append and24 controls have passed. The
+separate30 full-reader regressions and final release checks remain pending at
+this checkpoint. The clean monolithic full-high portable recipe is prepared,
+not an additional executed uninterrupted campaign. Source, execution and
+external-workflow receipts remain separate; historical snapshots are preserved.
 
 `SERIOUS_ATTEMPT_CATALOG.json` enumerates 39 mathematical research routes. It
 includes retained predecessors, unsuccessful analytic methods, changes to

@@ -86,7 +86,7 @@ def tier_legend(lang):
         entries = [
             ('A','Fully checked Lean theorem conditional on RH alone.'),
             ('B','Checked Lean theorem conditional on additional explicit analytic or literature propositions.'),
-            ('C','Source-first program verification: actual executable source, verified execution model, correctness and mathematical output consumer.'),
+            ('C','Source-first program verification: actual executable source, verified execution model, correctness and verified outputs connected to the actual IEANTN theorem.'),
             ('D','Kernel-checked numerical certificate; this alone is not source-first PV.'),
             ('E','Written proof with independent checks.'),
             ('F','Exploratory numerical candidate.'),
@@ -97,7 +97,7 @@ def tier_legend(lang):
         entries = [
             ('A','RH만을 조건으로 하는 완전히 확인된 Lean 정리.'),
             ('B','명시적인 추가 해석·문헌 명제를 조건으로 하는 확인된 Lean 정리.'),
-            ('C','Source-first 프로그램 검증: 실제 실행 소스, 검증된 실행 모델, 정확성 증명과 수학적 출력 소비 정리의 연결.'),
+            ('C','Source-first 프로그램 검증: 실제 실행 소스, 검증된 실행 모델과 정확성 증명에서 검증한 출력을 실제 IEANTN 정리까지 연결.'),
             ('D','커널로 확인한 수치 인증서. 이것만으로 source-first PV가 되지는 않는다.'),
             ('E','독립 검토를 거친 서면 증명.'),
             ('F','탐색적인 수치 후보.'),
@@ -162,6 +162,124 @@ finite_ko = ('<p><strong>기록한 계수 검증 상태:</strong> '+count_status
              ', 확인한 실행 중 작업 '+str(finite.get('observed_live_workers','미확인'))+'개. 관측 시각 '+
              html.escape(str(finite.get('snapshot_utc','미확인')))+
              '. 날짜가 있는 스냅샷이며 발행 이후에도 작업이 실행된다는 뜻은 아니다.</p>')
+
+finite_kernel_done = finite.get('final_accepted') is True
+finite_source_done = status.get('finite_source_completion', {}).get('accepted') is True
+if finite_source_done and not finite_kernel_done:
+    raise SystemExit('Completed finite source status requires the accepted numerical count')
+ieantn_consumer = status.get('ieantn_consumer', {})
+if type(ieantn_consumer) is not dict or type(ieantn_consumer.get('accepted', False)) is not bool:
+    raise SystemExit('IEANTN consumer status requires an explicit Boolean acceptance flag')
+finite_ieantn_done = ieantn_consumer.get('accepted', False)
+if finite_ieantn_done and not (finite_source_done and finite_kernel_done):
+    raise SystemExit('Accepted IEANTN consumer requires accepted source completion and kernel count')
+if status.get('FinalSourceDone') is True and not finite_ieantn_done:
+    raise SystemExit('FinalSourceDone requires the accepted actual IEANTN consumer')
+
+def finite_ieantn_completion(lang):
+    if not finite_ieantn_done:
+        if finite_source_done:
+            text = ('The selected source/model/count chain is complete, but its connection to the actual IEANTN real-variable prime-counting theorem remains pending. The prepared four-source byte consumer and its controls have not all been accepted. This is not yet a completed source-first PV-backed IEANTN result.'
+                    if lang == 'EN' else
+                    '선택한 소스·모델·계수 연결은 완료했지만 실제 IEANTN 실수 변수 소수계수 정리까지의 연결은 아직 미완료다. 준비한 네 소스의 바이트 소비 정리와 대조 검사가 모두 승인된 것은 아니다. 아직 source-first PV로 뒷받침한 IEANTN 결과의 완료를 뜻하지 않는다.')
+        else:
+            text = ('The exact count uses a kernel-derived numerical witness. Cold source/model/count completion and the prepared four-source consumer of the actual IEANTN real-variable prime-counting definition remain separate acceptance gates. The byte consumer is not reported as compiled or verified until its append and controls pass.'
+                    if finite_kernel_done else
+                    'The exhaustive kernel count and the prepared four-source consumer of the actual IEANTN real-variable prime-counting definition remain pending. No completed source-first PV-backed IEANTN result is claimed.') if lang == 'EN' else (
+                    '정확한 계수값의 수치 증거는 커널로 도출했다. 캐시 없는 소스·모델·계수 연결과 실제 IEANTN 실수 변수 소수계수 정의를 사용하는 네 소스 소비 정리는 별도 승인 단계다. 추가 컴파일과 대조 검사를 통과하기 전에는 이 바이트 소비 정리가 컴파일·검증되었다고 보고하지 않는다.'
+                    if finite_kernel_done else
+                    '전체 커널 계수 증명과 실제 IEANTN 실수 변수 소수계수 정의를 사용하는 네 소스 소비 정리가 아직 미완료다. source-first PV로 뒷받침한 IEANTN 결과가 완료되었다고 주장하지 않는다.')
+        return card('Actual IEANTN consumer link pending' if lang == 'EN' else '실제 IEANTN 소비 정리 연결은 미완료',
+                    '<p>'+text+'</p>', 'amber')
+    for field in ['basis305_accepted', 'append_accepted', 'controls_accepted']:
+        if ieantn_consumer.get(field) is not True:
+            raise SystemExit('Accepted IEANTN consumer requires '+field)
+    for field in ['basis_RESULT_sha256', 'append_RESULT_sha256', 'controls_RESULT_sha256']:
+        if not isinstance(ieantn_consumer.get(field), str) or not re.fullmatch('[0-9a-f]{64}', ieantn_consumer[field]):
+            raise SystemExit('Accepted IEANTN consumer requires exact '+field)
+    if ieantn_consumer.get('numerical_witness') != 'KERNEL_DERIVED_EXISTING_EXHAUSTIVE_COUNT':
+        raise SystemExit('IEANTN consumer numerical witness must remain kernel-derived')
+    for field in ['new_native_verification', 'physical_trace_claim', 'whole_ISO_C_adequacy_claim',
+                  'canonical_point_node_added', 'full_Ramanujan_finite_coverage']:
+        if ieantn_consumer.get(field) is not False:
+            raise SystemExit('IEANTN consumer scope requires false '+field)
+    def checked_identity(field, expected_file, expected_declaration):
+        row = ieantn_consumer.get(field)
+        if type(row) is not dict or not {'file', 'declaration', 'physical_line', 'sha256'} <= set(row):
+            raise SystemExit('Completed IEANTN consumer requires exact '+field)
+        if row['file'] != expected_file or row['declaration'] != expected_declaration:
+            raise SystemExit('Wrong written theorem identity for '+field)
+        path = Path(row['file'])
+        if path.is_absolute() or '..' in path.parts or type(row['physical_line']) is not int or row['physical_line'] < 1:
+            raise SystemExit('Invalid written identity for '+field)
+        current = REPO/path
+        if not isinstance(row['sha256'], str) or not re.fullmatch('[0-9a-f]{64}', row['sha256']) or not current.is_file() or hashlib.sha256(current.read_bytes()).hexdigest() != row['sha256']:
+            raise SystemExit('Source identity differs for '+field)
+        lines = current.read_bytes().decode('utf-8').split('\n')
+        if row['physical_line'] > len(lines) or not re.search(r'^\s*theorem\s+'+re.escape(row['declaration'].rsplit('.',1)[-1])+r'\b', lines[row['physical_line']-1]):
+            raise SystemExit('Wrong physical declaration line for '+field)
+        return link(row['file']+'#L'+str(row['physical_line']), row['declaration'])+' · SHA-256 <code>'+row['sha256']+'</code>'
+    consumer_folder = 'Solutions/RHOcticPush.v1/ramanujan/count-feasibility/ieantn-consumer/'
+    theorem = checked_identity('theorem_identity', consumer_folder+'IEANTNCountConsumer.lean',
+        'RHOcticPush.IEANTNCount.primeCounting_fixed_point')
+    byte_lemma = checked_identity('byte_lemma_identity', consumer_folder+'WordBytesBounded.lean',
+        'RHOcticPush.IEANTNCount.wordBytes_injective_below')
+    sources = ieantn_consumer.get('source_code', [])
+    if type(sources) is not list or len(sources) != 2 or len({row.get('file') for row in sources if type(row) is dict}) != 2:
+        raise SystemExit('Completed IEANTN consumer requires both exact C source identities')
+    source_links = []
+    for row in sources:
+        if type(row) is not dict or not {'file', 'sha256'} <= set(row) or not isinstance(row['file'], str):
+            raise SystemExit('Invalid IEANTN consumer C source identity')
+        path = Path(row['file'])
+        if path.is_absolute() or '..' in path.parts or path.suffix != '.c' or not isinstance(row['sha256'], str) or not re.fullmatch('[0-9a-f]{64}', row['sha256']) or not (REPO/path).is_file() or hashlib.sha256((REPO/path).read_bytes()).hexdigest() != row['sha256']:
+            raise SystemExit('Wrong actual C source bytes for IEANTN consumer')
+        source_links.append(link(row['file'])+' · SHA-256 <code>'+row['sha256']+'</code>')
+    if {row['sha256'] for row in sources} != {
+            '85326ecb93d86c693d980352ebde59a350eef89b4f367c88b65fa88f58d991dd',
+            '011738a2ee9879f25d3b24bf7b134ba20825105872a3e3d26d1a082db72140f7'}:
+        raise SystemExit('IEANTN consumer requires the unchanged actual counter and high-driver sources')
+    if lang == 'EN':
+        title = 'Verified program outputs consumed by the actual IEANTN theorem'
+        text = ('The independently kernel-verified count identifies the eight bytes of a constructed execution of the two actual C sources in the formal model. Generic program correctness applied to that same execution identifies its output with the bytes of the mathematical prime count. Injectivity of the eight-byte encoder on the proved bounded range equates the values; the existing floor-and-cast definition then gives the actual real-variable IEANTN theorem. This source-first PV chain uses a KERNEL-DERIVED numerical witness. The ordinary compiled execution is recorded separately under the listed platform contracts. No formal physical trace, general ISO-C adequacy theorem, canonical point node or full finite Ramanujan coverage is claimed.')
+    else:
+        title = '검증한 프로그램 출력을 실제 IEANTN 정리가 사용'
+        text = ('독립적인 커널 계수 증명으로 두 실제 C 소스의 형식 실행 모델에서 구성한 실행의8바이트 출력을 식별한다. 같은 실행에 프로그램의 일반 정확성 정리를 적용하면 그 출력은 수학적 소수 개수의 바이트와 같다. 증명한 범위에서8바이트 인코딩의 단사성으로 두 값을 일치시키고, 기존 바닥 함수·형변환 정의를 통해 실제 IEANTN 실수 변수 정리를 얻는다. 이 source-first PV 연결의 수치 증거는 커널에서 도출한 것이다. 실제 컴파일 실행의 관측은 명시한 플랫폼 계약 아래 별도로 기록한다. 물리 실행 추적·일반 ISO-C 적합성 정리·새 정식 한 점 노드·전체 유한 라마누잔 구간 검증을 주장하지 않는다.')
+    return card(title, '<p>'+text+'</p><p>'+theorem+'</p><p>'+byte_lemma+'</p><p>'+'; '.join(source_links)+'.</p>', 'green')
+
+def finite_completion(lang):
+    if not finite_kernel_done:
+        return ''
+    if not finite_source_done:
+        title = 'Exact numerical theorem accepted; source completion separate' if lang == 'EN' else '정확한 수치 정리 승인; 소스 연결은 별도'
+        text = ('The complete kernel certificate proves the displayed fixed count. The cold foundation and final source-indexed output consumer remain separate acceptance gates.'
+                if lang == 'EN' else '전체 커널 인증서로 아래 고정 계수값을 증명했다. 캐시 없는 기반 재현과 최종 소스 인덱스 출력 소비 정리의 승인은 별도 단계다.')
+        return card(title, m('finite_count')+'<p>'+text+'</p>', 'blue')
+    info = status['finite_source_completion']
+    identities = info.get('captured_sources', [])
+    if len(identities) != 3 or any(not {'file', 'declaration', 'physical_line', 'sha256'} <= set(row) for row in identities):
+        raise SystemExit('Completed finite source status requires three exact compiled source identities')
+    references = '; '.join(link(row['file']+'#L'+str(row['physical_line']), row['declaration']) for row in identities)
+    if lang == 'EN':
+        title = 'Selected C source, execution model and exact output connected'
+        body = ('<p>The complete fixed-count proof and the source-indexed mathematical consumer have passed. The actual cold foundation, remaining original arithmetic proofs, unchanged final theorem and new consumer are recorded separately. The final proof constructs a modeled execution of both actual C source texts and identifies its eight little-endian output bytes; a separate theorem covers every successful modeled run. The proof-value audit checks actual use of both independent source-grammar proofs, the counter correctness theorem and the exact numerical count.</p>'
+                '<p>This completes the selected source/model/output chain under its stated model-applicability, compiler, headers, ABI/runtime, stdio/OS and hardware contracts. It is not a full ISO-C adequacy proof or a formal physical-machine trace. The point count does not supply the entire finite interval coverage needed for an independent Ramanujan onset proof.</p>'
+                '<p>The actual high-result route composes the current campaign’s pure arithmetic proofs with a freshly compiled cold complement. The standalone source-only command regenerates the full locked workload; its bounded control was executed separately. The final status and receipts identify the precise executed route, elapsed-time scope, memory, disk and optimization-mode controls.</p>')
+    else:
+        title = '선택한 C 소스·실행 모델·정확한 출력의 연결 완료'
+        body = ('<p>전체 고정 계수 증명과 소스 인덱스 수학 소비 정리가 통과했다. 실제 캐시 없는 기반, 나머지 원래 산술 증명, 보존한 최종 정리와 새 소비 정리를 별도로 기록한다. 최종 증명은 실제 C 텍스트 두 개의 모델 실행을 구성하고 little-endian 출력8바이트를 특정하며, 별도 정리는 모든 성공한 모델 실행을 다룬다. 증명 본문 감사로 독립 소스 문법 증명 두 개, 계수 프로그램의 정확성 정리와 정확한 수치 계수값을 실제로 사용하는지 확인한다.</p>'
+                '<p>명시한 모델 적용·컴파일러·헤더·ABI/런타임·stdio/OS·하드웨어 계약 아래 선택한 소스·모델·출력 연결을 완료한 것이다. 전체 ISO-C 의미의 적합성이나 물리 기계 추적을 형식화한 것은 아니다. 이 한 점의 계수값이 라마누잔 시작점을 독립적으로 증명하는 데 필요한 전체 유한 구간을 덮지는 않는다.</p>'
+                '<p>실제 높은 입력 결과는 이번 연구의 순수 산술 증명과 새로 컴파일한 캐시 없는 나머지 기반을 결합한다. 독립 소스 전용 명령은 고정된 전체 작업을 재생성하며 작은 대조 실행은 별도로 수행했다. 최종 상태와 영수증에 실제 실행 경로·시간 범위·메모리·디스크·최적화 모드 대조를 명시한다.</p>')
+    return card(title, m('finite_count')+body+'<p>'+references+'.</p>', 'green')
+
+finite_executive_en = (card('Actual IEANTN output consumer completed',
+    '<p>The accepted four-source append and its controls connect the same-run verified output bytes to the actual IEANTN real-variable prime-counting theorem. The numerical witness is kernel-derived. No new native verification, physical trace, whole ISO-C adequacy, canonical point node or full finite Ramanujan coverage is claimed.</p>', 'green') if finite_ieantn_done else card('Source/model/count complete; IEANTN link pending',
+    '<p>The fixed high-count source/model/output chain is complete at the documented trust boundary. The prepared four-source link to the actual IEANTN real-variable theorem still needs acceptance with its controls. Source/model/count completion alone is not a completed source-first PV-backed IEANTN result.</p>', 'amber') if finite_source_done else
+    card('What remains incomplete','<p>The full finite prime-count source-first verification route remains open. This is not a claim to have verified every numerical program in IEANTN. New source grammar and whole-main model proofs are complete for the counter and high driver; the exact finite-output proof and compiled-run/model applicability boundaries are reported separately below.</p>', 'amber'))
+finite_executive_ko = (card('실제 IEANTN 출력 소비 정리 완료',
+    '<p>승인한 네 소스의 추가 증명과 대조 검사가 같은 실행의 검증 출력 바이트를 실제 IEANTN 실수 변수 소수계수 정리까지 연결한다. 수치 증거는 커널로 도출했다. 새 native 검증·물리 추적·전체 ISO-C 적합성·정식 한 점 노드·전체 유한 라마누잔 구간 검증을 주장하지 않는다.</p>', 'green') if finite_ieantn_done else card('소스·모델·계수 완료; IEANTN 연결은 미완료',
+    '<p>명시한 신뢰 경계에서 고정된 높은 입력의 소스·모델·출력 연결을 완료했다. 실제 IEANTN 실수 변수 정리까지의 네 소스 연결과 대조 검사는 아직 승인이 필요하다. 소스·모델·계수 연결 완료만으로 source-first PV로 뒷받침한 IEANTN 결과가 완료되었다고 보지 않는다.</p>', 'amber') if finite_source_done else
+    card('남아 있는 작업','<p>전체 유한 소수계수 계산의 source-first PV는 미완료다. IEANTN의 모든 수치 프로그램을 검증했다고 주장하지 않는다. 계수 프로그램과 높은 입력 드라이버의 새 소스 문법·전체 main 모델 증명은 완료했다. 고정된 유한 출력 증명과 실제 컴파일 실행에 대한 모델 적용 경계는 아래에서 별도로 설명한다.</p>', 'amber'))
 
 octic_done = status.get('octic_certificate_accepted') is True
 proof_replay = status.get('complete_new_source_replay_accepted') is True
@@ -231,9 +349,7 @@ contents_en.append(section('results','Results and the exact proof boundary',
       'correlated Nicolas weights give actual multi-height Euler-product inequalities; the Box work proves full Fourier '
       'reconstruction and a justified Mellin series/integral interchange, while improving an existing moment cap.</p>', 'blue')+
  card('Actual signed spectral target and stronger coefficient',m('spectral_profile')+m('spectral_actual')+'<p>These are the unchanged arithmetic compensation error and the entire real rays. The proof retains complex phases through integration by parts, then uses Nicolas’s positive inverse-square zero mass. Exact inputs are RH, Nicolas’s spectral summability/bound and the general integrated Perron formula; GM and Büthe error estimates are not assumptions.</p>','green')+
- card('What remains incomplete','<p>The full finite prime-count '
-      'source-first verification route remains open. This is not a claim to have verified every numerical program in IEANTN. '
-      'New source grammar and whole-main model proofs are complete for the counter and high driver; the exact finite-output proof and compiled-run/model applicability boundaries are reported separately below.</p>', 'amber')))
+ finite_executive_en))
 
 contents_en.append(section('octic','The octic proof: an infinite analytic argument and a finite numerical kernel gate',
  '<p>The physical test kernel is compactly supported. Its actual transform, rather than a separately invented numerical function, '
@@ -454,14 +570,18 @@ contents_en.append(section('pv','Program verification, finite coverage and infra
  '2·10¹², not merely the previously exercised 2–128 inputs. The degree-20 coefficient program is reused only at proved indices 0–20. '
  'The actual C sources are unchanged. The RestrictedC backend supplies exact rendered-source identity and model execution proofs; '
  'an independent parser/renderer-soundness theorem is not established by that backend. Its renderer/model-interpretation contract '
- 'must remain explicit for those reused programs. The bounded independent frontend for the prime counter and high driver is a separate new proof described below. Compiler, runtime, OS/API, hardware and source/build/run association are separate remaining boundaries.</p>'+finite_en+
- '<p>The full finite prime-count output realization remains unfinished. A balanced tree checker is proved equivalent to the '
+ 'must remain explicit for those reused programs. The bounded independent frontend for the prime counter and high driver is a separate new proof described below. Compiler, runtime, OS/API, hardware and source/build/run association are separate remaining boundaries.</p>'+finite_en+finite_completion('EN')+finite_ieantn_completion('EN')+
+ ('<p>The earlier bounded-checker comparison is recorded separately from the completed fixed-count proof. A balanced tree checker is proved equivalent to the ' if finite_kernel_done else '<p>The full finite prime-count output realization remains unfinished. A balanced tree checker is proved equivalent to the ')+
  'unchanged original list checker and verifies the same 32,768-record chunk in independent runs of about 163 seconds, with about '
- '30.8 GiB peak RAM and only the standard propext axiom. A further pure-recursion variant proves the generic bridge and the same numerical chunk with an empty axiom list in 182.04 seconds (30.70 GiB child peak RSS). The earlier attribution of propext to Nat.brecOn was incorrect and is withdrawn. The old unsplit job was still running after several days. This is a '
- 'censored, differently organized verification comparison, not a controlled speedup benchmark or completion of all 90.67 million records. '
+ '30.8 GiB peak RAM and only the standard propext axiom. A further pure-recursion variant proves the generic bridge and the same numerical chunk with an empty axiom list in 182.04 seconds (30.70 GiB child peak RSS). The earlier attribution of propext to Nat.brecOn was incorrect and is withdrawn. The old unsplit job was still running after several days. This is a '+
+ ('censored, differently organized small-chunk comparison, not a controlled speedup benchmark. The complete high-count result has its own acceptance receipt. ' if finite_kernel_done else 'censored, differently organized verification comparison, not a controlled speedup benchmark or completion of all 90.67 million records. ')+
  'The original long-running workers and locked data are preserved.</p>'+
  '<p>The first full recovery verified 528 new modules and reached787 of2,768 arithmetic parts before a clean, requested drain. All active children finished naturally; the original five long-running workers were untouched. The additive resource-only V2 controller completed source/hash/dependency transport before launching numerical workers. It admits at most22 workers adaptively, preserving a512 GiB host reserve and accounting for active jobs’ potential growth. A partial counter does not establish final acceptance. Aggregate RSS/PSS, individual peaks, elapsed time and disk use are recorded; unavailable kernel OOM attribution stays unknown.</p>'+
- '<p>The old driver’s <code>main</code> and literal 38,358,837,683 remain unchanged. A separate additive C driver actually ran the same counter at 1,490,000,000,000 and wrote eight little-endian stdout bytes decoding to55,206,486,339 in1.116 seconds, with19.94 MiB peak RSS. Its formal whole-main theorem proves source-owned initialization, the counter call, output bytes and cleanup for every successful model execution; a constructive canonical model run is also proved. The fixed numerical output adapter still needs the full kernel count certificate. Four new Lean modules now prove an independently specified C11-fragment surface grammar, general guarded-renderer soundness and actual acceptance of both C texts. A new source-indexed whole-main existence proof consumes both generic soundness theorems. The fresh application append is separate. These claims do not include general C name binding, type checking, header interpretation or ISO-C operational adequacy; compiled-run and model applicability contracts remain explicit. This bounded frontend covers the counter and high driver, not the separate reused logarithm/coefficient programs.</p>'+
+ '<p>The old driver’s <code>main</code> and literal 38,358,837,683 remain unchanged. A separate additive C driver actually ran the same counter at 1,490,000,000,000 and wrote eight little-endian stdout bytes decoding to55,206,486,339 in1.116 seconds, with19.94 MiB peak RSS. Its formal whole-main theorem proves source-owned initialization, the counter call, output bytes and cleanup for every successful model execution; a constructive canonical model run is also proved. '+
+ ('The fixed kernel count is now accepted; the final source-output connection is recorded above. ' if finite_kernel_done else 'The fixed numerical output adapter still needs the full kernel count certificate. ')+
+ 'Four new Lean modules now prove an independently specified C11-fragment surface grammar, general guarded-renderer soundness and actual acceptance of both C texts. A new source-indexed whole-main existence proof consumes both generic soundness theorems. '+
+ ('The completed fixed-output consumer genuinely uses these proofs. ' if finite_source_done else 'The fresh application append is separate. ')+
+ 'These claims do not include general C name binding, type checking, header interpretation or ISO-C operational adequacy; compiled-run and model applicability contracts remain explicit. This bounded frontend covers the counter and high driver, not the separate reused logarithm/coefficient programs.</p>'+
  '<p>The source-fresh32-module whole application and the additive five-module grammar replay have passed, producing a37-module scoped closure. The grammar audit checks all186 compiler-owned theorems against standard axioms,19 proof-value edges and11 required endpoints. All36 actual normal/−O/−OO grammar controls passed. The historical application-reader V2 passed57 decisions; its separately preserved V3 passed60, including rejection of nested fixture-output paths. The mathematical application sources and original run are unchanged. These counts refer to different checked scopes, not additional numerical algorithms.</p>'+
  '<p>The original90,670,946-record data was deterministically regenerated in25 minutes56.59 seconds with42.97 GiB peak RSS: the packed SHA-256, all3,464 original Lean source hashes and all2,469 new pure-check recipes matched. After independent readback, exactly12,171,195,019 bytes of regenerable duplicate data were removed. Original inputs, accepted proofs and current verification inputs remain preserved. A separate source-clean complement covers the original994-module foundation; its status is disclosed in the status receipt rather than inferred from historical cached objects.</p>'))
 
@@ -504,9 +624,7 @@ contents_ko = [section('results','핵심 결과와 정확한 증명 경계',
       '<div class="tablewrap"><table><tr><th>이 값 이상의 모든 실수 x</th><th>증명된 정규화 여유</th></tr>'+rows+'</table></div>','green')+
  card('별도의 스펙트럼–라마누잔 결합',m('ram606')+'<p>실제 부호 보존 오차 함수를 사용하여6060억 이상 모든 실수에서 정규화 여유0.001을 증명했다. 닫힌 실수 구간 다섯 개를 커널로 검증하여6060억부터6100억까지 빠짐없이 연결하고,6100억 이상에서는 이전의 더 강한 전체 함수를 그대로 유지한다. 기존 입력 아홉 개에 Nicolas와 일반 Perron을 더하여 총 열한 개를 사용하는 별도 결과다. 동일 전제의 개선이나 문헌상 시작점 기록을 주장하지 않는다. Lean 소스 네 개, 독립44개 선언 검토와 canonical을 포함한 소스 재현723개가 통과했다.</p>','green')+
  card('실제 부호 보존 오차 상한과 더 강한 계수',m('spectral_profile')+m('spectral_actual')+'<p>원래 산술 보정 오차의 전체 실수 구간에 대한 정리다. 부분 적분 전까지 복소 위상을 유지한 뒤 Nicolas의 양의 영점 역제곱 질량을 사용한다. 정확한 입력은 RH, Nicolas의 스펙트럼 상한과 일반 적분 Perron 공식이다. GM 또는 Büthe의 오차 상한을 가정하지 않는다.</p>','green')+
- card('남아 있는 작업','<p>'
-      '전체 유한 소수계수 계산의 source-first PV는 미완료다. IEANTN의 모든 수치 프로그램을 검증했다고 주장하지 않는다. '
-      '계수 프로그램과 높은 입력 드라이버의 새 소스 문법·전체 main 모델 증명은 완료했다. 고정된 유한 출력 증명과 실제 컴파일 실행에 대한 모델 적용 경계는 아래에서 별도로 설명한다.</p>','amber')),
+ finite_executive_ko),
  section('octic','Octic: 실제 무한합과 유한 커널 검증을 연결하는 방법',
  '<p>φ_j는 반지름 ε_j인 정규화된 짝함수 비음수 매끄러운 bump이고 k_j=φ_j*k다. L은 물리적 커널 중심의 로그이며 전 범위 덮개가 a=u인 L을 선택한다. w_j는 t≤0에서0이고 W_j(t)=w_j(2t), X=2로 Green의 지지집합 조건을 만족한다. 푸리에 부호와 척도는 아래 식과 같다.</p>'+
  '<p>수치식에 임의로 이름을 붙인 것이 아니라 아래 실제 적분의 푸리에 변환을 검증한다.</p>'+m('kernel')+m('moments')+
@@ -612,12 +730,16 @@ contents_ko = [section('results','핵심 결과와 정확한 증명 경계',
  '<p>재사용하는 C 로그 프로그램의 일반 증명 범위는 정수 2부터 2·10¹²까지이고, 계수 프로그램은 0–20 인덱스에서만 '
  '사용한다. 실제 C 소스는 변경하지 않았다. RestrictedC에는 정확한 렌더링 소스의 동일성과 실행 모델 증명이 있지만 '
  '독립적인 파서·렌더러 건전성 정리는 이 백엔드에서 증명하지 않았다. 렌더러와 모델 해석 계약, 컴파일러·런타임·OS/API·'
- '하드웨어, 소스·빌드·실행 대응의 신뢰 경계를 공개한다. 계수 프로그램과 높은 입력 드라이버의 독립적인 부분 프런트엔드는 아래의 별도 새 증명이다.</p>'+finite_ko+
- '<p>전체 유한 소수계수 출력 연결은 미완료다. 기존과 정확히 같은 32,768개 레코드를 확인하는 균형 트리 검사기를 증명하고 '
- '약 163초의 독립 재실행 두 번과 약 30.8 GiB 개별 최고 RSS를 기록했다. 추가 순수 재귀 변형은 동일 수치 부분과 일반 연결을 빈 공리 목록으로 182.04초에 증명했으며 개별 최고 RSS는 30.70 GiB였다. Nat.brecOn이 propext의 원인이라는 이전 설명은 잘못되어 철회한다. 기존 비균형 작업은 며칠째 실행 중이었다. '
- '이는 조건이 맞춰진 속도 벤치마크나 전체 9,067만 레코드 완료가 아니다. 원래 작업과 고정 입력은 보존한다.</p>'+
+ '하드웨어, 소스·빌드·실행 대응의 신뢰 경계를 공개한다. 계수 프로그램과 높은 입력 드라이버의 독립적인 부분 프런트엔드는 아래의 별도 새 증명이다.</p>'+finite_ko+finite_completion('KO')+finite_ieantn_completion('KO')+
+ ('<p>이전의 작은 검사기 비교는 완료한 고정 계수 증명과 별도로 기록한다. 기존과 정확히 같은 32,768개 레코드를 확인하는 균형 트리 검사기를 증명하고 ' if finite_kernel_done else '<p>전체 유한 소수계수 출력 연결은 미완료다. 기존과 정확히 같은 32,768개 레코드를 확인하는 균형 트리 검사기를 증명하고 ')+
+ '약 163초의 독립 재실행 두 번과 약 30.8 GiB 개별 최고 RSS를 기록했다. 추가 순수 재귀 변형은 동일 수치 부분과 일반 연결을 빈 공리 목록으로 182.04초에 증명했으며 개별 최고 RSS는 30.70 GiB였다. Nat.brecOn이 propext의 원인이라는 이전 설명은 잘못되어 철회한다. 기존 비균형 작업은 며칠째 실행 중이었다. '+
+ ('이 작은 부분의 비교는 조건이 맞춰진 속도 벤치마크가 아니며 전체 높은 계수 결과에는 별도의 승인 영수증이 있다. 원래 작업과 고정 입력은 보존한다.</p>' if finite_kernel_done else '이는 조건이 맞춰진 속도 벤치마크나 전체 9,067만 레코드 완료가 아니다. 원래 작업과 고정 입력은 보존한다.</p>')+
  '<p>첫 전체 복구에서는 새 모듈528개를 검증하여 산술 부분2,768개 중787개에 도달한 뒤 요청된 정상 종료를 마쳤다. 실행 중인 자식 작업은 모두 자연 종료했으며 기존의 장기 작업5개는 건드리지 않았다. 자원 정책만 바꾼 별도 V2는 실제 소스·해시·의존성 이관을 마친 뒤 수치 작업을 시작했다. 최대22개를 적응적으로 허용하고 호스트용512 GiB와 실행 중 작업의 잠재적 메모리 증가를 남긴다. 부분 계수는 최종 승인 영수증이 아니다. 전체 RSS/PSS, 개별 최고 메모리, 시간과 디스크를 기록하고 확인할 수 없는 커널 OOM 귀속은 미확인으로 남긴다.</p>'+
- '<p>기존 드라이버의 <code>main</code>과 입력38,358,837,683은 보존했다. 별도 추가 C 드라이버는 동일한 계수 프로그램을1,490,000,000,000에서 실제 실행하여55,206,486,339로 해석되는 little-endian 이진 바이트8개를 stdout에 썼다.1.116초, 최고 RSS19.94 MiB를 기록했다. 전체 main 모델 정리는 소스 자체 초기화·계수 함수 호출·출력 바이트·정리를 모든 성공 실행에 대해 증명하며, 구체적인 표준 모델 실행의 존재도 증명했다. 고정 수치 출력 연결에는 아직 전체 커널 계수 인증서가 필요하다. 새 Lean 모듈 네 개에서 독립적인 C11 부분 표면 문법, 일반 guarded-renderer 건전성과 실제 C 텍스트 두 개의 승인을 증명했다. 새 소스 인덱스 main 존재 정리는 두 일반 건전성 정리를 실제로 사용한다. 해당 문법과 애플리케이션의 새 소스 재현37개는 통과했다. 고정된 수치 출력의 Final과 캐시 없는 기반 재현은 별도 미완료 작업이다. 일반 C 이름 결합·타입 검사·헤더 해석·ISO-C 실행 의미의 적합성을 증명한 것은 아니며, 실제 컴파일 실행과 모델 적용 계약을 명시적으로 남긴다. 이 프런트엔드는 계수 프로그램과 높은 입력 드라이버를 다루며 별도로 재사용한 로그·계수 생성 프로그램을 검증한 것은 아니다.</p>'+
+ '<p>기존 드라이버의 <code>main</code>과 입력38,358,837,683은 보존했다. 별도 추가 C 드라이버는 동일한 계수 프로그램을1,490,000,000,000에서 실제 실행하여55,206,486,339로 해석되는 little-endian 이진 바이트8개를 stdout에 썼다.1.116초, 최고 RSS19.94 MiB를 기록했다. 전체 main 모델 정리는 소스 자체 초기화·계수 함수 호출·출력 바이트·정리를 모든 성공 실행에 대해 증명하며, 구체적인 표준 모델 실행의 존재도 증명했다. '+
+ ('고정된 커널 계수 정리는 승인했고 최종 소스·출력 연결은 위에 별도로 기록한다. ' if finite_kernel_done else '고정 수치 출력 연결에는 아직 전체 커널 계수 인증서가 필요하다. ')+
+ '새 Lean 모듈 네 개에서 독립적인 C11 부분 표면 문법, 일반 guarded-renderer 건전성과 실제 C 텍스트 두 개의 승인을 증명했다. 새 소스 인덱스 main 존재 정리는 두 일반 건전성 정리를 실제로 사용한다. 해당 문법과 애플리케이션의 새 소스 재현37개는 통과했다. '+
+ ('완료한 고정 출력 소비 정리가 이 증명들을 실제로 사용하고 캐시 없는 기반 재현도 통과했다. ' if finite_source_done else ('커널 Final은 승인했고 새 소스·출력 소비 정리와 캐시 없는 기반 재현은 별도 진행 단계다. ' if finite_kernel_done else '고정된 수치 출력의 Final과 캐시 없는 기반 재현은 별도 미완료 작업이다. '))+
+ '일반 C 이름 결합·타입 검사·헤더 해석·ISO-C 실행 의미의 적합성을 증명한 것은 아니며, 실제 컴파일 실행과 모델 적용 계약을 명시적으로 남긴다. 이 프런트엔드는 계수 프로그램과 높은 입력 드라이버를 다루며 별도로 재사용한 로그·계수 생성 프로그램을 검증한 것은 아니다.</p>'+
  '<p>전체 애플리케이션32개 모듈의 새 소스 재현과 문법5개 모듈의 추가 재현을 모두 통과하여37개 범위를 확인했다. 문법 감사는 컴파일러가 소유한 실제 정리186개 전체의 표준 공리, 증명 본문 연결19개와 필수 도착점11개를 검사한다. 실제 일반/−O/−OO 문법 대조36개가 통과했다. 이전 애플리케이션 검사기 V2의57개 판정과 별도 보존한 V3의60개 판정도 통과했다. V3에는 중첩된 임시 출력 경로를 거부하는 검사 세 개가 포함된다. 수학적 애플리케이션 소스와 원래 실행은 바꾸지 않았다. 서로 다른 검증 범위의 계수이며 새로운 수치 알고리즘 수가 아니다.</p>'+
  '<p>원래90,670,946개 레코드를25분56.59초, 최고 RSS42.97 GiB로 결정적으로 재생성했다. 압축 데이터 SHA-256, 원래 Lean 소스3,464개의 모든 해시와 순수 검사식2,469개가 일치했다. 독립 검토 후 재생성 가능한 중복 데이터만 정확히12,171,195,019바이트 삭제했다. 원래 입력·승인된 증명·현재 검증 입력은 보존했다. 기존994개 기반의 캐시 없는 소스 재현은 별도 추가 작업이며 최종 상태를 영수증에 명시한다. 과거 캐시 객체만으로 완료를 추정하지 않는다.</p>'),
  section('reproduce','재현과 증거 보존',
@@ -693,7 +815,7 @@ for key in paper_order:
     if key == 'gm':
         paper_parts.append(paper_ram)
 paper_parts.append(section('proof-boundary','Mathematical and computational proof boundaries',
- tier_legend('EN')+
+ tier_legend('EN')+finite_ieantn_completion('EN')+
  '<p>The mathematical consumer interfaces fix actual arithmetic objects and their full domains. A compiled proof may be conditional on RH and genuine general literature inputs while fully discharging the kernel-specific predicates. The source packages, rather than only a rounded coefficient, determine which comparisons use identical hypotheses. Pure function comparisons do not assert measured arithmetic errors or a global published minimum.</p>'+
  '<p>Numerical endpoint and all-real interval certificates are checked by the Lean kernel. They are not source-first PV. The finite prime-counter work separately connects the actual C source fragments to an independently specified syntax and an execution model, with explicit compiler, header, ABI, runtime, stdio, OS, hardware and model-applicability contracts. Its fixed numerical-output and clean-reproduction status follows the dated receipt in the complete research report; no unfinished numerical output is used as a premise of the analytic theorems here.</p>'+
  '<p>No optimality or global best-known-result claim is made. The displayed Lee–Nosal function comparison covers the two exact theorem envelopes, while its additional height family and other finite bounds remain relevant. The separate as-written reciprocal-zero normalization finding does not refute the paper’s final PNT conclusions. The original independent experimental outcomes are preserved; these new connections are coordinator synthesis after those outcomes were locked.</p>'))

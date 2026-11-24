@@ -1,0 +1,14 @@
+'RHOcticPush.Goldbach.Final.triple_count_family' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHOcticPush.Goldbach.Final.triples_above_n_minus_H' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHOcticPush.Goldbach.Final.triples_fixed_width_stronger' depends on axioms: [propext, Classical.choice, Quot.sound]
+triples_above_n_minus_H : GreenSource.SourceGreenSmooth →
+  NicolasContinuation.SourceNicolas119 →
+    BPTSourceEndpoint.SourceBPTOffOrdinate →
+      RiemannHypothesis →
+        ∀ {H n : ℕ},
+          IEANTN.GoldbachEvenUpTo H →
+            Odd n →
+              2 * H < n →
+                rexp 24 ≤ ↑n - ↑H →
+                  5373 / 2500 * √(↑n - ↑H) * log (↑n - ↑H) ≤ ↑H - 4 →
+                    (1 + 21 / 5 / log (↑n - ↑H)) * √(↑n - ↑H) < ↑(sortedTriples n).card

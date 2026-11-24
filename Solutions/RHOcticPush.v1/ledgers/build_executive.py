@@ -45,8 +45,10 @@ rows = []
 def add(id, family, path, declaration, **details):
     entry = entries[family]
     row = dict(id=id, partition='this_campaign_coordinator_synthesis_post_lock',
-               status=entry['status'], source_first_PV=False,
+               status=('COMPLETE_REUSED_HIGH_MAIN_SOURCE_MODEL_COMPONENT' if id == 'HIGH-C-MAIN' else entry['status']), source_first_PV=(id == 'FINITE-COUNT' and entry.get('source_first_PV') is True),
                identity=identity(PREFIX + path, declaration), **details)
+    if 'current_analytic739_reproduction' in entry:
+        row['current_analytic739_reproduction'] = entry['current_analytic739_reproduction']
     rows.append(row)
 
 
@@ -180,40 +182,40 @@ add('GOLDBACH-COUNTS', 'GOLDBACH-SORTED-COUNTS', 'octic/OcticOptimizedCertified.
     certificate='Certified octic moments consumed internally; actual finite-set injection',
     consumers='Actual Goldbach sorted finite population', literature='No new global ternary existence record or binary Goldbach proof',
     limitation='Finite binary input is explicit and not independently reverified here')
-add('FINITE-COUNT', 'FINITE-COUNT', 'ramanujan/count-feasibility/high-driver/HighDriverContract.lean', 'output_of_exact_count',
+add('FINITE-COUNT', 'FINITE-COUNT', 'ramanujan/count-feasibility/ieantn-consumer/IEANTNCountConsumer.lean', 'primeCounting_fixed_point',
     old='Original unbalanced kernel checks incomplete after multiday execution',
-    new='Balanced checker generic equivalence and chunk EMPTY axioms; full pi(1490000000000)=55206486339 target still running',
+    new='Actual IEANTN real prime count at1490000000000 equals55206486339; same-run source-output consumer fully accepted with4fresh compiles and24controls',
     domain='Same locked90,670,946records; original sources and numerical statement unchanged',
-    premises=['Complete original Final exactcount proof PENDING','Generic C source-model/compiler/runtime interpretation contracts'],
-    tier='D partial; complete numerical target and source-first chain NOT accepted', same_premises=True,
-    method='Proof organization only: pure balanced finite checker, strict source/object/log/dependency reuse',
-    certificate='Same32768records182.04s/30.70GiB/EMPTY; fullV1/V2 recovery separately recorded',
-    consumers='Actual C function/highmain numeric output adapter conditional until Final',
+    premises=[],
+    tier='C+D source-first same-point IEANTN theorem with kernel-derived numerical witness; separate30reader regressions pending', same_premises=True,
+    method='Preserved pure balanced checker plus independent C grammar, application execution correctness, same-run byte injectivity and existing IEANTN floor/cast vocabulary',
+    certificate='Warm exact count7af53640...8d5f1 GNU3:41:35; cold69512c2e559...19720 with697compiler records; remaining305e4c4c641...577d0 GNU1:08:19; actual four-source append ee218b4172e4e53db7568c21ecba01444b98d416944d2245203905caca343b47; actual24 controls694fe11ab65d31482accd9e173cacf6e4b94b09ddeab72a1ce1a4d2fc5cf63e7; separate32768 comparison preserved',
+    consumers='Actual source-indexed run output is consumed by the existing IEANTN real function;33proof-value edges verify both source grammar paths, generic counter correctness and numeric witness',
     literature='Not a published prime-count record or finite Ramanujan coverage',
-    limitation='Complete Final/factaudit/cold994cleancomplement remain gates; independent restrictedsource grammar alreadyprovedfresh37')
+    limitation='Numerical witness remains kernel-derived; platform/model contracts remain explicit; no formal physical trace or complete finite Ramanujan coverage; original30reader regression suite still running')
 add('HIGH-C-MAIN', 'FINITE-COUNT', 'ramanujan/count-feasibility/high-driver/HighDriverContract.lean', 'actual_source_model_main',
     old='Original driver literal38358837683 preserved',
     new='Additive actual C highmain1490000000000; native emits8little-endian bytes decoding to55206486339; whole-main source-owned initialization/call/output/lifetime model proof',
     domain='Actual highdriver static inputs/capacity; generic counter theorem2<=n<=2e12',
     premises=['Pinned generic C operational-model interpretation','Compiler/ABI/runtime/stdio/hardware/source-build-run contracts'],
-    tier='Checked source-model mathematics plusindependentboundedfrontend; fixednumerical acceptance pending',
+    tier='Reused program-model component; accepted source-first numeric IEANTN chain is indexed separately in FINITE-COUNT',
     same_premises='New additive source and main model, oldsource/AST/model preserved',
     method='Construct canonical whole-main run; prove bytes for every successful modeled execution',
     certificate='Nativev2 output8bytes,1.116s/19.94MiB; high-driver/SOURCE_FREEZE.json; fresh32 route',
-    consumers='Highmain exactcount output adapter; not yet completed new PV',
+    consumers='Highmain correctness feeds the accepted source-first point consumer; this row alone is a reused model component',
     literature='WG14 C11 supported syntax grammar specified independently in bounded frontend work',
-    limitation='Native execution is observation; not a substitute for the pending kernel numerical theorem')
+    limitation='Native execution is observation; mathematical numeric witness is the accepted kernel count, not a new native proof')
 add('COUNTER-SOURCE-GRAMMAR', 'C-SURFACE-SYNTAX',
     'finite-pv/grammar/CounterGrammarConsumer.lean','complete_canonical_source_run',
     old='RestrictedC exactrendered-sourceidentity/modelproof, withoutindependentfragmentgrammarcorrespondence',
     new='ActualCcounter/highdriver independentC11fragmentcharactersyntax plusgeneralguardedrenderer soundness genuinelyconsumedby source-indexedconstructivemodelrun',
     domain='ExactlythesupportedC11fragmentandthetwopinnedactualcounter/highdriversources',
     premises=['PreservedformalCmodelinterpretation','Compiler/header/ABI/runtime/stdio/OS/hardware/source-build-runapplicability'],
-    tier='Kernelprovedrestrictedsource/modelconnection; completefixednumericPVchainpendingFinal',
+    tier='Kernel-proved restricted source/model component consumed by the accepted source-first real IEANTN point theorem',
     same_premises='PreservesoriginalCsource/AST/executionmodel; additiveindependentsyntaxderivations',
     method='Independentgrammaroperators/precedence/parentheses/decimaldecode/matchedstatements/declarations/includes; genericrenderer soundness thenactualsourceadmission',
     certificate='Sourcefresh37;186compilerownedStd3theorems/19valueedges/11requiredendpoints/36CLIcontrols',
-    consumers='Actualsource-indexedcanonicalwholemainrun; fixedcountoutputconsumerwillcombineFinal',
+    consumers='Actualsource-indexedcanonicalwholemainrun; final exact-output and actual IEANTN byte consumers are separate closure steps',
     literature='WG14N1570 supports explicit boundedfragmentinterpretation; notgeneralCtypebinding/headermodel',
     limitation='Surfacecorrespondence is distinctfromfullISO-Csemanticadequacy; genericplatformandcompiledruncontractsremain')
 add('BOX-LEE-WHOLE', 'BOX-LEE-FUNCTIONS','comparisons/BoxVsLee.lean','box_lt_both',

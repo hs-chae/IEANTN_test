@@ -26,6 +26,7 @@ deterministic.
 
 ```sh
 export PYTHONDONTWRITEBYTECODE=1
+mkdir -p SCRATCH
 python3 -B PACKET/source/Solutions/RHOcticPush.v1/integration/continuation/bootstrap_generic.py \
   --compiler LEAN --cpu CPU --out SCRATCH/generic
 export IEANTN_GENERIC_CONTEXT=SCRATCH/generic/GENERIC_CONTEXT.json
@@ -68,7 +69,8 @@ from the source packet.
 
 The clean723 coordinator first compiles the261-module baseline,55-module
 spectral extension and24-module canonical core, then114 new sources,165 moment
-and consumer sources,40 Box-zero sources,33 closed-Box sources,19 signed-spectral
+and consumer sources,41 Box-zero sources (40 scientific sources and one auditor),
+33 closed-Box sources,19 signed-spectral
 sources and11 Ramanujan synthesis sources. Its last validator recursively reads
 back the entire source/object/log/C-resource chain. Each application object is
 freshly compiled from the included source; only the explicit pinned generic

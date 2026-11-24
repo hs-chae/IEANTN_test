@@ -1,0 +1,194 @@
+[
+  {
+    "phase": "primary454",
+    "root": "/data/ivy-rh-octic-20261123/integration/public739-runtime-primary-recovered-v1",
+    "actual_registered_controller_command": [
+      "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+      "-B",
+      "/data/ivy-rh-octic-20261123/integration/public739-runtime-source-v2/source/Solutions/RHOcticPush.v1/integration/corrected/reproduce.py",
+      "--basis",
+      "/data/ivy-rh-octic-20261123/integration/public723-primary-clean-v2/foundation",
+      "--resume",
+      "/data/ivy-rh-octic-20261123/integration/public723-primary-clean-v2",
+      "--out",
+      "/data/ivy-rh-octic-20261123/integration/public739-runtime-primary-recovered-v1",
+      "--memory-gib",
+      "64"
+    ],
+    "requested_command_if_new": [
+      "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+      "/data/ivy-rh-octic-20261123/integration/public739-runtime-source-v2/source/Solutions/RHOcticPush.v1/integration/corrected/reproduce.py",
+      "--out",
+      "/data/ivy-rh-octic-20261123/integration/public739-runtime-primary-recovered-v1",
+      "--memory-gib",
+      "64"
+    ],
+    "existing_registered_or_completed_phase": true,
+    "RESULT_sha256": "feff4c22047001a89cbd820d9b3a29a0869fe00df2893f4d06ed91128c4ebe85",
+    "status": "PASS_FRESH_CORRECTED_FOUNDATION_AND_ALL_NEW_SOURCES",
+    "coordinator_phase_seconds": 0.00104609876871109,
+    "reported_phase_seconds": 11.48148749396205,
+    "resource_measurements": {
+      "peak_child_RSS_KiB": 26829036,
+      "sampled_peak_owned_disk_bytes": 488291582
+    }
+  },
+  {
+    "phase": "supplement165",
+    "root": "/data/ivy-rh-octic-20261123/integration/public739-runtime-complete723-v1/supplement",
+    "actual_registered_controller_command": [
+      "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+      "/data/ivy-rh-octic-20261123/integration/public739-runtime-source-v2/source/Solutions/RHOcticPush.v1/integration/supplement/audit_corrected.py",
+      "--primary",
+      "/data/ivy-rh-octic-20261123/integration/public739-runtime-primary-recovered-v1",
+      "--out",
+      "/data/ivy-rh-octic-20261123/integration/public739-runtime-complete723-v1/supplement",
+      "--jobs",
+      "1",
+      "--memory-gib",
+      "64"
+    ],
+    "requested_command_if_new": [
+      "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+      "/data/ivy-rh-octic-20261123/integration/public739-runtime-source-v2/source/Solutions/RHOcticPush.v1/integration/supplement/audit_corrected.py",
+      "--primary",
+      "/data/ivy-rh-octic-20261123/integration/public739-runtime-primary-recovered-v1",
+      "--out",
+      "/data/ivy-rh-octic-20261123/integration/public739-runtime-complete723-v1/supplement",
+      "--jobs",
+      "1",
+      "--memory-gib",
+      "64"
+    ],
+    "existing_registered_or_completed_phase": false,
+    "RESULT_sha256": "9fbe0988f0927884d93fe262ec795691d2b5dde005949f3f4c722e860f191a4e",
+    "status": "PASS_FRESH_SUPPLEMENT_ALL_SOURCES",
+    "coordinator_phase_seconds": 5704.654822073877,
+    "reported_phase_seconds": 5662.135799067095,
+    "resource_measurements": {
+      "peak_individual_child_RSS_KiB": 10247336,
+      "sampled_peak_process_tree_RSS_bytes": 10521493504,
+      "sampled_peak_owned_disk_bytes": 108325180
+    }
+  },
+  {
+    "phase": "box40",
+    "root": "/data/ivy-rh-octic-20261123/integration/public739-runtime-complete723-v1/box40",
+    "actual_registered_controller_command": [
+      "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+      "/data/ivy-rh-octic-20261123/integration/public739-runtime-source-v2/source/Solutions/RHOcticPush.v1/box/zero/reproduce_zero.py",
+      "--foundation",
+      "/data/ivy-rh-octic-20261123/integration/public739-runtime-complete723-v1/supplement",
+      "--out",
+      "/data/ivy-rh-octic-20261123/integration/public739-runtime-complete723-v1/box40"
+    ],
+    "requested_command_if_new": [
+      "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+      "/data/ivy-rh-octic-20261123/integration/public739-runtime-source-v2/source/Solutions/RHOcticPush.v1/box/zero/reproduce_zero.py",
+      "--foundation",
+      "/data/ivy-rh-octic-20261123/integration/public739-runtime-complete723-v1/supplement",
+      "--out",
+      "/data/ivy-rh-octic-20261123/integration/public739-runtime-complete723-v1/box40"
+    ],
+    "existing_registered_or_completed_phase": false,
+    "RESULT_sha256": "57e06042a8d3f14abd875b187d03394de7e37297a8da6f9d7c77fa10a8225fff",
+    "status": "PASS_FRESH_BOX40_AND_EXACT_ZERO_CONSUMER",
+    "coordinator_phase_seconds": 521.6562476437539,
+    "reported_phase_seconds": 464.3396624773741,
+    "resource_measurements": {
+      "peak_individual_child_RSS_KiB": 8276572,
+      "sampled_peak_process_tree_RSS_bytes": 8510062592,
+      "sampled_peak_owned_disk_bytes": 13880724
+    }
+  },
+  {
+    "phase": "closed_box33",
+    "root": "/data/ivy-rh-octic-20261123/integration/public739-runtime-complete723-v1/closed-box33",
+    "actual_registered_controller_command": [
+      "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+      "/data/ivy-rh-octic-20261123/integration/public739-runtime-source-v2/source/Solutions/RHOcticPush.v1/integration/closed_box/reproduce.py",
+      "--foundation",
+      "/data/ivy-rh-octic-20261123/integration/public739-runtime-complete723-v1/box40",
+      "--out",
+      "/data/ivy-rh-octic-20261123/integration/public739-runtime-complete723-v1/closed-box33"
+    ],
+    "requested_command_if_new": [
+      "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+      "/data/ivy-rh-octic-20261123/integration/public739-runtime-source-v2/source/Solutions/RHOcticPush.v1/integration/closed_box/reproduce.py",
+      "--foundation",
+      "/data/ivy-rh-octic-20261123/integration/public739-runtime-complete723-v1/box40",
+      "--out",
+      "/data/ivy-rh-octic-20261123/integration/public739-runtime-complete723-v1/closed-box33"
+    ],
+    "existing_registered_or_completed_phase": false,
+    "RESULT_sha256": "0d3edfa1b8c9e65e2771518ce1930f56830b4a268122ad6af2a11cc30944693b",
+    "status": "PASS_FRESH_CLOSED_BOX33_ALL_FOUR_PROVIDERS_AND_CANONICAL_CONSUMERS",
+    "coordinator_phase_seconds": 452.6376665197313,
+    "reported_phase_seconds": 394.44265046715736,
+    "resource_measurements": {
+      "peak_individual_child_RSS_KiB": 7484988,
+      "sampled_peak_process_tree_RSS_bytes": 7694508032,
+      "sampled_peak_owned_disk_bytes": 3070141
+    }
+  },
+  {
+    "phase": "spectral19",
+    "root": "/data/ivy-rh-octic-20261123/integration/public739-runtime-complete723-v1/spectral19",
+    "actual_registered_controller_command": [
+      "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+      "/data/ivy-rh-octic-20261123/integration/public739-runtime-source-v2/source/Solutions/RHOcticPush.v1/integration/spectral_final/reproduce.py",
+      "--foundation",
+      "/data/ivy-rh-octic-20261123/integration/public739-runtime-complete723-v1/closed-box33",
+      "--out",
+      "/data/ivy-rh-octic-20261123/integration/public739-runtime-complete723-v1/spectral19"
+    ],
+    "requested_command_if_new": [
+      "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+      "/data/ivy-rh-octic-20261123/integration/public739-runtime-source-v2/source/Solutions/RHOcticPush.v1/integration/spectral_final/reproduce.py",
+      "--foundation",
+      "/data/ivy-rh-octic-20261123/integration/public739-runtime-complete723-v1/closed-box33",
+      "--out",
+      "/data/ivy-rh-octic-20261123/integration/public739-runtime-complete723-v1/spectral19"
+    ],
+    "existing_registered_or_completed_phase": false,
+    "RESULT_sha256": "784356d4c1ad969d4ae14a3400b457ba0bbef9531889b6f01a0b0378c17e0234",
+    "status": "PASS_FRESH_SPECTRAL19_SOURCE_CLOSED_PI_AND_FULL_NETWORK",
+    "coordinator_phase_seconds": 485.3413685094565,
+    "reported_phase_seconds": 425.5562551189214,
+    "resource_measurements": {
+      "peak_individual_child_RSS_KiB": 8928508,
+      "sampled_peak_process_tree_RSS_bytes": 9179156480,
+      "sampled_peak_owned_disk_bytes": 5972377
+    }
+  },
+  {
+    "phase": "ram60611",
+    "root": "/data/ivy-rh-octic-20261123/integration/public739-runtime-complete723-v1/ram60611",
+    "actual_registered_controller_command": [
+      "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+      "/data/ivy-rh-octic-20261123/integration/public739-runtime-source-v2/source/Solutions/RHOcticPush.v1/integration/ram606/reproduce.py",
+      "--foundation",
+      "/data/ivy-rh-octic-20261123/integration/public739-runtime-complete723-v1/spectral19",
+      "--out",
+      "/data/ivy-rh-octic-20261123/integration/public739-runtime-complete723-v1/ram60611"
+    ],
+    "requested_command_if_new": [
+      "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+      "/data/ivy-rh-octic-20261123/integration/public739-runtime-source-v2/source/Solutions/RHOcticPush.v1/integration/ram606/reproduce.py",
+      "--foundation",
+      "/data/ivy-rh-octic-20261123/integration/public739-runtime-complete723-v1/spectral19",
+      "--out",
+      "/data/ivy-rh-octic-20261123/integration/public739-runtime-complete723-v1/ram60611"
+    ],
+    "existing_registered_or_completed_phase": false,
+    "RESULT_sha256": "8cd8da0fe6a99a8e19a60bde1286f8d0348f8182be748a1e071ef057a17a1054",
+    "status": "PASS_FRESH_RAM60611_AND_EXACT_SOURCE_COMPARISONS",
+    "coordinator_phase_seconds": 772.5421627480537,
+    "reported_phase_seconds": 711.2209224551916,
+    "resource_measurements": {
+      "peak_individual_child_RSS_KiB": 9080868,
+      "sampled_peak_process_tree_RSS_bytes": 9335545856,
+      "sampled_peak_owned_disk_bytes": 8246967
+    }
+  }
+]

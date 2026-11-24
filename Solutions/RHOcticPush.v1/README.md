@@ -87,55 +87,75 @@ and general Perron; the new Box ordinary-pi branch assumes RH, Perron, Nicolas
 and BPT. The exact signatures and executive table distinguish these packages.
 The numerical moment proofs are **D-tier kernel certificate checking**, not PV.
 
-## Incomplete numerical and source-first verification gates
+## Exact count and accepted source-program chain
 
-The fixed 90,670,946-record prime-count certificate is being exhaustively checked
-without altering its mathematical statement, data or counter algorithm. The pure
-balanced checker is proved equivalent to the original checker. The first new
-run completed 528 modules before a clean requested drain; the separately recorded
-V2 permits at most 22 adaptive compiler workers while retaining a 512 GiB host
-reserve. Original workers and outcomes are preserved. Partial part counts are
-not acceptance of the final exact prime count. See `ramanujan/count-feasibility/`.
+The locked count `Nat.primeCounting 1490000000000 = 55206486339` is now proved.
+All 2,768 arithmetic leaves have empty axiom lists. The warm exact-count receipt
+is followed by an accepted fresh cold replay of all 695 data/gap modules
+(697 compiler invocations including two checks) and all 305 remaining modules:
+299 original arithmetic replacements, the unchanged Final, and the source/count
+consumers and audit. The accepted 305 result is
+`e4c4c64102fcd6b598d0c1cb58f6abca38e9a67f0d42cf14c60faae1827577d0`.
+The final source-model theorem constructs a successful run of both actual C
+sources with the exact eight-byte output. Its proof consumes both independent
+source-grammar proofs and the exhaustive numerical count.
 
-The additive high-input C driver actually executed the unchanged counter. Its
-whole-main formal model proves source-owned initialization, counter invocation,
-output bytes and lifetime behavior; its fresh 32-module application route has
-passed. The fixed numerical output adapter still requires the exhaustive kernel
-Final theorem. The independently specified C11-fragment character grammar and
-general guarded-renderer soundness have now passed the fresh 37-module route,
-with 186 compiler theorem constants, 19 proof-value edges, 11 required endpoints
-and 36 adversarial CLI controls. The constructive source-indexed main theorem
-actually consumes both source-grammar proofs. This is restricted syntactic
-correspondence, not a proof of full ISO-C operational adequacy.
+The independent C11-fragment character grammar and general renderer soundness
+passed the fresh 37-module route: 186 theorem constants, 19 proof-value edges,
+11 required endpoints and 36 adversarial controls. Restricted syntax,
+application correctness and the chosen C execution model are distinct from a
+full ISO-C semantic-adequacy theorem.
+
+A separate four-source adapter links the output of that same execution to the
+existing real-variable IEANTN prime-counting function using bounded byte
+injectivity and the floor/cast definition. The first attempt had elaboration
+errors; its source and logs are preserved. The repaired four sources compiled
+fresh, including the exact final type and 33 actual proof-value edges. Their
+complete recursive readback and all 24 controls have passed. This closes the
+same-point source-first proof chain at its documented model/platform boundary.
+The accepted append receipt is
+`ee218b4172e4e53db7568c21ecba01444b98d416944d2245203905caca343b47`;
+its24-control receipt is
+`694fe11ab65d31482accd9e173cacf6e4b94b09ddeab72a1ce1a4d2fc5cf63e7`.
+The exact theorem/source identities and measurements are in
+`ramanujan/count-feasibility/ieantn-consumer/ACCEPTED_SUMMARY.json`.
+The original 30 full-reader regression controls are running at this checkpoint;
+final report, bundle and publication acceptance remain separate. No canonical numerical node or complete finite Ramanujan coverage
+is added.
 
 The thousands of generated modules are arithmetic chunks for this one fixed
-90-million-record certificate. This campaign does not attempt to complete all
-IEANTN numerical programs or unrelated admitted proofs.
+90,670,946-record certificate. This campaign does not attempt to complete all
+IEANTN numerical programs or unrelated admitted proofs. The source algorithm,
+mathematical target and locked data are unchanged.
 
-**PV means source-first program verification only.** Native observations,
-`native_decide`, kernel numerical evaluation and ordinary certificate checking
-are different evidence. Compiler, runtime, ABI/stdio, hardware, source/build/run
-association and adequacy of the selected restricted execution model remain
-explicit trust boundaries. Do not infer a completed new PV chain from a generic
-model theorem or historical directory name.
+**PV means source-first program verification only.** Kernel certificate
+checking and ordinary compiled observations are separate evidence. The point
+output witness is kernel-derived. Compiler, headers, ABI/runtime, stdio/OS,
+hardware, source/build/run association and applicability of the chosen execution
+model remain explicit boundaries. Do not infer final PV acceptance from a
+generic model theorem, a historical directory name or compilation alone.
 
 ## Reproduction and evidence
 
-`integration/README.md` describes actual source-built closures and the fresh
-reproduction path. Source-fresh mathematical closures through 734 modules,
-the separate three-module NL comparison, and the complete recovered 723-source
-pipeline have passed. These source sets overlap and must not be added together.
-An additional compact source-only run compiled all 454 first-stage Lean sources,
-then exposed two omitted runtime inputs. The failure is preserved. The corrected
-packet has passed the actual 127-input C-log and 25-row high-log/coefficient
-workloads, and a strictly checked same-campaign 114-source prefix recovery.
-Its remaining mathematical stages are running from pinned generic libraries;
-this is recorded as a resumed source-only pipeline. The versioned controllers
-and an exact reconstruction recipe for the earlier reader packet are included.
-A missing pinned generic Mathlib object stopped
-the initial relocated route; its failure is preserved and prerequisite repair
-does not change the mathematical source. An official Comparator receipt remains
-pending a compatible approved worker; local proof builds are not that receipt.
+`integration/continuation/ANALYTIC739_COMPLETION.json` records the accepted
+739-module analytic union and its independent source/object/compiler/log audit.
+Its source sets overlap; they must not be added as independent runs. The initial
+454-source fresh attempt failed at an omitted C runtime harness. The corrected
+immutable packet reran the actual 127-input log and 25-row coefficient workloads
+and strictly reused 114 source-built modules from that same campaign; the other
+625 modules were freshly compiled during this campaign. Original failures,
+controllers and recovery provenance are preserved. All remaining analytic
+stages and canonical consumers have now passed.
+
+The exact source packet contains 2,577 files and has manifest hash
+`9d61faaa0ef609e128711a4866529cbf37bbbc77bd08d4830d31af263a347882`.
+The independent 739-source final audit is
+`4d8b007c972fc113add950424459742a3d2b99b87cf9000984d500f221f95268`.
+The clean public generic bootstrap and deterministic numerical regeneration
+recipes are included. An official IEANTN Comparator workflow receipt remains
+separate and requires its compatible approved environment; local Lean proofs
+do not substitute for that receipt.
+
 `integration/continuation/bootstrap_generic.py` has actually reproduced the
 pinned generic setup from clean public dependency checkouts.
 `regenerate_moments.py` has reproduced all 128 generated Lean files and three
