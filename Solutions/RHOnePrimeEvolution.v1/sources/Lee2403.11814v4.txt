@@ -1,0 +1,724 @@
+
+=== PDF PAGE 1 ===
+       ON THE ERROR IN THE PRIME NUMBER THEOREM IN SHORT
+                              INTERVALS
+
+
+                                 ETHAN SIMPSON LEE
+
+
+
+                Abstract. Assuming the Riemann Hypothesis, we derive explicit bounds for the error
+                   terms in short interval analogues of the prime number theorem using a new smoothing
+                   argument. Our results improve upon earlier bounds in both constant terms and applicable
+                     ranges.  In addition, we apply our bounds to establish sharper conditional bounds for a
+                   broad class of weighted sums over primes in a short interval.
+
+                                                     1. Introduction
+
+           Throughout this paper, (x, x + h] such that h = o(x) as x →∞is called a short interval2026         and p denotes a prime number. In addition, let
+
+           X 1,   θ(x) = X log p,  and  ψ(x) = X Λ(n),Jul                     π(x) =
+25                              p≤x            p≤x                     n≤x          where Λ is the von Mangoldt function. The asymptotic results π(x) ∼x/ log x, θ(x) ∼x,
+         and ψ(x) ∼x are collectively called the prime number theorem. Each statement in the prime
+         number theorem is equivalent and the error in ψ(x) ∼x is directly linked to the distribution
+            of zeros of the Riemann zeta-function.
+           Between 1962 and 1976, Rosser and Schoenfeld wrote a series of foundational papers
+            [16–18], which provide explicit descriptions of the error in each statement in the prime
+         number theorem.  Their results continue to be extensively applied in the literature, and[math.NT]
+           refinements to their results are an active area of research. For examples, see [3, 4, 15]. By
+           extension, we also expect explicit versions of short interval analogues of the prime number
+          theorem to be widely applicable. In particular, such results allow us to effectively study the
+            local distribution of primes.
+          The primary objective of this paper is to establish new explicit descriptions for the error
+            in short interval analogues of each statement in the prime number theorem.  Our main
+            results are presented in Theorem 1.1 and Theorem 1.2. The Riemann Hypothesis (RH) is
+         assumed throughout, to obtain the strongest outcomes. This is a standard assumption in
+           the literature, and there is a lot of evidence to support it (see [14]).
+            For any h = o(x) which is “large enough”, short interval analogues of the prime number
+          theorem have the form
+                             h
+               π(x + h) −π(x) ∼        θ(x + h) −θ(x) ∼h,  and  ψ(x + h) −ψ(x) ∼h.    (1)arXiv:2403.11814v4                                      log x,
+
+        The asymptotic results in (1) are closely related, so progress toward one result translates into
+           progress on all three results in (1). To clarify what we mean by “large enough”, we recall
+            results from Heath-Brown [10], Maier [13], and Selberg [19] on the asymptotic involving π(x)
+            in (1). Heath-Brown proved this result (unconditionally) when h = xε and ε > 7/12, Maier
+                                                               1
+
+=== PDF PAGE 2 ===
+proved that this result is false if h = (log x)λ for any λ > 1, and Selberg proved this result
+assuming the RH is true and h/√x log x →∞as x →∞.  In light of these results, we
+observe that h = xε such that ε > 1/2 is “large enough”.
+  Before we introduce our first result, recall that if x ≥73.2 and the RH is true, then a
+straightforward bound for the approximation involving ψ(x) in (1) is
+                            √
+                                                       2!                               √x(log x)2       x + h   log (x + h)
+          |ψ(x + h) −ψ(x) −h| ≤            1 +                                          .                                 8π        √x        log x
+
+This follows from a famous result from Schoenfeld [18, Thm. 10] on the error in ψ(x) ∼x.
+This explicit bound is one of the best we can prove today for h closer to x, although sharper
+bounds can be proved for smaller choices of h. In particular, we prove Theorem 1.1, which
+presents a sharper bound when √x log x ≤h ≤xα for any
+
+                   (                                  0.64951 . . .  on x ≥e20,
+                     α ≤
+                                  0.71705 . . .  on x ≥e40.
+
+Theorem 1.1. Suppose that the RH is true, x ≥e20, and
+                          √
+                                   !!                 2        1          π(π +  π2 + 4π + 2)
+     L =   √     +    2 + log                = 1.54262 . . . .      (2)
+          π +  π2 + 4π   π                   4
+If √x log x ≤h ≤x3/4, then
+
+                                  1       h            1.022           |ψ(x + h) −ψ(x) −h| <     log       + L +     √x log x         (3)                              π    √x log x          log x
+
+and
+                                 1       h            1.046            |θ(x + h) −θ(x) −h| <     log       + L +     √x log x.         (4)                             π    √x log x          log x
+
+  Prior to this paper, Cully-Hugill and Dudek proved a related result to (3) only in [7,
+Thm. 1]. In particular, if √x log x ≤h ≤x3/4, log x ≥40, and the RH is true, then they
+proved1
+                                    1       h             |ψ(x + h) −ψ(x) −h| <     log       + 2.167 √x log x.           (5)                               π    √x log x
+Our result (3) holds for a broader range of x and offers constant improvement as x →∞.
+To exemplify this, if log x ≥40, then Theorem 1.1 demonstrates that their constant 2.167
+can be refined to 1.56817 . . .. Our main innovation, which all of our improvements can be
+attributed to, is the implementation of a new, different smoothing method.
+  Next, suppose that f is any decreasing, non-negative, continuous function. Applying the
+explicit bounds in (4), we prove the following general-purpose result, which provides sharper
+conditional approximations for any sum of f(p) over primes p in a short interval. These
+bounds have significant potential for utility in a range of intermediate calculations arising in
+analytic number theory.
+
+  1There was a typo in [7] that affected some of their constants; Cully-Hugill has corrected the typo and
+updated their result in her PhD thesis [6]. The bound (5) is the result that is stated in her thesis.
+                                                  2
+
+=== PDF PAGE 3 ===
+Theorem 1.2. Suppose the RH is true and √x log x ≤h ≤x3/4. If log x ≥20, then
+
+                 Z x+h f(t)        1       h            1.046   X  f(p) −           dt ≤     log       + L +      f(x)√x                         x    log t       π    √x log x          log x       x<p≤x+h
+
+                                                                                 5
+                                         h   2 f(x)√x log x
+                          +  1 +
+                                          x       8π
+                     −1 Z x+h √ t log t  f ′(t) −f(t)    dt.
+                                        8π  x                         t log t
+
+ We demonstrate the extra precision one can access using Theorem 1.2 by means of an
+example. That is, assuming the RH is true, f(p) = 1/p, log x ≥20, and √x log x ≤h ≤x3/4,
+we bound the objective sum two ways and compare outcomes. First, two applications of an
+explicit version of Mertens’ second theorem (e.g., see [18, (6.21)] or [11, Cor. 1.3]) imply
+
+                                      x+h           !                              1   Z       dt        6 log x
+        X   =       + O                .                       (6)                             p     x     t log t     8π√x                        x<p≤x+h
+
+Second, Theorem 1.2 implies
+
+                                      x+h           !                              1   Z       dt        3 log x
+        X   =       + O                .                       (7)                             p     x     t log t     8π√x                        x<p≤x+h
+
+A detailed proof of (7) is given in Section 3.2. Clearly, the leading constant in the error in
+(6) is a factor of two worse than the leading constant in (7), which makes explicit the extra
+strength achieved by Theorem 1.2.
+
+Remark. It is conjectured that the approximations in (1) are true with h = xε for any
+0 < ε < 1.  While this remains an open problem, Bank, Bary-Soroker, and Rosenzweig
+have proved the function field analogue of this result in [1]. Results in function fields often
+mirror deep conjectures in number fields, so their proof provides strong evidence that the
+corresponding number-theoretic conjecture is true.
+
+Structure. The remainder of this paper is organised as follows.  In Section 2, we prove
+Theorem 2.1, which approximates weighted sums that over-or-underestimate ψ(x+h)−ψ(x)
+using a smoothing argument. This is by far the most technical aspect of the paper. In Section
+3.1, we prove Theorem 1.1 using Theorem 2.1. In Section 3.2, we prove Theorem 1.2 using
+(4) in standard arguments.
+
+                    2. Explicit approximation for a weighted sum
+
+  Let
+                  h = o(x),  0 < δ ≤h   h0 = h    δ0 = δ                                           2,        x,       x,
+and bw be a smooth function such that 0 ≤bw(t) ≤1 for 0 ≤t ≤2, bw(1) = 1, and
+bw(k)(0) = bw(k)(2) = 0 for any k ∈{0, 1, 2}. In particular, we will choose
+                                        cos(π(t −1)) + 1
+                                      bw(t) =        2             .                               (8)
+                                                  3
+
+=== PDF PAGE 4 ===
+                          w±(t)                      1
+
+
+
+
+
+                                                                              t
+                              α±                     α± −δ0                                       β±    β± + δ0
+
+                     Figure 1. The weight function w±(t).
+
+
+Next, let
+                   t−α±+δ0      if α± −δ0 < t < α±,                                                       δ0                               bw                                             1                    if α± ≤t ≤β±,                    w±(t) =
+                                       t−β±+δ0      if β± < t < β± + δ0,                                                       δ0                               bw                                             0             otherwise,
+
+in which
+             (               (                       1           if +,              1 + h0           if +,
+             α± =               and  β± =
+                       1 + δ0    if −,              1 + h0 −δ0    if −.
+
+The weight function w±(t) is visualised in Figure 1. In this section, we bound the error in
+the approximation
+                         Ω±(x) = X w±(n/x)Λ(n) ∼h,
+
+                                        n
+for appropriate h. Our result is presented below.
+
+Theorem 2.1. Recall the definition of L from (2).  If the RH is true, log x ≥20, and
+√x log x ≤h ≤x3/4, then
+
+                            1       h            1.02164              |Ω±(x) −h| <     log       + L +       √x log x.                         π    √x log x           log x
+
+  To prove this result requires several technical arguments, so we break this process into four
+distinct steps, split across four sections. In Section 2.1, we establish properties of the inverse
+Mellin transform of w± that will be important throughout.  In Section 2.2, we use these
+insights to establish an explicit formula, which relates Ω±(x) to a sum over the non-trivial
+zeros of the Riemann zeta-function ζ(s). In Section 2.3, we import auxiliary results to bound
+the sum over zeros and establish a parametrised upper bound for |Ω±(x) −h|; this result
+is presented in Lemma 2.6. In Section 2.4, we make optimised choices for these parameters
+and deduce Lemma 2.7. Using Lemma 2.7, we prove Theorem 2.1 at the end of Section 2.4.
+                                                  4
+
+=== PDF PAGE 5 ===
+Remark. Originally, bw(t) = tm(2 −t)m was chosen for some real parameter m > 1. Afterapplying this choice and optimising for m at the end, this closely resembled the trigonometric
+function in (8), which is more elegant and allowed us to simplify our arguments.
+
+2.1. Step 1: The inverse Mellin transform. Henceforth, let ϱ = β + iγ denote the
+complex zeros of the Riemann zeta-function ζ(s). Further, recall the inverse Mellin transform
+of w± is
+                                Z ∞
+                         W±(s) =     ys−1w±(y) dy,
+                                                    0
+and the inverse Mellin transform formula tells us
+                                  1 Z 2+i∞
+                          w±(t) =          W±(s)t−s ds,                           (9)
+                                   2πi  2−i∞
+which is admissible because W±(s) is analytic on Re s > 0. The following lemma provides
+important bounds on W±(s).
+
+Lemma 2.2. First, we have
+                               |xW±(1) −h| ≤δ.
+Second, if the RH is true, j ∈{0, 1, 2, 3}, and ϱ = β +iγ is any non-trivial zero of ζ(s), then
+
+                                                           0  Φj                                 |W±(ϱ)| ≤δ1−j
+                                                            |γ|j
+
+such that
+                 h +   1                if j = 0,                                                 δ   √1−δ0                                                    1
+                                                                      2      if j = 1,                        Φj =   2(1 + h0 + δ0)
+                                      3                                                                        2    if j = 2.                2π(1 + h0 + δ0)
+Third, if ℓis any positive integer, then
+                            |W+(−2ℓ)| ≤(1 −δ0)−2ℓ .
+                                                      ℓ
+Proof. To begin, note that our choice (8) implies
+           Z 2            Z 2               Z 2
+                   0  bw(u) du = 1,     0  |bw(1)(u)| du = 2,     0  |bw(2)(u)| du = 2π.          (10)
+Using the substitutions t = δ0u + α± −δ0 and t = δ0u + β± −δ0 respectively, we have
+                    Z α±          Z β±+δ0                   Z 2
+    W±(1) = β± −α± +                             w±(t) dt +                                             w±(t) dt = β± −α± + δ0                                                                                             0  bw(u) du                                           β±                           α±−δ0
+                                 = β± −α± + δ0.
+
+It follows that W+(1) = h0 + δ0 and W−(1) = h0 −δ0, hence
+
+                               |W±(1) −h0| ≤δ0.
+
+  To prove the next statement, observe that the chain rule implies
+
+        (                           ( t−α±+δ0                                             if α± −δ0 ≤t ≤α±                                δ0        if i = 1,    δ0w(1)± (t) =   bw(1)(f1(t))                     where   fi(t) =   t−β±+δ0
+                                             if β± ≤t ≤β± + δ0                                              if i = 2.                                                                                                     δ0                    bw(1)(f2(t))
+                                                  5
+
+=== PDF PAGE 6 ===
+It follows from integration by parts and the substitutions t = δ0u+α± −δ0, t = δ0u+β± −δ0
+that
+
+                      1                                                            2
+               R
+                     0                                                            1                  (δ0u + α± −δ0)ϱ bw(1)(u) du + R                                                 (δ0u + β± −δ0)ϱ bw(1)(u) du    W±(ϱ) = −
+                                       ϱ
+
+                                                                   2
+              δ−10   R 01 (δ0u                                                                  1               + α± −δ0)ϱ+1 bw(2)(u) du + R                                                      (δ0u + β± −δ0)ϱ+1 bw(2)(u) du       =                                                                                                                 .
+                                           ϱ(ϱ + 1)
+
+Moreover, the RH implies
+
+              β±             α±       β±+δ0 !          Z            Z      Z
+                  tϱ−1 dt +                    + |W±(ϱ)| =                                                  tϱ−1 bw(t) dt             α±                                      β±                              α±−δ0
+         Z β±         Z 1                      Z 2     ≤      t−1                           2 dt + δ0    (δ0u + α± −δ0)ϱ−1    du +    (δ0u + β± −δ0)ϱ−1    du            α±                  0                     bw(u)        1                    bw(u)
+     ≤β± −α± +      δ0    Z 2     du                                          bw(u)              α1/2±      (α± −δ0)1/2  0
+     ≤h0 +      δ0
+            α1/2±    (α± −δ0)1/2
+                        δ0
+      ≤h0 +              (α± −δ0)1/2.
+
+For every non-trivial zero ϱ = 1/2 + iγ, so we have |ϱ + j| ≥|γ|. It follows from this and the
+computations in (10) that if the RH is true, then
+
+        h0 +       δ0                h0 +   δ0                          (1−δ0)m+1/2                                   √1−δ0                                                                    1   2                                                        1                                                                                                                2          .                                                 2 R                                                             |      du   ≤    |γ|−12(1 + h0 + δ0)   |W±(ϱ)| ≤    |γ|−1(1 + h0 + δ0)                                             0                                                      3 bw(1)(u)|2                                                            3
+                                                                                                                       2                                                      2 R                                                                 |γ|−22πδ−10 (1 + h0 + δ0)        |γ|−2δ−10 (1 + h0 + δ0)                                                                             0                                                                  |bw(2)(u)| du  
+  To prove the final statement, note that for any positive integer ℓ, it follows from integration
+by parts and the substitutions t = δ0u + α± −δ0, t = δ0u + β± −δ0 that
+
+                            1 Z β±+δ0
+               |W±(−2ℓ)| =             t−2ℓw(1)± (t) dt
+                              2ℓ   α±−δ0
+             ≤1   Z α± + Z β±+δ0  t−2ℓw(1)± (t) dt
+                              2ℓ    α±−δ0    β±
+                  ≤(1 −δ0)−2ℓ  Z α± + Z β±+δ0  w(1)± (t) dt
+                                  2ℓ         α±−δ0    β±
+                               (1 −δ0)−2ℓ Z 2              (1 −δ0)−2ℓ                =                   du =                  .         □                                  2ℓ        0  bw(1)(u)            ℓ
+
+2.2. Step 2: An explicit formula. Applying the content of Section 2.1, we prove the
+following result, which is an explicit formula for Ω±(x).
+
+
+                                                  6
+
+=== PDF PAGE 7 ===
+Lemma 2.3. We have
+
+                                                      1
+                    Ω±(x) −h + X xϱW±(ϱ) ≤δ +                                                     (x −δ)2.
+                                              ϱ
+
+Proof. It follows from (9) that
+                   1 Z 2+i∞                      Z 2+i∞      Ω±(x) = X          xsW±(s)Λ(n)n−s ds = −1        xsW±(s)ζ′(s) ds,
+                   2πi  2−i∞                        2πi  2−i∞           ζ(s)                  n
+in which ζ(s) is the Riemann zeta-function. Using well known properties of ζ(s), moving the
+line of integration, and applying the residue theorem, we have
+                                 ∞
+               Ω±(x) = xW±(1) − X xϱW±(ϱ) − X x−2kW±(−2k),               (11)
+                                               ϱ             k=1
+because W±(s) is meromorphic with one simple pole at s = 0 whose residue is 0, making
+this a removable singularity.2 Further, Lemma 2.2 tells us
+      ∞             ∞
+                                 (x −δ)−2ℓ                1           1
+   X x−2k|W±(−2k)| ≤2 X      = −log  1 −      ≤                                      2ℓ                 (x −δ)2     (x −δ)2.
+         k=1                      ℓ=1
+With this, the result follows from (11) and Lemma 2.2.                   □
+
+2.3. Step 3: A parametrised approximate formula. To bound the sum over zeros that
+is present in Lemma 2.3, we import the following results.
+
+Lemma 2.4. First, if T ≥2π, then the number N(T) of zeros ϱ = β + iγ of ζ(s) such that
+0 < γ ≤T satisfies the relationship
+        |Q(T)| := N(T) −T log  T  + 7
+                       2π     2πe    8
+            ≤min{0.28 log T, 0.1038 log T + 0.2573 log log T + 9.3675} := R(T).    (12)
+
+A straightforward consequence of (12) is that if T ≥1, then
+                           N(T) ≤T log T .                                 (13)
+                                        2π
+Finally, we have
+                              1    log T
+         X  <         for all  T ≥1.                         (14)
+                                γ2   πT
+                                   |γ|≥T
+
+Proof. The first result (12) is a combination of observations from Brent–Platt–Trudgian [3,
+Cor. 1] and Hasanalizade–Shen–Wong [9, Cor. 1.2].  Finally, Skewes proved (14) in [20,
+Lem. 1(ii)].                                           □
+
+Lemma 2.5. Let A0 = 2.067, A1 = 0.059, and A2 = 1/150. If 2π ≤U ≤V , then
+                     1 Z V              t
+   X  ϕ(γ) =        ϕ(t) log       dt + ϕ(V )Q(V ) −ϕ(U)Q(U) + E(U),
+                   2π  U         2π        U≤γ≤V
+in which |E(U)| ≤2(A0 + A1 log U)|ϕ′(U)| + (A1 + A2)ϕ(U)U  and (12) tell us |Q(T)| ≤R(T).
+  2A proof of (11) would be analogous to the proof of [8, Thm. 2.3], so we exclude it.
+                                                  7
+
+=== PDF PAGE 8 ===
+Proof. This result was proved by Brent, Platt, and Trudgian in [2]. It refines a well-known
+result from Lehman [12, Lem. 1].                               □
+
+  Using these auxiliary bounds, we convert Lemma 2.3 into a usable, parametrised approx-
+imation for Ω±(x) in the following result.
+
+Lemma 2.6. Let 1 ≤κ1 ≤κ2 such that κ1κ2 ≤4π2, κ3 ≥2 such that κ1 ≤κ3 ≤20, and
+0.1 ≤ε ≤0.45 be real parameters. Further, suppose √x log x ≤h ≤x1−ε, δ = √x log x/κ3,
+and
+                         R(T2)   R(T1)   A1 + A2 + 2(A0 + A1 log T1)
+            E(T1, T2) = 2     +    +                  2                        .
+                            T2      T1             T1
+
+If the RH is true and log x ≥20, then
+
+                              1       h                |Ω±(x) −h| <     log       + Ψ1(x, ε) √x log x,                           π    √x log x
+
+in which
+
+
+                                                                                                         3
+               1    κ1        κ−13        1      2 log κ2       3x−ε   2
+     Ψ1(x, ε) =  +     1 +      +     1 +          1 +                κ3   2π    √1 −δ0     κ2        log x          2
+                                                          κ2κ3 √x                       1
+                                                                                                    2                    1      κ2κ3     4E(κ1xε,   log x  ) !      3x−ε
+           +     log     +                   1 +
+                  π       κ1            log x              2
+
+                                                                                                             2  !                  x−52         x  −2   1      x 12 −ε !       3x−ε   1           +       1 −log    +   log               1 +     −1    .                      log x      κ3 √x      π    √x log x          2
+
+Proof. Since κ3 ≥2, we have 2δ ≤h. Using Lemmas 2.2 and 2.3, we have
+
+                                    1                1
+     |Ω±(x) −h| ≤δ + x                                    2 X |W±(ϱ)| +
+                                      (x −δ)2
+                                  ϱ
+
+
+                                                                                        2                         δ                       Φ1   x 3                                                         Φ2      1          ≤δ +  X Φ0 + √x               √x      X     |γ| + δ X  γ2 + (x −δ)2.
+                                  |γ|≤κ1xh             κ1xh ≤|γ|≤κ2xδ              |γ|> κ2xδ
+
+It follows from (13) and κ1 ≤log x that
+                                  √x log      δ                                                               κ1x                      δ   h                               1                                                                δ/h
+                 +             X  1 ≤κ1                                                                    h    1 +   X Φ0 =   √x        √x   δ  √1 −δ0               π         √1 −δ0
+           |γ|≤κ1xh                                 |γ|≤κ1xh
+                                                         √x                                                                             κ1                                                  κ1 √x log                                                                                            log                                                                        x         κ−13                            ≤                 1 +                                               π         √1 −δ0
+                                  √x log x        κ−13                               ≤κ1         1 +                 .                                               2π       √1 −δ0
+                                                  8
+
+=== PDF PAGE 9 ===
+Next, Lemma 2.5 with ϕ(t) = t−1, algebraic manipulation, and κ1x/h ≥2π imply
+
+    X                    1 ≤1   log  κ2x    2 −1   log  κ1x    2 + 2E(κ1x ,                                                                                     κ2x )
+                         |γ|   2π      2πδ      2π      2πh            h     δ              κ1x              h <|γ|≤κ2xδ
+                         1         κ2     2         κ1     2
+              =       log      −  log
+                       2π       2πδ          2πh
+                                 log x       κ2          κ1                 κ2x                 +        log      −log     + 2E(κ1x ,    )
+                          π       2πδ       2πh           h     δ
+                         1      κ1κ2x2       κ2h               κ2x              =    log            log     + 2E(κ1x ,     ).               (15)
+                       2π      4π2hδ        κ1δ          h     δ
+Note that κ1x/h ≥κ1xε ≥x0.1 ≥2π, because log x ≥20. Therefore, the RH and (15) imply
+
+                                                                                                              , κ2x                                                                                    )  √x X   Φ1 ≤Φ1 √x   1 log  κ1κ2x2   log  κ2h + 2E(κ1xh                                                                                                   δ                     |γ|         2π      4π2hδ        κ1δ         κ1x         h ≤|γ|≤κ2xδ
+                                                              √x                                                                                                          , κ2κ3                                                                                    )    ≤Φ1 √x   1 log   κ1κ2κ3x    log    κ2κ3h   + 2E(κ1xh                                                                                                   log                                                                             x               2π      4π2(log x)2       κ1 √x log x
+                                                               √x                                                                                κ2κ3                                                                                    )    ≤Φ1 √x  log x  log  κ2κ3 + log    h    + 2E(κ1xε,                                                                                                    log                                                                              x                2π         κ1       √x log x
+
+                                                                                                                         1
+
+                                                                                 )   1 +           ,    ≤√x  log x  log  κ2κ3 + log    h    + 4E(κ1xε, κ2κ3log √xx        3h   2             π          κ1       √x log x                         2x
+since κ1κ2 ≤4π2 and log x ≥20 ≥κ3. Finally, (14) implies
+                3                                                   κ2κ3 √x                                         κ2x                                    Φ2 √x log     log x                  √x log        x 2    X                Φ2 ≤Φ2                                                    δ  ≤
+           δ                   γ2        κ2π              κ2π
+                 |γ|> κ2xδ
+                                    √x(2 log κ2 + log x)                        ≤Φ2
+                                              2πκ2
+                                                                                                               3
+                                                                                                               2                            √x log x      2 log κ2       3h
+                       ≤          1 +          1 +           ,
+                                            κ2           log x        2x
+since log x ≥20 ≥κ3. Combining these observations, we have proved the result.     □
+
+2.4. Step 4: Final deductions. Next, we make optimised choices for each of the parame-
+ters κi in Lemma 2.6 to deduce the following result.
+
+Lemma 2.7. Recall the definition of L from (2). Let
+                                √
+                        2                      π +  π2 + 4π
+                  κ1 =              ,   κ2 = π,  and  κ3 =                       .
+                      1 + κ−13                             2
+If the RH is true, log x ≥20, and √x log x ≤h ≤x3/4, then
+
+                             1       h           Ψ(x)               |Ω±(x) −h| <     log       + L +     √x log x,                          π    √x log x          log x
+                                                  9
+
+=== PDF PAGE 10 ===
+in which
+                              −32                    −2          κ1(log x)2        x                 x       3 log x      κ2κ3x1/4  Ψ(x) =           1 −log    + x−5                                                           2  1 −log    +        log         4πκ23 √x       κ3 √x                κ3 √x       4πx1/4      κ1 log x
+                                                                                      1                                    3
+               9 log x                 κ2κ3 √x         3x−1/4   2   2 log κ2      3x−1/4   2
+       +      + 4E(κ1x1/4,   log x  )   1 +      +         1 +                 .                4κ2x1/4                            2           κ2          2
+
+Proof. To begin, note that
+
+                         1    κ1      1      log κ2 + log κ3 −log κ1   1
+          x→∞Ψ1(x,lim       ε) = κ3 + 2π  1 + κ3 +         π      + κ2 .
+
+We choose κ1, κ2, and κ3 such that this expression is minimised. The terms involving κ1
+are minimised at κ1 = 2/(1 + κ−13  ) and the terms involving κ2 are minimised at κ2 = π.
+Inserting these choices, we obtain
+                                    1   2 + log  π2(κ3 + 1)
+                    x→∞Ψ1(x,lim       ε) = κ3 +       π              ,
+                 √
+which is minimised at κ3 = (π +  4π + π2)/2. With these choices inserted,
+                        L = x→∞Ψ1(x,lim        ε),
+
+which satisfies (2). If the RH is true, 0.1 ≤ε ≤0.25, and log x ≥20, then Lemma 2.6 tells
+us
+                            1       h              |Ω±(x) −h| <     log       + L + Ψ2(x, ε) √x log x,                         π    √x log x
+in which
+
+
+                                                                                                                 2                                −12  !                                                                                                                 1  !                                                                                     2 −ε !       3x−ε               κ1          x                                         1     κ2κ3x 1   Ψ2(x, ε) =         1 −log    −1 +   log               1 +     −1             2πκ3        κ3 √x          π       κ1 log x           2
+                                  κ2κ3 √x                    1                             3                                                                                                   2  !                                                                     2   1        3x−ε                 4E(κ1xε,   log x  )      3x−ε
+         +                 1 +     +      1 +     −1
+                          log x            2       κ2         2
+
+                                                        3
+                                                        2                                      x−52         x  −2                 2 log κ2      3x−ε         +         1 +     +       1 −log           .                  κ2 log x       2        log x      κ3 √x
+
+To bound each of the differences (1 ± o(1))r −1, re-write the difference as an integral and
+note that the difference is majorised by the length of the integral (namely o(1)) multiplied
+by the maximum value obtained by the integrand. It follows that
+
+                                                                                                                    2 −ε !                  log x        x                                 −32   x−52         x  −2   3x−ε     κ2κ3x 1   Ψ2(x, ε) ≤κ1       1 −log    +       1 −log    +      log             4πκ23 √x      κ3 √x        log x      κ3 √x       4π        κ1 log x
+                                            κ2κ3 √x                       1                                  3
+                                                                                                                       2                                                                                    2   2 log κ2      3x−ε                  9x−ε   4E(κ1xε,   log x  ) !      3x−ε
+         +    +                   1 +     +         1 +              .
+                   4κ2          log x              2       κ2 log x       2
+
+With this and ε = 1/4, we have proved the result.                      □
+                                                  10
+
+=== PDF PAGE 11 ===
+Proof of Theorem 2.1. The function Ψ(x) decreases as x increases on log x ≥20. Therefore,
+assuming the same choices as in Lemma 2.7, we have proved that if the RH is true, log x ≥20,
+and √x log x ≤h ≤x3/4, then
+
+                            1       h            Ψ(e20)              |Ω±(x) −h| <     log       + L +      √x log x                         π    √x log x           log x
+                            1       h            1.02164               ≤     log       + L +       √x log x,                         π    √x log x           log x
+which is the result.                                       □
+
+                                   3. Proof of main results
+
+  Using Theorem 2.1, we prove Theorem 1.1 in Section 3.1. Building upon this, we prove
+Theorem 1.2 in Section 3.2.
+
+3.1. Proof of Theorem 1.1. We prove each statement (3) and (4) in Theorem 1.1 inde-
+pendently. To this end, we require the following auxiliary bound.
+Lemma 3.1. If x ≥e20 and √x log x ≤h ≤x3/4, then
+
+                                                                                                         1             |ψ(x + h) −ψ(x) −θ(x + h) + θ(x)| ≤0.00437√x + 0.5445x 3.
+
+Proof. It follows from [5, Eqns. (21), (31)] and [4, Cor. 5.1] that for all log x ≥20, we have
+
+                                       1              1                               1          1
+                   0.999x 2 + 0.885x 3 < ψ(x) −θ(x) < α1x                                                                                      2 + α2x 3,
+in which α1 = 1 + 1.93378 · 10−8 and α2 = 1.4263. It follows that for all log x ≥20, we have
+
+    ψ(x + h) −ψ(x) −θ(x + h) + θ(x)
+
+                                                      1                                           1
+                          !                                           !  1                           h   2                                                  h   3
+                                                                                                                   3            <  α1  1 +     −0.999 √x +  α2  1 +     −0.885 x
+                           x                       x
+
+
+                                                        1                                                                                                      1                                            !  1                                                        2                                                                                                      3
+                                                    4                                                                                                  4                                                                                                                       3                                                           −0.885 x            ≤  α1  1 + x−1                                 −0.999 √x +  α2  1 + x−1
+
+
+
+                                                                 1
+                                                                 3                 ≤0.00437√x + 0.5445x
+
+and
+
+   ψ(x + h) −ψ(x) −θ(x + h) + θ(x)
+
+                                                        1                                           1
+                         !                                          !  1                                                   h   3                           h   2
+                                                                                                                 3           ≥  0.999  1 +    −α1 √x +  0.885  1 +    −α2 x
+                            x                       x
+
+                                                            1                                               1
+                           !                                             !  1                                     log x   2                                                                        log x   3
+                                                                                                                          3           >  0.999  1 +      −α1 √x +  0.885  1 +      −α2 x                       √x                   √x
+
+                                                                  1               ≥−0.00055√x −0.54104x 3.
+Combining these observations we have proved the result.                  □
+                                                  11
+
+=== PDF PAGE 12 ===
+Proof of (3). The definition of w± tells us that
+
+                       Ω−(x) < ψ(x + h) −ψ(x) < Ω+(x).
+Using Theorem 2.1, it follows that if the RH is true, log x ≥20, and √x log x ≤h ≤x3/4,
+then
+                                 1       h            1.02164         |ψ(x + h) −ψ(x) −h| <     log       + L +       √x log x,                             π    √x log x           log x
+which is stronger than (3).                                   □
+
+Proof of (4). It follows from (3) and Lemma 3.1 that  if the RH is true, log x ≥20, and
+√x log x ≤h ≤x3/4, then
+
+    |θ(x + h) −θ(x) −h| = |θ(x + h) −θ(x) −ψ(x + h) + ψ(x) + ψ(x + h) −ψ(x) −h|
+
+                                                                                       1
+                                                                                       3          ≤|ψ(x + h) −ψ(x) −h| + 0.00437√x + 0.5445x
+
+                1       h            1.02164                                                 1
+                                                                                                                        3        ≤     log       + L +       √x log x + 0.00437√x + 0.5445x              π    √x log x           log x
+                1       h            1.02601 + 0.5445x−16 !        ≤     log       + L +               √x log x              π    √x log x                  log x
+
+                1       h            1.04544        ≤     log       + L +       √x log x,              π    √x log x           log x
+which is stronger than (4).                                   □
+
+3.2. Proof of Theorem 1.2. Recall from [16, (4.15)] that
+             Z x f(t)           (θ(x) −x)f(x)  Z ∞        d   f(t)
+  X f(p) =         dt + Lf +         +     (θ(t) −t)             dt,      (16)
+                      2  log t                 log x          x           dt   log t      p≤x
+
+where Lf is a constant given by
+                            2f(2)  Z ∞        d   f(t)
+                     Lf =    −     (θ(t) −t)             dt.
+                                log 2      2           dt   log t
+
+Using this relationship, we prove Theorem 1.2 as follows.
+
+Proof of Theorem 1.2. Since Lf is a constant, (16) implies
+
+                 Z x+h f(t)     (θ(x + h) −x −h)f(x + h)
+  X  f(p) =            dt +
+                         x    log t              log(x + h)      x<p≤x+h
+                            −(θ(x) −x)f(x) − Z x+h (θ(t) −t) d   f(t)   dt.
+                                            log x          x             dt   log t
+
+Since f(x) is non-increasing and −f(x) ≤f(x + h) −f(x) ≤0, we have
+
+                   f(x + h) −f(x) ≤|f(x + h) −f(x)| ≤f(x)                     log(x + h)   log x           log x          log x.
+
+                                                  12
+
+=== PDF PAGE 13 ===
+Therefore, we have
+
+               Z x+h f(t)      + h) −θ(x) −h|f(x)   |θ(x + h) −x −h|f(x)  X  f(p) −           dt ≤|θ(x            +
+                      x    log t                  log x                       log x    x<p≤x+h
+                                   Z x+h |θ(t) −t|                        −                f ′(t) −f(t)    dt.
+                                                  x      log t               t log t
+
+Note that each of the terms in this bound is positive, since −f ′(t) ≥0.  If the RH is true
+and x ≥599, then Schoenfeld [18] also tells us
+                                       √x(log x)2
+                                  |θ(x) −x| <                  .                             (17)
+                                         8π
+
+With this, if the RH is true and log x ≥20, then (4) and (17) imply
+
+                 Z x+h f(t)        1       h            1.046   X  f(p) −           dt ≤     log       + L +      f(x)√x                         x    log t       π    √x log x          log x       x<p≤x+h
+                         √                                       x + h(log(x + h))2 f(x)√x log x
+                          +     √x(log x)2         8π
+                     −1 Z x+h √ t log t  f ′(t) −f(t)    dt.
+                                        8π  x                         t log t
+
+Finally,
+  √                                           1                                                   2                  2                  12                         2    x + h(log(x + h))2       h     log(x + h)         h          log(1 + h/x)
+       √x(log x)2   =  1 + x         log x    =  1 + x     1 +     log x
+
+                                                                                            1
+                                               h   2       h     2
+                             ≤  1 +      1 +
+                                                x       x log x
+
+                                                                                            5
+                                               h   2
+                             ≤  1 +         .
+                                                x
+
+The result follows naturally.                                  □
+
+   Finally, we demonstrate how Theorem 1.2 can be used to prove (7).
+Proof of (7). Suppose that f(p) = 1/p, the RH is true, √x log x ≤h ≤x3/4, and log x ≥20.
+Theorem 1.2 implies
+
+            1  Z x+h  1         1       h            1.046
+                                                                                                        2  X   −             dt ≤     log       + L +       x−1            p     x     t log t       π    √x log x          log x      x<p≤x+h
+
+                                                                             5
+                                       h   2  log x    1 Z x+h log t + 1
+                        +  1 +       +                     dt.                                        x   8π√x   8π  x        t3/2
+                                                  13
+
+=== PDF PAGE 14 ===
+Further,
+          1 Z x+h log t + 1      1   2(log(x + h) + 3)       x + 3)                            dt =      √         −2(log         8π  x        t3/2       8π       x + h        √x
+                                                              2h
+                                                                         x ≤                         ≤2(log(x + h) −log x) = 2 log 1 + h                             8π√x          8π√x       8πx3/2.
+Therefore, we have proved
+
+            1  Z x+h  1
+  X   −             dt
+            p     x     t log t      x<p≤x+h
+
+                                                                                          5
+                 1       x1/4         1.046           h   2  log x     2h
+        ≤     log     + L +       x−1                                                                       2 +  1 +       +               π      log x          log x            x   8π√x   8πx3/2
+
+                                                     5
+                                                     2            !                 1    1     h       1        1.046     log x    2h
+        ≤   +     1 +   +     L +         +                4π   8π     x      log x       log x   √x    8πx3/2
+
+                                             5
+                                             2                   !                      h      8π        1.046       2h       log x      log x        =  2 +  1 +   +     L +     +         ≪3        .  □                      x      log x       log x    8πx log x  8π√x   8π√x
+
+                        Acknowledgements
+
+  The author thanks the Heilbronn Institute for Mathematical Research for their support.
+Further, I am fortunate to be surrounded by excellent colleagues who have provided valuable
+feedback and support throughout the development of this paper.
+
+                             References
+
+ 1. E. Bank, L. Bary-Soroker, and L. Rosenzweig, Prime polynomials in short intervals and in arithmetic
+    progressions, Duke Math. J. 164 (2015), no. 2, 277–295. MR 3306556
+ 2. R. P. Brent, D. J. Platt, and T. S. Trudgian, Accurate estimation of sums over zeros of the Riemann
+    zeta-function, Math. Comp. 90 (2021), no. 332, 2923–2935. MR 4305374
+ 3.             , The mean square of the error term in the prime number theorem, J. Number Theory 238 (2022),
+    740–762. MR 4430116
+ 4. S. Broadbent, H. Kadiri, A. Lumley, N. Ng, and K. Wilk, Sharper bounds for the Chebyshev function
+    θ(x), Math. Comp. 90 (2021), no. 331, 2281–2315. MR 4280302
+ 5. N. Costa Pereira, Estimates for the Chebyshev function ψ(x) −θ(x), Math. Comp. 44 (1985), no. 169,
+    211–221. MR 771046
+ 6. M. Cully-Hugill, Explicit estimates for the distribution of primes, 2023, Thesis (Ph.D.)–University of
+   New South Wales Canberra at the Australian Defence Force Academy.
+ 7. M. Cully-Hugill and A. W. Dudek, A conditional explicit result for the prime number theorem in short
+    intervals, Res. Number Theory 8 (2022), no. 3, Paper No. 61, 8. MR 4468112
+ 8. L. Faber and H. Kadiri, New bounds for ψ(x), Math. Comp. 84 (2015), no. 293, 1339–1357. MR 3315511
+ 9. E. Hasanalizade, Q. Shen, and P.-J. Wong, Counting zeros of the Riemann zeta function, J. Number
+   Theory 235 (2022), 219–241. MR 4389021
+10. D. R. Heath-Brown, The number of primes in a short interval, J. Reine Angew. Math. 389 (1988),
+    22–63. MR 953665
+11. E. S. Lee and P. Nosal, Sharper bounds for the error in the prime number theorem assuming the Riemann
+    hypothesis, J. Number Theory 283 (2026), 241–258. MR 5020278
+12. R. S. Lehman, On the difference π(x) −li(x), Acta Arith. 11 (1966), 397–410. MR 202686
+13. H. Maier, Primes in short intervals, Michigan Math. J. 32 (1985), no. 2, 221–225. MR 783576
+                                                  14
+
+=== PDF PAGE 15 ===
+14. D. Platt and T. Trudgian, The Riemann hypothesis is true up to 3 · 1012, Bull. Lond. Math. Soc. 53
+    (2021), no. 3, 792–797. MR 4275089
+15. D. J. Platt and T. S. Trudgian, The error term in the prime number theorem, Math. Comp. 90 (2021),
+    no. 328, 871–881. MR 4194165
+16. J. B. Rosser and L. Schoenfeld, Approximate formulas for some functions of prime numbers, Illinois J.
+   Math. 6 (1962), 64–94. MR 0137689
+17.             , Sharper bounds for the Chebyshev functions θ(x) and ψ(x), Math. Comp. 29 (1975), no. 129,
+    243–269.
+18. L. Schoenfeld, Sharper bounds for the Chebyshev functions θ(x) and ψ(x). II, Math. Comp. 30 (1976),
+    no. 134, 337–360. MR 457374
+19. A. Selberg, On the normal density of primes in small intervals, and the difference between consecutive
+    primes, Arch. Math. Naturvid. 47 (1943), no. 6, 87–105. MR 12624
+20. S. Skewes, On the difference π(x) −li x. II, Proc. London Math. Soc. (3) 5 (1955), 48–70. MR 67145
+
+  University of the West of England, School of Computing and Creative Technologies,
+Coldharbour Lane, Bristol, BS16 1QY
+  Email address: ethan.lee@uwe.ac.uk
+  URL: https://sites.google.com/view/ethansleemath/home
+
+
+
+
+
+                                                  15

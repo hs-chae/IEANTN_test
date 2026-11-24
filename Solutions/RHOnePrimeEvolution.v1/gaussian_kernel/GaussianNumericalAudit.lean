@@ -1,0 +1,20 @@
+import GaussianWings
+open RHOnePrime.GaussianKernel
+#check cellValid_integral_upper
+#check coeff_gaussian_infinite_tail
+#check norm_finite_integral
+#check wing_finite_integral
+#check physical_norm_upper
+#check physical_full_wings_upper
+#check physicalF_zero_lower
+#check physical_full_objective_upper
+#check physical_full_objective_lt_printed_2026
+#print axioms cellValid_integral_upper
+#print axioms coeff_gaussian_infinite_tail
+#print axioms norm_finite_integral
+#print axioms wing_finite_integral
+#print axioms physical_norm_upper
+#print axioms physical_full_wings_upper
+#print axioms physicalF_zero_lower
+#print axioms physical_full_objective_upper
+#print axioms physical_full_objective_lt_printed_2026

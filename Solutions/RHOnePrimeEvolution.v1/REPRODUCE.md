@@ -16,7 +16,7 @@ No generic source revision may be silently updated. Cached generic libraries are
 
 ## Prepare a clean generic environment
 
-Install elan, Git, Python and the stated GNU utilities. Obtain the exact source commit in `SOURCE_PIN.json` in a fresh checkout, leaving its `lake-manifest.json` unchanged. From that checkout:
+Install elan, Git, Python and the stated GNU utilities. Clone the published `research/rh-one-prime-network-20261124` branch from `https://github.com/hs-chae/IEANTN_test`, retaining its publication files and unchanged `lake-manifest.json`. `SOURCE_PIN.json` pins the earlier scientific source checkpoint; later publication commits add the reports and delivery tooling without changing those mathematical sources. From the fresh checkout:
 
 ```sh
 elan toolchain install leanprover/lean4:v4.34.0-rc2
@@ -96,3 +96,17 @@ The genuine repository commands `gen-challenges`, `check-graph`, native `ieantn_
 ## Storage cleanup
 
 Only previewed experiment-owned duplicate caches, verified copied logs and regenerable failed/intermediate objects may be removed after their reproduction routes pass. Never remove the original sources, locked inputs, accepted proof artifacts, essential coefficient data, source/proof receipts or the only regeneration copy. The final cleanup receipt states exact targets and retained replacements. Historical outcomes and the default Git branch are preserved; new proof work is additive research.
+
+## Verify and reconstruct the downloadable evidence bundle
+
+The ZIP is a portable research export, not a replacement for the whole inherited Git repository. Its `BUNDLE_MANIFEST.json` lists every included file, byte count and SHA-256. The two self-contained proof packets can be run from the extracted export with the checked generic environment above. The complete canonical network is available from the published branch.
+
+```sh
+python3 Solutions/RHOnePrimeEvolution.v1/scripts/build_evidence_bundle.py verify \
+  --archive /absolute/path/RH_ONE_PRIME_SOURCE_AND_EVIDENCE.zip \
+  --extract /absolute/fresh/path/extracted-study
+```
+
+After extraction, deterministic re-creation uses the same script with `build --repository /absolute/path/extracted-study --selection /absolute/path/extracted-study/BUNDLE_MANIFEST.json --output /absolute/fresh/path/recreated.zip`. The archive builder checks every selected source byte before writing and verifies the complete archive afterward. Acceptance uses explicit checks in normal Python, `-O` and `-OO`. SHA-256 values for the deliverable files are also supplied separately.
+
+Final cleanup removed only 9.151 GB of apparent owned duplicate generic caches and interrupted-v1 objects (9.643 GB allocated); all accepted proof banks and original pinned providers remain. `evidence/cleanup/` records the exact preview, original provider pins and result. The current development checkout intentionally has no generic-package symlinks after cleanup: hydrate private package copies before any future native core build. This does not affect either portable proof packet.
