@@ -140,6 +140,7 @@ import IEANTN.Nodes.RHPrimeCounting.v2.Challenge
 import IEANTN.Nodes.RHPrimeCounting.v3.Challenge
 import IEANTN.Nodes.RHPrimeCounting.v4.Challenge
 import IEANTN.Nodes.RHPrimeCounting.v5.Challenge
+import IEANTN.Nodes.RHPrimeCounting.v6.Challenge
 import IEANTN.Nodes.RHSmoothing.v1.Challenge
 import IEANTN.Nodes.RHSmoothing.v2.Challenge
 import IEANTN.Nodes.RHSmoothing.v3.Challenge

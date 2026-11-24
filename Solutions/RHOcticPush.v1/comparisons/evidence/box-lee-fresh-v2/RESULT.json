@@ -1,0 +1,96 @@
+{
+  "status": "PASS_FRESH_BOX_VS_TWO_LEE_FUNCTIONS",
+  "execution_root": "/data/ivy-rh-octic-20261123/comparison-box-lee-fresh-v2",
+  "controller_sha256": "73275a11931592014b4acbed477ba5a8cbf57c8bae20ad149366977e4696c17c",
+  "basis_controller_sha256": "cd26ec3b25d518aabf412d92a138018c80363bfac9c180211e4f10e435e846c0",
+  "foundation": {
+    "root": "/data/ivy-rh-octic-20261123/integration/ram60611-v1",
+    "RESULT_sha256": "8a605560a102760f64bb360157941605a10369fc69f5f0940f38866353d2b02f"
+  },
+  "compiler_sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+  "compilations": [
+    {
+      "module": "BoxVsLee",
+      "command": [
+        "/usr/bin/prlimit",
+        "--as=68719476736",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+        "--root=/data/ivy-rh-octic-20261123/comparison-box-lee-fresh-v2/source",
+        "-j2",
+        "-o",
+        "/data/ivy-rh-octic-20261123/comparison-box-lee-fresh-v2/objects/BoxVsLee.olean",
+        "/data/ivy-rh-octic-20261123/comparison-box-lee-fresh-v2/source/BoxVsLee.lean"
+      ],
+      "returncode": 0,
+      "seconds": 3.9,
+      "source_sha256": "d971406964dbefac469806bcf2215550d7c8622bdbf3113463690b9d7f16f90e",
+      "stdout_sha256": "272498b4a350e3ab409150c3ef96d52261c939398fa6eca10f5d45042e749102",
+      "stderr_sha256": "946e5c791d000d627d307267868517cf066517daff7eb0ba83d4b9c36143392c",
+      "peak_RSS_KiB": 3523716,
+      "object_sha256": "8a78404e30a653fd7c6eb3d3cbc70be4de4386b7e68b655974b64cf365f70088"
+    },
+    {
+      "module": "BoxLeeAudit",
+      "command": [
+        "/usr/bin/prlimit",
+        "--as=68719476736",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+        "--root=/data/ivy-rh-octic-20261123/comparison-box-lee-fresh-v2/source",
+        "-j2",
+        "-o",
+        "/data/ivy-rh-octic-20261123/comparison-box-lee-fresh-v2/objects/BoxLeeAudit.olean",
+        "/data/ivy-rh-octic-20261123/comparison-box-lee-fresh-v2/source/BoxLeeAudit.lean"
+      ],
+      "returncode": 0,
+      "seconds": 74.77,
+      "source_sha256": "cda080fc62fe9287f12f3c03b37093dd1181ab9fd81a4ffe57ce982ccd4927bc",
+      "stdout_sha256": "40e89ba1dd50ad3827236776d214645a4cfc9d912fde3cb649bb105d4ea8c784",
+      "stderr_sha256": "7a40a14e0726b2333ed210dc0245f4cb318cd534c9c2945a5c824e7f659eb5e7",
+      "peak_RSS_KiB": 3927368,
+      "object_sha256": "72a514b88757d6f6f63ab3f799d2967090d26739fc0d8d1e9430c4751992d044"
+    }
+  ],
+  "dependency_probes": [
+    {
+      "module": "BoxVsLee",
+      "command": [
+        "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+        "--root=/data/ivy-rh-octic-20261123/comparison-box-lee-fresh-v2/source",
+        "--deps",
+        "/data/ivy-rh-octic-20261123/comparison-box-lee-fresh-v2/source/BoxVsLee.lean"
+      ],
+      "returncode": 0,
+      "stdout_sha256": "a41d5932f83f48f23b665b151351103637a38052409f31d346b93eb57c970170",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "BoxLeeAudit",
+      "command": [
+        "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+        "--root=/data/ivy-rh-octic-20261123/comparison-box-lee-fresh-v2/source",
+        "--deps",
+        "/data/ivy-rh-octic-20261123/comparison-box-lee-fresh-v2/source/BoxLeeAudit.lean"
+      ],
+      "returncode": 0,
+      "stdout_sha256": "dc0aa22a42c10c87ba1ac41ca8febad80113a50ea4c91b1122b9f2a27dd6e61d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "seconds": 78.67,
+  "observed_controller_wall_seconds": 78.80426470376551,
+  "total_source_modules": 725,
+  "RESOURCE_ADMISSION_sha256": "4f4415c38d45d7b52541ddbc69a7e65d6b14fe5ef7d23a224f4905008e0b4a4f",
+  "TREE_RSS_sha256": "29e216b3aa542eaa75cf68e48e904fe375af13647e6c2464aaffd6816b43eead",
+  "peak_individual_child_RSS_KiB": 3927368,
+  "sampled_peak_process_tree_RSS_bytes": 4070797312,
+  "sampled_peak_owned_disk_bytes": 1704135,
+  "source_first_PV_claim": false,
+  "DEV_objects_used": false,
+  "observed_process_OOM_events": 0
+}

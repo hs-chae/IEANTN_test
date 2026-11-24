@@ -1,0 +1,117 @@
+import SpectralPi
+import ActualAnalytic
+
+/-! An asymmetric ordinary-prime upper bound from the already completed J/psi
+provider. Positive prime powers are discarded only for this upper bound; no
+feedback theorem is assumed, and there is no circular prime-counting premise. -/
+namespace RHOcticPush.PrimeSquareFeedback
+open Real IEANTN Set RHContinuation.Ramanujan RHOcticPush.BoxPerron
+set_option maxHeartbeats 0
+
+lemma box_polynomial_upper {L : ℝ} (hL : 50 ≤ L) :
+    RHOcticPush.BoxTail.improvedBound L ≤ L^2 := by
+  have h0 : 0 < L := by linarith
+  have hl : 0 ≤ Real.log L := Real.log_nonneg (by linarith : (1:ℝ)≤L)
+  have hh := RHOcticPush.Applicability.log_le_half h0
+  let v : ℝ := L/2-Real.log L
+  have hv0 : 0 ≤ v := by dsimp [v]; linarith
+  have hv : v ≤ L/2 := by dsimp [v]; linarith
+  have hsq : v^2 ≤ (L/2)^2 := pow_le_pow_left₀ hv0 hv 2
+  have hlog0 : 0 ≤ Real.log 2 := Real.log_nonneg (by norm_num)
+  have hlog1 : Real.log 2 ≤ 1 := by linarith [Real.log_two_lt_d9]
+  have hm : 2*Real.log 2*v ≤ L := by
+    have h := mul_le_mul_of_nonneg_right hlog1 hv0
+    nlinarith
+  have hn0 : 0 ≤ v^2+2*Real.log 2*v+2*(70871/100000)+L := by positivity
+  have hd := div_le_self hn0 (by linarith [Real.pi_gt_three] : (1:ℝ)≤2*Real.pi)
+  have hb : (v^2+2*Real.log 2*v+2*(70871/100000)+L)/(2*Real.pi)+(14/100 : ℝ) ≤ L^2 := by
+    nlinarith
+  simpa only [RHOcticPush.BoxTail.improvedBound,PsiSmoothing.envelope,PsiSmoothing.v,v]
+    using hb
+
+lemma J_error_small {L : ℝ} (hL : 50 ≤ L) :
+    Real.exp (L/2)/L*RHOcticPush.BoxTail.improvedBound L+Spectral076.profile L <
+      Real.exp L/(20*L) := by
+  have h0 : 0 < L := by linarith
+  have hL1 : 1 ≤ L := by linarith
+  have hsq : (1:ℝ) ≤ L^2 := by nlinarith
+  have hP := Spectral076.profile_lt_055 (by linarith : (35:ℝ)≤L)
+  have hdiv := div_le_self (Real.exp_pos (L/2)).le hsq
+  have hP' : Spectral076.profile L < Real.exp (L/2)*L := by
+    have hp : (55/1000 : ℝ)*(Real.exp (L/2)/L^2) ≤ Real.exp (L/2) := by
+      have h := mul_le_mul_of_nonneg_left hdiv (by norm_num : (0:ℝ)≤55/1000)
+      nlinarith [Real.exp_pos (L/2)]
+    exact hP.trans_le (hp.trans (by nlinarith [Real.exp_pos (L/2)]))
+  have hB : Real.exp (L/2)/L*RHOcticPush.BoxTail.improvedBound L ≤
+      Real.exp (L/2)*L := by
+    have h := mul_le_mul_of_nonneg_left (box_polynomial_upper hL)
+      (div_nonneg (Real.exp_pos (L/2)).le h0.le)
+    convert! h using 1 <;> field_simp <;> ring
+  have hE := Spectral076.exp_square_ratio_lower35 (by linarith : (35:ℝ)≤L)
+  have hE' := (lt_div_iff₀ (pow_pos h0 2)).mp hE
+  have h40 : 40*L^2 < Real.exp (L/2) := by nlinarith
+  have hm := mul_lt_mul_of_pos_left h40 (Real.exp_pos (L/2))
+  have hexp : Real.exp L = (Real.exp (L/2))^2 := by
+    rw [pow_two,←Real.exp_add]
+    congr 1
+    ring
+  have hsmall : 2*Real.exp (L/2)*L < Real.exp L/(20*L) := by
+    apply (lt_div_iff₀ (by positivity : 0 < 20*L)).mpr
+    rw [hexp]
+    nlinarith
+  linarith
+
+/-- An existing unconditional fully proved logarithmic-integral bound, with its
+actual PV-li convention exposed before applying the prime-counting estimate. -/
+lemma li_upper {L : ℝ} (hL : 50 ≤ L) :
+    IEANTN.li (Real.exp L) ≤ (21/20 : ℝ)*(Real.exp L/L) := by
+  have h0 : 0 < L := by linarith
+  have hw := RHContinuation.Ramanujan.actual_w_tail_no_series (by linarith : (42:ℝ)≤L)
+  change L*(Real.exp (-L)*IEANTN.li (Real.exp L)) ≤ (21/20 : ℝ) at hw
+  have h := mul_le_mul_of_nonneg_right hw (by positivity : 0 ≤ Real.exp L/L)
+  have he : (L*(Real.exp (-L)*IEANTN.li (Real.exp L)))*(Real.exp L/L) =
+      IEANTN.li (Real.exp L) := by
+    rw [Real.exp_neg]
+    field_simp [h0.ne',Real.exp_ne_zero]
+  rw [he] at h
+  exact h
+
+/-- The actual source-four prime upper bound. It uses pi<=J from nonnegative
+prime powers and the original psi/J estimate, never the new Q or pi result. -/
+theorem prime_counting_upper_log (rh : RiemannHypothesis)
+    (hN : NicolasContinuation.SourceNicolas119) (hI : SourceIntegratedPsi)
+    (hB : RHOcticPush.BPTSourceEndpoint.SourceBPTOffOrdinate)
+    {L : ℝ} (hL : 50 ≤ L) :
+    primeCounting (Real.exp L) ≤ (11/10 : ℝ)*(Real.exp L/L) := by
+  have he := RHOcticPush.BoxPerron.box_explicit_formula hI
+  have hz := RHOcticPush.BoxZero.box_zero_estimate_offOrdinate hN hB
+  have hp := RHOcticPush.BoxTail.actual_psi_improved rh he hz
+    RHOcticPush.BoxGamma.first_moment RHOcticPush.BoxGamma.second_moment_identity
+    (Real.exp L) (Real.exp_le_exp.mpr (by linarith : (35:ℝ)≤L))
+  rw [Real.log_exp] at hp
+  have hJ := Spectral076.actual_J_profile rh hN hI RHOcticPush.BoxTail.improvedBound
+    (by linarith : (24:ℝ)≤L) hp
+  have hpi := RHContinuation.Ramanujan.actual_prime_power_nonnegative (Real.exp_pos L)
+  have hli := li_upper hL
+  have herr := J_error_small hL
+  have hplus := (abs_le.mp hJ).2
+  have heq : Real.exp L/(20*L) = (1/20 : ℝ)*(Real.exp L/L) := by ring
+  rw [heq] at herr
+  linarith
+
+theorem prime_counting_upper (rh : RiemannHypothesis)
+    (hN : NicolasContinuation.SourceNicolas119) (hI : SourceIntegratedPsi)
+    (hB : RHOcticPush.BPTSourceEndpoint.SourceBPTOffOrdinate)
+    {y : ℝ} (hy : Real.exp 50 ≤ y) :
+    primeCounting y ≤ (11/10 : ℝ)*(y/Real.log y) := by
+  have hy0 : 0 < y := (Real.exp_pos 50).trans_le hy
+  have hL : 50 ≤ Real.log y := by
+    simpa only [Real.log_exp] using Real.log_le_log (Real.exp_pos 50) hy
+  simpa only [Real.exp_log hy0] using prime_counting_upper_log rh hN hI hB hL
+
+#print axioms box_polynomial_upper
+#print axioms J_error_small
+#print axioms li_upper
+#print axioms prime_counting_upper_log
+#print axioms prime_counting_upper
+end RHOcticPush.PrimeSquareFeedback

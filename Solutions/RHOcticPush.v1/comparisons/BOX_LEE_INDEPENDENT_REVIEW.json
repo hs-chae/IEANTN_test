@@ -1,0 +1,109 @@
+{
+  "status": "PASS_BOUNDED_INDEPENDENT_SOURCE_AND_WHOLE_FUNCTION_REVIEW_DEV_ONLY",
+  "reviewer": "rh_octic_analytic",
+  "source_sha256": "d971406964dbefac469806bcf2215550d7c8622bdbf3113463690b9d7f16f90e",
+  "requested_universe": "Entire actual BoxVsLee.lean: all 9 written proofs and both lee11/lee12 definitions. Comparison is restricted to the two displayed Lee–Nosal v4 functions.",
+  "written_proofs": [
+    {
+      "file": "Solutions/RHOcticPush.v1/comparisons/BoxVsLee.lean",
+      "line": 20,
+      "declaration": "RHOcticPush.BoxLeeComparison.log_lower"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/comparisons/BoxVsLee.lean",
+      "line": 30,
+      "declaration": "RHOcticPush.BoxLeeComparison.exp_cubic"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/comparisons/BoxVsLee.lean",
+      "line": 34,
+      "declaration": "RHOcticPush.BoxLeeComparison.cubic12_positive"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/comparisons/BoxVsLee.lean",
+      "line": 43,
+      "declaration": "RHOcticPush.BoxLeeComparison.cubic11_positive"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/comparisons/BoxVsLee.lean",
+      "line": 51,
+      "declaration": "RHOcticPush.BoxLeeComparison.scaled12_positive"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/comparisons/BoxVsLee.lean",
+      "line": 71,
+      "declaration": "RHOcticPush.BoxLeeComparison.scaled11_positive"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/comparisons/BoxVsLee.lean",
+      "line": 94,
+      "declaration": "RHOcticPush.BoxLeeComparison.box_lt_lee12"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/comparisons/BoxVsLee.lean",
+      "line": 110,
+      "declaration": "RHOcticPush.BoxLeeComparison.box_lt_lee11"
+    },
+    {
+      "file": "Solutions/RHOcticPush.v1/comparisons/BoxVsLee.lean",
+      "line": 126,
+      "declaration": "RHOcticPush.BoxLeeComparison.box_lt_both"
+    }
+  ],
+  "review_sequence": [
+    {
+      "actual_Lean_Blueprint": "BoxVsLee.lean:16–18 defines lee11(L)=L[L/(8π)−(1/(2π)+293/(200L))log L+493/400] and lee12(L)=L(L−log L)/(8π). Final comparisons are at lines 94,110,126. There is no standalone Blueprint label for this additive experiment; the imported canonical definitions are RHOcticEvolution.boxBound and RHSmoothing.envelope.",
+      "primary_source": "Lee–Nosal arXiv:2312.05628v4, 2 October 2025, printed/PDF page 2. Theorem 1.1: under RH, x≥11, |ψ(x)−x|≤√x log x[log x/(8π)−(1/(2π)+1.465/log x)log log x+1.2325]. Theorem 1.2, equation (2): under RH, x≥101, |ψ(x)−x|≤√x log x(log x−log log x)/(8π).",
+      "comparison_and_consequence": "Set x=exp L and divide by positive √x. The two Lean functions are exactly the published right sides, with 293/200=1.465 and 493/400=1.2325. The complete common comparison ray L≥35 lies inside both source domains and the actual Box consumer domain. The source threshold 101 is the ordinary integer. No mismatch found."
+    },
+    {
+      "actual_Lean_Blueprint": "RHOcticEvolution.lean:12–13 defines boxBound as RHSmoothing.envelope(log 2)(70871/100000). RHSmoothing.lean:18,43–44 defines v=L/2−log L and B=[v²+2(log 2)v+2·0.70871+L]/(2π)+0.14.",
+      "primary_source": "The comparison attribution names exactly the two formulas above. The Box function is a project-derived bound from the completed four-source provider; it is not attributed to Lee–Nosal.",
+      "comparison_and_consequence": "Both algebraic identities multiply the normalized source function minus boxBound by 2π and expand the entire expression. The terms 2·0.70871 and 0.28π are retained. This compares complete functions, including the Box residual, rather than leading terms."
+    },
+    {
+      "actual_Lean_Blueprint": "BoxVsLee.lean:20–90 proves real-variable positivity; lines 94–128 consume the exact expanded identities.",
+      "primary_source": "The positivity argument is project-internal, with no external attribution. The entire file, enclosing namespace, module comments and imported definition contracts were inspected.",
+      "comparison_and_consequence": "The proof establishes log L≥3.5 from exp(1)<2.75, and uses exp z≥1+z+z²/2+z³/6. Expansion about z=3.5 gives polynomials with strictly positive constant and nonnegative remaining terms. For Theorem 1.2 it uses 3z/4−1−log 2≥3z/4−1.7≥0 and 2·0.70871+0.28π<2.3. For Theorem 1.1 the L coefficient is at least 4, the log L coefficient at least −10, and the constant below 3. Hence both complete functions are strictly ordered for every real L≥35, including the endpoint. There is no sampled-grid replacement for the domain proof."
+    }
+  ],
+  "primary_evidence": {
+    "url": "https://arxiv.org/pdf/2312.05628v4",
+    "local_path": "Solutions/RHOcticPush.v1/comparisons/sources/LeeNosal_2312.05628v4.pdf",
+    "sha256": "a4aed892f4aa7c59d6e8cf2e3ff6e3b7c950928c59af0b3f234cb2a34e67dc93",
+    "exact_locator": "Printed2/PDF2:Theorem1.1andTheorem1.2Eq2",
+    "visual_readback": "Actual PDF page 2 was rendered and viewed. Parentheses, √x and log prefactors, constants 1.465 and 1.2325, and thresholds 11 and 101 match. The live primary URL and page were also checked.",
+    "independent_screenshot": "/data/ivy-rh-octic-20261123/lee-p2-independent.png",
+    "independent_screenshot_sha256": "f4715f5ccd12019fcc6700bfc44bffa109ba94e0e2dba33d3f03e023687444a8"
+  },
+  "proof_evidence": {
+    "receipt": "/data/ivy-rh-octic-20261123/comparison-box-lee-v1/RECEIPT.json",
+    "receipt_sha256": "36edf62dbd0fcc535694bb6f1e9d5483033c505d650736b6da402476e58ff14e",
+    "seconds": 4.238982954993844,
+    "all3selectedaxiomclosures": [
+      {
+        "name": "RHOcticPush.BoxLeeComparison.box_lt_lee11",
+        "axioms": "propext, Classical.choice, Quot.sound"
+      },
+      {
+        "name": "RHOcticPush.BoxLeeComparison.box_lt_lee12",
+        "axioms": "propext, Classical.choice, Quot.sound"
+      },
+      {
+        "name": "RHOcticPush.BoxLeeComparison.box_lt_both",
+        "axioms": "propext, Classical.choice, Quot.sound"
+      }
+    ],
+    "LSP": "Actual diagnostics completed: 0 errors, 0 warnings, and 3 standard-axiom information items.",
+    "development_only": true,
+    "fresh_append": "Not accepted by this review. The owner must record a separate source-fresh integration gate."
+  },
+  "scope_limitations": [
+    "Only two displayed Lee–Nosal v4 functions are covered. Other parameter families, Lemma 3.3 optima and other published PNT bounds are outside this review.",
+    "There is no optimality, global best-known result or complete published-minimum claim.",
+    "The published theorems assume RH. The actual Lean Box consumer retains RH and the general Perron, Nicolas and BPT source predicates. These B-tier inputs remain explicit; the scalar comparison does not formalize their published proofs.",
+    "Ordinary kernel mathematics is not source-first PV.",
+    "Node registration, public consumers and fresh integration are outside this single-file review."
+  ],
+  "findings": []
+}
