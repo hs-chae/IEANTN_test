@@ -1,0 +1,534 @@
+{
+  "status": "FROZEN_PLAN_NOT_ACCEPTANCE",
+  "modules": [
+    {
+      "module": "FourierWeakDuality",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/FourierWeakDuality.lean",
+      "source_sha256": "83b3c957b73699db7fc3d9db6288471597ad29b9f5d88c98e544374e72ea9303",
+      "imports": [
+        "Mathlib.Analysis.Fourier.Inversion",
+        "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+        "Mathlib.Tactic"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/FourierWeakDuality.lean"
+    },
+    {
+      "module": "CosineChord",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/CosineChord.lean",
+      "source_sha256": "3209ca4804bcdb91bfa4e6d8b4c9e1c78cdc9f9275b794b9015b40620e65ac5a",
+      "imports": [
+        "Mathlib.Analysis.Convex.Deriv",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv",
+        "Mathlib.Tactic"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/CosineChord.lean"
+    },
+    {
+      "module": "CompactDualStep",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/CompactDualStep.lean",
+      "source_sha256": "c3e29bfd9b3565752e0426dc0b933ae727a2966313f86acf191c5dc652efebf4",
+      "imports": [
+        "FourierWeakDuality",
+        "CosineChord",
+        "Mathlib.Analysis.SpecialFunctions.Integrals.Basic"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/CompactDualStep.lean"
+    },
+    {
+      "module": "KernelInterpolation",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/KernelInterpolation.lean",
+      "source_sha256": "9204376b27829c3ad08ae0f5e721e8eab2e6024d6a74d9ec0707eea044c0ef97",
+      "imports": [
+        "CompactDualStep",
+        "Mathlib.Analysis.Real.Pi.Bounds"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/KernelInterpolation.lean"
+    },
+    {
+      "module": "FunctionalObstruction",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/FunctionalObstruction.lean",
+      "source_sha256": "1601a800bd02a08f68cd78ab57fda6f001aa8e123120f9886bbc678ff3a52d5f",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Bounds",
+        "Mathlib.Tactic"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/FunctionalObstruction.lean"
+    },
+    {
+      "module": "CompactDualContinuum",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/CompactDualContinuum.lean",
+      "source_sha256": "e57df31eece298ebdbf216262e7b274e77c60d8e546f5f33a71be20c4622279f",
+      "imports": [
+        "KernelInterpolation",
+        "FunctionalObstruction"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/CompactDualContinuum.lean"
+    },
+    {
+      "module": "GoldbachDirect.Syntax",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/pv/lean/GoldbachDirect/Syntax.lean",
+      "source_sha256": "cedf8c83f3e0701ec3ca39c205ba0a5d8bc731fc63395193cbf8d26520bf38e7",
+      "imports": [
+        "Mathlib.Data.List.Defs"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/GoldbachDirect/Syntax.lean"
+    },
+    {
+      "module": "GoldbachDirect.Correspondence.Lexical",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/pv/lean/GoldbachDirect/Correspondence/Lexical.lean",
+      "source_sha256": "96b059cbc8cd3c0d2d08b2955727ab1db5470e053d890b37b34dd65f636a4677",
+      "imports": [
+        "Mathlib.Data.List.Basic"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/GoldbachDirect/Correspondence/Lexical.lean"
+    },
+    {
+      "module": "GoldbachDirect.SourceCheck",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/pv/lean/GoldbachDirect/SourceCheck.lean",
+      "source_sha256": "4cf9208ac9d9e6629819cd35e0e47282094a190ac312f7cc22e6c4b646306745",
+      "imports": [
+        "GoldbachDirect.Syntax",
+        "GoldbachDirect.Correspondence.Lexical",
+        "Mathlib.Tactic.Basic"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/GoldbachDirect/SourceCheck.lean"
+    },
+    {
+      "module": "GoldbachDirect.Correspondence.Expressions",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/pv/lean/GoldbachDirect/Correspondence/Expressions.lean",
+      "source_sha256": "02d7d08cf8876ec985bba5fd4a942a17e3c18946fb0ee43f2ead96d78f83ceca",
+      "imports": [
+        "GoldbachDirect.SourceCheck"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/GoldbachDirect/Correspondence/Expressions.lean"
+    },
+    {
+      "module": "GoldbachDirect.Correspondence.Statements",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/pv/lean/GoldbachDirect/Correspondence/Statements.lean",
+      "source_sha256": "0b0b7429878e6866789305d91771389c48a0d543ead8c6222bc97e66d87d09ae",
+      "imports": [
+        "GoldbachDirect.Correspondence.Expressions"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/GoldbachDirect/Correspondence/Statements.lean"
+    },
+    {
+      "module": "GoldbachDirect.Correspondence.StatementsProofs",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/pv/lean/GoldbachDirect/Correspondence/StatementsProofs.lean",
+      "source_sha256": "251b5acc37e1880c15fb8cd9ac94f2e5e07ace85294e3aca0f847c89b5c0fb4d",
+      "imports": [
+        "GoldbachDirect.Correspondence.Statements"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/GoldbachDirect/Correspondence/StatementsProofs.lean"
+    },
+    {
+      "module": "GoldbachDirect.Correspondence.Preprocessing",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/pv/lean/GoldbachDirect/Correspondence/Preprocessing.lean",
+      "source_sha256": "cff0ae176c02b4e24e1714edcd83f714991d62ad0811f6378dfddda9ccd5ead1",
+      "imports": [
+        "Mathlib.Data.List.Basic",
+        "Mathlib.Tactic.Basic"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/GoldbachDirect/Correspondence/Preprocessing.lean"
+    },
+    {
+      "module": "GoldbachDirect.Correspondence.Specification",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/pv/lean/GoldbachDirect/Correspondence/Specification.lean",
+      "source_sha256": "d9cc12573d198553819d4cad3a5ce68ae4e34d0f19a96b0e3cd57e8fa769f74b",
+      "imports": [
+        "GoldbachDirect.Correspondence.StatementsProofs",
+        "GoldbachDirect.Correspondence.Preprocessing"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/GoldbachDirect/Correspondence/Specification.lean"
+    },
+    {
+      "module": "DualAST",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/pv/lean/DualAST.lean",
+      "source_sha256": "a02b84057be8fe7a8af14b286a42051af1a45e6b743b4a5849a722afad423d69",
+      "imports": [
+        "GoldbachDirect.Correspondence.Specification"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/DualAST.lean"
+    },
+    {
+      "module": "DualExecution",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/pv/lean/DualExecution.lean",
+      "source_sha256": "84f39d6f976feb3b985c41c1558b6a1809a7e95176f7e52307db5f9a3485ffeb",
+      "imports": [
+        "DualAST",
+        "Mathlib.Tactic"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/DualExecution.lean"
+    },
+    {
+      "module": "DualModel",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/pv/lean/DualModel.lean",
+      "source_sha256": "c0a14733f4eadc0b611cf1ac6828a1de888ee15dd5c9ed524f23ee8308aab015",
+      "imports": [
+        "DualExecution"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/DualModel.lean"
+    },
+    {
+      "module": "DualGridModel",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/pv/lean/DualGridModel.lean",
+      "source_sha256": "e068a8c3e45b5b7170c2a8078afeb18bbd1de7f24b6c9d31dec12e87424355f3",
+      "imports": [
+        "DualModel"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/DualGridModel.lean"
+    },
+    {
+      "module": "DualGridArithmetic",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/pv/lean/DualGridArithmetic.lean",
+      "source_sha256": "fb2403d4e0057d9d4ecf320e7b8533a1838eafc5b995ac397fd141e159ac0e45",
+      "imports": [
+        "DualGridModel",
+        "Mathlib.Data.Rat.Cast.Order"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/DualGridArithmetic.lean"
+    },
+    {
+      "module": "DualGridReal",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/pv/lean/DualGridReal.lean",
+      "source_sha256": "cf89d085b3bca94564314c9ee3eaa80eded25d52259d7097556d7204d92ac51b",
+      "imports": [
+        "DualGridArithmetic",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/DualGridReal.lean"
+    },
+    {
+      "module": "SineSpec",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/sine/SineSpec.lean",
+      "source_sha256": "26825ce15541ee6c61135570f058d159576a1da4ff2cc5cafe5162a52cbe9221",
+      "imports": [
+        "Mathlib.Tactic"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/SineSpec.lean"
+    },
+    {
+      "module": "SineCells00",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/sine/SineCells00.lean",
+      "source_sha256": "09600f061925f35de4695f62020302b2dfc7b54f915d00d21cdab0cc5cbfdc9c",
+      "imports": [
+        "SineSpec"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/SineCells00.lean"
+    },
+    {
+      "module": "SineCells01",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/sine/SineCells01.lean",
+      "source_sha256": "411aab99130ad61deff3c72360c49edf364273ca405e4d2dccdba2d4e93aeb99",
+      "imports": [
+        "SineSpec"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/SineCells01.lean"
+    },
+    {
+      "module": "SineCells02",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/sine/SineCells02.lean",
+      "source_sha256": "eb92f05284c669c1290a458dff4c17559f30b6df2dd61ba138cccb968fcc5f2e",
+      "imports": [
+        "SineSpec"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/SineCells02.lean"
+    },
+    {
+      "module": "SineCells03",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/sine/SineCells03.lean",
+      "source_sha256": "00f4449cd683ca221de18b37d9b845dee84c57b0c7a19c7824a68f608b99b407",
+      "imports": [
+        "SineSpec"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/SineCells03.lean"
+    },
+    {
+      "module": "SineCells04",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/sine/SineCells04.lean",
+      "source_sha256": "df11da76195627a42e9c80319ad30e37df422a9f25a2846a2fc700e8f76d4960",
+      "imports": [
+        "SineSpec"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/SineCells04.lean"
+    },
+    {
+      "module": "SineCells05",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/sine/SineCells05.lean",
+      "source_sha256": "290005b4d50de58a1edd6348c39520f39976139777f4a91a7b24b7e04bcb5d1d",
+      "imports": [
+        "SineSpec"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/SineCells05.lean"
+    },
+    {
+      "module": "SineCells06",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/sine/SineCells06.lean",
+      "source_sha256": "6b71e6a9a33461a2c89a45d694a3559329156a670e69d4dd9b3d80cd6fe48eb1",
+      "imports": [
+        "SineSpec"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/SineCells06.lean"
+    },
+    {
+      "module": "SineCells07",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/sine/SineCells07.lean",
+      "source_sha256": "ca8d9eab34f15846313927ff74fdaff730fc35d6684f83a8da7419191b9830ba",
+      "imports": [
+        "SineSpec"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/SineCells07.lean"
+    },
+    {
+      "module": "SineCells08",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/sine/SineCells08.lean",
+      "source_sha256": "c0c69c121d24224b47ebe98c73870d8df3675eb1bab276916317840fd710af9a",
+      "imports": [
+        "SineSpec"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/SineCells08.lean"
+    },
+    {
+      "module": "SineRational",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/sine/SineRational.lean",
+      "source_sha256": "1f1167c55e6269ccf256a59c4e022328855fbc6d01f80b951f57f86c39611828",
+      "imports": [
+        "SineCells00",
+        "SineCells01",
+        "SineCells02",
+        "SineCells03",
+        "SineCells04",
+        "SineCells05",
+        "SineCells06",
+        "SineCells07",
+        "SineCells08"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/SineRational.lean"
+    },
+    {
+      "module": "LeanCert.Core.DerivativeIntervals",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RHOnePrimeEvolution.v1/gaussian_gap/portable/source/LeanCert/Core/DerivativeIntervals.lean",
+      "source_sha256": "d50d7a368033ed7905a92445700ceb8e95ec41e31c08b7ed49bf585d68fcf0f9",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.ExpDeriv",
+        "Mathlib.Analysis.SpecialFunctions.Log.Deriv",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Arctan",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.ArctanDeriv",
+        "Mathlib.Analysis.SpecialFunctions.Arsinh",
+        "Mathlib.Analysis.Calculus.MeanValue"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/LeanCert/Core/DerivativeIntervals.lean"
+    },
+    {
+      "module": "LeanCert.Core.Taylor",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RHOnePrimeEvolution.v1/gaussian_gap/portable/source/LeanCert/Core/Taylor.lean",
+      "source_sha256": "2c3d2aef304c46b10ca430c224d00abaa876daca6f8c94cce66b5fbc7cee354e",
+      "imports": [
+        "Mathlib.Analysis.Calculus.Taylor",
+        "Mathlib.Analysis.SpecialFunctions.ExpDeriv",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv",
+        "Mathlib.Analysis.SpecialFunctions.Log.Deriv",
+        "LeanCert.Core.DerivativeIntervals"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/LeanCert/Core/Taylor.lean"
+    },
+    {
+      "module": "SineBridge",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/sine/SineBridge.lean",
+      "source_sha256": "9a987619c66a8b1c481caef74879942aec6a7a8d60b2bfb4e5886a2dba3926f7",
+      "imports": [
+        "SineRational",
+        "LeanCert.Core.Taylor",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Bounds",
+        "Mathlib.Analysis.Real.Pi.Bounds"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/SineBridge.lean"
+    },
+    {
+      "module": "AngleFolding",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/sine/AngleFolding.lean",
+      "source_sha256": "bf33f8a52e50b4e6a27bac03a0e28664ca277b5587ce7553bf1604364f3c18af",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+        "Mathlib.Tactic"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/AngleFolding.lean"
+    },
+    {
+      "module": "DualSineGridBridge",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/pv/lean/DualSineGridBridge.lean",
+      "source_sha256": "4e029b9f17bdb6caebda5230dfb0463c087035282077933a7751545de706ed86",
+      "imports": [
+        "DualGridReal",
+        "SineBridge",
+        "AngleFolding"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/DualSineGridBridge.lean"
+    },
+    {
+      "module": "CompactDualVerified",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/CompactDualVerified.lean",
+      "source_sha256": "f36c38ddb21acf24f0f563a33fbd0ea88a3a25b5e155416786153ddb32c702d3",
+      "imports": [
+        "CompactDualContinuum",
+        "DualSineGridBridge"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/CompactDualVerified.lean"
+    },
+    {
+      "module": "DualSource",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/pv/lean/DualSource.lean",
+      "source_sha256": "138f079f3315b1bb57ad0a05ddd721d85e27bb101c571d9effc73eccf75aeafa",
+      "imports": [
+        "DualAST"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/DualSource.lean"
+    },
+    {
+      "module": "DualHostSemantics",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/pv/lean/DualHostSemantics.lean",
+      "source_sha256": "6f5881aecf79589775d08bb85032f64b0645d21042905848a2b4baeefbec642e",
+      "imports": [
+        "DualExecution"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/DualHostSemantics.lean"
+    },
+    {
+      "module": "DualActualRun",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/pv/lean/DualActualRun.lean",
+      "source_sha256": "ebbdcc49b119f6c924293569c535a800a2ff46912768dd9bb002af35f74d0485",
+      "imports": [
+        "DualExecution"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/DualActualRun.lean"
+    },
+    {
+      "module": "DualOutput",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/pv/lean/DualOutput.lean",
+      "source_sha256": "c799a44601452ae7b09c5b4fa88c90074f5db0f0468f977401bd2b55ce710a36",
+      "imports": [
+        "DualHostSemantics",
+        "DualActualRun"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/DualOutput.lean"
+    },
+    {
+      "module": "DualVerifiedSource",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/pv/lean/DualVerifiedSource.lean",
+      "source_sha256": "b68a8cdbd72f9a8d2bbaa06ca66c95b5ca27e5f6319f5c83bed42ff859165cdb",
+      "imports": [
+        "DualSource",
+        "DualOutput",
+        "DualGridModel"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/DualVerifiedSource.lean"
+    },
+    {
+      "module": "CompactDualSourceFirst",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/CompactDualSourceFirst.lean",
+      "source_sha256": "0c8b7d04dbcfb7587efb5d25efcd2fa0d20ab2218945eff4eb4d9eaf4dfb2f46",
+      "imports": [
+        "CompactDualVerified",
+        "DualVerifiedSource"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/CompactDualSourceFirst.lean"
+    },
+    {
+      "module": "DualSineExecution",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/pv/lean/DualSineExecution.lean",
+      "source_sha256": "57be47ccf30c8be60191dea3bdfd7bb652ec1b3afa6fc45e75ba8753fb80982b",
+      "imports": [
+        "DualModel"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/DualSineExecution.lean"
+    },
+    {
+      "module": "PVJointAudit",
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/pv/lean/PVJointAudit.lean",
+      "source_sha256": "cab13cfb151a1f342d7412d51ae9a2c437ec8d8b1683dfcd8b7763ea496dfe3d",
+      "imports": [
+        "CompactDualSourceFirst",
+        "DualSineExecution",
+        "Lean"
+      ],
+      "executed": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source/PVJointAudit.lean"
+    }
+  ],
+  "roots": [
+    "PVJointAudit"
+  ],
+  "compiler": "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+  "compiler_sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+  "generic": [
+    {
+      "name": "mathlib",
+      "revision": "71a80585ee495fc24472fd0eaffc89d94e4fd8d6",
+      "library": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/mathlib/.lake/build/lib/lean"
+    },
+    {
+      "name": "plausible",
+      "revision": "d9598f07b1bc701f1e3aae163d2681c1fd978793",
+      "library": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/plausible/.lake/build/lib/lean"
+    },
+    {
+      "name": "LeanSearchClient",
+      "revision": "ba67e212be1197b84c1f1f6299488a10a3002713",
+      "library": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/LeanSearchClient/.lake/build/lib/lean"
+    },
+    {
+      "name": "importGraph",
+      "revision": "1681d78dd6e65e38b143f9740d829c826673807c",
+      "library": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/importGraph/.lake/build/lib/lean"
+    },
+    {
+      "name": "proofwidgets",
+      "revision": "a8acbfd87375ff4abe14ce09db5b7664d383bc7f",
+      "library": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/proofwidgets/.lake/build/lib/lean"
+    },
+    {
+      "name": "aesop",
+      "revision": "18889deb9e83ea7420ef51c160d6f88552e744e3",
+      "library": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/aesop/.lake/build/lib/lean"
+    },
+    {
+      "name": "Qq",
+      "revision": "507746ab8f4b643ccdacb2ec4cdb5853fa9f8ab3",
+      "library": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/Qq/.lake/build/lib/lean"
+    },
+    {
+      "name": "batteries",
+      "revision": "4cac2177c37f5530c4da76aa8e4307f3fc9e4dcb",
+      "library": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/batteries/.lake/build/lib/lean"
+    }
+  ],
+  "predecessor_application_objects_used": false,
+  "per_normal_process_AS_bytes": 68719476736,
+  "heavy_execution_AS_bytes": 274877906944,
+  "host_RAM_reserve_bytes": 274877906944,
+  "heavy_serialized": true,
+  "source_inputs": [
+    {
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/pv/dual_grid.c",
+      "copied": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source-generator/dual_grid.c",
+      "sha256": "da11ed48a9596134df48f29066299b39c458ac891daa90b9380dcca469ea7feb"
+    },
+    {
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/pv/PARAMETERS.json",
+      "copied": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source-generator/PARAMETERS.json",
+      "sha256": "d2aaf526b990a7105b344cb6e9d68e5d3d205cdffe9f15a1d81c675e5cdfc9e3"
+    },
+    {
+      "origin": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/pv/parse_source.py",
+      "copied": "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source-generator/parse_source.py",
+      "sha256": "0815e75d87a6ffe35eaee170f16544edd5d674d1b919df0c092e1a43db88f29a"
+    }
+  ],
+  "generator_command": [
+    "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+    "/data/ivy-rh-080-20261125/pv/fresh-joint-v2-j2/source-generator/parse_source.py"
+  ],
+  "exact_C_source_characters_match": true,
+  "startup_available_RAM_bytes": 1161892110336,
+  "startup_free_disk_bytes": 6960324739072,
+  "controller_sha256": "1b059551e2a6f80330cbe15ffa7c27fe2412f7e0d7f4f8f3e326735350e3cfb4"
+}

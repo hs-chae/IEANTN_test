@@ -1,0 +1,27 @@
+PV_AXIOMS RH080.Dual.actual_source_first_functional_result: [propext, Classical.choice, Quot.sound]
+PV_AXIOMS RH080.Dual.source_first_compact_global: [propext, Classical.choice, Quot.sound]
+PV_AXIOMS RH080.Dual.source_first_compact_obstruction: [propext, Classical.choice, Quot.sound]
+PV_AXIOMS RH080PV.Verified.actual_source_first_output: [propext, Classical.choice, Quot.sound]
+PV_AXIOMS RH080PV.Verified.actual_source_grid_cap: [propext, Quot.sound]
+PV_AXIOMS RH080PV.Verified.source_result_controls_grid: [propext, Quot.sound]
+PV_AXIOMS RH080PV.Execution.actual_numerical_execution: [propext]
+PV_AXIOMS RH080PV.actual_source_syntax: [propext, Classical.choice, Quot.sound]
+PV_AXIOMS RH080PV.checkedSyntax_sound: [propext, Classical.choice, Quot.sound]
+PV_AXIOMS RH080PV.Output.actual_host_main: [propext]
+PV_AXIOMS RH080PV.Output.actual_successful_capture: [propext]
+PV_AXIOMS RH080PV.Model.actual_sine_source_model: [propext]
+PV_AXIOMS RH080PV.Grid.true_grid_samples: [propext, Classical.choice, Quot.sound]
+PV_EDGE RH080.Dual.actual_source_first_functional_result->RH080PV.Verified.actual_source_first_output
+PV_EDGE RH080.Dual.actual_source_first_functional_result->RH080.Dual.source_first_compact_obstruction
+PV_EDGE RH080.Dual.source_first_compact_global->RH080PV.Verified.actual_source_grid_cap
+PV_EDGE RH080.Dual.source_first_compact_obstruction->RH080PV.Verified.actual_source_grid_cap
+PV_EDGE RH080PV.Verified.actual_source_grid_cap->RH080PV.Verified.source_result_controls_grid
+PV_EDGE RH080PV.Verified.actual_source_grid_cap->RH080PV.Execution.actual_numerical_execution
+PV_EDGE RH080PV.Verified.actual_source_first_output->RH080PV.actual_source_syntax
+PV_EDGE RH080PV.Verified.actual_source_first_output->RH080PV.Output.actual_host_main
+PV_EDGE RH080PV.actual_source_syntax->RH080PV.checkedSyntax_sound
+PV_EDGE RH080PV.checkedSyntax_sound->GoldbachDirect.Correspondence.supportedProgramSyntax_sound
+PV_EDGE RH080PV.Output.actual_host_main->RH080PV.Execution.actual_numerical_execution
+PV_CLOSURE_SOURCE_EXECUTION_CONSUMED RH080.Dual.source_first_compact_global
+PV_CLOSURE_SOURCE_EXECUTION_CONSUMED RH080.Dual.source_first_compact_obstruction
+PV_JOINT_AUDIT_PASS roots=13 edges=11 no-native no-sorry no-D-cap-shortcut

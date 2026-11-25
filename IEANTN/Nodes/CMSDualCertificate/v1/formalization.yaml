@@ -1,0 +1,58 @@
+version: v0.4
+node:
+  id: CMSDualCertificate.v1
+  family: CMSDualCertificate
+  version: v1
+  kind: computation
+  status: awaiting-verification
+project:
+  name: CMSDualCertificate.v1
+  description: A source-first verified rational twenty-step Fourier dual witness.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 42A38
+conclusions:
+- id: integral_witness
+  declaration: CMSDualCertificate.v1.integral_witness
+  challenge: CMSDualCertificate.v1.challenge_integral_witness
+  imports: []
+  imports_status: none
+  justifications:
+  - id: local-source-first-lean-proof
+    kind: lean-noncompliant
+    note: Actual complete local Lean proof at Solutions/RH080Study.v1/functional/DualNetworkIntegration.lean.
+      The computation witness is backed by the actual C-source syntax/execution/main/output/continuum
+      proof package; the pipeline uses the supplied typed witness parameter. Generic
+      compiler/uint64 ABI/libc/OS/hardware contracts remain explicit. Official Comparator
+      approval is not claimed.
+  designated: local-source-first-lean-proof
+sources:
+- id: BlanquerRobles2026v2
+  title: Rational Fourier certificates for prime gaps, explicit intervals, and arithmetic
+    progressions
+  authors:
+  - Rafael Blanquer Robles
+  type: paper
+  relationship: adapts
+  url: https://doi.org/10.5281/zenodo.24429650
+  note: 'Version2/2026-11-21, Theorem4 p2 and §2.3 proof p6. Background dual mechanism
+    only: the new20-stepdata and1.23 cap are independently constructed/source-verified.
+    Full unrestricted Fejer extension is not claimed by this Lean node.'
+limitations:
+- The witnessed obstruction concerns the L1-Fourier fragment; no claim that actual
+  prime gaps cannot beat0.8.
+- The ordinary-RH CMS prime application is a separate analytic theorem; this Fourier
+  obstruction needs no RH or literature-predicate assumption.
+- The C program has fixed rational input and finite grid; no unrestricted optimizer,
+  generic C++ compiler or entire C standard formalization is asserted.
+- The official Comparator receipt is pending; local complete proof evidence is separate.

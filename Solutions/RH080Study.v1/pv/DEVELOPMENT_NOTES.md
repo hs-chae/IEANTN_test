@@ -1,0 +1,16 @@
+# Development and rejected attempts
+
+- `model-dev-v1` was launched before its required `DualSource.olean` existed. It failed on a missing import, not mathematics. Splitting immutable AST definitions into `DualAST` let execution and source checks compile independently.
+- `model-dev-v2` exposed a redundant `split` after simplification of a checked-word lemma; the corrected lemma uses explicit symmetric conjunction simplification.
+- `sine-domain-v1` lacked unfolding of the named finite proposition before decidability synthesis; `sine-domain-v2` proved all129actual source executions with no native axiom.
+- `actual-grid-run-v1` hit the explicitly imposed64GiB address-space cap (`std::bad_alloc`, exit134/SIGABRT, GNU peak RSS56,199,984KiB,807.982s). This was not a host OOM kill or mathematical counterexample. The frozen source/AST/model/proposition were rerun under256GiB, authorized by actual available RAM above1TiB.
+- `syntax-v1` was a provisional monolithic module, cleanly interrupted only at the exact owned compiler PID when AST/source acceptance were split. Eight completed general grammar proof modules are preserved.
+- `source-check-v2` used default meta-level `decide` reduction, which did not close the full source Boolean even though all actual compiled diagnostics returnedtrue. The source, AST and propositions were not changed; `source-check-v3-kernel` uses genuine `decide +kernel`, not native evaluation. This tactic distinction is verified in the pinned Lean source.
+- `grid-arithmetic-v1` used a nonreducing rational absolute-value decidability path. The corrected exact certificate clears positive denominators into a natural-number inequality; every257case is kernel proved in15s. No desired inequality is assumed.
+- `grid-real-v2/v3` exposed ordinary noncomputable-section, spacing and triangle-lemma elaboration errors; `grid-real-v4` has a full generic signed-fold and real error/denominator transport proof.
+- `true-grid-v1/v2` were controlled development interruptions. A diagnostic marker isolated cast(j+1) versus cast(j)+1 unification, which was accidentally forcing expansion of the eight-step recurrence. Explicit cast normalization in the exact same theorem gives a3.10s kernel proof in `true-grid-v3`. The marker probe is not mathematical evidence.
+- `host-semantics-v1` had a documentation comment attached to a mutual block, which Lean rejects as a declaration comment. Replaced with an ordinary comment; generic host I/O execution compiles in `host-semantics-v2`.
+
+None of these failed/interrupted development objects is accepted as a proof. Original source snapshots, exit codes and diagnostics are retained outside the publishable source tree. Final fresh joint replay and explicit source/output dependency audits remain required.
+
+- The first fresh45-source joint replay omitted an explicit Lean thread count. CompactDualStep exited134 aftertwo completed modules because it could not create a thread on the busy shared host; no mathematical or RAM failure occurred and the heavy execution proof had not started. Retained the entire failed run. Added `-j2` to every Lean invocation, matching the existing baseline policy, and restarted a fresh immutable-v2 run.
