@@ -1,0 +1,117 @@
+{
+  "status": "PASS_ACTUAL_LEAN_MATHEMATICAL_CONTRACT_AND_SOURCE_USAGE_CONTROLS",
+  "python_optimization": 2,
+  "cases": [
+    {
+      "name": "positive_exact",
+      "command": [
+        "/usr/bin/prlimit",
+        "--as=34359738368",
+        "--",
+        "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+        "-j2",
+        "/data/ivy-rh-080-20261125/estimates/same_source/controls-OO/positive_exact.lean"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "required_guard": null,
+      "seconds": 2.187592616304755,
+      "source_sha256": "ea343711efd4c8a4890ba1d5011625ecf17b1efe9979b8e2647d1da8a2bb5d14",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "wrong_coefficient",
+      "command": [
+        "/usr/bin/prlimit",
+        "--as=34359738368",
+        "--",
+        "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+        "-j2",
+        "/data/ivy-rh-080-20261125/estimates/same_source/controls-OO/wrong_coefficient.lean"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "required_guard": "Type mismatch",
+      "seconds": 2.2157646641135216,
+      "source_sha256": "1c4f546cc9e8de5e23323789455b230c5920487dc3f8cb59074a02485e8980d7",
+      "stdout_sha256": "f0075fe413439446e93db3e7b9f9932d5319de2f8f8d5bc4ed4524f56622d3f0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "wrong_onset",
+      "command": [
+        "/usr/bin/prlimit",
+        "--as=34359738368",
+        "--",
+        "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+        "-j2",
+        "/data/ivy-rh-080-20261125/estimates/same_source/controls-OO/wrong_onset.lean"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "required_guard": "Type mismatch",
+      "seconds": 2.220019666478038,
+      "source_sha256": "8cd720669a849bc7299ef908b40836c613a3d5cb40543b3242bd721c21ed6b31",
+      "stdout_sha256": "f41693a78fd0658d94f4b4477527e31df4ab71f313f6e6f0a09b16a6fbe92c28",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "missing_original_family",
+      "command": [
+        "/usr/bin/prlimit",
+        "--as=34359738368",
+        "--",
+        "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+        "-j2",
+        "/data/ivy-rh-080-20261125/estimates/same_source/controls-OO/missing_original_family.lean"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "required_guard": "Type mismatch",
+      "seconds": 2.192770240828395,
+      "source_sha256": "b25db769b173337022265e37651f820490bebe6855d9bb222d31c05b1e42ce9d",
+      "stdout_sha256": "fc75aed528b0c10763f37f2c30a7d376fb4713168e77f0e842fbc858b0ef09c5",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "changed_lower_endpoint",
+      "command": [
+        "/usr/bin/prlimit",
+        "--as=34359738368",
+        "--",
+        "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+        "-j2",
+        "/data/ivy-rh-080-20261125/estimates/same_source/controls-OO/changed_lower_endpoint.lean"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "required_guard": "Type mismatch",
+      "seconds": 2.441594971343875,
+      "source_sha256": "f08f707744b6530ba2014a7f24e0564cc4e80d6bd227e7ac9f508d65f7f304e7",
+      "stdout_sha256": "eb5a6adea3880a02106a3953868fa114d27b0611d7ba7a7d03f7b00e8f2b4a46",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "unused_source_argument",
+      "command": [
+        "/usr/bin/prlimit",
+        "--as=34359738368",
+        "--",
+        "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+        "-j2",
+        "/data/ivy-rh-080-20261125/estimates/same_source/controls-OO/unused_source_argument.lean"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "required_guard": "REJECT_REQUIRED_SOURCE_INPUT_NOT_CONSUMED",
+      "seconds": 2.5705440007150173,
+      "source_sha256": "581c6cac83c2882a339a673a5fef15621801036ccea25b45a4a143156ca61f51",
+      "stdout_sha256": "1cab4a406e40686fcd791509ae4dbe341fa87c32bfb730d8d972ef1489aa833e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "controller_sha256": "cdbc21cc1d9539f119696daee3fd28f3382c2ee9c367a9be1405ff63f4f6dafe",
+  "compiler_sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+  "meaning": "Mutation rejection establishes exact accepted contracts/consumedsource checks, not impossibility of the mutated mathematical claim."
+}

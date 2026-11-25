@@ -1,0 +1,267 @@
+{
+  "status": "PASS_JOINT_CLI_OPTIMIZATION_AND_MATHEMATICAL_CONTRACT_CONTROLS",
+  "cases": [
+    {
+      "case": "normal:existing-output",
+      "returncode": 1,
+      "expected_rejection": true,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/primal80_gap/reproduce_joint.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/primal80-gap/final-clean-v2-OO"
+      ]
+    },
+    {
+      "case": "normal:bad-compiler",
+      "returncode": 1,
+      "expected_rejection": true,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/primal80_gap/reproduce_joint.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/primal80-gap/controls-final-clean-v3-OO/normal-bad-compiler",
+        "--context",
+        "/data/ivy-rh-080-20261125/primal80-gap/controls-final-clean-v3-OO/bad_context.json"
+      ]
+    },
+    {
+      "case": "normal:excess-aggregate-memory",
+      "returncode": 1,
+      "expected_rejection": true,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/primal80_gap/reproduce_joint.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/primal80-gap/controls-final-clean-v3-OO/normal-excess-memory",
+        "--workers",
+        "8",
+        "--worker-memory-gib",
+        "64"
+      ]
+    },
+    {
+      "case": "normal:bank-without-compound",
+      "returncode": 1,
+      "expected_rejection": true,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/primal80_gap/reproduce_joint.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/primal80-gap/controls-final-clean-v3-OO/normal-bank-without-compound",
+        "--accepted-new-cell-bank",
+        "/data/ivy-rh-080-20261125/primal80-gap/controls-final-clean-v3-OO/bad_new_cell_bank.json"
+      ]
+    },
+    {
+      "case": "normal:bad-bank-object",
+      "returncode": 1,
+      "expected_rejection": true,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/primal80_gap/reproduce_joint.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/primal80-gap/controls-final-clean-v3-OO/normal-bad-bank-object",
+        "--reuse-cold-leaves",
+        "/data/ivy-rh-080-20261125/primal80-gap/controls-final-clean-v3-OO/cold_without_cells",
+        "--accepted-new-cell-bank",
+        "/data/ivy-rh-080-20261125/primal80-gap/controls-final-clean-v3-OO/bad_new_cell_bank.json"
+      ]
+    },
+    {
+      "case": "O:existing-output",
+      "returncode": 1,
+      "expected_rejection": true,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/primal80_gap/reproduce_joint.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/primal80-gap/final-clean-v2-OO"
+      ]
+    },
+    {
+      "case": "O:bad-compiler",
+      "returncode": 1,
+      "expected_rejection": true,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/primal80_gap/reproduce_joint.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/primal80-gap/controls-final-clean-v3-OO/O-bad-compiler",
+        "--context",
+        "/data/ivy-rh-080-20261125/primal80-gap/controls-final-clean-v3-OO/bad_context.json"
+      ]
+    },
+    {
+      "case": "O:excess-aggregate-memory",
+      "returncode": 1,
+      "expected_rejection": true,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/primal80_gap/reproduce_joint.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/primal80-gap/controls-final-clean-v3-OO/O-excess-memory",
+        "--workers",
+        "8",
+        "--worker-memory-gib",
+        "64"
+      ]
+    },
+    {
+      "case": "O:bank-without-compound",
+      "returncode": 1,
+      "expected_rejection": true,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/primal80_gap/reproduce_joint.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/primal80-gap/controls-final-clean-v3-OO/O-bank-without-compound",
+        "--accepted-new-cell-bank",
+        "/data/ivy-rh-080-20261125/primal80-gap/controls-final-clean-v3-OO/bad_new_cell_bank.json"
+      ]
+    },
+    {
+      "case": "O:bad-bank-object",
+      "returncode": 1,
+      "expected_rejection": true,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/primal80_gap/reproduce_joint.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/primal80-gap/controls-final-clean-v3-OO/O-bad-bank-object",
+        "--reuse-cold-leaves",
+        "/data/ivy-rh-080-20261125/primal80-gap/controls-final-clean-v3-OO/cold_without_cells",
+        "--accepted-new-cell-bank",
+        "/data/ivy-rh-080-20261125/primal80-gap/controls-final-clean-v3-OO/bad_new_cell_bank.json"
+      ]
+    },
+    {
+      "case": "OO:existing-output",
+      "returncode": 1,
+      "expected_rejection": true,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/primal80_gap/reproduce_joint.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/primal80-gap/final-clean-v2-OO"
+      ]
+    },
+    {
+      "case": "OO:bad-compiler",
+      "returncode": 1,
+      "expected_rejection": true,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/primal80_gap/reproduce_joint.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/primal80-gap/controls-final-clean-v3-OO/OO-bad-compiler",
+        "--context",
+        "/data/ivy-rh-080-20261125/primal80-gap/controls-final-clean-v3-OO/bad_context.json"
+      ]
+    },
+    {
+      "case": "OO:excess-aggregate-memory",
+      "returncode": 1,
+      "expected_rejection": true,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/primal80_gap/reproduce_joint.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/primal80-gap/controls-final-clean-v3-OO/OO-excess-memory",
+        "--workers",
+        "8",
+        "--worker-memory-gib",
+        "64"
+      ]
+    },
+    {
+      "case": "OO:bank-without-compound",
+      "returncode": 1,
+      "expected_rejection": true,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/primal80_gap/reproduce_joint.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/primal80-gap/controls-final-clean-v3-OO/OO-bank-without-compound",
+        "--accepted-new-cell-bank",
+        "/data/ivy-rh-080-20261125/primal80-gap/controls-final-clean-v3-OO/bad_new_cell_bank.json"
+      ]
+    },
+    {
+      "case": "OO:bad-bank-object",
+      "returncode": 1,
+      "expected_rejection": true,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/primal80_gap/reproduce_joint.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/primal80-gap/controls-final-clean-v3-OO/OO-bad-bank-object",
+        "--reuse-cold-leaves",
+        "/data/ivy-rh-080-20261125/primal80-gap/controls-final-clean-v3-OO/cold_without_cells",
+        "--accepted-new-cell-bank",
+        "/data/ivy-rh-080-20261125/primal80-gap/controls-final-clean-v3-OO/bad_new_cell_bank.json"
+      ]
+    },
+    {
+      "case": "positive-exact-source-type",
+      "returncode": 0,
+      "expected_acceptance": true,
+      "command": [
+        "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+        "-j2",
+        "/data/ivy-rh-080-20261125/primal80-gap/controls-final-clean-v3-OO/positive_exact_source_type.lean"
+      ]
+    },
+    {
+      "case": "missing-general-source",
+      "returncode": 1,
+      "expected_acceptance": false,
+      "command": [
+        "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+        "-j2",
+        "/data/ivy-rh-080-20261125/primal80-gap/controls-final-clean-v3-OO/missing_general_source.lean"
+      ]
+    },
+    {
+      "case": "missing-raw-witness",
+      "returncode": 1,
+      "expected_acceptance": false,
+      "command": [
+        "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+        "-j2",
+        "/data/ivy-rh-080-20261125/primal80-gap/controls-final-clean-v3-OO/missing_raw_witness.lean"
+      ]
+    },
+    {
+      "case": "changed-exact-gap",
+      "returncode": 1,
+      "expected_acceptance": false,
+      "command": [
+        "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+        "-j2",
+        "/data/ivy-rh-080-20261125/primal80-gap/controls-final-clean-v3-OO/changed_exact_gap.lean"
+      ]
+    },
+    {
+      "case": "removed-width-slack",
+      "returncode": 1,
+      "expected_acceptance": false,
+      "command": [
+        "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+        "-j2",
+        "/data/ivy-rh-080-20261125/primal80-gap/controls-final-clean-v3-OO/removed_width_slack.lean"
+      ]
+    }
+  ],
+  "changed_theorem_rejections_are_not_counterexamples": true
+}

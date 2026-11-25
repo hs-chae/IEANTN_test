@@ -31,7 +31,9 @@ import IEANTN.Nodes.CH2.v7.Challenge
 import IEANTN.Nodes.CH2.v8.Challenge
 import IEANTN.Nodes.CH2.v9.Challenge
 import IEANTN.Nodes.CMSCosineInput.v1.Challenge
+import IEANTN.Nodes.CMSDualCertificate.v1.Challenge
 import IEANTN.Nodes.CMSFunctionalInput.v1.Challenge
+import IEANTN.Nodes.CMSFunctionalObstruction.v1.Challenge
 import IEANTN.Nodes.Chebyshev.v1.Challenge
 import IEANTN.Nodes.ChebyshevNumerics.v1.Challenge
 import IEANTN.Nodes.ChengGraham2004.v1.Challenge
@@ -75,6 +77,8 @@ import IEANTN.Nodes.FKSComputationLed.v1.Challenge
 import IEANTN.Nodes.GammaAsymptotics.v1.Challenge
 import IEANTN.Nodes.GammaAsymptotics.v2.Challenge
 import IEANTN.Nodes.GaussianFourierWitness.v1.Challenge
+import IEANTN.Nodes.GaussianFourierWitness.v2.Challenge
+import IEANTN.Nodes.GaussianFourierWitness.v3.Challenge
 import IEANTN.Nodes.Goldbach.v1.Challenge
 import IEANTN.Nodes.Goldbach.v2.Challenge
 import IEANTN.Nodes.Goldbach.v3.Challenge
@@ -123,6 +127,7 @@ import IEANTN.Nodes.PrimeKernelInputs.v2.Challenge
 import IEANTN.Nodes.PrimeKernelInputs.v3.Challenge
 import IEANTN.Nodes.PrimeKernelInputs.v4.Challenge
 import IEANTN.Nodes.PrimePowerPopulation.v1.Challenge
+import IEANTN.Nodes.PrimePowerPopulation.v2.Challenge
 import IEANTN.Nodes.PrimeQuantile.v1.Challenge
 import IEANTN.Nodes.PrimeQuantile.v2.Challenge
 import IEANTN.Nodes.PrimeQuantile.v3.Challenge
@@ -144,6 +149,8 @@ import IEANTN.Nodes.QRHPropagation.v3.Challenge
 import IEANTN.Nodes.RH.v1.Challenge
 import IEANTN.Nodes.RHAdapters.v1.Challenge
 import IEANTN.Nodes.RHAsymptoticGaussian.v1.Challenge
+import IEANTN.Nodes.RHAsymptoticGaussian.v2.Challenge
+import IEANTN.Nodes.RHAsymptoticGaussian.v3.Challenge
 import IEANTN.Nodes.RHOnePrimeEvolution.v1.Challenge
 import IEANTN.Nodes.RHPrimeCounting.v1.Challenge
 import IEANTN.Nodes.RHPrimeCounting.v2.Challenge
@@ -170,6 +177,7 @@ import IEANTN.Nodes.RosserSchoenfeld.v1.Challenge
 import IEANTN.Nodes.RosserSchoenfeld1962.v1.Challenge
 import IEANTN.Nodes.SchoenfeldRHTheta.v1.Challenge
 import IEANTN.Nodes.ThetaCubePopulation.v1.Challenge
+import IEANTN.Nodes.ThetaCubePopulation.v2.Challenge
 import IEANTN.Nodes.Trudgian2011.v1.Challenge
 import IEANTN.Nodes.Wedeniwski.v1.Challenge
 import IEANTN.Nodes.ZeroCount.v1.Challenge

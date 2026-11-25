@@ -1,0 +1,3 @@
+import CompactDualSourceFirst
+#check RH080.Dual.actual_source_first_functional_result
+#print axioms RH080.Dual.actual_source_first_functional_result

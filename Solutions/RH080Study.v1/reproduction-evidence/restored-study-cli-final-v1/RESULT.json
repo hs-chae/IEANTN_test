@@ -1,0 +1,715 @@
+{
+  "status": "PASS_RELOCATED_SOURCE_ONLY_STUDY_CONTEXT_CLI_AND_GUARD_CONTROLS_ALL_PYTHON_MODES",
+  "rows": [
+    {
+      "name": "normal-help",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "intended_guard": "--check-only",
+      "stdout_sha256": "97a563348977402b9ec26e084ca833d9b386911dd813f9df4f8d8f20466972a4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "normal-relocated-context",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network",
+        "--run",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/normal-context-preflight",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--check-only"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "intended_guard": "PASS_STUDY_SOURCE_CONTEXT_AND_ACTUAL_CLI_PREFLIGHT_ONLY",
+      "stdout_sha256": "e5de9175db339038c5075c2d71cd6ac30aeed3f6be1be854bfcfb0808bc53f3f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "normal-relocated-context-generation",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network",
+        "--run",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/normal-generated-context",
+        "--compiler",
+        "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+        "--packages",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages",
+        "--check-only"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "intended_guard": "PASS_STUDY_SOURCE_CONTEXT_AND_ACTUAL_CLI_PREFLIGHT_ONLY",
+      "stdout_sha256": "e5de9175db339038c5075c2d71cd6ac30aeed3f6be1be854bfcfb0808bc53f3f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "normal-both-context-routes",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network",
+        "--run",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/normal-both-context-routes",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--compiler",
+        "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+        "--check-only"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "intended_guard": "Use --context OR both --compiler and --packages",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "2e102cfb7f42fb068adf5624e1cccb6ed81d42067b9a15a38fd9f11ea9b025e9"
+    },
+    {
+      "name": "normal-partial-context",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network",
+        "--run",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/normal-partial-context",
+        "--compiler",
+        "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+        "--check-only"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "intended_guard": "Both --compiler and --packages required",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "af536b82e5a8e29a344991fb969efda425d78f54809b970516e84793217f36af"
+    },
+    {
+      "name": "normal-run-inside-source",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network",
+        "--run",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/prohibited-run-normal",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--check-only"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "intended_guard": "Run storage must be outside publishable repository",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3034585a6cb1544add35dc811808d240813721b853a30bc0c98ded822139c09"
+    },
+    {
+      "name": "normal-existing-run",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network",
+        "--run",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/normal-context-preflight",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--check-only"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "intended_guard": "Fresh --run directory required",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "6d2b6e5249409a6ba12a1f741694aee656a3178deb4e562288c597ecabbecfa1"
+    },
+    {
+      "name": "normal-wrong-compiler",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network",
+        "--run",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/normal-wrong-compiler",
+        "--context",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/normal-wrong-compiler.json",
+        "--check-only"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "intended_guard": "Pinned compiler bytes differ",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "28139ec47c028688b5a770b3e203a47eee8c76f9589ebd49d8473e606be7c54b"
+    },
+    {
+      "name": "normal-wrong-pins",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network",
+        "--run",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/normal-wrong-pins",
+        "--context",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/normal-wrong-pins.json",
+        "--check-only"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "intended_guard": "Generic dependency pins/order differ",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "778b900779dd7cb115e478ce63030940ceb14f09d3e37b396d4a40283d052c0e"
+    },
+    {
+      "name": "normal-duplicate-context",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network",
+        "--run",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/normal-duplicate-context",
+        "--context",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/normal-duplicate.json",
+        "--check-only"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "intended_guard": "Duplicate JSON key",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "9c1c3cc31d53a8f52034a6656db4b3539b5d6c0eee0cf2e71a0f2335ec16d392"
+    },
+    {
+      "name": "normal-changed-source",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network",
+        "--run",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/normal-changed-source",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--check-only"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "intended_guard": "Frozen reproduction source differs:",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "4bc9705f1cd9b016cfbf3cf306fb906fa725d1d5e54f6cde7ba41ce9262520c0"
+    },
+    {
+      "name": "normal-missing-provider",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network",
+        "--run",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/normal-missing-provider",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--check-only"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "intended_guard": "Missing repository-contained application source:",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "b1cb7fb9a2ecfcc2d82ff90f45a265a265b2c5c6d1ca4eba28ed84fe5e0fdf92"
+    },
+    {
+      "name": "O-help",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "intended_guard": "--check-only",
+      "stdout_sha256": "97a563348977402b9ec26e084ca833d9b386911dd813f9df4f8d8f20466972a4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "O-relocated-context",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network",
+        "--run",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/O-context-preflight",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--check-only"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "intended_guard": "PASS_STUDY_SOURCE_CONTEXT_AND_ACTUAL_CLI_PREFLIGHT_ONLY",
+      "stdout_sha256": "e5de9175db339038c5075c2d71cd6ac30aeed3f6be1be854bfcfb0808bc53f3f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "O-relocated-context-generation",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network",
+        "--run",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/O-generated-context",
+        "--compiler",
+        "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+        "--packages",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages",
+        "--check-only"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "intended_guard": "PASS_STUDY_SOURCE_CONTEXT_AND_ACTUAL_CLI_PREFLIGHT_ONLY",
+      "stdout_sha256": "e5de9175db339038c5075c2d71cd6ac30aeed3f6be1be854bfcfb0808bc53f3f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "O-both-context-routes",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network",
+        "--run",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/O-both-context-routes",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--compiler",
+        "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+        "--check-only"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "intended_guard": "Use --context OR both --compiler and --packages",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "2e102cfb7f42fb068adf5624e1cccb6ed81d42067b9a15a38fd9f11ea9b025e9"
+    },
+    {
+      "name": "O-partial-context",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network",
+        "--run",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/O-partial-context",
+        "--compiler",
+        "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+        "--check-only"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "intended_guard": "Both --compiler and --packages required",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "af536b82e5a8e29a344991fb969efda425d78f54809b970516e84793217f36af"
+    },
+    {
+      "name": "O-run-inside-source",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network",
+        "--run",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/prohibited-run-O",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--check-only"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "intended_guard": "Run storage must be outside publishable repository",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3034585a6cb1544add35dc811808d240813721b853a30bc0c98ded822139c09"
+    },
+    {
+      "name": "O-existing-run",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network",
+        "--run",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/O-context-preflight",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--check-only"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "intended_guard": "Fresh --run directory required",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "6d2b6e5249409a6ba12a1f741694aee656a3178deb4e562288c597ecabbecfa1"
+    },
+    {
+      "name": "O-wrong-compiler",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network",
+        "--run",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/O-wrong-compiler",
+        "--context",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/O-wrong-compiler.json",
+        "--check-only"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "intended_guard": "Pinned compiler bytes differ",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "28139ec47c028688b5a770b3e203a47eee8c76f9589ebd49d8473e606be7c54b"
+    },
+    {
+      "name": "O-wrong-pins",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network",
+        "--run",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/O-wrong-pins",
+        "--context",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/O-wrong-pins.json",
+        "--check-only"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "intended_guard": "Generic dependency pins/order differ",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "778b900779dd7cb115e478ce63030940ceb14f09d3e37b396d4a40283d052c0e"
+    },
+    {
+      "name": "O-duplicate-context",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network",
+        "--run",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/O-duplicate-context",
+        "--context",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/O-duplicate.json",
+        "--check-only"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "intended_guard": "Duplicate JSON key",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "9c1c3cc31d53a8f52034a6656db4b3539b5d6c0eee0cf2e71a0f2335ec16d392"
+    },
+    {
+      "name": "O-changed-source",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network",
+        "--run",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/O-changed-source",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--check-only"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "intended_guard": "Frozen reproduction source differs:",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "4bc9705f1cd9b016cfbf3cf306fb906fa725d1d5e54f6cde7ba41ce9262520c0"
+    },
+    {
+      "name": "O-missing-provider",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network",
+        "--run",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/O-missing-provider",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--check-only"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "intended_guard": "Missing repository-contained application source:",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "b1cb7fb9a2ecfcc2d82ff90f45a265a265b2c5c6d1ca4eba28ed84fe5e0fdf92"
+    },
+    {
+      "name": "OO-help",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "intended_guard": "--check-only",
+      "stdout_sha256": "97a563348977402b9ec26e084ca833d9b386911dd813f9df4f8d8f20466972a4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "OO-relocated-context",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network",
+        "--run",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/OO-context-preflight",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--check-only"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "intended_guard": "PASS_STUDY_SOURCE_CONTEXT_AND_ACTUAL_CLI_PREFLIGHT_ONLY",
+      "stdout_sha256": "e5de9175db339038c5075c2d71cd6ac30aeed3f6be1be854bfcfb0808bc53f3f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "OO-relocated-context-generation",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network",
+        "--run",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/OO-generated-context",
+        "--compiler",
+        "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+        "--packages",
+        "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages",
+        "--check-only"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "intended_guard": "PASS_STUDY_SOURCE_CONTEXT_AND_ACTUAL_CLI_PREFLIGHT_ONLY",
+      "stdout_sha256": "e5de9175db339038c5075c2d71cd6ac30aeed3f6be1be854bfcfb0808bc53f3f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "OO-both-context-routes",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network",
+        "--run",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/OO-both-context-routes",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--compiler",
+        "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+        "--check-only"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "intended_guard": "Use --context OR both --compiler and --packages",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "2e102cfb7f42fb068adf5624e1cccb6ed81d42067b9a15a38fd9f11ea9b025e9"
+    },
+    {
+      "name": "OO-partial-context",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network",
+        "--run",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/OO-partial-context",
+        "--compiler",
+        "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+        "--check-only"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "intended_guard": "Both --compiler and --packages required",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "af536b82e5a8e29a344991fb969efda425d78f54809b970516e84793217f36af"
+    },
+    {
+      "name": "OO-run-inside-source",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network",
+        "--run",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/prohibited-run-OO",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--check-only"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "intended_guard": "Run storage must be outside publishable repository",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3034585a6cb1544add35dc811808d240813721b853a30bc0c98ded822139c09"
+    },
+    {
+      "name": "OO-existing-run",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network",
+        "--run",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/OO-context-preflight",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--check-only"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "intended_guard": "Fresh --run directory required",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "6d2b6e5249409a6ba12a1f741694aee656a3178deb4e562288c597ecabbecfa1"
+    },
+    {
+      "name": "OO-wrong-compiler",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network",
+        "--run",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/OO-wrong-compiler",
+        "--context",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/OO-wrong-compiler.json",
+        "--check-only"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "intended_guard": "Pinned compiler bytes differ",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "28139ec47c028688b5a770b3e203a47eee8c76f9589ebd49d8473e606be7c54b"
+    },
+    {
+      "name": "OO-wrong-pins",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network",
+        "--run",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/OO-wrong-pins",
+        "--context",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/OO-wrong-pins.json",
+        "--check-only"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "intended_guard": "Generic dependency pins/order differ",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "778b900779dd7cb115e478ce63030940ceb14f09d3e37b396d4a40283d052c0e"
+    },
+    {
+      "name": "OO-duplicate-context",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network",
+        "--run",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/OO-duplicate-context",
+        "--context",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/OO-duplicate.json",
+        "--check-only"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "intended_guard": "Duplicate JSON key",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "9c1c3cc31d53a8f52034a6656db4b3539b5d6c0eee0cf2e71a0f2335ec16d392"
+    },
+    {
+      "name": "OO-changed-source",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network",
+        "--run",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/OO-changed-source",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--check-only"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "intended_guard": "Frozen reproduction source differs:",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "4bc9705f1cd9b016cfbf3cf306fb906fa725d1d5e54f6cde7ba41ce9262520c0"
+    },
+    {
+      "name": "OO-missing-provider",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network",
+        "--run",
+        "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/OO-missing-provider",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--check-only"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "intended_guard": "Missing repository-contained application source:",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "b1cb7fb9a2ecfcc2d82ff90f45a265a265b2c5c6d1ca4eba28ed84fe5e0fdf92"
+    }
+  ],
+  "source_only_repository": "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network",
+  "source_files": 278,
+  "application_objects_present": false,
+  "wrapper_sha256": "c3a24f1864ea72e7e54988735c6fe93b8d8c2ef5b115cc41f454dbd90f910b47",
+  "inventory_sha256": "81bec18cef5c3b0a2622d4eb8566214d832b8643beb97d8cbe2cb77043df0d05",
+  "test_controller_sha256": "fa292397fd29ed41516ba217da76d3c8a61fc9adb8da4b20385f32e3a839def0",
+  "seconds": 12.02914272248745,
+  "scope": "Actual relocated preflight/context construction/child help/source closure/guard routes only; no heavy mathematical proof rerun is claimed."
+}

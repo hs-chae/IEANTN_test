@@ -1,0 +1,207 @@
+{
+  "status": "PASS_12_ACTUAL_BOOTSTRAP_COMPLETE_INPUT_AND_NO_OVERWRITE_CLI_CONTROLS_ALL_PYTHON_MODES",
+  "rows": [
+    {
+      "name": "normal-complete-byte-guard",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/reproduction-review/compact-bootstrap-v1/network/Solutions/RH080Study.v1/materialize_generated.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/compact-bootstrap-v1/network",
+        "--check-only"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "intended_guard": "CHECKED_EXACT_GENERATED_SOURCE_BOOTSTRAP_POPULATION_NOT_PROOF",
+      "stdout_sha256": "150b910b13619686b024ca1948273f5d945a50867943856e1df29561786efce6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "normal-already-complete-no-write",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/reproduction-review/compact-bootstrap-v1/network/Solutions/RH080Study.v1/materialize_generated.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/compact-bootstrap-v1/network",
+        "--scratch",
+        "/data/ivy-rh-080-20261125/reproduction-review/compact-bootstrap-controls-final-v1/normal-already-present"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "intended_guard": "PASS_EXACT_PINNED_GENERATED_SOURCE_MATERIALIZATION_ALL_278_INPUTS_NOT_A_LEAN_PROOF",
+      "stdout_sha256": "4617e290437eb58aab7d2ff2869ee93a69d9ad80ad5ebc7e4f218b6f9f3af7dd",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "normal-refuse-different-source",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/reproduction-review/compact-bootstrap-v1/network/Solutions/RH080Study.v1/materialize_generated.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/compact-bootstrap-v1/network",
+        "--scratch",
+        "/data/ivy-rh-080-20261125/reproduction-review/compact-bootstrap-controls-final-v1/normal-wrong-existing-file"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "intended_guard": "Existing reproduction input differs; never overwrite:",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "0bd35a943c846213d33f2dba14c557f56dba3e5ff441ae03d70327b14596c7ca"
+    },
+    {
+      "name": "normal-missing-nongenerated",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/reproduction-review/compact-bootstrap-v1/network/Solutions/RH080Study.v1/materialize_generated.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/compact-bootstrap-v1/network",
+        "--scratch",
+        "/data/ivy-rh-080-20261125/reproduction-review/compact-bootstrap-controls-final-v1/normal-missing-input"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "intended_guard": "Missing non-generated reproduction input:",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "ac59ff7a6c24f9ba44b93ad5ab9abe08a1202e96c153dcd0ffe1ae931b453388"
+    },
+    {
+      "name": "O-complete-byte-guard",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/reproduction-review/compact-bootstrap-v1/network/Solutions/RH080Study.v1/materialize_generated.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/compact-bootstrap-v1/network",
+        "--check-only"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "intended_guard": "CHECKED_EXACT_GENERATED_SOURCE_BOOTSTRAP_POPULATION_NOT_PROOF",
+      "stdout_sha256": "150b910b13619686b024ca1948273f5d945a50867943856e1df29561786efce6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "O-already-complete-no-write",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/reproduction-review/compact-bootstrap-v1/network/Solutions/RH080Study.v1/materialize_generated.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/compact-bootstrap-v1/network",
+        "--scratch",
+        "/data/ivy-rh-080-20261125/reproduction-review/compact-bootstrap-controls-final-v1/O-already-present"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "intended_guard": "PASS_EXACT_PINNED_GENERATED_SOURCE_MATERIALIZATION_ALL_278_INPUTS_NOT_A_LEAN_PROOF",
+      "stdout_sha256": "620476c923e7014a0b67c96c09e2fef0af78c70ab0468f8062c3de72f3788dbc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "O-refuse-different-source",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/reproduction-review/compact-bootstrap-v1/network/Solutions/RH080Study.v1/materialize_generated.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/compact-bootstrap-v1/network",
+        "--scratch",
+        "/data/ivy-rh-080-20261125/reproduction-review/compact-bootstrap-controls-final-v1/O-wrong-existing-file"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "intended_guard": "Existing reproduction input differs; never overwrite:",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "0bd35a943c846213d33f2dba14c557f56dba3e5ff441ae03d70327b14596c7ca"
+    },
+    {
+      "name": "O-missing-nongenerated",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/reproduction-review/compact-bootstrap-v1/network/Solutions/RH080Study.v1/materialize_generated.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/compact-bootstrap-v1/network",
+        "--scratch",
+        "/data/ivy-rh-080-20261125/reproduction-review/compact-bootstrap-controls-final-v1/O-missing-input"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "intended_guard": "Missing non-generated reproduction input:",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "ac59ff7a6c24f9ba44b93ad5ab9abe08a1202e96c153dcd0ffe1ae931b453388"
+    },
+    {
+      "name": "OO-complete-byte-guard",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/reproduction-review/compact-bootstrap-v1/network/Solutions/RH080Study.v1/materialize_generated.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/compact-bootstrap-v1/network",
+        "--check-only"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "intended_guard": "CHECKED_EXACT_GENERATED_SOURCE_BOOTSTRAP_POPULATION_NOT_PROOF",
+      "stdout_sha256": "150b910b13619686b024ca1948273f5d945a50867943856e1df29561786efce6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "OO-already-complete-no-write",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/reproduction-review/compact-bootstrap-v1/network/Solutions/RH080Study.v1/materialize_generated.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/compact-bootstrap-v1/network",
+        "--scratch",
+        "/data/ivy-rh-080-20261125/reproduction-review/compact-bootstrap-controls-final-v1/OO-already-present"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "intended_guard": "PASS_EXACT_PINNED_GENERATED_SOURCE_MATERIALIZATION_ALL_278_INPUTS_NOT_A_LEAN_PROOF",
+      "stdout_sha256": "fbda2f7b26ae851ec8c45f9526e059c271789ed6fcc2cdbf45ac4ac4fe2d55d5",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "OO-refuse-different-source",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/reproduction-review/compact-bootstrap-v1/network/Solutions/RH080Study.v1/materialize_generated.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/compact-bootstrap-v1/network",
+        "--scratch",
+        "/data/ivy-rh-080-20261125/reproduction-review/compact-bootstrap-controls-final-v1/OO-wrong-existing-file"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "intended_guard": "Existing reproduction input differs; never overwrite:",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "0bd35a943c846213d33f2dba14c557f56dba3e5ff441ae03d70327b14596c7ca"
+    },
+    {
+      "name": "OO-missing-nongenerated",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/reproduction-review/compact-bootstrap-v1/network/Solutions/RH080Study.v1/materialize_generated.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/compact-bootstrap-v1/network",
+        "--scratch",
+        "/data/ivy-rh-080-20261125/reproduction-review/compact-bootstrap-controls-final-v1/OO-missing-input"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "intended_guard": "Missing non-generated reproduction input:",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "ac59ff7a6c24f9ba44b93ad5ab9abe08a1202e96c153dcd0ffe1ae931b453388"
+    }
+  ],
+  "controller_sha256": "99968a0292ee58e7fbc5dccacb8f6de8247554b739b144362f7e4b4e4b2e5459",
+  "materializer_sha256": "83137abbb0f013573440f706f7bb5a9e30ba424175bab5122ef97f872599eeeb",
+  "source_repository": "/data/ivy-rh-080-20261125/reproduction-review/compact-bootstrap-v1/network",
+  "source_byte_guard_rechecked": true,
+  "heavy_proofs_or_generator_rerun": false
+}

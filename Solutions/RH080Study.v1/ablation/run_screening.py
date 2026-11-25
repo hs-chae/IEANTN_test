@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Execute the predeclared V0 wave with exact-runtime no-auth preflights.
+"""Execute a predeclared V0 or independently eligible V1 wave with preflights.
 
 Mathematical assessment is independent of the mechanical submission gate.
 The existing controller and isolated executor are reused without permission changes.
@@ -180,12 +180,17 @@ def one(trial, slot, fixture_only, attempt):
 def main():
     parser = argparse.ArgumentParser(allow_abbrev=False)
     parser.add_argument("--fixture-only", action="store_true")
+    parser.add_argument("--wave", choices=("V0", "V1"), default="V0")
     parser.add_argument("--first", type=int, default=16)
     parser.add_argument("--jobs", type=int, default=4)
     parser.add_argument("--attempt", type=int, default=4)
     a = parser.parse_args()
-    need(1 <= a.jobs <= 4 and 1 <= a.first <= 16 and a.attempt >= 4, "Predeclared trial/concurrency bound")
-    rows = load(HERE / "PREPARED_V0_RUNTIMES.json")["trials"][:a.first]
+    bound = 16 if a.wave == "V0" else 4
+    need(1 <= a.jobs <= 4 and 1 <= a.first <= bound and a.attempt >= 4, "Predeclared trial/concurrency bound")
+    if a.wave == "V1":
+        need(load(HERE / "V1_ELIGIBILITY.json")["status"] ==
+             "ELIGIBLE_COMPLETED_AND_INDEPENDENTLY_CHECKED_SOURCE_FIRST_CONE", "PV eligibility missing")
+    rows = load(HERE / ("PREPARED_" + a.wave + "_RUNTIMES.json"))["trials"][:a.first]
     # Dequeue in frozen order; each live slot retains its distinct four-core set.
     pending = deque(rows)
     gate = threading.Lock()
@@ -202,7 +207,7 @@ def main():
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=a.jobs) as pool:
         result = [entry for group in pool.map(wave, range(a.jobs)) for entry in group]
-    save(DATA / ("V0_FIXTURE_SUMMARY.json" if a.fixture_only else "V0_EXECUTION_SUMMARY.json"),
+    save(DATA / (a.wave + ("_FIXTURE_SUMMARY.json" if a.fixture_only else "_EXECUTION_SUMMARY.json")),
          {"status": "COMPLETE_EXECUTION_NOT_MATHEMATICAL_ACCEPTANCE", "trials": result})
     print(json.dumps({"status": "COMPLETE_EXECUTION_NOT_MATHEMATICAL_ACCEPTANCE", "trials": len(result)}))
 

@@ -1,0 +1,102 @@
+{
+  "status": "PASS_INDEPENDENT_SAME_SOURCE_CUBE_MATHEMATICAL_COMPONENT_REVIEW_AND_FRESH_11_SOURCE_REPLAY",
+  "reviewer": "functional_frontier; did not author the reviewed cube proof",
+  "reviewed_sources": [
+    {
+      "file": "Solutions/RH080Study.v1/estimates/same_source/SameSourceScalar.lean",
+      "sha256": "77da22149da33d1de6828f41b813e2813b3c1af9902415c4ce08749addf87b11"
+    },
+    {
+      "file": "Solutions/RH080Study.v1/estimates/same_source/SameSourceCube.lean",
+      "sha256": "564d114336042b23b194e8f463d5637b810ca8778def29f2ef6a5127eddea059"
+    },
+    {
+      "file": "Solutions/RH080Study.v1/estimates/same_source/SameSourcePartition.lean",
+      "sha256": "443f0d201d2c03bf0b022d6c1fbafb8a6c1122e52bb574699659490ec4f60176"
+    },
+    {
+      "file": "Solutions/RH080Study.v1/estimates/same_source/SameSourceTiling.lean",
+      "sha256": "cfb4b86f45e618fd51c6919e8df0c13cdee597b54bcb06516fb03d54522e61a9"
+    },
+    {
+      "file": "IEANTN/Nodes/PrimePowerPopulation/v2/Conclusions.lean",
+      "sha256": "245c1a4d4881da315bd6b4c1e81ad66aea6d2d5cd88755b461faa3470514390a"
+    },
+    {
+      "file": "Solutions/PrimePowerPopulation.v2/Solution.lean",
+      "sha256": "542cf52512c8413756b339dfba9d6d856a2aa251678266131285cead3eb9fb54"
+    },
+    {
+      "file": "IEANTN/Nodes/PrimeInterval/v4/Conclusions.lean",
+      "sha256": "30acbab826c4f38caeb605cb7022d1f4ab7e4bd15b728d23b6a8c99d7b4f9ae6"
+    }
+  ],
+  "input_handoff_sha256": "532c133415ad0cb0005c4dc5d230b73faea9d64fc2aedafb601079333a64096b",
+  "verified_handoff_file_identities": 169,
+  "prospective_origin_sha256": "fac6d860bde3417b8c92b9bbaf2912f3bed897e0bc7c4858c53dbecd9bd5a571",
+  "original_timely_direct_source_sha256": "08635423ad1ea621007d1b7a897eb256f4e6bef8beada29d2fac8b4e0110ed74",
+  "review_checks": [
+    {
+      "item": "Exact sole analytic input",
+      "result": "Family is literally PrimeInterval.v4.optimized_strict_family, every C in closed[1.03,16] and every real u>=exp24, with the original constants8/9,18203/20000,21/5 and strict-open primesBetween. No Schoenfeld, Buthe or desired cube conclusion premise appears. Existing upstream RH+Green+Nicolas+BPT assumptions remain inherited, not newly discharged."
+    },
+    {
+      "item": "Single whole-interval branch",
+      "result": "C0=Delta/(3n sqrt(n)log(n)); sqrt(n^3)=n sqrt(n), log(n^3)=3log(n), and u=n^3>=exp24 are established for every real n>=exp8. The proof consumes hf at actual C0 and actual whole-cube width; it keeps the positive lower-order Delta terms near onset. The initial exp8..exp8.01 slice and later affine-exponential bounds cover the full real ray."
+    },
+    {
+      "item": "Ceiling tiling and source domain",
+      "result": "When C0>16, k=ceilNat(C0/16)>0, H=Delta/k>0 and kH=Delta exactly. Actual left endpoints u_i=n^3+iH lie within the cube; every actual local coefficient H/(sqrt(u_i)log(u_i)) is proved inside[1.03,16]. No remainder interval or unsupported source parameter is discarded."
+    },
+    {
+      "item": "Strict endpoints and count transfer",
+      "result": "primesBetween filters primesLE(floor b) by a<p<b. Distinct open-cell prime sets are disjoint subsets of the original open cube, so their cardinalities sum to a lower bound. Internal boundary primes may be omitted conservatively; no equality or double counting is used. This remains valid for real n with prime endpoints, with no composite-cube assumption."
+    },
+    {
+      "item": "All-ray branch bounds",
+      "result": "For log(n)<=12, the summed-cost budget is<.0995 n\u00b2/log(n); for log(n)>=12 it is<.0844 n\u00b2/log(n), from kernel tangent/rational inequalities. Their source main term dominates(8/9)n\u00b2/log(n), proving tiled>.789 and late tiled>.804. Combining with the exact single-window branch gives>.78146 for every real n>=exp8."
+    },
+    {
+      "item": "Canonical onset and gain",
+      "result": "The natural onset2981 uses a proved exp8<2981 without replacing the real domain. The old.7 bound and strict coefficient improvement are separate consequences on exactly the original domain/endpoints. Every relevant canonical proof actually consumes hf; the type/input/value audit checks10roots."
+    },
+    {
+      "item": "Frozen prospective identity",
+      "result": "Compared the timely direct.md same-source construction against the formal partition: identical C0 threshold16, equal k=ceil(C0/16) cells, exact.78146 target and inherited onset. Additional pointwise S/B discussion in the original file is not used by this selected same-source consumer. Posthoc proof completion does not change primary trial outcome."
+    }
+  ],
+  "independent_execution": {
+    "command": [
+      "python3",
+      "-OO",
+      "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/same_source/reproduce.py",
+      "--repository",
+      "/data/ivy-rh-080-20261125/network",
+      "--context",
+      "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+      "--run",
+      "/data/ivy-rh-080-20261125/functional/reviews/same-source-independent-OO-v1"
+    ],
+    "receipt": "/data/ivy-rh-080-20261125/functional/reviews/same-source-independent-OO-v1/RESULT.json",
+    "receipt_sha256": "2201fbd2d713b9b5e1f23ed409519feb00c6304491d7c2a774c19b919cdbf40f",
+    "status": "PASS_FRESH_COMPLETE_SOURCE_CLOSURE_AND_EXACT_VALUE_INPUT_AXIOM_AUDITS",
+    "modules": 11,
+    "seconds": 53.344131369143724,
+    "maximum_per_process_RSS_KiB": 4319628,
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "controls_readback": {
+    "actual_Lean_cases": 18,
+    "actual_CLI_cases": 15,
+    "normal_O_OO_runs": "All supplied RESULT identities match HANDOFF; independent complete source replay additionally executed under-OO. Rejection controls demonstrate proof/type/input mismatch, not falsity of changed mathematical claims."
+  },
+  "limits": [
+    "This component review does not independently prove the upstream analytic Octic family.",
+    "No source-first PV, new optimality or global project completion claim.",
+    "Cached pinned generic Mathlib libraries remain the explicit compiler/kernel trust boundary."
+  ]
+}

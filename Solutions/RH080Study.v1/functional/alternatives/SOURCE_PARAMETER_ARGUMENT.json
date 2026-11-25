@@ -1,0 +1,87 @@
+{
+  "status": "WRITTEN_PARAMETER_EXTENSION_COMPLETE_LEAN_ANALYTIC_ATTACHMENT_NOT_SUPPLIED",
+  "scope": "Same fixed published compact window and old numerical budgets; no new analytic estimate, no primary experiment mutation, no new assumed theorem in the verified network.",
+  "primary_url": "https://doi.org/10.5281/zenodo.24429650",
+  "primary_locator": "Version2, Theorem3 explicitRH, \u00a74 Eqs15--21 and Table3",
+  "source_pinned_manifest": "../SOURCE_PIN.json",
+  "fixed_parameters": {
+    "c0": "681/800",
+    "Xstar": "4000000000000000000",
+    "applied_c_interval": "[.8,681/800]",
+    "applied_log_x_interval": "[44,60]"
+  },
+  "steps": [
+    {
+      "step": "Geometry and support",
+      "source_locator": "2026v2 \u00a74 opening, physicalp10, definitions immediately before Mellin explicit formula",
+      "source_claim": "For c0=681/800, t*=log(4e18), d*=c0*t*/(2sqrt(4e18)), lambda*=5d*, Delta*=d*/(2pi), Ylow*=4e18*exp(-4d*). Actual d=(1/2)log(1+c*t/sqrt(x)), a=x*exp(d), support[x*exp(-4d),x*exp(6d)].",
+      "extension_derivation": [
+        "For any0<c<=c0 and x>=4e18, log(1+z)<=z and t*exp(-t/2) decreasing for t>=t*>6 give0<d<=d*.",
+        "Thus5d<=lambda*, Delta<=Delta*, and Ylow>=Ylow*>1. All source support/positive-frequency applicability remains within its original checked domain.",
+        "The same half-open identity(x,x+h]=(a*exp(-d),a*exp(d)] holds for each variable c."
+      ]
+    },
+    {
+      "step": "Pole lower bound",
+      "source_locator": "2026v2 \u00a74.1 after Mellin Eq(15)",
+      "source_claim": "Pole>=d*sqrt(a)[F(0)-A0(cosh(lambda*/2)-1)].",
+      "extension_derivation": [
+        "Actual |dv|<=5d<=lambda*. The old pole-loss bound therefore stays valid for every smaller c.",
+        "Use the original fixed positive Dexp, not an unproved stronger D depending on c."
+      ]
+    },
+    {
+      "step": "Zeros and logarithmic remainder",
+      "source_locator": "2026v2 \u00a74.2 Eq(16), zeros-explicit",
+      "source_claim": "d*sum_gamma|F(Delta*gamma)| <= Uexp*log(1/d)+Kzeros, where Kzeros uses the old Delta* and positive g0,g1,A0 bounds.",
+      "extension_derivation": [
+        "For0<Delta<=Delta*<1/e, both Delta and Delta*log(1/Delta) are increasing functions of Delta. The original remainder envelope still bounds every smaller d.",
+        "The leading log(1/d) retains actual variable c; it is not frozen at c0. Uexp depends only on the fixed window."
+      ]
+    },
+    {
+      "step": "Exterior prime costs and endpoints",
+      "source_locator": "2026v2 \u00a74.3 Eqs(17)--(18), level-ascents/outside-explicit",
+      "source_claim": "Exterior cost<=2*Astar*HW+Bstar*d*sqrt(a)*J(F), Astar=4(1+lambda*/t*)exp(lambda*/2), Bstar=4.000001.",
+      "extension_derivation": [
+        "Keep the old Astar, Bstar and unchanged window J/HW. Actual support width decreases, so the old component Jacobian and block-cover bound remain valid.",
+        "The source charges possible p=x to the left exterior wing and p=x+h to the interior. Variable c does not change this half-open allocation."
+      ]
+    },
+    {
+      "step": "Prime powers and trivial zeros",
+      "source_locator": "2026v2 \u00a74.3 Eq(19), powers-explicit; \u00a74.1 trivial-zero bound",
+      "source_claim": "Kpot=MW*(t*+6d*)^2*exp(2d*)/(2log(2)sqrt(X*))*(1+(5/2)c0*t*exp(3d*)); Ktriv=d*A0/[sqrt(Ylow*)(Ylow*^2-1)].",
+      "extension_derivation": [
+        "All displayed powers/width factors are nonnegative and bounded by the old d*, c0 and Ylow*. Replacing actual smaller c by c0 is conservative.",
+        "The source t^j*exp(-t/2) monotonicity for0<=j<=3 and t>=t*>6 is unchanged."
+      ]
+    },
+    {
+      "step": "Raw count inequality",
+      "source_locator": "2026v2 \u00a74.4 Eq(20), raw-explicit",
+      "source_claim": "(MW*t/sqrt(x))*Kx >= Dexp*d*sqrt(a)-Uexp*log(1/d)-Kexp, Kx=pi(x+h)-pi(x).",
+      "extension_derivation": [
+        "All previous parameter bounds are uniform for0<c<=c0. Therefore this same inequality, with the original fixed Dexp/Uexp/Kexp, holds for every such c.",
+        "It is a written parameter extension of the proof, not the literal fixed-c statement in the published theorem and not a new Lean analytic source axiom."
+      ]
+    },
+    {
+      "step": "Scalar transfer and retuned finite slab",
+      "source_locator": "2026v2 \u00a74.4 Eq(21) and following margin; Table3 physicalpp13--14",
+      "source_claim": "d*sqrt(a)>=c*t/2\u2212.001, log(1/d)<=t/2\u2212log(c*t*log(2)/2).",
+      "extension_derivation": [
+        "The loss c^2*t^2/(4sqrt(x)) is bounded by the original c0 budget<.001. z=c*t/sqrt(x)<=1 stays within the source log(1+z)>=z*log2 domain.",
+        "For.8<=c<=c0 and t>=44, log(c*t*log2/2)>0. Thus Uexp>=Ulo may multiply this positive logarithm, while Uexp<=Uhi bounds the negative\u2212Uexp*t/2 term.",
+        "Table3 Dexp>Dlo and .001Dexp+Kexp<kappa give M(c,t)=((cDlo\u2212Uhi)/2)t+Ulo*log(c*t*log2/2)\u2212kappa as a sufficient lower bound.",
+        "At c=.811, the existing kernel scalar proof RetunedPublishedScalar.whole_slab_lower gives M>=.0007 for every real44<=t<=60 by log concavity. Consequently the written parameterized analytic argument gives at least one prime in(x,x+.811sqrt(x)logx] on this slab under RH and the original external analytic/numerical inputs.",
+        "A strict-open .8111 corollary uses a separate proved endpoint shift and a smaller slab; it is not obtained by silently dropping the original right endpoint."
+      ]
+    }
+  ],
+  "proof_boundary": [
+    "The complete Mellin explicit formula, zero-count integration, arithmetic block-cover applicability and original FFT norm remain external mathematical source ingredients.",
+    "Only the scalar interval verification is kernel proved; the rewritten parameter argument is written mathematics, not an all-analytic Lean proof.",
+    "The negative .8 conservative budget does not disprove a prime statement or all alternative frameworks."
+  ]
+}

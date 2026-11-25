@@ -1,0 +1,715 @@
+{
+  "status": "FROZEN_COMPLETE_NEW_SOURCE_CLOSURE",
+  "compiler": "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+  "compiler_sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+  "generic_lean_path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/mathlib/.lake/build/lib/lean:/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/plausible/.lake/build/lib/lean:/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/importGraph/.lake/build/lib/lean:/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/proofwidgets/.lake/build/lib/lean:/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/aesop/.lake/build/lib/lean:/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/Qq/.lake/build/lib/lean:/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/batteries/.lake/build/lib/lean",
+  "modules": [
+    {
+      "module": "IEANTN.Vocabulary.CMSFunctional",
+      "original": "/data/ivy-rh-080-20261125/network/IEANTN/Vocabulary/CMSFunctional.lean",
+      "source_sha256": "40390e5de266dccbc335698017508711afc271e67618ecdfe91084935db92c28",
+      "imports": []
+    },
+    {
+      "module": "IEANTN.Nodes.GaussianFourierWitness.v3.Conclusions",
+      "original": "/data/ivy-rh-080-20261125/network/IEANTN/Nodes/GaussianFourierWitness/v3/Conclusions.lean",
+      "source_sha256": "dc2999c5a44786a47aaed44b1bcfa74fb985eeda4500313d9c0db685ed6390e3",
+      "imports": [
+        "IEANTN.Vocabulary.CMSFunctional"
+      ]
+    },
+    {
+      "module": "LeanCert.Core.Interval",
+      "original": "/data/ivy-rh-080-20261125/baseline/gaussian53-v1/run/compile/source/LeanCert/Core/Interval.lean",
+      "source_sha256": "3b7e7c4200cbb10a35444d56bb6217ba17af1c1b5e565ecdb9fe87e683589565",
+      "imports": []
+    },
+    {
+      "module": "LeanCert.Core.IntervalRat.Basic",
+      "original": "/data/ivy-rh-080-20261125/baseline/gaussian53-v1/run/compile/source/LeanCert/Core/IntervalRat/Basic.lean",
+      "source_sha256": "dec62f02adb351ec8aa3397294ddf914b01b0e6c1c2f8f9864562b1d3111552c",
+      "imports": [
+        "LeanCert.Core.Interval"
+      ]
+    },
+    {
+      "module": "LeanCert.Core.Expr",
+      "original": "/data/ivy-rh-080-20261125/baseline/gaussian53-v1/run/compile/source/LeanCert/Core/Expr.lean",
+      "source_sha256": "2cbe45500242ef521c414d7d4b4feac885cdcdae1f77c913eaa3597df87b83fb",
+      "imports": []
+    },
+    {
+      "module": "LeanCert.Core.IntervalRat.LogReduction",
+      "original": "/data/ivy-rh-080-20261125/baseline/gaussian53-v1/run/compile/source/LeanCert/Core/IntervalRat/LogReduction.lean",
+      "source_sha256": "5526e5fc0d5447cea71dbe1debf274c2cc1532a5c40b7deee871b53a4dff09c7",
+      "imports": [
+        "LeanCert.Core.Expr"
+      ]
+    },
+    {
+      "module": "LeanCert.Core.DerivativeIntervals",
+      "original": "/data/ivy-rh-080-20261125/baseline/gaussian53-v1/run/compile/source/LeanCert/Core/DerivativeIntervals.lean",
+      "source_sha256": "d50d7a368033ed7905a92445700ceb8e95ec41e31c08b7ed49bf585d68fcf0f9",
+      "imports": []
+    },
+    {
+      "module": "LeanCert.Core.Taylor",
+      "original": "/data/ivy-rh-080-20261125/baseline/gaussian53-v1/run/compile/source/LeanCert/Core/Taylor.lean",
+      "source_sha256": "2c3d2aef304c46b10ca430c224d00abaa876daca6f8c94cce66b5fbc7cee354e",
+      "imports": [
+        "LeanCert.Core.DerivativeIntervals"
+      ]
+    },
+    {
+      "module": "LeanCert.Core.IntervalRat.Taylor",
+      "original": "/data/ivy-rh-080-20261125/baseline/gaussian53-v1/run/compile/source/LeanCert/Core/IntervalRat/Taylor.lean",
+      "source_sha256": "d7c3988d53312a5055998f2c9c3057daaabdaba07b933fa8635cd85a943838c2",
+      "imports": [
+        "LeanCert.Core.IntervalRat.Basic",
+        "LeanCert.Core.IntervalRat.LogReduction",
+        "LeanCert.Core.Taylor",
+        "LeanCert.Core.Expr"
+      ]
+    },
+    {
+      "module": "GaussianCell",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RHOnePrimeEvolution.v1/gaussian_kernel/GaussianCell.lean",
+      "source_sha256": "771b8d96c0033bd39ba33495212a79d7e8ce9cfa471a20d9a30a61117377ef7b",
+      "imports": [
+        "LeanCert.Core.IntervalRat.Taylor"
+      ]
+    },
+    {
+      "module": "GaussianQuadrature",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RHOnePrimeEvolution.v1/gaussian_kernel/GaussianQuadrature.lean",
+      "source_sha256": "2d478d1467d34694050e716431ad9ab2612ef92aab835a98a7d9abc76b64b539",
+      "imports": [
+        "GaussianCell"
+      ]
+    },
+    {
+      "module": "GaussianCoeffs",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RHOnePrimeEvolution.v1/gaussian_kernel/GaussianCoeffs.lean",
+      "source_sha256": "2586e82b896b2281bb26d4d9ebab06cb86aa94acf0bed7f11ecf193fff9c63f0",
+      "imports": [
+        "GaussianQuadrature"
+      ]
+    },
+    {
+      "module": "GaussianExpUpper",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RHOnePrimeEvolution.v1/gaussian_kernel/GaussianExpUpper.lean",
+      "source_sha256": "e6347c834d54a9c0599fb1aa8ca4c1f425c48bfdffd93b54f94a84bc1f3b23c8",
+      "imports": [
+        "GaussianCoeffs"
+      ]
+    },
+    {
+      "module": "GaussianCoeffArithmetic",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RHOnePrimeEvolution.v1/gaussian_kernel/GaussianCoeffArithmetic.lean",
+      "source_sha256": "31571ad37d1d1d8bea0af399916ba3921807b87c8070125e51f9ac16c5d1568e",
+      "imports": [
+        "GaussianExpUpper"
+      ]
+    },
+    {
+      "module": "GaussianMajorant",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RHOnePrimeEvolution.v1/gaussian_kernel/GaussianMajorant.lean",
+      "source_sha256": "a3a305f53a5342193e96ff985d2d89c815fbaac8e20095d3abfc751692ecc464",
+      "imports": [
+        "GaussianCoeffArithmetic"
+      ]
+    },
+    {
+      "module": "GaussianCertificate",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RHOnePrimeEvolution.v1/gaussian_kernel/GaussianCertificate.lean",
+      "source_sha256": "0d1b5ffdc6177fc2eb81f3400e247f3a62a2af8719eb8ac21605c6767f7f22ae",
+      "imports": [
+        "GaussianMajorant"
+      ]
+    },
+    {
+      "module": "GaussianSources",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RHOnePrimeEvolution.v1/gaussian_kernel/GaussianSources.lean",
+      "source_sha256": "67a23736850425efedb6f7b020a2f5ed4b3ff0f35fc801d90a696a15013648fa",
+      "imports": [
+        "GaussianCertificate"
+      ]
+    },
+    {
+      "module": "GaussianFourierCore",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RHOnePrimeEvolution.v1/gaussian_fourier/GaussianFourierCore.lean",
+      "source_sha256": "36db77970aa02c09623e2cd18c1a23434ab3a6766cc2dd32edbd8ecb0da3e5ea",
+      "imports": [
+        "GaussianSources"
+      ]
+    },
+    {
+      "module": "GaussianFourierPolynomial",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RHOnePrimeEvolution.v1/gaussian_fourier/GaussianFourierPolynomial.lean",
+      "source_sha256": "57f6d5de97a166ace7b0aa69076f68ef277e9ce2a6f00fecb93530482a6aa906",
+      "imports": [
+        "GaussianFourierCore"
+      ]
+    },
+    {
+      "module": "GaussianFourierEven",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RHOnePrimeEvolution.v1/gaussian_fourier/GaussianFourierEven.lean",
+      "source_sha256": "695bef4cbb3f52298b2a57f4fa6e071a67c8f8e0f8292b3a9ab2f04477cdb36e",
+      "imports": [
+        "GaussianFourierPolynomial"
+      ]
+    },
+    {
+      "module": "GaussianRationalTransform",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RHOnePrimeEvolution.v1/gaussian_fourier/GaussianRationalTransform.lean",
+      "source_sha256": "d97ab69ce6a45bcc3ad08b7b51851d388bae87ac0185196e1b3994695136beaf",
+      "imports": [
+        "GaussianFourierEven",
+        "GaussianCoeffArithmetic"
+      ]
+    },
+    {
+      "module": "G40Cell",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal40/G40Cell.lean",
+      "source_sha256": "639e3a645972f030d2217f15d520524d4acc03bbca62f0eddecb77b581645c8a",
+      "imports": [
+        "LeanCert.Core.IntervalRat.Taylor"
+      ]
+    },
+    {
+      "module": "G40Quadrature",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal40/G40Quadrature.lean",
+      "source_sha256": "bdd8c0530518c463c60dc7953700f4309256eaa5027c35abfb3bd35e83b106c1",
+      "imports": [
+        "G40Cell"
+      ]
+    },
+    {
+      "module": "G40Coeffs",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal40/G40Coeffs.lean",
+      "source_sha256": "6bf9ad7e6a9e9d86cecd71f064a50f9967dd24f1655a8b6228f0adbacd647501",
+      "imports": [
+        "G40Quadrature"
+      ]
+    },
+    {
+      "module": "G40ExpUpper",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal40/G40ExpUpper.lean",
+      "source_sha256": "a2aae792a2ea02823882229d6165b869836fc92eeb565ae4c50c4898d8eeda73",
+      "imports": [
+        "G40Coeffs"
+      ]
+    },
+    {
+      "module": "G40CoeffArithmetic",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal40/G40CoeffArithmetic.lean",
+      "source_sha256": "4051bb1890da28b298bca42ddd6b56a4460d8d77f608d56c2b2d0383359b7e34",
+      "imports": [
+        "G40ExpUpper"
+      ]
+    },
+    {
+      "module": "G40Majorant",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal40/G40Majorant.lean",
+      "source_sha256": "32a4a68ca3f60b408a68ab35d5224d0f970486281b8f7330328a83e3c0f9d4dd",
+      "imports": [
+        "G40CoeffArithmetic"
+      ]
+    },
+    {
+      "module": "G40Certificate",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal40/G40Certificate.lean",
+      "source_sha256": "1dec7f28e10aafbd975c1732df8bcd789df981dc2b0fa49442e90230c0daa087",
+      "imports": [
+        "G40Majorant"
+      ]
+    },
+    {
+      "module": "G28Sources",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal28/G28Sources.lean",
+      "source_sha256": "af9a3432fb487f8afed7a75a9723fe63b4d7c15a2bf076b1e94535efd7852317",
+      "imports": [
+        "G40Certificate"
+      ]
+    },
+    {
+      "module": "Primal56CoefficientTransform",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/primal56_fourier/Primal56CoefficientTransform.lean",
+      "source_sha256": "345692f9a0c57fc55ba1c3c363c8a04d4dbdfc7af38781e7999792c616e342bc",
+      "imports": [
+        "GaussianRationalTransform",
+        "G28Sources"
+      ]
+    },
+    {
+      "module": "Primal56OriginalInput",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/primal56_fourier/Primal56OriginalInput.lean",
+      "source_sha256": "696000472a9c54cfc5b60762ce16c7fff2ea181864cb00606231cb52c0072ec2",
+      "imports": [
+        "Primal56CoefficientTransform"
+      ]
+    },
+    {
+      "module": "G28Functions",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal28/G28Functions.lean",
+      "source_sha256": "a980dc111cdf6d49e59b2dbb5d55b5f595e42ee348e5e0115e619082f1025a34",
+      "imports": [
+        "G28Sources"
+      ]
+    },
+    {
+      "module": "Primal56ActualFourier",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/primal56_fourier/Primal56ActualFourier.lean",
+      "source_sha256": "9f7fef939fdafd5864b497ad4461e5eccb5875d54aaf43915814e9eb451117bc",
+      "imports": [
+        "Primal56OriginalInput",
+        "G28Functions"
+      ]
+    },
+    {
+      "module": "Primal56Eligibility",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/primal56_gap/Primal56Eligibility.lean",
+      "source_sha256": "4233bf4419da1ee3715041ac00e8cb77e2677dbdacab300435c33edfd554727d",
+      "imports": [
+        "IEANTN.Vocabulary.CMSFunctional",
+        "Primal56ActualFourier"
+      ]
+    },
+    {
+      "module": "G40Tail",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal40/G40Tail.lean",
+      "source_sha256": "bdb2ed0657a4142a2d19e48b670429edafe6827909c56f3d23ee9c3cd8f986a8",
+      "imports": [
+        "G40Certificate"
+      ]
+    },
+    {
+      "module": "G40Rays",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal40/G40Rays.lean",
+      "source_sha256": "5bca2b1767ebafe82f51ee16221bdf5d07c00491649d546fccd1479fb90cb48a",
+      "imports": [
+        "G40Tail"
+      ]
+    },
+    {
+      "module": "G40Assembly",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal40/G40Assembly.lean",
+      "source_sha256": "7a1632f0af8e969d0c912a4512cac729302d646794214f6490af65da89755bd0",
+      "imports": [
+        "G40Certificate"
+      ]
+    },
+    {
+      "module": "G28Cells00",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal28/G28Cells00.lean",
+      "source_sha256": "e09521afd2b2a992965987285412d88791f7d9897cbb2ea60a67166e11da4c48",
+      "imports": [
+        "G28Sources"
+      ]
+    },
+    {
+      "module": "G28Cells01",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal28/G28Cells01.lean",
+      "source_sha256": "4cc94156687a4798a76d11966d165050b6d3c7cc6b32d8579a463a4d3ecf2b25",
+      "imports": [
+        "G28Sources"
+      ]
+    },
+    {
+      "module": "G28Cells02",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal28/G28Cells02.lean",
+      "source_sha256": "a48cc318fcd7f3505df667951f238776612be73b0dc14890178c2ce9f0b19c68",
+      "imports": [
+        "G28Sources"
+      ]
+    },
+    {
+      "module": "G28Cells03",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal28/G28Cells03.lean",
+      "source_sha256": "61d50dd4de54858e1c96252b727082beb84fae752c408a98b01d36c1069e8f52",
+      "imports": [
+        "G28Sources"
+      ]
+    },
+    {
+      "module": "G28Cells04",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal28/G28Cells04.lean",
+      "source_sha256": "b9f70ee13f83724cb3b4a478df9e60b26e4b52b3edaf4685fe41f029476ad1a4",
+      "imports": [
+        "G28Sources"
+      ]
+    },
+    {
+      "module": "G28Cells05",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal28/G28Cells05.lean",
+      "source_sha256": "f6a0f33076d558a9d3d4b4816634eebb4aa145fa018b3fdd0ccce33619f3cf1d",
+      "imports": [
+        "G28Sources"
+      ]
+    },
+    {
+      "module": "G28Cells06",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal28/G28Cells06.lean",
+      "source_sha256": "c8629d9ac1628caafcc656e6fe1bb9c4146a8e08f674cc464e59725f6971684b",
+      "imports": [
+        "G28Sources"
+      ]
+    },
+    {
+      "module": "G28Cells07",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal28/G28Cells07.lean",
+      "source_sha256": "23b5b41147e8f94daac7af194c3b9bd2dfe0f64a10844776e640eed0f3ead0e7",
+      "imports": [
+        "G28Sources"
+      ]
+    },
+    {
+      "module": "G28Cells08",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal28/G28Cells08.lean",
+      "source_sha256": "f0b95ce7f63d3a851d58248c419d74b4dbec516570380f9b993767c99bd594e1",
+      "imports": [
+        "G28Sources"
+      ]
+    },
+    {
+      "module": "G28Cells09",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal28/G28Cells09.lean",
+      "source_sha256": "9b6642c5e05d6ddb1b30d03f2441b2021f8490b481fa8c22b41bcfa94030c805",
+      "imports": [
+        "G28Sources"
+      ]
+    },
+    {
+      "module": "G28Cells10",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal28/G28Cells10.lean",
+      "source_sha256": "25a576710b66d9525e092c0f986aa2e047c8b4d86994aa1960ded820a2cebd75",
+      "imports": [
+        "G28Sources"
+      ]
+    },
+    {
+      "module": "G28Cells11",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal28/G28Cells11.lean",
+      "source_sha256": "88f455fcfaace19c959d504406e18238220fb9e81275f4f0afb48f8bd848a9e5",
+      "imports": [
+        "G28Sources"
+      ]
+    },
+    {
+      "module": "G28Cells12",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal28/G28Cells12.lean",
+      "source_sha256": "d4e509e0055c94aff47d2325ee6baaebeed24394e1700ee938522501953ecd69",
+      "imports": [
+        "G28Sources"
+      ]
+    },
+    {
+      "module": "G28Cells13",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal28/G28Cells13.lean",
+      "source_sha256": "76e4be5f7bddd8a306d99493ddd767961b73544b3f66c13360745bb45b7d3f7e",
+      "imports": [
+        "G28Sources"
+      ]
+    },
+    {
+      "module": "G28Cells14",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal28/G28Cells14.lean",
+      "source_sha256": "0d776f4ca0a36ba9e24c566740798604bf593bbdbd5d79fbb03385fb8fcab297",
+      "imports": [
+        "G28Sources"
+      ]
+    },
+    {
+      "module": "G28Cells15",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal28/G28Cells15.lean",
+      "source_sha256": "7171a15b8c325a49bc4b6d6e15081b874012a999fcf249952f8e27bef699358b",
+      "imports": [
+        "G28Sources"
+      ]
+    },
+    {
+      "module": "G28Cells16",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal28/G28Cells16.lean",
+      "source_sha256": "522cbb3125f5635bb070bbecd3a5db58c8625e421bcdcc0985dfe95482abd429",
+      "imports": [
+        "G28Sources"
+      ]
+    },
+    {
+      "module": "G28Cells17",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal28/G28Cells17.lean",
+      "source_sha256": "d51050c9b9a41aae6cc65815cb7790461de6d5552cd9b8c8875fd3d0358aab31",
+      "imports": [
+        "G28Sources"
+      ]
+    },
+    {
+      "module": "G28Cells18",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal28/G28Cells18.lean",
+      "source_sha256": "23951b9079aa8eeb4a21a0bcdde68215d1156f743bd68968e8158c28e6b14563",
+      "imports": [
+        "G28Sources"
+      ]
+    },
+    {
+      "module": "G28Cells19",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal28/G28Cells19.lean",
+      "source_sha256": "396eca7109ddaf86acf35c8ac72b62c126455ce05b109f33a29a2c0763ccb0f9",
+      "imports": [
+        "G28Sources"
+      ]
+    },
+    {
+      "module": "G28Cells20",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal28/G28Cells20.lean",
+      "source_sha256": "0883d872c95fa365418c664cb41f96b4253cb84f76884d0f9c54c2ff082b03db",
+      "imports": [
+        "G28Sources"
+      ]
+    },
+    {
+      "module": "G28Cells21",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal28/G28Cells21.lean",
+      "source_sha256": "7ca8f44a3e29b3618e6722d2c701e849cf4b60c6db30785f229589dc4635e900",
+      "imports": [
+        "G28Sources"
+      ]
+    },
+    {
+      "module": "G28Cells22",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal28/G28Cells22.lean",
+      "source_sha256": "f7d8071e5f755d2e66559d45c48cf409b31c80d9a0378aa4d78827b60b57bb8f",
+      "imports": [
+        "G28Sources"
+      ]
+    },
+    {
+      "module": "G28Cells23",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal28/G28Cells23.lean",
+      "source_sha256": "1a32967648c06896445cbc523952f818978ba549707455fb26aac3b5c09f2c25",
+      "imports": [
+        "G28Sources"
+      ]
+    },
+    {
+      "module": "G28FiniteNorm",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal28/G28FiniteNorm.lean",
+      "source_sha256": "156555426e863c84b5e702bcedcc42a1e31999a53a6712af9a60ac85866328f9",
+      "imports": [
+        "G40Assembly",
+        "G28Cells00",
+        "G28Cells01",
+        "G28Cells02",
+        "G28Cells03",
+        "G28Cells04",
+        "G28Cells05",
+        "G28Cells06",
+        "G28Cells07",
+        "G28Cells08",
+        "G28Cells09",
+        "G28Cells10",
+        "G28Cells11",
+        "G28Cells12",
+        "G28Cells13",
+        "G28Cells14",
+        "G28Cells15",
+        "G28Cells16",
+        "G28Cells17",
+        "G28Cells18",
+        "G28Cells19",
+        "G28Cells20",
+        "G28Cells21",
+        "G28Cells22",
+        "G28Cells23"
+      ]
+    },
+    {
+      "module": "G28FiniteWing",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal28/G28FiniteWing.lean",
+      "source_sha256": "ea3ef948c9c2c8e175b488e61c1c857600da08ddb48edf90d699cf3315736af7",
+      "imports": [
+        "G40Assembly",
+        "G28Cells00",
+        "G28Cells01",
+        "G28Cells02",
+        "G28Cells03",
+        "G28Cells04",
+        "G28Cells05",
+        "G28Cells06",
+        "G28Cells07",
+        "G28Cells08",
+        "G28Cells09",
+        "G28Cells10",
+        "G28Cells11",
+        "G28Cells12",
+        "G28Cells13",
+        "G28Cells14",
+        "G28Cells15",
+        "G28Cells16",
+        "G28Cells17",
+        "G28Cells18",
+        "G28Cells19",
+        "G28Cells20",
+        "G28Cells21",
+        "G28Cells22",
+        "G28Cells23"
+      ]
+    },
+    {
+      "module": "G28FullRays",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal28/G28FullRays.lean",
+      "source_sha256": "b7a7d69120ea0f09c918d05c35dbffcb8b0b0c0eab0d2521ea5217fa59ec6b4d",
+      "imports": [
+        "G40Rays",
+        "G28FiniteNorm",
+        "G28FiniteWing"
+      ]
+    },
+    {
+      "module": "G28Physical",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal28/G28Physical.lean",
+      "source_sha256": "2c53b9399b7c52c2aae8e914e9aa27dedf73c53b8f20747643b18813cbe435fd",
+      "imports": [
+        "G28FullRays",
+        "G28Functions"
+      ]
+    },
+    {
+      "module": "G28Wings",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/primal28/G28Wings.lean",
+      "source_sha256": "d1b04c1aec6e0c7601730946b85f0ff6cd12a7c405e6814cbe5a4c019a2bf802",
+      "imports": [
+        "G28Physical"
+      ]
+    },
+    {
+      "module": "Primal56NumericalWitness",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/primal56_gap/Primal56NumericalWitness.lean",
+      "source_sha256": "c122037db7e38ebb5cda1b470e3625a6e6ad708d5493817831b1309b4ead2fde",
+      "imports": [
+        "IEANTN.Nodes.GaussianFourierWitness.v3.Conclusions",
+        "Primal56Eligibility",
+        "G28Wings"
+      ]
+    },
+    {
+      "module": "Primal56Objective",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/primal56_gap/Primal56Objective.lean",
+      "source_sha256": "f96370aa01f4738480b38367d3763e6552621c9b13c4c0244cc75d60bfef1453",
+      "imports": [
+        "IEANTN.Nodes.GaussianFourierWitness.v3.Conclusions"
+      ]
+    },
+    {
+      "module": "Primal56WitnessSolution",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/GaussianFourierWitness.v3/Solution.lean",
+      "source_sha256": "6c83011f4b108129560a83b5c29d67af56a005af7d17e1a1a0cfd50a66f8988c",
+      "imports": [
+        "Primal56NumericalWitness",
+        "Primal56Objective"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.CMSFunctionalInput.v1.Conclusions",
+      "original": "/data/ivy-rh-080-20261125/network/IEANTN/Nodes/CMSFunctionalInput/v1/Conclusions.lean",
+      "source_sha256": "21753fbed2b46524ea49d54a91bd1a7158a3b94effcf8baee710fc42835efa1f",
+      "imports": [
+        "IEANTN.Vocabulary.CMSFunctional"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.RHAsymptoticGaussian.v3.Conclusions",
+      "original": "/data/ivy-rh-080-20261125/network/IEANTN/Nodes/RHAsymptoticGaussian/v3/Conclusions.lean",
+      "source_sha256": "c0870e35d643d894b4664fc98df676302c581d9f8bba716f9d9d2fd5aed39c59",
+      "imports": [
+        "IEANTN.Vocabulary.CMSFunctional"
+      ]
+    },
+    {
+      "module": "IEANTN.Vocabulary.Zeta",
+      "original": "/data/ivy-rh-080-20261125/network/IEANTN/Vocabulary/Zeta.lean",
+      "source_sha256": "42e239de4c1151d03ed94ee4c0c51d031f974faa6998f447e85845665bb846ef",
+      "imports": []
+    },
+    {
+      "module": "IEANTN.Vocabulary.ZeroFreeHalfPlane",
+      "original": "/data/ivy-rh-080-20261125/network/IEANTN/Vocabulary/ZeroFreeHalfPlane.lean",
+      "source_sha256": "c4093b0a652ec21bb446736389639e0a7a8217f4e7258fc0276c69eb203f7b8c",
+      "imports": []
+    },
+    {
+      "module": "IEANTN.Nodes.RH.v1.Conclusions",
+      "original": "/data/ivy-rh-080-20261125/network/IEANTN/Nodes/RH/v1/Conclusions.lean",
+      "source_sha256": "84d39ecb7fa86c04e58fe97f47350132d58da3f3cef5e9420442d2e3b0505502",
+      "imports": [
+        "IEANTN.Vocabulary.Zeta",
+        "IEANTN.Vocabulary.ZeroFreeHalfPlane"
+      ]
+    },
+    {
+      "module": "CMSFunctionalGapSource",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RHOnePrimeEvolution.v1/gaussian_gap/CMSFunctionalGapSource.lean",
+      "source_sha256": "c1240aee4690ef9cb5a48bfa89b716d1049b52acd9e3d7c3c65da9e2fd8a1846",
+      "imports": [
+        "IEANTN.Vocabulary.CMSFunctional"
+      ]
+    },
+    {
+      "module": "CMSPopulationFunctionalSource",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RHOnePrimeEvolution.v1/gaussian_gap/CMSPopulationFunctionalSource.lean",
+      "source_sha256": "6e764fd06ed71a947256949829e92ba3bd9df64eeba0d1c90f22db290ba38a85",
+      "imports": [
+        "CMSFunctionalGapSource"
+      ]
+    },
+    {
+      "module": "Primal56CanonicalConsumers",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/primal56_gap/Primal56CanonicalConsumers.lean",
+      "source_sha256": "60fcac1b21d4e98e13b5a3d8be66c10429e3a31f33ded2b5593d196d58f4de53",
+      "imports": [
+        "IEANTN.Nodes.CMSFunctionalInput.v1.Conclusions",
+        "IEANTN.Nodes.GaussianFourierWitness.v3.Conclusions",
+        "IEANTN.Nodes.RHAsymptoticGaussian.v3.Conclusions",
+        "IEANTN.Nodes.RH.v1.Conclusions",
+        "CMSPopulationFunctionalSource"
+      ]
+    },
+    {
+      "module": "Primal56ActualConsumers",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/primal56_gap/Primal56ActualConsumers.lean",
+      "source_sha256": "af65c589c83ac50cf06438c71d89c6099751f43be03a449146182bca009d55b2",
+      "imports": [
+        "Primal56NumericalWitness",
+        "Primal56Objective",
+        "Primal56CanonicalConsumers"
+      ]
+    },
+    {
+      "module": "Primal56AsymptoticSolution",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RHAsymptoticGaussian.v3/Solution.lean",
+      "source_sha256": "8d8965a30478c28d63a509bb2d7bf6a0cfc6422bd2c37f0af2b8b447b34630d7",
+      "imports": [
+        "Primal56ActualConsumers"
+      ]
+    },
+    {
+      "module": "Primal56CanonicalAudit",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/primal56_gap/Primal56CanonicalAudit.lean",
+      "source_sha256": "ce70094d7d52cb9dedbe8450c243767eb5c26e28fb953c2cc2c2fd86b15fa0e5",
+      "imports": [
+        "Primal56WitnessSolution",
+        "Primal56AsymptoticSolution"
+      ]
+    }
+  ],
+  "controller_sha256": "c91f1983d0011d28fa512884566426da666613c7a79008166a40796dffbee31d",
+  "context_sha256": "88a89fb62356f9ac34abaa4f50a32584a75a33bd8ad23aae92cf07965f344319",
+  "workers": 4,
+  "per_process_AS_bytes": 34359738368,
+  "aggregate_AS_allowance_bytes": 137438953472,
+  "host_reserve_bytes": 274877906944,
+  "admission_MemAvailable_bytes": 1152170221568,
+  "admission_disk_free_bytes": 6952536293376,
+  "application_or_LeanCert_object_cache_used": false,
+  "policy": "Additiveprospectiveproofreproductionoutsidefrozenexperimentaltrials;4workers32or64GiBaggregate<=256GiB;historicaltrialbudgetsandoutcomesunchanged."
+}

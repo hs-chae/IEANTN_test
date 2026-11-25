@@ -1,0 +1,3 @@
+# GaussianFourierWitness.v3
+
+Complete actual physical56 kernel witness and CMS consumer closure. Exact coefficient82325773717/98718416336, strict eventual bound below0.833945448; actual numeric caps and true Mathlib Fourier proof are discharged. Only unchanged general CMS source predicates and ordinaryRH remain for ANT. Full80-module clean replay and14controls passed; independent reviews cover all new adapter and numerical math. No explicit onset, source-firstPV or official Comparator decision is claimed. See [joint handoff](../RH080Study.v1/primal56_gap/HANDOFF.json). Frozen v1/v2 results and original trial records are preserved.

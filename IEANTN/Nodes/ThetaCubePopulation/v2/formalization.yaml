@@ -1,0 +1,115 @@
+version: v0.4
+node:
+  id: ThetaCubePopulation.v2
+  family: ThetaCubePopulation
+  version: v2
+  kind: pipeline
+  status: awaiting-verification
+project:
+  name: ThetaCubePopulation.v2
+  description: Exact 0.9669924 strict-open cube coefficient on the real exp(8) ray, with unchanged
+    earlier-onset 0.965 result retained.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+conclusions:
+- id: cube_density_09669924
+  declaration: ThetaCubePopulation.v2.cube_density_09669924
+  challenge: ThetaCubePopulation.v2.challenge_cube_density_09669924
+  imports: &id001
+  - node: RH.v1
+    conclusion: hypothesis
+  - node: SchoenfeldRHTheta.v1
+    conclusion: refined_theta
+  - &id002
+    node: Buthe.v1
+    conclusion: theorem_2_theta
+  - &id003
+    node: Buthe.v1
+    conclusion: theorem_2_theta_lower
+  imports_status: identified
+  justifications:
+  - id: posthoc-kernel-proof
+    kind: lean-noncompliant
+    note: Local complete conditional kernel proof. Supplemental posthoc completion of the frozen
+      prospective written discovery; original trial outcome unchanged. Official Comparator receipt
+      not claimed.
+  designated: posthoc-kernel-proof
+- id: cube_density_09669924_natural
+  declaration: ThetaCubePopulation.v2.cube_density_09669924_natural
+  challenge: ThetaCubePopulation.v2.challenge_cube_density_09669924_natural
+  imports: *id001
+  imports_status: identified
+  justifications:
+  - id: posthoc-kernel-proof
+    kind: lean-noncompliant
+    note: Local complete conditional kernel proof. Supplemental posthoc completion of the frozen
+      prospective written discovery; original trial outcome unchanged. Official Comparator receipt
+      not claimed.
+  designated: posthoc-kernel-proof
+- id: finite_seam_098
+  declaration: ThetaCubePopulation.v2.finite_seam_098
+  challenge: ThetaCubePopulation.v2.challenge_finite_seam_098
+  imports:
+  - *id002
+  - *id003
+  imports_status: identified
+  justifications:
+  - id: posthoc-kernel-proof
+    kind: lean-noncompliant
+    note: Local complete conditional kernel proof. Supplemental posthoc completion of the frozen
+      prospective written discovery; original trial outcome unchanged. Official Comparator receipt
+      not claimed.
+  designated: posthoc-kernel-proof
+- id: strict_gain_on_common_ray
+  declaration: ThetaCubePopulation.v2.strict_gain_on_common_ray
+  challenge: ThetaCubePopulation.v2.challenge_strict_gain_on_common_ray
+  imports: []
+  imports_status: none
+  justifications:
+  - id: posthoc-kernel-proof
+    kind: lean-noncompliant
+    note: Local complete conditional kernel proof. Supplemental posthoc completion of the frozen
+      prospective written discovery; original trial outcome unchanged. Official Comparator receipt
+      not claimed.
+  designated: posthoc-kernel-proof
+- id: retains_0965
+  declaration: ThetaCubePopulation.v2.retains_0965
+  challenge: ThetaCubePopulation.v2.challenge_retains_0965
+  imports:
+  - node: ThetaCubePopulation.v1
+    conclusion: cube_density_0965
+  imports_status: identified
+  justifications:
+  - id: posthoc-kernel-proof
+    kind: lean-noncompliant
+    note: Local complete conditional kernel proof. Supplemental posthoc completion of the frozen
+      prospective written discovery; original trial outcome unchanged. Official Comparator receipt
+      not claimed.
+  designated: posthoc-kernel-proof
+sources:
+- id: FrozenCubeE2V1Prefix20261125
+  title: Frozen cube-L2_E2_V1-r0 timely prefix-0001 candidate and rational checks
+  authors:
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: Same source inputs and exact coefficient as the written prospective discovery. Later kernel
+    completion is posthoc and does not alter primary experimental outcomes.
+limitations:
+- Schoenfeld (1976), Theorem 10 (6.1), and Buthe (2018), Theorem 2 (1.6)-(1.7), remain explicit literature-backed
+  mathematical inputs; no RH-only Mathlib theorem claimed.
+- Ordinary RH plus source predicates; no new source assumption, axiom, native leaf, source-first
+  PV or optimality claim.
+- The old 0.965 coefficient from exp(6) remains unchanged; the stronger coefficient has onset exp(8).
+- Both endpoints are strictly excluded for all real n; a possible upper-endpoint prime is paid by
+  an explicit minus-one allowance.

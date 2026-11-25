@@ -1,0 +1,1 @@
+This additive version gives the posthoc kernel completion of the frozen 0.9669924/e8 cube discovery and retains v1 0.965/e6 unchanged. See ../RH080Study.v1/estimates/pareto966/REPRODUCE.md. The four published-source/RH inputs remain explicit. This is conditional kernel mathematics, not source-first PV or an official Comparator receipt.

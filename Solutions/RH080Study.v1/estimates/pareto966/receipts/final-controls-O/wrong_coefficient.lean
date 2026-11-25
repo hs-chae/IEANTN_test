@@ -1,0 +1,4 @@
+import ParetoSolution
+set_option autoImplicit false
+open Real
+example (hRH:RH.v1.hypothesis) (hS:SchoenfeldRHTheta.v1.refined_theta) (h₁:Buthe.v1.theorem_2_theta) (h₂:Buthe.v1.theorem_2_theta_lower) : ∀ n:ℝ,exp 8≤n → (966993/1000000:ℝ)*n^2/log n < ((IEANTN.ThetaWindows.openPrimes (n^3) ((n+1)^3)).card:ℝ) := ThetaCubePopulation.v2.challenge_cube_density_09669924 hRH hS h₁ h₂

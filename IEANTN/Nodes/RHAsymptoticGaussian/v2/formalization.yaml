@@ -1,0 +1,152 @@
+version: v0.4
+node:
+  id: RHAsymptoticGaussian.v2
+  family: RHAsymptoticGaussian
+  version: v2
+  kind: pipeline
+  status: awaiting-verification
+project:
+  name: RHAsymptoticGaussian.v2
+  description: The exact new Fourier quotient2746403660/3293251743 propagates through
+    unchanged general CMS inputs to eventual prime gaps and the entire population-width
+    curve; v1 remains preserved.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+conclusions:
+- id: normalized_gap
+  declaration: RHAsymptoticGaussian.v2.normalized_gap
+  challenge: RHAsymptoticGaussian.v2.challenge_normalized_gap
+  imports:
+  - node: CMSFunctionalInput.v1
+    conclusion: gap_reduction
+  - node: RH.v1
+    conclusion: hypothesis
+  - node: GaussianFourierWitness.v2
+    conclusion: objective_witness
+  imports_status: identified
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: Actual source-only complete80-module new certificate/Fourier/CMS v2 consumer
+      closure freshly rebuilt with zero reused application/LeanCert objects;15-root
+      Std3/type/value/source audit and20 CLI/type controls passed. Actual proofs under
+      Solutions/RH080Study.v1/primal80_gap and corresponding v2 Solution. This local
+      kernel result is separate from official Comparator approval.
+  designated: local-kernel-proof
+- id: gap_below_readable
+  declaration: RHAsymptoticGaussian.v2.gap_below_readable
+  challenge: RHAsymptoticGaussian.v2.challenge_gap_below_readable
+  imports:
+  - node: RHAsymptoticGaussian.v2
+    conclusion: normalized_gap
+  imports_status: identified
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: Actual source-only complete80-module new certificate/Fourier/CMS v2 consumer
+      closure freshly rebuilt with zero reused application/LeanCert objects;15-root
+      Std3/type/value/source audit and20 CLI/type controls passed. Actual proofs under
+      Solutions/RH080Study.v1/primal80_gap and corresponding v2 Solution. This local
+      kernel result is separate from official Comparator approval.
+  designated: local-kernel-proof
+- id: gap_below_v1
+  declaration: RHAsymptoticGaussian.v2.gap_below_v1
+  challenge: RHAsymptoticGaussian.v2.challenge_gap_below_v1
+  imports:
+  - node: RHAsymptoticGaussian.v2
+    conclusion: normalized_gap
+  imports_status: identified
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: Actual source-only complete80-module new certificate/Fourier/CMS v2 consumer
+      closure freshly rebuilt with zero reused application/LeanCert objects;15-root
+      Std3/type/value/source audit and20 CLI/type controls passed. Actual proofs under
+      Solutions/RH080Study.v1/primal80_gap and corresponding v2 Solution. This local
+      kernel result is separate from official Comparator approval.
+  designated: local-kernel-proof
+- id: gap_below_printed_2026
+  declaration: RHAsymptoticGaussian.v2.gap_below_printed_2026
+  challenge: RHAsymptoticGaussian.v2.challenge_gap_below_printed_2026
+  imports:
+  - node: RHAsymptoticGaussian.v2
+    conclusion: normalized_gap
+  imports_status: identified
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: Actual source-only complete80-module new certificate/Fourier/CMS v2 consumer
+      closure freshly rebuilt with zero reused application/LeanCert objects;15-root
+      Std3/type/value/source audit and20 CLI/type controls passed. Actual proofs under
+      Solutions/RH080Study.v1/primal80_gap and corresponding v2 Solution. This local
+      kernel result is separate from official Comparator approval.
+  designated: local-kernel-proof
+- id: population_curve
+  declaration: RHAsymptoticGaussian.v2.population_curve
+  challenge: RHAsymptoticGaussian.v2.challenge_population_curve
+  imports:
+  - node: CMSFunctionalInput.v1
+    conclusion: population_reduction
+  - node: RH.v1
+    conclusion: hypothesis
+  - node: GaussianFourierWitness.v2
+    conclusion: objective_witness
+  imports_status: identified
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: Actual source-only complete80-module new certificate/Fourier/CMS v2 consumer
+      closure freshly rebuilt with zero reused application/LeanCert objects;15-root
+      Std3/type/value/source audit and20 CLI/type controls passed. Actual proofs under
+      Solutions/RH080Study.v1/primal80_gap and corresponding v2 Solution. This local
+      kernel result is separate from official Comparator approval.
+  designated: local-kernel-proof
+- id: population_count
+  declaration: RHAsymptoticGaussian.v2.population_count
+  challenge: RHAsymptoticGaussian.v2.challenge_population_count
+  imports:
+  - node: RHAsymptoticGaussian.v2
+    conclusion: population_curve
+  imports_status: identified
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: Actual source-only complete80-module new certificate/Fourier/CMS v2 consumer
+      closure freshly rebuilt with zero reused application/LeanCert objects;15-root
+      Std3/type/value/source audit and20 CLI/type controls passed. Actual proofs under
+      Solutions/RH080Study.v1/primal80_gap and corresponding v2 Solution. This local
+      kernel result is separate from official Comparator approval.
+  designated: local-kernel-proof
+sources:
+- id: CMS2019
+  title: Fourier optimization and prime gaps
+  authors:
+  - Emanuel Carneiro
+  - Micah B. Milinovich
+  - Kannan Soundararajan
+  type: paper
+  relationship: adapts
+  url: https://arxiv.org/abs/1708.04122v2
+  note: Theorem3/Corollary4 and optimization definition(1.3), B definition/bound(1.11)-(1.12);
+    no H-only explicit-onset reduction is used for the Gaussian.
+limitations:
+- CMS general gap/population reductions remain explicit published source predicates;
+  this is not an RH-only Mathlib derivation.
+- No explicit numerical onset, global record, optimality, official Comparator approval,
+  source-first PV or0.8 result is asserted.
+- Population intervals use the source half-open endpoint convention and require positive
+  width epsilon.
+- Independent component review covers all11 new v2 adapter math files; a separate
+  reciprocal review covers all42 numerical provider files. Each review excludes
+  its author’s own implementation and whole-project completion.

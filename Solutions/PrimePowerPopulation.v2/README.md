@@ -1,0 +1,3 @@
+# Same-source prospective cube improvement, posthoc proof completion
+
+The exact0.78146 strict-open cube count for all realn>=exp8 uses only the same canonical optimized Octic family asPrimePowerPopulation.v1, improving0.7 at unchanged assumptions/onset/endpoints. The frozen E1trial's full single-interval/equal-ceil-cell construction is preserved. Its outcome remains the original primary outcome; this Lean completion is supplementary posthoc work. No Schoenfeld/Büthe or new external numerical premise is added; no source-firstPV or global literature record claim. Exact origins, source snapshots, full fresh replay and audit commands are in../RH080Study.v1/estimates/same_source/.

@@ -1,0 +1,62 @@
+{
+  "status": "PASS_INDEPENDENT_REVIEW_OTHER_AGENT_FOURIER_AND_CMS_ADAPTERS",
+  "reviewer": "functional_frontier; author of numerical providers, explicitly excluded below",
+  "scope": [
+    {
+      "file": "primal80_fourier/Primal80CoefficientTransform.lean",
+      "sha256": "868cfa291e717c8bc2249cbeb40e0cc14c3f5480723d48fe8740f1ab1164353b",
+      "status": "PASS_COMPONENT_MATHEMATICAL_REVIEW"
+    },
+    {
+      "file": "primal80_fourier/Primal80ActualFourier.lean",
+      "sha256": "0c10d45d4534efaac4fd8a97158d5bfd5ccb48f467f76c520f6e00210ab13322",
+      "status": "PASS_COMPONENT_MATHEMATICAL_REVIEW"
+    },
+    {
+      "file": "primal80_gap/Primal80Objective.lean",
+      "sha256": "4603a555a519181c1872b52b5b59bf1f93cec72c6f2540a7963f92450c2a14c7",
+      "status": "PASS_COMPONENT_MATHEMATICAL_REVIEW"
+    },
+    {
+      "file": "primal80_gap/Primal80CanonicalConsumers.lean",
+      "sha256": "7b5604e985afebef2b768d77abbfe09073c77da405235f50d78c94d7cc0241bc",
+      "status": "PASS_COMPONENT_MATHEMATICAL_REVIEW"
+    },
+    {
+      "file": "primal80_gap/Primal80ActualConsumers.lean",
+      "sha256": "4597779b29e4ec11a002c2c53f56cadbb84e7a6bef6b643bcf053d9dfbf7181e",
+      "status": "PASS_COMPONENT_MATHEMATICAL_REVIEW"
+    }
+  ],
+  "excluded": [
+    "My own G40 numeric cell/tail/physical provider implementation is not independently reviewed by this receipt.",
+    "This is source and mathematical component review, not a separate cold compiler run, official Comparator decision, or full project completion.",
+    "General CMS analytic source predicates remain explicit mathematical inputs."
+  ],
+  "checks": {
+    "all81_actual_positions": "Both41-even-coefficient lists independently parsed and exactly matched frozen81-position numeric P/Q arrays, including40 odd zeros. actual_even_transform checks actual transform, not a supplied Fourier-pair premise.",
+    "fourier_normalization": "Reviewed generic sourceWave/polyWave transform recurrence and new coefficient_eval_identity/sourceWave_physicalF/G: physical argument sqrt(pi)*x, factor exp(-pi*x^2), actual Mathlib Fourier exp(-2*pi*i*x*t).",
+    "raw_consumption": "Actual consumers call actual_objective_witness; raw witness uses actual physical_norm_upper, physical_full_wings_upper, physicalF_zero_lower and actual eligibility. No new numerical-bound premise.",
+    "objective": {
+      "N": "37450959/50000000",
+      "J": "3111791/100000000",
+      "Z": "999999999/1000000000",
+      "A": "36/11",
+      "denominator": "9879755229/11000000000",
+      "ratio": "2746403660/3293251743",
+      "strict_readable": true
+    },
+    "gap_quantifiers": "Every epsilon>0 retained. Strict readable/v1/printed comparisons use epsilon=(d-c)/2>0; no exact endpoint or explicit onset. Zero-based indexing uses inherited source shift.",
+    "population_quantifiers": "Every alpha>=0 and epsilon>0 retained. Width ratio*(1+2alpha)+epsilon exceeds source infimum bound. Transfer uses nonemptiness and upward closure. Actual count interval (x,x+c*sqrt(x)*log(x)], eventually x>=2.",
+    "proof_leaves": "No sorry, new axiom declaration, native_decide or old actual numerical-witness substitution in five reviewed modules."
+  },
+  "primary_source": {
+    "url": "https://arxiv.org/abs/1708.04122v2",
+    "locator": "physical PDFp5 Theorem3(1.13), Corollary4(1.14); class/Fourier convention(1.3), B<=36/11(1.12)",
+    "actual_claim": "Ordinary RH: inf admissible positive population width <=(1+2alpha)/C+(B), normalized consecutive-prime limsup <=1/C+(B). General witness and monotonicity give reviewed consequences."
+  },
+  "blueprint_correspondence": [
+    "IEANTN/Nodes/GaussianFourierWitness/v2/Conclusions.lean: new version, no standalone preexisting Blueprint label",
+    "IEANTN/Nodes/RHAsymptoticGaussian/v2/Conclusions.lean: new version; inherited CMSFunctionalInput/v1 source predicates"
+  ]
+}

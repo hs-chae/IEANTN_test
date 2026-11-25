@@ -1,0 +1,26 @@
+Traceback (most recent call last):
+  File "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py", line 320, in <module>
+    main()
+  File "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py", line 176, in main
+    c=validate_context(context,S)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py", line 108, in validate_context
+    c = read(context); pin = read(S/'estimates/DEPENDENCY_PINS.json')
+        ^^^^^^^^^^^^^
+  File "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py", line 43, in read
+    return json.loads(p.read_bytes(), object_pairs_hook=pairs,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/__init__.py", line 359, in loads
+    return cls(**kw).decode(s)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py", line 40, in pairs
+    need(key not in out, 'Duplicate JSON key')
+  File "/data/ivy-rh-080-20261125/reproduction-review/restored-study-cli-final-v1/source-only/network/Solutions/RH080Study.v1/reproduce_study.py", line 24, in need
+    raise ValueError(message)
+ValueError: Duplicate JSON key

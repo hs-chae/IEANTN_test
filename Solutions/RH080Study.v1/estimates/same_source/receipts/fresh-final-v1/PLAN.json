@@ -1,0 +1,112 @@
+{
+  "status": "FROZEN_SOURCE_ONLY_CLOSURE",
+  "modules": [
+    {
+      "module": "IEANTN.Vocabulary.Zeta",
+      "original": "/data/ivy-rh-080-20261125/network/IEANTN/Vocabulary/Zeta.lean",
+      "source_sha256": "42e239de4c1151d03ed94ee4c0c51d031f974faa6998f447e85845665bb846ef",
+      "imports": [
+        "Mathlib.NumberTheory.LSeries.RiemannZeta",
+        "Mathlib.Analysis.Meromorphic.Order",
+        "Mathlib.Analysis.SpecialFunctions.Pow.Real"
+      ]
+    },
+    {
+      "module": "IEANTN.Vocabulary.RHSmoothing",
+      "original": "/data/ivy-rh-080-20261125/network/IEANTN/Vocabulary/RHSmoothing.lean",
+      "source_sha256": "a1bb6be0815f6b8a691f7fd7248a7cfb456514502de89713b0f62fceccc89ef3",
+      "imports": [
+        "IEANTN.Vocabulary.Zeta",
+        "Mathlib.NumberTheory.Chebyshev",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic"
+      ]
+    },
+    {
+      "module": "IEANTN.Vocabulary.PrimeWindows",
+      "original": "/data/ivy-rh-080-20261125/network/IEANTN/Vocabulary/PrimeWindows.lean",
+      "source_sha256": "8e6fb241093709c82b1b67b68603316e6519da7e84288f031f8a7819c6800d38",
+      "imports": [
+        "IEANTN.Vocabulary.RHSmoothing",
+        "Mathlib.NumberTheory.PrimeCounting",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.DerivHyp"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.PrimeInterval.v4.Conclusions",
+      "original": "/data/ivy-rh-080-20261125/network/IEANTN/Nodes/PrimeInterval/v4/Conclusions.lean",
+      "source_sha256": "30acbab826c4f38caeb605cb7022d1f4ab7e4bd15b728d23b6a8c99d7b4f9ae6",
+      "imports": [
+        "IEANTN.Vocabulary.PrimeWindows"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.PrimePowerPopulation.v2.Conclusions",
+      "original": "/data/ivy-rh-080-20261125/network/IEANTN/Nodes/PrimePowerPopulation/v2/Conclusions.lean",
+      "source_sha256": "245c1a4d4881da315bd6b4c1e81ad66aea6d2d5cd88755b461faa3470514390a",
+      "imports": [
+        "IEANTN.Nodes.PrimeInterval.v4.Conclusions"
+      ]
+    },
+    {
+      "module": "SameSourceScalar",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/same_source/SameSourceScalar.lean",
+      "source_sha256": "77da22149da33d1de6828f41b813e2813b3c1af9902415c4ce08749addf87b11",
+      "imports": [
+        "Mathlib.Analysis.Complex.ExponentialBounds",
+        "Mathlib.Tactic"
+      ]
+    },
+    {
+      "module": "SameSourceCube",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/same_source/SameSourceCube.lean",
+      "source_sha256": "564d114336042b23b194e8f463d5637b810ca8778def29f2ef6a5127eddea059",
+      "imports": [
+        "SameSourceScalar",
+        "IEANTN.Nodes.PrimeInterval.v4.Conclusions"
+      ]
+    },
+    {
+      "module": "SameSourcePartition",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/same_source/SameSourcePartition.lean",
+      "source_sha256": "443f0d201d2c03bf0b022d6c1fbafb8a6c1122e52bb574699659490ec4f60176",
+      "imports": [
+        "SameSourceCube"
+      ]
+    },
+    {
+      "module": "SameSourceTiling",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/same_source/SameSourceTiling.lean",
+      "source_sha256": "cfb4b86f45e618fd51c6919e8df0c13cdee597b54bcb06516fb03d54522e61a9",
+      "imports": [
+        "SameSourcePartition"
+      ]
+    },
+    {
+      "module": "SameSourceSolution",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/PrimePowerPopulation.v2/Solution.lean",
+      "source_sha256": "542cf52512c8413756b339dfba9d6d856a2aa251678266131285cead3eb9fb54",
+      "imports": [
+        "IEANTN.Nodes.PrimePowerPopulation.v2.Conclusions",
+        "SameSourceTiling"
+      ]
+    },
+    {
+      "module": "SameSourceConsumerAudit",
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/same_source/SameSourceConsumerAudit.lean",
+      "source_sha256": "60f1bfe629df7c1a48862d9c1989277ca1cf46b4efa9ddb52d9add861c391a58",
+      "imports": [
+        "Lean",
+        "SameSourceSolution"
+      ]
+    }
+  ],
+  "compiler": "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+  "compiler_sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+  "generic_lean_path": "/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/mathlib/.lake/build/lib/lean:/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/plausible/.lake/build/lib/lean:/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/importGraph/.lake/build/lib/lean:/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/proofwidgets/.lake/build/lib/lean:/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/aesop/.lake/build/lib/lean:/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/Qq/.lake/build/lib/lean:/ryu/hyunsik/playground/independence/codex/ivy/ieantn-numerics-integration-20261006/IEANTN/.lake/packages/batteries/.lake/build/lib/lean",
+  "predecessor_application_objects_used": false,
+  "host_meminfo": "MemTotal:       1584989924 kB\nMemFree:        405086552 kB\nMemAvailable:   1146538064 kB\nBuffers:        33683104 kB\nCached:         829940772 kB\nSwapCached:       202692 kB\nActive:         426832244 kB\nInactive:       663668456 kB\nActive(anon):    3426124 kB\nInactive(anon): 397090712 kB\nActive(file):   423406120 kB\nInactive(file): 266577744 kB\nUnevictable:       27980 kB\nMlocked:           27980 kB\nSwapTotal:       8388604 kB\nSwapFree:          19768 kB\nDirty:              1212 kB\nWriteback:             0 kB\nAnonPages:      226566788 kB\nMapped:         184044016 kB\nShmem:          173631044 kB\nKReclaimable:   60582220 kB\nSlab:           70778252 kB\nSReclaimable:   60582220 kB\nSUnreclaim:     10196032 kB\nKernelStack:      399360 kB\nPageTables:      2120740 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:    800883564 kB\nCommitted_AS:   928548268 kB\nVmallocTotal:   13743895347199 kB\nVmallocUsed:    10995664 kB\nVmallocChunk:          0 kB\nPercpu:           641536 kB\nHardwareCorrupted:     0 kB\nAnonHugePages:   1198080 kB\nShmemHugePages:        0 kB\nShmemPmdMapped:        0 kB\nFileHugePages:         0 kB\nFilePmdMapped:         0 kB\nHugePages_Total:       0\nHugePages_Free:        0\nHugePages_Rsvd:        0\nHugePages_Surp:        0\nHugepagesize:       2048 kB\nHugetlb:               0 kB\nDirectMap4k:    494205540 kB\nDirectMap2M:    949381120 kB\nDirectMap1G:    166723584 kB\n",
+  "per_process_AS_bytes": 34359738368,
+  "host_available_RAM_reserve_bytes": 274877906944,
+  "controller_sha256": "f2c210957eae1e9218c7ed714f8e388ba7f51f22d63b275d8e6098cec818222c"
+}

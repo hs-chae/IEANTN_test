@@ -1,0 +1,385 @@
+{
+  "status": "PASS_ACTUAL_NEGATIVE_REGENERATION_CLI_ALL_OPTIMIZATION_MODES",
+  "family": "primal28",
+  "cases": 21,
+  "scope": "Early rejection controls only. Complete positive regeneration is recorded separately in all three modes.",
+  "rows": [
+    {
+      "mode": "normal",
+      "case": "existing_output",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/normal_existing_output/fixture/primal28/regenerate.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/normal_existing_output/output"
+      ],
+      "returncode": 1,
+      "expected_guard": "--out must be a fresh directory",
+      "guard_observed": true,
+      "acceptance_receipt_absent": true,
+      "passed": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "ecb7589c0bb00c8d9b947f2e60815715688d12628b7635df302a349b5b93e39b"
+    },
+    {
+      "mode": "normal",
+      "case": "inside_source",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/normal_inside_source/fixture/primal28/regenerate.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/normal_inside_source/fixture/primal28/new_output"
+      ],
+      "returncode": 1,
+      "expected_guard": "scratch must be outside publishable source",
+      "guard_observed": true,
+      "acceptance_receipt_absent": true,
+      "passed": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "d42971cdadd2613f0c7a2988aab92e6d3fc8ca99fb9ea36e1c7881b5720af629"
+    },
+    {
+      "mode": "normal",
+      "case": "candidate_hash",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/normal_candidate_hash/fixture/primal28/regenerate.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/normal_candidate_hash/output"
+      ],
+      "returncode": 1,
+      "expected_guard": "candidate SHA mismatch",
+      "guard_observed": true,
+      "acceptance_receipt_absent": true,
+      "passed": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "eccc9fe6cf92df417fcb0749e22ecc2897e6f8b4a39a0020c1f717a54df515a3"
+    },
+    {
+      "mode": "normal",
+      "case": "coefficient_identity",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/normal_coefficient_identity/fixture/primal28/regenerate.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/normal_coefficient_identity/output"
+      ],
+      "returncode": 1,
+      "expected_guard": "exact Laguerre transform coefficient mismatch",
+      "guard_observed": true,
+      "acceptance_receipt_absent": true,
+      "passed": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "a3e2326aa1a560ab8065527da5aa1914c1b7fb6e5f2cb2778dc62bc34466bb16"
+    },
+    {
+      "mode": "normal",
+      "case": "missing_candidate",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/normal_missing_candidate/fixture/primal28/regenerate.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/normal_missing_candidate/output"
+      ],
+      "returncode": 1,
+      "expected_guard": "FileNotFoundError",
+      "guard_observed": true,
+      "acceptance_receipt_absent": true,
+      "passed": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "40c4f601e40ae29ef2be726ab9ea487eb66c35778287820cc38f5e90850a8b69"
+    },
+    {
+      "mode": "normal",
+      "case": "unknown_cli",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/normal_unknown_cli/fixture/primal28/regenerate.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/normal_unknown_cli/output",
+        "--unsupported-mode"
+      ],
+      "returncode": 2,
+      "expected_guard": "unrecognized arguments",
+      "guard_observed": true,
+      "acceptance_receipt_absent": true,
+      "passed": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e76fe2a63606eda040b61657a752cd44f5e9a2a2c761b3843170c250bdc9a561"
+    },
+    {
+      "mode": "normal",
+      "case": "original_source_hash",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/normal_original_source_hash/fixture/primal28/regenerate.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/normal_original_source_hash/output"
+      ],
+      "returncode": 1,
+      "expected_guard": "original timely input SHA mismatch",
+      "guard_observed": true,
+      "acceptance_receipt_absent": true,
+      "passed": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "32e089ebf9ef87e896ab0119b98adf2bb3ff120599edc4014b2037a08ac675f0"
+    },
+    {
+      "mode": "-O",
+      "case": "existing_output",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/O_existing_output/fixture/primal28/regenerate.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/O_existing_output/output"
+      ],
+      "returncode": 1,
+      "expected_guard": "--out must be a fresh directory",
+      "guard_observed": true,
+      "acceptance_receipt_absent": true,
+      "passed": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "b937e0158d3a5366fe462d4ea017e568ab919c414f1a644e1138ee7004627937"
+    },
+    {
+      "mode": "-O",
+      "case": "inside_source",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/O_inside_source/fixture/primal28/regenerate.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/O_inside_source/fixture/primal28/new_output"
+      ],
+      "returncode": 1,
+      "expected_guard": "scratch must be outside publishable source",
+      "guard_observed": true,
+      "acceptance_receipt_absent": true,
+      "passed": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "3e587f2dc5fefd4dbb17c77588cc55c277544fa3ee03332c412dcf9e66bece78"
+    },
+    {
+      "mode": "-O",
+      "case": "candidate_hash",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/O_candidate_hash/fixture/primal28/regenerate.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/O_candidate_hash/output"
+      ],
+      "returncode": 1,
+      "expected_guard": "candidate SHA mismatch",
+      "guard_observed": true,
+      "acceptance_receipt_absent": true,
+      "passed": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "7415d6be74f874fc9faf785695c07e23eae33ebcf641a1e8257467fee870b747"
+    },
+    {
+      "mode": "-O",
+      "case": "coefficient_identity",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/O_coefficient_identity/fixture/primal28/regenerate.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/O_coefficient_identity/output"
+      ],
+      "returncode": 1,
+      "expected_guard": "exact Laguerre transform coefficient mismatch",
+      "guard_observed": true,
+      "acceptance_receipt_absent": true,
+      "passed": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "8094fc44fd98a91758947103fa555522f8cd6f88e0e0063cbb0160d48ecfa1c4"
+    },
+    {
+      "mode": "-O",
+      "case": "missing_candidate",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/O_missing_candidate/fixture/primal28/regenerate.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/O_missing_candidate/output"
+      ],
+      "returncode": 1,
+      "expected_guard": "FileNotFoundError",
+      "guard_observed": true,
+      "acceptance_receipt_absent": true,
+      "passed": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "dd918d96cee1935ee7e7b0a42ba1cb0414003541c6c4aba9a3795e859f24dbc8"
+    },
+    {
+      "mode": "-O",
+      "case": "unknown_cli",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/O_unknown_cli/fixture/primal28/regenerate.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/O_unknown_cli/output",
+        "--unsupported-mode"
+      ],
+      "returncode": 2,
+      "expected_guard": "unrecognized arguments",
+      "guard_observed": true,
+      "acceptance_receipt_absent": true,
+      "passed": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e76fe2a63606eda040b61657a752cd44f5e9a2a2c761b3843170c250bdc9a561"
+    },
+    {
+      "mode": "-O",
+      "case": "original_source_hash",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/O_original_source_hash/fixture/primal28/regenerate.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/O_original_source_hash/output"
+      ],
+      "returncode": 1,
+      "expected_guard": "original timely input SHA mismatch",
+      "guard_observed": true,
+      "acceptance_receipt_absent": true,
+      "passed": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "44981b833adb5b3965fb01e9803e41c47e64c18ffc4e49e309ac071ec1c40812"
+    },
+    {
+      "mode": "-OO",
+      "case": "existing_output",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/OO_existing_output/fixture/primal28/regenerate.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/OO_existing_output/output"
+      ],
+      "returncode": 1,
+      "expected_guard": "--out must be a fresh directory",
+      "guard_observed": true,
+      "acceptance_receipt_absent": true,
+      "passed": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "8d3625eae5a18aecfe5764d2ae620564f82b7f63a85d87d74f435a46d83115a6"
+    },
+    {
+      "mode": "-OO",
+      "case": "inside_source",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/OO_inside_source/fixture/primal28/regenerate.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/OO_inside_source/fixture/primal28/new_output"
+      ],
+      "returncode": 1,
+      "expected_guard": "scratch must be outside publishable source",
+      "guard_observed": true,
+      "acceptance_receipt_absent": true,
+      "passed": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "25961286fa4c104b1ce5d359d5687c135e2649e4b793662a1232555e2289db7e"
+    },
+    {
+      "mode": "-OO",
+      "case": "candidate_hash",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/OO_candidate_hash/fixture/primal28/regenerate.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/OO_candidate_hash/output"
+      ],
+      "returncode": 1,
+      "expected_guard": "candidate SHA mismatch",
+      "guard_observed": true,
+      "acceptance_receipt_absent": true,
+      "passed": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "1862120d12689c3b3b475f71df69f17b7b3f33c5728ad8f9f64adca0ee666438"
+    },
+    {
+      "mode": "-OO",
+      "case": "coefficient_identity",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/OO_coefficient_identity/fixture/primal28/regenerate.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/OO_coefficient_identity/output"
+      ],
+      "returncode": 1,
+      "expected_guard": "exact Laguerre transform coefficient mismatch",
+      "guard_observed": true,
+      "acceptance_receipt_absent": true,
+      "passed": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "ac384e958bdd2bdfcca11467089ae2f018b319b7385c136cf6592295963213de"
+    },
+    {
+      "mode": "-OO",
+      "case": "missing_candidate",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/OO_missing_candidate/fixture/primal28/regenerate.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/OO_missing_candidate/output"
+      ],
+      "returncode": 1,
+      "expected_guard": "FileNotFoundError",
+      "guard_observed": true,
+      "acceptance_receipt_absent": true,
+      "passed": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "50125e6c41a091b8f8528164976b17e45b815f1aeb7470e82785a2422b9c685a"
+    },
+    {
+      "mode": "-OO",
+      "case": "unknown_cli",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/OO_unknown_cli/fixture/primal28/regenerate.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/OO_unknown_cli/output",
+        "--unsupported-mode"
+      ],
+      "returncode": 2,
+      "expected_guard": "unrecognized arguments",
+      "guard_observed": true,
+      "acceptance_receipt_absent": true,
+      "passed": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e76fe2a63606eda040b61657a752cd44f5e9a2a2c761b3843170c250bdc9a561"
+    },
+    {
+      "mode": "-OO",
+      "case": "original_source_hash",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/OO_original_source_hash/fixture/primal28/regenerate.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/functional/prospective-opt28-v1/regeneration-controls-v1/OO_original_source_hash/output"
+      ],
+      "returncode": 1,
+      "expected_guard": "original timely input SHA mismatch",
+      "guard_observed": true,
+      "acceptance_receipt_absent": true,
+      "passed": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "db0b6036ed61c2377bbf3400bfcf2bedc27819a5e1db5914c089a17a7f33f7a0"
+    }
+  ],
+  "seconds": 0.8241913635283709,
+  "script_sha256": "016257aa18ed70f1423431707bef9d4ca5a21372dd0c6c1c9b3d2e521ac079cd",
+  "wrapper_sha256": "7ae85c039e928207fe0c415d2fd228768c350367fd89006ff2b41a83870936a7"
+}

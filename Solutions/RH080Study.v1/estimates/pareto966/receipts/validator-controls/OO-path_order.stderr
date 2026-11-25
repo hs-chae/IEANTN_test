@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/pareto966/reproduce.py", line 54, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/pareto966/reproduce.py", line 19, in main
+    lib=Path(pp);need('/.lake/packages/' in pp and lib.is_dir(),'Generic library path outside pinned package layout');pkg=lib.parents[3];need(pkg.name==dep['name'],'Generic package order/name differs');rev=subprocess.check_output(['git','rev-parse','HEAD'],cwd=pkg,text=True).strip();dirty=subprocess.check_output(['git','status','--porcelain','--untracked-files=no'],cwd=pkg,text=True);need(rev==dep['revision'] and not dirty,'Generic source revision or cleanliness differs')
+                                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/pareto966/reproduce.py", line 7, in need
+    if not c:raise ValueError(m)
+             ^^^^^^^^^^^^^^^^^^^
+ValueError: Generic package order/name differs

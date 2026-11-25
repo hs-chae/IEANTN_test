@@ -1,0 +1,115 @@
+{
+  "status": "PASS_SIX_READ_ONLY_NORMAL_O_OO_SOURCE_ASSOCIATION_AND_MATERIALIZER_CHECK_ONLY_ROUTES",
+  "runs": [
+    {
+      "label": "normal-association",
+      "args": {
+        "cmd": "PYTHONDONTWRITEBYTECODE=1 python3  Solutions/RH080Study.v1/reviews/repro-portability/check_review_inputs.py --repository . --output Solutions/RH080Study.v1/reviews/repro-portability/evidence/ASSOCIATION_normal.json",
+        "workdir": "/data/ivy-rh-080-20261125/network",
+        "max_output_tokens": 600
+      },
+      "result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "b9a896",
+          "wall_time_seconds": 0.743083301,
+          "exit_code": 0,
+          "original_token_count": 26,
+          "output": "{\"status\": \"PASS_READ_ONLY_REPRODUCTION_SOURCE_ASSOCIATION_ONLY\", \"inputs\": 278, \"frozen_files\": 55}\n"
+        }
+      }
+    },
+    {
+      "label": "normal-materializer-check-only",
+      "args": {
+        "cmd": "PYTHONDONTWRITEBYTECODE=1 python3  Solutions/RH080Study.v1/materialize_generated.py --repository . --check-only",
+        "workdir": "/data/ivy-rh-080-20261125/network",
+        "max_output_tokens": 600
+      },
+      "result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "43e180",
+          "wall_time_seconds": 0.14355473,
+          "exit_code": 0,
+          "original_token_count": 35,
+          "output": "{\"status\": \"CHECKED_EXACT_GENERATED_SOURCE_BOOTSTRAP_POPULATION_NOT_PROOF\", \"missing\": [], \"missing_count\": 0, \"complete_input_count\": 278}\n"
+        }
+      }
+    },
+    {
+      "label": "O-association",
+      "args": {
+        "cmd": "PYTHONDONTWRITEBYTECODE=1 python3 -O Solutions/RH080Study.v1/reviews/repro-portability/check_review_inputs.py --repository . --output Solutions/RH080Study.v1/reviews/repro-portability/evidence/ASSOCIATION_O.json",
+        "workdir": "/data/ivy-rh-080-20261125/network",
+        "max_output_tokens": 600
+      },
+      "result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "6c4fb4",
+          "wall_time_seconds": 0.759412668,
+          "exit_code": 0,
+          "original_token_count": 26,
+          "output": "{\"status\": \"PASS_READ_ONLY_REPRODUCTION_SOURCE_ASSOCIATION_ONLY\", \"inputs\": 278, \"frozen_files\": 55}\n"
+        }
+      }
+    },
+    {
+      "label": "O-materializer-check-only",
+      "args": {
+        "cmd": "PYTHONDONTWRITEBYTECODE=1 python3 -O Solutions/RH080Study.v1/materialize_generated.py --repository . --check-only",
+        "workdir": "/data/ivy-rh-080-20261125/network",
+        "max_output_tokens": 600
+      },
+      "result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "12d234",
+          "wall_time_seconds": 0.118312459,
+          "exit_code": 0,
+          "original_token_count": 35,
+          "output": "{\"status\": \"CHECKED_EXACT_GENERATED_SOURCE_BOOTSTRAP_POPULATION_NOT_PROOF\", \"missing\": [], \"missing_count\": 0, \"complete_input_count\": 278}\n"
+        }
+      }
+    },
+    {
+      "label": "OO-association",
+      "args": {
+        "cmd": "PYTHONDONTWRITEBYTECODE=1 python3 -OO Solutions/RH080Study.v1/reviews/repro-portability/check_review_inputs.py --repository . --output Solutions/RH080Study.v1/reviews/repro-portability/evidence/ASSOCIATION_OO.json",
+        "workdir": "/data/ivy-rh-080-20261125/network",
+        "max_output_tokens": 600
+      },
+      "result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "bef66b",
+          "wall_time_seconds": 0.786404037,
+          "exit_code": 0,
+          "original_token_count": 26,
+          "output": "{\"status\": \"PASS_READ_ONLY_REPRODUCTION_SOURCE_ASSOCIATION_ONLY\", \"inputs\": 278, \"frozen_files\": 55}\n"
+        }
+      }
+    },
+    {
+      "label": "OO-materializer-check-only",
+      "args": {
+        "cmd": "PYTHONDONTWRITEBYTECODE=1 python3 -OO Solutions/RH080Study.v1/materialize_generated.py --repository . --check-only",
+        "workdir": "/data/ivy-rh-080-20261125/network",
+        "max_output_tokens": 600
+      },
+      "result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "3cc831",
+          "wall_time_seconds": 0.137322928,
+          "exit_code": 0,
+          "original_token_count": 35,
+          "output": "{\"status\": \"CHECKED_EXACT_GENERATED_SOURCE_BOOTSTRAP_POPULATION_NOT_PROOF\", \"missing\": [], \"missing_count\": 0, \"complete_input_count\": 278}\n"
+        }
+      }
+    }
+  ],
+  "heavy_proof_replays": 0,
+  "model_trials": 0
+}

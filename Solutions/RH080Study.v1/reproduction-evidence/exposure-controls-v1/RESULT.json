@@ -1,0 +1,215 @@
+{
+  "status": "PASS_12_ADDITIVE_RUNTIME_SOURCE_AND_CLI_CONTROLS_ALL_PYTHON_MODES_NO_INFERENCE",
+  "rows": [
+    {
+      "name": "normal-inspection",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/reproduction-review/exposure-controls-v1/source-only/network/Solutions/RH080Study.v1/exposure-runtime/inspect_replay.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/exposure-controls-v1/source-only/network",
+        "--output",
+        "/data/ivy-rh-080-20261125/reproduction-review/exposure-controls-v1/normal-inspection.json",
+        "--corpus",
+        "/data/ivy-rh-080-20261125/ablation-corpus-private"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "stdout_sha256": "16a67bf020dd176e84cdad792f1bdf1b8c01ab75bc9b463b6ab69442f7afa916",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "intended_guard": "PASS_ADDITIVE_EXPOSURE_RUNTIME_SOURCE_AUDIT_NO_INFERENCE_NOT_TRIAL_READINESS"
+    },
+    {
+      "name": "normal-stale-output",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/reproduction-review/exposure-controls-v1/source-only/network/Solutions/RH080Study.v1/exposure-runtime/inspect_replay.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/exposure-controls-v1/source-only/network",
+        "--output",
+        "/data/ivy-rh-080-20261125/reproduction-review/exposure-controls-v1/normal-inspection.json",
+        "--corpus",
+        "/data/ivy-rh-080-20261125/ablation-corpus-private"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "23ce17cd3edd234c041ce6b7bbd5e5c137b39cb34a075bace67120cc60d6d72e",
+      "intended_guard": "Fresh output required"
+    },
+    {
+      "name": "normal-changed-source",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/reproduction-review/exposure-controls-v1/source-only/network/Solutions/RH080Study.v1/exposure-runtime/inspect_replay.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/exposure-controls-v1/source-only/network",
+        "--output",
+        "/data/ivy-rh-080-20261125/reproduction-review/exposure-controls-v1/normal-wrong-component.json"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "299e7cb8f1a1caa5fdc1877b4b9cabd03e2becd2ae9a957d933547027fc443c0",
+      "intended_guard": "Reviewed runtime component differs:"
+    },
+    {
+      "name": "normal-lock-adapter-help",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/reproduction-review/exposure-controls-v1/source-only/network/Solutions/RH080Study.v1/exposure-runtime/check_lock.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "stdout_sha256": "39b5bb3825f1f0b2b4db6340959a4409c38c32941cf7f64f7e5241f915fa5cd2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "intended_guard": "--data-root"
+    },
+    {
+      "name": "O-inspection",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/reproduction-review/exposure-controls-v1/source-only/network/Solutions/RH080Study.v1/exposure-runtime/inspect_replay.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/exposure-controls-v1/source-only/network",
+        "--output",
+        "/data/ivy-rh-080-20261125/reproduction-review/exposure-controls-v1/O-inspection.json",
+        "--corpus",
+        "/data/ivy-rh-080-20261125/ablation-corpus-private"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "stdout_sha256": "16a67bf020dd176e84cdad792f1bdf1b8c01ab75bc9b463b6ab69442f7afa916",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "intended_guard": "PASS_ADDITIVE_EXPOSURE_RUNTIME_SOURCE_AUDIT_NO_INFERENCE_NOT_TRIAL_READINESS"
+    },
+    {
+      "name": "O-stale-output",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/reproduction-review/exposure-controls-v1/source-only/network/Solutions/RH080Study.v1/exposure-runtime/inspect_replay.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/exposure-controls-v1/source-only/network",
+        "--output",
+        "/data/ivy-rh-080-20261125/reproduction-review/exposure-controls-v1/O-inspection.json",
+        "--corpus",
+        "/data/ivy-rh-080-20261125/ablation-corpus-private"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "23ce17cd3edd234c041ce6b7bbd5e5c137b39cb34a075bace67120cc60d6d72e",
+      "intended_guard": "Fresh output required"
+    },
+    {
+      "name": "O-changed-source",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/reproduction-review/exposure-controls-v1/source-only/network/Solutions/RH080Study.v1/exposure-runtime/inspect_replay.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/exposure-controls-v1/source-only/network",
+        "--output",
+        "/data/ivy-rh-080-20261125/reproduction-review/exposure-controls-v1/O-wrong-component.json"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "299e7cb8f1a1caa5fdc1877b4b9cabd03e2becd2ae9a957d933547027fc443c0",
+      "intended_guard": "Reviewed runtime component differs:"
+    },
+    {
+      "name": "O-lock-adapter-help",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/reproduction-review/exposure-controls-v1/source-only/network/Solutions/RH080Study.v1/exposure-runtime/check_lock.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "stdout_sha256": "39b5bb3825f1f0b2b4db6340959a4409c38c32941cf7f64f7e5241f915fa5cd2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "intended_guard": "--data-root"
+    },
+    {
+      "name": "OO-inspection",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/reproduction-review/exposure-controls-v1/source-only/network/Solutions/RH080Study.v1/exposure-runtime/inspect_replay.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/exposure-controls-v1/source-only/network",
+        "--output",
+        "/data/ivy-rh-080-20261125/reproduction-review/exposure-controls-v1/OO-inspection.json",
+        "--corpus",
+        "/data/ivy-rh-080-20261125/ablation-corpus-private"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "stdout_sha256": "16a67bf020dd176e84cdad792f1bdf1b8c01ab75bc9b463b6ab69442f7afa916",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "intended_guard": "PASS_ADDITIVE_EXPOSURE_RUNTIME_SOURCE_AUDIT_NO_INFERENCE_NOT_TRIAL_READINESS"
+    },
+    {
+      "name": "OO-stale-output",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/reproduction-review/exposure-controls-v1/source-only/network/Solutions/RH080Study.v1/exposure-runtime/inspect_replay.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/exposure-controls-v1/source-only/network",
+        "--output",
+        "/data/ivy-rh-080-20261125/reproduction-review/exposure-controls-v1/OO-inspection.json",
+        "--corpus",
+        "/data/ivy-rh-080-20261125/ablation-corpus-private"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "23ce17cd3edd234c041ce6b7bbd5e5c137b39cb34a075bace67120cc60d6d72e",
+      "intended_guard": "Fresh output required"
+    },
+    {
+      "name": "OO-changed-source",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/reproduction-review/exposure-controls-v1/source-only/network/Solutions/RH080Study.v1/exposure-runtime/inspect_replay.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/reproduction-review/exposure-controls-v1/source-only/network",
+        "--output",
+        "/data/ivy-rh-080-20261125/reproduction-review/exposure-controls-v1/OO-wrong-component.json"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "299e7cb8f1a1caa5fdc1877b4b9cabd03e2becd2ae9a957d933547027fc443c0",
+      "intended_guard": "Reviewed runtime component differs:"
+    },
+    {
+      "name": "OO-lock-adapter-help",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/reproduction-review/exposure-controls-v1/source-only/network/Solutions/RH080Study.v1/exposure-runtime/check_lock.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "stdout_sha256": "39b5bb3825f1f0b2b4db6340959a4409c38c32941cf7f64f7e5241f915fa5cd2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "intended_guard": "--data-root"
+    }
+  ],
+  "source_component_manifest_sha256": "c36fd6551da12de232ca5c67d49f8899b59f6ff230b0fad18980aaf90417a3fd",
+  "controller_sha256": "2b73f991a44ff03da81b997bfb364a9a58a6c016d109992834c5cab650c7fb57",
+  "model_calls": 0,
+  "worker_launches": 0,
+  "credentials_read": false,
+  "full_clean_root_trial_gate_tested": false,
+  "scope": "Source/metadata availability and effective rejection controls; not runtime/fixture acceptance or a mathematical proof."
+}

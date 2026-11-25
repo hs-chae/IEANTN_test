@@ -1,0 +1,54 @@
+{
+  "status": "PASS_ACTUAL_ASSIGNED_PROOF_IMPORT_MANIPULATION",
+  "mode": "V1",
+  "checks": [
+    {
+      "kind": "D",
+      "command": [
+        "/bin/lean",
+        "--root=/work",
+        "/work/DProbe.lean"
+      ],
+      "returncode": 0,
+      "stdout": "RH080.Dual.compact_grid_from_integer_caps (hcap : \u2200 (k : Fin 257), RH080PV.Model.sampleBound \u2191k \u2264 1221161) (k : \u2115) :\n  k \u2264 256 \u2192 |RH080.Dual.cosineTransform RH080.Dual.compactStep (\u2191k / 128)| \u2264 611 / 500\nRH080.Dual.kernel_compact_global (x : \u211d) : |RH080.Dual.cosineTransform RH080.Dual.compactStep x| \u2264 123 / 100\n'RH080.Dual.compact_grid_from_integer_caps' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RH080.Dual.kernel_compact_global' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "stderr": "/bin/bash: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)\n",
+      "accepted": true,
+      "axioms": [
+        [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      ]
+    },
+    {
+      "kind": "C",
+      "command": [
+        "/bin/lean",
+        "--root=/work",
+        "/work/CProbe.lean"
+      ],
+      "returncode": 0,
+      "stdout": "RH080.Dual.actual_source_first_functional_result : RH080.Dual.SourceFirstFunctionalResult\n'RH080.Dual.actual_source_first_functional_result' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "stderr": "/bin/bash: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)\n",
+      "accepted": true,
+      "axioms": [
+        [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      ]
+    }
+  ],
+  "actual_lean_path": null,
+  "actual_bin_lean_wrapper": "#!/bin/bash\nexport LEAN_PATH=/source_pv/objects:/generic/lib/mathlib:/generic/lib/plausible:/generic/lib/LeanSearchClient:/generic/lib/importGraph:/generic/lib/proofwidgets:/generic/lib/aesop:/generic/lib/Qq:/generic/lib/batteries:/work/objects\nexec /opt/lean/bin/lean -j4 \"$@\"\n",
+  "lean_version": "Lean (version 4.34.0-rc2, x86_64-unknown-linux-gnu, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)",
+  "source_C_object_present": true,
+  "no_native_axiom_in_successful_audits": true
+}

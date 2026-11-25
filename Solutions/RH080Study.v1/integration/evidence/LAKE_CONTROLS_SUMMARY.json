@@ -1,0 +1,516 @@
+{
+  "status": "PASS30_ACTUAL_LAKE_REGISTRATION_REPLAY_CONTROLS_ALL_OPTIMIZATION_MODES",
+  "cases": [
+    {
+      "case": "normal-registration-positive",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/integration/register_lake.py",
+        "--check"
+      ],
+      "returncode": 0,
+      "expected_acceptance": true,
+      "stdout_sha256": "fa5e78a8a2cdeffda852295f7ec0435db0676112a503ac2b75eba828e3999e5f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_command_sha256": "19241fc508b5d346ed92b429c1f6dea9fd6e6159213dae8b6863a33db54dfbbd"
+    },
+    {
+      "case": "normal-existing-output",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/integration/run_lake_solutions.py",
+        "--run",
+        "/data/ivy-rh-080-20261125/integration/final-integration-v1/lake-all10-final-v4-OO"
+      ],
+      "returncode": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "cb696294aef71220fabcb831fa5d79a58a570d79158620baa3e2ff46cfe55fd0",
+      "original_command_sha256": "047b104be9a1431b92b95407204d6801506fcc44606835c6cb306b3521e9b03b"
+    },
+    {
+      "case": "normal-unknown-project",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/integration/run_lake_solutions.py",
+        "--run",
+        "/data/ivy-rh-080-20261125/integration/final-integration-v1/controls-final-v1-OO/normal-unknown",
+        "--projects",
+        "Bogus.v0"
+      ],
+      "returncode": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "a3856fe373518da35d90b024ee254a438884493d88421b8719861f0802ad604b",
+      "original_command_sha256": "22a6bbcb95e88b1762ed3bb1ab835c891c0f46fe1bbafe0b192c45eebc1fd769"
+    },
+    {
+      "case": "normal-duplicate-project",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/integration/run_lake_solutions.py",
+        "--run",
+        "/data/ivy-rh-080-20261125/integration/final-integration-v1/controls-final-v1-OO/normal-duplicate",
+        "--projects",
+        "ThetaCubePopulation.v1",
+        "ThetaCubePopulation.v1"
+      ],
+      "returncode": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "a3856fe373518da35d90b024ee254a438884493d88421b8719861f0802ad604b",
+      "original_command_sha256": "a470d23fca6f330cf9239533bee21ceec27856cc8e8767de0c3a4e5aca15815e"
+    },
+    {
+      "case": "normal-invalid-scheduler",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/integration/run_lake_solutions.py",
+        "--run",
+        "/data/ivy-rh-080-20261125/integration/final-integration-v1/controls-final-v1-OO/normal-threads",
+        "--scheduler-threads",
+        "9"
+      ],
+      "returncode": 2,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "65f21d43d685b6ae185f10048011df16769b1c22ad35c310258f772d72d9996d",
+      "original_command_sha256": "6f8aa29a1f7c0937dbe10170c1c88ba23280588a512578442ba772d08440a890"
+    },
+    {
+      "case": "normal-wrong-source",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-080-20261125/integration/final-integration-v1/controls-final-v1-OO/fixture-wrong-source/Solutions/RH080Study.v1/integration/register_lake.py",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "f29b049eddbdad7a577c3d3b96e6ed898b11511b3714ed5d07a074775d70a679",
+      "original_command_sha256": "86dd87f010ca1cc41c91dc4744f7ff01de1358ba0a97a01b012933f51cd4ef00"
+    },
+    {
+      "case": "normal-duplicate-provider",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-080-20261125/integration/final-integration-v1/controls-final-v1-OO/fixture-duplicate-provider/Solutions/RH080Study.v1/integration/register_lake.py",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "d0227e97cd377fe1e43045bf7f4e790a3d544b4bf7d5d1142214b1e89b414b3c",
+      "original_command_sha256": "66bde3aee2bb61d763a680f0de4fe25da169ed3fe1f0b3194e71b6d22a244a48"
+    },
+    {
+      "case": "normal-outside-checkout",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-080-20261125/integration/final-integration-v1/controls-final-v1-OO/fixture-outside-checkout/Solutions/RH080Study.v1/integration/register_lake.py",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "5288d8d2f6bde10ec3107ddac1ba40c6a3ebcefe8640aafeed72620195166779",
+      "original_command_sha256": "0619b426a077c1200112234ed68093c72cb4d80d2bb410caa5f12b33d29ae195"
+    },
+    {
+      "case": "normal-audit-provider",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-080-20261125/integration/final-integration-v1/controls-final-v1-OO/fixture-audit-provider/Solutions/RH080Study.v1/integration/register_lake.py",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "304fbcd53dc379993dcdc7d8d08766f008fd59847b318fbba5ce8e32995c7757",
+      "original_command_sha256": "5b3ada57f0d397de838c1898588f1db4c45ee99516d860d4af42eb52005ae123"
+    },
+    {
+      "case": "normal-actual-selected-project",
+      "command": [
+        "systemd-run",
+        "--user",
+        "--unit=ivy-rh080-lake-control-a49d2ed3c8",
+        "--collect",
+        "--wait",
+        "--pipe",
+        "-p",
+        "MemoryMax=300G",
+        "-p",
+        "MemorySwapMax=0",
+        "-p",
+        "CPUQuota=1600%",
+        "--setenv=PATH=<current execution PATH; omitted from public summary>",
+        "/usr/bin/taskset",
+        "-c",
+        "48-63",
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/integration/run_lake_solutions.py",
+        "--run",
+        "/data/ivy-rh-080-20261125/integration/final-integration-v1/controls-final-v1-OO/normal-actual-selected-run",
+        "--projects",
+        "ThetaCubePopulation.v1",
+        "--scheduler-threads",
+        "8"
+      ],
+      "returncode": 0,
+      "expected_acceptance": true,
+      "stdout_sha256": "e6867ed30a7194f0998977c4ec38dca3f82ce37b2d92632dd8466fbcd2e74542",
+      "stderr_sha256": "29eb62aed21913b5dcb08cb44c8fbc7982fb8c53872087f88339c9d5b5efc07e",
+      "original_command_sha256": "343ea77f67f8b997cb3e3ce19c83594c19e405d49cb0db5a5750d26c36ff5180"
+    },
+    {
+      "case": "O-registration-positive",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/integration/register_lake.py",
+        "--check"
+      ],
+      "returncode": 0,
+      "expected_acceptance": true,
+      "stdout_sha256": "fa5e78a8a2cdeffda852295f7ec0435db0676112a503ac2b75eba828e3999e5f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_command_sha256": "a2d48a82d9132f4c25da4edbd8fcaa902f0fb6861d52ef54f0deeffa0adc59ea"
+    },
+    {
+      "case": "O-existing-output",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/integration/run_lake_solutions.py",
+        "--run",
+        "/data/ivy-rh-080-20261125/integration/final-integration-v1/lake-all10-final-v4-OO"
+      ],
+      "returncode": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "cb696294aef71220fabcb831fa5d79a58a570d79158620baa3e2ff46cfe55fd0",
+      "original_command_sha256": "c9a9be2346062a3b6f1dbf1ad1b65393c672e200fd892a3a73332dd80b739aba"
+    },
+    {
+      "case": "O-unknown-project",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/integration/run_lake_solutions.py",
+        "--run",
+        "/data/ivy-rh-080-20261125/integration/final-integration-v1/controls-final-v1-OO/O-unknown",
+        "--projects",
+        "Bogus.v0"
+      ],
+      "returncode": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "a3856fe373518da35d90b024ee254a438884493d88421b8719861f0802ad604b",
+      "original_command_sha256": "1322f23db494a96747480de5a05b40f743b49e0d424315bfb564a7ac729be61f"
+    },
+    {
+      "case": "O-duplicate-project",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/integration/run_lake_solutions.py",
+        "--run",
+        "/data/ivy-rh-080-20261125/integration/final-integration-v1/controls-final-v1-OO/O-duplicate",
+        "--projects",
+        "ThetaCubePopulation.v1",
+        "ThetaCubePopulation.v1"
+      ],
+      "returncode": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "a3856fe373518da35d90b024ee254a438884493d88421b8719861f0802ad604b",
+      "original_command_sha256": "5d25f6fab5d79bc0feb2c4e54565d2234aec2475fe5a9570d167fe5ee31622ce"
+    },
+    {
+      "case": "O-invalid-scheduler",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/integration/run_lake_solutions.py",
+        "--run",
+        "/data/ivy-rh-080-20261125/integration/final-integration-v1/controls-final-v1-OO/O-threads",
+        "--scheduler-threads",
+        "9"
+      ],
+      "returncode": 2,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "65f21d43d685b6ae185f10048011df16769b1c22ad35c310258f772d72d9996d",
+      "original_command_sha256": "a73dc4c1b3a969f8d444ceb157206b1bdf2375cd4b1721d06a62b6c50f9442b9"
+    },
+    {
+      "case": "O-wrong-source",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/data/ivy-rh-080-20261125/integration/final-integration-v1/controls-final-v1-OO/fixture-wrong-source/Solutions/RH080Study.v1/integration/register_lake.py",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "f29b049eddbdad7a577c3d3b96e6ed898b11511b3714ed5d07a074775d70a679",
+      "original_command_sha256": "dc5bdbd0d439a1f3cb2cb22bba829447f1a80f8b6c5fa91c823a7a33d0ea2df3"
+    },
+    {
+      "case": "O-duplicate-provider",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/data/ivy-rh-080-20261125/integration/final-integration-v1/controls-final-v1-OO/fixture-duplicate-provider/Solutions/RH080Study.v1/integration/register_lake.py",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "d0227e97cd377fe1e43045bf7f4e790a3d544b4bf7d5d1142214b1e89b414b3c",
+      "original_command_sha256": "822301d4a5a3c4d9fdaf048178ed824af5bccedb84510b4b2d96420d9e04d87e"
+    },
+    {
+      "case": "O-outside-checkout",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/data/ivy-rh-080-20261125/integration/final-integration-v1/controls-final-v1-OO/fixture-outside-checkout/Solutions/RH080Study.v1/integration/register_lake.py",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "5288d8d2f6bde10ec3107ddac1ba40c6a3ebcefe8640aafeed72620195166779",
+      "original_command_sha256": "e198cfca784b972c85ec84a9886d5cff2018a6c47cf93a1b26d0956aba6449c9"
+    },
+    {
+      "case": "O-audit-provider",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/data/ivy-rh-080-20261125/integration/final-integration-v1/controls-final-v1-OO/fixture-audit-provider/Solutions/RH080Study.v1/integration/register_lake.py",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "304fbcd53dc379993dcdc7d8d08766f008fd59847b318fbba5ce8e32995c7757",
+      "original_command_sha256": "1d7fb48bd53cd5ac209710ab3b712244cf2232a79ad4904e8797b79d274ae2b6"
+    },
+    {
+      "case": "O-actual-selected-project",
+      "command": [
+        "systemd-run",
+        "--user",
+        "--unit=ivy-rh080-lake-control-0cbeab3698",
+        "--collect",
+        "--wait",
+        "--pipe",
+        "-p",
+        "MemoryMax=300G",
+        "-p",
+        "MemorySwapMax=0",
+        "-p",
+        "CPUQuota=1600%",
+        "--setenv=PATH=<current execution PATH; omitted from public summary>",
+        "/usr/bin/taskset",
+        "-c",
+        "48-63",
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-O",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/integration/run_lake_solutions.py",
+        "--run",
+        "/data/ivy-rh-080-20261125/integration/final-integration-v1/controls-final-v1-OO/O-actual-selected-run",
+        "--projects",
+        "ThetaCubePopulation.v1",
+        "--scheduler-threads",
+        "8"
+      ],
+      "returncode": 0,
+      "expected_acceptance": true,
+      "stdout_sha256": "c0061c4cfd20ef68408c64b609f2f0857f62591dce541c1ce87b82b911492cbb",
+      "stderr_sha256": "5da3afd951df11815f025ffd02c29b8d5e9a5e4f9696ce59ad6aa89a8a2d5b5f",
+      "original_command_sha256": "3017853a60d5d4ea0ac28b2a91935042aad5476739bdfbe8e5acb310810d7d41"
+    },
+    {
+      "case": "OO-registration-positive",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/integration/register_lake.py",
+        "--check"
+      ],
+      "returncode": 0,
+      "expected_acceptance": true,
+      "stdout_sha256": "fa5e78a8a2cdeffda852295f7ec0435db0676112a503ac2b75eba828e3999e5f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_command_sha256": "19abdbf73ae502738cca01068696ef2d4250e2ca788a03d8ddf654fe58dc6ed7"
+    },
+    {
+      "case": "OO-existing-output",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/integration/run_lake_solutions.py",
+        "--run",
+        "/data/ivy-rh-080-20261125/integration/final-integration-v1/lake-all10-final-v4-OO"
+      ],
+      "returncode": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "cb696294aef71220fabcb831fa5d79a58a570d79158620baa3e2ff46cfe55fd0",
+      "original_command_sha256": "61ab90e9135b7bdf40523c6cc163f7b4da90773dd0a1b8508ceccf3644569cd6"
+    },
+    {
+      "case": "OO-unknown-project",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/integration/run_lake_solutions.py",
+        "--run",
+        "/data/ivy-rh-080-20261125/integration/final-integration-v1/controls-final-v1-OO/OO-unknown",
+        "--projects",
+        "Bogus.v0"
+      ],
+      "returncode": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "a3856fe373518da35d90b024ee254a438884493d88421b8719861f0802ad604b",
+      "original_command_sha256": "ccdd2a030daf5957f6b51e55f8ede05a971789341e29489c0fa63907a02ff33b"
+    },
+    {
+      "case": "OO-duplicate-project",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/integration/run_lake_solutions.py",
+        "--run",
+        "/data/ivy-rh-080-20261125/integration/final-integration-v1/controls-final-v1-OO/OO-duplicate",
+        "--projects",
+        "ThetaCubePopulation.v1",
+        "ThetaCubePopulation.v1"
+      ],
+      "returncode": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "a3856fe373518da35d90b024ee254a438884493d88421b8719861f0802ad604b",
+      "original_command_sha256": "00ed40b3997ddf6d7b80a6baa86df16d2da77d06d35f425c113ca2cc1f627b8f"
+    },
+    {
+      "case": "OO-invalid-scheduler",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/integration/run_lake_solutions.py",
+        "--run",
+        "/data/ivy-rh-080-20261125/integration/final-integration-v1/controls-final-v1-OO/OO-threads",
+        "--scheduler-threads",
+        "9"
+      ],
+      "returncode": 2,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "65f21d43d685b6ae185f10048011df16769b1c22ad35c310258f772d72d9996d",
+      "original_command_sha256": "feb0e9c031967c2d6b5903bb81aca8b31d2f7d2a98814750f270eed747171ac7"
+    },
+    {
+      "case": "OO-wrong-source",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-080-20261125/integration/final-integration-v1/controls-final-v1-OO/fixture-wrong-source/Solutions/RH080Study.v1/integration/register_lake.py",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "f29b049eddbdad7a577c3d3b96e6ed898b11511b3714ed5d07a074775d70a679",
+      "original_command_sha256": "a6f55d1287e7c75fac8b67520881fcf2afee7e4fbaf016e290920aa2e74bf5d0"
+    },
+    {
+      "case": "OO-duplicate-provider",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-080-20261125/integration/final-integration-v1/controls-final-v1-OO/fixture-duplicate-provider/Solutions/RH080Study.v1/integration/register_lake.py",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "d0227e97cd377fe1e43045bf7f4e790a3d544b4bf7d5d1142214b1e89b414b3c",
+      "original_command_sha256": "1439d890d98c6b2cb02c5222c678c204b51776637ed8a6cc00ba2ecf853ead2f"
+    },
+    {
+      "case": "OO-outside-checkout",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-080-20261125/integration/final-integration-v1/controls-final-v1-OO/fixture-outside-checkout/Solutions/RH080Study.v1/integration/register_lake.py",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "5288d8d2f6bde10ec3107ddac1ba40c6a3ebcefe8640aafeed72620195166779",
+      "original_command_sha256": "92a49923faf54e0d47b5153f773f95f30cf2d981692ebeb88e0305caf9e723de"
+    },
+    {
+      "case": "OO-audit-provider",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-080-20261125/integration/final-integration-v1/controls-final-v1-OO/fixture-audit-provider/Solutions/RH080Study.v1/integration/register_lake.py",
+        "--check"
+      ],
+      "returncode": 1,
+      "expected_acceptance": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "304fbcd53dc379993dcdc7d8d08766f008fd59847b318fbba5ce8e32995c7757",
+      "original_command_sha256": "a22464dc45d0593ed9c2b8ffecf43e75ae0ab82bd0f3bc563933b0db6ace6e9a"
+    },
+    {
+      "case": "OO-actual-selected-project",
+      "command": [
+        "systemd-run",
+        "--user",
+        "--unit=ivy-rh080-lake-control-78741f7673",
+        "--collect",
+        "--wait",
+        "--pipe",
+        "-p",
+        "MemoryMax=300G",
+        "-p",
+        "MemorySwapMax=0",
+        "-p",
+        "CPUQuota=1600%",
+        "--setenv=PATH=<current execution PATH; omitted from public summary>",
+        "/usr/bin/taskset",
+        "-c",
+        "48-63",
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+        "-OO",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/integration/run_lake_solutions.py",
+        "--run",
+        "/data/ivy-rh-080-20261125/integration/final-integration-v1/controls-final-v1-OO/OO-actual-selected-run",
+        "--projects",
+        "ThetaCubePopulation.v1",
+        "--scheduler-threads",
+        "8"
+      ],
+      "returncode": 0,
+      "expected_acceptance": true,
+      "stdout_sha256": "09511b6aa829e58a5d0e369c851cd1d0c5e1d3e3ececc300485c221180b13e56",
+      "stderr_sha256": "d0941d29b57504de56ff88e4b61d0632576735e10f1670db48bb741c064b6380",
+      "original_command_sha256": "1f9e3bd090405ccc5b04847de97528c8333fc6f95e524e3ec26b98dbd7e50418"
+    }
+  ],
+  "source_fixtures_copy_no_objects": true,
+  "full10_project_acceptance": "/data/ivy-rh-080-20261125/integration/final-integration-v1/lake-all10-final-v4-OO/RESULT.json",
+  "controller_sha256": "5e3007eccdb6796a94402ace05da1b89ecb46a5e9bd546a4568fd6f28924c827",
+  "public_summary_note": "Only ambient PATH values are omitted. This is a derived public summary, not a byte-identical raw receipt; exact private raw receipt is retained under its SHA.",
+  "raw_private_result_sha256": "4cad35cf980461a11045f30a116f4b1162c25b3f644058ace8994e49a29ca1d5"
+}

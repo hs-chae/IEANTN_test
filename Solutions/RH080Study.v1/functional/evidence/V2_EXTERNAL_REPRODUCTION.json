@@ -1,0 +1,130 @@
+{
+  "status": "PASS_EXTERNAL_REPRODUCTION_ONLY_NOT_LEAN_OR_SOURCE_FIRST_PV",
+  "primary_pin_sha256": "eb3905eadb0e7dd8e78572e262d28d80856dcbd30e9430c81508d44b817eca24",
+  "python": "3.11.14 (main, Jan 14 2026, 19:35:32) [Clang 21.1.4 ]",
+  "python_flint": "0.9.0",
+  "jobs": [
+    {
+      "name": "original-dual",
+      "command": [
+        "/usr/bin/time",
+        "-v",
+        "-o",
+        "/data/ivy-rh-080-20261125/functional/external-reproduce-v2/original-dual.time",
+        "/data/ivy-rh-080-20261125/functional/venv/bin/python",
+        "/data/ivy-rh-080-20261125/functional/primary-original/certificates/certify_dual.py",
+        "/data/ivy-rh-080-20261125/functional/primary-original/certificates/dual-rh.json",
+        "/data/ivy-rh-080-20261125/functional/primary-original/certificates/dual-grh.json"
+      ],
+      "bits": 128,
+      "returncode": 0,
+      "seconds": 1.801748463883996,
+      "stdout_sha256": "27301a964e9891af9de0b5eae9b0ba557325d616ce9453acb87c2bbe0614d505",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "metrics_sha256": "c30c1709d03b0259b2c459e845eeb666dac493be7f11f95c4829163b69321aed"
+    },
+    {
+      "name": "original-primal",
+      "command": [
+        "/usr/bin/time",
+        "-v",
+        "-o",
+        "/data/ivy-rh-080-20261125/functional/external-reproduce-v2/original-primal.time",
+        "/data/ivy-rh-080-20261125/functional/venv/bin/python",
+        "/data/ivy-rh-080-20261125/functional/primary-original/certificates/certify.py",
+        "/data/ivy-rh-080-20261125/functional/primary-original/certificates/witness-rh.json",
+        "/data/ivy-rh-080-20261125/functional/primary-original/certificates/witness-gap.json",
+        "/data/ivy-rh-080-20261125/functional/primary-original/certificates/witness-grh.json",
+        "/data/ivy-rh-080-20261125/functional/primary-original/certificates/witness-grh-m80.json",
+        "/data/ivy-rh-080-20261125/functional/primary-original/certificates/witness-ap.json",
+        "--grid-size",
+        "1048576"
+      ],
+      "bits": 96,
+      "returncode": 0,
+      "seconds": 9.473763160407543,
+      "stdout_sha256": "2774825fffd3d7bf4585b40411d458011fbfc6bd27471cb5900b4e4e0b334635",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "metrics_sha256": "00729a69a9c5f6b22c5c3e2638fee6893a0caa8cb89b5ac7960612139336bfd1"
+    },
+    {
+      "name": "new-reduced-penalty-dual",
+      "command": [
+        "/usr/bin/time",
+        "-v",
+        "-o",
+        "/data/ivy-rh-080-20261125/functional/external-reproduce-v2/new-reduced-penalty-dual.time",
+        "/data/ivy-rh-080-20261125/functional/venv/bin/python",
+        "/data/ivy-rh-080-20261125/functional/primary-original/certificates/certify_dual.py",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/dual-A5_2-certified-v2.json"
+      ],
+      "bits": 128,
+      "returncode": 0,
+      "seconds": 0.934570599347353,
+      "stdout_sha256": "7ef831f7356286e60542dfa4048578ecbb5234bc199279e8a18fcbf94669fdd2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "metrics_sha256": "a3dbf2f55a6127b26a5a8e34906457cb7778efb5918c534889a12b3ff5f15d66"
+    },
+    {
+      "name": "new-hypothetical-penalty-primal",
+      "command": [
+        "/usr/bin/time",
+        "-v",
+        "-o",
+        "/data/ivy-rh-080-20261125/functional/external-reproduce-v2/new-hypothetical-penalty-primal.time",
+        "/data/ivy-rh-080-20261125/functional/venv/bin/python",
+        "/data/ivy-rh-080-20261125/functional/primary-original/certificates/certify.py",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/HYPOTHETICAL_A12_OVER5_PRIMAL.json",
+        "--grid-size",
+        "1048576"
+      ],
+      "bits": 96,
+      "returncode": 0,
+      "seconds": 1.886515062302351,
+      "stdout_sha256": "9e29ca440b4333485d0ac87c7f5b73c017a47c0d174fb2b34e816e6cab2dd4de",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "metrics_sha256": "043328c8753f052ca812f442913e31bdfcdde712b55b9261ac61a1cf7d058cca"
+    },
+    {
+      "name": "new-compact-dual",
+      "command": [
+        "/usr/bin/time",
+        "-v",
+        "-o",
+        "/data/ivy-rh-080-20261125/functional/external-reproduce-v2/new-compact-dual.time",
+        "/data/ivy-rh-080-20261125/functional/venv/bin/python",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/certify_compact_dual.py",
+        "--witness",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/COMPACT_DUAL.json",
+        "--output",
+        "/data/ivy-rh-080-20261125/functional/external-reproduce-v2/COMPACT_DUAL_ARB.json"
+      ],
+      "bits": 128,
+      "returncode": 0,
+      "seconds": 0.07639908790588379,
+      "stdout_sha256": "6e45e7e152445d498cf91e4eb96b73930cb87692981fe7825add03ca805e34eb",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "metrics_sha256": "5c2ee001823b26f7098f7552eb9076011b270a306d0e347fe1b437d2bf3a097e"
+    },
+    {
+      "name": "new-checker-controls",
+      "command": [
+        "/usr/bin/time",
+        "-v",
+        "-o",
+        "/data/ivy-rh-080-20261125/functional/external-reproduce-v2/new-checker-controls.time",
+        "/data/ivy-rh-080-20261125/functional/venv/bin/python",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/functional/test_external_checker.py",
+        "--run",
+        "/data/ivy-rh-080-20261125/functional/external-reproduce-v2/controls"
+      ],
+      "bits": 128,
+      "returncode": 0,
+      "seconds": 1.9450409207493067,
+      "stdout_sha256": "b93c90b9fcbb648b3b1c5cb7bb3b7c95f90f6c4412d02c5d4c89dfbe1b3de030",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "metrics_sha256": "6f25be5cb15e817b931e054465b44bdd3d7e380f68ec6f8458a2fd7f801644ef"
+    }
+  ],
+  "trust": "The source verifier's original normal-Python assertions are preserved. The independent new checker has explicit optimization-safe guards. Numerical outputs remain external evidence; the separate Lean/C proof path is audited independently."
+}

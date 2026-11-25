@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/same_source/reproduce.py", line 54, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/same_source/reproduce.py", line 17, in main
+    ap=argparse.ArgumentParser(allow_abbrev=False);ap.add_argument('--repository',type=Path,default=Path(__file__).resolve().parents[4]);ap.add_argument('--context',type=Path,required=True);ap.add_argument('--run',type=Path,required=True);ap.add_argument('--lane',choices=['same_source'],default='same_source');a=ap.parse_args();R=a.repository.resolve(strict=True);S=R/'Solutions/RH080Study.v1/estimates/same_source';C=json.loads(a.context.read_text());O=a.run.resolve();need(not O.exists(),'Fresh run required');pins=json.loads(Path(__file__).with_name('DEPENDENCY_PINS.json').read_text());need(C.get('generic_dependencies')==pins['generic_dependencies'],'Generic source pins differ');need(sha(Path(C['compiler']))==pins['compiler_sha256']==C.get('compiler_sha256'),'Pinned compiler bytes differ');version=subprocess.check_output([C['compiler'],'--version'],text=True).strip();need(version==pins['compiler_version']==C.get('compiler_version'),'Pinned compiler version differs');paths=C['generic_lean_path'].split(':');need(len(paths)==len(pins['generic_dependencies']),'Generic path population differs')
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/same_source/reproduce.py", line 7, in need
+    if not c:raise ValueError(m)
+             ^^^^^^^^^^^^^^^^^^^
+ValueError: Fresh run required
