@@ -10,7 +10,9 @@ change any experimental outcome.
 - `PAPER_READY_EN.tex`: the same mathematical exposition as a compilable article.
 - `RH080_PAPER_SUMMARY_KO.html`: a Korean summary of the results and boundaries.
 - `SUPPLEMENT_BUILD.json`: exact input and output identities and editorial status.
-- `EDITORIAL_HANDOFF.json`: scope, checks, corrections and remaining finalization.
+- `FINAL_EDITORIAL_HANDOFF.json`: current final scope, checks and exact output identities.
+- `EDITORIAL_HANDOFF_C4.json`: historical checked C4 draft; not current final acceptance.
+- `EDITORIAL_HANDOFF.json`: historical earlier draft evidence; not current acceptance.
 - `evidence/`: small, actual browser/TeX/CLI receipts and before/after glyph evidence.
 
 Both HTML files contain static MathML and the unmodified STIXGeneral mathematical
@@ -19,15 +21,22 @@ renderer. Wide equations are keyboard-accessible scroll regions. Source links
 are external references, not required rendering resources. The font's complete
 license is in `LICENSE_STIX.txt` and embedded in each HTML file.
 
-## Current draft and finalization
+## Final state and regeneration
 
-At the editorial handoff these documents are deliberately **drafts**: they use
-the recorded provisional source revision and describe the eight corrected
-follow-up trials as running at the editorial cutoff. Read the current
-`SUPPLEMENT_BUILD.json` rather than inferring finality from a filename. The
-coordinator must first finish and adjudicate the actual follow-up runs, check
-the final dataset and mathematical receipts, and commit the intended source
-state. The original primary outcomes must remain unchanged.
+The final supplements use mathematical source commit
+`5a87c48d48cb2a05e49ff7173ac886a70abaf54e` (C4), with the corrected follow-up
+complete and independently adjudicated. The study coordinator's internal
+archive, extracted-proof and cleanup gates actually passed before final stamping.
+No additional owner confirmation or action was required.
+
+`SUPPLEMENT_BUILD.json` records the final editorial flag. The authoritative
+handoff is `FINAL_EDITORIAL_HANDOFF.json`, with the minimal
+`PUBLIC_ALLOWLIST_FINAL.json`. Earlier `EDITORIAL_HANDOFF.json`,
+`EDITORIAL_HANDOFF_C4.json` and the draft C4 allowlist are historical snapshots,
+not current acceptance. The final exposition and formulas are byte-identical to
+the checked C4 draft after removing its editorial-draft header label and changing
+only the TeX date label. `evidence/final/FLAG_ONLY_DELTA.json` records this exact
+comparison. Original mathematical sources and primary outcomes are unchanged.
 
 From the repository root, with Python 3.11 and `latex2mathml==3.81.1` installed
 in `RENDER_PACKAGE`, regenerate a draft with:
@@ -35,10 +44,10 @@ in `RENDER_PACKAGE`, regenerate a draft with:
 ```sh
 python3 Solutions/RH080Study.v1/reports/supplement/build_supplement.py \
   --source-revision EXACT_40_CHARACTER_COMMIT \
-  --render-package "$RENDER_PACKAGE" --followup-status running
+  --render-package "$RENDER_PACKAGE" --followup-status complete
 ```
 
-After those coordinator checks, retarget all source links and final stamps with:
+To reproduce the already authorized final stamp after the recorded coordinator gates, run:
 
 ```sh
 python3 Solutions/RH080Study.v1/reports/supplement/build_supplement.py \
@@ -47,8 +56,8 @@ python3 Solutions/RH080Study.v1/reports/supplement/build_supplement.py \
 ```
 
 The final flag rejects an incomplete follow-up status and checks that the named
-commit contains the actual Gaussian v3 conclusion, ThetaCubePopulation v2
-conclusion, and C source bytes. This narrow source guard does **not** independently
+commit contains the actual Gaussian v3, ThetaCubePopulation v2/v3, PrimeInterval
+v5, FiniteLogSquaredPrimeGaps source conclusions and C source bytes. This narrow source guard does **not** independently
 adjudicate experiments, validate every mathematical receipt, or establish that
 an arbitrary selected dataset is final. Those are the coordinator's separate
 acceptance obligations. Regeneration reads only the main report's literal
@@ -66,7 +75,8 @@ python3 Solutions/RH080Study.v1/reports/supplement/check_layout.py \
   --browser-executable "$CHROMIUM_EXECUTABLE" --out "$FRESH_LAYOUT_OUTPUT"
 ```
 
-The check covers both languages at phone and desktop sizes, actual MathML
+The check covers both languages at 320-pixel and 390-pixel phone widths and a
+1280-pixel desktop width, actual MathML
 visibility, embedded-font coverage, no network rendering requests, every table
 of contents target, and keyboard scrolling of wide equations. It records source
 hashes, screenshots and an atomic result. Inspect the screenshots as well as the
@@ -97,7 +107,7 @@ tectonic --only-cached --keep-logs --outdir "$FRESH_TEX_OUTPUT" \
 
 A fresh machine must provision its TeX dependencies first; `--only-cached` is
 appropriate after that provisioning. Require successful compilation and inspect
-the log for overfull boxes. The preserved final check had none. A long DOI in
+the log for overfull boxes. The current exact-source receipt records this check. A long DOI in
 the first bibliography revision overflowed; its descriptive hyperlink repaired
 the display while retaining the exact target URL.
 
@@ -108,10 +118,20 @@ Fourier transforms; they are not source-first PV. The actual C component has
 separate source correspondence, formal execution, output transport and
 functional consumers. Its physical compiler/runtime/OS/hardware contracts and
 the chosen model's adequacy remain explicit. Its stdout statement is conditional
-on an actually performed successful capture. The three populations of cube
-bounds use their separately stated assumptions and ranges. No normalized
+on an actually performed successful capture. Every cube
+bound uses its separately stated assumptions, real range and endpoints. No normalized
 prime-gap coefficient below 0.8, explicit Gaussian onset, global record,
 optimality, or overall causal advantage of exposure or PV is asserted.
 
 Editorial checks establish readable, reproducible exposition. They do not
 replace the mathematical proof receipts or the primary-source audit.
+
+The new cube .8591/.9855 trapezoids, finite .8 prefix, .851062 uniform ray and
+weighted population line are independently checked written E results, not new
+Lean/PV theorems. Their source-five to source-seven extension, actual non-unit
+w4 origin and strict endpoint arguments are explicit. The .74/.75 branches
+start at11. The selected canonical early-cube integration uses the unchanged
+V0r1 source; the focused checks of both timely V0 submissions are separate.
+The finite1550 real interval ends strictly before the actual terminal prime,
+not at every point below the sixty-fourth power of two. Its historical input and
+the distinct log-squared historical input remain conditional.

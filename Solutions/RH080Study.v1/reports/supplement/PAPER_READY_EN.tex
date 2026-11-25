@@ -1,0 +1,542 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+
+\usepackage{amsmath,amssymb,graphicx,hyperref}
+
+\newsavebox{\eqbox}
+
+\title{Source-first computation and verified program evolution for conditional RH bounds}
+
+\author{IEANTN RH study: research supplement}
+
+\date{Final supplement; source revision 5a87c48d48cb2a05e49ff7173ac886a70abaf54e}
+
+\begin{document}
+
+\maketitle
+
+\section{Abstract}
+
+This study tests whether an explicit analytic number theory network can turn new computational information into independently checkable mathematical consequences. The intended frontier was a normalized consecutive-prime-gap coefficient below 0.8 under ordinary Riemann Hypothesis. That target was not proved. The investigation instead produced a smaller rational Gaussian witness, completed two generations of Fourier-to-primes consumers, verified an actual C numerical program from source text to an analytic obstruction, and formalized several distinct constructions for prime populations between consecutive real cubes. These are substantive conditional mathematical results, but their assumptions and proof mechanisms differ. A controlled exposure experiment generated useful written candidates; subsequent verification is reported separately and does not establish an overall causal advantage of the network or of source-first program verification.
+
+
+The principal new asymptotic witness has physical polynomial degree 56, with 29 Laguerre coefficients. Its exact certified quotient is below 0.833945448. The preserved degree 80 witness has 41 Laguerre coefficients and a certified quotient below 0.833948898. Both numerical proofs use the Lean kernel and actual integral Fourier identities. They are not source-first program verification. Source-first verification is reserved here for the complete connection from actual C text through independent syntax and execution semantics to the final mathematical statement.
+
+
+The corrected followup also produced independently checked written explicit bounds: coefficient 0.8 for every real x from 4 through exp(174), and 0.851062 for every real x at least 4. These external E-tier results are not complete Lean theorems or source-first PV, and are not inserted into the verified network. They do not settle an eventual or uniform 0.8-ray theorem.
+
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle q_{56}=\frac{82325773717}{98718416336}<0.833945448,\qquad\forall\varepsilon>0\ \forall^{\mathrm{eventual}}n:\ g_n\le q_{56}+\varepsilon.$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle q_{80}=\frac{2746403660}{3293251743}<0.833948898,\qquad\forall\varepsilon>0\ \forall^{\mathrm{eventual}}n:\ g_n\le q_{80}+\varepsilon.$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\section{1. Mathematical target and the analytic interface}
+
+Let the primes be indexed from zero, starting with 2, and normalize each consecutive gap by the square root and logarithm of its left prime. An asymptotic coefficient means that every positive slack eventually holds; it does not provide a numerical starting point. A finite interval theorem for every real starting value above a stated threshold is a different assertion. The distinction is essential when comparing an asymptotic coefficient with a stronger coefficient that has only been justified on a bounded logarithmic slab.
+
+
+The inherited analytic interface comes from Carneiro, Milinovich and Soundararajan. Their extremal problem ranges over nonzero even real continuous integrable functions, using the Fourier kernel with negative exponential sign. The exterior cost is the positive part of the transform outside the closed unit interval. The short-interval prime-counting allowance is bounded above by 36/11 through the source cited by CMS. A positive denominator is indispensable: division is performed only after it has been proved positive. The sources Corollary 4 and Theorem 3 connect an eligible witness to consecutive gaps and to an entire population-width curve. In this development those analytic reductions remain explicit source propositions, together with ordinary RH. They are not silently replaced by a new verified analytic proof.
+
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle g_n=\frac{p_{n+1}-p_n}{\sqrt{p_n}\log p_n},\qquad p_0=2,\quad f(x)=\sqrt{x}\log x.$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle \widehat F(v)=\int_{\mathbb R}F(x)e^{-2\pi ixv}\,dx,\quad N=\int_{\mathbb R}|F(x)|\,dx,\quad J=\int_{|v|>1}(\widehat F(v))_+\,dv,\quad D_A=F(0)-AJ,\quad q=\frac{N}{D_A}.$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle A\ge1,\qquad\mathcal C^+(A)=\sup_{\substack{F\in\mathcal A^+\\F\ne0}}\frac{F(0)-A\int_{|t|>1}(\widehat F(t))_+\,dt}{\|F\|_1},\qquad 1\le B\le\frac{36}{11}.$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle \mathrm{RH}\Longrightarrow\limsup_{n\to\infty}g_n\le\frac1{\mathcal C^+(B)},\qquad\forall\alpha\ge0:\quad\inf\{c>0:\liminf_{x\to\infty}\frac{\pi(x+cf(x))-\pi(x)}{\sqrt x}>\alpha\}\le\frac{1+2\alpha}{\mathcal C^+(B)}.$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\section{Prospective explicit-interval discoveries: external E tier}
+
+The new finite-window result preserves a signed logarithmic zero moment instead of replacing it by a nonnegative uniform allowance. For an affine even Fourier window, the central logarithmic contribution is negative. This is a signed density correction, not cancellation between phases of different zeros. Its upper bound follows from a second-moment lower approximation near zero and derivative-variation decay on the infinite tail. MontgomeryVaughan blocks of one sixteenth the usual length reduce the integrated positive-component entrance cost. Neither change contradicts the fixed-functional eventual obstruction.
+
+
+An independent evaluator uses a global chord norm bound with 131072 points for the published Fap window and 16777216 points for the neww 4 window. It does not import the submitted local-curvature/Simpson norm or computed answer. Both routes share the pinned integer FFT/twiddle engine; this is an independent aggregation and mathematical-source review, not a separate FFT implementation or a formal program proof. The complete clean dense replay passed in 119.95 seconds at a maximum process RSS of 2872480 KiB, with no OOM or signal kill.
+
+
+The finite margin is positive at logarithmic endpoints 42and174 and concave throughout. The neww 4 ray has positive leading slope and positive margin at 42. Its support radius is 7 rather than 5 in the published statement; the derived proof explicitly retains that radius in support, wing and error terms. The exact half-open count is much larger than one; deleting a possible upper-endpoint prime proves the strict interval claim. CMS(1.15) supplies an external historical finite-gap computation below 4e18; its starting-prime convention is audited against Oliveira eSilvaHerzogPardi. The elementary points 4,5,7 and monotonicity give the small-real-input join. There is no substitution of the older 0.88 result for a0.8 claim.
+
+
+The piecewise formula combines the recorded profiles posthoc, keeping original domains. In particular 0.74and0.75 begin at 11, since they do not cover the gap after 7. Their strict-upper upgrade is a separately checked posthoc count argument. No original primary outcome changes. The new uniform 0.851062 improves the printed 2026 coefficient 0.85125, but no global best-known claim is established. All these explicit upper bounds remain written/source-conditional plus external exact arithmetic, with their complete Lean application and source-first verification open.
+
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle \begin{gathered}\mathrm{RH}+\text{named analytic and finite-computation inputs}:\\\forall x\in[4,e^{174}]\ \exists p\in\mathbb P:\ x<p<x+0.8f(x);\\\forall x\ge4\ \exists p\in\mathbb P:\ x<p<x+0.851062f(x).\end{gathered}$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle \int_{\mathbb R}|F(u)|\log|u|\,du\le\sigma_{\log}:=\frac{V_1}{2\pi^2}-2F(0)\tau(1-\log\tau)+40\mu_2\tau^3\left(\frac19-\frac{\log\tau}{3}\right),\quad\tau=3/8,\quad\mu_2\ge\int v^2|W(v)|\,dv.$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle \begin{gathered}W(j/m)=w_j,\quad H=(w_m)_++\sum_{j=m}^{n-1}((w_{j+1})_+-(w_j)_+)_+,\\J=2\int_1^{n/m}W(v)_+\,dv,\quad D=F(0)-BJ,\quad B=4.00001,\\F_{\mathrm{w4}}(0)=1-\frac1{1800000000000000000}.\end{gathered}$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle \begin{gathered}q_k=1-\frac{2\log k}{42}>0,\\K=\frac{BJc\log k}{q_k}+\frac{2BH}{kq_k}+\sigma_{\log}+0.0012,\\R_c(L)=\frac{cD-U}{2}L+U\log(cL/2)-K,\quad L\ge42.\end{gathered}$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle w_E(x)=f(x)\begin{cases}0.777,&4\le x<11,\\0.74,&11\le x\le e^{63},\\0.75,&e^{63}<x\le e^{70},\\0.8,&e^{70}<x\le e^{174},\\0.851062,&x>e^{174}.\end{cases}\qquad\forall x\ge4\ \exists p\in\mathbb P:\ x<p<x+w_E(x).$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\section{Additional kernel results and stronger written cube counts}
+
+Both corrected V0 cube sessions authored complete Lean text for coefficient 0.96699 for every real n at least 369. The exact timed files passed focused posthoc checking without repairs; canonical integration selected the unchanged V0r1 source and subsequently completed its 53-source cold closure. This full cold closure is separate from the focused checks of both timed submissions. The later 0.9669924 coefficient from exp(8) remains in the proved hybrid. Source assumptions are the actual RH, refined Schoenfeld and finite Buthe interfaces, and these calculations remain kernel-only, not PV.
+
+
+A separate externally checked trapezoid construction improves the cube coefficient to 0.8591 from exp(8) using ordinary RH and the full general GreenSmooth/BPT interfaces. Nicolas is unnecessary in that argument, but retaining it preserves the original upstream source package. This is not an implication from the isolated weakened OcticFamily count black box. Adding the actual Buthe bounds gives 0.9855 from 1920; a different profile gives 0.9848 from 1737. The sinc rectangle transform, all finite integration cells, infinite tails, prime-power cost, smoothing/endpoint limit and entire real parameter ray are independently checked. These stronger trapezoid conclusions are E, not complete Lean or source-first PV.
+
+
+The new finite interval consumers are kernel proved without RH, conditional on two openly stated historical computational inputs. The maximal 1550 gap source has an upper-prime cutoff below 2\textasciicircum{}64; the actual kernel-certified terminal prime is 18446744073709551557. Every real point from 2 up to but excluding that terminal has a prime in the closed width 1550 or in any strictly larger open width. No coverage up to every point below 2\textasciicircum{}64 is asserted. A distinct CMS(1.15)-shaped log-squared gap source yields strict log-squared real windows from 11 through exp(42). The exact real crossover and smaller-of-both composition are proved in the new PrimeInterval.v5.
+
+
+The displayed affine population line for every nonnegative parameter is another derived written E corollary of the exact w4 data, not a new Lean or PV theorem. Its proof extends fixed support radius 5 to 7 and permits every fixed positive width coefficient, including coefficients larger than one in the asymptotic argument. Exact rational norm, denominator and maximum bounds justify both upward-rounded coefficients. The line improves the first printed 2026 affine line for every parameter, but the second printed line and the preserved octic count branch can be stronger elsewhere. No existing three-curve Lean comparison is claimed to cover this later E overlay.
+
+
+This is concrete network evolution: a general missing source estimate is represented by a typed node, real-domain and endpoint adapters reuse established bracketing and terminal primality, and an actual downstream proof consumes the source values. Neither the underlying enormous historical prime sweep nor the new external Fourier computations are silently labeled source-first verified.
+
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle \forall n\in\mathbb R,\ n\ge369:\quad\#\{p\in\mathbb P:n^3<p<(n+1)^3\}>\frac{96699}{100000}\frac{n^2}{\log n}.$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle \begin{gathered}\mathrm{RH}+\mathrm{GreenSmooth}+\mathrm{BPT}:\\N(n^3,(n+1)^3)>0.8591\frac{n^2}{\log n}\quad(n\ge e^8);\\+\mathrm{Buthe}:\quad N(n^3,(n+1)^3)>0.9855\frac{n^2}{\log n}\quad(n\ge1920).\end{gathered}$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle \begin{gathered}P_{64}=18446744073709551557:\\\forall x\in[2,P_{64}),\ \exists p\in\mathbb P:\ x<p\le x+1550;\\\forall x\in[2,P_{64})\ \forall\varepsilon>0,\ \exists p\in\mathbb P:\ x<p<x+1550+\varepsilon.\end{gathered}$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle \begin{gathered}11\le x\le e^{42}:\quad\exists p\in\mathbb P:\ x<p<x+(\log x)^2;\\(\log x)^2\le w\iff x\le e^{\sqrt w}\quad(x\ge1,\ w\ge0).\end{gathered}$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle \begin{gathered}\forall\alpha\ge0:\quad C_{\mathrm{RH}}(\alpha)<0.851061745+1.505657839\alpha,\\\frac{U}{D_{4.00001}}<0.851061745,\quad\frac{2M_W}{D_{4.00001}}<1.505657839,\\D_4\ge D_{4.00001}>0.\end{gathered}$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\section{2. A prospective rational witness and its completed numerical proof}
+
+The strongest new Gaussian input was discovered in a timely locked prefix of a prospective E2/V0 trial. The original file contains 29 exact rational monomial coefficients, in the squared radial coordinate. A deterministic triangular change of basis gives 29 Laguerre weights. The formal development proves the equality of the original monomials, the Laguerre combination and all 57 physical polynomial positions, including the odd zero positions. The actual Fourier proof consumes this association; a candidate name or a numerical score does not stand in for source identity.
+
+
+Independent checking first used the unchanged predecessor exact-Sturm and directed-Arb reference program. That program isolates every relevant real polynomial root, checks polynomial signs between roots, and evaluates Gaussian primitives with their exact infinite limits. Thus the external result does not depend on sampled absolute values or an omitted tail. It encloses the new inverse quotient near 0.83394544565235823428. This is external numerical evidence, not a Lean proof and not source-first verification. The two weaker timely Gaussian submissions were checked independently by the same reference route: their physical degrees are 32 and 48 and their claimed upper bounds are 0.833958436 and 0.83394584.
+
+
+The completed kernel proof uses 1,135 exact rational finite cells in 24 modules, with separate proofs for both infinite rays, the change of scale and the complete exterior wings. The certified caps yield the exact rational quotient 82325773717/98718416336. A separate genuine integral Fourier identity supplies eligibility, continuity and integrability. The predecessor degree 80 construction is retained, with 1,193 cells in 25 modules. Neither old numerical conclusions nor original experimental outcomes are overwritten. The later formal completion is posthoc evidence for the unchanged timely input.
+
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle F(x)=P(\sqrt\pi x)e^{-\pi x^2},\quad\widehat F(x)=Q(\sqrt\pi x)e^{-\pi x^2},\quad\deg P=\deg Q=56.$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle N\le0.7484161247,\quad J\le0.0313377324,\quad F(0)=1,\quad A=\frac{36}{11}.$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle q_{56}=\frac{82325773717}{98718416336}<0.833945448,\qquad\forall\varepsilon>0\ \forall^{\mathrm{eventual}}n:\ g_n\le q_{56}+\varepsilon.$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle N\le0.74901918,\quad J\le0.03111791,\quad F(0)\ge0.999999999,\quad A=\frac{36}{11}.$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle q_{80}=\frac{2746403660}{3293251743}<0.833948898,\qquad\forall\varepsilon>0\ \forall^{\mathrm{eventual}}n:\ g_n\le q_{80}+\varepsilon.$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\section{3. What the actual C program proves}
+
+The source-first component evaluates a fixed compact dual witness. Its C program loops over 257 grid samples, evaluates signed jump contributions using a truncating integer Taylor sine routine, rounds an explicit envelope upward, and computes the maximum. Its returned value is 1221161 at scale one million. The whole answer is not a hardcoded certificate. The interpreter executes the actual manually represented application AST, checks arithmetic bounds, rejects unsupported operations and division by zero, and proves the complete fixed-input call returns this value.
+
+
+Source acceptance has a general soundness theorem into an independently specified character-level lexical and syntactic relation. The statement covers precedence, parentheses, literals, types, casts, declarations, control flow, calls and the supported physical preprocessing profile. The target relation is not defined by the same token equality check. Successful source acceptance, the actual AST run and the output-to-grid transport are all consumed by the closed canonical proof. Proof-value audits exclude the available mathematical shortcut that would establish the grid bound without using the C execution theorem.
+
+
+The analytic bridge proves a real sine error bound for all 129 folded angles, controls the chord error between grid samples, and extends the bound to every real argument by reflection and a genuine tail estimate. This establishes a uniform cosine-integral cap for the actual dual witness. The C theorem is therefore connected to an analytic statement and then to a restricted Fourier-functional obstruction. The result is not a lower bound on actual prime gaps and is not an unrestricted optimizer. The formal weak-duality theorem requires both the function and its genuine Fourier transform to be integrable; the broader published dual argument remains a separate source-backed result.
+
+
+The published unrestricted dual certificates give the tighter exterior constants shown below and were independently replayed with the original supplement. The new C-linked 1.23 certificate supplies a completed source-to-mathematics chain with a coarser constant. It is not claimed as a better numerical barrier.
+
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle x_k=\frac{k}{128}\ (0\le k\le256),\qquad\mathrm{actualCMax}=1221161,\qquad\mathrm{scale}=10^6.$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle \forall r\in\{0,\ldots,128\}:\quad\left|\frac{\mathrm{sineFixed}(r)}{10^9}-\sin\!\left(\frac{\pi r}{256}\right)\right|\le10^{-7}.$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle 1-A\le V(v)\le1,\quad V(v)=1\ (|v|\le1),\quad K(x)=\int_{\mathbb R}V(v)\cos(2\pi vx)\,dv.$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle D_A\le\int_{\mathbb R}V(v)\widehat F(v)\,dv=\int_{\mathbb R}K(x)F(x)\,dx\le\|K\|_\infty N.$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle \|K\|_\infty\le\frac{123}{100}\quad\Longrightarrow\quad\frac{N}{D_{36/11}}\ge\frac{100}{123}>\frac45\qquad(D_{36/11}>0).$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle \mathcal C^+(36/11)\le1.20786,\qquad\mathcal C^+(4)\le1.18430\quad\text{(published dual certificates; externally replayed).}$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\section{4. Two cube-population routes with different assumptions}
+
+The first cube construction uses only the existing optimized strict Octic count family. At the whole-cube normalized width at most 16, it applies the original family once to the complete interval. Near the onset it retains the lower-order terms rather than discarding useful positive contributions. Above width 16 it takes the ceiling of the width divided by 16 and divides the entire cube interval into equal cells. Every actual local width is proved to remain within the source familys admissible interval. The cell prime sets are disjoint subsets of the original strictly open cube; internal boundary primes may be omitted conservatively. The proof establishes the complete real ray, not a finite sampling of integer cubes.
+
+
+This gives a coefficient 0.78146 for every real parameter at least the exponential of 8, and a natural-number onset 2981. The sole input is the same pre-existing strict Octic family; its inherited RH, Green, Nicolas and BPT package is unchanged. The result does not use newly supplied Schoenfeld or Buthe estimates. It preserves the earlier coefficient 0.7 on exactly the same onset and endpoints. The tiling branch independently yields stronger 0.789 and late 0.804 guarantees, which close the full construction rather than substitute a different algorithm.
+
+
+A distinct route uses signed Chebyshev-function estimates from Schoenfeld and finite-range Buthe bounds. At a possibly prime right endpoint it takes the one-sided lower estimate from below, while keeping the strict upper estimate at the left endpoint. This avoids any assumption that a real cube is composite and preserves the useful 0.05 signed correction. That route gives coefficient 0.965 from the earlier onset at the exponential of 6. The recorded successor has coefficient 0.9669924 from the exponential of 8 and keeps the earlier theorem as a dependency. These coefficients must not be compared as if their source packages or onset conditions were identical. The exact 0.9669924 construction has completed its local source-proof and control gates. The later written hybrid also occurs in the earlier E1/V0 prefix, so its appearance in a V1 submission is not evidence of a unique PV or E2 advantage.
+
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle \forall C\in[1.03,16]\ \forall u\ge e^{24}:\quad\#\{p:u<p<u+Cf(u)\}>\left(\frac89C-\frac{18203}{20000}+\frac{21}{5\log u}\right)\sqrt u.$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle C_0=\frac{(n+1)^3-n^3}{3n\sqrt n\log n},\quad t=\log n,\quad\frac89\left(1+e^{-t}+\frac{e^{-2t}}3\right)-(0.91015t-1.4)e^{-t/2}>0.78146\quad(t\ge8).$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle C_0>16:\quad k=\lceil C_0/16\rceil,\quad H=\frac{(n+1)^3-n^3}{k},\quad x_i=n^3+iH,\quad C_i=\frac H{f(x_i)}\in[1.03,16].$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle \forall n\in\mathbb R,\ n\ge e^8:\quad\#\{p\text{ prime}:n^3<p<(n+1)^3\}>\frac{39073}{50000}\frac{n^2}{\log n}.$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle \mathrm{RH}\ \Longrightarrow\ |\vartheta(x)-x|<\frac{\sqrt{x}(\log x-2)\log x}{8\pi}\qquad(x\ge23\cdot10^8).$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle x-\vartheta(x)\le1.95\sqrt{x}\ (1423\le x\le10^{19}),\qquad0.05\sqrt{x}<x-\vartheta(x)\ (1\le x\le10^{19}).$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle \forall n\in\mathbb R,\ n\ge e^6:\quad\#\{p\text{ prime}:n^3<p<(n+1)^3\}>\frac{193}{200}\frac{n^2}{\log n}.$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle \forall n\in\mathbb R,\ n\ge e^8:\quad\#\{p\text{ prime}:n^3<p<(n+1)^3\}>\frac{2417481}{2500000}\frac{n^2}{\log n}.$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\section{5. Network objects and verified propagation}
+
+A canonical family version exposes mathematical propositions, each identified by its actual file and fully qualified Lean declaration. Metadata records which named conclusions are inputs. A solution supplies a function from those input propositions to a requested output. The numerical witness, the general analytic reduction and the final prime theorem are separate objects. A computation node can therefore be replaced or supplemented without changing the source theorems mathematical contract. The programs source semantics stay in the supporting solution, while the core mathematical face can remain based only on Mathlib types.
+
+
+The Gaussian pipeline illustrates this separation. The raw numerical node gives an eligible actual Fourier pair, whole-line mass and leakage bounds, and its value at zero. A generic arithmetic adapter derives denominator positivity and the exact quotient. Unchanged CMS and RH inputs then give the eventual gap coefficient and the entire population curve. Every nonnegative population parameter and every positive slack remain quantified. The count interval excludes the left endpoint and includes the right endpoint. Comparisons with other published population curves still require their own parameter and assumption domains; uniform superiority over all such curves is not asserted. Formal proof-body audits check that the numerical and analytic arguments are actually consumed; a graph arrow or a successful worker message is not sufficient evidence.
+
+
+The C pipeline is different: exact text and independent syntax feed an application execution proof, its unknown return value controls every numerical sample, and the analytic kernel bound supplies a dual certificate node. A generic weak-duality consumer accepts that witness as an argument and derives the ratio floor. The new nodes have no separate legacy Blueprint labels; the linked canonical declaration files and imported source modules are their explicit correspondences. This is a demonstration of typed propagation, not a claim that the network automatically discovers all useful adapters or optimizes the entire repository.
+
+
+A further reusable estimate concerns zero counting. The source BellottiWong theorem bounds the unshifted main term, while the BPT interface uses a center shifted by seven eighths. The development proves the literal source node and the transfer to the shifted center, explicitly adding seven eighths to the additive constants before combining valid envelopes. The domain excludes zero ordinates where the imported off-ordinate formula requires that exclusion. This is an actual estimate node, but no better PNT or prime-gap coefficient is credited to it without a downstream consumer that uses it. In particular, an improved additive zero-count error alone does not change the asymptotic exterior allowance.
+
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle \forall\alpha\ge0\ \forall\varepsilon>0\ \forall^{\mathrm{eventual}}x:\quad\#\{p\text{ prime}:x<p\le x+[q(1+2\alpha)+\varepsilon]f(x)\}>\alpha\sqrt{x}.$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle M_0(T)=\frac{T}{2\pi}\log\!\left(\frac{T}{2\pi e}\right),\quad L(T)=M_0(T)+\frac78,\quad Q(T)=N(T)-L(T).$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle |N(T)-M_0(T)|\le\min\{0.10076\log T+0.24460\log\log T+8.08344,\ 0.11200\log T+0.12567\log\log T+3.77417\}\quad(T\ge e).$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle |N(T)-L(T)|=|(N(T)-M_0(T))-7/8|\le|N(T)-M_0(T)|+7/8,\quad8.08344+7/8=8.95844,\quad3.77417+7/8=4.64917.$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle |Q(T)|\le\min\{0.28\log T,\ 0.10076\log T+0.24460\log\log T+8.95844,\ 0.11200\log T+0.12567\log\log T+4.64917\},\quad T>2\pi,\ T\notin\{\gamma\}.$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\section{6. Controlled exposure, operational limits and adjudication}
+
+The primary protocol contained 20 fresh sessions: five conditions, two mathematical tasks and two replicates. All sessions received the same permitted primary mathematical sources and numerical information. The representation contrast distinguished prose and papers, an isomorphic standalone Lean library, and canonical network names and metadata. The standalone library still contains Leans inherent dependency structure, so this is not a contrast between all logical structure and none. The estimate contrast deliberately changed available analytic predicates and therefore changed premise strength.
+
+
+All 20 primary sessions finished, and five had timely locked prefixes. A timely prefix is a submission-timing fact, not automatic mathematical or formal success. The original admission limit was 18,000 output tokens, with 1,200 seconds,180 tool operations,96 responses, four CPU cores,64 GiB RAM and 12 GiB scratch per session. Token admission could stop after a response overshot the threshold; a later export did not replace an earlier valid prefix. The order seed fixed assignment order, not provider sampling, and no immutable backend model revision was exposed.
+
+
+The primary V0/V1 contrast also changed formal numerical-proof availability and occurred in different execution waves. It therefore cannot isolate a causal source-first-PV effect. Operational problems included missing common shell commands even though Python filesystem tools were available. A corrected eight-session follow-up was consequently preregistered after those observations. Both corrected arms receive the same complete 37-module ordinary kernel support; V1 adds only 12 actual-C proof and canonical modules. The separately preregistered eight-session corrected follow-up has completed execution; its adjudicated results remain separate from the primary cohort. Its outcomes are supplemental and must not be pooled retroactively with the primary cohort. The justified conclusion is useful mathematical discovery with independently verified consequences, not an overall experimentally established advantage for either representation or PV.
+
+
+\section{7. Remaining analytic opportunities and trust boundaries}
+
+The fixed allowance has a functional obstruction. This rules out reaching 0.8 by merely escalating polynomial degree within that unchanged objective, but it is not an optimality theorem for all methods or a prime-gap lower bound. A bounded alternative study tracked the actual 2026 explicit-window budgets. A written parameter extension, combined with a separate kernel scalar lemma, supports a retuned 0.811 finite logarithmic slab. Under ordinary RH, the source papers Theorem 3 fixes the coefficient 681/800 and gives the quantitative count formula displayed below from four times ten to the eighteenth. We define the conservative budget below from its exact Table 3 caps. Its 0.811 positivity holds on the logarithmic slab from 44 to 60; this is retuning notation and not a number printed by that theorem. The complete parameterized Mellin and arithmetic proof has not been attached in Lean as a new prime theorem.
+
+
+The new conservative budget calculation also identifies sufficient ways to reach 0.8 for those particular certified caps: a smaller exterior allowance or a roughly 4.0705 percent uniform spectral-envelope saving. These are sufficient sensitivity diagnostics, not necessary conditions for the actual witness or for every alternative method. Separate reoptimization at the hypothetical allowance 2.4 produced an externally certified functional value below 0.798363, while an external dual gives a floor above 0.8 for allowances at least 2.5. These are functional examples, not a newly established ordinary-RH short-interval estimate. No such improved ordinary-RH analytic input is inserted into the verified network. A new scalar theorem proves that the selected conservative 0.8 retuned budget is negative on a complete real ray; that means the sufficient bound fails, not that the mathematical prime statement is false.
+
+
+All selected completed numerical and application proof closures exclude native execution axioms and use the standard logical axioms. Gaussian evaluation nevertheless remains kernel-only verification, whereas the C result additionally establishes source correspondence and application execution. The latter trusts the adequacy of the selected scalar-C model, the compiler and generic runtime, ABI, libc and operating-system contracts, and hardware. Exact physical output is conditional on an actually successful printf capture; zero process exit alone does not establish output success. Captured compiled runs and their source, executable and output hashes are separate evidence, not formal operating-system execution proofs.
+
+
+Reproduction scripts retain exact rational inputs, source hashes, dependency commits, execution commands, proof receipts and per-process resource measurements. The actual C kernel replay used about 96.64 GiB peak process RAM, demonstrating why an obsolete 4 GiB cap would be inappropriate for that supplemental proof task. Controlled trial budgets remain unchanged. Generated cell sources were regenerated byte-for-byte in normal and optimized Python modes, and verified-regenerable duplicate arrays and caches were removed only after source and receipt checks. Accepted proof artifacts and original research evidence were retained. Official Comparator approval, unrestricted analytic formalization, an explicit prime onset, global best-known status and optimality are separate matters and are not claimed here.
+
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle \mathrm{RH},\quad c_*=\frac{681}{800},\quad t=\log x,\quad x\ge4\cdot10^{18}.$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle K_x=\pi(x+c_*\sqrt{x}\log x)-\pi(x).$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle K_x\ge\frac{\sqrt{x}}{0.692749379842\,t}\left[0.00000164065364394\,t+0.78353189999069\log\!\left(\frac{c_*t\log2}{2}\right)-1.101508373007\right].$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle B_c(L)=\frac{c(0.92045248904315389)-0.78353189999070}{2}L+0.78353189999069\log(cL\log2/2)-1.101508373007.$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle B_{0.811}(L)\ge0.0007\qquad(44\le L\le60).$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle B_{0.8}(L)\le-\frac1{20}\qquad\text{for every real }L\ge44.$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle A\le2.0575784904\ldots\quad\text{or}\quad\eta\le0.9592953641\ldots\qquad\text{(sufficient conservative-budget conditions only).}$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\begin{center}
+
+\sbox{\eqbox}{$\displaystyle A=12/5:\ q<0.798363;\qquad A\ge5/2:\ q\ge2000/2499>4/5\quad(D_A>0,\ \text{external certificates}).$}
+
+\ifdim\wd\eqbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\eqbox}}\else\usebox{\eqbox}\fi
+
+\end{center}
+
+\section{Source and proof pointers}
+
+CMS: arXiv:1708.04122v2, equations (1.3), (1.12), Theorem 3 (1.13), Corollary 4 (1.14).
+
+Blanquer--Robles 2026v2: \url{https://doi.org/10.5281/zenodo.24429650}, Theorem 4, Section 2.3, equations (15)--(21), Table 3.
+
+Schoenfeld (1976), Theorem 10 (6.1), printed p.337: \href{https://doi.org/10.1090/S0025-5718-1976-0457374-X}{AMS DOI source page}.
+
+Buthe, arXiv:1511.02032v2, Theorem 2 (1.6)--(1.7), printed p.2.
+
+Bellotti--Wong, arXiv:2412.15470v2, Theorem 1.1; Brent--Platt--Trudgian, Corollary 1, printed p.743, \url{https://maths-people.anu.edu.au/~brent/pd/rpb274-final.pdf}.
+
+New canonical versions have no separate pre-existing Blueprint labels. Their actual Conclusions declarations, Solutions and imported source modules are the correspondences. All exact file and proof URLs are supplied in the offline HTML companion at the pinned source revision.
+
+\end{document}

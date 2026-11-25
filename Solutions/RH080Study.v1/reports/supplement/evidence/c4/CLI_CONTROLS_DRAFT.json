@@ -1,0 +1,229 @@
+{
+  "status": "PASS_ACTUAL_EDITORIAL_CLI_ROUTES_NORMAL_O_OO",
+  "scope": "Editorial generation/interface checks only; not mathematical verification.",
+  "controller_sha256": "699338146788a1720224d46579a19bb6f5a5a4d4d926cb0df96f3df19fcfd6b1",
+  "source_outputs": {
+    "PAPER_READY_EN.html": "ca9629669af00e704d5f4d160428f97ffb2ad8eea70395f8dea7a7b6142cff38",
+    "PAPER_READY_EN.tex": "995bfee994af084ceb094c118817b86f7ac8540db305f1bd6b3579583d4f4c41",
+    "RH080_PAPER_SUMMARY_KO.html": "7dde89cfd1725d601845764d066c4241f37fa10c360ad102ec941d76b72ebc2d",
+    "SUPPLEMENT_BUILD.json": "c42c2e1a79d5a11d41551480d91adc19f3ed2241f18d2231de4b422ab4e5dfde"
+  },
+  "browser_checks": true,
+  "rows": [
+    {
+      "mode": "normal",
+      "case": "render",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/reports/supplement/build_supplement.py",
+        "--render-package",
+        "/data/ivy-rh-080-20261125/report-tools/science311",
+        "--source-revision",
+        "5a87c48d48cb2a05e49ff7173ac886a70abaf54e",
+        "--followup-status",
+        "complete"
+      ],
+      "returncode": 0,
+      "targeted_error": null,
+      "output_bytes_unchanged": true
+    },
+    {
+      "mode": "normal",
+      "case": "running_final",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/reports/supplement/build_supplement.py",
+        "--render-package",
+        "/data/ivy-rh-080-20261125/report-tools/science311",
+        "--source-revision",
+        "5a87c48d48cb2a05e49ff7173ac886a70abaf54e",
+        "--followup-status",
+        "running",
+        "--final"
+      ],
+      "returncode": 1,
+      "targeted_error": "Final editorial stamp requires completed follow-up status",
+      "output_bytes_unchanged": true
+    },
+    {
+      "mode": "normal",
+      "case": "absent_final_commit",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/reports/supplement/build_supplement.py",
+        "--render-package",
+        "/data/ivy-rh-080-20261125/report-tools/science311",
+        "--source-revision",
+        "0000000000000000000000000000000000000000",
+        "--followup-status",
+        "complete",
+        "--final"
+      ],
+      "returncode": 1,
+      "targeted_error": "0000000000000000000000000000000000000000:IEANTN/Nodes/GaussianFourierWitness/v3/Conclusions.lean",
+      "output_bytes_unchanged": true
+    },
+    {
+      "mode": "normal",
+      "case": "browser",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/reports/supplement/check_layout.py",
+        "--render-package",
+        "/data/ivy-rh-080-20261125/report-tools/science311",
+        "--out",
+        "/data/ivy-rh-080-20261125/report-tools/supplement-c4-controls-v3/normal-browser",
+        "--browser-executable",
+        "/ryu/hyunsik/.cache/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-linux64/chrome-headless-shell"
+      ],
+      "returncode": 0,
+      "receipt_sha256": "c339f449c0534c26022ad15ef0c651465b62c2212f4cd11035e37b600c0db7f8"
+    },
+    {
+      "mode": "O",
+      "case": "render",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/reports/supplement/build_supplement.py",
+        "--render-package",
+        "/data/ivy-rh-080-20261125/report-tools/science311",
+        "--source-revision",
+        "5a87c48d48cb2a05e49ff7173ac886a70abaf54e",
+        "--followup-status",
+        "complete"
+      ],
+      "returncode": 0,
+      "targeted_error": null,
+      "output_bytes_unchanged": true
+    },
+    {
+      "mode": "O",
+      "case": "running_final",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/reports/supplement/build_supplement.py",
+        "--render-package",
+        "/data/ivy-rh-080-20261125/report-tools/science311",
+        "--source-revision",
+        "5a87c48d48cb2a05e49ff7173ac886a70abaf54e",
+        "--followup-status",
+        "running",
+        "--final"
+      ],
+      "returncode": 1,
+      "targeted_error": "Final editorial stamp requires completed follow-up status",
+      "output_bytes_unchanged": true
+    },
+    {
+      "mode": "O",
+      "case": "absent_final_commit",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/reports/supplement/build_supplement.py",
+        "--render-package",
+        "/data/ivy-rh-080-20261125/report-tools/science311",
+        "--source-revision",
+        "0000000000000000000000000000000000000000",
+        "--followup-status",
+        "complete",
+        "--final"
+      ],
+      "returncode": 1,
+      "targeted_error": "0000000000000000000000000000000000000000:IEANTN/Nodes/GaussianFourierWitness/v3/Conclusions.lean",
+      "output_bytes_unchanged": true
+    },
+    {
+      "mode": "O",
+      "case": "browser",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/reports/supplement/check_layout.py",
+        "--render-package",
+        "/data/ivy-rh-080-20261125/report-tools/science311",
+        "--out",
+        "/data/ivy-rh-080-20261125/report-tools/supplement-c4-controls-v3/O-browser",
+        "--browser-executable",
+        "/ryu/hyunsik/.cache/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-linux64/chrome-headless-shell"
+      ],
+      "returncode": 0,
+      "receipt_sha256": "c339f449c0534c26022ad15ef0c651465b62c2212f4cd11035e37b600c0db7f8"
+    },
+    {
+      "mode": "OO",
+      "case": "render",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/reports/supplement/build_supplement.py",
+        "--render-package",
+        "/data/ivy-rh-080-20261125/report-tools/science311",
+        "--source-revision",
+        "5a87c48d48cb2a05e49ff7173ac886a70abaf54e",
+        "--followup-status",
+        "complete"
+      ],
+      "returncode": 0,
+      "targeted_error": null,
+      "output_bytes_unchanged": true
+    },
+    {
+      "mode": "OO",
+      "case": "running_final",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/reports/supplement/build_supplement.py",
+        "--render-package",
+        "/data/ivy-rh-080-20261125/report-tools/science311",
+        "--source-revision",
+        "5a87c48d48cb2a05e49ff7173ac886a70abaf54e",
+        "--followup-status",
+        "running",
+        "--final"
+      ],
+      "returncode": 1,
+      "targeted_error": "Final editorial stamp requires completed follow-up status",
+      "output_bytes_unchanged": true
+    },
+    {
+      "mode": "OO",
+      "case": "absent_final_commit",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/reports/supplement/build_supplement.py",
+        "--render-package",
+        "/data/ivy-rh-080-20261125/report-tools/science311",
+        "--source-revision",
+        "0000000000000000000000000000000000000000",
+        "--followup-status",
+        "complete",
+        "--final"
+      ],
+      "returncode": 1,
+      "targeted_error": "0000000000000000000000000000000000000000:IEANTN/Nodes/GaussianFourierWitness/v3/Conclusions.lean",
+      "output_bytes_unchanged": true
+    },
+    {
+      "mode": "OO",
+      "case": "browser",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/reports/supplement/check_layout.py",
+        "--render-package",
+        "/data/ivy-rh-080-20261125/report-tools/science311",
+        "--out",
+        "/data/ivy-rh-080-20261125/report-tools/supplement-c4-controls-v3/OO-browser",
+        "--browser-executable",
+        "/ryu/hyunsik/.cache/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-linux64/chrome-headless-shell"
+      ],
+      "returncode": 0,
+      "receipt_sha256": "c339f449c0534c26022ad15ef0c651465b62c2212f4cd11035e37b600c0db7f8"
+    }
+  ]
+}

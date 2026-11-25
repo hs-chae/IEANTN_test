@@ -7,6 +7,7 @@ Use a fresh output directory outside this source tree.
 import argparse
 import hashlib
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -78,7 +79,7 @@ def main():
             need(run.returncode == 0 and (target / 'RESULT.json').is_file(),
                  'Actual browser CLI failed in ' + label)
             result = json.loads((target / 'RESULT.json').read_text())
-            need(result['status'] == 'PASS_FOUR_OFFLINE_FONT_MATHML_MOBILE_DESKTOP_KEYBOARD_AND_ANCHOR_CASES',
+            need(result['status'] == 'PASS_SIX_OFFLINE_FONT_MATHML_MOBILE_DESKTOP_KEYBOARD_AND_ANCHOR_CASES',
                  'Browser acceptance result absent in ' + label)
             rows.append({'mode': label, 'case': 'browser', 'command': command,
                          'returncode': 0, 'receipt_sha256': sha(target / 'RESULT.json')})
@@ -88,7 +89,8 @@ def main():
               'browser_checks': a.browser_checks, 'rows': rows}
     temp = out / 'RESULT.pending'
     temp.write_text(json.dumps(record, indent=2) + '\n')
-    temp.replace(out / 'RESULT.json')
+    os.link(temp, out / 'RESULT.json')
+    temp.unlink()
     print(json.dumps({'status': record['status'], 'actual_cli_cases': len(rows)}))
 
 

@@ -1,0 +1,155 @@
+{
+  "status": "EXTRACTED_SOURCE_POSTHOC_REPRODUCTION_PLAN_NOT_ACCEPTANCE",
+  "archive_receipt_sha256": "201135d470d501832451d29d878cda5bfe3be69ec809b6062a2c92bf2297538d",
+  "context_sha256": "88a89fb62356f9ac34abaa4f50a32584a75a33bd8ad23aae92cf07965f344319",
+  "host_resources": {
+    "MemTotal": 1623029682176,
+    "MemAvailable": 1173654540288
+  },
+  "host_reserve_bytes": 274877906944,
+  "resource_policy": "PV child256GiB cap; Gaussian4workers32GiB each; existing estimate caps unchanged; all below300GiB perrun. Shared generic libraries only, zero predecessor application bank.",
+  "source_isolation": "Host source-cold relocation replay, not a namespace-isolated discovery experiment.",
+  "jobs": [
+    {
+      "name": "pv",
+      "argv": [
+        "/usr/bin/python3",
+        "/data/ivy-rh-080-20261125/release-candidate-v1/extracted/Solutions/RH080Study.v1/reproduce_study.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/release-candidate-v1/extracted",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--run",
+        "/data/ivy-rh-080-20261125/release-candidate-v1/proof-replay/pv",
+        "--lane",
+        "pv"
+      ],
+      "cpu_affinity": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "name": "g80",
+      "argv": [
+        "/usr/bin/python3",
+        "/data/ivy-rh-080-20261125/release-candidate-v1/extracted/Solutions/RH080Study.v1/reproduce_study.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/release-candidate-v1/extracted",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--run",
+        "/data/ivy-rh-080-20261125/release-candidate-v1/proof-replay/g80",
+        "--lane",
+        "g80"
+      ],
+      "cpu_affinity": [
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "name": "g56",
+      "argv": [
+        "/usr/bin/python3",
+        "/data/ivy-rh-080-20261125/release-candidate-v1/extracted/Solutions/RH080Study.v1/reproduce_study.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/release-candidate-v1/extracted",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--run",
+        "/data/ivy-rh-080-20261125/release-candidate-v1/proof-replay/g56",
+        "--lane",
+        "g56"
+      ],
+      "cpu_affinity": [
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    {
+      "name": "estimates",
+      "argv": [
+        "/usr/bin/python3",
+        "/data/ivy-rh-080-20261125/release-candidate-v1/extracted/Solutions/RH080Study.v1/reproduce_study.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/release-candidate-v1/extracted",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--run",
+        "/data/ivy-rh-080-20261125/release-candidate-v1/proof-replay/estimates",
+        "--lane",
+        "estimates"
+      ],
+      "cpu_affinity": [
+        12,
+        13,
+        14,
+        15
+      ]
+    }
+  ],
+  "late": [
+    {
+      "name": "early369",
+      "argv": [
+        "/usr/bin/python3",
+        "/data/ivy-rh-080-20261125/release-candidate-v1/extracted/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+        "--repository",
+        "/data/ivy-rh-080-20261125/release-candidate-v1/extracted",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--run",
+        "/data/ivy-rh-080-20261125/release-candidate-v1/proof-replay/early369"
+      ],
+      "cpu_affinity": [
+        16,
+        17,
+        18,
+        19
+      ]
+    },
+    {
+      "name": "finite",
+      "argv": [
+        "/usr/bin/python3",
+        "/data/ivy-rh-080-20261125/release-candidate-v1/extracted/Solutions/RH080Study.v1/finite_frontier/reproduce.py",
+        "--root",
+        "/data/ivy-rh-080-20261125/release-candidate-v1/extracted",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--run",
+        "/data/ivy-rh-080-20261125/release-candidate-v1/proof-replay/finite"
+      ],
+      "cpu_affinity": [
+        16,
+        17,
+        18,
+        19
+      ]
+    },
+    {
+      "name": "competition",
+      "argv": [
+        "/usr/bin/python3",
+        "/data/ivy-rh-080-20261125/release-candidate-v1/extracted/Solutions/RH080Study.v1/reports/reproduce_competition_scalar.py",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--run",
+        "/data/ivy-rh-080-20261125/release-candidate-v1/proof-replay/competition"
+      ],
+      "cpu_affinity": [
+        16,
+        17,
+        18,
+        19
+      ]
+    }
+  ]
+}

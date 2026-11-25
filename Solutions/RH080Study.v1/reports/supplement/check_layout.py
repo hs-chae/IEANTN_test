@@ -2,7 +2,7 @@
 """Offline viewport/font/keyboard checks; proof acceptance is separate."""
 from pathlib import Path
 from playwright.sync_api import sync_playwright
-import argparse,hashlib,json,re,sys,xml.etree.ElementTree as ET,base64
+import argparse,hashlib,json,re,sys,xml.etree.ElementTree as ET,base64,os,tempfile
 ap=argparse.ArgumentParser(allow_abbrev=False);ap.add_argument('--out',type=Path,required=True);ap.add_argument('--render-package',type=Path);ap.add_argument('--browser-executable',type=Path);a=ap.parse_args()
 if a.render_package:sys.path.insert(0,str(a.render_package))
 from fontTools.ttLib import TTFont
@@ -20,7 +20,7 @@ for filename in ['RH080_PAPER_SUMMARY_KO.html','PAPER_READY_EN.html']:
 with sync_playwright()as pw:
  b=pw.chromium.launch(headless=True,args=['--no-sandbox'],**({'executable_path':str(a.browser_executable)}if a.browser_executable else{}))
  for filename in ['RH080_PAPER_SUMMARY_KO.html','PAPER_READY_EN.html']:
-  for label,width,height in [('mobile',390,844),('desktop',1280,900)]:
+  for label,width,height in [('narrow',320,780),('mobile',390,844),('desktop',1280,900)]:
    p=b.new_page(viewport={'width':width,'height':height});requests=[]
    p.on('request',lambda q:requests.append({'scheme':q.url.split(':',1)[0],'url_sha256':hashlib.sha256(q.url.encode()).hexdigest()}))
    p.goto((S/filename).as_uri());p.wait_for_timeout(300)
@@ -35,7 +35,7 @@ with sync_playwright()as pw:
     a.press('Enter');p.wait_for_timeout(10);anchors.append(target)
     if p.evaluate('location.hash')!=target:raise ValueError('anchor navigation')
    scrollers=p.locator('.formula');tested=0
-   if label=='mobile':
+   if label in ['narrow','mobile']:
     for i in range(scrollers.count()):
      e=scrollers.nth(i)
      if e.evaluate('(e)=>e.scrollWidth>e.clientWidth+20'):
@@ -47,4 +47,11 @@ with sync_playwright()as pw:
    p.locator('section').nth(3).scroll_into_view_if_needed();p.screenshot(path=str(D/(filename.replace('.html','')+'_'+label+'_math.png')))
    rows.append({'file':filename,'viewport':label,'data':data,'request_schemes_and_hashes':requests,'anchor_targets':anchors,'keyboard_wide_equations_tested':tested,'html_sha256':hashlib.sha256((S/filename).read_bytes()).hexdigest()});p.close()
  b.close()
-r={'status':'PASS_FOUR_OFFLINE_FONT_MATHML_MOBILE_DESKTOP_KEYBOARD_AND_ANCHOR_CASES','rows':rows,'font_actual_MathML_codepoints_missing':missing,'known_previous_visual_failure':'Before explicitmathfont,Greekpi renderedas missingglyphsquare despiteDOM-onlychecksPASS; preservedv1screenshots. AfterunmodifiedSTIXfont,actualvisualinspectionconfirmedpiandintegralsrender.','checker_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()};(D/'RESULT.json').write_text(json.dumps(r,indent=2)+'\n');print(r['status'])
+r={'status':'PASS_SIX_OFFLINE_FONT_MATHML_MOBILE_DESKTOP_KEYBOARD_AND_ANCHOR_CASES','rows':rows,'font_actual_MathML_codepoints_missing':missing,'known_previous_visual_failure':'Before explicitmathfont,Greekpi renderedas missingglyphsquare despiteDOM-onlychecksPASS; preservedv1screenshots. AfterunmodifiedSTIXfont,actualvisualinspectionconfirmedpiandintegralsrender.','checker_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
+fd,name=tempfile.mkstemp(prefix='.layout-',dir=D)
+temporary=Path(name)
+try:
+ with os.fdopen(fd,'w')as out:json.dump(r,out,indent=2,allow_nan=False);out.write('\n')
+ os.link(temporary,D/'RESULT.json')
+finally:temporary.unlink(missing_ok=True)
+print(r['status'])
