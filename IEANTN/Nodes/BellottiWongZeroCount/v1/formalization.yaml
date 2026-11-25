@@ -1,0 +1,69 @@
+version: v0.4
+node:
+  id: BellottiWongZeroCount.v1
+  family: BellottiWongZeroCount
+  version: v1
+  kind: paper
+  status: active
+project:
+  name: BellottiWongZeroCount.v1
+  description: Both published2025 zero-count bounds with literal multiplicity, closed
+    ordinate, and unshifted main-term convention.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11M26
+conclusions:
+- id: bound_first
+  declaration: BellottiWongZeroCount.v1.bound_first
+  challenge: BellottiWongZeroCount.v1.challenge_bound_first
+  imports: []
+  imports_status: none
+  justifications:
+  - id: published-source
+    kind: literature
+    source: BellottiWong2025
+    locator: Theorem1.1,firstbound; arXiv2412.15470v2,07Jul2025
+    note: Unconditional primary source inequality; no first-principles analytic or
+      computational proof claimed in this node.
+  designated: published-source
+- id: bound_second
+  declaration: BellottiWongZeroCount.v1.bound_second
+  challenge: BellottiWongZeroCount.v1.challenge_bound_second
+  imports: []
+  imports_status: none
+  justifications:
+  - id: published-source
+    kind: literature
+    source: BellottiWong2025
+    locator: Theorem1.1,secondbound; arXiv2412.15470v2,07Jul2025
+    note: Unconditional primary source inequality; no first-principles analytic or
+      computational proof claimed in this node.
+  designated: published-source
+sources:
+- id: BellottiWong2025
+  title: Improved estimates for the argument and zero-counting function of the Riemann
+    zeta-function
+  authors:
+  - Chiara Bellotti
+  - Peng-Jie Wong
+  type: article
+  doi: 10.1090/mcom/4133
+  url: https://arxiv.org/html/2412.15470v2
+  relationship: formalizes
+  note: AcceptedMath.Comp;arXivv2publishedsourceconstants8.08344and3.77417. The source
+    center omits7/8;N counts all nontrivialzeros0<gamma<=Twithmultiplicity. Currentactualv2HTMLSHA
+    b5d1d9b84c879ef0a7c434add7327af1ddd566caaaca839b3e8611eadaffbd09.
+limitations:
+- Literature-backed source statements; no new source-first program verification or
+  Lean proof of the published numerical constant derivation.
+- The center conversion is a separate proved7/8 allowance. Both bounds are preserved;
+  smaller leading coefficient is not automatically stronger at finite height.

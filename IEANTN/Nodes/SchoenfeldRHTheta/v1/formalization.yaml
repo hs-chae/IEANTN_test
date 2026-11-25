@@ -1,0 +1,49 @@
+version: v0.4
+node:
+  id: SchoenfeldRHTheta.v1
+  family: SchoenfeldRHTheta
+  version: v1
+  kind: paper
+  status: active
+project:
+  name: SchoenfeldRHTheta.v1
+  description: Primary1976 refined ordinary-RH theta estimate, source-faithful general
+    input; source truth remains literature-backed.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+conclusions:
+- id: refined_theta
+  declaration: SchoenfeldRHTheta.v1.refined_theta
+  challenge: SchoenfeldRHTheta.v1.challenge_refined_theta
+  imports: []
+  imports_status: none
+  justifications:
+  - id: published-source
+    kind: literature
+    source: Schoenfeld1976
+    locator: Theorem10,equation(6.1),theta component,printedp337
+  designated: published-source
+sources:
+- id: Schoenfeld1976
+  title: Sharper bounds for the Chebyshev functions theta(x) and psi(x). II
+  authors:
+  - Lowell Schoenfeld
+  type: article
+  doi: 10.1090/S0025-5718-1976-0457374-X
+  url: https://www.ams.org/journals/mcom/1976-30-134/S0025-5718-1976-0457374-X/
+  relationship: formalizes
+  note: Math.Comp.30(134),April1976,337-360. ExactprimaryscanSHA8c3cac1ee52eb05af05ec410adc587a18505a46aacdde41ae097038b0e7c3897;
+    ordinaryRH; x>=2300000000 inclusive; strict absolute theta error.
+limitations:
+- Sourcepredicate is openly literature-backed; no new Lean proof of Schoenfeld analytic
+  argument or source-first program verification.

@@ -1,0 +1,123 @@
+version: v0.4
+node:
+  id: ThetaCubePopulation.v1
+  family: ThetaCubePopulation
+  version: v1
+  kind: pipeline
+  status: awaiting-verification
+project:
+  name: ThetaCubePopulation.v1
+  description: Source-enriched signed-theta lower envelopes produce quantitative strictly
+    open prime cube counts with full real coverage.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+conclusions:
+- id: schoenfeld_cube_curve
+  declaration: ThetaCubePopulation.v1.schoenfeld_cube_curve
+  challenge: ThetaCubePopulation.v1.challenge_schoenfeld_cube_curve
+  imports:
+  - node: RH.v1
+    conclusion: hypothesis
+  - node: SchoenfeldRHTheta.v1
+    conclusion: refined_theta
+  imports_status: identified
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: Actual proof in Solutions/ThetaCubePopulation.v1/Solution.lean; source-only
+      mathematical replay and exact type/body/axiom audits are separate from official
+      Comparator approval, which is not claimed.
+  designated: local-kernel-proof
+- id: buthe_cube_curve
+  declaration: ThetaCubePopulation.v1.buthe_cube_curve
+  challenge: ThetaCubePopulation.v1.challenge_buthe_cube_curve
+  imports: &id003
+  - node: Buthe.v1
+    conclusion: theorem_2_theta
+  - node: Buthe.v1
+    conclusion: theorem_2_theta_lower
+  imports_status: identified
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: Actual proof in Solutions/ThetaCubePopulation.v1/Solution.lean; source-only
+      mathematical replay and exact type/body/axiom audits are separate from official
+      Comparator approval, which is not claimed.
+  designated: local-kernel-proof
+- id: cube_density_096
+  declaration: ThetaCubePopulation.v1.cube_density_096
+  challenge: ThetaCubePopulation.v1.challenge_cube_density_096
+  imports: &id001
+  - node: RH.v1
+    conclusion: hypothesis
+  - node: SchoenfeldRHTheta.v1
+    conclusion: refined_theta
+  - node: Buthe.v1
+    conclusion: theorem_2_theta
+  - node: Buthe.v1
+    conclusion: theorem_2_theta_lower
+  imports_status: identified
+  justifications: &id002
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: Actual proof in Solutions/ThetaCubePopulation.v1/Solution.lean; source-only
+      mathematical replay and exact type/body/axiom audits are separate from official
+      Comparator approval, which is not claimed.
+  designated: local-kernel-proof
+- id: cube_density_0965
+  declaration: ThetaCubePopulation.v1.cube_density_0965
+  challenge: ThetaCubePopulation.v1.challenge_cube_density_0965
+  imports: *id001
+  imports_status: identified
+  justifications: *id002
+  designated: local-kernel-proof
+- id: cube_density_0965_finite
+  declaration: ThetaCubePopulation.v1.cube_density_0965_finite
+  challenge: ThetaCubePopulation.v1.challenge_cube_density_0965_finite
+  imports: *id003
+  imports_status: identified
+  justifications: *id002
+  designated: local-kernel-proof
+- id: cube_density_0965_natural
+  declaration: ThetaCubePopulation.v1.cube_density_0965_natural
+  challenge: ThetaCubePopulation.v1.challenge_cube_density_0965_natural
+  imports: *id001
+  imports_status: identified
+  justifications: *id002
+  designated: local-kernel-proof
+- id: improves_old_coefficient
+  declaration: ThetaCubePopulation.v1.improves_old_coefficient
+  challenge: ThetaCubePopulation.v1.challenge_improves_old_coefficient
+  imports: []
+  imports_status: none
+  justifications: *id002
+  designated: local-kernel-proof
+sources:
+- id: RH080Study20261125
+  title: 'RH0.8 study: pointwise theta envelope and quantitative cube transport'
+  authors:
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: Derived source-enrichment consequence; classical literature estimates, not
+    claimed best-known prime-between-cubes result.
+limitations:
+- Schoenfeld refined theta and finite Buthe two-sided signed source clauses remain
+  explicit; the latter historical computation is not newly source-first verified.
+- Compared with inherited0.7 coefficient under Octic, this uses a different assumption
+  package. No hidden implication between the source packages or best-known literature
+  claim.
+- All cube prime windows are strictly open at both endpoints; the possible upper prime
+  costs one count.
+- Kernel-only D checking and literature-backed B inputs, no new source-first C/C++/CUDA
+  PV.

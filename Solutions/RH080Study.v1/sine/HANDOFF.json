@@ -1,0 +1,135 @@
+{
+  "status": "SINE_MATH_COMPLETE_KERNEL_ONLY_SOURCE_EXECUTION_SEPARATE",
+  "sources": [
+    {
+      "path": "sine/AngleFolding.lean",
+      "sha256": "bf33f8a52e50b4e6a27bac03a0e28664ca277b5587ce7553bf1604364f3c18af",
+      "bytes": 2952
+    },
+    {
+      "path": "sine/SineBridge.lean",
+      "sha256": "9a987619c66a8b1c481caef74879942aec6a7a8d60b2bfb4e5886a2dba3926f7",
+      "bytes": 4228
+    },
+    {
+      "path": "sine/SineCells00.lean",
+      "sha256": "09600f061925f35de4695f62020302b2dfc7b54f915d00d21cdab0cc5cbfdc9c",
+      "bytes": 3249
+    },
+    {
+      "path": "sine/SineCells01.lean",
+      "sha256": "411aab99130ad61deff3c72360c49edf364273ca405e4d2dccdba2d4e93aeb99",
+      "bytes": 3269
+    },
+    {
+      "path": "sine/SineCells02.lean",
+      "sha256": "eb92f05284c669c1290a458dff4c17559f30b6df2dd61ba138cccb968fcc5f2e",
+      "bytes": 3269
+    },
+    {
+      "path": "sine/SineCells03.lean",
+      "sha256": "00f4449cd683ca221de18b37d9b845dee84c57b0c7a19c7824a68f608b99b407",
+      "bytes": 3269
+    },
+    {
+      "path": "sine/SineCells04.lean",
+      "sha256": "df11da76195627a42e9c80319ad30e37df422a9f25a2846a2fc700e8f76d4960",
+      "bytes": 3269
+    },
+    {
+      "path": "sine/SineCells05.lean",
+      "sha256": "290005b4d50de58a1edd6348c39520f39976139777f4a91a7b24b7e04bcb5d1d",
+      "bytes": 3269
+    },
+    {
+      "path": "sine/SineCells06.lean",
+      "sha256": "6b71e6a9a33461a2c89a45d694a3559329156a670e69d4dd9b3d80cd6fe48eb1",
+      "bytes": 3293
+    },
+    {
+      "path": "sine/SineCells07.lean",
+      "sha256": "ca8d9eab34f15846313927ff74fdaff730fc35d6684f83a8da7419191b9830ba",
+      "bytes": 3301
+    },
+    {
+      "path": "sine/SineCells08.lean",
+      "sha256": "c0c69c121d24224b47ebe98c73870d8df3675eb1bab276916317840fd710af9a",
+      "bytes": 496
+    },
+    {
+      "path": "sine/SineRational.lean",
+      "sha256": "1f1167c55e6269ccf256a59c4e022328855fbc6d01f80b951f57f86c39611828",
+      "bytes": 3228
+    },
+    {
+      "path": "sine/SineSpec.lean",
+      "sha256": "26825ce15541ee6c61135570f058d159576a1da4ff2cc5cafe5162a52cbe9221",
+      "bytes": 873
+    }
+  ],
+  "roots": [
+    "RH080.SineBridge.rational_error",
+    "RH080.SineBridge.sin_poly_error",
+    "RH080.SineBridge.angle_reduction_error",
+    "RH080.SineBridge.sine_fixed_real_error",
+    "RH080.SineBridge.sin_foldAngle"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "claim": "forallrFin129,abs(sineFixedr/1e9\u2212sin(pi*r/256))<=1e\u22127; genericNatmod512/reflectionexact; no sourceexecutionclaimbythispacketalone.",
+  "method": "129exactrationalfixedpoint-roundingleaves with kernel norm_num; actualpi20decimalbracket, floorbound2e\u22129, genericTaylor18tail<=1e\u221212 andLipschitzsin. Rationalroundingbudget2e\u22128.",
+  "generator_mode_checks": [
+    {
+      "mode": "normal",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/sine/generate_rational_cells.py",
+        "--check"
+      ],
+      "returncode": 0,
+      "stdout_sha256": "9add43e92c99c3baa99b8162e8d91d1d5cfec888109945a95d4d3f7160db9b15"
+    },
+    {
+      "mode": "-O",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/sine/generate_rational_cells.py",
+        "--check"
+      ],
+      "returncode": 0,
+      "stdout_sha256": "9add43e92c99c3baa99b8162e8d91d1d5cfec888109945a95d4d3f7160db9b15"
+    },
+    {
+      "mode": "-OO",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/sine/generate_rational_cells.py",
+        "--check"
+      ],
+      "returncode": 0,
+      "stdout_sha256": "9add43e92c99c3baa99b8162e8d91d1d5cfec888109945a95d4d3f7160db9b15"
+    }
+  ],
+  "negative": {
+    "command": [
+      "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+      "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/compile.py",
+      "/data/ivy-rh-080-20261125/sine-controls/BadRounding.lean",
+      "--name",
+      "root-sine-negative-rounding-v1",
+      "--objects",
+      "/data/ivy-rh-080-20261125/estimates/root-sine-spec-v2"
+    ],
+    "returncode": 1,
+    "claimed_rounding_error": "1e\u221210 at67",
+    "meaning": "Actualexactrationalboundisfalseandnorm_numrejects; notameremissingimport.",
+    "stdout_sha256": "cbe9aba0762b2a01cc256ca224c0986d096cf1d0439298556bd7105bc6c35801"
+  },
+  "initial_attempts": "DefaultRationaldecidestucknotfalse, sourceTaylor18numeralsyntaxandBooldependentiteunfoldingfixes preserved inD/estimates/root-sine-* androot-angle-folding-*.",
+  "final_joint_replay": "Include13currentmathsourcesplusoriginalLeanCert.Core.Taylortransitiveproviders in fullsource-firstPVfreshclosure; developmentobjectbanksarenotfinalproofevidence."
+}

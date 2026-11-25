@@ -1,0 +1,3 @@
+# Actual zero-count source envelope
+
+The Solution consumes both published Bellotti-Wong bounds and the canonical off-ordinate BPT source. It proves the exact source-center identity and pays7/8 before comparing allowances. Three whole-real regimes are proved separately from the sourced zero-count inequalities. This is a secondary estimate input; no downstream ANT gain is claimed until an actual ANT theorem consumes it. The off-ordinate restriction is preserved, not a claim of full endpoint transfer. Sources remain literature-backed and kernel proof checking is not source-first PV. See ../RH080Study.v1/estimates/ for fresh source closure and audits.

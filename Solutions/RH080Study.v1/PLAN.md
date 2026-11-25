@@ -1,0 +1,7 @@
+# RH 0.8 source-first PV and estimate-exposure research
+
+Owner attachment IEANTN_RH_080_PV_ESTIMATE_ABLATION_ORCHESTRATOR.md is the task specification (private outside publication). Frozen predecessor25eb9bfe; new study branchresearch/rh-080-pv-estimates-20261125. Preserve all old mathematical source and experimental arms. Ramanujan excluded.
+
+Sequence: reproduce and lock two predecessor source packets; independently inspect exact 2026 primal and dual witnesses before larger-degree searches; catalogue actual source-node/proof consumers and competing cube/PNT/zero envelopes; prove useful new mathematics and source-first program chains; freeze balanced ablation packets/protocol before trials; independently verify exact proof closures; publish one main English reading report with bilingual supplements in evidence bundle. Source predicates must remain general/literature-matched, not desired conclusions.
+
+Resource policy: actual available RAM exceeds1TiB and free disk independently exceeds1TiB at startup. Up to300GiBperrun RAM and300GiBscratch authorized, with256GiB hostRAMreserve, observed admission checks and bounded CPU workers. No arbitrary4GiBcap. Kernel numeric checking is D, not PV. Every source-first PV chain needs actual C/C++/CUDA-to-independent-syntax/model correspondence, execution correctness, numerical output and actualANTconsumer, with generic compiler/runtime/hardware trust declared. No new unverified axiom or sorry in accepted proof closures.

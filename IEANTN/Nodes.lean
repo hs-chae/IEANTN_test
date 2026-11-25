@@ -10,6 +10,7 @@ import IEANTN.Nodes.BKLNW.v3.Challenge
 import IEANTN.Nodes.BKLNW.v4.Challenge
 import IEANTN.Nodes.BKLNWNumerics.v1.Challenge
 import IEANTN.Nodes.BPTOffOrdinate.v1.Challenge
+import IEANTN.Nodes.BellottiWongZeroCount.v1.Challenge
 import IEANTN.Nodes.BoxMellinInputs.v1.Challenge
 import IEANTN.Nodes.BoxMellinInputs.v2.Challenge
 import IEANTN.Nodes.Brown1967.v1.Challenge
@@ -167,9 +168,12 @@ import IEANTN.Nodes.RamareSaouter2003.v1.Challenge
 import IEANTN.Nodes.Richstein2001.v1.Challenge
 import IEANTN.Nodes.RosserSchoenfeld.v1.Challenge
 import IEANTN.Nodes.RosserSchoenfeld1962.v1.Challenge
+import IEANTN.Nodes.SchoenfeldRHTheta.v1.Challenge
+import IEANTN.Nodes.ThetaCubePopulation.v1.Challenge
 import IEANTN.Nodes.Trudgian2011.v1.Challenge
 import IEANTN.Nodes.Wedeniwski.v1.Challenge
 import IEANTN.Nodes.ZeroCount.v1.Challenge
+import IEANTN.Nodes.ZeroCountEnvelope.v1.Challenge
 import IEANTN.Nodes.ZeroFreeHalfPlane.v1.Challenge
 import IEANTN.Nodes.ZeroFreeHeight.v1.Challenge
 import IEANTN.Nodes.ZetaHadamard.v1.Challenge

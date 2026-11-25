@@ -1,0 +1,94 @@
+version: v0.4
+node:
+  id: ZeroCountEnvelope.v1
+  family: ZeroCountEnvelope
+  version: v1
+  kind: pipeline
+  status: awaiting-verification
+project:
+  name: ZeroCountEnvelope.v1
+  description: Correct-center actual BPT/Bellotti-Wong zero-count min envelope and
+    proved whole-real activity regimes.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11M26
+conclusions:
+- id: off_ordinate_envelope
+  declaration: ZeroCountEnvelope.v1.off_ordinate_envelope
+  challenge: ZeroCountEnvelope.v1.challenge_off_ordinate_envelope
+  imports:
+  - node: BPTOffOrdinate.v1
+    conclusion: bound
+  - node: BellottiWongZeroCount.v1
+    conclusion: bound_first
+  - node: BellottiWongZeroCount.v1
+    conclusion: bound_second
+  imports_status: identified
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: Actual conditional proof in Solutions/ZeroCountEnvelope.v1/Solution.lean;
+      fresh source replay/type/value/input/axiom audits are independent of official
+      Comparator receipt, which is not claimed.
+  designated: local-kernel-proof
+- id: bpt_better_low
+  declaration: ZeroCountEnvelope.v1.bpt_better_low
+  challenge: ZeroCountEnvelope.v1.challenge_bpt_better_low
+  imports: []
+  imports_status: none
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: Actual conditional proof in Solutions/ZeroCountEnvelope.v1/Solution.lean;
+      fresh source replay/type/value/input/axiom audits are independent of official
+      Comparator receipt, which is not claimed.
+  designated: local-kernel-proof
+- id: bw_second_better_high
+  declaration: ZeroCountEnvelope.v1.bw_second_better_high
+  challenge: ZeroCountEnvelope.v1.challenge_bw_second_better_high
+  imports: []
+  imports_status: none
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: Actual conditional proof in Solutions/ZeroCountEnvelope.v1/Solution.lean;
+      fresh source replay/type/value/input/axiom audits are independent of official
+      Comparator receipt, which is not claimed.
+  designated: local-kernel-proof
+- id: bw_first_better_high
+  declaration: ZeroCountEnvelope.v1.bw_first_better_high
+  challenge: ZeroCountEnvelope.v1.challenge_bw_first_better_high
+  imports: []
+  imports_status: none
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: Actual conditional proof in Solutions/ZeroCountEnvelope.v1/Solution.lean;
+      fresh source replay/type/value/input/axiom audits are independent of official
+      Comparator receipt, which is not claimed.
+  designated: local-kernel-proof
+sources:
+- id: RH080Study20261125
+  title: 'RH0.8 study: source-center-aware zero-count lower envelope'
+  authors:
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: Original elementary adapters of canonicalBPTOffOrdinateandbothBWsourcebounds.
+    Correctcentertransferusestriangleinequalityand7/8; no new prime-gap coefficient
+    is implied.
+limitations:
+- Preserves BPT off-ordinate restriction; no claim of formally completed endpoint
+  transfer at zero ordinates in this new node.
+- Source inputs remain literature-backed. No new downstream prime-gap, population
+  or PNT numerical gain is claimed until a consumer actually uses this envelope.
+- Kernel-only proof checking, not source-first PV or official Comparator approval.
