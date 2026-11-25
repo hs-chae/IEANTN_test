@@ -29,9 +29,11 @@ def main():
     repository = here.parents[2]
     need(not args.out.exists(), "Fresh controls directory required")
     accepted = read_json(args.accepted / "RESULT.json")
-    need(accepted["status"] == "PASS_ACTUAL_ALL10_REGISTERED_SOLUTION_LAKE_BUILDS" and
-         accepted["all_registered_projects_completed"] is True and len(accepted["builds"]) == 10 and
-         all(row["returncode"] == 0 for row in accepted["builds"]), "Accepted actual all10 build required")
+    current_manifest = read_json(here / "LAKE_PROVIDER_MANIFEST.json")
+    project_count = len(current_manifest["solution_projects"])
+    need(accepted["status"] == "PASS_ACTUAL_ALL"+str(project_count)+"_REGISTERED_SOLUTION_LAKE_BUILDS" and
+         accepted["all_registered_projects_completed"] is True and len(accepted["builds"]) == project_count and
+         all(row["returncode"] == 0 for row in accepted["builds"]), "Accepted actual complete registered-project build required")
     args.out.mkdir(parents=True)
     source_manifest = read_json(here / "LAKE_PROVIDER_MANIFEST.json")
     initial = source_manifest["groups"][0]["modules"][0]
@@ -111,7 +113,7 @@ def main():
     need(len(cases) == 30, "Control population differs")
     result = {"status": "PASS30_ACTUAL_LAKE_REGISTRATION_REPLAY_CONTROLS_ALL_OPTIMIZATION_MODES",
               "cases": cases, "source_fixtures_copy_no_objects": True,
-              "full10_project_acceptance": str(args.accepted / "RESULT.json"),
+              "full_registered_project_acceptance": str(args.accepted / "RESULT.json"),
               "controller_sha256": sha(Path(__file__))}
     temporary = args.out / "RESULT.pending"
     temporary.write_text(json.dumps(result, indent=2) + "\n")

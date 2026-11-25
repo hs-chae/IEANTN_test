@@ -1,0 +1,316 @@
+{
+  "status": "FOUR_SELECTED_NAMED_PRIMARY_STATEMENT_MAPPINGS_COMPLETE_WITH_ONE_CONFIRMED_SHARED_SOURCE_AUXILIARY_ISSUE",
+  "updated_utc": "2026-11-25T12:35:34.534737+00:00",
+  "scope_owner": "Parent/rootexplicitselectionof4catalogrows;notaninternalheuristic",
+  "requested_universe": [
+    "Buthe2016_theta",
+    "LeeNosal_v4_psi",
+    "LeeNosal_v4_theta",
+    "GM_smoothed_primitive"
+  ],
+  "coverage": "4of4selectedstatement/domain/constant/conventionmappingschecked;the17-rowcatalogandallprojectexternalsourcesarenotclaimedcomplete. Lee\u2013Nosal proofreconstructionremainsseparatependingtask.",
+  "workspace_head": "6781fd4a15c47cff1461581cc5551da3fb5862e9",
+  "workspace_head_date": "2026-11-25T04:18:47-08:00",
+  "upstream_status": "Thisauditswrittenworkspaceidentitiesonly;doesnotclaimthischeckoutistheliveupstreamdefaultbranch.",
+  "original_catalog_sha256": "b0da987022dc0c01b1aecbc7bd6bfe30c7743b47265d870b1f06340e3e809cd6",
+  "original_catalog_mutated": false,
+  "human_reading_report": false,
+  "source_first_PV": false,
+  "public_primary_texts_included": false,
+  "rows": [
+    {
+      "id": "Buthe2016_theta",
+      "status": "PASS_NAMED_PRIMARY_STATEMENT_DOMAIN_CONSTANT_AND_HYPOTHESIS_MAPPING",
+      "actual_Lean_and_Blueprint": {
+        "written_identity": {
+          "file": "IEANTN/Nodes/Buthe2016/v1/Conclusions.lean",
+          "declaration": "theorem_2_theta",
+          "physical_LF_line": 73,
+          "source_sha256": "0b6ab451ea4776bb44d6a1680d748295baa68285a690efa4a9cb7b045e76972a",
+          "actual_declaration": "def theorem_2_theta : Prop :=\n  \u2200 T : \u211d, RiemannHypothesisUpTo T \u2192 \u2200 x : \u211d, 599 < x \u2192 withinRange T x \u2192\n    |Chebyshev.theta x - x| \u2264 Real.sqrt x * (Real.log x) ^ (2 : \u2115) / (8 * Real.pi)"
+        },
+        "related_definitions": [
+          {
+            "file": "IEANTN/Nodes/Buthe2016/v1/Conclusions.lean",
+            "declaration": "withinRange",
+            "physical_LF_line": 57,
+            "source_sha256": "0b6ab451ea4776bb44d6a1680d748295baa68285a690efa4a9cb7b045e76972a",
+            "actual_declaration": "noncomputable def withinRange (T x : \u211d) : Prop :=\n  4.92 * Real.sqrt (x / Real.log x) \u2264 T"
+          },
+          {
+            "file": "IEANTN/Vocabulary/Zeta.lean",
+            "declaration": "RiemannHypothesisUpTo",
+            "physical_LF_line": 92,
+            "source_sha256": "42e239de4c1151d03ed94ee4c0c51d031f974faa6998f447e85845665bb846ef",
+            "actual_declaration": "def RiemannHypothesisUpTo (T : \u211d) : Prop :=\n  IsEmpty (zetaZeroesIn (Set.Ioo (1 / 2) 1) (Set.Icc 0 T))"
+          }
+        ],
+        "graph_correspondence": "IEANTN/Nodes/Buthe2016/v1/formalization.yaml conclusion theorem_2_theta, literature buthe2016-paper, source arXiv1410.7015v4 Theorem2 theta; docs/nodes/Buthe2016-v1.md#theorem_2_theta. No separate Blueprint label/directory is present in this workspace.",
+        "new_study_consumption": "No proof-bearing use in accepted new cube/zero/fourier/canonical closures."
+      },
+      "named_primary": {
+        "source": {
+          "primary_url": "https://arxiv.org/pdf/1410.7015v4",
+          "private_local_source": "/data/ivy-rh-080-20261125/estimates/sources/Buthe2016v4.pdf",
+          "sha256": "d87b9d33638d1734deeae7db47edea90b2e778c1d9f863b841087aa6ee51ec43"
+        },
+        "locator": "PhysicalPDFp13, \u00a77 Theorem2, second displayed inequality; height premise in opening two lines.",
+        "formula": "T>0; RH holds for every nontrivial zero with 0<Im(\u03c1)\u2264T; 4.92\u221a(x/log x)\u2264T \u21d2 |\u03d1(x)\u2212x|\u2264\u221ax(log x)\u00b2/(8\u03c0), for x>599.",
+        "endpoints": "Strict x>599; non-strict height4.92\u221a(x/log x)\u2264T and zeroheightIm\u03c1\u2264T.",
+        "function": "Classical Chebyshev theta in displayed Theorem2; no prime-counting or logarithmic-integral normalization is involved in this row."
+      },
+      "comparison_and_allowances": [
+        {
+          "step": 1,
+          "derivation": "x>599 \u21d2 x>1 \u21d2 log x>0 \u21d24.92\u221a(x/log x)>0; withinRange then implies T>0. The source T>0 premise is recovered from the actual Lean proof domain rather than dropped."
+        },
+        {
+          "step": 2,
+          "derivation": "Lean RHUpToT excludes zeros with1/2<Re\u03c1<1 and0\u2264Im\u03c1\u2264T; zeta functional-equation symmetry sends a zero with0<Re\u03c1<1/2 to1\u2212conj\u03c1 at the same positive height. Together with the standard nonvanishing boundary lines this matches RH through heightT. Lean additionally includes the zero-height boundary; it is harmless strengthening."
+        },
+        {
+          "step": 3,
+          "derivation": "4.92=123/25; all thresholds, strictness and denominator8\u03c0 match literally. No added endpoint/rounding term is present or needed for this theta statement."
+        }
+      ],
+      "material_mismatch": false,
+      "pending_details": []
+    },
+    {
+      "id": "LeeNosal_v4_psi",
+      "status": "PASS_NAMED_STATEMENT_MAPPING_WITH_CONFIRMED_SOURCE_AUXILIARY_NORMALIZATION_DEFECT",
+      "actual_Lean_and_Blueprint": {
+        "written_identity": null,
+        "absence_evidence": {
+          "scope": "Full current written IEANTN/Nodes *.lean/*.yaml scanned for Lee/Nosal/2312.05628 and exact log-log theta/psi formula, with enclosing module/metadata attribution included; catalog/build_catalog own entries remain source inventory rather than canonical claims. Solutions historical snapshots do not establish a canonical node.",
+          "result": "No exact Lee\u2013Nosal-v4 canonical Lean proposition or standalone Blueprint node exists in this workspace.",
+          "graph_correspondence": "Explicit absence; nearest established theta node is Buthe2016.v1, a different source and different log\u00b2 bound. No invented Blueprint association.",
+          "mechanical_scan": {
+            "population": "181currentIEANTN/Nodes/**/Conclusions.leanfilesplusallcurrentIEANTNLean/YAMLmoduleandmetadataattribution",
+            "attribution_queries": [
+              "Lee.?Nosal(case-insensitive)",
+              "2312.05628"
+            ],
+            "attribution_matches": 0,
+            "literal_nested_log_x_formula_candidates": 0,
+            "limits": "Exactnamed-source/formulamappingabsenceforthese2rows;notaclaimthatall181moduleshavehadtheirexternalsourcesaudited."
+          }
+        },
+        "new_study_consumption": "Not consumed in the accepted new study closures."
+      },
+      "named_primary": {
+        "source": {
+          "primary_url": "https://arxiv.org/pdf/2312.05628v4",
+          "private_local_source": "/data/ivy-rh-080-20261125/estimates/sources/LeeNosal2025v4.pdf",
+          "sha256": "a4aed892f4aa7c59d6e8cf2e3ff6e3b7c950928c59af0b3f234cb2a34e67dc93"
+        },
+        "secondary_representation_same_primary": {
+          "primary_url": "https://arxiv.org/html/2312.05628v4",
+          "private_local_source": "/data/ivy-rh-080-20261125/estimates/sources/LeeNosal2025v4.html",
+          "sha256": "e0fdc09ac159d84bfe35e98d82b8c557481402e242582ce7851da19c3ea46cde"
+        },
+        "locator": "PhysicalPDFp2 Theorem1.2 Eq.(2); HTML#S1.Thmtheorem2 / #S1.E2.",
+        "formula": "RH \u21d2 |\u03c8(x)\u2212x|\u2264\u221ax log x (log x\u2212log log x)/(8\u03c0), all real x\u2265101.",
+        "hypotheses": "Ordinary Riemann hypothesis. Sourcep1 defines ordinary closed-endpoint sums \u03c8(x)=\u03a3_{n\u2264x}\u039b(n),\u03d1(x)=\u03a3_{p\u2264x}log p.",
+        "endpoints": "Closed x\u2265101; closed prime/prime-power sum endpoints.",
+        "version": "arXiv2312.05628v4,2Oct2025;notearlierv3."
+      },
+      "comparison_and_allowances": [
+        {
+          "step": 1,
+          "derivation": "The catalog formula, RH premise and real thresholdx\u2265101 match the named v4 theorem exactly. No half-weight endpoint allowance, offset logarithmic integral or rounding term occurs."
+        },
+        {
+          "step": 2,
+          "derivation": "There is no exact canonical Lean theorem to source-certify or numerically weaken. Source-statement inventory and source-proof audit are recorded separately."
+        }
+      ],
+      "material_Lean_source_mismatch": false,
+      "source_auxiliary_issue": {
+        "classification": "CONFIRMED_FALSE_AUXILIARY_FORMULA_IN_NAMED_PRIMARY;NOT_A_COUNTEREXAMPLE_TO_THEOREM1_2",
+        "actual_fragment": {
+          "source": {
+            "primary_url": "https://arxiv.org/pdf/2312.05628v4",
+            "private_local_source": "/data/ivy-rh-080-20261125/estimates/sources/LeeNosal2025v4.pdf",
+            "sha256": "a4aed892f4aa7c59d6e8cf2e3ff6e3b7c950928c59af0b3f234cb2a34e67dc93"
+          },
+          "locator": "PhysicalPDFp4 Eq.(10), HTML#S2.E10; subsequently Eq.(16) PDFp5, Eq.(20) PDFp8 and Lemma3.3 PDFp7.",
+          "formula": "\u03a3_{0<|\u03b3|\u226410\u2077}1/|\u03b3|\u2264\u03c9\u2081:=16.2106480369."
+        },
+        "actual_cited_primary": {
+          "source": {
+            "primary_url": "https://arxiv.org/pdf/2204.02588v3",
+            "private_local_source": "/data/ivy-rh-080-20261125/estimates/sources/FioriKadiriSwidinsky2023v3.pdf",
+            "sha256": "15eff02042f2c1ab4878d029ce52a0abd6c95d66995b183a2dbc689ce9af49a4"
+          },
+          "locator": "PhysicalPDFp5 Corollary2.3, Eq.(2.4), Table1 rowT\u2080=10000000.",
+          "formula": "S\u2080\u221210\u207b\u00b9\u2070<\u03a3_{0<\u03b3<T\u2080}1/\u03b3<S\u2080, with T\u2080=10\u2077 and S\u2080=16.2106480369."
+        },
+        "exact_trigger_and_impact": [
+          "Conjugate symmetry preserves multiplicity and pairs ordinates\u00b1\u03b3. Therefore \u03a3_{0<|\u03b3|\u226410\u2077}1/|\u03b3|\u22652\u03a3_{0<\u03b3<10\u2077}1/\u03b3>32.4212960736, contradicting printed Eq.(10). No uncertainty about the endpoint\u03b3=10\u2077 is needed for this strict lower bound.",
+          "The cited table supplies a positive-ordinate STRICT-height sum. It gives \u03a3_{0<|\u03b3|<H\u2081}1/|\u03b3|<2S\u2080=32.4212960738. For the printed CLOSED-height sum the fully auditable allowance is2S\u2080+2m(H\u2081)/H\u2081, where m(H\u2081) is the positive-ordinate zero multiplicity exactly atH\u2081. The endpoint term vanishes only after verifyingH\u2081 is not a zero ordinate; that fact is not inferred merely from this table.",
+          "With no zero atH\u2081, replacing\u03c9\u2081 by2S\u2080 in displayedLemma3.3 adds exactly S\u2080*x^(\u22121/2)*(1+logx/(2\u03c0\u221ax)) to its relative-error envelope, or S\u2080\u221ax*(1+logx/(2\u03c0\u221ax)) to absolute error. Without that endpoint verification add a further[2m(H\u2081)/H\u2081]*x^(\u22121/2)*(1+logx/(2\u03c0\u221ax)). The smaller anchor is consumed inEq.(20), so the factor issue is proof-bearing rather than unused notation.",
+          "Both Theorem1.2 statements remain the named primary claims and agree with the catalog. This auxiliary contradiction does not prove either final theorem false. No current canonical Lean claim or accepted study proof consumes these Lee\u2013Nosal bounds."
+        ],
+        "pending_details": [
+          "A corrected whole proof with\u03c9\u2081 replaced by2S\u2080 and all subsequent auxiliary/finite estimates rechecked has not been reconstructed here; source-statement mapping is complete separately from that task.",
+          "The FKS printed table uses\u03b3<T\u2080; a complete repaired CLOSED-height anchor also requires independent verification thatH\u2081=10\u2077 is not a zero ordinate, or retention of its explicit2m(H\u2081)/H\u2081 endpoint allowance."
+        ],
+        "both_sign_interpretation_evidence": "Lee\u2013Nosal\u00a72opening(PDFp3)lets\u03f1=\u03b2+i\u03b3denoteanontrivialzerowithout\u03b3>0restriction;N(T)isseparatelydefinedby0<\u03b3\u2264T. PDFp5Eq.(15)andsubsequentcountbounduse\u03a3_{|\u03b3|\u2264y}1withthetwo-sidedN-densityfactor1/\u03c0. ThusEq.(10)cannotbeconsistentlyreadasapositive-onlysumwhilekeepingthepaper\u2019sdownstreamformulas."
+      },
+      "pending_details": [
+        "A corrected whole proof with\u03c9\u2081 replaced by2S\u2080 and all subsequent auxiliary/finite estimates rechecked has not been reconstructed here; source-statement mapping is complete separately from that task.",
+        "The FKS printed table uses\u03b3<T\u2080; a complete repaired CLOSED-height anchor also requires independent verification thatH\u2081=10\u2077 is not a zero ordinate, or retention of its explicit2m(H\u2081)/H\u2081 endpoint allowance."
+      ]
+    },
+    {
+      "id": "LeeNosal_v4_theta",
+      "status": "PASS_NAMED_STATEMENT_MAPPING_WITH_CONFIRMED_SOURCE_AUXILIARY_NORMALIZATION_DEFECT",
+      "actual_Lean_and_Blueprint": {
+        "written_identity": null,
+        "absence_evidence": {
+          "scope": "Full current written IEANTN/Nodes *.lean/*.yaml scanned for Lee/Nosal/2312.05628 and exact log-log theta/psi formula, with enclosing module/metadata attribution included; catalog/build_catalog own entries remain source inventory rather than canonical claims. Solutions historical snapshots do not establish a canonical node.",
+          "result": "No exact Lee\u2013Nosal-v4 canonical Lean proposition or standalone Blueprint node exists in this workspace.",
+          "graph_correspondence": "Explicit absence; nearest established theta node is Buthe2016.v1, a different source and different log\u00b2 bound. No invented Blueprint association.",
+          "mechanical_scan": {
+            "population": "181currentIEANTN/Nodes/**/Conclusions.leanfilesplusallcurrentIEANTNLean/YAMLmoduleandmetadataattribution",
+            "attribution_queries": [
+              "Lee.?Nosal(case-insensitive)",
+              "2312.05628"
+            ],
+            "attribution_matches": 0,
+            "literal_nested_log_x_formula_candidates": 0,
+            "limits": "Exactnamed-source/formulamappingabsenceforthese2rows;notaclaimthatall181moduleshavehadtheirexternalsourcesaudited."
+          }
+        },
+        "new_study_consumption": "Not consumed in the accepted new study closures."
+      },
+      "named_primary": {
+        "source": {
+          "primary_url": "https://arxiv.org/pdf/2312.05628v4",
+          "private_local_source": "/data/ivy-rh-080-20261125/estimates/sources/LeeNosal2025v4.pdf",
+          "sha256": "a4aed892f4aa7c59d6e8cf2e3ff6e3b7c950928c59af0b3f234cb2a34e67dc93"
+        },
+        "secondary_representation_same_primary": {
+          "primary_url": "https://arxiv.org/html/2312.05628v4",
+          "private_local_source": "/data/ivy-rh-080-20261125/estimates/sources/LeeNosal2025v4.html",
+          "sha256": "e0fdc09ac159d84bfe35e98d82b8c557481402e242582ce7851da19c3ea46cde"
+        },
+        "locator": "PhysicalPDFp2 Theorem1.2 Eq.(3); HTML#S1.Thmtheorem2 / #S1.E3.",
+        "formula": "RH \u21d2 |\u03d1(x)\u2212x|\u2264\u221ax log x (log x\u2212log log x)/(8\u03c0), all real x\u22652657.",
+        "hypotheses": "Ordinary Riemann hypothesis. Sourcep1 defines ordinary closed-endpoint sums \u03c8(x)=\u03a3_{n\u2264x}\u039b(n),\u03d1(x)=\u03a3_{p\u2264x}log p.",
+        "endpoints": "Closed x\u22652657; closed prime/prime-power sum endpoints.",
+        "version": "arXiv2312.05628v4,2Oct2025;notearlierv3."
+      },
+      "comparison_and_allowances": [
+        {
+          "step": 1,
+          "derivation": "The catalog formula, RH premise and real thresholdx\u22652657 match the named v4 theorem exactly. No half-weight endpoint allowance, offset logarithmic integral or rounding term occurs."
+        },
+        {
+          "step": 2,
+          "derivation": "There is no exact canonical Lean theorem to source-certify or numerically weaken. Source-statement inventory and source-proof audit are recorded separately."
+        }
+      ],
+      "material_Lean_source_mismatch": false,
+      "source_auxiliary_issue": {
+        "classification": "CONFIRMED_FALSE_AUXILIARY_FORMULA_IN_NAMED_PRIMARY;NOT_A_COUNTEREXAMPLE_TO_THEOREM1_2",
+        "actual_fragment": {
+          "source": {
+            "primary_url": "https://arxiv.org/pdf/2312.05628v4",
+            "private_local_source": "/data/ivy-rh-080-20261125/estimates/sources/LeeNosal2025v4.pdf",
+            "sha256": "a4aed892f4aa7c59d6e8cf2e3ff6e3b7c950928c59af0b3f234cb2a34e67dc93"
+          },
+          "locator": "PhysicalPDFp4 Eq.(10), HTML#S2.E10; subsequently Eq.(16) PDFp5, Eq.(20) PDFp8 and Lemma3.3 PDFp7.",
+          "formula": "\u03a3_{0<|\u03b3|\u226410\u2077}1/|\u03b3|\u2264\u03c9\u2081:=16.2106480369."
+        },
+        "actual_cited_primary": {
+          "source": {
+            "primary_url": "https://arxiv.org/pdf/2204.02588v3",
+            "private_local_source": "/data/ivy-rh-080-20261125/estimates/sources/FioriKadiriSwidinsky2023v3.pdf",
+            "sha256": "15eff02042f2c1ab4878d029ce52a0abd6c95d66995b183a2dbc689ce9af49a4"
+          },
+          "locator": "PhysicalPDFp5 Corollary2.3, Eq.(2.4), Table1 rowT\u2080=10000000.",
+          "formula": "S\u2080\u221210\u207b\u00b9\u2070<\u03a3_{0<\u03b3<T\u2080}1/\u03b3<S\u2080, with T\u2080=10\u2077 and S\u2080=16.2106480369."
+        },
+        "exact_trigger_and_impact": [
+          "Conjugate symmetry preserves multiplicity and pairs ordinates\u00b1\u03b3. Therefore \u03a3_{0<|\u03b3|\u226410\u2077}1/|\u03b3|\u22652\u03a3_{0<\u03b3<10\u2077}1/\u03b3>32.4212960736, contradicting printed Eq.(10). No uncertainty about the endpoint\u03b3=10\u2077 is needed for this strict lower bound.",
+          "The cited table supplies a positive-ordinate STRICT-height sum. It gives \u03a3_{0<|\u03b3|<H\u2081}1/|\u03b3|<2S\u2080=32.4212960738. For the printed CLOSED-height sum the fully auditable allowance is2S\u2080+2m(H\u2081)/H\u2081, where m(H\u2081) is the positive-ordinate zero multiplicity exactly atH\u2081. The endpoint term vanishes only after verifyingH\u2081 is not a zero ordinate; that fact is not inferred merely from this table.",
+          "With no zero atH\u2081, replacing\u03c9\u2081 by2S\u2080 in displayedLemma3.3 adds exactly S\u2080*x^(\u22121/2)*(1+logx/(2\u03c0\u221ax)) to its relative-error envelope, or S\u2080\u221ax*(1+logx/(2\u03c0\u221ax)) to absolute error. Without that endpoint verification add a further[2m(H\u2081)/H\u2081]*x^(\u22121/2)*(1+logx/(2\u03c0\u221ax)). The smaller anchor is consumed inEq.(20), so the factor issue is proof-bearing rather than unused notation.",
+          "Both Theorem1.2 statements remain the named primary claims and agree with the catalog. This auxiliary contradiction does not prove either final theorem false. No current canonical Lean claim or accepted study proof consumes these Lee\u2013Nosal bounds."
+        ],
+        "pending_details": [
+          "A corrected whole proof with\u03c9\u2081 replaced by2S\u2080 and all subsequent auxiliary/finite estimates rechecked has not been reconstructed here; source-statement mapping is complete separately from that task.",
+          "The FKS printed table uses\u03b3<T\u2080; a complete repaired CLOSED-height anchor also requires independent verification thatH\u2081=10\u2077 is not a zero ordinate, or retention of its explicit2m(H\u2081)/H\u2081 endpoint allowance."
+        ],
+        "both_sign_interpretation_evidence": "Lee\u2013Nosal\u00a72opening(PDFp3)lets\u03f1=\u03b2+i\u03b3denoteanontrivialzerowithout\u03b3>0restriction;N(T)isseparatelydefinedby0<\u03b3\u2264T. PDFp5Eq.(15)andsubsequentcountbounduse\u03a3_{|\u03b3|\u2264y}1withthetwo-sidedN-densityfactor1/\u03c0. ThusEq.(10)cannotbeconsistentlyreadasapositive-onlysumwhilekeepingthepaper\u2019sdownstreamformulas."
+      },
+      "pending_details": [
+        "A corrected whole proof with\u03c9\u2081 replaced by2S\u2080 and all subsequent auxiliary/finite estimates rechecked has not been reconstructed here; source-statement mapping is complete separately from that task.",
+        "The FKS printed table uses\u03b3<T\u2080; a complete repaired CLOSED-height anchor also requires independent verification thatH\u2081=10\u2077 is not a zero ordinate, or retention of its explicit2m(H\u2081)/H\u2081 endpoint allowance."
+      ]
+    },
+    {
+      "id": "GM_smoothed_primitive",
+      "status": "PASS_NAMED_PRIMARY_STATEMENT_DOMAIN_CONSTANT_AND_NORMALIZATION_MAPPING",
+      "actual_Lean_and_Blueprint": {
+        "written_identity": {
+          "file": "IEANTN/Nodes/RHPrimeCounting/v1/Conclusions.lean",
+          "declaration": "gm_source",
+          "physical_LF_line": 23,
+          "source_sha256": "30da8b29230c60e64b942860ace9d924b3db588ab09397be436621a638b0e753",
+          "actual_declaration": "def gm_source : Prop := RH.v1.hypothesis \u2192\n  \u2200 x : \u211d, 3 \u2264 x \u2192 |primitive x| \u2264 primitiveEnvelope x"
+        },
+        "related_definitions": [
+          {
+            "file": "IEANTN/Nodes/RHPrimeCounting/v1/Conclusions.lean",
+            "declaration": "primitive",
+            "physical_LF_line": 17,
+            "source_sha256": "30da8b29230c60e64b942860ace9d924b3db588ab09397be436621a638b0e753",
+            "actual_declaration": "noncomputable def primitive (x : \u211d) : \u211d :=\n  (\u2211 n \u2208 Finset.Icc 0 \u230ax\u230b\u208a, (ArithmeticFunction.vonMangoldt n:\u211d)*(x-n))-x^2/2"
+          },
+          {
+            "file": "IEANTN/Nodes/RHPrimeCounting/v1/Conclusions.lean",
+            "declaration": "primitiveEnvelope",
+            "physical_LF_line": 20,
+            "source_sha256": "30da8b29230c60e64b942860ace9d924b3db588ab09397be436621a638b0e753",
+            "actual_declaration": "noncomputable def primitiveEnvelope (x : \u211d) : \u211d :=\n  (231/5000:\u211d)*x*sqrt x+(919/500:\u211d)*x+19851/10000+(5097/10000:\u211d)/x"
+          }
+        ],
+        "graph_correspondence": "IEANTN/Nodes/RHPrimeCounting/v1/formalization.yaml conclusiongm_source, sourceGM2015, locatorTheorem1.1rational-fieldcasePDFp3. No separate Blueprint label/directory in this workspace.",
+        "new_study_consumption": "Not consumed in accepted new study cube/zero/fourier closures."
+      },
+      "named_primary": {
+        "source": {
+          "primary_url": "https://arxiv.org/pdf/1312.4465v4",
+          "private_local_source": "/data/ivy-rh-080-20261125/estimates/sources/GrenieMolteni2015v4.pdf",
+          "sha256": "35e0484a992c47b819a1cd845f9ae14cd4ed03ce5d735b32f7a98002755b0537"
+        },
+        "locator": "PhysicalPDFp3 Theorem1.1, first rational-field display after \u201cwhile for Q\u201d; physicalPDFp1 \u00a71 definition\u03c8_K^(m), m=1, and abstractintegraldefinition.",
+        "formula": "RH \u21d2 |\u03c8_Q^(1)(x)\u2212x\u00b2/2|\u22640.0462x^(3/2)+1.838x+1.9851+0.5097/x, for every realx\u22653.",
+        "normalization": "\u03c8_Q^(1)(x)=\u222b\u2080\u02e3\u03c8_Q(u)du=\u03a3_{n\u2264x}\u039b(n)(x\u2212n); K=Q uses its dedicated rational-field estimate, not substitutionn_K=1 into theK\u2260Q branch.",
+        "version": "Named1312.4465v4(smoothedpaper);notunsmoothed1312.4463andnotv5."
+      },
+      "comparison_and_allowances": [
+        {
+          "step": 1,
+          "derivation": "K=Q: ideals ofZ correspond to positive integers; \u039b_Q agrees with ordinary vonMangoldt. The m=1 finite representation \u03a3_{n\u2264x}\u039b(n)(x\u2212n) is literally Lean sum n\u2208Icc0floor\u208ax;\u039b(0)=\u039b(1)=0."
+        },
+        {
+          "step": 2,
+          "derivation": "At an integer endpointn=x, the summand\u039b(n)(x\u2212n)=0, so ordinary versus half-weight endpoint conventions give the same primitive; no added term."
+        },
+        {
+          "step": 3,
+          "derivation": "Forx\u22653, x^(3/2)=x\u221ax. Constants0.0462=231/5000,1.838=919/500,1.9851=19851/10000,0.5097=5097/10000. All four terms retained exactly."
+        },
+        {
+          "step": 4,
+          "derivation": "GRH for the rational field is ordinaryRH; sourceandLeanusex\u22653. There is no rounding/domain transfer allowance and no dropped1/x term."
+        }
+      ],
+      "material_mismatch": false,
+      "pending_details": []
+    }
+  ]
+}

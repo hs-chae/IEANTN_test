@@ -1,0 +1,110 @@
+version: v0.4
+project:
+  authors:
+  - IEANTN contributors
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+  name: PrimeInterval.v5
+  description: 'Finite all-real interval evolution: terminal1550 closed/1550+epsilon
+    strict, separate log-squared source window, and their smaller width.'
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+node:
+  id: PrimeInterval.v5
+  family: PrimeInterval
+  version: v5
+  kind: pipeline
+  status: awaiting-verification
+conclusions:
+- id: closed_width1550
+  declaration: PrimeInterval.v5.closed_width1550
+  challenge: PrimeInterval.v5.challenge_closed_width1550
+  imports:
+  - node: PrimeGapTable.v1
+    conclusion: gaps
+  imports_status: identified
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: Complete source-only Lean proof at Solutions/RH080Study.v1/finite_frontier/FiniteNetworkIntegration.lean;
+      actual inherited kernel Lucas terminal proof and supplied typed historical source
+      inputs are consumed. Official Comparator receipt is not claimed.
+  designated: local-kernel-proof
+- id: strict_width1550_add
+  declaration: PrimeInterval.v5.strict_width1550_add
+  challenge: PrimeInterval.v5.challenge_strict_width1550_add
+  imports:
+  - node: PrimeGapTable.v1
+    conclusion: gaps
+  imports_status: identified
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: Complete source-only Lean proof at Solutions/RH080Study.v1/finite_frontier/FiniteNetworkIntegration.lean;
+      actual inherited kernel Lucas terminal proof and supplied typed historical source
+      inputs are consumed. Official Comparator receipt is not claimed.
+  designated: local-kernel-proof
+- id: strict_log_squared
+  declaration: PrimeInterval.v5.strict_log_squared
+  challenge: PrimeInterval.v5.challenge_strict_log_squared
+  imports:
+  - node: FiniteLogSquaredPrimeGaps.v1
+    conclusion: gaps
+  imports_status: identified
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: Complete source-only Lean proof at Solutions/RH080Study.v1/finite_frontier/FiniteNetworkIntegration.lean;
+      actual inherited kernel Lucas terminal proof and supplied typed historical source
+      inputs are consumed. Official Comparator receipt is not claimed.
+  designated: local-kernel-proof
+- id: strict_minimum_width
+  declaration: PrimeInterval.v5.strict_minimum_width
+  challenge: PrimeInterval.v5.challenge_strict_minimum_width
+  imports:
+  - node: PrimeGapTable.v1
+    conclusion: gaps
+  - node: FiniteLogSquaredPrimeGaps.v1
+    conclusion: gaps
+  imports_status: identified
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: Complete source-only Lean proof at Solutions/RH080Study.v1/finite_frontier/FiniteNetworkIntegration.lean;
+      actual inherited kernel Lucas terminal proof and supplied typed historical source
+      inputs are consumed. Official Comparator receipt is not claimed.
+  designated: local-kernel-proof
+sources:
+- id: CMS2017v2
+  title: Fourier optimization and prime gaps
+  authors:
+  - Emanuel Carneiro
+  - Micah B. Milinovich
+  - Kannan Soundararajan
+  type: paper
+  relationship: adapts
+  url: https://arxiv.org/abs/1708.04122v2
+  note: Equation(1.15) supplies the separately named FiniteLogSquaredPrimeGaps.v1
+    input; the new all-real transfer is proved locally.
+- id: Nicely2019
+  title: First occurrence prime gaps,12August2019
+  authors:
+  - Thomas R. Nicely
+  type: other
+  relationship: background
+  url: https://oeis.org/A000101/a000101.pdf
+  note: Existing PrimeGapTable.v1 source input and its practical-verification/completeness
+    qualifiers are preserved unchanged.
+limitations:
+- Widths1550/1550+epsilon cover2<=x<18446744073709551557, not allx<2^64.
+- Log-squared and minimum widths cover11<=x<=exp42.
+- Historical gap computations remain explicit B-tier inputs; terminal primality is
+  kernel proved.
+- No RH, new source-first PV, optimality or best-known claim; existing versions remain
+  unchanged.

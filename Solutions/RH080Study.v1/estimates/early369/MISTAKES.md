@@ -1,0 +1,3 @@
+# Development corrections
+
+The initial additive v3 package omitted the Solution project's comparator.json metadata. The subsequent genuine ordinary all12 Lake build passed; the global type/value/axiom auditor then correctly stopped when it reached the missing metadata after auditing the earlier projects. This is a packaging omission, not a failed mathematical proof. The original interrupted audit prefix is preserved separately. The integration owner adds the exact four generated v3 challenge roots with the standard propext/Classical.choice/Quot.sound allowance, then reruns the complete final consumer audit. No submitted source, mathematical statement, theorem body, experimental outcome or cold53-module proof receipt is changed.

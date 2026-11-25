@@ -176,7 +176,7 @@ def main():
             "initial_existing_application_objects": {
                 name: object_inventory(repository / "Solutions" / name / ".lake/build")
                 for name in projects + ["RH080Study.v1"]},
-            "prior_run": "lake-solutions-v1 first4 projects genuinely passed; interrupted mid-G80; partial traces preserved. New full10-project commands still run."}
+            "prior_run": "Earlier actual10-project integration succeeded; this additive phase genuinely executes the complete current registered project population, reusing only real Lake objects/traces."}
     (args.run / "PLAN.json").write_text(json.dumps(lock, indent=2) + "\n")
     (args.run / "run_lake_solutions.executed.py").write_bytes(Path(__file__).read_bytes())
     env = dict(os.environ, LEAN_NUM_THREADS=str(args.scheduler_threads))
@@ -244,7 +244,7 @@ def main():
          "OOM kill occurred in packaging cgroup")
     need(len(rows) == len(projects) and all(row["returncode"] == 0 for row in rows), "Incomplete actual project execution")
     full = set(projects) == set(manifest["solution_projects"])
-    result = {"status": "PASS_ACTUAL_ALL10_REGISTERED_SOLUTION_LAKE_BUILDS" if full else "PASS_ACTUAL_SELECTED_REGISTERED_SOLUTION_LAKE_BUILDS",
+    result = {"status": ("PASS_ACTUAL_ALL"+str(len(projects))+"_REGISTERED_SOLUTION_LAKE_BUILDS") if full else "PASS_ACTUAL_SELECTED_REGISTERED_SOLUTION_LAKE_BUILDS",
               "all_registered_projects_completed": full, "seconds": time.monotonic()-started,
               "projects": projects, "builds": rows, "plan_sha256": sha(args.run / "PLAN.json"),
               "controller_sha256": controller_hash, "initial_resources": initial, "final_resources": final,

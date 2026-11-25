@@ -1,0 +1,14 @@
+import Solution
+set_option pp.proofs true
+#check PrimeInterval.v5.challenge_closed_width1550
+#print axioms PrimeInterval.v5.challenge_closed_width1550
+#print PrimeInterval.v5.challenge_closed_width1550
+#check PrimeInterval.v5.challenge_strict_width1550_add
+#print axioms PrimeInterval.v5.challenge_strict_width1550_add
+#print PrimeInterval.v5.challenge_strict_width1550_add
+#check PrimeInterval.v5.challenge_strict_log_squared
+#print axioms PrimeInterval.v5.challenge_strict_log_squared
+#print PrimeInterval.v5.challenge_strict_log_squared
+#check PrimeInterval.v5.challenge_strict_minimum_width
+#print axioms PrimeInterval.v5.challenge_strict_minimum_width
+#print PrimeInterval.v5.challenge_strict_minimum_width

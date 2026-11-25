@@ -1,0 +1,112 @@
+{
+  "status": "PASS_OPTIMIZATION_SAFE_CLI_AND_EXACT_TYPE_CONTROLS",
+  "cases": [
+    {
+      "case": "normal:existing-output",
+      "returncode": 1,
+      "expected_rejection": true,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/primal80_fourier/reproduce.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/primal80-fourier/fresh-final-v3-OO"
+      ]
+    },
+    {
+      "case": "normal:bad-compiler",
+      "returncode": 1,
+      "expected_rejection": true,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/primal80_fourier/reproduce.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/primal80-fourier/controls-final-OO-v2/normal-rejected-run",
+        "--context",
+        "/data/ivy-rh-080-20261125/primal80-fourier/controls-final-OO-v2/bad-compiler-context.json"
+      ]
+    },
+    {
+      "case": "O:existing-output",
+      "returncode": 1,
+      "expected_rejection": true,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/primal80_fourier/reproduce.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/primal80-fourier/fresh-final-v3-OO"
+      ]
+    },
+    {
+      "case": "O:bad-compiler",
+      "returncode": 1,
+      "expected_rejection": true,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/primal80_fourier/reproduce.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/primal80-fourier/controls-final-OO-v2/O-rejected-run",
+        "--context",
+        "/data/ivy-rh-080-20261125/primal80-fourier/controls-final-OO-v2/bad-compiler-context.json"
+      ]
+    },
+    {
+      "case": "OO:existing-output",
+      "returncode": 1,
+      "expected_rejection": true,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/primal80_fourier/reproduce.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/primal80-fourier/fresh-final-v3-OO"
+      ]
+    },
+    {
+      "case": "OO:bad-compiler",
+      "returncode": 1,
+      "expected_rejection": true,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/primal80_fourier/reproduce.py",
+        "--out",
+        "/data/ivy-rh-080-20261125/primal80-fourier/controls-final-OO-v2/OO-rejected-run",
+        "--context",
+        "/data/ivy-rh-080-20261125/primal80-fourier/controls-final-OO-v2/bad-compiler-context.json"
+      ]
+    },
+    {
+      "case": "positive",
+      "returncode": 0,
+      "expected_acceptance": true,
+      "command": [
+        "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+        "-j2",
+        "/data/ivy-rh-080-20261125/primal80-fourier/controls-final-OO-v2/positive.lean"
+      ]
+    },
+    {
+      "case": "wrong-output",
+      "returncode": 1,
+      "expected_acceptance": false,
+      "command": [
+        "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+        "-j2",
+        "/data/ivy-rh-080-20261125/primal80-fourier/controls-final-OO-v2/wrong_output.lean"
+      ]
+    },
+    {
+      "case": "changed-coefficient",
+      "returncode": 1,
+      "expected_acceptance": false,
+      "command": [
+        "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+        "-j2",
+        "/data/ivy-rh-080-20261125/primal80-fourier/controls-final-OO-v2/changed_coefficient.lean"
+      ]
+    }
+  ],
+  "controls_prove_only_contract_rejection": true
+}

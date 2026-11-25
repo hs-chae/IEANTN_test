@@ -1,0 +1,84 @@
+{
+  "controller_sha256": "db701c72427b141eda207ccdfa4d0bb67fe89ae537fd6296fb2f7a43e79bd28a",
+  "status": "PASS_EXTERNAL_EXACT_RATIONAL_GUARD_STRENGTHENED_REPLAY",
+  "trial": "cube-L2_E2_D1_V1-r1",
+  "prefix": "prefix-0002",
+  "mode": "O",
+  "sources": [
+    {
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/timely-prefixes/cube-L2_E2_D1_V1-r1/prefix-0002/finite_cover.py",
+      "original_sha256": "0adc7da99b62c7d81f8f0e4a30ee978e36692f3dc3b1a3b243345fccaf4f4b62",
+      "guard_strengthened_sha256": "850d9428446d64fdf2cc8495d398587c3383e22c4a590099c2018aea3381a4aa",
+      "assert_statements_replaced": 1
+    },
+    {
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/timely-prefixes/cube-L2_E2_D1_V1-r1/prefix-0002/scalar_checks.py",
+      "original_sha256": "b5d9cf83aae636828fb4a5baea7fdbca2bc00ddd800a3b3fedbd0ad9bf34f5e0",
+      "guard_strengthened_sha256": "8a2121c67719d831f2d037845e1671ca217e8644ab0bd43557aca7bc5d11614f",
+      "assert_statements_replaced": 13
+    },
+    {
+      "original": "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/timely-prefixes/cube-L2_E2_D1_V1-r1/prefix-0002/sinc_certificate.py",
+      "original_sha256": "c5658936b76c0fbc633bd46d2dab8db97ab8389067871969bf1ee760a57bb270",
+      "guard_strengthened_sha256": "50392a287ac0bc71c524088a0f740730d5fc035f15cb77373fff6787fa9abd3f",
+      "assert_statements_replaced": 9
+    }
+  ],
+  "commands": [
+    {
+      "script": "scalar_checks.py",
+      "returncode": 0,
+      "seconds": 0.03206775709986687,
+      "command": [
+        "/usr/bin/prlimit",
+        "--as=68719476736",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/followup-analysis/portable-v1r1-O/guarded/scalar_checks.py"
+      ],
+      "stdout_sha256": "095758a154bc109b0a1e7e76238a257f2bd94aee722ae48e77e97afcf6eaa948",
+      "stderr_sha256": "c32e7b96b375f0ca3ae9a144c7cfcb582803203d1320ea971910661049514415"
+    },
+    {
+      "script": "sinc_certificate.py",
+      "returncode": 0,
+      "seconds": 18.49405744485557,
+      "command": [
+        "/usr/bin/prlimit",
+        "--as=68719476736",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/followup-analysis/portable-v1r1-O/guarded/sinc_certificate.py"
+      ],
+      "stdout_sha256": "65d584a813e48ba6143b4fdd03ace19a827b32193b9d015f8710dbf003177768",
+      "stderr_sha256": "8b0096d8af6f20757062cdd9f29728ce06c12ee58d5e224f67aed6a15eb43241"
+    },
+    {
+      "script": "finite_cover.py",
+      "returncode": 0,
+      "seconds": 1.5168135166168213,
+      "command": [
+        "/usr/bin/prlimit",
+        "--as=68719476736",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/followup-analysis/portable-v1r1-O/guarded/finite_cover.py"
+      ],
+      "stdout_sha256": "f30836c41f72362e0fc2b7a1418b0ac4be8f068a462921aa35c60144b360e620",
+      "stderr_sha256": "18b1ef0b03eeeaa012858127c2d0ec396fd57ada8e8750a10a6bc66b6e0dbb15"
+    }
+  ],
+  "source_first_PV": false,
+  "kernel_proof": false,
+  "original_inputs_changed": false,
+  "meaning": "Ordinary exact-rational external evidence plus separately reviewed written analytic proof. Only assert guards were made explicit for optimization robustness; arithmetic AST/parameters retained. No formal Python semantics/source correspondence proof claimed."
+}

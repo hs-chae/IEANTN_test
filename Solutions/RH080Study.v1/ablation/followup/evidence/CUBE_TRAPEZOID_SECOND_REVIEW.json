@@ -1,0 +1,114 @@
+{
+  "status": "PASS_SECOND_INDEPENDENT_SOURCE_CONTINUUM_GEOMETRY_AND_EXACT_ALL_CELL_REVIEW",
+  "timely_inputs": [
+    {
+      "path": "/data/ivy-rh-080-20261125/ablation-followup-controller/trials/cube-L2_E2_D1_V1-r1/research-v1/timely-locked-prefixes/prefix-0002/Trapezoid.md",
+      "sha256": "b272655088cee5d8159cd3839ae3d0269886c1d5e1596093810a50db81215377"
+    },
+    {
+      "path": "/data/ivy-rh-080-20261125/ablation-followup-controller/trials/cube-L2_E2_D1_V1-r1/research-v1/timely-locked-prefixes/prefix-0002/sinc_certificate.py",
+      "sha256": "c5658936b76c0fbc633bd46d2dab8db97ab8389067871969bf1ee760a57bb270"
+    }
+  ],
+  "actual_Lean_and_Blueprint": {
+    "new_headline_theorem": "NONE: no .8591/.9855 actual ANT theorem in submitted Lean; written E only. Existing endpoint/pointwise Lean results do not imply either headline without this new continuum calculation.",
+    "canonical_inputs": [
+      {
+        "path": "IEANTN/Nodes/GreenSmooth/v1/Conclusions.lean",
+        "sha256": "888f75e93941b09209636bf25ccc58a1bc4bb948b0b0685156df285ea6c6ce05"
+      },
+      {
+        "path": "IEANTN/Nodes/BPTOffOrdinate/v1/Conclusions.lean",
+        "sha256": "8dfd4290473b741b2da51305651b040bcc53f6f7a3021b1e4eefbb65b8b4bc81"
+      }
+    ],
+    "solution_inputs": [
+      {
+        "path": "Solutions/RHOcticPush.v1/octic/OcticGreenSource.lean",
+        "sha256": "b7ce6366a059c1c731c9dca8d970e93ad869780d404f398a2ba8106d969f4393"
+      },
+      {
+        "path": "Solutions/RHOcticPush.v1/octic/OcticBPTSourceEndpoint.lean",
+        "sha256": "20fbddc827b96344076fbef503408c3fb5d18adbe5da7cc4b31c23f6296df80d"
+      }
+    ],
+    "Green_exact_type": "∀ W:ℝ→ℝ, ContDiff ℝ ∞ W → HasCompactSupport W → support W ⊆ Ici 1 → ∀ X>1, Summable(sourcePacket W X) ∧ [Σ Λ(k)W(k/X)=X∫W−Σ_proper-zero multiplicity·X^ρ·∫₀∞W(t)t^ρdt/t].",
+    "BPT_exact_type": "∀ T>2π not any positive zero ordinate, |N_closed(T)−[T/(2π)log(T/(2π))−T/(2π)+7/8]|≤(7/25)logT.",
+    "Blueprint_correspondence": "No separate Blueprint label exists for the new trapezoid E construction. Canonical imported source nodes GreenSmooth.v1.formula and BPTOffOrdinate.v1.bound provide the source correspondence; old PrimeInterval.v4 optimized family is a narrower downstream black box."
+  },
+  "primary_sources": [
+    {
+      "name": "Ben Green, The Prime Number Theorem",
+      "url": "https://people.maths.ox.ac.uk/greenbj/papers/primenumbers.pdf",
+      "input": {
+        "path": "/data/ivy-rh-080-20261125/followup-source-primary/Green-prime-numbers.pdf",
+        "sha256": "c5655e4668dabb7ef43f507ca132849fee24f3237d3eea3681fc6efa9d1e77f2"
+      },
+      "locator": "Definition 7.1 / Theorem 7.1 and multiplicity remark, printed40/PDF44; Lemma7.1(i), eqs7.8–7.11 printed43–44/PDF47–48",
+      "formula": "W̃(s)=∫₀∞W(t)t^s dt/t; Σ_n Λ(n)W(n/X)=X∫W−Σ_all-zeros X^ρW̃(ρ), counting order; smooth compact W supported in [1,∞), X>1.",
+      "matched_domain": "Use only general decay Lemma7.1(i), not the extra support [1,10] quantitative part(ii). The far-out support of W is therefore allowed. Positive exponent and all-zero multiplicities match the actual typed source."
+    },
+    {
+      "name": "Brent–Platt–Trudgian, JNT238(2022), final author edition",
+      "url": "https://maths-people.anu.edu.au/~brent/pd/rpb274-final.pdf",
+      "input": {
+        "path": "/data/ivy-rh-080-20261125/estimates/sources/BPT2022_mean_square.pdf",
+        "sha256": "4be3667cbe07ab6a24930e8835923362ae12af946b622fa73c89fd654e9fae34"
+      },
+      "locator": "Corollary1 printed743/PDF4; Lemma2 printed744/PDF5; multiplicity paragraph printed754/PDF15",
+      "formula": "For all T≥2π, N(T)=T/(2π)log(T/(2π))−T/(2π)+7/8+(0.28ϑ)logT, |ϑ|≤1.",
+      "matched_domain": "Actual source restriction takes only non-ordinate T>2π; proved publishedBound_of_offOrdinate derives full closed count for every T≥2π by local finiteness and right continuity, with no added error or lost endpoint multiplicity. Final edition proof uses interval arithmetic through7.7×10^8; that source computation is external and not reverified.",
+      "supplemental_edition": {
+        "path": "/data/ivy-rh-080-20261125/followup-source-primary/BPT2008.06140v1.pdf",
+        "sha256": "87a5c38428b9938e00b3540fc62ab34b27d136f486823864637268c74ab61ddd"
+      }
+    }
+  ],
+  "geometry_and_admissibility": [
+    "For real n, set x=n³,y=(n+1)³,a=log x,b=log y,H=b−a,h=HK/(K+1),δ=H/(K+1). Let g=1_[a,a+h]∗δ⁻¹1_[0,δ]. Then 0≤g≤1, support⊆[a,b], g(a)=g(b)=0, ∫g=h.",
+    "Convolve with a nonnegative smooth unit-mass compact mollifier to obtain gε. Wε(t)=√(x/(2t))gε(log(2t)), X=2, is smooth with compact support in [1,∞) when ε is small, since x>2. This meets every hypothesis of the actual general SourceGreenSmooth; no source formula for a nonsmooth weight is postulated.",
+    "Its source Mellin packet is √x∫gε(w)e^((s−1/2)w)dw. The pole tends to at least xh. At ρ=1/2+iγ its modulus is at most √x h |sinc(γh/2)sinc(γδ/2)|, with sinc u=sin u/u. For T=2/h this is √x h f_K(γ/T). This is the radian sinc convention used by the actual πj/M grid.",
+    "Mollifier transforms have modulus≤1. f_K(u)≤min(1,K/u²), BPT counting gives an absolutely summable zero majorant; trivial zeros have a convergent geometric majorant. Thus dominated limits justify unsmoothing. The Λ sum is finite locally and converges termwise, and endpoint weights tend to zero. The resulting prime window is strictly open.",
+    "RH puts nontrivial zeros on the critical line. Both signs contribute factor2 and integer order multiplicities are retained. Real zeros in (0,1) are excluded by ζ(σ)=η(σ)/(1−2^(1−σ))<0: η(σ)>0 by paired alternating terms. This written argument removes Nicolas; the old Lean order_zero_on_real_axis lemma itself still requires Nicolas, so its type is not silently changed."
+  ],
+  "zero_enclosure": [
+    "T=2/h≥2n/3; low interval up to Tπj0/M plus finite (Tπj/M,Tπ(j+1)/M] cells and >TπJ/M tail cover all positive zeros including jump heights. j0=21 or31 makes every sampled height exceed2π.",
+    "Each cell sinc upper uses exact Taylor9 sine enclosures with angle folding, Lipschitz allowances π_hi/(2M) and π_hi/(2MK), positive denominator u_lower, clamp at1 and upward 10^−10 rounding. Low f≤1 and tail K/u² are conservative.",
+    "Integration against the smooth BPT main term uses 2hT=4 exactly; low and cell weights2j0/M and2m_j/M, tail2K/(πuJ)[logT+log(J/(2M))+1]. The 7/8 term is bounded by21/(4n).",
+    "Discrete residual summation uses total variation |1−m_j0|+Σ|Δm|+m_last+3K/uJ². The tail residual≤.28(K/uJ²)(2log(TuJ)+.5) is absorbed since log(TuJ)≥.5; with2h≤6/n the residual cap is(42/25)(L+C)V/n.",
+    "logT≤L−.37 orL−.4. Rounding A upward while B upward remains safe despite the negative offset, because L+offset>0. Independent assembly checks the exact coupled budget rather than testing only rounded scalars."
+  ],
+  "prime_powers_continuum_and_seam": [
+    "Square bases: at most1.5√(n+1)+1 and logp≤1.5log(n+1). For exponents m≥3 each root interval has length≤1, hence at most2 integer bases per exponent and <5log(n+1) exponents. The normalized loss is≤2L/n^(3/2)+4L²/n². This elementary bound consumes no Nicolas input.",
+    "Trivial-zero normalized loss≤1/(3n^5). Main normalized lower≥[K/(K+1)]·[n/(n+1)]/[1+1/(nL)]. Main increases; zero cap decreases on the whole ray by A(log n−2)+B≥0, and power/trivial losses decrease. Thus the continuum ray is proved by monotonicity, not sampled n values.",
+    "K32/M64/J16384 yields coefficient>.8591 for every real n≥exp8. K480/M96/J196608 yields>.9855 for every real n≥2154433.",
+    "For1920≤n≤2154433 the added Büthe source gives θLeft(y)≥y−1.95√y and θ(x)<x−.05√x by left limit and strict upper inequality. Endpoints are excluded directly, so no unbudgeted −1 is discarded. Main normalized ratio≥1; error≤(19/30+26/(25n))/√n, decreasing and <.0145 at1920. x≥1423 and (2154434)^3<10^19 check both finite domains, with exact overlap at2154433."
+  ],
+  "actual_independent_numerical_check": {
+    "controller": {
+      "path": "Solutions/RH080Study.v1/ablation/followup/verify_trapezoid_arithmetic.py",
+      "sha256": "254697d48c65b96d2f05addd493f4ab51a78943a43d0298aac8ecee53cca260f"
+    },
+    "receipt": {
+      "path": "/data/ivy-rh-080-20261125/followup-trapezoid-second-v1/RESULT.json",
+      "sha256": "addb443602276d61ac0b58cfa878f6e8b0d91569cc837bdb5174cfd718fdd47e"
+    },
+    "all_finite_cells_recomputed": {
+      "K32": 16363,
+      "K480": 196577
+    },
+    "safe_downward_coefficient_lower": [
+      "0.85911993541886",
+      "0.98553563059300"
+    ],
+    "mode": "-OO; all original source asserts translated to explicit error guards; actual source untouched"
+  },
+  "precise_source_package_boundary": {
+    "same_original_upstream": "RH + general GreenSmooth.v1.formula + BPTOffOrdinate.v1.bound suffice for .8591/e8. Retaining SourceNicolas119 gives the same-original-upstream-package comparison.",
+    "not_literal_black_box": "This is not derived just from SourceOcticFamily or PrimeInterval.v4.optimized_strict_family; it instantiates the general upstream Green/BPT formulas with a new trapezoid.",
+    "stronger_finite": "The .9855/n1920 conclusion additionally consumes Büthe finite theta inputs (1.6),(1.7).",
+    "verification": "Independent written proof/source review + exact rational cell computation E; no complete Lean ANT theorem, source-first PV, automatic network promotion or global optimality claim."
+  },
+  "material_findings": [],
+  "source_universe_scope": "Only the named construction and its exact Green/BPT/Büthe inputs; not all external attributions in the project."
+}

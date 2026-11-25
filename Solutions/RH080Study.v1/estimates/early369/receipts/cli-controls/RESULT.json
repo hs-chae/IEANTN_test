@@ -1,0 +1,709 @@
+{
+  "status": "PASS_ACTUAL_CLI_GUARDS_ALL_THREE_OPTIMIZATION_MODES",
+  "cases": 39,
+  "modes": [
+    {
+      "mode": "normal",
+      "commands": [
+        {
+          "name": "unknown_option",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/normal/unknown_option-output",
+            "--bogus"
+          ],
+          "returncode": 2,
+          "expected": "unrecognized arguments",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "25eb6d52fc43c61f93ec6f0ebc7937e446c3323518df6e9fdbe243b052d6d143"
+        },
+        {
+          "name": "wrong_lane",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/normal/wrong_lane-output",
+            "--lane",
+            "other"
+          ],
+          "returncode": 2,
+          "expected": "invalid choice",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "96263158fc44ab3d07cd9f9995f6de0508567df2d88bc8af5e71210591ab6924"
+        },
+        {
+          "name": "existing_output",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/normal/existing_output-output",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/normal/existing_output"
+          ],
+          "returncode": 1,
+          "expected": "Fresh run required",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "aee58ac1278b4d3d1591d53a243784856745cd18abf9dfdbb74c7aa87edb7d17"
+        },
+        {
+          "name": "wrong_compiler_hash",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/normal/wrong_compiler_hash-output",
+            "--context",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/normal/wrong_compiler_hash.json"
+          ],
+          "returncode": 1,
+          "expected": "Pinned compiler bytes differ",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "51b06b49fa7cc318422a3d6195a43fd44e30f7068c609d20ee5d2df6d8ce7738"
+        },
+        {
+          "name": "wrong_generic_revision",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/normal/wrong_generic_revision-output",
+            "--context",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/normal/wrong_generic_revision.json"
+          ],
+          "returncode": 1,
+          "expected": "Generic source pins differ",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "32cd5a911d5d8b1dba85b9a7c3667d174aadbcbd398cd964ac65ce4a747430f4"
+        },
+        {
+          "name": "duplicate_context",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/normal/duplicate_context-output",
+            "--context",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/normal/duplicate_context.json"
+          ],
+          "returncode": 1,
+          "expected": "Duplicate JSON key",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "6523c310bf78afad52667ae994203dad3ed9f6208fec450589293f8d87f36f8d"
+        },
+        {
+          "name": "nonfinite_context",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/normal/nonfinite_context-output",
+            "--context",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/normal/nonfinite_context.json"
+          ],
+          "returncode": 1,
+          "expected": "Nonfinite JSON",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "3e1f467d416968f3952877f4f5f75342b3fe2b935db0583211c05ca11c45fbae"
+        },
+        {
+          "name": "clean_missing_source",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/normal/clean_missing_source-output",
+            "--repository",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/normal/fixture/missing"
+          ],
+          "returncode": 1,
+          "expected": "No such file or directory",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "7b2117c225bd4518de9e57957288aa6b7c70d5ca1516bc837054ae33b6cc17d5"
+        },
+        {
+          "name": "changed_source",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/normal/changed_source-output",
+            "--repository",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/normal/fixture"
+          ],
+          "returncode": 1,
+          "expected": "Source provider hash changed",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "2f460a1db335f8a1dde0824f512be67f5b8d72dd1fc6f73b3cdc5c3b0daffcb9"
+        },
+        {
+          "name": "unsafe_path",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/normal/unsafe_path-output",
+            "--repository",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/normal/fixture"
+          ],
+          "returncode": 1,
+          "expected": "Unsafe provider path",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "f319030484c9c9c1cb6701a22a93a7fcc49a684b708aee021646de9f665913e4"
+        },
+        {
+          "name": "duplicate_module",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/normal/duplicate_module-output",
+            "--repository",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/normal/fixture"
+          ],
+          "returncode": 1,
+          "expected": "Duplicate module identity",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "95270ea67a377b3bc7ddf8f6fc0f339533a869e96bd2ea9371a38b569004018f"
+        },
+        {
+          "name": "missing_dependency",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/normal/missing_dependency-output",
+            "--repository",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/normal/fixture"
+          ],
+          "returncode": 1,
+          "expected": "Non-generic dependency absent",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "81bf372a4044690cda2bcaf79296ceb92faff5a155f01dfa2a38ca83df778e6c"
+        },
+        {
+          "name": "duplicate_manifest",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/normal/duplicate_manifest-output",
+            "--repository",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/normal/fixture"
+          ],
+          "returncode": 1,
+          "expected": "Duplicate JSON key",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "2650618bbbdcd6d8785ef753cf915977b46f11f477ad74bb67637d9a900860e5"
+        }
+      ]
+    },
+    {
+      "mode": "O",
+      "commands": [
+        {
+          "name": "unknown_option",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "-O",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/O/unknown_option-output",
+            "--bogus"
+          ],
+          "returncode": 2,
+          "expected": "unrecognized arguments",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "25eb6d52fc43c61f93ec6f0ebc7937e446c3323518df6e9fdbe243b052d6d143"
+        },
+        {
+          "name": "wrong_lane",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "-O",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/O/wrong_lane-output",
+            "--lane",
+            "other"
+          ],
+          "returncode": 2,
+          "expected": "invalid choice",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "96263158fc44ab3d07cd9f9995f6de0508567df2d88bc8af5e71210591ab6924"
+        },
+        {
+          "name": "existing_output",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "-O",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/O/existing_output-output",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/O/existing_output"
+          ],
+          "returncode": 1,
+          "expected": "Fresh run required",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "aee58ac1278b4d3d1591d53a243784856745cd18abf9dfdbb74c7aa87edb7d17"
+        },
+        {
+          "name": "wrong_compiler_hash",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "-O",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/O/wrong_compiler_hash-output",
+            "--context",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/O/wrong_compiler_hash.json"
+          ],
+          "returncode": 1,
+          "expected": "Pinned compiler bytes differ",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "51b06b49fa7cc318422a3d6195a43fd44e30f7068c609d20ee5d2df6d8ce7738"
+        },
+        {
+          "name": "wrong_generic_revision",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "-O",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/O/wrong_generic_revision-output",
+            "--context",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/O/wrong_generic_revision.json"
+          ],
+          "returncode": 1,
+          "expected": "Generic source pins differ",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "32cd5a911d5d8b1dba85b9a7c3667d174aadbcbd398cd964ac65ce4a747430f4"
+        },
+        {
+          "name": "duplicate_context",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "-O",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/O/duplicate_context-output",
+            "--context",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/O/duplicate_context.json"
+          ],
+          "returncode": 1,
+          "expected": "Duplicate JSON key",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "6523c310bf78afad52667ae994203dad3ed9f6208fec450589293f8d87f36f8d"
+        },
+        {
+          "name": "nonfinite_context",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "-O",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/O/nonfinite_context-output",
+            "--context",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/O/nonfinite_context.json"
+          ],
+          "returncode": 1,
+          "expected": "Nonfinite JSON",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "3e1f467d416968f3952877f4f5f75342b3fe2b935db0583211c05ca11c45fbae"
+        },
+        {
+          "name": "clean_missing_source",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "-O",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/O/clean_missing_source-output",
+            "--repository",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/O/fixture/missing"
+          ],
+          "returncode": 1,
+          "expected": "No such file or directory",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "0feaecb3221debf1c06405939f33e763be6e6ca9e579503d9039c871cc3297d4"
+        },
+        {
+          "name": "changed_source",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "-O",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/O/changed_source-output",
+            "--repository",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/O/fixture"
+          ],
+          "returncode": 1,
+          "expected": "Source provider hash changed",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "2f460a1db335f8a1dde0824f512be67f5b8d72dd1fc6f73b3cdc5c3b0daffcb9"
+        },
+        {
+          "name": "unsafe_path",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "-O",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/O/unsafe_path-output",
+            "--repository",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/O/fixture"
+          ],
+          "returncode": 1,
+          "expected": "Unsafe provider path",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "f319030484c9c9c1cb6701a22a93a7fcc49a684b708aee021646de9f665913e4"
+        },
+        {
+          "name": "duplicate_module",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "-O",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/O/duplicate_module-output",
+            "--repository",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/O/fixture"
+          ],
+          "returncode": 1,
+          "expected": "Duplicate module identity",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "95270ea67a377b3bc7ddf8f6fc0f339533a869e96bd2ea9371a38b569004018f"
+        },
+        {
+          "name": "missing_dependency",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "-O",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/O/missing_dependency-output",
+            "--repository",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/O/fixture"
+          ],
+          "returncode": 1,
+          "expected": "Non-generic dependency absent",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "81bf372a4044690cda2bcaf79296ceb92faff5a155f01dfa2a38ca83df778e6c"
+        },
+        {
+          "name": "duplicate_manifest",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "-O",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/O/duplicate_manifest-output",
+            "--repository",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/O/fixture"
+          ],
+          "returncode": 1,
+          "expected": "Duplicate JSON key",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "2650618bbbdcd6d8785ef753cf915977b46f11f477ad74bb67637d9a900860e5"
+        }
+      ]
+    },
+    {
+      "mode": "OO",
+      "commands": [
+        {
+          "name": "unknown_option",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "-OO",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/OO/unknown_option-output",
+            "--bogus"
+          ],
+          "returncode": 2,
+          "expected": "unrecognized arguments",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "25eb6d52fc43c61f93ec6f0ebc7937e446c3323518df6e9fdbe243b052d6d143"
+        },
+        {
+          "name": "wrong_lane",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "-OO",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/OO/wrong_lane-output",
+            "--lane",
+            "other"
+          ],
+          "returncode": 2,
+          "expected": "invalid choice",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "96263158fc44ab3d07cd9f9995f6de0508567df2d88bc8af5e71210591ab6924"
+        },
+        {
+          "name": "existing_output",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "-OO",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/OO/existing_output-output",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/OO/existing_output"
+          ],
+          "returncode": 1,
+          "expected": "Fresh run required",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "aee58ac1278b4d3d1591d53a243784856745cd18abf9dfdbb74c7aa87edb7d17"
+        },
+        {
+          "name": "wrong_compiler_hash",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "-OO",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/OO/wrong_compiler_hash-output",
+            "--context",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/OO/wrong_compiler_hash.json"
+          ],
+          "returncode": 1,
+          "expected": "Pinned compiler bytes differ",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "51b06b49fa7cc318422a3d6195a43fd44e30f7068c609d20ee5d2df6d8ce7738"
+        },
+        {
+          "name": "wrong_generic_revision",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "-OO",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/OO/wrong_generic_revision-output",
+            "--context",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/OO/wrong_generic_revision.json"
+          ],
+          "returncode": 1,
+          "expected": "Generic source pins differ",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "32cd5a911d5d8b1dba85b9a7c3667d174aadbcbd398cd964ac65ce4a747430f4"
+        },
+        {
+          "name": "duplicate_context",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "-OO",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/OO/duplicate_context-output",
+            "--context",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/OO/duplicate_context.json"
+          ],
+          "returncode": 1,
+          "expected": "Duplicate JSON key",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "6523c310bf78afad52667ae994203dad3ed9f6208fec450589293f8d87f36f8d"
+        },
+        {
+          "name": "nonfinite_context",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "-OO",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/OO/nonfinite_context-output",
+            "--context",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/OO/nonfinite_context.json"
+          ],
+          "returncode": 1,
+          "expected": "Nonfinite JSON",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "3e1f467d416968f3952877f4f5f75342b3fe2b935db0583211c05ca11c45fbae"
+        },
+        {
+          "name": "clean_missing_source",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "-OO",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/OO/clean_missing_source-output",
+            "--repository",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/OO/fixture/missing"
+          ],
+          "returncode": 1,
+          "expected": "No such file or directory",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "723e5c743fe841abb4da1e913edd79deec1d44a361d65bb020722bbb9dc0ae1d"
+        },
+        {
+          "name": "changed_source",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "-OO",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/OO/changed_source-output",
+            "--repository",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/OO/fixture"
+          ],
+          "returncode": 1,
+          "expected": "Source provider hash changed",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "2f460a1db335f8a1dde0824f512be67f5b8d72dd1fc6f73b3cdc5c3b0daffcb9"
+        },
+        {
+          "name": "unsafe_path",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "-OO",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/OO/unsafe_path-output",
+            "--repository",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/OO/fixture"
+          ],
+          "returncode": 1,
+          "expected": "Unsafe provider path",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "f319030484c9c9c1cb6701a22a93a7fcc49a684b708aee021646de9f665913e4"
+        },
+        {
+          "name": "duplicate_module",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "-OO",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/OO/duplicate_module-output",
+            "--repository",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/OO/fixture"
+          ],
+          "returncode": 1,
+          "expected": "Duplicate module identity",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "95270ea67a377b3bc7ddf8f6fc0f339533a869e96bd2ea9371a38b569004018f"
+        },
+        {
+          "name": "missing_dependency",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "-OO",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/OO/missing_dependency-output",
+            "--repository",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/OO/fixture"
+          ],
+          "returncode": 1,
+          "expected": "Non-generic dependency absent",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "81bf372a4044690cda2bcaf79296ceb92faff5a155f01dfa2a38ca83df778e6c"
+        },
+        {
+          "name": "duplicate_manifest",
+          "command": [
+            "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+            "-OO",
+            "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py",
+            "--context",
+            "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+            "--run",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/OO/duplicate_manifest-output",
+            "--repository",
+            "/data/ivy-rh-080-20261125/estimates/early369/cli-controls-v1/OO/fixture"
+          ],
+          "returncode": 1,
+          "expected": "Duplicate JSON key",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "2650618bbbdcd6d8785ef753cf915977b46f11f477ad74bb67637d9a900860e5"
+        }
+      ]
+    }
+  ],
+  "controller_sha256": "48f97ca0ef1489fe8842b8e45d510251ad5d4eb835722c57e4d86dae88446907",
+  "tested_runner_sha256": "ef8d1482d3c3bfcb4a946d2da23fafe279bdc408d0be4eec6923a8bf882abd8c"
+}

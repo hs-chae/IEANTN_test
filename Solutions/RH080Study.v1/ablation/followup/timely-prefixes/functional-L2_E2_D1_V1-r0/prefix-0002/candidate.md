@@ -1,0 +1,7 @@
+# CMS fixed-penalty study — intermediate checkpoint
+
+* No: at fixed A=36/11, the imported Lean L1-Fourier result excludes 0.8; the Fejér extension (Blanquer Robles §2.3, proof of Theorem 4) extends to the full CMS class. Positive leakage need not imply Fourier L1. The independently reproduced published dual grid gives 1/1.20786 ≤ 1/C+(36/11). Existing C source-first closure pertains only to the scalar compact dual, not these new computations.
+* Exact rational Sturm/primitive certificate for a new degree-48 Hermite–Gaussian witness gives inverse-functional quotient <0.833951 at A=36/11. CMS Corollary 4 and ordinary RH give limsup of normalized consecutive gaps ≤0.833951; no explicit onset from that reduction. Command: `/usr/bin/python3.10 gaussian.py g25.json 36/11 .833951`.
+* In the unchanged scalar-penalty framework 0.8 would become possible if the CMS exterior estimate held with B≤2.4304: `/usr/bin/python3.10 gaussian.py gcrit.json 2.4304 .8` (previous run at B=2.428 gives exact conservative ceiling B>2.430411289622322). This analytic estimate is not supplied by ordinary RH + the allowed source package.
+* Dual: `/usr/bin/python3.10 check.py dual dual-published.json 36/11 1.20786 --fft 524288` passed (written exact-arithmetic checker, tier E). Kernel tier D remains distinct.
+* In progress: tightened long-support dual and penalty sensitivity; independent explicit-onset retuning with source A=4 Mellin formula and Büthe bridge; complete derivations and failure notes. No claim about the original 0.8 target outside the fixed Fourier framework.

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Census every canonical conclusion; source-family flags are triage, not audit."""
 import csv
+import argparse
 import hashlib
 import io
 import json
@@ -13,10 +14,15 @@ S = Path(__file__).resolve().parents[1]
 R = S.parents[1]
 SIGNALS = ("RH", "CMS", "Schoenfeld", "Grenie", "Grenié", "Molteni", "Lee", "Nosal",
            "Blanquer", "Bellotti", "Wong", "Hasanalizade", "Platt", "Trudgian", "BPT",
-           "Nicolas", "Green", "Box", "Perron", "Buthe", "Büthe", "Huxley", "Ramachandra")
+           "Nicolas", "Green", "Box", "Perron", "Buthe", "Büthe", "Huxley", "Ramachandra", "BKLNW", "FKS", "FKS2", "Kadiri", "CH2", "HSW",
+           "Iwaniec", "Kowalski", "Chirre", "Helfgott")
 
 
 def main():
+    parser = argparse.ArgumentParser(allow_abbrev=False)
+    parser.add_argument("--output-stem", type=Path,
+                        default=S / "estimates/CANONICAL_CONCLUSION_CENSUS")
+    args = parser.parse_args()
     rows = []
     metadata = {}
     all_versions = []
@@ -72,7 +78,7 @@ def main():
                 changed = True
     for key, value in metadata.items():
         value["row"]["declared_graph_reaches_RH_input"] = key in rh
-    output = S / "estimates/CANONICAL_CONCLUSION_CENSUS.csv"
+    output = args.output_stem.with_suffix(".csv")
     buffer = io.StringIO(newline="")
     writer = csv.DictWriter(buffer, fieldnames=list(rows[0]))
     writer.writeheader()
@@ -80,6 +86,7 @@ def main():
     output.write_text(buffer.getvalue())
     summary = {"status": "COMPLETE_CANONICAL_METADATA_CENSUS_NOT_COMPLETE_SOURCE_AUDIT",
                "repository_head": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=R, text=True).strip(),
+               "snapshot_context": "Current canonical working-tree bytes at generation, including reviewed additions before publication. repository_head is the parent checkout identity, not a claim that every inventoried file was already committed there; each declaration source is separately hashed.",
                "scope": "Every conclusion in every current canonical node/version formalization.yaml, including inactive/historical versions. Ramanujan is inventoried but excluded from research/scoring.",
                "selection_author": "/root", "selected_population": "ALL canonical conclusions, without a citation/sorry/filename inclusion filter",
                "source_signal_predicate": "Case-insensitive occurrence of any listed word in family name, full Conclusions module, full YAML or enclosing README. This is broad provenance triage only; it proves neither RH dependence nor source absence.",
@@ -92,7 +99,7 @@ def main():
                "proof_consumption_warning": "Declared graph edges are not proof-value consumption. Consult the separately compiled exact audits for the selected baseline and newly proved consumers.",
                "source_claim_warning": "This is not a checked source-claim universe. The separate17-row source catalog is a declared detailed subset, with pending source audits left pending; missing exact claims there do not establish global family absence.",
                "csv_sha256": hashlib.sha256(output.read_bytes()).hexdigest()}
-    (S / "estimates/CANONICAL_CONCLUSION_CENSUS.json").write_text(json.dumps(summary, indent=2) + "\n")
+    (args.output_stem.with_suffix(".json")).write_text(json.dumps(summary, indent=2) + "\n")
     print(json.dumps({k: summary[k] for k in ("node_versions", "conclusions", "declared_graph_reaches_RH_rows", "status")}))
 
 

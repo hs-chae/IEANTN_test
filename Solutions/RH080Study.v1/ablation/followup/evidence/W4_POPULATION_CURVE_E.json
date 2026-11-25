@@ -1,0 +1,53 @@
+{
+  "status": "PASS_DERIVED_WRITTEN_E_FIXED_SUPPORT_EXTENSION_AND_EXACT_AFFINE_CAPS",
+  "actual_Lean_and_Blueprint": {
+    "declaration": "NONE: this new w4 population curve is not a Lean theorem, canonical conclusion or PV result",
+    "correspondence": "Existing CMS/RH population vocabulary and BR Theorem 2 are comparators only; no new Blueprint label. Published Proposition prop:uniform supplies the proof pattern. The new R=7 witness is not literally in its R=5 hypothesis."
+  },
+  "primary": {
+    "input": {
+      "path": "/data/ivy-rh-080-20261125/functional/primary-original/prime-gaps-v2.tex",
+      "sha256": "3c05af131a1603bd9af2df87a44bb20a651220b454015faf7412896e3cbb92b2"
+    },
+    "url": "https://doi.org/10.5281/zenodo.24429650",
+    "edition": "v2",
+    "locators": [
+      "Lemma 5, sec:witnesses/lem:fourier-norm (N=5m; support [-5,5])",
+      "Proposition prop:uniform / eq:uniform-count (lines 488–500)",
+      "Proof sec:uniform (lines 503–736), Theorem 2 proof (738–757)"
+    ],
+    "literal_formula": "For F as in Lemma 5 with D₄(F)>0 and every fixed c>0, normalized prime count ≥(cD₄(F)−∥F∥₁)/(2M_W)−O_F,c(η+loglog(x)/log(x)+log(x)/√x).",
+    "literal_domain": "GRH; modulus family φ(q)log(x)≤η(x)√x with η→0; fixed c>0, no c≤1 assumption. Restrict q=1 for ordinary RH."
+  },
+  "necessary_derived_extension": [
+    "New w4 has m=360,N=2520 and R=N/m=7. Lemma 5 is stated only for N=5m. This is an explicitly derived extension, not an unqualified application of that lemma.",
+    "For any fixed finite N/m=R>1 the same finite sum of translated triangle functions gives F(u)=m⁻¹sinc²(u/m)P(u/m), true Fourier transform W, ∥F∥₁=∫₀¹|P|, entire continuation and strip decay for F,F′. None of that proof uses R=5.",
+    "In the explicit formula and zero-sum steps only strip decay, integrability and fixed compact support are used; R changes their finite O_F,c constants.",
+    "Replace the two exterior intervals by (-R,-1] and (1,R], with δ=(R−1)/ceil(log x). Cell lengths are ((R−1)c/2+o(1))φ(q)√x, hence exceed q for every fixed c>0 at large x; log(Y_j/q)=½log x+O_R,c(loglog x).",
+    "Montgomery–Vaughan contributes the same leading coefficient 4; upper-sum error ≤2(R−1)L_Wδ→0. Replace |v|≤5 and e^(±10πΔ) by |v|≤R and e^(±2πRΔ). Outer endpoint weights are zero. Thus leading U,D₄,M and factor2 in the proposition are unchanged.",
+    "q=1 satisfies the family condition with η=log(x)/√x→0. For each fixed α≥0 choose c strictly between (U+2αM)/D_B and the displayed safe line. Then (cD₄−∥F∥₁)/(2M)>α because D₄≥D_B>0 and ∥F∥₁≤U; hence liminf normalized count>α and C_RH(α)<safe line. No uniform onset in α or finite-x statement is asserted.",
+    "Strict-open and half-open prime counts differ by at most one, which vanishes after division by √x; their asymptotic population constants agree."
+  ],
+  "verified_arithmetic": {
+    "receipt": {
+      "path": "/data/ivy-rh-080-20261125/independent-explicit-review/w4-global-chord-v2/RESULT.json",
+      "sha256": "58d890a33325c57251ed29049a186ef83626e82e9912baf62e4d7b3b3742077f"
+    },
+    "U": "768105026155718589871041572152759649811058741961083/983040000000000000000000000000000000000000000000000",
+    "F0_lower": "1799999999999999999/1800000000000000000",
+    "J_upper": "1775409096886930914412089674221712225595429809258144775278023179911/86707614942107993771774130233943053395910103236544000000000000000000",
+    "M_upper": "138233924361131/200000000000000",
+    "B": "400001/100000",
+    "D_B_lower": "126358667937252859042294809882697564661161287696156029608008972542927303/137631134828742847256784333704671513326841433708800000000000000000000000",
+    "U_over_D_B": "16517994752730118199588967530263276657033149675421649839590975375762634864520719216311724102180411/19408691395162039148896482797982345931954373790129566147790178182593633740800000000000000000000000",
+    "two_M_over_D_B": "190252918816530611150766672424119836332893141865888711278926528000000000/126358667937252859042294809882697564661161287696156029608008972542927303",
+    "safe_intercept": "170212349/200000000",
+    "safe_slope": "1505657839/1000000000",
+    "strict_intercept_gap": "14202971396229187944150061151009590942788282502240261562176431692815406479688275897819589/19408691395162039148896482797982345931954373790129566147790178182593633740800000000000000000000000",
+    "strict_slope_gap": "88792116191426540624778422365393729797162864867488278691594257769078217/126358667937252859042294809882697564661161287696156029608008972542927303000000000",
+    "D4_at_least_DB_reason": "J≥0 and 4≤B=4.00001; the recorded D_B uses conservative F0/J bounds."
+  },
+  "conclusion": "Under RH, for every α≥0, C_RH(α)<0.851061745+1.505657839α.",
+  "comparison": "Strictly below the paper’s first line 0.851127043+1.505827α for every α≥0; this does not assert dominance over its second line or the octic count curve at every α.",
+  "tier": "Posthoc written analytic derivation with independently directed rational norm certificate; no new FFT, experiment, Lean theorem, source-first PV or network premise."
+}

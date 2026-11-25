@@ -1,0 +1,83 @@
+{
+  "status": "PASS_EXTERNAL_EXACT_RATIONAL_GUARD_STRENGTHENED_REPLAY",
+  "trial": "cube-L2_E2_D1_V1-r1",
+  "prefix": "prefix-0002",
+  "mode": "O",
+  "sources": [
+    {
+      "original": "/data/ivy-rh-080-20261125/ablation-followup-controller/trials/cube-L2_E2_D1_V1-r1/research-v1/timely-locked-prefixes/prefix-0002/finite_cover.py",
+      "original_sha256": "0adc7da99b62c7d81f8f0e4a30ee978e36692f3dc3b1a3b243345fccaf4f4b62",
+      "guard_strengthened_sha256": "850d9428446d64fdf2cc8495d398587c3383e22c4a590099c2018aea3381a4aa",
+      "assert_statements_replaced": 1
+    },
+    {
+      "original": "/data/ivy-rh-080-20261125/ablation-followup-controller/trials/cube-L2_E2_D1_V1-r1/research-v1/timely-locked-prefixes/prefix-0002/scalar_checks.py",
+      "original_sha256": "b5d9cf83aae636828fb4a5baea7fdbca2bc00ddd800a3b3fedbd0ad9bf34f5e0",
+      "guard_strengthened_sha256": "8a2121c67719d831f2d037845e1671ca217e8644ab0bd43557aca7bc5d11614f",
+      "assert_statements_replaced": 13
+    },
+    {
+      "original": "/data/ivy-rh-080-20261125/ablation-followup-controller/trials/cube-L2_E2_D1_V1-r1/research-v1/timely-locked-prefixes/prefix-0002/sinc_certificate.py",
+      "original_sha256": "c5658936b76c0fbc633bd46d2dab8db97ab8389067871969bf1ee760a57bb270",
+      "guard_strengthened_sha256": "50392a287ac0bc71c524088a0f740730d5fc035f15cb77373fff6787fa9abd3f",
+      "assert_statements_replaced": 9
+    }
+  ],
+  "commands": [
+    {
+      "script": "scalar_checks.py",
+      "returncode": 0,
+      "seconds": 0.03190089203417301,
+      "command": [
+        "/usr/bin/prlimit",
+        "--as=68719476736",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/followup-analysis/v1r1-rational-O/guarded/scalar_checks.py"
+      ],
+      "stdout_sha256": "095758a154bc109b0a1e7e76238a257f2bd94aee722ae48e77e97afcf6eaa948",
+      "stderr_sha256": "61c2753366ef6dc55fd1805b578f41cd0f9713bd66e154e4319ee5dc673716db"
+    },
+    {
+      "script": "sinc_certificate.py",
+      "returncode": 0,
+      "seconds": 18.346404096111655,
+      "command": [
+        "/usr/bin/prlimit",
+        "--as=68719476736",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/followup-analysis/v1r1-rational-O/guarded/sinc_certificate.py"
+      ],
+      "stdout_sha256": "65d584a813e48ba6143b4fdd03ace19a827b32193b9d015f8710dbf003177768",
+      "stderr_sha256": "6864d456484ab085545091a50682bf0f8fd72ba304f310cf0a13b17791b8dbf6"
+    },
+    {
+      "script": "finite_cover.py",
+      "returncode": 0,
+      "seconds": 1.5165356155484915,
+      "command": [
+        "/usr/bin/prlimit",
+        "--as=68719476736",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh-080-20261125/followup-analysis/v1r1-rational-O/guarded/finite_cover.py"
+      ],
+      "stdout_sha256": "f30836c41f72362e0fc2b7a1418b0ac4be8f068a462921aa35c60144b360e620",
+      "stderr_sha256": "940dd847673c3f4b6490bcf8f9e64c2af4c87ac52844440d7d351d3a03a233bd"
+    }
+  ],
+  "source_first_PV": false,
+  "kernel_proof": false,
+  "original_inputs_changed": false,
+  "meaning": "Ordinary exact-rational external evidence plus separately reviewed written analytic proof. Only assert guards were made explicit for optimization robustness; arithmetic AST/parameters retained. No formal Python semantics/source correspondence proof claimed."
+}

@@ -1,0 +1,440 @@
+{
+  "status": "PASS_NORMAL_O_OO_EXPLICIT_REVIEW_CONTROLS",
+  "children": 24,
+  "fresh_slab_numeric_and_application_replays": 3,
+  "ray_application_existing_receipt_replays": 3,
+  "dense_ray_numerical_replays": 0,
+  "fresh_profile_replays": 3,
+  "negative_controls": 15,
+  "controller_sha256": "f092afbb3024114f567bef78f17fe0bcfbf5bfb0f2f23e79fa0cc5dd42051735",
+  "rows": [
+    {
+      "name": "normal-slab",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-B",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/reproduce.py",
+        "--run",
+        "/data/ivy-rh-080-20261125/independent-explicit-review/controls-final-v2/normal-slab",
+        "--slab-only"
+      ],
+      "exit_code": 0,
+      "expected_success": true,
+      "stdout_sha256": "7ac17b16f560f0ad42438e3c50ccd571f0aaee6a6ab138dac0290b2b51baa46f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "normal-ray-application-receipt-replay",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-B",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/review_applicability.py",
+        "--numerical-receipt",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/evidence/w4-global-chord-v2/RESULT.json",
+        "--fft-source",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/inputs/certify_integer.py",
+        "--run",
+        "/data/ivy-rh-080-20261125/independent-explicit-review/controls-final-v2/normal-ray-app"
+      ],
+      "exit_code": 0,
+      "expected_success": true,
+      "stdout_sha256": "2c4eba53d71be476676e27055531a25040b2925ff15ced49f7489ce94b670241",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "normal-leading_margin",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-B",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/review_applicability.py",
+        "--numerical-receipt",
+        "/data/ivy-rh-080-20261125/independent-explicit-review/controls-final-v2/normal-leading_margin.json",
+        "--fft-source",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/inputs/certify_integer.py",
+        "--run",
+        "/data/ivy-rh-080-20261125/independent-explicit-review/controls-final-v2/normal-leading_margin"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "79da3dd57d6179e64d46f93de57eba8a92268be766819cefa2177502667c0d9c"
+    },
+    {
+      "name": "normal-status",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-B",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/review_applicability.py",
+        "--numerical-receipt",
+        "/data/ivy-rh-080-20261125/independent-explicit-review/controls-final-v2/normal-status.json",
+        "--fft-source",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/inputs/certify_integer.py",
+        "--run",
+        "/data/ivy-rh-080-20261125/independent-explicit-review/controls-final-v2/normal-status"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "4d7a1229700cbe1917e387dece621270161e1141c5395fb85e2c1501b1e7fc5d"
+    },
+    {
+      "name": "normal-bad-grid",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-B",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/review_global_chord.py",
+        "--fft-source",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/inputs/certify_integer.py",
+        "--witness",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/inputs/witness-ap.json",
+        "--run",
+        "/data/ivy-rh-080-20261125/independent-explicit-review/controls-final-v2/normal-bad-grid",
+        "--grid",
+        "1"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "5e6e00b6dbef25155ca2b60f09122a01dea5ad1863ea164657c1deeba3cacca2"
+    },
+    {
+      "name": "normal-reuse",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-B",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/review_global_chord.py",
+        "--fft-source",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/inputs/certify_integer.py",
+        "--witness",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/inputs/witness-ap.json",
+        "--run",
+        "/data/ivy-rh-080-20261125/independent-explicit-review/controls-final-v2/normal-reuse",
+        "--grid",
+        "131072"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "9a36707a6debbc0d4b15fe252d8277e2734ea420f0025b4e221c4e26cd55df30"
+    },
+    {
+      "name": "normal-profiles",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-B",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/review_profiles.py",
+        "--run",
+        "/data/ivy-rh-080-20261125/independent-explicit-review/controls-final-v2/normal-profiles"
+      ],
+      "exit_code": 0,
+      "expected_success": true,
+      "stdout_sha256": "06ce57d78e3c38fde9b4d737daba98e8eb6b49649a0f014fab182a5098df10b3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "normal-profiles-reuse",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-B",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/review_profiles.py",
+        "--run",
+        "/data/ivy-rh-080-20261125/independent-explicit-review/controls-final-v2/normal-profiles"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "1fff7707aaf23ee6bfc09a8581386104f004157daddaf3d5c9e5bfc274883dba"
+    },
+    {
+      "name": "O-slab",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "-B",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/reproduce.py",
+        "--run",
+        "/data/ivy-rh-080-20261125/independent-explicit-review/controls-final-v2/O-slab",
+        "--slab-only"
+      ],
+      "exit_code": 0,
+      "expected_success": true,
+      "stdout_sha256": "69f177883511a34aefb7ef71793a064528522742bc44058e42d281a4cc6d3405",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "O-ray-application-receipt-replay",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "-B",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/review_applicability.py",
+        "--numerical-receipt",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/evidence/w4-global-chord-v2/RESULT.json",
+        "--fft-source",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/inputs/certify_integer.py",
+        "--run",
+        "/data/ivy-rh-080-20261125/independent-explicit-review/controls-final-v2/O-ray-app"
+      ],
+      "exit_code": 0,
+      "expected_success": true,
+      "stdout_sha256": "2c4eba53d71be476676e27055531a25040b2925ff15ced49f7489ce94b670241",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "O-leading_margin",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "-B",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/review_applicability.py",
+        "--numerical-receipt",
+        "/data/ivy-rh-080-20261125/independent-explicit-review/controls-final-v2/O-leading_margin.json",
+        "--fft-source",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/inputs/certify_integer.py",
+        "--run",
+        "/data/ivy-rh-080-20261125/independent-explicit-review/controls-final-v2/O-leading_margin"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "79da3dd57d6179e64d46f93de57eba8a92268be766819cefa2177502667c0d9c"
+    },
+    {
+      "name": "O-status",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "-B",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/review_applicability.py",
+        "--numerical-receipt",
+        "/data/ivy-rh-080-20261125/independent-explicit-review/controls-final-v2/O-status.json",
+        "--fft-source",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/inputs/certify_integer.py",
+        "--run",
+        "/data/ivy-rh-080-20261125/independent-explicit-review/controls-final-v2/O-status"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "4d7a1229700cbe1917e387dece621270161e1141c5395fb85e2c1501b1e7fc5d"
+    },
+    {
+      "name": "O-bad-grid",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "-B",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/review_global_chord.py",
+        "--fft-source",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/inputs/certify_integer.py",
+        "--witness",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/inputs/witness-ap.json",
+        "--run",
+        "/data/ivy-rh-080-20261125/independent-explicit-review/controls-final-v2/O-bad-grid",
+        "--grid",
+        "1"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "5e6e00b6dbef25155ca2b60f09122a01dea5ad1863ea164657c1deeba3cacca2"
+    },
+    {
+      "name": "O-reuse",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "-B",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/review_global_chord.py",
+        "--fft-source",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/inputs/certify_integer.py",
+        "--witness",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/inputs/witness-ap.json",
+        "--run",
+        "/data/ivy-rh-080-20261125/independent-explicit-review/controls-final-v2/O-reuse",
+        "--grid",
+        "131072"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "9a36707a6debbc0d4b15fe252d8277e2734ea420f0025b4e221c4e26cd55df30"
+    },
+    {
+      "name": "O-profiles",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "-B",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/review_profiles.py",
+        "--run",
+        "/data/ivy-rh-080-20261125/independent-explicit-review/controls-final-v2/O-profiles"
+      ],
+      "exit_code": 0,
+      "expected_success": true,
+      "stdout_sha256": "f1a2785ef4d25cbc67b7799deda907350cf2ec5cb8f726e8e26ddd340c4628f1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "O-profiles-reuse",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "-B",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/review_profiles.py",
+        "--run",
+        "/data/ivy-rh-080-20261125/independent-explicit-review/controls-final-v2/O-profiles"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "1fff7707aaf23ee6bfc09a8581386104f004157daddaf3d5c9e5bfc274883dba"
+    },
+    {
+      "name": "OO-slab",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "-B",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/reproduce.py",
+        "--run",
+        "/data/ivy-rh-080-20261125/independent-explicit-review/controls-final-v2/OO-slab",
+        "--slab-only"
+      ],
+      "exit_code": 0,
+      "expected_success": true,
+      "stdout_sha256": "652887a4c55ab129caf61c3c463fa073fb6f59f41eb4f56bff4a4f8c4a2746f6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "OO-ray-application-receipt-replay",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "-B",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/review_applicability.py",
+        "--numerical-receipt",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/evidence/w4-global-chord-v2/RESULT.json",
+        "--fft-source",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/inputs/certify_integer.py",
+        "--run",
+        "/data/ivy-rh-080-20261125/independent-explicit-review/controls-final-v2/OO-ray-app"
+      ],
+      "exit_code": 0,
+      "expected_success": true,
+      "stdout_sha256": "2c4eba53d71be476676e27055531a25040b2925ff15ced49f7489ce94b670241",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "OO-leading_margin",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "-B",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/review_applicability.py",
+        "--numerical-receipt",
+        "/data/ivy-rh-080-20261125/independent-explicit-review/controls-final-v2/OO-leading_margin.json",
+        "--fft-source",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/inputs/certify_integer.py",
+        "--run",
+        "/data/ivy-rh-080-20261125/independent-explicit-review/controls-final-v2/OO-leading_margin"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "79da3dd57d6179e64d46f93de57eba8a92268be766819cefa2177502667c0d9c"
+    },
+    {
+      "name": "OO-status",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "-B",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/review_applicability.py",
+        "--numerical-receipt",
+        "/data/ivy-rh-080-20261125/independent-explicit-review/controls-final-v2/OO-status.json",
+        "--fft-source",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/inputs/certify_integer.py",
+        "--run",
+        "/data/ivy-rh-080-20261125/independent-explicit-review/controls-final-v2/OO-status"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "4d7a1229700cbe1917e387dece621270161e1141c5395fb85e2c1501b1e7fc5d"
+    },
+    {
+      "name": "OO-bad-grid",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "-B",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/review_global_chord.py",
+        "--fft-source",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/inputs/certify_integer.py",
+        "--witness",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/inputs/witness-ap.json",
+        "--run",
+        "/data/ivy-rh-080-20261125/independent-explicit-review/controls-final-v2/OO-bad-grid",
+        "--grid",
+        "1"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "5e6e00b6dbef25155ca2b60f09122a01dea5ad1863ea164657c1deeba3cacca2"
+    },
+    {
+      "name": "OO-reuse",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "-B",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/review_global_chord.py",
+        "--fft-source",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/inputs/certify_integer.py",
+        "--witness",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/inputs/witness-ap.json",
+        "--run",
+        "/data/ivy-rh-080-20261125/independent-explicit-review/controls-final-v2/OO-reuse",
+        "--grid",
+        "131072"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "9a36707a6debbc0d4b15fe252d8277e2734ea420f0025b4e221c4e26cd55df30"
+    },
+    {
+      "name": "OO-profiles",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "-B",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/review_profiles.py",
+        "--run",
+        "/data/ivy-rh-080-20261125/independent-explicit-review/controls-final-v2/OO-profiles"
+      ],
+      "exit_code": 0,
+      "expected_success": true,
+      "stdout_sha256": "6d66ad404c5b18262a58dc5d2e15b229a6f6f77cf8043820adc7a0279ba07952",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "OO-profiles-reuse",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "-B",
+        "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/independent-global-chord/review_profiles.py",
+        "--run",
+        "/data/ivy-rh-080-20261125/independent-explicit-review/controls-final-v2/OO-profiles"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "1fff7707aaf23ee6bfc09a8581386104f004157daddaf3d5c9e5bfc274883dba"
+    }
+  ],
+  "scope": "Guard/portable slab controls; actual dense ray is independently recorded once plus a separate clean-folder full replay. No new Lean/PV claim."
+}

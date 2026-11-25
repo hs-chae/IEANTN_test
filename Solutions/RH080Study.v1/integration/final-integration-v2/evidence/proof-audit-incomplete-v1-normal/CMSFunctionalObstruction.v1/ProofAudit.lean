@@ -1,0 +1,8 @@
+import Solution
+set_option pp.proofs true
+#check CMSFunctionalObstruction.v1.challenge_ratio_floor
+#print axioms CMSFunctionalObstruction.v1.challenge_ratio_floor
+#print CMSFunctionalObstruction.v1.challenge_ratio_floor
+#check CMSFunctionalObstruction.v1.challenge_excludes_four_fifths
+#print axioms CMSFunctionalObstruction.v1.challenge_excludes_four_fifths
+#print CMSFunctionalObstruction.v1.challenge_excludes_four_fifths

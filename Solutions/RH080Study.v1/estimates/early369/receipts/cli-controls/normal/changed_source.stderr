@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py", line 51, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py", line 28, in main
+    m=row['module'];need(m not in seen,'Duplicate module identity');rel=Path(row['path']);need(not rel.is_absolute() and '..' not in rel.parts,'Unsafe provider path');p=R/rel;need(p.is_file() and not p.is_symlink(),'Missing regular source provider');need(p.resolve().is_relative_to(R),'Provider outside checkout');need(sha(p)==row['sha256'],'Source provider hash changed');ls=[]
+                                                                                                                                                                                                                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py", line 7, in need
+    if not c:raise ValueError(m)
+             ^^^^^^^^^^^^^^^^^^^
+ValueError: Source provider hash changed

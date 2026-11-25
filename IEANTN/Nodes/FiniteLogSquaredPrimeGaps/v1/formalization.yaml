@@ -1,0 +1,68 @@
+version: v0.4
+project:
+  authors:
+  - IEANTN contributors
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+  name: FiniteLogSquaredPrimeGaps
+  description: Exact CMS(1.15) historical consecutive-prime logarithmic-gap source
+    input, with lower prime11<=p<=4e18. Not newly regenerated or source-first PV.
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+node:
+  id: FiniteLogSquaredPrimeGaps.v1
+  family: FiniteLogSquaredPrimeGaps
+  version: v1
+  kind: computation
+  status: active
+conclusions:
+- id: gaps
+  declaration: FiniteLogSquaredPrimeGaps.v1.gaps
+  challenge: FiniteLogSquaredPrimeGaps.v1.challenge_gaps
+  imports: []
+  imports_status: none
+  justifications:
+  - id: source
+    kind: asserted
+    source: CMS2017v2
+    locator: Introduction equation(1.15), attributing Oliveira e Silva–Herzog–Pardi
+      Section2.2
+    note: Historical finite computational statement remains an explicit source input.
+      No closed Lean proof, exhaustive regeneration, source-first PV or official Comparator
+      acceptance is claimed.
+  designated: source
+sources:
+- id: CMS2017v2
+  title: Fourier optimization and prime gaps
+  authors:
+  - Emanuel Carneiro
+  - Micah B. Milinovich
+  - Kannan Soundararajan
+  type: paper
+  relationship: background
+  url: https://arxiv.org/abs/1708.04122v2
+  note: 'Equation(1.15): p_next-p<(log p)^2 for every prime11<=p<=4e18. Both endpoints
+    and actual consecutivity are retained.'
+- id: OeS2014
+  title: Empirical verification of the even Goldbach conjecture and computation of
+    prime gaps up to4e18
+  authors:
+  - Tomas Oliveira e Silva
+  - Siegfried Herzog
+  - Silvio Pardi
+  type: paper
+  relationship: background
+  url: https://denisevellachemla.eu/empirical-verification-of-the-even-CG.pdf
+  note: Section2.2.1, printed2052. The exact exported source statement is CMS(1.15),
+    which packages the historical computation including small gaps. No independent
+    rerun of the historical computation is claimed.
+limitations:
+- B-tier literature-computation input; no new numerical premise is proved by asserting
+  this node.
+- No RH assumption and no source-first program verification.

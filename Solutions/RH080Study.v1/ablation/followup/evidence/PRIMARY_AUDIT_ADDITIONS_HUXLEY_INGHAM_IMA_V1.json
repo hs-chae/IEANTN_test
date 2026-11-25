@@ -1,0 +1,90 @@
+{
+  "status": "QUANTITATIVE_COMPARATOR_RECOVERED_VIA_PRIMARY_HUXLEY_INGHAM_ORIGINAL_RAMACHANDRA_ATTRIBUTION_UNVERIFIED",
+  "scope": "One catalog comparator only; no new Lean theorem, analytic premise, proof consumer or global source-universe completion.",
+  "actual_Lean_and_Blueprint": {
+    "catalog_path": "Solutions/RH080Study.v1/estimates/RH_ESTIMATE_CATALOG.json",
+    "catalog_row": "Huxley_Ramachandra_cube_asymptotic",
+    "Lean_declaration": null,
+    "Blueprint_label": null,
+    "precise_absence": "The current row has empty file/declaration fields and is not consumed by the selected new cube/zero proof closures. This is a written unconditional asymptotic comparator, not an implemented node."
+  },
+  "recoverable_mathematical_claim": {
+    "statement": "For all real n tending to infinity, the number of primes strictly between n^3 and (n+1)^3 is asymptotic to n^2/log(n).",
+    "assumptions": "Unconditional classical analytic inputs as stated by the original Ingham and Huxley papers; no RH.",
+    "domain": "As n→∞ through positive real values; no explicit onset or computable constant asserted.",
+    "conclusion": "The quantitative count follows from the full short-interval prime-number asymptotic, not merely from a prime-gap upper bound."
+  },
+  "actual_primary_sources": [
+    {
+      "author": "A. E. Ingham",
+      "title": "On the Difference between Consecutive Primes",
+      "year": 1937,
+      "url": "https://www.dustri.org/b/files/On_the_difference_between_consecutive_primes_-_A.E.Ingham.pdf",
+      "local_private_PDF_sha256": "ce62bf172867250be142b7cb0b9c447a222d78be790d0b62eb3f461789452124",
+      "physical_pages": 12,
+      "locators": [
+        "PDFp1/printed255 Eq(1)",
+        "PDFp1/printed255 paragraph beginning It was pointed out by Hoheisel",
+        "PDFp3/printed257 Theorem1 Eqs(5),(6)"
+      ],
+      "exact_formulas": {
+        "short_interval": "pi(x+x^theta)-pi(x) ~ x^theta/log(x)",
+        "zero_free_hypothesis": "zeta(sigma+it) != 0 for sigma > 1-A*log(log(t))/log(t), with A>0 and t>t0>3",
+        "density": "N(sigma,T)=O(T^(b*(1-sigma))*log(T)^B), uniformly 1/2<=sigma<=1, with b>0 and B>=0",
+        "permitted_theta": "1-1/(b+B/A) < theta < 1",
+        "N_convention": "Zeros beta+i*gamma with beta>=sigma and 0<gamma<=T."
+      },
+      "zero_free_wording": "The p255 introduction says the replacement of A by any A(t) tending to infinity has now been made by Tchudakoff, with the aid of Vinogradov results. Thus any fixed A=16 is available eventually.",
+      "proof_depth": "Original Ingham statement and displayed proof beginning on p257 inspected. The Tchudakoff/Vinogradov antecedent is reported by Ingham; those original papers and their proofs were not independently audited here."
+    },
+    {
+      "author": "M. N. Huxley",
+      "title": "On the Difference between Consecutive Primes",
+      "year": 1972,
+      "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0015/PPN356556735_0015.pdf#page=173",
+      "local_private_PDF_sha256": "5946d8579810f0754e972d42a09ed2a703604b8fb4e6377f14caaa5dc48f9797",
+      "full_volume_bytes": 25786300,
+      "locators": [
+        "Full-volume PDFphysicalp173/printed164 Eqs(1.4)–(1.9)"
+      ],
+      "exact_formulas": {
+        "N_convention": "Zeros beta+i*gamma with alpha<=beta<=1 and -T<=gamma<=T.",
+        "density_upper_branch": "N(alpha,T) << T^((5*alpha-3)*(1-alpha)/(alpha^2+alpha-1))*log(T)^9, uniformly 3/4<=alpha<=1, Eq(1.7).",
+        "density_lower_branch": "N(alpha,T) << T^(3*(1-alpha)/(2-alpha))*log(T)^5, for 1/2<=alpha<=3/4, Eq(1.8).",
+        "density_conclusion": "Eq(1.5) holds with lambda=12/5; B=9 is valid for both displayed branches.",
+        "gap_only_warning": "Eqs(1.1)–(1.3) alone state eventual prime gaps p_next-p<p^delta for fixed delta>7/12 and would not by themselves establish the counting asymptotic."
+      },
+      "proof_depth": "Actual primary printed p164 visually inspected; full PDF identity independently hashed. No claim of rechecking every internal density proof is made."
+    }
+  ],
+  "auditable_derivation": [
+    "For alpha in [1/2,3/4], 3/(2-alpha)<=12/5 and log(T)^5<=log(T)^9 for T>=e.",
+    "For alpha in [3/4,1], alpha^2+alpha-1>0 and 12*(alpha^2+alpha-1)-5*(5*alpha-3)=(4*alpha-3)*(3*alpha-1)>=0. Thus the exponent coefficient is at most12/5.",
+    "The two uniform Huxley branches therefore give N_H(alpha,T)=O(T^((12/5)*(1-alpha))*log(T)^9) uniformly on[1/2,1].",
+    "For alpha>=1/2, Euler-product zero-freeness in Re(s)>1 puts every Ingham positive-height zero within beta<=1. Hence every such zero lies in Huxley’s closed both-sign rectangle: N_I(alpha,T)<=N_H(alpha,T). No doubling or endpoint subtraction is required for this upper bound.",
+    "Use the eventual zero-free input with fixed A=16. Then b+B/A=12/5+9/16=237/80 and 1-1/(b+B/A)=157/237.",
+    "Set theta=2/3. Its strict margin above the required lower endpoint is 2/3-157/237=1/237>0, while theta<1.",
+    "Ingham Theorem1 therefore gives the full pi(x+x^(2/3))-pi(x)~x^(2/3)/log(x) on the real ray as x→∞.",
+    "Starting at x=n^3, define x_0=x and x_(j+1)=x_j+x_j^(2/3) for j=0,1,2. Then x_3=x+3*x^(2/3)+2*x^(1/3)+O(1).",
+    "(n+1)^3=x+3*x^(2/3)+3*x^(1/3)+1, so the remaining length is x^(1/3)+O(1)>0 eventually; its prime count is O(x^(1/3))=O(n).",
+    "The three adjacent half-open pi differences telescope and sum to a quantity asymptotic to 3*x^(2/3)/log(x)=n^2/log(n). The omitted O(n) prime-count remainder is negligible because log(n)/n→0.",
+    "For arbitrary real n, converting pi((n+1)^3)-pi(n^3) to the strictly open interval removes at most the upper endpoint prime, hence changes the count by at most1. No lower endpoint correction is needed because pi(n^3) already excludes it from the difference."
+  ],
+  "exact_arithmetic": {
+    "A": "16",
+    "b": "12/5",
+    "B": "9",
+    "combined_exponent": "237/80",
+    "theta": "2/3",
+    "strict_margin": "1/237"
+  },
+  "remaining_unverified_attribution": "The original combined Huxley/Ramachandra name has not been verified against an original Ramachandra paper. This alternate original-source derivation establishes the mathematical comparator but does not silently certify that named attribution.",
+  "coverage_counting": "16 direct primary mappings plus1 recovered derived route; NOT17/17 original named-source audits, and NOT completion of a larger source universe.",
+  "source_files_published": false,
+  "original_catalog_sha256_before": "b0da987022dc0c01b1aecbc7bd6bfe30c7743b47265d870b1f06340e3e809cd6",
+  "original_catalog_modified": false,
+  "new_Lean_theorems": 0,
+  "new_source_premises": 0,
+  "explicit_onset_claimed": false,
+  "selected_proof_consumption_changed": false
+}

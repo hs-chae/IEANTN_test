@@ -1,0 +1,26 @@
+Traceback (most recent call last):
+  File "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py", line 51, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py", line 26, in main
+    mi=Path('/proc/meminfo').read_text();available=int(next(l.split()[1] for l in mi.splitlines() if l.startswith('MemAvailable:')))*1024;need(available>=256*2**30,'Host256GiB reserve unavailable');O.mkdir(parents=True);src=O/'source';obj=O/'objects';logs=O/'logs';src.mkdir();obj.mkdir();logs.mkdir();manifest_path=S/'INPUT_MANIFEST.json';manifest_hash=sha(manifest_path);manifest=read_json(manifest_path);rows=[];seen=set()
+                                                                                                                                                                                                                                                                                                                                                                                              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py", line 21, in read_json
+    return json.loads(path.read_bytes(),object_pairs_hook=unique,parse_constant=lambda x:(_ for _ in ()).throw(ValueError('Nonfinite JSON '+x)))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/__init__.py", line 359, in loads
+    return cls(**kw).decode(s)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py", line 19, in unique
+    for k,v in pairs:need(k not in out,'Duplicate JSON key');out[k]=v
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/estimates/early369/reproduce.py", line 7, in need
+    if not c:raise ValueError(m)
+             ^^^^^^^^^^^^^^^^^^^
+ValueError: Duplicate JSON key

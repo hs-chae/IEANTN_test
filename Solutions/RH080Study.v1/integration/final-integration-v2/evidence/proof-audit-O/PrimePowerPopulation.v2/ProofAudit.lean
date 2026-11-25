@@ -1,0 +1,23 @@
+import Solution
+set_option pp.proofs true
+#check PrimePowerPopulation.v2.challenge_cube_density_all_real
+#print axioms PrimePowerPopulation.v2.challenge_cube_density_all_real
+#print PrimePowerPopulation.v2.challenge_cube_density_all_real
+#check PrimePowerPopulation.v2.challenge_cube_density_natural
+#print axioms PrimePowerPopulation.v2.challenge_cube_density_natural
+#print PrimePowerPopulation.v2.challenge_cube_density_natural
+#check PrimePowerPopulation.v2.challenge_single_window_cube
+#print axioms PrimePowerPopulation.v2.challenge_single_window_cube
+#print PrimePowerPopulation.v2.challenge_single_window_cube
+#check PrimePowerPopulation.v2.challenge_equal_cell_cube
+#print axioms PrimePowerPopulation.v2.challenge_equal_cell_cube
+#print PrimePowerPopulation.v2.challenge_equal_cell_cube
+#check PrimePowerPopulation.v2.challenge_equal_cell_cube_late
+#print axioms PrimePowerPopulation.v2.challenge_equal_cell_cube_late
+#print PrimePowerPopulation.v2.challenge_equal_cell_cube_late
+#check PrimePowerPopulation.v2.challenge_retains_070_all_real
+#print axioms PrimePowerPopulation.v2.challenge_retains_070_all_real
+#print PrimePowerPopulation.v2.challenge_retains_070_all_real
+#check PrimePowerPopulation.v2.challenge_strict_coefficient_gain
+#print axioms PrimePowerPopulation.v2.challenge_strict_coefficient_gain
+#print PrimePowerPopulation.v2.challenge_strict_coefficient_gain

@@ -1,0 +1,21 @@
+PrimeInterval.v5.challenge_closed_width1550 (hgap : PrimeGapTable.v1.gaps) : PrimeInterval.v5.closed_width1550
+'PrimeInterval.v5.challenge_closed_width1550' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem PrimeInterval.v5.challenge_closed_width1550 : PrimeGapTable.v1.gaps → PrimeInterval.v5.closed_width1550 :=
+fun hgap x hx hxQ => RH080.FiniteFrontier.closed_width1550 hgap hx hxQ
+PrimeInterval.v5.challenge_strict_width1550_add (hgap : PrimeGapTable.v1.gaps) : PrimeInterval.v5.strict_width1550_add
+'PrimeInterval.v5.challenge_strict_width1550_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem PrimeInterval.v5.challenge_strict_width1550_add : PrimeGapTable.v1.gaps →
+  PrimeInterval.v5.strict_width1550_add :=
+fun hgap ε hε x hx hxQ => RH080.FiniteFrontier.strict_width1550_add hgap hx hxQ hε
+PrimeInterval.v5.challenge_strict_log_squared (hsource : FiniteLogSquaredPrimeGaps.v1.gaps) :
+  PrimeInterval.v5.strict_log_squared
+'PrimeInterval.v5.challenge_strict_log_squared' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem PrimeInterval.v5.challenge_strict_log_squared : FiniteLogSquaredPrimeGaps.v1.gaps →
+  PrimeInterval.v5.strict_log_squared :=
+fun hsource x hx hx42 => RH080.FiniteFrontier.strict_log_squared hsource hx hx42
+PrimeInterval.v5.challenge_strict_minimum_width (hgap : PrimeGapTable.v1.gaps)
+  (hsource : FiniteLogSquaredPrimeGaps.v1.gaps) : PrimeInterval.v5.strict_minimum_width
+'PrimeInterval.v5.challenge_strict_minimum_width' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem PrimeInterval.v5.challenge_strict_minimum_width : PrimeGapTable.v1.gaps →
+  FiniteLogSquaredPrimeGaps.v1.gaps → PrimeInterval.v5.strict_minimum_width :=
+fun hgap hsource ε hε x hx hx42 => RH080.FiniteFrontier.strict_minimum_width hgap hsource hx hx42 hε

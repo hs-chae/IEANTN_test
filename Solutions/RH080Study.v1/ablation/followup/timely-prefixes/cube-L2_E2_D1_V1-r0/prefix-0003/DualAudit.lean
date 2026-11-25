@@ -1,0 +1,7 @@
+import CompactDualVerified
+import CompactDualSourceFirst
+
+#check RH080.Dual.kernel_compact_obstruction
+#print axioms RH080.Dual.kernel_compact_obstruction
+#check RH080.Dual.actual_source_first_functional_result
+#print axioms RH080.Dual.actual_source_first_functional_result

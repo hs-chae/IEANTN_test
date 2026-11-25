@@ -74,6 +74,7 @@ import IEANTN.Nodes.FKS2Numerics.v5.Challenge
 import IEANTN.Nodes.FKS2Numerics.v6.Challenge
 import IEANTN.Nodes.FKS2Numerics.v7.Challenge
 import IEANTN.Nodes.FKSComputationLed.v1.Challenge
+import IEANTN.Nodes.FiniteLogSquaredPrimeGaps.v1.Challenge
 import IEANTN.Nodes.GammaAsymptotics.v1.Challenge
 import IEANTN.Nodes.GammaAsymptotics.v2.Challenge
 import IEANTN.Nodes.GaussianFourierWitness.v1.Challenge
@@ -122,6 +123,7 @@ import IEANTN.Nodes.PrimeInterval.v1.Examples
 import IEANTN.Nodes.PrimeInterval.v2.Challenge
 import IEANTN.Nodes.PrimeInterval.v3.Challenge
 import IEANTN.Nodes.PrimeInterval.v4.Challenge
+import IEANTN.Nodes.PrimeInterval.v5.Challenge
 import IEANTN.Nodes.PrimeKernelInputs.v1.Challenge
 import IEANTN.Nodes.PrimeKernelInputs.v2.Challenge
 import IEANTN.Nodes.PrimeKernelInputs.v3.Challenge
@@ -178,6 +180,7 @@ import IEANTN.Nodes.RosserSchoenfeld1962.v1.Challenge
 import IEANTN.Nodes.SchoenfeldRHTheta.v1.Challenge
 import IEANTN.Nodes.ThetaCubePopulation.v1.Challenge
 import IEANTN.Nodes.ThetaCubePopulation.v2.Challenge
+import IEANTN.Nodes.ThetaCubePopulation.v3.Challenge
 import IEANTN.Nodes.Trudgian2011.v1.Challenge
 import IEANTN.Nodes.Wedeniwski.v1.Challenge
 import IEANTN.Nodes.ZeroCount.v1.Challenge

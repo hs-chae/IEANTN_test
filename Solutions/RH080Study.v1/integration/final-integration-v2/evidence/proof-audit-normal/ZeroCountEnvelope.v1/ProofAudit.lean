@@ -1,0 +1,14 @@
+import Solution
+set_option pp.proofs true
+#check ZeroCountEnvelope.v1.challenge_off_ordinate_envelope
+#print axioms ZeroCountEnvelope.v1.challenge_off_ordinate_envelope
+#print ZeroCountEnvelope.v1.challenge_off_ordinate_envelope
+#check ZeroCountEnvelope.v1.challenge_bpt_better_low
+#print axioms ZeroCountEnvelope.v1.challenge_bpt_better_low
+#print ZeroCountEnvelope.v1.challenge_bpt_better_low
+#check ZeroCountEnvelope.v1.challenge_bw_second_better_high
+#print axioms ZeroCountEnvelope.v1.challenge_bw_second_better_high
+#print ZeroCountEnvelope.v1.challenge_bw_second_better_high
+#check ZeroCountEnvelope.v1.challenge_bw_first_better_high
+#print axioms ZeroCountEnvelope.v1.challenge_bw_first_better_high
+#print ZeroCountEnvelope.v1.challenge_bw_first_better_high

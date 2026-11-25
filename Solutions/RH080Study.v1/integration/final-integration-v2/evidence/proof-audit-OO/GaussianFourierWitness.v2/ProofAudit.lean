@@ -1,0 +1,8 @@
+import Solution
+set_option pp.proofs true
+#check GaussianFourierWitness.v2.challenge_integral_fourier_witness
+#print axioms GaussianFourierWitness.v2.challenge_integral_fourier_witness
+#print GaussianFourierWitness.v2.challenge_integral_fourier_witness
+#check GaussianFourierWitness.v2.challenge_objective_witness
+#print axioms GaussianFourierWitness.v2.challenge_objective_witness
+#print GaussianFourierWitness.v2.challenge_objective_witness

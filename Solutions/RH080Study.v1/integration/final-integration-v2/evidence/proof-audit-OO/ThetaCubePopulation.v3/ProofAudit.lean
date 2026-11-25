@@ -1,0 +1,14 @@
+import Solution
+set_option pp.proofs true
+#check ThetaCubePopulation.v3.challenge_cube_density_096699_from_369
+#print axioms ThetaCubePopulation.v3.challenge_cube_density_096699_from_369
+#print ThetaCubePopulation.v3.challenge_cube_density_096699_from_369
+#check ThetaCubePopulation.v3.challenge_cube_density_096699_natural
+#print axioms ThetaCubePopulation.v3.challenge_cube_density_096699_natural
+#print ThetaCubePopulation.v3.challenge_cube_density_096699_natural
+#check ThetaCubePopulation.v3.challenge_hybrid_density
+#print axioms ThetaCubePopulation.v3.challenge_hybrid_density
+#print ThetaCubePopulation.v3.challenge_hybrid_density
+#check ThetaCubePopulation.v3.challenge_strict_gain_on_common_ray
+#print axioms ThetaCubePopulation.v3.challenge_strict_gain_on_common_ray
+#print ThetaCubePopulation.v3.challenge_strict_gain_on_common_ray

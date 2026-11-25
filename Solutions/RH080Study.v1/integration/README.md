@@ -1,3 +1,5 @@
+> This file preserves integration v1. The final twelve-project phase is documented in [final-integration-v2/README.md](final-integration-v2/README.md).
+
 # Checked ordinary Lake integration
 
 All ten registered Solution projects build with ordinary Lake. The main

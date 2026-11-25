@@ -1,0 +1,17 @@
+import Solution
+set_option pp.proofs true
+#check ThetaCubePopulation.v2.challenge_cube_density_09669924
+#print axioms ThetaCubePopulation.v2.challenge_cube_density_09669924
+#print ThetaCubePopulation.v2.challenge_cube_density_09669924
+#check ThetaCubePopulation.v2.challenge_cube_density_09669924_natural
+#print axioms ThetaCubePopulation.v2.challenge_cube_density_09669924_natural
+#print ThetaCubePopulation.v2.challenge_cube_density_09669924_natural
+#check ThetaCubePopulation.v2.challenge_finite_seam_098
+#print axioms ThetaCubePopulation.v2.challenge_finite_seam_098
+#print ThetaCubePopulation.v2.challenge_finite_seam_098
+#check ThetaCubePopulation.v2.challenge_strict_gain_on_common_ray
+#print axioms ThetaCubePopulation.v2.challenge_strict_gain_on_common_ray
+#print ThetaCubePopulation.v2.challenge_strict_gain_on_common_ray
+#check ThetaCubePopulation.v2.challenge_retains_0965
+#print axioms ThetaCubePopulation.v2.challenge_retains_0965
+#print ThetaCubePopulation.v2.challenge_retains_0965

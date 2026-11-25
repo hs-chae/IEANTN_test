@@ -1,0 +1,96 @@
+version: v0.4
+node:
+  id: ThetaCubePopulation.v3
+  family: ThetaCubePopulation
+  version: v3
+  kind: pipeline
+  status: awaiting-verification
+project:
+  name: ThetaCubePopulation.v3
+  description: Exact timely 0.96699 strict-open cube count for every real n >= 369, with a composed 0.9669924
+    exp(8) hybrid.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+conclusions:
+- id: cube_density_096699_from_369
+  declaration: ThetaCubePopulation.v3.cube_density_096699_from_369
+  challenge: ThetaCubePopulation.v3.challenge_cube_density_096699_from_369
+  imports: &id001
+  - node: RH.v1
+    conclusion: hypothesis
+  - node: SchoenfeldRHTheta.v1
+    conclusion: refined_theta
+  - node: Buthe.v1
+    conclusion: theorem_2_theta
+  - node: Buthe.v1
+    conclusion: theorem_2_theta_lower
+  imports_status: identified
+  justifications:
+  - id: posthoc-kernel-proof
+    kind: lean-noncompliant
+    note: Additive posthoc canonical integration of byte-exact corrected-followup timely V0r1 proof. Conditional
+      kernel proof; no original experimental outcome changed. No official Comparator receipt claimed.
+  designated: posthoc-kernel-proof
+- id: cube_density_096699_natural
+  declaration: ThetaCubePopulation.v3.cube_density_096699_natural
+  challenge: ThetaCubePopulation.v3.challenge_cube_density_096699_natural
+  imports: *id001
+  imports_status: identified
+  justifications:
+  - id: posthoc-kernel-proof
+    kind: lean-noncompliant
+    note: Additive posthoc canonical integration of byte-exact corrected-followup timely V0r1 proof. Conditional
+      kernel proof; no original experimental outcome changed. No official Comparator receipt claimed.
+  designated: posthoc-kernel-proof
+- id: hybrid_density
+  declaration: ThetaCubePopulation.v3.hybrid_density
+  challenge: ThetaCubePopulation.v3.challenge_hybrid_density
+  imports:
+  - node: ThetaCubePopulation.v3
+    conclusion: cube_density_096699_from_369
+  - node: ThetaCubePopulation.v2
+    conclusion: cube_density_09669924
+  imports_status: identified
+  justifications:
+  - id: posthoc-kernel-proof
+    kind: lean-noncompliant
+    note: Additive posthoc canonical integration of byte-exact corrected-followup timely V0r1 proof. Conditional
+      kernel proof; no original experimental outcome changed. No official Comparator receipt claimed.
+  designated: posthoc-kernel-proof
+- id: strict_gain_on_common_ray
+  declaration: ThetaCubePopulation.v3.strict_gain_on_common_ray
+  challenge: ThetaCubePopulation.v3.challenge_strict_gain_on_common_ray
+  imports: []
+  imports_status: none
+  justifications:
+  - id: posthoc-kernel-proof
+    kind: lean-noncompliant
+    note: Additive posthoc canonical integration of byte-exact corrected-followup timely V0r1 proof. Conditional
+      kernel proof; no original experimental outcome changed. No official Comparator receipt claimed.
+  designated: posthoc-kernel-proof
+sources:
+- id: TimelyFollowupCubeV0r1Prefix5
+  title: Frozen cube-L2_E2_D1_V0-r1 timely prefix-0005 CubeTheta.lean
+  authors:
+  - OpenAI (Codex)
+  type: original-proof
+  relationship: other
+  note: Byte-exact recorded source linked by ORIGIN.json and its SHA256. Full-real strict endpoints derived
+    through continuous endpoint transfer.
+limitations:
+- RH, Schoenfeld1976 Theorem10 (6.1), and Buthe2018 Theorem2 (1.6)-(1.7) remain explicit literature-backed
+  inputs; no RH-only Mathlib theorem claimed.
+- Kernel-only conditional mathematics, not source-first PV; no new axiom, native leaf or optimality claim.
+- Hybrid uses explicit prior canonical v2 conclusion and new v3 conclusion; original source algorithms,
+  deadlines and outcomes unchanged.
+- Every conclusion uses strict-open actual finite prime sets and all real n in its stated range.

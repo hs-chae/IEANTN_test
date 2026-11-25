@@ -1,0 +1,20 @@
+import Solution
+set_option pp.proofs true
+#check RHAsymptoticGaussian.v2.challenge_normalized_gap
+#print axioms RHAsymptoticGaussian.v2.challenge_normalized_gap
+#print RHAsymptoticGaussian.v2.challenge_normalized_gap
+#check RHAsymptoticGaussian.v2.challenge_gap_below_readable
+#print axioms RHAsymptoticGaussian.v2.challenge_gap_below_readable
+#print RHAsymptoticGaussian.v2.challenge_gap_below_readable
+#check RHAsymptoticGaussian.v2.challenge_gap_below_v1
+#print axioms RHAsymptoticGaussian.v2.challenge_gap_below_v1
+#print RHAsymptoticGaussian.v2.challenge_gap_below_v1
+#check RHAsymptoticGaussian.v2.challenge_gap_below_printed_2026
+#print axioms RHAsymptoticGaussian.v2.challenge_gap_below_printed_2026
+#print RHAsymptoticGaussian.v2.challenge_gap_below_printed_2026
+#check RHAsymptoticGaussian.v2.challenge_population_curve
+#print axioms RHAsymptoticGaussian.v2.challenge_population_curve
+#print RHAsymptoticGaussian.v2.challenge_population_curve
+#check RHAsymptoticGaussian.v2.challenge_population_count
+#print axioms RHAsymptoticGaussian.v2.challenge_population_count
+#print RHAsymptoticGaussian.v2.challenge_population_count

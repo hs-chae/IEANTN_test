@@ -1,0 +1,43 @@
+{
+  "status": "PASS_EXTERNAL_EXACT_RATIONAL_GUARD_STRENGTHENED_REPLAY",
+  "trial": "cube-L2_E2_D1_V0-r0",
+  "prefix": "prefix-0003",
+  "mode": "OO",
+  "sources": [
+    {
+      "original": "/data/ivy-rh-080-20261125/ablation-followup-controller/trials/cube-L2_E2_D1_V0-r0/research-v1/timely-locked-prefixes/prefix-0003/build.py",
+      "original_sha256": "23a42f23f2bb86fc14c16b835ec0635ae48417a273916c9ba624f8d3698544e6",
+      "guard_strengthened_sha256": "19ff79d14653a19f748ee90ba5dd9d976d3b2b8724958c1d9bd792b1dc458730",
+      "assert_statements_replaced": 0
+    },
+    {
+      "original": "/data/ivy-rh-080-20261125/ablation-followup-controller/trials/cube-L2_E2_D1_V0-r0/research-v1/timely-locked-prefixes/prefix-0003/cube_sieve.py",
+      "original_sha256": "5beb5c079adac29cee422b57048485846bcc29c4066c41a5ca503a95506a065e",
+      "guard_strengthened_sha256": "0329d2e81b1628adef1b82c93274f22a86ca04531cb4435f6cfbfa89a8e411af",
+      "assert_statements_replaced": 18
+    }
+  ],
+  "commands": [
+    {
+      "script": "cube_sieve.py",
+      "returncode": 0,
+      "seconds": 1.3663207907229662,
+      "command": [
+        "/usr/bin/prlimit",
+        "--as=68719476736",
+        "--",
+        "/usr/bin/time",
+        "-v",
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh-080-20261125/followup-analysis/v0r0-rational-OO/guarded/cube_sieve.py"
+      ],
+      "stdout_sha256": "ba73605dd912bb44a07981d052fb8214acb92a30e5dc041de008d23e130d7002",
+      "stderr_sha256": "21a14d05e2fb397e1b93f89659dc8f9a46a21d44d06a7a31cb02ab9095182a82"
+    }
+  ],
+  "source_first_PV": false,
+  "kernel_proof": false,
+  "original_inputs_changed": false,
+  "meaning": "Ordinary exact-rational external evidence plus separately reviewed written analytic proof. Only assert guards were made explicit for optimization robustness; arithmetic AST/parameters retained. No formal Python semantics/source correspondence proof claimed."
+}

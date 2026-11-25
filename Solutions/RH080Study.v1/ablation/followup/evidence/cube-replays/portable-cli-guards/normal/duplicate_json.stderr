@@ -1,0 +1,26 @@
+Traceback (most recent call last):
+  File "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/reproduction/replay_rational_checks.py", line 48, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/reproduction/replay_rational_checks.py", line 26, in main
+    p=argparse.ArgumentParser(allow_abbrev=False);p.add_argument('--prefix-dir',type=Path,required=True);p.add_argument('--trial',required=True);p.add_argument('--prefix',required=True);p.add_argument('--script',action='append',required=True);p.add_argument('--mode',choices=['normal','O','OO'],required=True);p.add_argument('--run',type=Path,required=True);a=p.parse_args();need(not a.run.exists(),'Fresh external replay required');controller_hash=H(Path(__file__));P=a.prefix_dir.resolve(strict=True);need(P.name==a.prefix,'Prefix directory identity differs');lock=read_json(P/'LOCK.json');pr={'files':[{'file':r['path'],'sha256':r['sha256']} for r in lock['files']]};a.run.mkdir(parents=True);src=a.run/'guarded';src.mkdir();sources=[]
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/reproduction/replay_rational_checks.py", line 13, in read_json
+    return json.loads(path.read_bytes(),object_pairs_hook=unique,parse_constant=lambda x:(_ for _ in ()).throw(ValueError('Nonfinite JSON')))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/__init__.py", line 359, in loads
+    return cls(**kw).decode(s)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/reproduction/replay_rational_checks.py", line 11, in unique
+    for k,v in items:need(k not in data,'Duplicate JSON key');data[k]=v
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ivy-rh-080-20261125/network/Solutions/RH080Study.v1/ablation/followup/reproduction/replay_rational_checks.py", line 7, in need
+    if not x:raise ValueError(m)
+             ^^^^^^^^^^^^^^^^^^^
+ValueError: Duplicate JSON key

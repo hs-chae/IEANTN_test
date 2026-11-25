@@ -1,0 +1,23 @@
+import Solution
+set_option pp.proofs true
+#check ThetaCubePopulation.v1.challenge_schoenfeld_cube_curve
+#print axioms ThetaCubePopulation.v1.challenge_schoenfeld_cube_curve
+#print ThetaCubePopulation.v1.challenge_schoenfeld_cube_curve
+#check ThetaCubePopulation.v1.challenge_buthe_cube_curve
+#print axioms ThetaCubePopulation.v1.challenge_buthe_cube_curve
+#print ThetaCubePopulation.v1.challenge_buthe_cube_curve
+#check ThetaCubePopulation.v1.challenge_cube_density_096
+#print axioms ThetaCubePopulation.v1.challenge_cube_density_096
+#print ThetaCubePopulation.v1.challenge_cube_density_096
+#check ThetaCubePopulation.v1.challenge_cube_density_0965
+#print axioms ThetaCubePopulation.v1.challenge_cube_density_0965
+#print ThetaCubePopulation.v1.challenge_cube_density_0965
+#check ThetaCubePopulation.v1.challenge_cube_density_0965_finite
+#print axioms ThetaCubePopulation.v1.challenge_cube_density_0965_finite
+#print ThetaCubePopulation.v1.challenge_cube_density_0965_finite
+#check ThetaCubePopulation.v1.challenge_cube_density_0965_natural
+#print axioms ThetaCubePopulation.v1.challenge_cube_density_0965_natural
+#print ThetaCubePopulation.v1.challenge_cube_density_0965_natural
+#check ThetaCubePopulation.v1.challenge_improves_old_coefficient
+#print axioms ThetaCubePopulation.v1.challenge_improves_old_coefficient
+#print ThetaCubePopulation.v1.challenge_improves_old_coefficient
