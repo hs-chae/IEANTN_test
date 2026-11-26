@@ -1,10 +1,13 @@
 # Explicit affine Fourier and prime-bound continuation
 
-These files prove reusable analytic sublemmas for the **unchanged** written
-0.851062 global and 0.8 finite-range constructions. They do **not** yet prove
-either final prime bound. Original RH080Study.v1 sources/results are untouched.
-There are no `sorry`, added axioms, native numerical execution leaves, or
-unverified numerical-output premises in these mathematical modules. Literal numerical bounds in source-provider consumers are supplied by their actual source-linked proofs.
+These files prove the complete analytic and scalar-source chains for the
+**unchanged** original Fap 0.74/0.75/0.8 slabs, original w4 0.851062 global
+construction and its all-alpha eventual weighted curve. The final `_of_norm`
+theorems explicitly retain the two unfinished original-input FFT norm bounds
+as arguments: these are not yet fully source-first verified prime bounds.
+Original RH080Study.v1 sources/results are untouched. All compiled proof roots
+have only the three standard Lean axioms; numerical arguments and named
+literature propositions are reported separately from axiom audits.
 
 ## Proved in Lean
 
@@ -117,25 +120,151 @@ Its proof is informative but does not license calling an arbitrary-window
 Mellin identity the literal printed theorem. No `SourceBRMellinFive` assumption
 has been introduced. The genuinely general CMS Lemma 6 is used instead.
 
-## Remaining obligations for the old explicit bounds
+## Quantitative analytic closure after the first checkpoint
 
-1. Derive the precise zero-count/Stieltjes remainder, including the derivative
-   variation constant and all endpoint/infinite-tail limits.
-2. Prove the Montgomery–Vaughan outer-level-set count, prime-power contribution,
-   and every term in the aggregate 0.0012 allowance.
-3. The w4 scalar C source now has an actual source/AST/main execution proof
-   and finite nodal outputs. `ExplicitW4SourceMoment` consumes those outputs
-   in the actual signed-log integral theorem. Remaining w4 work includes
-   actual exterior J/H refinements and its original FFT norm enclosure.
-   Fap's distinct 400-node numerical provider and 131,072-point norm remain
-   separate obligations for the locked finite frontier. The new small
-   population programs do not complete either old profile.
-4. Complete continuous residual/slab/ray and strict prime endpoint consumers,
-   and integrate the separate small-x bridge.
+`ExplicitCMSZeroSource` exposes the general CMS Section 6.1 summation-by-parts
+proof scheme as a named literature proposition; it is not claimed to be a
+kernel reconstruction of Stieltjes integration from Lemma 9 alone. Every
+actual affine admissibility obligation is proved in
+`ExplicitAffineZeroAdmissible`: C1 regularity, both sharp quadratic tails,
+actual integrability, and both vanishing infinity boundary terms.
+`ExplicitCMSZeroRoot` proves an exact root Q(T₀) = 0 with 9 < T₀ < 10 by
+rational inequalities and IVT, so there is no numerical root oracle.
 
-The current work does not promote either old explicit bound into the verified
-network. Source-first numerical PV is implemented in the sibling `pv/` lane;
-ordinary kernel evaluation of these analytic proofs is not called PV.
+`ExplicitAffineZeroEstimate` and `ExplicitZeroAllowance` consume those proofs,
+retain the actual negative signed-log moment, and prove the complete zero plus
+cutoff allowance < 0.0001. After logarithmic-height linearization, the actual
+Mellin spectral norm is bounded by
+U[t/2 − log(ct/2)] + nodalSignedLogUpper(3/8) + 0.000102.
+`ExplicitTrivialError` proves the actual logarithmic substitution, integral
+bound and < 10⁻⁸ allowance; `ExplicitPoleQuantitative` supplies < 10⁻¹⁰.
+The composed `ExplicitMellinLower.actual_mangoldt_lower` consequently proves
+an actual von-Mangoldt-sum lower bound with derived error 0.00011 over the
+full t ≥ 42, 1/2 ≤ c ≤ 1 domain. Its named general literature inputs remain
+explicit. The separate actual prime-power sum is kernel bounded by 0.001 in
+the primal lane, using `ExplicitPrimePowerAllowance`.
+
+The root/primal lanes prove the finite atomic BV inequality, its continuous
+limit, exact affine positive-cell integrals and both normalized-wing H
+identities. `ExplicitMontgomeryVaughan` preserves actual floor prime counts
+and exact half-open endpoints. `ExplicitMVAtomic` derives the actual atomic
+interval bound from one enlarged MV interval, with its literal physical
+length ell. No connected-component or quadrature oracle is assumed.
+`ExplicitResidual` proves the continuous slab minimum, complete-ray
+monotonicity, and the margin needed to remove an upper endpoint prime.
+
+Fresh frozen-source generic replays passed in normal, -O and -OO modes:
+83 modules,78 theorem-axiom audits,264.40–266.08 seconds per run, maximum
+process RSS3,988,928KiB,zero OOM events,about36.14MB per run. The complete
+actual arithmetic/final analytic consumer, profile scalar residuals and
+arbitrary-c population transfer are included. The only import libraries are
+the eight pinned generic dependencies; every selected application math source
+is freshly compiled from its immutable snapshot. The actual original C
+providers and fixed-profile consumer builds have separately associated
+source/build receipts, with a final joined provider replay tracked by pv/.
+
+## Completed final consumers and the remaining numerical leaves
+
+`ExplicitPrimeWeights`, `ExplicitCentralPrimes`, `ExplicitMVConstants`,
+`ExplicitErrorBudget` and `ExplicitAnalyticTransfer` consume the actual
+prime-wing/arithmetic and prime-power proofs, retain the exact original
+block ell=sqrt(a)/k, derive the unchanged B=4.00001 allowance, and prove the
+strict endpoint prime consumer with derived total budget0.0012.
+`ExplicitScalarLogBounds`, `ExplicitProfileScalars` and
+`ExplicitProfileResiduals` prove the actual signed-log scalar caps and all
+continuous residual inequalities, including the whole w4 ray.
+
+`ExplicitProfileApplications` consumes the source-first C scalar/J/V0
+providers of both distinct frozen profiles. `ExplicitFullRangeApplications`
+joins the historical finite source bridge and direct small cases:
+
+- `fap_074_full_of_norm`: all real11≤x≤exp63, coefficient0.74, strict endpoints.
+- `fap_075_full_of_norm`: all real11≤x≤exp70, coefficient0.75, strict endpoints.
+- `fap_08_full_of_norm`: all real4≤x≤exp174, coefficient0.8, strict endpoints.
+- `w4_global_full_of_norm`: all realx≥4, coefficient0.851062, strict endpoints.
+
+Each theorem retains its actual inverse-Fourier L1 norm bound explicitly.
+The caps use recorded independent global-chord review computations on the
+original frozen data: Fap0.7817960157900848 at G131072 and
+w40.7813568381304104 at G16777216. They are distinct from the original timed
+programs. The constant names `fapOriginalNormCap`/`w4OriginalNormCap` refer to
+the original input profile, not the timed algorithm. No new unverified FFT
+output has been accepted, and no original score/outcome changes.
+
+The support-seven all-alpha derivation is now kernel-proved:
+`ExplicitAsymptoticWidth`, `ExplicitAsymptoticAllowances` and
+`ExplicitAsymptoticCentral` derive the actual central-sum asymptotics for any
+fixed c>0, from the actual Mellin/zero/prime-power/MV paths.
+`ExplicitActualPopulation.actual_population_goodCoefficient` connects this
+to the actual IEANTN pi predicate. `ExplicitW4Population` consumes the actual
+source maximum output and proves
+`w4_recorded_population_of_norm`: every alpha≥0 has the recorded width
+0.851061745+1.505657839alpha, conditional on the actual w4 norm. This uses no
+support-five uniform-population premise and claims no explicit onset.
+`ExplicitW4StrictPopulation` also exhibits a strictly smaller good coefficient
+and proves the exact strict infimum comparison with the recorded line;
+endpoint membership alone is not substituted for that conclusion.
+
+The two large source-first FFT norm proofs remain open. Consequently these
+original-profile claims are not promoted as fully verified network results.
+See `REMAINING_B.md` for the precise compiled statements and remaining leaves.
+Ordinary kernel evaluation of the analytic proofs is not called PV.
+
+## Completed source-helper verification
+
+`ExplicitFFTCompareBase/Loop/Determinism/Call/Source/Audit` verify the actual
+`magnitude_compare` C helper in both preserved `pv/fft/w4_fft.c` and
+`pv/fft/fap_fft.c`. It reads five base-billion words from highest to lowest,
+returns2/0/1 for greater/less/equal mathematical integers, and writes neither
+input. The proof includes actual parameter/local allocation, array reads,
+uint64 subtraction and comparisons, every loop/early-return branch, return
+conversion and scope restoration. It proves correctness of every permitted
+full source Call, both unchanged typed input arrays and every pre-existing
+caller object; same or overlapping input slices are allowed.
+
+The independent source-syntax proof and positional-integer correctness are
+actually consumed, and the final audit checks those proof edges. The real C
+bytes exactly match the formal source strings. The compiler/LP64/ULL64 ABI,
+chosen restricted C execution-model adequacy, core runtime, OS and hardware
+remain explicit trust boundaries; caller array/digit preconditions must be
+established by the larger application. The source-to-AST, execution and
+correctness contract is complete; its final ANT connection is pending.
+Under the owner's definition this standalone helper is not yet completed
+source-first PV. It does not complete either FFT program's numerical norm
+output or its ANT theorem.
+
+The normal source-cold helper replay compiled49sources in949.43seconds,
+peak Lean RSS38,804,720KiB(about37GiB),zeroOOMs,about421MB retained artifacts.
+Thirty supplementary native cases per C file include equality, shared and
+overlapping read-only inputs; the universal Lean proof does not rely on
+these tests. The full optimized Python CLI replays also passed:996.78seconds
+under `-O` and981.76seconds under `-OO`, each49fresh sources and zeroOOMs.
+
+The subsequent actual `increment_words` and `divide_small` source contracts
+also passed71-source cold replays in all three Python modes, including exact
+integer increment/floor/ceiling, every permitted call argument order, word
+guards and temporary lifetimes. Their final ANT connection remains pending;
+see `INTEGER_HELPERS.md` and `INTEGER_HELPERS_MANIFEST.json`. Historical
+receipt fields containing `helper_PV_complete` retain their original values
+and denote only that helper-contract milestone.
+
+`ExplicitApplicationBirthFrame` proves persistent typed locals survive a
+distinct temporary declaration and provides actual declaration/store/block
+frames with fresh local births. Its standalone20source cold replay passed
+in57.30seconds,peak3,439,028KiB. The frame permits new/dead temporary objects
+and monotone allocation counters; it assumes neither unchanged allocation
+counters nor that all later objects existed before. It is used by actual
+source multiplication/addition/division proofs, not an expansion of trusted
+runtime behavior. Incomplete increment/division source proofs are excluded
+from the accepted publication manifest.
+
+The final six original-profile conditional consumers, including the strict
+coefficient-infimum conclusion, were freshly compiled and dependency-audited
+against exact source/hash/receipt-associated corrected C scalar providers.
+The final overlay took16.48seconds,peak4,489,880KiB. This overlay is labelled
+source-associated; the83generic math sources, original scalar providers and
+finite bridge have their own actual source-cold receipts. No FFT norm premise
+is hidden or promoted into a verified network result.
 
 ## Reproduce from a clean proof bank
 
@@ -160,3 +289,25 @@ is 32 GiB for these small proofs; `--memory-gib` permits a justified larger run
 up to the owner's separate 300 GiB allowance. The script uses explicit errors,
 not Python assertions, for acceptance checks. No random seeds or generated
 numerical datasets occur in this lane.
+
+For the source-helper reproduction (actual C compilation/tests plus every
+local source proof freshly compiled), run from any directory:
+
+```sh
+python3 reproduce_fft_compare.py --context /path/to/pinned-context.json --out /path/to/new-helper-output
+```
+
+To rebuild the complete original-profile conditional theorem closure directly
+from clean sources, reuse the sibling source-cold compiler:
+
+```sh
+python3 ../pv/reproduce_lean.py --context /path/to/pinned-context.json --run /path/to/new-full-proof-output --root ExplicitOriginalFinalAudit
+```
+
+That larger clean replay regenerates the scalar proof closures as well and
+can take over an hour and tens of GiB. The faster final development overlay
+reuses only exact receipt-associated objects from the independently completed
+source-cold phases; it is never labelled a new source-cold replay.
+`export_proof_bank.py` only adapts a completed generic replay's receipt format
+after checking original source/object/log/resource/compiler hashes; it does
+not run a new proof or issue a new acceptance.

@@ -1,0 +1,230 @@
+{
+  "schema": "rh080-source-multiplication-row-v1",
+  "status": "PASS_RESTRICTED_SOURCE_AST_ROW_PROOFS",
+  "proof_roots": [
+    "RH080Next.FFTPV.ProductInner.contents_execution",
+    "RH080Next.FFTPV.ProductInner.block_execution",
+    "RH080Next.FFTPV.ProductInner.loop_execution",
+    "RH080Next.FFTPV.ProductInner.source_five_digit_row"
+  ],
+  "source_core_scope": "Actual fixed_multiply C AST five-statement inner body and complete five-digit row, with exact AST location equality; whole function/source final numerical path remains incomplete.",
+  "conditions": [
+    "Actual typed input and work arrays supplied by explicit caller contract",
+    "Distinct allocations or disjoint slices of the same allocation",
+    "Per-variable real C lifetime owners, including persistent function locals and row-block locals",
+    "Base-billion digits and carry bounded; every UInt64 product/addition/division/remainder/store proved"
+  ],
+  "conclusion": "Constructive complete row execution, unchanged input slices, exact scratch digits and carry, true block lifetime closure, old caller-object frame, global integer-valued row conservation",
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "native_decide": false,
+  "whole_fixed_multiply_PV_complete": false,
+  "whole_FFT_norm_PV_complete": false,
+  "final_ANT_norm_argument_discharged": false,
+  "source_cold": {
+    "modules": 47,
+    "seconds": 135.82259974256158,
+    "peak_child_rss_kib": 3460260,
+    "oom_events": 0,
+    "application_object_fallback": false,
+    "plan_sha256": "66c74dfdf01ccdc0c9adb23206e5bbf103bbe56f4f6de056a4a321ac77e60262",
+    "result_sha256": "96abeeda583c84441d2b97739ce8ca66b5739ce3c69bca8b8525fdfa4f248378",
+    "root_stdout_sha256": "7e112b8a1fc1a8d55cf2618086f670d5ec6cb54ccdc808fdf9077e64e28823ff"
+  },
+  "reproduce_command": "python3 Solutions/RH080Next.v1/pv/reproduce_lean.py --context /path/to/clean_proof_context.json --root FFTProductRowLoop --run /fresh/fft-product-row-source-cold",
+  "proof_sources": [
+    {
+      "module": "GoldbachDirect.Syntax",
+      "path": "Solutions/RH080Next.v1/pv/lean/GoldbachDirect/Syntax.lean",
+      "sha256": "cedf8c83f3e0701ec3ca39c205ba0a5d8bc731fc63395193cbf8d26520bf38e7"
+    },
+    {
+      "module": "FFTAST",
+      "path": "Solutions/RH080Next.v1/pv/lean/FFTAST.lean",
+      "sha256": "0d8d37c2dc07a39f6122d5355581e4e9f9a12e59db534dc24cc44fa75378fc80"
+    },
+    {
+      "module": "GoldbachDirect.Scalar",
+      "path": "Solutions/RH080Next.v1/pv/lean/GoldbachDirect/Scalar.lean",
+      "sha256": "5723aa55397f28818ad47c371d9b3482b2434cde5fd7716da1d4c7298e660165"
+    },
+    {
+      "module": "GoldbachDirect.Memory",
+      "path": "Solutions/RH080Next.v1/pv/lean/GoldbachDirect/Memory.lean",
+      "sha256": "c235c1f0c0f91f5a892f693a0962860bf4ab4e6c78f6cb6e0797031d4081e0b7"
+    },
+    {
+      "module": "FFTWordArrays",
+      "path": "Solutions/RH080Next.v1/pv/lean/FFTWordArrays.lean",
+      "sha256": "b38e4e9ef6336bd2c3f069e1da1ef6464612c7652fc8c6e2454edcc8714c37c8"
+    },
+    {
+      "module": "FFTWordArithmetic",
+      "path": "Solutions/RH080Next.v1/pv/lean/FFTWordArithmetic.lean",
+      "sha256": "571b5c95a9d631c2469437e55e6e007631b75e870770d8aa357c59d06d81e276"
+    },
+    {
+      "module": "FFTWordDivision",
+      "path": "Solutions/RH080Next.v1/pv/lean/FFTWordDivision.lean",
+      "sha256": "3f30107a440414530e031f76ecdc190ba865a9e10a19140dff694405aae95b2d"
+    },
+    {
+      "module": "FFTWordStore",
+      "path": "Solutions/RH080Next.v1/pv/lean/FFTWordStore.lean",
+      "sha256": "1ade64c9135e7dd9e82f3fec6c88b29152bb7d9c6b7677c5485d3ef57c6056e0"
+    },
+    {
+      "module": "GoldbachDirect.Semantics",
+      "path": "Solutions/RH080Next.v1/pv/lean/GoldbachDirect/Semantics.lean",
+      "sha256": "3b099351bc2256c826e0707503807fd0d9dcf99ee10386f936ccf75776cd4112"
+    },
+    {
+      "module": "GoldbachDirect.PlatformMemory",
+      "path": "Solutions/RH080Next.v1/pv/lean/GoldbachDirect/PlatformMemory.lean",
+      "sha256": "c749100e48e2ba41294581ae27c22d60ef193cf6a9e82c2a438a951eb70b6578"
+    },
+    {
+      "module": "FFTInitialization",
+      "path": "Solutions/RH080Next.v1/pv/lean/FFTInitialization.lean",
+      "sha256": "7e07213dbaa6300b46d547285d5baf27fa02870bc66d23cf31b78b9f0be0dfbd"
+    },
+    {
+      "module": "FFTSourceSteps",
+      "path": "Solutions/RH080Next.v1/pv/lean/FFTSourceSteps.lean",
+      "sha256": "3a97ee669ad6041a1e97e5fdf24f3e9b0ca76e210cf2847ef5ecfa698636f33c"
+    },
+    {
+      "module": "FFTZeroLoop",
+      "path": "Solutions/RH080Next.v1/pv/lean/FFTZeroLoop.lean",
+      "sha256": "dbbd34f4a103bfb2a6eec20c7de9973ea0de17aaedddb8c4cd94e959c7cbf20c"
+    },
+    {
+      "module": "GoldbachGPU.Segmented.Syntax",
+      "path": "Solutions/RH080Next.v1/pv/lean/GoldbachGPU/Segmented/Syntax.lean",
+      "sha256": "0a9f42b07e3bd37da94ecebf1070ae8a4396b2715831b0f7b00fac577554dd05"
+    },
+    {
+      "module": "GoldbachDirect.KernelScalar",
+      "path": "Solutions/RH080Next.v1/pv/lean/GoldbachDirect/KernelScalar.lean",
+      "sha256": "1ca323f95254784d663fe3a1fd10ea49ece72e102db899e9a912018d688f7b43"
+    },
+    {
+      "module": "GoldbachDirect.SourceLocals",
+      "path": "Solutions/RH080Next.v1/pv/lean/GoldbachDirect/SourceLocals.lean",
+      "sha256": "ba0cbdec992ca11293b979d1c7f266af8ef47b6352313174d2119b194cd80728"
+    },
+    {
+      "module": "GoldbachDirect.SourceWellScoped",
+      "path": "Solutions/RH080Next.v1/pv/lean/GoldbachDirect/SourceWellScoped.lean",
+      "sha256": "d0998f49e49f287f099c37c1ba30f91eb61280bbff0ed051ab8b457657c67df5"
+    },
+    {
+      "module": "GoldbachDirect.DeclarationFrame",
+      "path": "Solutions/RH080Next.v1/pv/lean/GoldbachDirect/DeclarationFrame.lean",
+      "sha256": "e2b9c8ac141d93e8ada1358b999977af355937a0d4b45200ceec8a4254c0f07a"
+    },
+    {
+      "module": "GoldbachDirect.SourcePure",
+      "path": "Solutions/RH080Next.v1/pv/lean/GoldbachDirect/SourcePure.lean",
+      "sha256": "61639c4a94f3d3c46c9101c47f3dc0191bccefa714716fdce5ea481275c8c02b"
+    },
+    {
+      "module": "GoldbachDirect.PureEval",
+      "path": "Solutions/RH080Next.v1/pv/lean/GoldbachDirect/PureEval.lean",
+      "sha256": "5ac21718ca84cb526b6e1901cb251e8e2579effda3dcb5aab14fe1da7d50fe0e"
+    },
+    {
+      "module": "GoldbachDirect.SourceScalarSlots",
+      "path": "Solutions/RH080Next.v1/pv/lean/GoldbachDirect/SourceScalarSlots.lean",
+      "sha256": "758b750083a20a8619e4721905f57efc9a9e90d92430a5aef688c13e4ba06b6d"
+    },
+    {
+      "module": "GoldbachDirect.SourceControl",
+      "path": "Solutions/RH080Next.v1/pv/lean/GoldbachDirect/SourceControl.lean",
+      "sha256": "11886bdc4c8d49b2c6e3d53c5d9f75fb8d16db845878c68c108cc7f48c8b952d"
+    },
+    {
+      "module": "GoldbachDirect.SourceSlots",
+      "path": "Solutions/RH080Next.v1/pv/lean/GoldbachDirect/SourceSlots.lean",
+      "sha256": "6deb68b4df38ea341af648be2d921c403a2b5f75cf67540a897f9c7b66c54b94"
+    },
+    {
+      "module": "GoldbachDirect.ScanFrame",
+      "path": "Solutions/RH080Next.v1/pv/lean/GoldbachDirect/ScanFrame.lean",
+      "sha256": "e321168eef5a20dbd403678228658f4005a771cdc8c2c1b23f6bd5337440da93"
+    },
+    {
+      "module": "GoldbachDirect.SourceBindings",
+      "path": "Solutions/RH080Next.v1/pv/lean/GoldbachDirect/SourceBindings.lean",
+      "sha256": "4ed57da62b1b7a78d6ea290e47eb067c05e28146ce18ce1bd823944c7d4b5574"
+    },
+    {
+      "module": "GoldbachDirect.SourceLocalOnly",
+      "path": "Solutions/RH080Next.v1/pv/lean/GoldbachDirect/SourceLocalOnly.lean",
+      "sha256": "05c3032ada9007ce2643fe8fdbbed3e3df7b36d4b6f5bb8e11eeac0ecf0b5669"
+    },
+    {
+      "module": "GoldbachDirect.SourceNoAlloc",
+      "path": "Solutions/RH080Next.v1/pv/lean/GoldbachDirect/SourceNoAlloc.lean",
+      "sha256": "dd9e28ab943261179921c30365087986bda9dec608443893140e984a54fd713f"
+    },
+    {
+      "module": "GoldbachDirect.SourceArrayFrame",
+      "path": "Solutions/RH080Next.v1/pv/lean/GoldbachDirect/SourceArrayFrame.lean",
+      "sha256": "7e170447663f6a56b459003337c391ef657df36adf5d6323385c5f5d3b462c64"
+    },
+    {
+      "module": "FFTZeroFrame",
+      "path": "Solutions/RH080Next.v1/pv/lean/FFTZeroFrame.lean",
+      "sha256": "5e9260def19414624d59857bc92ca5ad59886c5e8bf5ab6672cbfa13b6dd5cb4"
+    },
+    {
+      "module": "FFTZeroParameters",
+      "path": "Solutions/RH080Next.v1/pv/lean/FFTZeroParameters.lean",
+      "sha256": "1d4925f274d14de5a8ac53753dfb64c1767281ee83d320b4a4d1ad2b7f9a50d8"
+    },
+    {
+      "module": "FFTSourceProductRow",
+      "path": "Solutions/RH080Next.v1/pv/lean/FFTSourceProductRow.lean",
+      "sha256": "df75de2ebeb433aea444d278111fd4d763418393c0009a29ca5d0d20e3f2d698"
+    },
+    {
+      "module": "FFTWordSlices",
+      "path": "Solutions/RH080Next.v1/pv/lean/FFTWordSlices.lean",
+      "sha256": "187fa6f74474b26078bb9dab13709fa1dcbfebc40bcadaaa7f8b0ef5bf4ad8e0"
+    },
+    {
+      "module": "FFTProductRowPrefix",
+      "path": "Solutions/RH080Next.v1/pv/lean/FFTProductRowPrefix.lean",
+      "sha256": "f4ab85d2db70a4b10a2166c4f6101608524db5ec795164c48e2a2e434ce5be5b"
+    },
+    {
+      "module": "FFTWordBounds",
+      "path": "Solutions/RH080Next.v1/pv/lean/FFTWordBounds.lean",
+      "sha256": "0d4df7399c83b393c7e371d13562b691072b634d4bdbce380f0d5f5ed9bede46"
+    },
+    {
+      "module": "FFTProductBindings",
+      "path": "Solutions/RH080Next.v1/pv/lean/FFTProductBindings.lean",
+      "sha256": "f14ffe66094db4c368b6a3a22b069478475df7fc2d3afa9aaab0a6e54abd65c5"
+    },
+    {
+      "module": "FFTProductInner",
+      "path": "Solutions/RH080Next.v1/pv/lean/FFTProductInner.lean",
+      "sha256": "67d3eaa4f0d72410e943a827916d6fed1c4a9cf005627e47655673ded5b73a4b"
+    },
+    {
+      "module": "FFTWordSubtraction",
+      "path": "Solutions/RH080Next.v1/pv/lean/FFTWordSubtraction.lean",
+      "sha256": "dcb22c178bc20542f5d5928f23c695b03d97414c9d7224880a8a87e061c0158a"
+    },
+    {
+      "module": "FFTProductRowLoop",
+      "path": "Solutions/RH080Next.v1/pv/lean/FFTProductRowLoop.lean",
+      "sha256": "2d045bdf21db0c4fc7062f966064e168c2883ae115e4a5fc5d2a26d5b7846202"
+    }
+  ]
+}

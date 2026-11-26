@@ -13,11 +13,14 @@ from pathlib import Path
 from reproduce_dual import context,need,publish,sha
 
 MODULES = ["FFTButterfly","FFTRoundoff","FFTSeedBounds","FFTTwiddleBounds",
-           "FFT24Bridge","FFTPolynomial","FFT17SeedBounds","FFT17Bridge"]
+           "FFT24Bridge","FFTPolynomial","FFT17SeedBounds","FFT17Bridge",
+           "FFTLimbMultiplication","FFTLimbAddition","FFTLimbDivision","FFTLimbIncrement"]
 REQUIRED = {
  "recursiveFFT_eq_dft","roundedFFT_dft_error","rootSeed_error",
  "fft24_twiddle_bound","fft24_dft_error","mirrored_dft_re",
- "rootSeed17_error","fft17_twiddle_bound","fft17_dft_error"
+ "rootSeed17_error","fft17_twiddle_bound","fft17_dft_error",
+ "normalizedProduct_eq_floor","fixedAddMath_correct","divideDigits_quotient_remainder",
+ "incrementDigits_value","incrementDigits_bounds"
 }
 STANDARD = {"propext","Classical.choice","Quot.sound"}
 
@@ -73,9 +76,12 @@ def main():
                  'source_sha256':sha(p),'stdout_sha256':sha(out),'stderr_sha256':sha(err)}
         publish(o.run/(name+'.COMPILED.json'),receipt)
         need(result.returncode==0,'Compilation failed: '+name)
+        need(re.search(r'PANIC|error(?:\([^)]*\))?:',out.read_text()+'\n'+err.read_text()) is None,
+             'Compiler diagnostic despite zero exit in '+name)
+        need((bank/(name+'.olean')).is_file(),'Missing proof object '+name)
         need(receipt['source_sha256']==row['sha256'],'Source changed while compiling '+name)
         facts=re.findall(r"'([^']+)' depends on axioms: \[([^\]]*)\]",out.read_text())
-        need([n for n,_ in facts]==['RH080Next.FFT.'+n for n in row['audited_roots']],
+        need([n for n,_ in facts]==[('RH080Next.FFT.Limbs.' if name.startswith('FFTLimb') else 'RH080Next.FFT.')+n for n in row['audited_roots']],
              'Missing or changed axiom output '+name)
         for n,raw in facts:
             ax=[s.strip()for s in raw.split(',')if s.strip()]

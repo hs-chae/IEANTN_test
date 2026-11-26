@@ -1,0 +1,80 @@
+{
+  "status": "PASS_SOURCE_FIRST_INCREMENT_AND_DIVIDE_HELPERS_ONLY",
+  "source_first_helper_PV_complete": true,
+  "whole_FFT_norm_PV_complete": false,
+  "associations": [
+    {
+      "formal_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FFTSource.lean",
+      "formal_sha256": "004dd5e296cdad3ef9d94446ea1edb2ec8880ac61613acbe9aaecaddb8db1cfb",
+      "C_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/fft/w4_fft.c",
+      "C_sha256": "c0f4210a608ef7902848e1a26700f2be49ff2cd93d7080c4058b1fd7679a5243",
+      "C_snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/fft-integer-helpers-cold-v1-O/native/w4_fft.c"
+    },
+    {
+      "formal_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FapFFTSource.lean",
+      "formal_sha256": "e87e8de86df138023650b44ddce62322cd0d2d75614a8010f8d25e068e1069b1",
+      "C_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/fft/fap_fft.c",
+      "C_sha256": "acc73c04d46f3163da8183f89bef09c3c379e97a0b8708d6deb99df34bbe24b2",
+      "C_snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/fft-integer-helpers-cold-v1-O/native/fap_fft.c"
+    }
+  ],
+  "native_smoke_tests": [
+    {
+      "source": "w4_fft.c",
+      "command": [
+        "/usr/bin/cc",
+        "-std=c11",
+        "-O2",
+        "-Wall",
+        "-Wextra",
+        "/data/ivy-rh080-next-20261125/explicit-lane/fft-integer-helpers-cold-v1-O/native/w4_fft.c.harness.c",
+        "-o",
+        "/data/ivy-rh080-next-20261125/explicit-lane/fft-integer-helpers-cold-v1-O/native/w4_fft.c.test"
+      ],
+      "executable_sha256": "0bafeb1b45d5c21e4e6cc837184e94f0b1a45a6cb706468ed8b25ba00598632e",
+      "harness_sha256": "1eaba61e6ae83dd27732a0ad8780f547bb9ac368cfa1142b6b7594280168edf1",
+      "output_sha256": "74b409e12b3f85f7add922605a38827249cfeb3cd44c036012cd5b970cf08ffd",
+      "cases": 160
+    },
+    {
+      "source": "fap_fft.c",
+      "command": [
+        "/usr/bin/cc",
+        "-std=c11",
+        "-O2",
+        "-Wall",
+        "-Wextra",
+        "/data/ivy-rh080-next-20261125/explicit-lane/fft-integer-helpers-cold-v1-O/native/fap_fft.c.harness.c",
+        "-o",
+        "/data/ivy-rh080-next-20261125/explicit-lane/fft-integer-helpers-cold-v1-O/native/fap_fft.c.test"
+      ],
+      "executable_sha256": "50113a8d80739d691c29b80f727b8127c718ed713385b99ca14cc3cf18260e52",
+      "harness_sha256": "0269a1ede4a78a2408a1f5f2b6859300e0b10f5529038bbb38af86bac0804735",
+      "output_sha256": "74b409e12b3f85f7add922605a38827249cfeb3cd44c036012cd5b970cf08ffd",
+      "cases": 160
+    }
+  ],
+  "random_seed": 527622,
+  "C_compiler": "cc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0\nCopyright (C) 2021 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "C_compiler_sha256": "821af3c74506283c179ca413bb33e6b528805a4dd8a5c09df125e5ad560a9e89",
+  "python": "3.11.14 (main, Jan 14 2026, 19:35:32) [Clang 21.1.4 ]",
+  "proof_controller_sha256": "f61bb50c2601ddb1270803e5ea8dcd71a07cc5f456f625ec28f9d83835c9937b",
+  "command": [
+    "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python",
+    "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_lean.py",
+    "--context",
+    "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+    "--run",
+    "/data/ivy-rh080-next-20261125/explicit-lane/fft-integer-helpers-cold-v1-O/lean",
+    "--root",
+    "ExplicitFFTDivideAudit"
+  ],
+  "proof_receipt_sha256": "1cfb38883ac51bf654594b6306fd09ff9d1b4e87187346ea4dc0c238d7d32ac5",
+  "modules": 71,
+  "seconds": 987.6002990603447,
+  "peak_Lean_rss_kib": 38805188,
+  "oom_events": 0,
+  "bytes": 429340535,
+  "trust": "Restricted C operational-model adequacy and documented LP64/ULL64 ABI; pinned compiler/core runtime, OS and hardware. No successful application effect, initial array representation, numerical FFT result, or final norm bound is trusted. Caller must establish the explicit typed-array/digit preconditions.",
+  "scope": "Actual increment_words and divide_small helpers in both preserved C files, independently parsed syntax, complete Call termination and all-execution correctness including every permitted call argument order, exact encoded integer addition/floor/ceiling, temporary lifetimes, slice and caller-object frames. Domain: normalized base-billion digits, 0<=n<=6, 1<=d<1e9, ceiling=0 or1. Native tests are supplementary; they do not prove the theorem."
+}

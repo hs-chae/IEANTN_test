@@ -42,8 +42,9 @@ After u = Δx its last displayed line becomes
 The following paragraph applies the same bound to negative ordinates.
 A correct full-zero application must account for any zero at ordinate zero;
 N(10) as defined above alone does not do this. Nonvanishing on the real
-critical strip (under RH, just ζ(1/2) ≠ 0) is a pending explicit bridge unless
-it is supplied and accurately attributed as a general analytic source fact.
+critical strip (under RH, just ζ(1/2) ≠ 0) is closed by ExplicitRealZetaNonzero using the separately named general
+DLMF 25.5.E3 integral formula and proved positivity. It is actually consumed
+by cms_full_zero_bound_from_sources.
 
 This displayed calculation occurs in a section that has already chosen a
 particular F = H(x/λ), H(x) = cos(2πx)/(1−16x²). We will label its use for
@@ -54,10 +55,11 @@ works: continuously differentiable f (or locally absolutely continuous
 modulus), local finiteness and multiplicities of the actual zero count,
 absolutely convergent zero sum, integrability of both displayed terms,
 and vanishing boundary terms |f(T)|Q(T) and |f(T)|[N(T)−Q(T)] at infinity.
-The base terms vanish because both N(x₀) and Q(x₀) vanish. Quadratic decay
-of f and f′ supplies the necessary limiting and integrability conditions,
-but these facts must be proved for the actual affine functions; they are
-not hidden in a final numerical zero-error assumption.
+The base terms vanish because both N(x₀) and Q(x₀) vanish. The exact root
+existence in (9,10) is now kernel-proved by ExplicitCMSZeroRoot, with no
+approximate-value oracle. Every C1, tail, actual integral and infinity-limit
+field is now proved for the actual affine inverse in ExplicitAffineZeroAdmissible;
+none is hidden in a final numerical zero-error assumption.
 
 No numerical window, support radius, norm cap, signed-log cap, final
 0.0012 allowance or prime-interval conclusion is permitted in this source

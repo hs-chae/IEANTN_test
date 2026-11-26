@@ -12,6 +12,23 @@ import ExplicitPoleQuantitative
 import ExplicitAffineDerivative
 import ExplicitDerivativeIntegrals
 import ExplicitCMSZeroSource
+import ExplicitZeroRemainderIntegrals
+import ExplicitAffineZeroRemainder
+import ExplicitMellinZeroBound
+import ExplicitTruncatedLogDensity
+import ExplicitZeroBoundary
+import ExplicitAffineZeroAdmissible
+import ExplicitAffineZeroEstimate
+import ExplicitZeroAllowance
+import ExplicitPrimePowerAllowance
+import ExplicitTrivialError
+import ExplicitResidual
+import ExplicitCMSZeroRoot
+import ExplicitMellinLower
+import ExplicitDiscreteBV
+import ExplicitAtomicBV
+import ExplicitMontgomeryVaughan
+import ExplicitMVAtomic
 
 #print axioms RH080Next.Explicit.signed_log_affine_inverse_three_eighths
 #print axioms RH080Next.Explicit.fourier_affine_inverse_eq_window
@@ -44,3 +61,23 @@ import ExplicitCMSZeroSource
 #print axioms RH080Next.Explicit.inverseCosine_affineSpectrum_deriv_bound
 #print axioms RH080Next.Explicit.real_zeta_ne_zero
 #print axioms RH080Next.Explicit.cms_full_zero_bound_from_sources
+#print axioms RH080Next.Explicit.zero_remainder_integral_le
+#print axioms RH080Next.Explicit.mellin_zero_norm_bound
+#print axioms RH080Next.Explicit.affine_zero_remainder_normalized_le
+#print axioms RH080Next.Explicit.truncated_log_density_le
+#print axioms RH080Next.Explicit.zero_main_boundary_tendsto
+#print axioms RH080Next.Explicit.zero_remainder_boundary_tendsto
+#print axioms RH080Next.Explicit.affine_CMSZeroAdmissible
+#print axioms RH080Next.Explicit.affine_zero_estimate
+#print axioms RH080Next.Explicit.zero_allowance_lt
+#print axioms RH080Next.Explicit.affine_zero_estimate_domain
+#print axioms RH080Next.Explicit.primepower_window_allowance_lt
+#print axioms RH080Next.Explicit.trivial_integral_bound_domain
+#print axioms RH080Next.Explicit.explicitResidual_slab_lower
+#print axioms RH080Next.Explicit.explicitResidual_monotone_ray
+#print axioms RH080Next.Explicit.count_gt_one_of_residual
+#print axioms RH080Next.Explicit.cms_zero_count_root_exists
+#print axioms RH080Next.Explicit.actual_mangoldt_lower
+#print axioms RH080Next.Explicit.finite_atomic_continuous_BV_bound
+#print axioms RH080Next.Explicit.mv_interval_entrance_bound
+#print axioms RH080Next.Explicit.mv_log_coordinate_prefix_bound

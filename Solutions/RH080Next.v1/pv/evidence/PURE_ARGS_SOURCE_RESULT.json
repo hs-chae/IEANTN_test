@@ -1,0 +1,84 @@
+{
+  "status": "PASS_SOURCE_COLD_PURE_ARGUMENT_ORDER_SOUNDNESS_NOT_WHOLE_FFT_PV",
+  "modules": 7,
+  "seconds": 24.20311782695353,
+  "max_individual_RSS_KiB": 1676724,
+  "source_rows": [
+    {
+      "module": "GoldbachDirect.Syntax",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/GoldbachDirect/Syntax.lean",
+      "source_sha256": "cedf8c83f3e0701ec3ca39c205ba0a5d8bc731fc63395193cbf8d26520bf38e7",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/pure-args-cold-v2/source/GoldbachDirect/Syntax.lean",
+      "imports": [
+        "Mathlib.Data.List.Defs"
+      ]
+    },
+    {
+      "module": "GoldbachDirect.Scalar",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/GoldbachDirect/Scalar.lean",
+      "source_sha256": "5723aa55397f28818ad47c371d9b3482b2434cde5fd7716da1d4c7298e660165",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/pure-args-cold-v2/source/GoldbachDirect/Scalar.lean",
+      "imports": [
+        "GoldbachDirect.Syntax",
+        "Mathlib.Data.Int.Basic",
+        "Mathlib.Data.Nat.Bitwise"
+      ]
+    },
+    {
+      "module": "GoldbachDirect.Memory",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/GoldbachDirect/Memory.lean",
+      "source_sha256": "c235c1f0c0f91f5a892f693a0962860bf4ab4e6c78f6cb6e0797031d4081e0b7",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/pure-args-cold-v2/source/GoldbachDirect/Memory.lean",
+      "imports": [
+        "GoldbachDirect.Scalar"
+      ]
+    },
+    {
+      "module": "GoldbachDirect.Semantics",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/GoldbachDirect/Semantics.lean",
+      "source_sha256": "3b099351bc2256c826e0707503807fd0d9dcf99ee10386f936ccf75776cd4112",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/pure-args-cold-v2/source/GoldbachDirect/Semantics.lean",
+      "imports": [
+        "GoldbachDirect.Memory"
+      ]
+    },
+    {
+      "module": "GoldbachDirect.SourcePure",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/GoldbachDirect/SourcePure.lean",
+      "source_sha256": "61639c4a94f3d3c46c9101c47f3dc0191bccefa714716fdce5ea481275c8c02b",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/pure-args-cold-v2/source/GoldbachDirect/SourcePure.lean",
+      "imports": [
+        "GoldbachDirect.Semantics"
+      ]
+    },
+    {
+      "module": "GoldbachDirect.PureEval",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/GoldbachDirect/PureEval.lean",
+      "source_sha256": "5ac21718ca84cb526b6e1901cb251e8e2579effda3dcb5aab14fe1da7d50fe0e",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/pure-args-cold-v2/source/GoldbachDirect/PureEval.lean",
+      "imports": [
+        "GoldbachDirect.SourcePure"
+      ]
+    },
+    {
+      "module": "GoldbachDirect.PureArgs",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/GoldbachDirect/PureArgs.lean",
+      "source_sha256": "0d4e313b07d35f51014bbfedaa3a025d4f461dfefd868b0dc4e27a3610fa5d6f",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/pure-args-cold-v2/source/GoldbachDirect/PureArgs.lean",
+      "imports": [
+        "GoldbachDirect.PureEval",
+        "Mathlib.Data.List.Forall2"
+      ]
+    }
+  ],
+  "root": "GoldbachDirect.PureArgs.args_sound",
+  "axioms": "propext, Classical.choice, Quot.sound",
+  "stdout_sha256": "afba28d2b47088a2ff3cd105f3091e1dea56952bc27dc007c51a6d9dcfe9ea4e",
+  "plan_sha256": "83a6f0434655dd967faf9c909c7eb849ee55d05c7439bcca9be44c7627216041",
+  "result_sha256": "eb611fde1cd883c42a0214e09cdcbfd99bb5f89aa49f425f3c860f16fd3e3b47",
+  "reproduce": [
+    "python3 Solutions/RH080Next.v1/pv/reproduce_lean.py --context CLEAN_CONTEXT.json --root GoldbachDirect.PureArgs --run /tmp/NEW_PURE_ARGS_RUN"
+  ],
+  "C_source_changes": false,
+  "whole_FFT_source_PV_complete": false
+}

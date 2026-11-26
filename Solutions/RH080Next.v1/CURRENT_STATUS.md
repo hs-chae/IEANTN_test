@@ -13,8 +13,8 @@ follow-up outcomes remain unchanged. This is additional, posthoc research.
 | Better Gaussian | Limsup normalized gap at most `20582561296/24680948495`; strict eventual bound `< 0.833945313`, below v3 | 92-source cold build; 1,124 cells, actual Fourier transform, infinite tails and full CMS consumers; RH plus the named CMS reduction; **kernel-only, not PV** |
 | Two population curves | For every nonnegative parameter, eventual width `min(0.944247 + 1.163388 α, 9/8 + (16/15) α)`; `2.108` at α=1, `283/24` at α=10 | 91-source cold build; actual C programs, independent syntax/execution/numerical proofs, full Fourier/prime-count consumers; RH plus two named BR source propositions |
 | Small-x bridge | Open intervals at coefficient `0.777` on `[4,11)`, `0.74` on `[11,4·10^18]`; coefficient `0.8` through `exp(42)` | Kernel proofs conditional on historical consecutive-prime input CMS(1.15); no newly verified historical prime search |
-| Original-window scalars | Actual w4 and Fap mass, moments, variations and height computations | Fresh 27-source w4 and 28-source Fap builds; downstream integral adapters have separate scopes |
-| FFT mathematics | Exact transform/cosine identity, root errors, long twiddle recurrences and rounded-error budgets at 2^17 and 2^24 points | Eight-source cold builds in Python normal, `-O` and `-OO`; **not complete C FFT execution proofs** |
+| Original-window scalars | Actual w4 and Fap mass, moments, variations and height computations | Combined fresh 58-source scalar build; corrected-header J adapters and maxima compile; all original final transfer consumers consume these outputs |
+| FFT mathematics | Exact transform/cosine identity, root errors, long twiddle recurrences and rounded-error budgets at 2^17 and 2^24 points | Twelve-source cold builds in Python normal, `-O` and `-OO`, 51 audited roots; exact signed multiplication/addition/division/increment arithmetic; **not complete C FFT execution proofs** |
 
 Accepted proof closures use only `propext`, `Classical.choice` and
 `Quot.sound`. Literature propositions remain explicit hypotheses.
@@ -43,19 +43,29 @@ within this CMS budget; it does not exclude every different RH argument.
 
 ## Principal remaining obligations
 
-The global `0.851062`, finite `0.8` through `exp(174)` and full piecewise
-frontier **are not yet Lean-closed**. Actual Fourier, signed-log,
-support-seven, Mellin/Gamma/pole and zero-estimate chains have been proved.
-The remaining MV/height, prime-power, continuous-range and final-consumer
-obligations are tracked in `explicit/REMAINING_B.md`.
+The entire analytic transfer is proved: Fourier/support-seven estimates,
+signed logarithmic moment, Mellin/zero/pole/trivial-zero terms, actual prime
+powers and Montgomery–Vaughan wings, continuous ranges, and strict prime
+endpoints. All six original consumer/audit modules compile from the two
+original norm bounds. The original weighted curve also has a genuine strict
+coefficient-infimum corollary for every nonnegative population parameter.
+These norm arguments remain explicit in this checkpoint's published original
+consumers; see `explicit/REMAINING_B.md`.
 
-The original C FFT norm migrations are also **incomplete**. Source syntax,
-typed initialization and several arithmetic/application primitives are
-proved. The 2^24 root initializer has an actual kernel-checked C execution
-and a proved connection to the true complex root. Generic limb-loop,
-caller/frame, permitted-order and full FFT-output proofs remain. Consult
-`pv/README.md` and its publication manifest. Native agreement and the
-separate FFT mathematics do not close those source obligations.
+The separate full 131,072-point integer FFT trace has now passed a fresh
+kernel replay, and finite-interval norm/consumer integration is being checked
+for the next publication checkpoint. That work is **kernel-only** until the
+actual C execution refiner consumes the same trace.
+
+The source-first C migration remains incomplete. Full copy and typed-zero
+helpers passed a fresh 50-source replay, magnitude comparison passed fresh
+49-source replays, and the generic argument-order theorem passed seven fresh
+sources. The C scalar providers already have complete consumers. The
+original FFT programs still need their remaining arithmetic/full-call,
+recursion, actual caller initialization and source-linked output proofs.
+Canonical root-initializer executions do not establish their applicability
+to the main function's same-allocation work/root slices. No full FFT PV claim
+is made. Consult `pv/README.md` and its exact publication manifest.
 
 The finite claims use **Fap**, mesh 80/support 5; the global ray uses the
 different mesh-360/support-7 **w4** input. Exact original algorithms,

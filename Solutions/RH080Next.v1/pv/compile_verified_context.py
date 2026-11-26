@@ -68,7 +68,11 @@ def main():
         target=a.run/'objects'/(n.replace('.','/')+'.olean');target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(obj.read_bytes())
         selected[n]=row;active.remove(n)
         dependencies.append(dict(module=n,source_origin=row['origin'],source_sha256=row['source_sha256'],snapshot=row['snapshot'],object_sha256=sha(target),receipt=str(receipt),receipt_sha256=sha(receipt)))
-    original=Path(__file__).resolve().parent/'lean'/(a.module.replace('.','/')+'.lean');need(original.is_file(),'Root source missing')
+    project=Path(__file__).resolve().parent.parent
+    relative=a.module.replace('.','/')+'.lean'
+    candidates=[base/relative for base in [project/'pv/lean',project/'explicit',project/'primal',project/'dual'] if (base/relative).is_file()]
+    need(len(candidates)==1,'Root source must resolve uniquely in pinned RH080Next source directories: '+a.module)
+    original=candidates[0]
     for n in imports(original):dep(n)
     target=a.run/'source'/(a.module.replace('.','/')+'.lean');target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(original.read_bytes())
     obj=a.run/'objects'/(a.module.replace('.','/')+'.olean');obj.parent.mkdir(parents=True,exist_ok=True)
