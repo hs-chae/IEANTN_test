@@ -1,0 +1,3 @@
+# Preparation validator controls
+
+After preparing `generated/fap17`, run `python Solutions/RH080Next.v1/primal/finite/check_prepare_controls.py --run /fresh/control/run`. It executes nine actual CLI mutation cases in normal, `-O`, and `-OO` Python: altered locked numerator, altered generated Lean bytes, and altered preparation receipt. Each must fail through its intended gate. The script records exact commands, mutation hashes, rejection logs and source hashes, then previews and safely unlinks only its verified-regenerable fixture payloads. It preserves original sources, accepted proof artifacts and all concise receipts.

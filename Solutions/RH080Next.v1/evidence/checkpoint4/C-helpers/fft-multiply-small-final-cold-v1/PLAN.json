@@ -1,0 +1,612 @@
+{
+  "status": "FROZEN_SOURCE_COLD_DEVELOPMENT_PLAN_NOT_ACCEPTANCE",
+  "roots": [
+    "FFTMultiplySmallAudit"
+  ],
+  "source_rows": [
+    {
+      "module": "FFTLimbMultiplication",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTLimbMultiplication.lean",
+      "source_sha256": "4c67fba296e15105690541bb38edbfeeb177ebebf849f1b65fb82db9f0044b1a",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/FFTLimbMultiplication.lean",
+      "imports": [
+        "Mathlib.Tactic"
+      ]
+    },
+    {
+      "module": "FFTMultiplySmallModel",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FFTMultiplySmallModel.lean",
+      "source_sha256": "17d2d1e8ed92e92b283ca33087845375f48347b979d985a99de71856f66fc612",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/FFTMultiplySmallModel.lean",
+      "imports": [
+        "FFTLimbMultiplication"
+      ]
+    },
+    {
+      "module": "GoldbachDirect.Syntax",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/GoldbachDirect/Syntax.lean",
+      "source_sha256": "cedf8c83f3e0701ec3ca39c205ba0a5d8bc731fc63395193cbf8d26520bf38e7",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/GoldbachDirect/Syntax.lean",
+      "imports": [
+        "Mathlib.Data.List.Defs"
+      ]
+    },
+    {
+      "module": "GoldbachDirect.Scalar",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/GoldbachDirect/Scalar.lean",
+      "source_sha256": "5723aa55397f28818ad47c371d9b3482b2434cde5fd7716da1d4c7298e660165",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/GoldbachDirect/Scalar.lean",
+      "imports": [
+        "GoldbachDirect.Syntax",
+        "Mathlib.Data.Int.Basic",
+        "Mathlib.Data.Nat.Bitwise"
+      ]
+    },
+    {
+      "module": "GoldbachDirect.Memory",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/GoldbachDirect/Memory.lean",
+      "source_sha256": "c235c1f0c0f91f5a892f693a0962860bf4ab4e6c78f6cb6e0797031d4081e0b7",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/GoldbachDirect/Memory.lean",
+      "imports": [
+        "GoldbachDirect.Scalar"
+      ]
+    },
+    {
+      "module": "FFTWordArrays",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FFTWordArrays.lean",
+      "source_sha256": "b38e4e9ef6336bd2c3f069e1da1ef6464612c7652fc8c6e2454edcc8714c37c8",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/FFTWordArrays.lean",
+      "imports": [
+        "GoldbachDirect.Memory",
+        "Mathlib.Tactic"
+      ]
+    },
+    {
+      "module": "FFTWordArithmetic",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FFTWordArithmetic.lean",
+      "source_sha256": "571b5c95a9d631c2469437e55e6e007631b75e870770d8aa357c59d06d81e276",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/FFTWordArithmetic.lean",
+      "imports": [
+        "FFTWordArrays"
+      ]
+    },
+    {
+      "module": "FFTWordDivision",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FFTWordDivision.lean",
+      "source_sha256": "3f30107a440414530e031f76ecdc190ba865a9e10a19140dff694405aae95b2d",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/FFTWordDivision.lean",
+      "imports": [
+        "FFTWordArithmetic"
+      ]
+    },
+    {
+      "module": "FFTWordStore",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FFTWordStore.lean",
+      "source_sha256": "1ade64c9135e7dd9e82f3fec6c88b29152bb7d9c6b7677c5485d3ef57c6056e0",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/FFTWordStore.lean",
+      "imports": [
+        "FFTWordArrays"
+      ]
+    },
+    {
+      "module": "GoldbachDirect.Semantics",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/GoldbachDirect/Semantics.lean",
+      "source_sha256": "3b099351bc2256c826e0707503807fd0d9dcf99ee10386f936ccf75776cd4112",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/GoldbachDirect/Semantics.lean",
+      "imports": [
+        "GoldbachDirect.Memory"
+      ]
+    },
+    {
+      "module": "GoldbachDirect.PlatformMemory",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/GoldbachDirect/PlatformMemory.lean",
+      "source_sha256": "c749100e48e2ba41294581ae27c22d60ef193cf6a9e82c2a438a951eb70b6578",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/GoldbachDirect/PlatformMemory.lean",
+      "imports": [
+        "GoldbachDirect.Semantics"
+      ]
+    },
+    {
+      "module": "FFTInitialization",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FFTInitialization.lean",
+      "source_sha256": "7e07213dbaa6300b46d547285d5baf27fa02870bc66d23cf31b78b9f0be0dfbd",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/FFTInitialization.lean",
+      "imports": [
+        "FFTWordStore",
+        "GoldbachDirect.PlatformMemory"
+      ]
+    },
+    {
+      "module": "GoldbachDirect.Correspondence.Lexical",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Study.v1/pv/lean/GoldbachDirect/Correspondence/Lexical.lean",
+      "source_sha256": "96b059cbc8cd3c0d2d08b2955727ab1db5470e053d890b37b34dd65f636a4677",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/GoldbachDirect/Correspondence/Lexical.lean",
+      "imports": [
+        "Mathlib.Data.List.Basic"
+      ]
+    },
+    {
+      "module": "GoldbachDirect.SourceCheck",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Study.v1/pv/lean/GoldbachDirect/SourceCheck.lean",
+      "source_sha256": "4cf9208ac9d9e6629819cd35e0e47282094a190ac312f7cc22e6c4b646306745",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/GoldbachDirect/SourceCheck.lean",
+      "imports": [
+        "GoldbachDirect.Syntax",
+        "GoldbachDirect.Correspondence.Lexical",
+        "Mathlib.Tactic.Basic"
+      ]
+    },
+    {
+      "module": "GoldbachDirect.Correspondence.Expressions",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Study.v1/pv/lean/GoldbachDirect/Correspondence/Expressions.lean",
+      "source_sha256": "02d7d08cf8876ec985bba5fd4a942a17e3c18946fb0ee43f2ead96d78f83ceca",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/GoldbachDirect/Correspondence/Expressions.lean",
+      "imports": [
+        "GoldbachDirect.SourceCheck"
+      ]
+    },
+    {
+      "module": "GoldbachDirect.Correspondence.Statements",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Study.v1/pv/lean/GoldbachDirect/Correspondence/Statements.lean",
+      "source_sha256": "0b0b7429878e6866789305d91771389c48a0d543ead8c6222bc97e66d87d09ae",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/GoldbachDirect/Correspondence/Statements.lean",
+      "imports": [
+        "GoldbachDirect.Correspondence.Expressions"
+      ]
+    },
+    {
+      "module": "GoldbachDirect.Correspondence.StatementsProofs",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Study.v1/pv/lean/GoldbachDirect/Correspondence/StatementsProofs.lean",
+      "source_sha256": "251b5acc37e1880c15fb8cd9ac94f2e5e07ace85294e3aca0f847c89b5c0fb4d",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/GoldbachDirect/Correspondence/StatementsProofs.lean",
+      "imports": [
+        "GoldbachDirect.Correspondence.Statements"
+      ]
+    },
+    {
+      "module": "GoldbachDirect.Correspondence.Preprocessing",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Study.v1/pv/lean/GoldbachDirect/Correspondence/Preprocessing.lean",
+      "source_sha256": "cff0ae176c02b4e24e1714edcd83f714991d62ad0811f6378dfddda9ccd5ead1",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/GoldbachDirect/Correspondence/Preprocessing.lean",
+      "imports": [
+        "Mathlib.Data.List.Basic",
+        "Mathlib.Tactic.Basic"
+      ]
+    },
+    {
+      "module": "GoldbachDirect.Correspondence.Specification",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Study.v1/pv/lean/GoldbachDirect/Correspondence/Specification.lean",
+      "source_sha256": "d9cc12573d198553819d4cad3a5ce68ae4e34d0f19a96b0e3cd57e8fa769f74b",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/GoldbachDirect/Correspondence/Specification.lean",
+      "imports": [
+        "GoldbachDirect.Correspondence.StatementsProofs",
+        "GoldbachDirect.Correspondence.Preprocessing"
+      ]
+    },
+    {
+      "module": "FFTAST",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FFTAST.lean",
+      "source_sha256": "0d8d37c2dc07a39f6122d5355581e4e9f9a12e59db534dc24cc44fa75378fc80",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/FFTAST.lean",
+      "imports": [
+        "GoldbachDirect.Correspondence.Specification"
+      ]
+    },
+    {
+      "module": "FFTSourceSteps",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FFTSourceSteps.lean",
+      "source_sha256": "3a97ee669ad6041a1e97e5fdf24f3e9b0ca76e210cf2847ef5ecfa698636f33c",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/FFTSourceSteps.lean",
+      "imports": [
+        "FFTInitialization",
+        "FFTAST"
+      ]
+    },
+    {
+      "module": "FFTZeroLoop",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FFTZeroLoop.lean",
+      "source_sha256": "dbbd34f4a103bfb2a6eec20c7de9973ea0de17aaedddb8c4cd94e959c7cbf20c",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/FFTZeroLoop.lean",
+      "imports": [
+        "FFTSourceSteps",
+        "FFTWordArithmetic"
+      ]
+    },
+    {
+      "module": "GoldbachGPU.Segmented.Syntax",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/GoldbachGPU/Segmented/Syntax.lean",
+      "source_sha256": "0a9f42b07e3bd37da94ecebf1070ae8a4396b2715831b0f7b00fac577554dd05",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/GoldbachGPU/Segmented/Syntax.lean",
+      "imports": [
+        "Init"
+      ]
+    },
+    {
+      "module": "GoldbachDirect.KernelScalar",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/GoldbachDirect/KernelScalar.lean",
+      "source_sha256": "1ca323f95254784d663fe3a1fd10ea49ece72e102db899e9a912018d688f7b43",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/GoldbachDirect/KernelScalar.lean",
+      "imports": [
+        "GoldbachDirect.Scalar",
+        "GoldbachGPU.Segmented.Syntax",
+        "Mathlib.Data.UInt",
+        "Mathlib.Tactic"
+      ]
+    },
+    {
+      "module": "GoldbachDirect.SourceLocals",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/GoldbachDirect/SourceLocals.lean",
+      "source_sha256": "ba0cbdec992ca11293b979d1c7f266af8ef47b6352313174d2119b194cd80728",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/GoldbachDirect/SourceLocals.lean",
+      "imports": [
+        "GoldbachDirect.Memory",
+        "GoldbachDirect.KernelScalar"
+      ]
+    },
+    {
+      "module": "GoldbachDirect.SourceWellScoped",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/GoldbachDirect/SourceWellScoped.lean",
+      "source_sha256": "d0998f49e49f287f099c37c1ba30f91eb61280bbff0ed051ab8b457657c67df5",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/GoldbachDirect/SourceWellScoped.lean",
+      "imports": [
+        "GoldbachDirect.SourceLocals",
+        "GoldbachDirect.PlatformMemory"
+      ]
+    },
+    {
+      "module": "GoldbachDirect.DeclarationFrame",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/GoldbachDirect/DeclarationFrame.lean",
+      "source_sha256": "e2b9c8ac141d93e8ada1358b999977af355937a0d4b45200ceec8a4254c0f07a",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/GoldbachDirect/DeclarationFrame.lean",
+      "imports": [
+        "GoldbachDirect.SourceWellScoped"
+      ]
+    },
+    {
+      "module": "GoldbachDirect.SourcePure",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/GoldbachDirect/SourcePure.lean",
+      "source_sha256": "61639c4a94f3d3c46c9101c47f3dc0191bccefa714716fdce5ea481275c8c02b",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/GoldbachDirect/SourcePure.lean",
+      "imports": [
+        "GoldbachDirect.Semantics"
+      ]
+    },
+    {
+      "module": "GoldbachDirect.PureEval",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/GoldbachDirect/PureEval.lean",
+      "source_sha256": "5ac21718ca84cb526b6e1901cb251e8e2579effda3dcb5aab14fe1da7d50fe0e",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/GoldbachDirect/PureEval.lean",
+      "imports": [
+        "GoldbachDirect.SourcePure"
+      ]
+    },
+    {
+      "module": "GoldbachDirect.SourceScalarSlots",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/GoldbachDirect/SourceScalarSlots.lean",
+      "source_sha256": "758b750083a20a8619e4721905f57efc9a9e90d92430a5aef688c13e4ba06b6d",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/GoldbachDirect/SourceScalarSlots.lean",
+      "imports": [
+        "GoldbachDirect.DeclarationFrame",
+        "GoldbachDirect.PureEval"
+      ]
+    },
+    {
+      "module": "GoldbachDirect.SourceControl",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/GoldbachDirect/SourceControl.lean",
+      "source_sha256": "11886bdc4c8d49b2c6e3d53c5d9f75fb8d16db845878c68c108cc7f48c8b952d",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/GoldbachDirect/SourceControl.lean",
+      "imports": [
+        "GoldbachDirect.Semantics"
+      ]
+    },
+    {
+      "module": "GoldbachDirect.SourceSlots",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/GoldbachDirect/SourceSlots.lean",
+      "source_sha256": "6deb68b4df38ea341af648be2d921c403a2b5f75cf67540a897f9c7b66c54b94",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/GoldbachDirect/SourceSlots.lean",
+      "imports": [
+        "GoldbachDirect.SourceWellScoped",
+        "GoldbachDirect.PureEval",
+        "GoldbachDirect.SourceControl"
+      ]
+    },
+    {
+      "module": "GoldbachDirect.ScanFrame",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/GoldbachDirect/ScanFrame.lean",
+      "source_sha256": "e321168eef5a20dbd403678228658f4005a771cdc8c2c1b23f6bd5337440da93",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/GoldbachDirect/ScanFrame.lean",
+      "imports": [
+        "GoldbachDirect.SourceSlots"
+      ]
+    },
+    {
+      "module": "GoldbachDirect.SourceBindings",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/GoldbachDirect/SourceBindings.lean",
+      "source_sha256": "4ed57da62b1b7a78d6ea290e47eb067c05e28146ce18ce1bd823944c7d4b5574",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/GoldbachDirect/SourceBindings.lean",
+      "imports": [
+        "GoldbachDirect.SourceScalarSlots",
+        "GoldbachDirect.ScanFrame"
+      ]
+    },
+    {
+      "module": "GoldbachDirect.SourceLocalOnly",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/GoldbachDirect/SourceLocalOnly.lean",
+      "source_sha256": "05c3032ada9007ce2643fe8fdbbed3e3df7b36d4b6f5bb8e11eeac0ecf0b5669",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/GoldbachDirect/SourceLocalOnly.lean",
+      "imports": [
+        "GoldbachDirect.SourceBindings"
+      ]
+    },
+    {
+      "module": "GoldbachDirect.SourceNoAlloc",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/GoldbachDirect/SourceNoAlloc.lean",
+      "source_sha256": "dd9e28ab943261179921c30365087986bda9dec608443893140e984a54fd713f",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/GoldbachDirect/SourceNoAlloc.lean",
+      "imports": [
+        "GoldbachDirect.SourceLocalOnly"
+      ]
+    },
+    {
+      "module": "GoldbachDirect.SourceArrayFrame",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/GoldbachDirect/SourceArrayFrame.lean",
+      "source_sha256": "7e170447663f6a56b459003337c391ef657df36adf5d6323385c5f5d3b462c64",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/GoldbachDirect/SourceArrayFrame.lean",
+      "imports": [
+        "GoldbachDirect.SourceNoAlloc"
+      ]
+    },
+    {
+      "module": "FFTZeroFrame",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FFTZeroFrame.lean",
+      "source_sha256": "5e9260def19414624d59857bc92ca5ad59886c5e8bf5ab6672cbfa13b6dd5cb4",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/FFTZeroFrame.lean",
+      "imports": [
+        "FFTZeroLoop",
+        "GoldbachDirect.SourceBindings",
+        "GoldbachDirect.SourceArrayFrame"
+      ]
+    },
+    {
+      "module": "FFTZeroParameters",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FFTZeroParameters.lean",
+      "source_sha256": "1d4925f274d14de5a8ac53753dfb64c1767281ee83d320b4a4d1ad2b7f9a50d8",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/FFTZeroParameters.lean",
+      "imports": [
+        "FFTZeroFrame"
+      ]
+    },
+    {
+      "module": "FFTWordSlices",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FFTWordSlices.lean",
+      "source_sha256": "187fa6f74474b26078bb9dab13709fa1dcbfebc40bcadaaa7f8b0ef5bf4ad8e0",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/FFTWordSlices.lean",
+      "imports": [
+        "FFTWordStore"
+      ]
+    },
+    {
+      "module": "FFTRecursiveAST",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FFTRecursiveAST.lean",
+      "source_sha256": "b38c45381dd7a3618b00bfe956d8c34f4b2acf83ce6955017e8d75ba64ee8aa4",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/FFTRecursiveAST.lean",
+      "imports": [
+        "GoldbachDirect.Correspondence.Specification"
+      ]
+    },
+    {
+      "module": "FFTCopyLoop",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FFTCopyLoop.lean",
+      "source_sha256": "261b212bc53ca525fdce0fd191953503ac9e95211b17dd09150e1ce6e1136546",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/FFTCopyLoop.lean",
+      "imports": [
+        "FFTZeroParameters",
+        "FFTWordSlices",
+        "FFTRecursiveAST"
+      ]
+    },
+    {
+      "module": "FFTCopyParameters",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FFTCopyParameters.lean",
+      "source_sha256": "be5332f7819cdeddd592e04cc85d64d8c9f4addf83f1dabf1d49020f7a940aa3",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/FFTCopyParameters.lean",
+      "imports": [
+        "FFTCopyLoop"
+      ]
+    },
+    {
+      "module": "ExplicitApplicationBirthFrame",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitApplicationBirthFrame.lean",
+      "source_sha256": "ef1214a24f2e822d0471b959d567f1854496779ef1ff9c15431ce24793bacbf4",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/ExplicitApplicationBirthFrame.lean",
+      "imports": [
+        "FFTWordArrays",
+        "GoldbachDirect.SourceBindings",
+        "GoldbachDirect.SourceLocalOnly"
+      ]
+    },
+    {
+      "module": "FFTMultiplySmallBase",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FFTMultiplySmallBase.lean",
+      "source_sha256": "ffe02b270ae88dec83a6b5082b82ea89541ef56a471f888c1b5693cca733c266",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/FFTMultiplySmallBase.lean",
+      "imports": [
+        "FFTMultiplySmallModel",
+        "FFTWordDivision",
+        "FFTCopyParameters",
+        "ExplicitApplicationBirthFrame"
+      ]
+    },
+    {
+      "module": "FFTWordSubtraction",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FFTWordSubtraction.lean",
+      "source_sha256": "dcb22c178bc20542f5d5928f23c695b03d97414c9d7224880a8a87e061c0158a",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/FFTWordSubtraction.lean",
+      "imports": [
+        "FFTWordArithmetic"
+      ]
+    },
+    {
+      "module": "FFTMultiplySmallStep",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FFTMultiplySmallStep.lean",
+      "source_sha256": "25e9e90ab5c12f8b5560e68c85a759e6d49d2f0375d9dde361b5b39be5b98d83",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/FFTMultiplySmallStep.lean",
+      "imports": [
+        "FFTMultiplySmallBase",
+        "FFTWordSubtraction"
+      ]
+    },
+    {
+      "module": "FFTMultiplySmallBody",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FFTMultiplySmallBody.lean",
+      "source_sha256": "d43164e12c9853bea99bd21cd3808fab630ab0ecbf8a719cc36fb17d9d3934fc",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/FFTMultiplySmallBody.lean",
+      "imports": [
+        "FFTMultiplySmallStep"
+      ]
+    },
+    {
+      "module": "FFTPureDeterminism",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FFTPureDeterminism.lean",
+      "source_sha256": "b45b76e2a3460cf762417915f695a4fb7b5534e0e591d36ccd9745516ff774ac",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/FFTPureDeterminism.lean",
+      "imports": [
+        "GoldbachDirect.PureEval"
+      ]
+    },
+    {
+      "module": "FFTLimbAddition",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTLimbAddition.lean",
+      "source_sha256": "942e9635a288f90a221a5deeddb6870b019aeef5d7fb32a04b81c00f2e4940de",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/FFTLimbAddition.lean",
+      "imports": [
+        "FFTLimbMultiplication"
+      ]
+    },
+    {
+      "module": "ExplicitFFTCompareBase",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitFFTCompareBase.lean",
+      "source_sha256": "862286a057c26cf4d749bf120780f207e7a9f5c34fd815a9b67fffb2f18eed82",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/ExplicitFFTCompareBase.lean",
+      "imports": [
+        "FFTZeroParameters",
+        "FFTWordSlices",
+        "FFTPureDeterminism",
+        "FFTLimbAddition"
+      ]
+    },
+    {
+      "module": "ExplicitFFTCompareDeterminism",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitFFTCompareDeterminism.lean",
+      "source_sha256": "828989fb5b05a55ac8f59599402d8b97e3d4fc68246b1b63727a94b8b9a37be8",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/ExplicitFFTCompareDeterminism.lean",
+      "imports": [
+        "ExplicitFFTCompareBase"
+      ]
+    },
+    {
+      "module": "FFTMultiplySmallLoop",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FFTMultiplySmallLoop.lean",
+      "source_sha256": "cef1407a930f52fd8a1e0c114ae632b6bd8b0153807ef117b38a94c553b631e9",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/FFTMultiplySmallLoop.lean",
+      "imports": [
+        "FFTMultiplySmallBody",
+        "ExplicitFFTCompareDeterminism"
+      ]
+    },
+    {
+      "module": "FFTMultiplySmallCall",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FFTMultiplySmallCall.lean",
+      "source_sha256": "690717f15ae37d9dddc98ec8aeeee390bff13638fb465e2d8869af2e3864aeba",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/FFTMultiplySmallCall.lean",
+      "imports": [
+        "FFTMultiplySmallLoop"
+      ]
+    },
+    {
+      "module": "FFTRecursiveSource",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FFTRecursiveSource.lean",
+      "source_sha256": "eb415925d98965a3cec2f6b45972cacb80b3ad7675b8e5d35f75d70796f48308",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/FFTRecursiveSource.lean",
+      "imports": [
+        "FFTRecursiveAST"
+      ]
+    },
+    {
+      "module": "FapFFTRecursiveAST",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FapFFTRecursiveAST.lean",
+      "source_sha256": "8f3ced05feebb8860838639e50e89d0e617767539359616db342327667df83a7",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/FapFFTRecursiveAST.lean",
+      "imports": [
+        "GoldbachDirect.Correspondence.Specification"
+      ]
+    },
+    {
+      "module": "FapFFTRecursiveSource",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FapFFTRecursiveSource.lean",
+      "source_sha256": "14f6dee42ebb93656248642af8be87eb8902d5c1dfa7b950ed74fabed64e4170",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/FapFFTRecursiveSource.lean",
+      "imports": [
+        "FapFFTRecursiveAST"
+      ]
+    },
+    {
+      "module": "FFTMultiplySmallSource",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FFTMultiplySmallSource.lean",
+      "source_sha256": "bcfd685d9683ee54960d4e4c64e608b3a6318157824f1569b9c49f323166d636",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/FFTMultiplySmallSource.lean",
+      "imports": [
+        "FFTMultiplySmallCall",
+        "FFTRecursiveSource",
+        "FapFFTRecursiveSource"
+      ]
+    },
+    {
+      "module": "FFTMultiplySmallAudit",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FFTMultiplySmallAudit.lean",
+      "source_sha256": "2e187c7237534d5d09c51a91af9d8258edc3eba78717e96d2ce5ffd554b3bc20",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-final-cold-v1/source/FFTMultiplySmallAudit.lean",
+      "imports": [
+        "FFTMultiplySmallSource",
+        "Lean"
+      ]
+    }
+  ],
+  "context_sha256": "88a89fb62356f9ac34abaa4f50a32584a75a33bd8ad23aae92cf07965f344319",
+  "controller_sha256": "f61bb50c2601ddb1270803e5ea8dcd71a07cc5f456f625ec28f9d83835c9937b",
+  "generic": [
+    {
+      "name": "mathlib",
+      "revision": "71a80585ee495fc24472fd0eaffc89d94e4fd8d6"
+    },
+    {
+      "name": "plausible",
+      "revision": "d9598f07b1bc701f1e3aae163d2681c1fd978793"
+    },
+    {
+      "name": "LeanSearchClient",
+      "revision": "ba67e212be1197b84c1f1f6299488a10a3002713"
+    },
+    {
+      "name": "importGraph",
+      "revision": "1681d78dd6e65e38b143f9740d829c826673807c"
+    },
+    {
+      "name": "proofwidgets",
+      "revision": "a8acbfd87375ff4abe14ce09db5b7664d383bc7f"
+    },
+    {
+      "name": "aesop",
+      "revision": "18889deb9e83ea7420ef51c160d6f88552e744e3"
+    },
+    {
+      "name": "Qq",
+      "revision": "507746ab8f4b643ccdacb2ec4cdb5853fa9f8ab3"
+    },
+    {
+      "name": "batteries",
+      "revision": "4cac2177c37f5530c4da76aa8e4307f3fc9e4dcb"
+    }
+  ],
+  "application_object_fallback": false
+}

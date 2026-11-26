@@ -1,0 +1,115 @@
+{
+  "status": "PASS_ACTUAL_C_RUNTIME_SMOKE_AND_NEGATIVE_MUTATIONS_NOT_A_PROOF",
+  "source": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/fft/fap_fft_recursive.c",
+  "source_sha256": "c1b958953998c2b655a40b3e25689a33c28d36ab2d145fdb22547a47ff5aa558",
+  "validator_sha256": "919f143785e60f766e5faf9f1b54b177b210e49e8e1ad8b04133fb943f83f150",
+  "python_optimization": 2,
+  "seed": 20261125,
+  "parameters": {
+    "base": 1000000000,
+    "unit": 1000000000000000000000000000000000000,
+    "max_input_magnitude": 1000000000000000000000000000000000000000
+  },
+  "compiler": "/usr/bin/x86_64-linux-gnu-gcc-11",
+  "compiler_sha256": "821af3c74506283c179ca413bb33e6b528805a4dd8a5c09df125e5ad560a9e89",
+  "compiler_version": "cc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0\nCopyright (C) 2021 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "compilation": {
+    "command": [
+      "/usr/bin/cc",
+      "-std=c11",
+      "-O2",
+      "-fPIC",
+      "-shared",
+      "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/fft/fap_fft_recursive.c",
+      "-o",
+      "/data/ivy-rh080-next-20261125/pv/fft-fixed-multiply-fap-native-OO-v1/actual.so"
+    ],
+    "seconds": 0.18064282462000847,
+    "source_sha256": "c1b958953998c2b655a40b3e25689a33c28d36ab2d145fdb22547a47ff5aa558",
+    "library_sha256": "0e669c01e5e153a2d085dbe58f113843865362decab12181920401e2227e0e0b"
+  },
+  "actual": {
+    "cases": 2688,
+    "mismatches": 0,
+    "first_mismatch": null
+  },
+  "negative": [
+    {
+      "name": "wrong-product-digit",
+      "compilation": {
+        "command": [
+          "/usr/bin/cc",
+          "-std=c11",
+          "-O2",
+          "-fPIC",
+          "-shared",
+          "/data/ivy-rh080-next-20261125/pv/fft-fixed-multiply-fap-native-OO-v1/wrong-product-digit.c",
+          "-o",
+          "/data/ivy-rh080-next-20261125/pv/fft-fixed-multiply-fap-native-OO-v1/wrong-product-digit.so"
+        ],
+        "seconds": 0.15684491768479347,
+        "source_sha256": "783a4b40aa3f899c805032a7477a110090e25ef0666bfd0bf4eeb4d87a6107f3",
+        "library_sha256": "6a6acf008ff009c5adb7c95179e421036101d6cc8e7f1c87a4299d28c924f3be"
+      },
+      "result": {
+        "cases": 2688,
+        "mismatches": 2688,
+        "first_mismatch": {
+          "layout": "shared-root",
+          "a": 0,
+          "b": 999999999999999999999999999999999999,
+          "status": 0,
+          "output": [
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "expected": 0
+        }
+      }
+    },
+    {
+      "name": "wrong-fixed-scale",
+      "compilation": {
+        "command": [
+          "/usr/bin/cc",
+          "-std=c11",
+          "-O2",
+          "-fPIC",
+          "-shared",
+          "/data/ivy-rh080-next-20261125/pv/fft-fixed-multiply-fap-native-OO-v1/wrong-fixed-scale.c",
+          "-o",
+          "/data/ivy-rh080-next-20261125/pv/fft-fixed-multiply-fap-native-OO-v1/wrong-fixed-scale.so"
+        ],
+        "seconds": 0.15733777917921543,
+        "source_sha256": "0ad2c317bd560f4f3695192281f4431763b660ac44b42ae1ff85acf686c67cb3",
+        "library_sha256": "b6f09bae42090d9e8e4c0dd6c31ceb8ea8920a13b3a41d556e19b5cdce60436f"
+      },
+      "result": {
+        "cases": 2688,
+        "mismatches": 2580,
+        "first_mismatch": {
+          "layout": "equal-inputs",
+          "a": 999999999999999999999999999999999999,
+          "b": 999999999999999999999999999999999999,
+          "status": 0,
+          "output": [
+            0,
+            999999998,
+            999999999,
+            999999999,
+            999999999,
+            0
+          ],
+          "expected": 999999999999999999999999999999999998
+        }
+      }
+    }
+  ],
+  "seconds": 1.6214492302387953,
+  "owner_defined_source_first_PV_complete": false,
+  "scope": "Finite runtime/source-association controls; universal Lean helper proof and final ANT consumption are separate."
+}

@@ -1,0 +1,401 @@
+{
+  "status": "FROZEN_SOURCE_COLD_DEVELOPMENT_PLAN_NOT_ACCEPTANCE",
+  "roots": [
+    "W4FFTNormFromTrace"
+  ],
+  "source_rows": [
+    {
+      "module": "FapData",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FapData.lean",
+      "source_sha256": "3a58f1facab921d36eaa156038ebc557fcf5d92e2bf5c441551d9cdb673c8c29",
+      "snapshot": "/data/ivy-rh080-next-20261125/w4-norm-transfer-cold-v1/source/FapData.lean",
+      "imports": [
+        "Mathlib.Data.Rat.Defs",
+        "Mathlib.Data.List.Range"
+      ]
+    },
+    {
+      "module": "FFTPairedIntModel",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTPairedIntModel.lean",
+      "source_sha256": "fd8d893c36edb292548a2369a80102467a4412b0c694d8d35a483b6ef4dd40c8",
+      "snapshot": "/data/ivy-rh080-next-20261125/w4-norm-transfer-cold-v1/source/FFTPairedIntModel.lean",
+      "imports": [
+        "FapData"
+      ]
+    },
+    {
+      "module": "FFTTraceChecker",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTTraceChecker.lean",
+      "source_sha256": "2dd2fbc69453ca29d2a2a3cf82c5032c98ea420f64dca2c2100e54059a1c7bb2",
+      "snapshot": "/data/ivy-rh080-next-20261125/w4-norm-transfer-cold-v1/source/FFTTraceChecker.lean",
+      "imports": [
+        "FFTPairedIntModel"
+      ]
+    },
+    {
+      "module": "FFTForestTrace",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTForestTrace.lean",
+      "source_sha256": "f0745b4d0429eed265aa0ed01ff4fb9acd3331935d8c8d569048aa55e5abd3b4",
+      "snapshot": "/data/ivy-rh080-next-20261125/w4-norm-transfer-cold-v1/source/FFTForestTrace.lean",
+      "imports": [
+        "FFTTraceChecker"
+      ]
+    },
+    {
+      "module": "FFTButterfly",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTButterfly.lean",
+      "source_sha256": "7514aa391c68e82a478db77bbb419135b05cbcf4629e5c4c6bd73b538cfd4385",
+      "snapshot": "/data/ivy-rh080-next-20261125/w4-norm-transfer-cold-v1/source/FFTButterfly.lean",
+      "imports": [
+        "Mathlib.Analysis.Complex.Basic",
+        "Mathlib.Tactic"
+      ]
+    },
+    {
+      "module": "FFTRoundoff",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTRoundoff.lean",
+      "source_sha256": "50b5b99f227dd20c545800ffcc64e9d0e53cd49f28a8f3c45ced233941a98a87",
+      "snapshot": "/data/ivy-rh080-next-20261125/w4-norm-transfer-cold-v1/source/FFTRoundoff.lean",
+      "imports": [
+        "FFTButterfly"
+      ]
+    },
+    {
+      "module": "FFTIntegerInterpretation",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTIntegerInterpretation.lean",
+      "source_sha256": "7434823f757a5c11362fb6fd48ae96fa162b03d45898a272b8e9df2f086f674b",
+      "snapshot": "/data/ivy-rh080-next-20261125/w4-norm-transfer-cold-v1/source/FFTIntegerInterpretation.lean",
+      "imports": [
+        "FFTForestTrace",
+        "FFTRoundoff",
+        "Mathlib.Data.List.GetD"
+      ]
+    },
+    {
+      "module": "WindowData",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/WindowData.lean",
+      "source_sha256": "07d286c20038c870009729ecb426b9bbb4ff929dd9de5d6c96078d1e5db49725",
+      "snapshot": "/data/ivy-rh080-next-20261125/w4-norm-transfer-cold-v1/source/WindowData.lean",
+      "imports": [
+        "Mathlib.Data.Rat.Defs",
+        "Mathlib.Data.List.Range"
+      ]
+    },
+    {
+      "module": "WindowAffineData",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/WindowAffineData.lean",
+      "source_sha256": "9b490c5b6b10ca7e2a84ee4e240a382f95bc2eb04a5bad6c1745b14d04788e22",
+      "snapshot": "/data/ivy-rh080-next-20261125/w4-norm-transfer-cold-v1/source/WindowAffineData.lean",
+      "imports": [
+        "WindowData",
+        "Mathlib.Data.List.GetD",
+        "Mathlib.Tactic"
+      ]
+    },
+    {
+      "module": "FFTTraceTwiddles",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTTraceTwiddles.lean",
+      "source_sha256": "b3b3b2a6b2407d5d4a8a1dcd66db71f50c05563a1ab9f292e7e76f7d466b3210",
+      "snapshot": "/data/ivy-rh080-next-20261125/w4-norm-transfer-cold-v1/source/FFTTraceTwiddles.lean",
+      "imports": [
+        "FFTIntegerInterpretation"
+      ]
+    },
+    {
+      "module": "FFTCertificateComposition",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTCertificateComposition.lean",
+      "source_sha256": "7e2eec47f696c4715c31f61e217a03a5e6fda48e7e89e02fdd5491e48989c38d",
+      "snapshot": "/data/ivy-rh080-next-20261125/w4-norm-transfer-cold-v1/source/FFTCertificateComposition.lean",
+      "imports": [
+        "FFTTraceTwiddles"
+      ]
+    },
+    {
+      "module": "W4FFTPairedIntModel",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/W4FFTPairedIntModel.lean",
+      "source_sha256": "f127aa2c61d0f19dd0e7ec72b86d57cd249b8aa237940336ce92b61d0c1112d1",
+      "snapshot": "/data/ivy-rh080-next-20261125/w4-norm-transfer-cold-v1/source/W4FFTPairedIntModel.lean",
+      "imports": [
+        "FFTCertificateComposition",
+        "WindowData"
+      ]
+    },
+    {
+      "module": "W4FFTInput",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/primal/W4FFTInput.lean",
+      "source_sha256": "7c3ae6e5d40f0b572686bb703b07ccdc78bd1406feb0bb322c713dff3293cbc4",
+      "snapshot": "/data/ivy-rh080-next-20261125/w4-norm-transfer-cold-v1/source/W4FFTInput.lean",
+      "imports": [
+        "FFTIntegerInterpretation",
+        "WindowAffineData",
+        "W4FFTPairedIntModel",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic"
+      ]
+    },
+    {
+      "module": "ExplicitAffineWindow",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitAffineWindow.lean",
+      "source_sha256": "6ed6d252704d29b5b2bbc46905f186f88b17fabc66406993dfcb251f300e5cd0",
+      "snapshot": "/data/ivy-rh080-next-20261125/w4-norm-transfer-cold-v1/source/ExplicitAffineWindow.lean",
+      "imports": [
+        "Mathlib.Analysis.Fourier.Inversion",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Bounds",
+        "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+        "Mathlib.MeasureTheory.Function.LocallyIntegrable",
+        "Mathlib.Tactic"
+      ]
+    },
+    {
+      "module": "W4FFTPolynomial",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/primal/W4FFTPolynomial.lean",
+      "source_sha256": "a973bc78437d338175b00cf804f3f2a98f9df3be149ae27e797a10d2930a567a",
+      "snapshot": "/data/ivy-rh080-next-20261125/w4-norm-transfer-cold-v1/source/W4FFTPolynomial.lean",
+      "imports": [
+        "W4FFTInput",
+        "ExplicitAffineWindow"
+      ]
+    },
+    {
+      "module": "ChordQuadrature",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/primal/ChordQuadrature.lean",
+      "source_sha256": "fa850477e84135b1c0d44b26aceed6bd10c83808f59441ca7ebdb4c2bb9ac93a",
+      "snapshot": "/data/ivy-rh080-next-20261125/w4-norm-transfer-cold-v1/source/ChordQuadrature.lean",
+      "imports": [
+        "Mathlib.Analysis.Convex.Deriv",
+        "Mathlib.Analysis.SpecialFunctions.Integrals.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv"
+      ]
+    },
+    {
+      "module": "ExplicitHatIntegrals",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitHatIntegrals.lean",
+      "source_sha256": "71728d275566b842afbeaac2f239e0c04ab7e6e4c87ac011d7ea4322185326fa",
+      "snapshot": "/data/ivy-rh080-next-20261125/w4-norm-transfer-cold-v1/source/ExplicitHatIntegrals.lean",
+      "imports": [
+        "ExplicitAffineWindow",
+        "Mathlib.Analysis.SpecialFunctions.Integrals.Basic",
+        "Mathlib.MeasureTheory.Measure.Haar.NormedSpace"
+      ]
+    },
+    {
+      "module": "ExplicitAffineIntegrals",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitAffineIntegrals.lean",
+      "source_sha256": "9e93315a1d6eae8069044c901dee2794a78f16fb97544be071e4a30ad1e639d4",
+      "snapshot": "/data/ivy-rh080-next-20261125/w4-norm-transfer-cold-v1/source/ExplicitAffineIntegrals.lean",
+      "imports": [
+        "ExplicitHatIntegrals"
+      ]
+    },
+    {
+      "module": "ExplicitHatFourier",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitHatFourier.lean",
+      "source_sha256": "993a82c239a194eb587f3cd266e4497451ae905c3b78ab18f82ee50d837e5964",
+      "snapshot": "/data/ivy-rh080-next-20261125/w4-norm-transfer-cold-v1/source/ExplicitHatFourier.lean",
+      "imports": [
+        "ExplicitHatIntegrals",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Sinc"
+      ]
+    },
+    {
+      "module": "ExplicitSignedLogMoment",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitSignedLogMoment.lean",
+      "source_sha256": "fe2814c3fc3fd7bb410692361b2a9d07899315c72c4ed4f51aa9945fbc481278",
+      "snapshot": "/data/ivy-rh080-next-20261125/w4-norm-transfer-cold-v1/source/ExplicitSignedLogMoment.lean",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.Integrals.Basic",
+        "Mathlib.MeasureTheory.Integral.IntegralEqImproper",
+        "Mathlib.MeasureTheory.Measure.Lebesgue.Integral",
+        "Mathlib.Tactic",
+        "Mathlib.Analysis.Real.Pi.Bounds"
+      ]
+    },
+    {
+      "module": "ExplicitCosineMoment",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitCosineMoment.lean",
+      "source_sha256": "00a3215e659843833051dd1ad48bc22afec6542b461ce464caa8d73a6c29a716",
+      "snapshot": "/data/ivy-rh080-next-20261125/w4-norm-transfer-cold-v1/source/ExplicitCosineMoment.lean",
+      "imports": [
+        "ExplicitAffineWindow",
+        "ExplicitSignedLogMoment",
+        "Mathlib.MeasureTheory.Integral.DominatedConvergence"
+      ]
+    },
+    {
+      "module": "ExplicitAffineFourier",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitAffineFourier.lean",
+      "source_sha256": "47636e2f4766f3f20743dc32d3544573db64223d4bed823c89af39a4a5d4dcbb",
+      "snapshot": "/data/ivy-rh080-next-20261125/w4-norm-transfer-cold-v1/source/ExplicitAffineFourier.lean",
+      "imports": [
+        "ExplicitAffineIntegrals",
+        "ExplicitHatFourier",
+        "ExplicitCosineMoment"
+      ]
+    },
+    {
+      "module": "ExplicitFiniteDifference",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitFiniteDifference.lean",
+      "source_sha256": "7c20823f22cf741b207d9417450877bcaeb9dc9b162d13eee851cc17efdef3d6",
+      "snapshot": "/data/ivy-rh080-next-20261125/w4-norm-transfer-cold-v1/source/ExplicitFiniteDifference.lean",
+      "imports": [
+        "ExplicitAffineFourier"
+      ]
+    },
+    {
+      "module": "ExplicitFourierPair",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitFourierPair.lean",
+      "source_sha256": "0d3e50c8f120360237487c33c0d2d955f7bbba99111ee3ac7bb09a8c9f260cba",
+      "snapshot": "/data/ivy-rh080-next-20261125/w4-norm-transfer-cold-v1/source/ExplicitFourierPair.lean",
+      "imports": [
+        "ExplicitFiniteDifference"
+      ]
+    },
+    {
+      "module": "ExplicitNormSourceBridge",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitNormSourceBridge.lean",
+      "source_sha256": "d11e42ee3cd548e0689ca999c5c5bcf1ba327c349f8cdca124dcc515ad471b27",
+      "snapshot": "/data/ivy-rh080-next-20261125/w4-norm-transfer-cold-v1/source/ExplicitNormSourceBridge.lean",
+      "imports": [
+        "ExplicitFourierPair",
+        "Mathlib.Data.List.GetD"
+      ]
+    },
+    {
+      "module": "W4FFTNodes",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/primal/W4FFTNodes.lean",
+      "source_sha256": "c8d24974b13185a9f0f5bd8b66e79d3b1a0b16edf4cd896fa2d95e9779c00d23",
+      "snapshot": "/data/ivy-rh080-next-20261125/w4-norm-transfer-cold-v1/source/W4FFTNodes.lean",
+      "imports": [
+        "W4FFTPolynomial",
+        "ChordQuadrature",
+        "ExplicitNormSourceBridge"
+      ]
+    },
+    {
+      "module": "FFTSeedBounds",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTSeedBounds.lean",
+      "source_sha256": "ff508e14fabab4c608da6b5232ddb95f160affd998e6f45c8b7367ef784bd1ae",
+      "snapshot": "/data/ivy-rh080-next-20261125/w4-norm-transfer-cold-v1/source/FFTSeedBounds.lean",
+      "imports": [
+        "FFTButterfly",
+        "Mathlib.Analysis.Real.Pi.Bounds"
+      ]
+    },
+    {
+      "module": "FFTTwiddleBounds",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTTwiddleBounds.lean",
+      "source_sha256": "735792c07fd8929ab14fbfbb8e766da8bcb4563b24f3ae35530fcc6b1b43037f",
+      "snapshot": "/data/ivy-rh080-next-20261125/w4-norm-transfer-cold-v1/source/FFTTwiddleBounds.lean",
+      "imports": [
+        "FFTSeedBounds"
+      ]
+    },
+    {
+      "module": "FFT17SeedBounds",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFT17SeedBounds.lean",
+      "source_sha256": "b1d0f0df890ba0188cb086cc436513e200130cb9028a5fd1ce9d9a7a61ae3776",
+      "snapshot": "/data/ivy-rh080-next-20261125/w4-norm-transfer-cold-v1/source/FFT17SeedBounds.lean",
+      "imports": [
+        "FFTTwiddleBounds"
+      ]
+    },
+    {
+      "module": "FFT17Bridge",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFT17Bridge.lean",
+      "source_sha256": "9fcdf9cbfdc293a5c1173b069684a87f1bbc88cf86030c2c3ddd2c4affa680fc",
+      "snapshot": "/data/ivy-rh080-next-20261125/w4-norm-transfer-cold-v1/source/FFT17Bridge.lean",
+      "imports": [
+        "FFTRoundoff",
+        "FFT17SeedBounds"
+      ]
+    },
+    {
+      "module": "FFTGlobalTraceBounds",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTGlobalTraceBounds.lean",
+      "source_sha256": "c616771a84e18657b72832b34c9faf3225297cdaed1a74e3b72391e0a13875b5",
+      "snapshot": "/data/ivy-rh080-next-20261125/w4-norm-transfer-cold-v1/source/FFTGlobalTraceBounds.lean",
+      "imports": [
+        "FFTTraceTwiddles",
+        "FFT17Bridge"
+      ]
+    },
+    {
+      "module": "FFT24Bridge",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFT24Bridge.lean",
+      "source_sha256": "a9a620299e1e5d4a5cb660e60f31870aaea1708422da48d94d97bcf1f757a5a9",
+      "snapshot": "/data/ivy-rh080-next-20261125/w4-norm-transfer-cold-v1/source/FFT24Bridge.lean",
+      "imports": [
+        "FFTRoundoff",
+        "FFTTwiddleBounds"
+      ]
+    },
+    {
+      "module": "W4FFTGlobalTraceBounds",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/W4FFTGlobalTraceBounds.lean",
+      "source_sha256": "96341bc338f98bd3c19cc596d1b7a93d9a2a70cd4088b29c7b185d442b18738e",
+      "snapshot": "/data/ivy-rh080-next-20261125/w4-norm-transfer-cold-v1/source/W4FFTGlobalTraceBounds.lean",
+      "imports": [
+        "FFTGlobalTraceBounds",
+        "FFT24Bridge"
+      ]
+    },
+    {
+      "module": "FFTUpwardNormalization",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTUpwardNormalization.lean",
+      "source_sha256": "8f8970e3455a15b5d715282e73f3f4ae64e1a607d2db2c485e43e643b6e78dfb",
+      "snapshot": "/data/ivy-rh080-next-20261125/w4-norm-transfer-cold-v1/source/FFTUpwardNormalization.lean",
+      "imports": [
+        "FFTPairedIntModel",
+        "Mathlib.Tactic"
+      ]
+    },
+    {
+      "module": "W4FFTNormFromTrace",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/primal/W4FFTNormFromTrace.lean",
+      "source_sha256": "2d241852f8e921d47627e893419b380c68c112131e447e839a9c88fcc514d1c7",
+      "snapshot": "/data/ivy-rh080-next-20261125/w4-norm-transfer-cold-v1/source/W4FFTNormFromTrace.lean",
+      "imports": [
+        "W4FFTNodes",
+        "W4FFTGlobalTraceBounds",
+        "FFTUpwardNormalization"
+      ]
+    }
+  ],
+  "context_sha256": "88a89fb62356f9ac34abaa4f50a32584a75a33bd8ad23aae92cf07965f344319",
+  "controller_sha256": "f61bb50c2601ddb1270803e5ea8dcd71a07cc5f456f625ec28f9d83835c9937b",
+  "generic": [
+    {
+      "name": "mathlib",
+      "revision": "71a80585ee495fc24472fd0eaffc89d94e4fd8d6"
+    },
+    {
+      "name": "plausible",
+      "revision": "d9598f07b1bc701f1e3aae163d2681c1fd978793"
+    },
+    {
+      "name": "LeanSearchClient",
+      "revision": "ba67e212be1197b84c1f1f6299488a10a3002713"
+    },
+    {
+      "name": "importGraph",
+      "revision": "1681d78dd6e65e38b143f9740d829c826673807c"
+    },
+    {
+      "name": "proofwidgets",
+      "revision": "a8acbfd87375ff4abe14ce09db5b7664d383bc7f"
+    },
+    {
+      "name": "aesop",
+      "revision": "18889deb9e83ea7420ef51c160d6f88552e744e3"
+    },
+    {
+      "name": "Qq",
+      "revision": "507746ab8f4b643ccdacb2ec4cdb5853fa9f8ab3"
+    },
+    {
+      "name": "batteries",
+      "revision": "4cac2177c37f5530c4da76aa8e4307f3fc9e4dcb"
+    }
+  ],
+  "application_object_fallback": false
+}

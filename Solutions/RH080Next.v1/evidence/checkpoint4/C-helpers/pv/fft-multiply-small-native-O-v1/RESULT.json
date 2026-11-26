@@ -1,0 +1,99 @@
+{
+  "status": "PASS_ACTUAL_C_RUNTIME_SMOKE_AND_NEGATIVE_MUTATIONS_NOT_A_PROOF",
+  "seed": 20261125,
+  "source": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/fft/w4_fft_recursive.c",
+  "source_sha256": "0c9e29db9bbfacd8ed049dc8e4b2a2f18d8ae146c1d0e4dd47a93cd89b80e22b",
+  "validator_sha256": "32d1b3fd192c1fb268f628fab08a78262b0e11593e34eab8604696d1be05e99d",
+  "compiler": "/usr/bin/x86_64-linux-gnu-gcc-11",
+  "compiler_sha256": "821af3c74506283c179ca413bb33e6b528805a4dd8a5c09df125e5ad560a9e89",
+  "compiler_version": "cc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0\nCopyright (C) 2021 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "compilation": {
+    "command": [
+      "/usr/bin/cc",
+      "-std=c11",
+      "-O2",
+      "-fPIC",
+      "-shared",
+      "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/fft/w4_fft_recursive.c",
+      "-o",
+      "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-native-O-v1/actual.so"
+    ],
+    "seconds": 0.6190991830080748,
+    "library_sha256": "f6ef1da354d374217a9c0d439874430524a3ea79789ab8d9a91ef65181a2c8b7",
+    "source_sha256": "0c9e29db9bbfacd8ed049dc8e4b2a2f18d8ae146c1d0e4dd47a93cd89b80e22b"
+  },
+  "actual": {
+    "cases": 1344,
+    "mismatches": 0,
+    "first_mismatch": null
+  },
+  "negative": [
+    {
+      "name": "multiplication-replaced-by-addition",
+      "compilation": {
+        "command": [
+          "/usr/bin/cc",
+          "-std=c11",
+          "-O2",
+          "-fPIC",
+          "-shared",
+          "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-native-O-v1/multiplication-replaced-by-addition.c",
+          "-o",
+          "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-native-O-v1/multiplication-replaced-by-addition.so"
+        ],
+        "seconds": 0.6202023886144161,
+        "library_sha256": "d21f94cb5a2658b35925ba9fb2df0f540afcfc35f7df7283776fb828f5fa7c25",
+        "source_sha256": "bfea206f651ac97cfbb7e33110866d2061a8f871320bbaa7f4ef8bf0b5727402"
+      },
+      "result": {
+        "cases": 1344,
+        "mismatches": 1128,
+        "first_mismatch": {
+          "n": 1,
+          "start": 0,
+          "factor": 0,
+          "input": [
+            999999999
+          ],
+          "returned": 0,
+          "expected_carry": 0
+        }
+      }
+    },
+    {
+      "name": "skipped-digit",
+      "compilation": {
+        "command": [
+          "/usr/bin/cc",
+          "-std=c11",
+          "-O2",
+          "-fPIC",
+          "-shared",
+          "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-native-O-v1/skipped-digit.c",
+          "-o",
+          "/data/ivy-rh080-next-20261125/pv/fft-multiply-small-native-O-v1/skipped-digit.so"
+        ],
+        "seconds": 0.6162856947630644,
+        "library_sha256": "6ae60a7e47e54a0766beb6b3ca9034f8ea89eac3aace8460d3b07238d698ae5a",
+        "source_sha256": "f47caef472ea5eba000af871ca622456f95b183ed8306652fc5c02b8c13c827f"
+      },
+      "result": {
+        "cases": 1344,
+        "mismatches": 600,
+        "first_mismatch": {
+          "n": 2,
+          "start": 0,
+          "factor": 0,
+          "input": [
+            999999999,
+            999999999
+          ],
+          "returned": 0,
+          "expected_carry": 0
+        }
+      }
+    }
+  ],
+  "source_verification": "General Lean execution/mathematical proof is separate; these finite tests do not establish PV",
+  "whole_FFT_source_PV": false
+}

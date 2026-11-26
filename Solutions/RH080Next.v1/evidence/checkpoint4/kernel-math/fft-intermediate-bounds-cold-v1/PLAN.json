@@ -1,0 +1,198 @@
+{
+  "status": "FROZEN_SOURCE_COLD_DEVELOPMENT_PLAN_NOT_ACCEPTANCE",
+  "roots": [
+    "FFTIntermediateBounds"
+  ],
+  "source_rows": [
+    {
+      "module": "FapData",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FapData.lean",
+      "source_sha256": "3a58f1facab921d36eaa156038ebc557fcf5d92e2bf5c441551d9cdb673c8c29",
+      "snapshot": "/data/ivy-rh080-next-20261125/fft-intermediate-bounds-cold-v1/source/FapData.lean",
+      "imports": [
+        "Mathlib.Data.Rat.Defs",
+        "Mathlib.Data.List.Range"
+      ]
+    },
+    {
+      "module": "FFTPairedIntModel",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTPairedIntModel.lean",
+      "source_sha256": "fd8d893c36edb292548a2369a80102467a4412b0c694d8d35a483b6ef4dd40c8",
+      "snapshot": "/data/ivy-rh080-next-20261125/fft-intermediate-bounds-cold-v1/source/FFTPairedIntModel.lean",
+      "imports": [
+        "FapData"
+      ]
+    },
+    {
+      "module": "FFTTraceChecker",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTTraceChecker.lean",
+      "source_sha256": "2dd2fbc69453ca29d2a2a3cf82c5032c98ea420f64dca2c2100e54059a1c7bb2",
+      "snapshot": "/data/ivy-rh080-next-20261125/fft-intermediate-bounds-cold-v1/source/FFTTraceChecker.lean",
+      "imports": [
+        "FFTPairedIntModel"
+      ]
+    },
+    {
+      "module": "FFTForestTrace",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTForestTrace.lean",
+      "source_sha256": "f0745b4d0429eed265aa0ed01ff4fb9acd3331935d8c8d569048aa55e5abd3b4",
+      "snapshot": "/data/ivy-rh080-next-20261125/fft-intermediate-bounds-cold-v1/source/FFTForestTrace.lean",
+      "imports": [
+        "FFTTraceChecker"
+      ]
+    },
+    {
+      "module": "FFTButterfly",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTButterfly.lean",
+      "source_sha256": "7514aa391c68e82a478db77bbb419135b05cbcf4629e5c4c6bd73b538cfd4385",
+      "snapshot": "/data/ivy-rh080-next-20261125/fft-intermediate-bounds-cold-v1/source/FFTButterfly.lean",
+      "imports": [
+        "Mathlib.Analysis.Complex.Basic",
+        "Mathlib.Tactic"
+      ]
+    },
+    {
+      "module": "FFTRoundoff",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTRoundoff.lean",
+      "source_sha256": "50b5b99f227dd20c545800ffcc64e9d0e53cd49f28a8f3c45ced233941a98a87",
+      "snapshot": "/data/ivy-rh080-next-20261125/fft-intermediate-bounds-cold-v1/source/FFTRoundoff.lean",
+      "imports": [
+        "FFTButterfly"
+      ]
+    },
+    {
+      "module": "FFTIntegerInterpretation",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTIntegerInterpretation.lean",
+      "source_sha256": "7434823f757a5c11362fb6fd48ae96fa162b03d45898a272b8e9df2f086f674b",
+      "snapshot": "/data/ivy-rh080-next-20261125/fft-intermediate-bounds-cold-v1/source/FFTIntegerInterpretation.lean",
+      "imports": [
+        "FFTForestTrace",
+        "FFTRoundoff",
+        "Mathlib.Data.List.GetD"
+      ]
+    },
+    {
+      "module": "FFTTraceTwiddles",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTTraceTwiddles.lean",
+      "source_sha256": "b3b3b2a6b2407d5d4a8a1dcd66db71f50c05563a1ab9f292e7e76f7d466b3210",
+      "snapshot": "/data/ivy-rh080-next-20261125/fft-intermediate-bounds-cold-v1/source/FFTTraceTwiddles.lean",
+      "imports": [
+        "FFTIntegerInterpretation"
+      ]
+    },
+    {
+      "module": "FFTSeedBounds",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTSeedBounds.lean",
+      "source_sha256": "ff508e14fabab4c608da6b5232ddb95f160affd998e6f45c8b7367ef784bd1ae",
+      "snapshot": "/data/ivy-rh080-next-20261125/fft-intermediate-bounds-cold-v1/source/FFTSeedBounds.lean",
+      "imports": [
+        "FFTButterfly",
+        "Mathlib.Analysis.Real.Pi.Bounds"
+      ]
+    },
+    {
+      "module": "FFTTwiddleBounds",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTTwiddleBounds.lean",
+      "source_sha256": "735792c07fd8929ab14fbfbb8e766da8bcb4563b24f3ae35530fcc6b1b43037f",
+      "snapshot": "/data/ivy-rh080-next-20261125/fft-intermediate-bounds-cold-v1/source/FFTTwiddleBounds.lean",
+      "imports": [
+        "FFTSeedBounds"
+      ]
+    },
+    {
+      "module": "FFT17SeedBounds",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFT17SeedBounds.lean",
+      "source_sha256": "b1d0f0df890ba0188cb086cc436513e200130cb9028a5fd1ce9d9a7a61ae3776",
+      "snapshot": "/data/ivy-rh080-next-20261125/fft-intermediate-bounds-cold-v1/source/FFT17SeedBounds.lean",
+      "imports": [
+        "FFTTwiddleBounds"
+      ]
+    },
+    {
+      "module": "FFT17Bridge",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFT17Bridge.lean",
+      "source_sha256": "9fcdf9cbfdc293a5c1173b069684a87f1bbc88cf86030c2c3ddd2c4affa680fc",
+      "snapshot": "/data/ivy-rh080-next-20261125/fft-intermediate-bounds-cold-v1/source/FFT17Bridge.lean",
+      "imports": [
+        "FFTRoundoff",
+        "FFT17SeedBounds"
+      ]
+    },
+    {
+      "module": "FFTGlobalTraceBounds",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTGlobalTraceBounds.lean",
+      "source_sha256": "c616771a84e18657b72832b34c9faf3225297cdaed1a74e3b72391e0a13875b5",
+      "snapshot": "/data/ivy-rh080-next-20261125/fft-intermediate-bounds-cold-v1/source/FFTGlobalTraceBounds.lean",
+      "imports": [
+        "FFTTraceTwiddles",
+        "FFT17Bridge"
+      ]
+    },
+    {
+      "module": "FFT24Bridge",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFT24Bridge.lean",
+      "source_sha256": "a9a620299e1e5d4a5cb660e60f31870aaea1708422da48d94d97bcf1f757a5a9",
+      "snapshot": "/data/ivy-rh080-next-20261125/fft-intermediate-bounds-cold-v1/source/FFT24Bridge.lean",
+      "imports": [
+        "FFTRoundoff",
+        "FFTTwiddleBounds"
+      ]
+    },
+    {
+      "module": "W4FFTGlobalTraceBounds",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/W4FFTGlobalTraceBounds.lean",
+      "source_sha256": "96341bc338f98bd3c19cc596d1b7a93d9a2a70cd4088b29c7b185d442b18738e",
+      "snapshot": "/data/ivy-rh080-next-20261125/fft-intermediate-bounds-cold-v1/source/W4FFTGlobalTraceBounds.lean",
+      "imports": [
+        "FFTGlobalTraceBounds",
+        "FFT24Bridge"
+      ]
+    },
+    {
+      "module": "FFTIntermediateBounds",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTIntermediateBounds.lean",
+      "source_sha256": "c6058aa1eecba8d98b875e8c454edf8cc1d2e004bbd266dc8976add67f7fedc6",
+      "snapshot": "/data/ivy-rh080-next-20261125/fft-intermediate-bounds-cold-v1/source/FFTIntermediateBounds.lean",
+      "imports": [
+        "W4FFTGlobalTraceBounds"
+      ]
+    }
+  ],
+  "context_sha256": "88a89fb62356f9ac34abaa4f50a32584a75a33bd8ad23aae92cf07965f344319",
+  "controller_sha256": "f61bb50c2601ddb1270803e5ea8dcd71a07cc5f456f625ec28f9d83835c9937b",
+  "generic": [
+    {
+      "name": "mathlib",
+      "revision": "71a80585ee495fc24472fd0eaffc89d94e4fd8d6"
+    },
+    {
+      "name": "plausible",
+      "revision": "d9598f07b1bc701f1e3aae163d2681c1fd978793"
+    },
+    {
+      "name": "LeanSearchClient",
+      "revision": "ba67e212be1197b84c1f1f6299488a10a3002713"
+    },
+    {
+      "name": "importGraph",
+      "revision": "1681d78dd6e65e38b143f9740d829c826673807c"
+    },
+    {
+      "name": "proofwidgets",
+      "revision": "a8acbfd87375ff4abe14ce09db5b7664d383bc7f"
+    },
+    {
+      "name": "aesop",
+      "revision": "18889deb9e83ea7420ef51c160d6f88552e744e3"
+    },
+    {
+      "name": "Qq",
+      "revision": "507746ab8f4b643ccdacb2ec4cdb5853fa9f8ab3"
+    },
+    {
+      "name": "batteries",
+      "revision": "4cac2177c37f5530c4da76aa8e4307f3fc9e4dcb"
+    }
+  ],
+  "application_object_fallback": false
+}

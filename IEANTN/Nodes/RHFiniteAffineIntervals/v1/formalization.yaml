@@ -1,0 +1,117 @@
+version: v0.4
+node:
+  id: RHFiniteAffineIntervals.v1
+  family: RHFiniteAffineIntervals
+  version: v1
+  kind: pipeline
+  status: awaiting-verification
+project:
+  name: RHFiniteAffineIntervals.v1
+  description: Exact original finite real prime-interval ranges with strict 
+    endpoints:0.8 on4..exp174,0.74 on11..exp63,0.75 on11..exp70, with all 
+    analytic, historical-computation and numerical-provider inputs explicit. 
+    Elementary0.777 branch on4≤x<11 has no source/RH premise.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+conclusions:
+- id: interval_08_full
+  declaration: RHFiniteAffineIntervals.v1.interval_08_full
+  challenge: RHFiniteAffineIntervals.v1.challenge_interval_08_full
+  imports: &id001
+  - node: CMSExplicitInputs.v1
+    conclusion: strip_regularity
+  - node: CMSExplicitInputs.v1
+    conclusion: guinand_weil
+  - node: CMSExplicitInputs.v1
+    conclusion: digamma_integral
+  - node: CMSExplicitInputs.v1
+    conclusion: real_eta_integral
+  - node: CMSExplicitInputs.v1
+    conclusion: zero_counting
+  - node: CMSExplicitInputs.v1
+    conclusion: zero_partial_summation
+  - node: CMSExplicitInputs.v1
+    conclusion: montgomery_vaughan
+  - node: CMSExplicitInputs.v1
+    conclusion: historical_finite_gap
+  - node: FapFourierNorm.v1
+    conclusion: l1_bound
+  - node: RH.v1
+    conclusion: hypothesis
+  imports_status: identified
+  justifications:
+  - id: local-mathematical-consumer
+    kind: lean-noncompliant
+    note: Complete explicit Mellin/zero/prime/prime-power/finite-range 
+      mathematical consumer with only standard axioms, conditional on exactly 
+      these named source/norm/RH inputs. Cold replay and source-equivalence 
+      adapters are separate evidence; no official Comparator receipt.
+  designated: local-mathematical-consumer
+- id: interval_074_full
+  declaration: RHFiniteAffineIntervals.v1.interval_074_full
+  challenge: RHFiniteAffineIntervals.v1.challenge_interval_074_full
+  imports: *id001
+  imports_status: identified
+  justifications:
+  - id: local-mathematical-consumer
+    kind: lean-noncompliant
+    note: Complete explicit Mellin/zero/prime/prime-power/finite-range 
+      mathematical consumer with only standard axioms, conditional on exactly 
+      these named source/norm/RH inputs. Cold replay and source-equivalence 
+      adapters are separate evidence; no official Comparator receipt.
+  designated: local-mathematical-consumer
+- id: interval_075_full
+  declaration: RHFiniteAffineIntervals.v1.interval_075_full
+  challenge: RHFiniteAffineIntervals.v1.challenge_interval_075_full
+  imports: *id001
+  imports_status: identified
+  justifications:
+  - id: local-mathematical-consumer
+    kind: lean-noncompliant
+    note: Complete explicit Mellin/zero/prime/prime-power/finite-range 
+      mathematical consumer with only standard axioms, conditional on exactly 
+      these named source/norm/RH inputs. Cold replay and source-equivalence 
+      adapters are separate evidence; no official Comparator receipt.
+  designated: local-mathematical-consumer
+- id: interval_0777_small
+  declaration: RHFiniteAffineIntervals.v1.interval_0777_small
+  challenge: RHFiniteAffineIntervals.v1.challenge_interval_0777_small
+  imports: []
+  imports_status: none
+  justifications:
+  - id: local-elementary-proof
+    kind: lean-noncompliant
+    note: Complete elementary Lean proof with the actual primes5,7,11 and exact 
+      analytic width inequalities. No RH/source/numerical or history input; no 
+      official Comparator receipt.
+  designated: local-elementary-proof
+sources:
+- id: original-locked-Fap-ranges
+  title: Original locked Fap explicit prime-interval ranges
+  authors:
+  - IEANTN contributors
+  type: other
+  relationship: independently-proves
+  note: Exact original profile/ranges, retaining every mathematical input. 
+    General source statements are owned by CMSExplicitInputs.v1 and 
+    BRFourierInput.v1; numerical norm is owned by FapFourierNorm.v1.
+limitations:
+- All named analytic source propositions and the historical finite prime-gap 
+  computation remain explicit inputs, alongside ordinary RH.
+- The numerical norm provider currently uses kernel-only FFT verification; the 
+  full C FFT-to-ANT source-first PV path is not claimed complete.
+- All endpoints are strict; these finite ranges are not promoted to an unproved 
+  all-x or optimal result.
+- No Comparator receipt, retroactive primary experimental success, or overall 
+  causal advantage for PV is asserted.

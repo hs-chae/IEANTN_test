@@ -1,0 +1,116 @@
+{
+  "status": "PASS_ACTUAL_C_RUNTIME_SMOKE_AND_NEGATIVE_MUTATIONS_NOT_A_PROOF",
+  "source": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/fft/w4_fft_recursive.c",
+  "source_sha256": "0c9e29db9bbfacd8ed049dc8e4b2a2f18d8ae146c1d0e4dd47a93cd89b80e22b",
+  "validator_sha256": "991f054ebae125b5fe86e26f23959fbd2fc1693a30c8e51c67934fbe061ccf3f",
+  "common_validator_sha256": "919f143785e60f766e5faf9f1b54b177b210e49e8e1ad8b04133fb943f83f150",
+  "python_optimization": 2,
+  "seed": 20261125,
+  "compiler": "/usr/bin/x86_64-linux-gnu-gcc-11",
+  "compiler_sha256": "821af3c74506283c179ca413bb33e6b528805a4dd8a5c09df125e5ad560a9e89",
+  "compiler_version": "cc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0\nCopyright (C) 2021 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "compilation": {
+    "command": [
+      "/usr/bin/cc",
+      "-std=c11",
+      "-O2",
+      "-fPIC",
+      "-shared",
+      "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/fft/w4_fft_recursive.c",
+      "-o",
+      "/data/ivy-rh080-next-20261125/pv/fft-complex-native-OO-v1/actual.so"
+    ],
+    "seconds": 0.620729111135006,
+    "source_sha256": "0c9e29db9bbfacd8ed049dc8e4b2a2f18d8ae146c1d0e4dd47a93cd89b80e22b",
+    "library_sha256": "f6ef1da354d374217a9c0d439874430524a3ea79789ab8d9a91ef65181a2c8b7"
+  },
+  "actual": {
+    "cases": 1536,
+    "mismatches": 0,
+    "first_mismatch": null
+  },
+  "negative": [
+    {
+      "name": "wrong-real-sign",
+      "compilation": {
+        "command": [
+          "/usr/bin/cc",
+          "-std=c11",
+          "-O2",
+          "-fPIC",
+          "-shared",
+          "/data/ivy-rh080-next-20261125/pv/fft-complex-native-OO-v1/wrong-real-sign.c",
+          "-o",
+          "/data/ivy-rh080-next-20261125/pv/fft-complex-native-OO-v1/wrong-real-sign.so"
+        ],
+        "seconds": 0.619370061904192,
+        "source_sha256": "63a6299bf93d28377dce902bb3592ad18ce6c4859529500d6242ff91c5e415c6",
+        "library_sha256": "1b4a5a56d537b0e992f7acd47f97c7a189479fabc3b0834439f6ed30d13b0f7b"
+      },
+      "result": {
+        "cases": 1536,
+        "mismatches": 1472,
+        "first_mismatch": {
+          "layout": "shared",
+          "input": [
+            0,
+            1,
+            999999999999999999999999999999999999,
+            1000000000000000000000000000000000000
+          ],
+          "status": 0,
+          "expected": [
+            -1,
+            0
+          ],
+          "actual": [
+            1,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "name": "wrong-cross-product",
+      "compilation": {
+        "command": [
+          "/usr/bin/cc",
+          "-std=c11",
+          "-O2",
+          "-fPIC",
+          "-shared",
+          "/data/ivy-rh080-next-20261125/pv/fft-complex-native-OO-v1/wrong-cross-product.c",
+          "-o",
+          "/data/ivy-rh080-next-20261125/pv/fft-complex-native-OO-v1/wrong-cross-product.so"
+        ],
+        "seconds": 0.61851641908288,
+        "source_sha256": "34b6d93a0c5039e3ed8ca9794d2a8ecda57466ee65ee962ed32a9b5b0fdd2722",
+        "library_sha256": "656b1409ffd6ca6d07282516d5dbca5903d63a75d2592d5b6085736f04255df7"
+      },
+      "result": {
+        "cases": 1536,
+        "mismatches": 1472,
+        "first_mismatch": {
+          "layout": "shared",
+          "input": [
+            1,
+            1000000000000000000000000000000000001,
+            971247335517609700421768404941029322967,
+            890560109380968784954499997719130553093
+          ],
+          "status": 0,
+          "expected": [
+            -890560109380968784954499997719130553012,
+            971247335517609700421768404941029324828
+          ],
+          "actual": [
+            -890560109380968784954499997719130553012,
+            971247335517609700421768404941029324909
+          ]
+        }
+      }
+    }
+  ],
+  "seconds": 2.749884845688939,
+  "owner_defined_source_first_PV_complete": false
+}

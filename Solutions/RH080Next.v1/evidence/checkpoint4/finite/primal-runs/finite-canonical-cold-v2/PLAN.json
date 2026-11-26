@@ -1,0 +1,162 @@
+{
+  "status": "SOURCE_COLD_CANONICAL_EXTENSION_OF_VALIDATED_184_MODULE_MATH_BASE",
+  "context_sha256": "88a89fb62356f9ac34abaa4f50a32584a75a33bd8ad23aae92cf07965f344319",
+  "controller_sha256": "efba348684c447c4fc259cf07fec9d317f31e9e00d35c290c7e2c041efc718c2",
+  "base": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1",
+  "base_result_sha256": "ccaa0477e156c1c3a947a2b28417edce1d44dd3bb3c7a8ca1b641453fdb327da",
+  "base_plan_sha256": "5c4945659c89cf0478ecaccdafce43f7e003afa7543a44bb87d041fd8ab4cf7d",
+  "inherited_modules": 184,
+  "sources": [
+    {
+      "module": "IEANTN.Vocabulary.ExplicitPrimeWindow",
+      "origin": "/data/ivy-rh080-next-20261125/network/IEANTN/Vocabulary/ExplicitPrimeWindow.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/finite-canonical-cold-v2/source/IEANTN/Vocabulary/ExplicitPrimeWindow.lean",
+      "source_sha256": "df15d79d01bd9ecc05b08c678742085a88df85e5e13a678d1d70ec3abad0c596",
+      "imports": [
+        "IEANTN.Vocabulary.Zeta",
+        "Mathlib.Analysis.Fourier.FourierTransform",
+        "Mathlib.Analysis.SpecialFunctions.Gamma.Digamma",
+        "Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt",
+        "Mathlib.MeasureTheory.Integral.Bochner.Set"
+      ]
+    },
+    {
+      "module": "IEANTN.Vocabulary.AffineFourierWindow",
+      "origin": "/data/ivy-rh080-next-20261125/network/IEANTN/Vocabulary/AffineFourierWindow.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/finite-canonical-cold-v2/source/IEANTN/Vocabulary/AffineFourierWindow.lean",
+      "source_sha256": "ce2f73e753dfe0ad3673e861f317139533357897b7e6c27f10ab09b91e20bf46",
+      "imports": [
+        "Mathlib.Analysis.Fourier.FourierTransform",
+        "Mathlib.MeasureTheory.Integral.Bochner.Basic"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.CMSExplicitInputs.v1.Conclusions",
+      "origin": "/data/ivy-rh080-next-20261125/network/IEANTN/Nodes/CMSExplicitInputs/v1/Conclusions.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/finite-canonical-cold-v2/source/IEANTN/Nodes/CMSExplicitInputs/v1/Conclusions.lean",
+      "source_sha256": "5cd2e3c017d1274da46b89f2e5f98dc8074f38e7800e0c422b866de08c791d59",
+      "imports": [
+        "IEANTN.Vocabulary.ExplicitPrimeWindow",
+        "IEANTN.Vocabulary.AffineFourierWindow",
+        "Mathlib.Data.Nat.Prime.Nth",
+        "Mathlib.NumberTheory.PrimeCounting"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.BRFourierInput.v1.Conclusions",
+      "origin": "/data/ivy-rh080-next-20261125/network/IEANTN/Nodes/BRFourierInput/v1/Conclusions.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/finite-canonical-cold-v2/source/IEANTN/Nodes/BRFourierInput/v1/Conclusions.lean",
+      "source_sha256": "88e7158442fd1cb84639c6ffcd118652cab959ea9d38aba948a6d7d400c5344a",
+      "imports": [
+        "IEANTN.Vocabulary.AffineFourierWindow",
+        "IEANTN.Vocabulary.CMSFunctional"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.FapFourierNorm.v1.Tables",
+      "origin": "/data/ivy-rh080-next-20261125/network/IEANTN/Nodes/FapFourierNorm/v1/Tables.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/finite-canonical-cold-v2/source/IEANTN/Nodes/FapFourierNorm/v1/Tables.lean",
+      "source_sha256": "968111aff1ab67f4d5eb1ce09e6b17dabb0f73cadc88030eb5558d1b9b1d2804",
+      "imports": [
+        "Mathlib.Data.Rat.Defs",
+        "Mathlib.Data.List.Range"
+      ]
+    },
+    {
+      "module": "FapSourceInterfaces",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/primal/finite/FapSourceInterfaces.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/finite-canonical-cold-v2/source/FapSourceInterfaces.lean",
+      "source_sha256": "39053d9f1b7802e83c49655110da3ad605689ed6780835edb8d2e20999095ce9",
+      "imports": [
+        "IEANTN.Nodes.CMSExplicitInputs.v1.Conclusions",
+        "IEANTN.Nodes.BRFourierInput.v1.Conclusions",
+        "IEANTN.Nodes.FapFourierNorm.v1.Tables",
+        "ExplicitGuinandWeilApplication",
+        "ExplicitCMSZeroSource",
+        "ExplicitMontgomeryVaughan",
+        "ExplicitNormSourceBridge",
+        "FinitePrimeGapBridge",
+        "FapAffineData"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.FapFourierNorm.v1.Conclusions",
+      "origin": "/data/ivy-rh080-next-20261125/network/IEANTN/Nodes/FapFourierNorm/v1/Conclusions.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/finite-canonical-cold-v2/source/IEANTN/Nodes/FapFourierNorm/v1/Conclusions.lean",
+      "source_sha256": "e1b087109956342b679a73a74b2b6ca96b06e678ef476d4b9e31b2d77db03828",
+      "imports": [
+        "IEANTN.Vocabulary.AffineFourierWindow",
+        "IEANTN.Nodes.FapFourierNorm.v1.Tables"
+      ]
+    },
+    {
+      "module": "FapNormNodeSolution",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/primal/finite/FapNormNodeSolution.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/finite-canonical-cold-v2/source/FapNormNodeSolution.lean",
+      "source_sha256": "8e7cd26e99506069886b25c4cc0979793c0ec05f8614f1c76701707916e3bc1a",
+      "imports": [
+        "FapSourceInterfaces",
+        "IEANTN.Nodes.FapFourierNorm.v1.Conclusions",
+        "FapFFTNorm"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.RHFiniteAffineIntervals.v1.Conclusions",
+      "origin": "/data/ivy-rh080-next-20261125/network/IEANTN/Nodes/RHFiniteAffineIntervals/v1/Conclusions.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/finite-canonical-cold-v2/source/IEANTN/Nodes/RHFiniteAffineIntervals/v1/Conclusions.lean",
+      "source_sha256": "830f4c172349d60ff4a588addef6a8a326320c3a205f8ccfb212e9daffb53f7f",
+      "imports": [
+        "Mathlib.NumberTheory.LSeries.RiemannZeta",
+        "Mathlib.Data.Nat.Prime.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Pow.Real"
+      ]
+    },
+    {
+      "module": "IEANTN.Vocabulary.ZeroFreeHalfPlane",
+      "origin": "/data/ivy-rh080-next-20261125/network/IEANTN/Vocabulary/ZeroFreeHalfPlane.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/finite-canonical-cold-v2/source/IEANTN/Vocabulary/ZeroFreeHalfPlane.lean",
+      "source_sha256": "c4093b0a652ec21bb446736389639e0a7a8217f4e7258fc0276c69eb203f7b8c",
+      "imports": [
+        "Mathlib.NumberTheory.LSeries.RiemannZeta"
+      ]
+    },
+    {
+      "module": "IEANTN.Nodes.RH.v1.Conclusions",
+      "origin": "/data/ivy-rh080-next-20261125/network/IEANTN/Nodes/RH/v1/Conclusions.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/finite-canonical-cold-v2/source/IEANTN/Nodes/RH/v1/Conclusions.lean",
+      "source_sha256": "84d39ecb7fa86c04e58fe97f47350132d58da3f3cef5e9420442d2e3b0505502",
+      "imports": [
+        "IEANTN.Vocabulary.Zeta",
+        "IEANTN.Vocabulary.ZeroFreeHalfPlane"
+      ]
+    },
+    {
+      "module": "FiniteIntervalsNodeSolution",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/primal/finite/FiniteIntervalsNodeSolution.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/finite-canonical-cold-v2/source/FiniteIntervalsNodeSolution.lean",
+      "source_sha256": "8a6048b446187745599740fcb524e2313d628811467f934d146c12a88eaafc8c",
+      "imports": [
+        "FapSourceInterfaces",
+        "IEANTN.Nodes.FapFourierNorm.v1.Conclusions",
+        "IEANTN.Nodes.RHFiniteAffineIntervals.v1.Conclusions",
+        "IEANTN.Nodes.RH.v1.Conclusions",
+        "ExplicitFullRangeApplications"
+      ]
+    },
+    {
+      "module": "FiniteCanonicalAudit",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/primal/finite/FiniteCanonicalAudit.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/finite-canonical-cold-v2/source/FiniteCanonicalAudit.lean",
+      "source_sha256": "03877a10871eda7baff8bf1cccd25b9b25576c9ec467cbe52ffbffd8de8e80fe",
+      "imports": [
+        "Lean",
+        "FapNormNodeSolution",
+        "FiniteIntervalsNodeSolution"
+      ]
+    }
+  ],
+  "historical_application_fallback": false,
+  "memory_ceiling_gib": 128,
+  "MemAvailable_bytes": 1147472408576
+}

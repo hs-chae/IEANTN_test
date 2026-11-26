@@ -1,0 +1,53 @@
+version: v0.4
+node:
+  id: FapFourierNorm.v1
+  family: FapFourierNorm
+  version: v1
+  kind: computation
+  status: awaiting-verification
+project:
+  name: FapFourierNorm.v1
+  description: The original fixed Fap whole-line norm cap, established by a complete131072-point
+    integer FFT, true DFT error and periodic quadrature; kernel-only numerical provider.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+conclusions:
+- id: l1_bound
+  declaration: FapFourierNorm.v1.l1_bound
+  challenge: FapFourierNorm.v1.challenge_l1_bound
+  imports:
+  - node: BRFourierInput.v1
+    conclusion: norm_identity
+  imports_status: identified
+  justifications:
+  - id: local-kernel-fft
+    kind: lean-noncompliant
+    note: Complete integer FFT execution certificate, Fourier embedding/error, norm quadrature 
+      and typed axiom/dependency audit are kernel-checked. Original C FFT source-first PV 
+      remains incomplete; no official Comparator receipt is asserted.
+  designated: local-kernel-fft
+sources:
+- id: original-Fap-input
+  title: Original locked Fap input and N17 exact numerical algorithm
+  authors:
+  - IEANTN contributors
+  type: other
+  relationship: independently-proves
+  note: Original JSON SHA2569f545a294f104a1baaeccbb9bf625f6338fc020af9dce9ff7bd34352630a586a; 
+    fixed400nodes,m80,N131072,17stages,unit10^36. Tables contain only original input data.
+limitations:
+- Numerical verification is KERNEL-ONLY, not source-first PV of the full C FFT.
+- The actual whole-line norm consumes the explicit general BR norm identity.
+- The original numerical algorithm, coefficients and0.7817960157900848 cap are unchanged.
+- No official Comparator receipt or optimality/best-known claim is asserted.

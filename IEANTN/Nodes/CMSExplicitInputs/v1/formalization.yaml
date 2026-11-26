@@ -1,0 +1,183 @@
+version: v0.4
+node:
+  id: CMSExplicitInputs.v1
+  family: CMSExplicitInputs
+  version: v1
+  kind: paper
+  status: active
+project:
+  name: CMSExplicitInputs.v1
+  description: Literal analytic and historical finite inputs for the explicit affine 
+    prime-interval proof, with source domains, convergence and the general partial-summation 
+    proof-scheme distinction explicit.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+conclusions:
+- id: strip_regularity
+  declaration: CMSExplicitInputs.v1.strip_regularity
+  challenge: CMSExplicitInputs.v1.challenge_strip_regularity
+  imports: []
+  imports_status: none
+  justifications:
+  - id: primary-source
+    kind: literature
+    source: BR2026v2
+    locator: Lemma5, §2.1, eq:pair, entire extension and every fixed horizontal strip
+    note: Literal support-five rational affine construction; no fixed witness or numerical cap.
+  designated: primary-source
+- id: guinand_weil
+  declaration: CMSExplicitInputs.v1.guinand_weil
+  challenge: CMSExplicitInputs.v1.challenge_guinand_weil
+  imports: []
+  imports_status: none
+  justifications:
+  - id: primary-source
+    kind: literature
+    source: CMS2019
+    locator: Lemma6, printedp17/PDFp17, citing Iwaniec–Kowalski Theorem5.12
+    note: Entire quadratic-strip subclass supplies the source analyticity/decay domain; 
+      summability and integrability are explicit.
+  designated: primary-source
+- id: digamma_integral
+  declaration: CMSExplicitInputs.v1.digamma_integral
+  challenge: CMSExplicitInputs.v1.challenge_digamma_integral
+  imports: []
+  imports_status: none
+  justifications:
+  - id: primary-source
+    kind: literature
+    source: DLMFDigamma
+    locator: 5.9.E16, Re(z)>0
+    note: General complex identity and convergence, no special numerical value.
+  designated: primary-source
+- id: real_eta_integral
+  declaration: CMSExplicitInputs.v1.real_eta_integral
+  challenge: CMSExplicitInputs.v1.challenge_real_eta_integral
+  imports: []
+  imports_status: none
+  justifications:
+  - id: primary-source
+    kind: literature
+    source: DLMFEta
+    locator: 25.5.E3; Erdélyi et al.(1953a),(1.12.5),p32
+    note: Real specialization s>0,s≠1 after multiplying the denominator; closes ordinate-zero 
+      nonvanishing.
+  designated: primary-source
+- id: zero_counting
+  declaration: CMSExplicitInputs.v1.zero_counting
+  challenge: CMSExplicitInputs.v1.challenge_zero_counting
+  imports: []
+  imports_status: none
+  justifications:
+  - id: primary-source
+    kind: literature
+    source: CMS2019
+    locator: Lemma9, §6.1, printedp23; proof uses N(10)=0
+    note: Actual right-closed positive-ordinate multiplicity count; local summability and 
+      separate base-zero fact remain explicit.
+  designated: primary-source
+- id: zero_partial_summation
+  declaration: CMSExplicitInputs.v1.zero_partial_summation
+  challenge: CMSExplicitInputs.v1.challenge_zero_partial_summation
+  imports: []
+  imports_status: none
+  justifications:
+  - id: primary-source
+    kind: literature
+    source: CMS2019
+    locator: §6.1, summation-by-parts display after Lemma9 and before(6.9), plus following 
+      negative-ordinate paragraph
+    note: 'GENERAL PROOF-SCHEME SPECIALIZATION, not a separately printed universally quantified theorem:
+      C1/continuity/evenness/quadratic tails, both integrals, both infinity boundaries and exact zero-count/root
+      conditions are exposed. No window, norm, error budget or prime conclusion is assumed.'
+  designated: primary-source
+- id: montgomery_vaughan
+  declaration: CMSExplicitInputs.v1.montgomery_vaughan
+  challenge: CMSExplicitInputs.v1.challenge_montgomery_vaughan
+  imports: []
+  imports_status: none
+  justifications:
+  - id: primary-source
+    kind: literature
+    source: MV1973
+    locator: Theorem2, printedp121,(1.10)/(1.12), modulus1; CMS(6.10)
+    note: Weaker non-strict inequality; actual real left-open/right-closed floor prime counts.
+  designated: primary-source
+- id: historical_finite_gap
+  declaration: CMSExplicitInputs.v1.historical_finite_gap
+  challenge: CMSExplicitInputs.v1.challenge_historical_finite_gap
+  imports: []
+  imports_status: none
+  justifications:
+  - id: primary-source
+    kind: literature
+    source: CMS2019
+    locator: (1.15), citing Oliveira e Silva–Herzog–Pardi(2014), §2.2
+    note: Historical strict squared-log gap for lower primes11..4·10^18; computation remains 
+      literature-backed and is not newly verified source-first PV.
+  designated: primary-source
+sources:
+- id: BR2026v2
+  title: Rational Fourier certificates for prime gaps, explicit intervals, and arithmetic 
+    progressions
+  authors:
+  - Rafael Blanquer Robles
+  type: paper
+  relationship: adapts
+  url: https://zenodo.org/records/24429650
+  note: Version2 Lemma5,§2.1,eq:pair; general finite-affine construction and strip properties.
+- id: CMS2019
+  title: Fourier optimization and prime gaps
+  authors:
+  - Emanuel Carneiro
+  - Micah B. Milinovich
+  - Kannan Soundararajan
+  type: paper
+  relationship: adapts
+  url: https://arxiv.org/abs/1708.04122v2
+  note: Lemma6; Lemma9 and §6.1 proof display; finite computation(1.15). The generalized proof 
+    scheme is identified as such.
+- id: DLMFDigamma
+  title: 'DLMF5.9.16: digamma integral representation'
+  authors:
+  - NIST Digital Library of Mathematical Functions
+  type: other
+  relationship: adapts
+  url: https://dlmf.nist.gov/5.9.E16
+- id: DLMFEta
+  title: 'DLMF25.5.3: zeta integral representation'
+  authors:
+  - NIST Digital Library of Mathematical Functions
+  type: other
+  relationship: adapts
+  url: https://dlmf.nist.gov/25.5.E3
+- id: MV1973
+  title: The large sieve
+  authors:
+  - Hugh L. Montgomery
+  - Robert C. Vaughan
+  type: paper
+  relationship: adapts
+  url: https://doi.org/10.1112/S0025579300004708
+  note: Mathematika20(1973),119–134; Theorem2 printedp121. Exact source already audited in the 
+    explicit proof lane.
+limitations:
+- These are explicit literature/source-proof-scheme inputs; no analytic source theorem is 
+  claimed newly proved in Lean.
+- The zero partial-summation contract is a general specialization of a worked proof passage, not
+  a printed universal theorem.
+- The historical prime-gap computation is a separate external input; no source-first PV of it is
+  claimed.
+- No fixed numerical answer, final error cap, optimality or Comparator receipt is among these 
+  inputs.
