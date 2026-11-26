@@ -1,0 +1,2056 @@
+{
+  "status": "FROZEN_SOURCE_ASSOCIATED_BATCH_PLAN_NOT_WHOLE_PV",
+  "roots": [
+    "ExplicitCMSKernelConsumerAudit"
+  ],
+  "source_rows": [
+    {
+      "module": "ExplicitW4Population",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitW4Population.lean",
+      "source_sha256": "c7ed06681cd0820b63d535c7ce85923e9be4649a0f32a78cdf90077e51ccb0ee",
+      "imports": [
+        "ExplicitProfileApplications",
+        "ExplicitActualPopulation",
+        "WindowMaximum"
+      ],
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-kernel-consumers-associated-v1/source/ExplicitW4Population.lean"
+    },
+    {
+      "module": "ExplicitW4StrictPopulation",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitW4StrictPopulation.lean",
+      "source_sha256": "313103224b30cba37286dd1f3fcaa523464f659db3ddf89a45757ba45dfa1510",
+      "imports": [
+        "ExplicitW4Population"
+      ],
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-kernel-consumers-associated-v1/source/ExplicitW4StrictPopulation.lean"
+    },
+    {
+      "module": "ExplicitCMSKernelConsumers",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitCMSKernelConsumers.lean",
+      "source_sha256": "18cd74d6154e5cf3864529d5a2b406fd41404f9091c1a8040937bda53800f07e",
+      "imports": [
+        "ExplicitCMSZeroKernel",
+        "ExplicitFullRangeApplications",
+        "ExplicitW4StrictPopulation"
+      ],
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-kernel-consumers-associated-v1/source/ExplicitCMSKernelConsumers.lean"
+    },
+    {
+      "module": "ExplicitCMSKernelFapConsumers",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitCMSKernelFapConsumers.lean",
+      "source_sha256": "d7720d325acbf157f55a8d37228b5398e35611b777aeb3d4d5a8cf301faa9af7",
+      "imports": [
+        "ExplicitCMSZeroKernel",
+        "FapFFTAntConsumers"
+      ],
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-kernel-consumers-associated-v1/source/ExplicitCMSKernelFapConsumers.lean"
+    },
+    {
+      "module": "ExplicitCMSKernelConsumerAudit",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitCMSKernelConsumerAudit.lean",
+      "source_sha256": "62f2cbc0731cefc95575e4b91d7dc04f02cdd0a450ddd8d9dcac0f066e8cd884",
+      "imports": [
+        "ExplicitCMSKernelConsumers",
+        "ExplicitCMSKernelFapConsumers",
+        "Lean"
+      ],
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-kernel-consumers-associated-v1/source/ExplicitCMSKernelConsumerAudit.lean"
+    }
+  ],
+  "accepted_dependencies": [
+    {
+      "module": "ExplicitAffineWindow",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitAffineWindow.lean",
+      "source_sha256": "6ed6d252704d29b5b2bbc46905f186f88b17fabc66406993dfcb251f300e5cd0",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitAffineWindow.lean",
+      "object_sha256": "5bc53a3c40fbc7d352e05a9676d99885032453e5607c023af35a0d602eef1a73",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitAffineWindow.COMPILED.json",
+      "receipt_sha256": "c31e45c2c0231c9b5c35fa2f8312a02dc7143ea80305bc9af883b14633c2be1c",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitAffineWindow.olean"
+    },
+    {
+      "module": "ExplicitHatIntegrals",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitHatIntegrals.lean",
+      "source_sha256": "71728d275566b842afbeaac2f239e0c04ab7e6e4c87ac011d7ea4322185326fa",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitHatIntegrals.lean",
+      "object_sha256": "a62eeb2f9ff0e27c5fb401822bee574d4f586e0a6fb072535395e1ce818bdbf9",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitHatIntegrals.COMPILED.json",
+      "receipt_sha256": "5caeb489dd93c599feddc55b65891ec36ae9df114682f75a1fd91c2bdbbe2e5d",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitHatIntegrals.olean"
+    },
+    {
+      "module": "ExplicitAffineIntegrals",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitAffineIntegrals.lean",
+      "source_sha256": "9e93315a1d6eae8069044c901dee2794a78f16fb97544be071e4a30ad1e639d4",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitAffineIntegrals.lean",
+      "object_sha256": "9745d6fadee9d4897785ed5c5f6da61380c0ec901245be20c726f27767c5e721",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitAffineIntegrals.COMPILED.json",
+      "receipt_sha256": "f9ec7a17f430fabba5eb314358cdf3f1a15a16d7875c0cd4ec515750a95d0685",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitAffineIntegrals.olean"
+    },
+    {
+      "module": "ExplicitHatFourier",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitHatFourier.lean",
+      "source_sha256": "993a82c239a194eb587f3cd266e4497451ae905c3b78ab18f82ee50d837e5964",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitHatFourier.lean",
+      "object_sha256": "68988156d4ff337d57271319f924a816351f7185ae26b223ba60e4ea3324d664",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitHatFourier.COMPILED.json",
+      "receipt_sha256": "267f4e1ef6a6218a0725522b5ed4fde73ee00572b0011571c16cb6381d791548",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitHatFourier.olean"
+    },
+    {
+      "module": "ExplicitSignedLogMoment",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitSignedLogMoment.lean",
+      "source_sha256": "fe2814c3fc3fd7bb410692361b2a9d07899315c72c4ed4f51aa9945fbc481278",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitSignedLogMoment.lean",
+      "object_sha256": "482080ca9ec35ebefc9475d6eab4e308b48a7c3b7ffec6c7beae4e210cb2d366",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitSignedLogMoment.COMPILED.json",
+      "receipt_sha256": "2198895052ac03e5cd154e758ae45523f00e92ac0640406d7d2bab704fe080b7",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitSignedLogMoment.olean"
+    },
+    {
+      "module": "ExplicitCosineMoment",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitCosineMoment.lean",
+      "source_sha256": "00a3215e659843833051dd1ad48bc22afec6542b461ce464caa8d73a6c29a716",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitCosineMoment.lean",
+      "object_sha256": "96534b52806b0d2ab99bb5667ba38b1b5371f6af701fac7a0478b3c78f81534b",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitCosineMoment.COMPILED.json",
+      "receipt_sha256": "d7b459d91b5c7927433c7c444c83527585aa7e2c6eee3c4fac5ace0b9c77de9c",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitCosineMoment.olean"
+    },
+    {
+      "module": "ExplicitAffineFourier",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitAffineFourier.lean",
+      "source_sha256": "47636e2f4766f3f20743dc32d3544573db64223d4bed823c89af39a4a5d4dcbb",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitAffineFourier.lean",
+      "object_sha256": "1675e931d00548cfcd42491ac2c730bfbbe71d44f688a42abd22c50a6f4f203e",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitAffineFourier.COMPILED.json",
+      "receipt_sha256": "9b938dd240d476d6566967e1de223f943f0719ff5dca0d0c3be7f737a16d039d",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitAffineFourier.olean"
+    },
+    {
+      "module": "ExplicitBRStripTransfer",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitBRStripTransfer.lean",
+      "source_sha256": "f6b14caa02f7eebc237fe795c694ab3f88e55ccbd314565e83695d224980fe1e",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitBRStripTransfer.lean",
+      "object_sha256": "9f4f315096dc8d2e06596b1fc2165d2bbe50d287d31ea2affcb7cd94be0b803c",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitBRStripTransfer.COMPILED.json",
+      "receipt_sha256": "efad3a22f0c2a2f2ca7e3cd6e2312f8fda055c8494f5c2bb1eba8e5a8bd69292",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitBRStripTransfer.olean"
+    },
+    {
+      "module": "ExplicitGWTestFunction",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitGWTestFunction.lean",
+      "source_sha256": "13a1f10704ec9e026aeb6e76f9d0edb27fc3eb81a83ff3221d1e99b06bdd50e8",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitGWTestFunction.lean",
+      "object_sha256": "8c5de9da22033589e4727a71ff685c25ed22e4e790efc8e8034b66384213b9cc",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitGWTestFunction.COMPILED.json",
+      "receipt_sha256": "6262cd6a8d556e882f477f52e58e9072c091c0bd85dca362b1542577019db31c",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitGWTestFunction.olean"
+    },
+    {
+      "module": "IEANTN.Vocabulary.Zeta",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/IEANTN/Vocabulary/Zeta.lean",
+      "source_sha256": "42e239de4c1151d03ed94ee4c0c51d031f974faa6998f447e85845665bb846ef",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/IEANTN/Vocabulary/Zeta.lean",
+      "object_sha256": "b1ed06c95cfbb89c045de149abdd34b83852fbb9ccd469578681d825235a1277",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/IEANTN.Vocabulary.Zeta.COMPILED.json",
+      "receipt_sha256": "eb859b9bfa505dd9c0b7e612d21cfd5502d9b09687c426c8868468725492cfcb",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/IEANTN/Vocabulary/Zeta.olean"
+    },
+    {
+      "module": "ExplicitGuinandWeilApplication",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitGuinandWeilApplication.lean",
+      "source_sha256": "ee283176bef2f1b5ae35c8973ca71ac63531d04bd4fa2c79a2ff83d2361130ee",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitGuinandWeilApplication.lean",
+      "object_sha256": "8fad5eadd289f5e3129d0e1bb7396adb5286169291d1eb766dc5a620c780c21b",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitGuinandWeilApplication.COMPILED.json",
+      "receipt_sha256": "d287a3e22dd0ff0accd3b5e6b630df7a35c47d6913d667924e012ca6f1b1f1c0",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitGuinandWeilApplication.olean"
+    },
+    {
+      "module": "ExplicitDigammaDifference",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitDigammaDifference.lean",
+      "source_sha256": "15aee12776c006189ec582c23a6bd5fe2707c23f65ad05ffae7a9871ba6f944a",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitDigammaDifference.lean",
+      "object_sha256": "f6d77ece87e93507b303ffae437a902764ebec83dd299081c06b3d3c940daaf8",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitDigammaDifference.COMPILED.json",
+      "receipt_sha256": "c58ac84cb32a2c27a2e2feee86eee4eb94bea80a7ec954be0a0ce2f9aef6bdbf",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitDigammaDifference.olean"
+    },
+    {
+      "module": "ExplicitDigammaFubini",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitDigammaFubini.lean",
+      "source_sha256": "7889b0d2be2d6e732c76beb558e900fadbe522e4efd95246ccd525ce948cfec3",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitDigammaFubini.lean",
+      "object_sha256": "f41bd2bf41b0eee7f0075a13a5b8a0295e5ce67e6f904f705db08b7d8281d88d",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitDigammaFubini.COMPILED.json",
+      "receipt_sha256": "3c45a2a8ad94fbfb9aef6a5e14ab2094815688dc4a3301ad57e2a1e61edf833e",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitDigammaFubini.olean"
+    },
+    {
+      "module": "ExplicitGammaFourier",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitGammaFourier.lean",
+      "source_sha256": "1def3e89c7000e2012e6ba02397f900d953acbd6b8749b1925a916a7a8da5cb7",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitGammaFourier.lean",
+      "object_sha256": "21893ea2d7ed3c9b6ded21f117817f957a3861ec4b823738b33611135a28e4b0",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitGammaFourier.COMPILED.json",
+      "receipt_sha256": "50ec6ea158fe59318cb9dbb8977f3de1b876707e277f4d08e19f0e5a731f8a15",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitGammaFourier.olean"
+    },
+    {
+      "module": "ExplicitFiniteDifference",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitFiniteDifference.lean",
+      "source_sha256": "7c20823f22cf741b207d9417450877bcaeb9dc9b162d13eee851cc17efdef3d6",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitFiniteDifference.lean",
+      "object_sha256": "5e0b776b5a9089a6a05f230a29def901e4320306a8848ffcd7a5f8f5e4788cba",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitFiniteDifference.COMPILED.json",
+      "receipt_sha256": "58dae48aca7feeee8cffc012b9171fe160bde1face73344d358ea60df87ebb93",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitFiniteDifference.olean"
+    },
+    {
+      "module": "ExplicitFourierPair",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitFourierPair.lean",
+      "source_sha256": "0d3e50c8f120360237487c33c0d2d955f7bbba99111ee3ac7bb09a8c9f260cba",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitFourierPair.lean",
+      "object_sha256": "c2ac4dac71622abb02c3d1ccc0d3ff3ce0997a3843e2e0811d6d8c2911478304",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitFourierPair.COMPILED.json",
+      "receipt_sha256": "752b830ca07f84bb6f2ed4a6f04a7d540b69e39e5b3cd709196f6f078a4d3fb7",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitFourierPair.olean"
+    },
+    {
+      "module": "ExplicitEntireUniqueness",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitEntireUniqueness.lean",
+      "source_sha256": "641ebdcc22b1968ea27097fc57e54e728c5d7d0cbad011541c8b36d79e6b2f1e",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitEntireUniqueness.lean",
+      "object_sha256": "d6ddb05fb3a23996467154ae70c430fa489d43f786c3f0e33fde158ccd002fd0",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitEntireUniqueness.COMPILED.json",
+      "receipt_sha256": "8ea8fcc0bcb7fcb2c86c494c3aa30868661a85e541ec69642a55083bce0ba0a1",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitEntireUniqueness.olean"
+    },
+    {
+      "module": "ExplicitCompactLaplace",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitCompactLaplace.lean",
+      "source_sha256": "8c884bac4f5d57e68d44d4fd4f75e7e2fdbb5b6aecfe9ecab06f583693602551",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitCompactLaplace.lean",
+      "object_sha256": "57e15f727a1b732aaba3db869ddfc36db66853a358d1f0ef984b6b1e6dd122c4",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitCompactLaplace.COMPILED.json",
+      "receipt_sha256": "ccae5eee5e7ca1a51e385697c40b87d19154402d1fe6fa1d0e314159da65ffe1",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitCompactLaplace.olean"
+    },
+    {
+      "module": "ExplicitMellinFourier",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitMellinFourier.lean",
+      "source_sha256": "992093a9fdb68a71857aa9878fdc2daf3bc66cbea4d8d857c68a1adaaa2302c7",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitMellinFourier.lean",
+      "object_sha256": "26907558c19cb44d64751cc22c49ff273be8691820d8f47fb7313fec31bb5560",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitMellinFourier.COMPILED.json",
+      "receipt_sha256": "475eb03a104bc07351770e01a92154b641bf340e1fee56c7bf73498044699377",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitMellinFourier.olean"
+    },
+    {
+      "module": "ExplicitMellinArithmetic",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitMellinArithmetic.lean",
+      "source_sha256": "6f5046e0fad0f294a82b346b00bc4b0e4c10b1869364d29d4de300fc2515aa06",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitMellinArithmetic.lean",
+      "object_sha256": "d4e97aaff932efb5d21c6b4fa4787c9a87c28e4572171fc4362ad2bf71a33c45",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitMellinArithmetic.COMPILED.json",
+      "receipt_sha256": "dea8a7d388586f4de90e24c6c6b40550c2ec4231358bbf742ae45b86c9280a9c",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitMellinArithmetic.olean"
+    },
+    {
+      "module": "ExplicitMellinPoles",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitMellinPoles.lean",
+      "source_sha256": "fdde5c2d0343707dca13abaaeca4ef6a85c1af0ef06da4baef276ad24360e66e",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitMellinPoles.lean",
+      "object_sha256": "43f6c0e7628808d2fca6bcfb8708a6c0a1883f4c2bab88a6da08f9a860bd9adf",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitMellinPoles.COMPILED.json",
+      "receipt_sha256": "8ccb6cbda8087c74c1d2b3e30eb9ad7a28b70030812f181254f72eea10230210",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitMellinPoles.olean"
+    },
+    {
+      "module": "ExplicitGammaAffine",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitGammaAffine.lean",
+      "source_sha256": "12790a588ec034729be1491b3917142fcbc84520788f25bc0da53632dd5cf9e6",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitGammaAffine.lean",
+      "object_sha256": "ba7eb05db505dfa5e4150edff8eb4eb84ad1eb2419e5016df3d974edf9a71400",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitGammaAffine.COMPILED.json",
+      "receipt_sha256": "cbd7035dc3cb96c6f4cc0a50128f2e7e0b35798a0854be8aa314c9aee936294d",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitGammaAffine.olean"
+    },
+    {
+      "module": "ExplicitGammaSubstitution",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitGammaSubstitution.lean",
+      "source_sha256": "aaf8af5b1ee3738d781045fe13d3e46f0b2a1e8b0bf9d9e501a879f2b4b22ef6",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitGammaSubstitution.lean",
+      "object_sha256": "57d982846a00b2feb7721427089da9a49cb84f8da92dee2319e7bdef8038f8d4",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitGammaSubstitution.COMPILED.json",
+      "receipt_sha256": "e214f46d1b5cfa83485f429ef01b126bdcf3fc7e8e5e222f1af69c97d86398c1",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitGammaSubstitution.olean"
+    },
+    {
+      "module": "ExplicitSecondPoleIntegral",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitSecondPoleIntegral.lean",
+      "source_sha256": "b86e593cdf7247c53b5f5a79bb73f4f66495b270f738b053ef8f0879ed61619c",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitSecondPoleIntegral.lean",
+      "object_sha256": "4168fd9cda0fe0752afc3b0ce801a529ffc0ab26aa1ebf17555ab2a591d07377",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitSecondPoleIntegral.COMPILED.json",
+      "receipt_sha256": "279251bce28d28d8b97b2ab9d57697326ab9ea61bf0d9619248e21b883a7a772",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitSecondPoleIntegral.olean"
+    },
+    {
+      "module": "ExplicitMellinGammaCancellation",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitMellinGammaCancellation.lean",
+      "source_sha256": "a08c3426d67f3815f957c0c8f27cc9d433c514cad9297f20bb724035fe8675b2",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitMellinGammaCancellation.lean",
+      "object_sha256": "fdd4327a645ab3204bd8b9111d47c8769b898ea7f4e0c84b3dbe3239fdfca936",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitMellinGammaCancellation.COMPILED.json",
+      "receipt_sha256": "58a71bfee1c2657a6eb1093bf9ebcbe2f2c88a0c11bb86180318f87a0396ce2c",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitMellinGammaCancellation.olean"
+    },
+    {
+      "module": "ExplicitMellinIdentity",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitMellinIdentity.lean",
+      "source_sha256": "3309535b75a76d21d66c049af7a01ba9ffe41ae7669179d157b3a9bdd53653b0",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitMellinIdentity.lean",
+      "object_sha256": "5d609822e1e8b0ee9b34500709ac1b421b3c17fa82ab016b54224fe70ea2eb83",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitMellinIdentity.COMPILED.json",
+      "receipt_sha256": "47509bc0ffb2e161f4479e32fe6a003069638da8db8f149d087713275d9a708e",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitMellinIdentity.olean"
+    },
+    {
+      "module": "ExplicitRHMellin",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitRHMellin.lean",
+      "source_sha256": "40d483b56c78b3625cc01acf2def371b1922453f47f6da3d78327e092dd98167",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitRHMellin.lean",
+      "object_sha256": "376bddd455487dd1f4693f3818041ebf2841e9e223e672cab49d5133cce7c341",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitRHMellin.COMPILED.json",
+      "receipt_sha256": "a579c70cf9eacf9996441b1a6eb079e16fd579266722133b3f216135a4e2f72c",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitRHMellin.olean"
+    },
+    {
+      "module": "ExplicitDerivativeIntegrals",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitDerivativeIntegrals.lean",
+      "source_sha256": "fb80e939f6dbeba938d45d6ec38a937f3a3ba8ebc1a25fff86790d1d6ce90306",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitDerivativeIntegrals.lean",
+      "object_sha256": "9341a0a39a5bd8d5ab2714da4b0659cdb688f2e692effb789af9cf1ce5d066fc",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitDerivativeIntegrals.COMPILED.json",
+      "receipt_sha256": "4137bd795e67ca91cac328b4394cc68729a05269862f9d5493e89daafeb6a1ad",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitDerivativeIntegrals.olean"
+    },
+    {
+      "module": "ExplicitRealZetaNonzero",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitRealZetaNonzero.lean",
+      "source_sha256": "7b41e10e63df415c507a868792533f2ba6ddc10ea1c8af994526d8a75da58cc6",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitRealZetaNonzero.lean",
+      "object_sha256": "d43da6fbd21b99e9ef5b5a85997d7a1beff004fbb390c197637baff4b5971caf",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitRealZetaNonzero.COMPILED.json",
+      "receipt_sha256": "ce8f8604347f13f0e81147829db577d366228a44ed6fde1c70cdd99482f36996",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitRealZetaNonzero.olean"
+    },
+    {
+      "module": "ExplicitCMSZeroSource",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitCMSZeroSource.lean",
+      "source_sha256": "2155f90e7509729918f5d010d6bdd1b6cff270966e92af4a7adbbf85493f4e40",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitCMSZeroSource.lean",
+      "object_sha256": "648f313fa3ae86c64eca3b0c494eeb610f79a0defe6e571d788543d03e56bfa7",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitCMSZeroSource.COMPILED.json",
+      "receipt_sha256": "96c40f6116f0d9876f990ad0daf21fe48fa3814a2ba5c322679298126181c519",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitCMSZeroSource.olean"
+    },
+    {
+      "module": "ExplicitCMSFiniteAtomic",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitCMSFiniteAtomic.lean",
+      "source_sha256": "d21da9db02d98fef3fa9bf313bf7b220e0c0ffa358b0f31742c38174006afe3a",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitCMSFiniteAtomic.lean",
+      "object_sha256": "e708055fc02d7cb572057bc95d4bd7c0c93ff3cb3684f8cad0dc7cba3e5fa7d4",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitCMSFiniteAtomic.COMPILED.json",
+      "receipt_sha256": "15cbb09804dcb67fd85ff88e54f42775ef722300d7a3e22bc38c611c4a867f6c",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitCMSFiniteAtomic.olean"
+    },
+    {
+      "module": "ExplicitCMSAtomicSupport",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitCMSAtomicSupport.lean",
+      "source_sha256": "7a0d838e6862eba3bb4ae7e1de40fe7015fe6480dc9539dcc0fdad64d5499447",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitCMSAtomicSupport.lean",
+      "object_sha256": "edea6cd079ba22481a9ed6d1c6d7f5b2621c9207f08e592723baa39ad9a5b86c",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitCMSAtomicSupport.COMPILED.json",
+      "receipt_sha256": "1e920152e90434ea0e5c84089e3c30320ab4c636cac9fea6e16572e83c27f937",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitCMSAtomicSupport.olean"
+    },
+    {
+      "module": "ExplicitCMSActualCutoff",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitCMSActualCutoff.lean",
+      "source_sha256": "73d36c3103b1cecc5bde92638e0baf96f4c424f9b595e8cec4112f861e1821c4",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitCMSActualCutoff.lean",
+      "object_sha256": "5677080a2f753b1cab86c6deca5498ea110982cdc891df643772c03a6c368e49",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitCMSActualCutoff.COMPILED.json",
+      "receipt_sha256": "50c31e6d39d7a235ac463660f060d1ede442bf00b9abfce0b1855b5fed3c8fed",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitCMSActualCutoff.olean"
+    },
+    {
+      "module": "ExplicitCMSQCalculus",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitCMSQCalculus.lean",
+      "source_sha256": "50a0da77421969761d72c028eaddc112a916aa2a13a8f8c1b40bf12e28a036f8",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitCMSQCalculus.lean",
+      "object_sha256": "977f322ac1990d29cebf9b14c06320a6d031c24515e01d6938a8162998b3794a",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitCMSQCalculus.COMPILED.json",
+      "receipt_sha256": "bea148c9facc8c16131a8cd2c5f5b4800ceae572b312a404c7f20f09b4801b07",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitCMSQCalculus.olean"
+    },
+    {
+      "module": "ExplicitCMSRemainderCutoff",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitCMSRemainderCutoff.lean",
+      "source_sha256": "da7b2a69308f9b0a8225a99beca24f50080bc8d8e7bfb00c9424a9f20a891c31",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitCMSRemainderCutoff.lean",
+      "object_sha256": "531229c6c2b6516ab1b01cb552f13d86f0fa30dd4d1ca3a0477a49a3e4a96430",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitCMSRemainderCutoff.COMPILED.json",
+      "receipt_sha256": "dc95bc52a54d161a6fad60ecf68e9022ebfe5547bcb6d5e487cb91d3a62656fb",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitCMSRemainderCutoff.olean"
+    },
+    {
+      "module": "ExplicitCMSModulus",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitCMSModulus.lean",
+      "source_sha256": "93790caa5dbe076648806c2e9028130815988001d249f648c7aa856af705f83f",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitCMSModulus.lean",
+      "object_sha256": "125830e49b6e657bde84ac97981c6731a5023081062e668e8a987307fc3e8437",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitCMSModulus.COMPILED.json",
+      "receipt_sha256": "97641fb88fa051757311191fc68d6f3f168331e28c718cdc8d00610bc4205a63",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitCMSModulus.olean"
+    },
+    {
+      "module": "ExplicitCMSModulusCutoff",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitCMSModulusCutoff.lean",
+      "source_sha256": "e709d4de93454942aa81d8e1dfd225ac151d2b2fbad1dab6d76087768d89026f",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitCMSModulusCutoff.lean",
+      "object_sha256": "13fe21069652f5a5e8dd01b0a0c9020193d2948721f46036d2c3892b4ce27883",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitCMSModulusCutoff.COMPILED.json",
+      "receipt_sha256": "1803f7e9a2d18b7183cb5b2ce38928755b24b16f3cec2233220c595e624fba3e",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitCMSModulusCutoff.olean"
+    },
+    {
+      "module": "ExplicitCMSPositiveInfinite",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitCMSPositiveInfinite.lean",
+      "source_sha256": "5e233f8ac89d564adf9e1cd867bc65f862c20b44bfd7dad5cf90efb833921716",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitCMSPositiveInfinite.lean",
+      "object_sha256": "c6790634fee5c458e0eaf8b425e5193d646bbf0ffe919d8d4de4a4ccbda77f6e",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitCMSPositiveInfinite.COMPILED.json",
+      "receipt_sha256": "8dbf09e9123637e4a8c8935ee5fb5dc8cbf5cc7945f5c6a9e1ceff1e6b6d0c00",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitCMSPositiveInfinite.olean"
+    },
+    {
+      "module": "ExplicitCMSPositiveTransfer",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitCMSPositiveTransfer.lean",
+      "source_sha256": "a59f962973b2c36b4431a0607ab8c14aba732d2a394b32dcc4f05d90f0a2bd7d",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitCMSPositiveTransfer.lean",
+      "object_sha256": "f71c9db33009e81716624e3ac625541593e010583c4a71d09d65ec5833d27b18",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitCMSPositiveTransfer.COMPILED.json",
+      "receipt_sha256": "173688c0c585cb9569c4508a09bb660f8239253c9cb2bc7ebd5d1dbb9c916d69",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitCMSPositiveTransfer.olean"
+    },
+    {
+      "module": "ExplicitCMSConjugationOrder",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitCMSConjugationOrder.lean",
+      "source_sha256": "8144918d504d912c8525b99f3b87e2348fa93bf366d4327a774ce29004cc96f1",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitCMSConjugationOrder.lean",
+      "object_sha256": "1b2cf8e770138168a9110c821d0667c9948f6266b5284066d1538b07d50d6b90",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitCMSConjugationOrder.COMPILED.json",
+      "receipt_sha256": "5794d6777325d2d9a818a6195b3d6a80962f1a43d409a6b073a1025d8a1e85ce",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitCMSConjugationOrder.olean"
+    },
+    {
+      "module": "ExplicitCMSConjugation",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitCMSConjugation.lean",
+      "source_sha256": "14ff190dc55a41a2db1d8fc197cb320f730e9e8a9b6e8d048bdde1c74c8b9118",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitCMSConjugation.lean",
+      "object_sha256": "5c56e8170fb926d78b506ddd8f5d608c6338ff03638d72e9d8f87700ee8bcadf",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitCMSConjugation.COMPILED.json",
+      "receipt_sha256": "0afd5a3161eb66ebd74f99dfb3088d45ed7667418cbb28d931854a9302b54b12",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitCMSConjugation.olean"
+    },
+    {
+      "module": "ExplicitCMSZeroKernel",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitCMSZeroKernel.lean",
+      "source_sha256": "f423295b4bd29f2c5b74c8c9ce586c238b8d9854098a8afdc93168b89c94c0b6",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/source/ExplicitCMSZeroKernel.lean",
+      "object_sha256": "073887709ecd81949c85be1999ff9f6c6aee102b87bc145c90fad9acfff98d84",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/ExplicitCMSZeroKernel.COMPILED.json",
+      "receipt_sha256": "0ccbf8be4f3bf54cfdfdcb4db0fe02a916703e4f7164fff3da6a7052e98b39d5",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/cms-zero-kernel-cold-v1/objects/ExplicitCMSZeroKernel.olean"
+    },
+    {
+      "module": "AffineLipschitz",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/primal/AffineLipschitz.lean",
+      "source_sha256": "708d3b6c608a22a4970bb14f61415dd3903a890289049814f603474b5644990f",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/AffineLipschitz.lean",
+      "object_sha256": "d7e25a9dbd69a91b719f1d46d45e2b8fe1c89211660482d457cc33be5a791f5d",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/AffineLipschitz.COMPILED.json",
+      "receipt_sha256": "7c974c1135c4f1b3a24f9a7afb11d9ea9769171c90fbfd6d6ae703823efb0bd4",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/AffineLipschitz.olean"
+    },
+    {
+      "module": "AffineCellInterpolation",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/primal/AffineCellInterpolation.lean",
+      "source_sha256": "6dbf3a97264811b88c627b4adc997d1ed752bce6fe40322d0561a6a5146deb27",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/AffineCellInterpolation.lean",
+      "object_sha256": "2b2aa75e294a375ff2f7a26c87f4330f81472fb258f07de0b64e95bcbf7d8941",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/AffineCellInterpolation.COMPILED.json",
+      "receipt_sha256": "d0a09a8374356a083ce67a76e9173ba7909f4e75f34b397404fd3a6ae7679962",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/AffineCellInterpolation.olean"
+    },
+    {
+      "module": "AffinePopulationBounds",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/primal/AffinePopulationBounds.lean",
+      "source_sha256": "7067b834964ed05a59c285a174d9d15b0b98f83c079a4e8b3a29314c916870d0",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/AffinePopulationBounds.lean",
+      "object_sha256": "d33e26d552121eab2ef590bb667a78d4d83f3a274a2cd973dd5a6c2a3c2deec6",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/AffinePopulationBounds.COMPILED.json",
+      "receipt_sha256": "584cfd53764e10653e92828513ee184403df9793b01f199915d5aad4f993b0f6",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/AffinePopulationBounds.olean"
+    },
+    {
+      "module": "IEANTN.Vocabulary.CMSFunctional",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RHOnePrimeEvolution.v1/gaussian_gap/portable/source/IEANTN/Vocabulary/CMSFunctional.lean",
+      "source_sha256": "40390e5de266dccbc335698017508711afc271e67618ecdfe91084935db92c28",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/IEANTN/Vocabulary/CMSFunctional.lean",
+      "object_sha256": "fa741e338c9646df4404b000601ba02a77ea859025e881babd920746eefe7994",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/IEANTN.Vocabulary.CMSFunctional.COMPILED.json",
+      "receipt_sha256": "b6642f0c0dc8000caaacc174cb0dead58be7c6caad0d1deb05734de8574a1eb6",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/IEANTN/Vocabulary/CMSFunctional.olean"
+    },
+    {
+      "module": "AffinePositiveCellArea",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/primal/AffinePositiveCellArea.lean",
+      "source_sha256": "d4671fee10c5dc2e7a668d4bd9ea0125efdde235c8d7d78059b74b87aa45ad68",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/AffinePositiveCellArea.lean",
+      "object_sha256": "4277a3255527f1fd679d3a8ca0b032d1e5731eca5d806982b3e52b6f9fc9ab03",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/AffinePositiveCellArea.COMPILED.json",
+      "receipt_sha256": "3d645e6f103d1644514d97b38dd6a624e6f3997cdf419adcecce9b4a5a68de4c",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/AffinePositiveCellArea.olean"
+    },
+    {
+      "module": "AffinePositiveVariation",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/primal/AffinePositiveVariation.lean",
+      "source_sha256": "9a87e62b42096fd76d6c70c38b399f9dfd721f3be3e2cf8893c39842ef084f69",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/AffinePositiveVariation.lean",
+      "object_sha256": "d8bf35709d15bfdceeca6701bac0af135086501b6c17c384befd7973b9b0d747",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/AffinePositiveVariation.COMPILED.json",
+      "receipt_sha256": "287db796e110749f6c62ba1c1a1d91cb180a181d2979a1e8eac4daff2a15466e",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/AffinePositiveVariation.olean"
+    },
+    {
+      "module": "ExplicitDiscreteBV",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitDiscreteBV.lean",
+      "source_sha256": "08888a2ce1d4a8eccdca3f4afc76100dd6ada716fa0abc467183c9a1222ae12f",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ExplicitDiscreteBV.lean",
+      "object_sha256": "161e689aaf90c0cb52b5e9a3578f628b39b5a182ab4e60364474e066fef0477e",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ExplicitDiscreteBV.COMPILED.json",
+      "receipt_sha256": "9a8c7d7771ea99edfbec940333d555a751f8b105ed68fc4acaec0930b6dcff09",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ExplicitDiscreteBV.olean"
+    },
+    {
+      "module": "ExplicitAtomicBV",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitAtomicBV.lean",
+      "source_sha256": "5375ef353e9957bdc6f3d64a7a2a40e5ebf01e06dd38160d826fd2df340d9d10",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ExplicitAtomicBV.lean",
+      "object_sha256": "e34cd270a5055fd8c3b33880a7cfef894b764fea29ad3bbf02be0a5b773b9377",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ExplicitAtomicBV.COMPILED.json",
+      "receipt_sha256": "f0f6055a572f9f6a4d02cab4d59cf4e22854157f1c9ec4171e2a6a3b85a77a0e",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ExplicitAtomicBV.olean"
+    },
+    {
+      "module": "AffineWingBV",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/primal/AffineWingBV.lean",
+      "source_sha256": "5c4cfc04171c12e102ee155d2e5b955735bd169a32ed675af91d7c005a0f2cf5",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/AffineWingBV.lean",
+      "object_sha256": "9aa2fc19d604172d4bdacb84e3d01eda4115cdd3bccf074a4696f98d43f1066c",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/AffineWingBV.COMPILED.json",
+      "receipt_sha256": "f182c4ba60f10526889e738480abfa9d42f447e5e954f9a4de877a06b736495d",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/AffineWingBV.olean"
+    },
+    {
+      "module": "ExplicitMontgomeryVaughan",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitMontgomeryVaughan.lean",
+      "source_sha256": "1136c20fa7fd3ef57728f486d023d38d83a6d995739e24526cd03b42bf5dc86c",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ExplicitMontgomeryVaughan.lean",
+      "object_sha256": "4c80777011502d5abbcfdd8c523b502c9fa2550a243d9d611113bc99847a829d",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ExplicitMontgomeryVaughan.COMPILED.json",
+      "receipt_sha256": "09db199253d74d1d0163bb5205b2c9c0f21d4dd761fb9ec007afe75b3985ba12",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ExplicitMontgomeryVaughan.olean"
+    },
+    {
+      "module": "ExplicitMVAtomic",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitMVAtomic.lean",
+      "source_sha256": "c87e1bf74948b4844f52ddd7e86a52bf42047121eb093981ec2e275718bdbbba",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ExplicitMVAtomic.lean",
+      "object_sha256": "de94f39bbbb3471a7ce86ac9e94bb86a46ed75e7e5ec42897b3b844d9724f684",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ExplicitMVAtomic.COMPILED.json",
+      "receipt_sha256": "c40f352c175e3b1ddb6807b3dc4f605183ef6fbf3044a23025fe2c588ce8a50b",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ExplicitMVAtomic.olean"
+    },
+    {
+      "module": "ExplicitPrimeWeights",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitPrimeWeights.lean",
+      "source_sha256": "895f84232cbcd5ab852fb4eb8ce25e3ea92e7fd99bd737e64a258888593e7cc4",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ExplicitPrimeWeights.lean",
+      "object_sha256": "5eb70cac0a6e40ab7861b5cf0821909bea79fc19ddb3de11f8de411936f830cb",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ExplicitPrimeWeights.COMPILED.json",
+      "receipt_sha256": "76898067e82ac14a1be4e723d6d972d5af8a9fa8ee96d163573e46770fa9eec0",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ExplicitPrimeWeights.olean"
+    },
+    {
+      "module": "ActualPrimeWings",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/primal/ActualPrimeWings.lean",
+      "source_sha256": "002f4db854d89730c1fbe0ad665dad620d74f4cce0cd49e856ce64b5415ca094",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ActualPrimeWings.lean",
+      "object_sha256": "b68502d4bfcb9d0eea8c451425580825ff774a37b21700482eee247dba20a978",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ActualPrimeWings.COMPILED.json",
+      "receipt_sha256": "d7ffd9f9cd8264b56f65050fc76e354c51237fc9cc532b7fb9bf84c063960949",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ActualPrimeWings.olean"
+    },
+    {
+      "module": "PrimePowerWindowBounds",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/primal/PrimePowerWindowBounds.lean",
+      "source_sha256": "d1d53febbec42b27a11ecabacbbff7308ed28f3b1e4b79d447a177bea305c8cd",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/PrimePowerWindowBounds.lean",
+      "object_sha256": "77304fbd72c4c2cb5a1148275ac015f88904cf34834dae08744d2462dda23db6",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/PrimePowerWindowBounds.COMPILED.json",
+      "receipt_sha256": "f10acfb143d12f0f203cf41b98b7ae8021cca712cb514a9ae7eda1e3b1cc5887",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/PrimePowerWindowBounds.olean"
+    },
+    {
+      "module": "ExplicitDomain",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitDomain.lean",
+      "source_sha256": "8622b314d6a6ec4cc268ac40ca927072589d40107bd65e31814519abd2bc3cf2",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ExplicitDomain.lean",
+      "object_sha256": "96e07fa45e327503fd0b473a6c31f5037d0d79478a87db649affd55f3d48ca84",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ExplicitDomain.COMPILED.json",
+      "receipt_sha256": "3dc14bb0cb08949c76d0e3f96015f58420616f16a978e473c064ac5ac78b9a50",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ExplicitDomain.olean"
+    },
+    {
+      "module": "ExplicitWindowErrors",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitWindowErrors.lean",
+      "source_sha256": "9c06c45aa17c6b03fa59de79141f2f8c8251cad4cfe5b3199ce8ead829a5ee37",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ExplicitWindowErrors.lean",
+      "object_sha256": "d9d962caad3ebccacf0a26d7c93328ae3bc1c6d436b5bae21ee4b9d2505d6a81",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ExplicitWindowErrors.COMPILED.json",
+      "receipt_sha256": "a5f09ca07948eed8235cfcd2a1d60af64ff1f6a3e2eae197344a4ac710afbd5b",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ExplicitWindowErrors.olean"
+    },
+    {
+      "module": "ExplicitPrimePowerAllowance",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitPrimePowerAllowance.lean",
+      "source_sha256": "d10c2d990911dd7cdaa2694d1511f03491f3fc292a2cac11d7df54c70f2e4b6d",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ExplicitPrimePowerAllowance.lean",
+      "object_sha256": "6f209ee02b3282facd07425f1a582726ed11be799af84350e22e7b65f95bc586",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ExplicitPrimePowerAllowance.COMPILED.json",
+      "receipt_sha256": "38a8dbfa6f9d570c5666e76170f83f982e7b28081cbb01371a38727d0bacf03c",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ExplicitPrimePowerAllowance.olean"
+    },
+    {
+      "module": "ActualPrimePowerAllowance",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/primal/ActualPrimePowerAllowance.lean",
+      "source_sha256": "188b380fac3df169dd0277d7d5a15f258c4df2919f3bd15afd60b1e88c10c419",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ActualPrimePowerAllowance.lean",
+      "object_sha256": "0de44b6f12bd3b972361bcb4ae603d24fe004237245a472815277fb002ad42aa",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ActualPrimePowerAllowance.COMPILED.json",
+      "receipt_sha256": "5de7aee69332fc8f9cbd6754ae57f6a3dc65de55ee840cfba27769a29a61a908",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ActualPrimePowerAllowance.olean"
+    },
+    {
+      "module": "ActualArithmeticSplit",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/primal/ActualArithmeticSplit.lean",
+      "source_sha256": "d1d3a1a23d0b2551fb381ddf6c391031a0e21b71b361beede30a89435944c267",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ActualArithmeticSplit.lean",
+      "object_sha256": "308fcba2454bedaeb7d8fcea88722f049740c728c37758728b39d147e3c30a77",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ActualArithmeticSplit.COMPILED.json",
+      "receipt_sha256": "989fefcf704704226f6ddd08196e39a1a5d554bd614df572a27937dd98d7ed8a",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ActualArithmeticSplit.olean"
+    },
+    {
+      "module": "ExplicitNodalMoments",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitNodalMoments.lean",
+      "source_sha256": "26876d77551a880a53f064c4446f3632c6f9905f17c59f49c5b49294195f19ed",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ExplicitNodalMoments.lean",
+      "object_sha256": "59bba774ab62cfcc0f416c1d687f078e279eca60a45a57adf34c8ec6a3608de6",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ExplicitNodalMoments.COMPILED.json",
+      "receipt_sha256": "71e44500bff619fbbdd843d77e2ceffa1f7148041446527a0a4f2ef0e746fe52",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ExplicitNodalMoments.olean"
+    },
+    {
+      "module": "ExplicitPoleError",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitPoleError.lean",
+      "source_sha256": "2c9731760ac7b1c9d41a992f30b9c1b18a23969fcb72d9406edf4367e72369ce",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ExplicitPoleError.lean",
+      "object_sha256": "736597d708fc836330879bf315a0f241fe288c91c17e6e7b057417bcd92f6317",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ExplicitPoleError.COMPILED.json",
+      "receipt_sha256": "a13bae1b2e42d6399591e90539072ba676c90a2da2524001fe754562259eeea5",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ExplicitPoleError.olean"
+    },
+    {
+      "module": "ExplicitPoleQuantitative",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitPoleQuantitative.lean",
+      "source_sha256": "56bcfe4b3f045410a6eb91630aeaf76e272aaa08c7764bd31c635b59f60da06b",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ExplicitPoleQuantitative.lean",
+      "object_sha256": "1ce0e1caef4a6dde2ce27e535a7b86a515ae8dcf43979fb653d48f17a986fea5",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ExplicitPoleQuantitative.COMPILED.json",
+      "receipt_sha256": "74868305ac022be37b4ccccfe5b2d14c1c327a88d5b9f89a94d2930991a9dd9a",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ExplicitPoleQuantitative.olean"
+    },
+    {
+      "module": "ExplicitAffineDerivative",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitAffineDerivative.lean",
+      "source_sha256": "1c490ac9aa45879a0b9998cf70ede5273df732060ca102ea5d5987f3fe8156a2",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ExplicitAffineDerivative.lean",
+      "object_sha256": "00bf2bef75cbe5d9e7501a662bfcc71d64c711c601100d72db7d63124ba80a0e",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ExplicitAffineDerivative.COMPILED.json",
+      "receipt_sha256": "1f2a58d5f6d3c6f7f13087b9aa0b93021dfb4fe4cfb55164b919eff1abdba87b",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ExplicitAffineDerivative.olean"
+    },
+    {
+      "module": "AffineDerivativeBounds",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/primal/AffineDerivativeBounds.lean",
+      "source_sha256": "a975cb20584e728de867b3f20b92c0c48dcb4d3b4f6c3ee411ade6edd8ad69f3",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/AffineDerivativeBounds.lean",
+      "object_sha256": "3dd1012297a3d2dda867fc9cd3069e97b4611f7c7184b97cdc8555ee3afd5d40",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/AffineDerivativeBounds.COMPILED.json",
+      "receipt_sha256": "776488a7dda690ade83d172430c35a113fb0f776cce8b9a449e2a9a342204b82",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/AffineDerivativeBounds.olean"
+    },
+    {
+      "module": "ExplicitZeroRemainderIntegrals",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitZeroRemainderIntegrals.lean",
+      "source_sha256": "a6a65102ec0f1188aadf36c3c3b7ef5d980303c8172915a3ac37a85c197ea919",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ExplicitZeroRemainderIntegrals.lean",
+      "object_sha256": "0de108459b75b8b8c1199e7ba6d9c38b8334215971732b3c0085ce9170913de2",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ExplicitZeroRemainderIntegrals.COMPILED.json",
+      "receipt_sha256": "85dd97136f65fd2dd6cb60d5cab344ef2256d860600be6c089bebde44786b9ec",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ExplicitZeroRemainderIntegrals.olean"
+    },
+    {
+      "module": "ExplicitAffineZeroRemainder",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitAffineZeroRemainder.lean",
+      "source_sha256": "1669cb9f5929eca6c8dd644967029816f8aa2a6f6ddb1fd75d795e58632b3889",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ExplicitAffineZeroRemainder.lean",
+      "object_sha256": "2889869c75262c81d79261f514d87af8d4bad56f0cd58216424032b6ae42da66",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ExplicitAffineZeroRemainder.COMPILED.json",
+      "receipt_sha256": "2a8092d972e7b6d7f639d7cd04cb7c336c653c7db0b45db61da2974001520114",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ExplicitAffineZeroRemainder.olean"
+    },
+    {
+      "module": "ExplicitMellinZeroBound",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitMellinZeroBound.lean",
+      "source_sha256": "07fd0147a31508da4b71784ab1cf60c19cea0382344421720701a01689735f78",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ExplicitMellinZeroBound.lean",
+      "object_sha256": "64debdce5af9a23bbdcb962785c1e403ff8841881751cd54d2c96e4831dd60ba",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ExplicitMellinZeroBound.COMPILED.json",
+      "receipt_sha256": "003a481662df88e1a75d462f3de31355f834aa4d91bda54f7bd78dc9559d3738",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ExplicitMellinZeroBound.olean"
+    },
+    {
+      "module": "ExplicitZeroBoundary",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitZeroBoundary.lean",
+      "source_sha256": "a78a7a60eec46d977af8cf65e128a5283c0519764807c89c6c5ae9b0d1135b05",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ExplicitZeroBoundary.lean",
+      "object_sha256": "6e3cae82c64525988e16828957104090d8e34cf61df200a980222a62866ad81e",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ExplicitZeroBoundary.COMPILED.json",
+      "receipt_sha256": "d67a6e8ab2ce8b39532c07b59d66d4c330c7253262fa4fa1684d4035556d100a",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ExplicitZeroBoundary.olean"
+    },
+    {
+      "module": "ExplicitAffineSignedMoment",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitAffineSignedMoment.lean",
+      "source_sha256": "bc71532100b346aecbec7bc40b88accd737f886da8ddee61118cb35e447cc004",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ExplicitAffineSignedMoment.lean",
+      "object_sha256": "cca41a9c88393ec91930ebebbe5c797d934d2642d28655a5962c4e130cda0d9c",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ExplicitAffineSignedMoment.COMPILED.json",
+      "receipt_sha256": "286b13fc460b61d1771d1e14fb1355e2890bcad0418251b4e9b4627c67468010",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ExplicitAffineSignedMoment.olean"
+    },
+    {
+      "module": "ExplicitTruncatedLogDensity",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitTruncatedLogDensity.lean",
+      "source_sha256": "3aaeb0f8314f84d36e259bfefab6919c899a8ce0210db401f4d9b363ddfcb514",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ExplicitTruncatedLogDensity.lean",
+      "object_sha256": "10d96f051d75b8d9a3bf87aa1e9c7d0ee3b501bf60d02c1cdc0d864c0987e4bf",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ExplicitTruncatedLogDensity.COMPILED.json",
+      "receipt_sha256": "ab9e57083f8c596170a4ea64e630209b8ec2b6a24c25de3df1a5469e5f7aeaa5",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ExplicitTruncatedLogDensity.olean"
+    },
+    {
+      "module": "ExplicitAffineZeroAdmissible",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitAffineZeroAdmissible.lean",
+      "source_sha256": "1888b3c8b486ec7942b4bee706bacf4691b4f16ae39ef60bc173531b5cef91c1",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ExplicitAffineZeroAdmissible.lean",
+      "object_sha256": "54ab6a3d315981edb139e49e7f666d12311a0d4c4e825e0c2aa6668bca34282a",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ExplicitAffineZeroAdmissible.COMPILED.json",
+      "receipt_sha256": "f9e22825ed5ecc1b760605f0edab6e70e386e1c35229ab14f02cb71d56c769e4",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ExplicitAffineZeroAdmissible.olean"
+    },
+    {
+      "module": "ExplicitAffineZeroEstimate",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitAffineZeroEstimate.lean",
+      "source_sha256": "7e5193d03230f97aa9f74228f3ed02964a096181fd85ebb08e351e14c5b7f58c",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ExplicitAffineZeroEstimate.lean",
+      "object_sha256": "3483f3b3555227578e9a919aa154462ed6c06b9cdd9ae4b1e351d73c9e723d3e",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ExplicitAffineZeroEstimate.COMPILED.json",
+      "receipt_sha256": "86f5673980e1bd5022d4796b15e5728fbbf62ab0ca47a4921071c2aeaab72a80",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ExplicitAffineZeroEstimate.olean"
+    },
+    {
+      "module": "ExplicitZeroAllowance",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitZeroAllowance.lean",
+      "source_sha256": "664543af260189637c5c104c135ca141d1586d3f468eb74cefb89ce9fe00c6bb",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ExplicitZeroAllowance.lean",
+      "object_sha256": "7bd200d77e4129ac5c4211b2560bb314b56eab09073bb689bbb4d14d8f13f6f0",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ExplicitZeroAllowance.COMPILED.json",
+      "receipt_sha256": "5910e268d79d5463c1bd8787420fa62db006819dc0b1a119081f1f215617cead",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ExplicitZeroAllowance.olean"
+    },
+    {
+      "module": "ExplicitTrivialError",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitTrivialError.lean",
+      "source_sha256": "d4acf229df2ad23ec080f76f94f1d5df4a6c81b730e959d376db1b97c4c1818e",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ExplicitTrivialError.lean",
+      "object_sha256": "93cd3863fe773b9b78af03f0791ce1f66c93c0b8be7a95f544a90525b9219042",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ExplicitTrivialError.COMPILED.json",
+      "receipt_sha256": "fd7985f26cf79355030a3e331cdf952c24e8c0ba0da163644e70dd94492f70bc",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ExplicitTrivialError.olean"
+    },
+    {
+      "module": "ExplicitCMSZeroRoot",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitCMSZeroRoot.lean",
+      "source_sha256": "70c773a166f57a9e5b5262a1a9cd2dd4641a1677f78b74a5f424a8b97ac19ec9",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ExplicitCMSZeroRoot.lean",
+      "object_sha256": "60a29893d6ab329b03ee1e83a634345ef116f0284b30b51de856dea6572f80db",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ExplicitCMSZeroRoot.COMPILED.json",
+      "receipt_sha256": "b361544c2d6e06e94ce8c27c29f74753f4c363abb9d879c7b8735d099adf677d",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ExplicitCMSZeroRoot.olean"
+    },
+    {
+      "module": "ExplicitMellinLower",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitMellinLower.lean",
+      "source_sha256": "7cdd3f8ee37d9e4c5ddc1a686d8a9389df9a65882bdb394c6585eaaf4018c140",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ExplicitMellinLower.lean",
+      "object_sha256": "5e81a79496a36afb56b4426d9f84c95793c8ede32f4bff0b0cddb4bfc53f2e80",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ExplicitMellinLower.COMPILED.json",
+      "receipt_sha256": "3ec179eef92ede6c4583d6fb35252f4c0b8a73f94f1cf2500650850f31b0106e",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ExplicitMellinLower.olean"
+    },
+    {
+      "module": "ExplicitMVConstants",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitMVConstants.lean",
+      "source_sha256": "c587862210d3aa4c9573ff412e5d1992cad7c8fc61aa5041d1fd89f39c2ba2f2",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ExplicitMVConstants.lean",
+      "object_sha256": "e82391854981f561c39970ba79a7e77836e7b7160733398e0129b0858242f0fb",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ExplicitMVConstants.COMPILED.json",
+      "receipt_sha256": "82fc33725a50ba53d65af26c72d41f3e696c7cf36fa7c065b8def7a6c1fbc8a7",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ExplicitMVConstants.olean"
+    },
+    {
+      "module": "ExplicitResidual",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitResidual.lean",
+      "source_sha256": "fd6a166fac185f75abeb93f94f75271b5c77710dcdfcfc0653cf091c40b564fa",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ExplicitResidual.lean",
+      "object_sha256": "f8b30a8e3720ffee0ae2ba030acfaaf883aa6db8722bb92e7671f82307e39372",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ExplicitResidual.COMPILED.json",
+      "receipt_sha256": "274a38267f5ec5bfa32ea5a92b3fa0a4be5e14ffebb6cb761ece8673d774ac8f",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ExplicitResidual.olean"
+    },
+    {
+      "module": "ExplicitCentralPrimes",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitCentralPrimes.lean",
+      "source_sha256": "b4b4b179fad330d9dac63f0257ad2d529310b856e1fdd933076a3e1b73f9efda",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ExplicitCentralPrimes.lean",
+      "object_sha256": "5e7417286ac127b87d65f796205a21521d9f76fbee2770cd43370e9faa5c2d72",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ExplicitCentralPrimes.COMPILED.json",
+      "receipt_sha256": "75abac0040a2b05930ff5676e9651780fa4548ce63cf325e1b4804b74e60330e",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ExplicitCentralPrimes.olean"
+    },
+    {
+      "module": "ExplicitErrorBudget",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitErrorBudget.lean",
+      "source_sha256": "1d1fc25db133d95e560619a85047c22652a2b1a931e1fbee04a8d89b1a8858ec",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ExplicitErrorBudget.lean",
+      "object_sha256": "b79264144300484f43b4b8616ddf09aca00b126681c05ab2e0dc288a1b2e3db2",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ExplicitErrorBudget.COMPILED.json",
+      "receipt_sha256": "01f479d21784aafb46ad1a09ffc643d1cf1073d9f8492ef6c8eb4c71136e97c4",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ExplicitErrorBudget.olean"
+    },
+    {
+      "module": "ExplicitAnalyticTransfer",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitAnalyticTransfer.lean",
+      "source_sha256": "d08dd7b1baa5d7911e3d57daf66daeee1a29373d5159bbf39a8be1a2d61cad1d",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ExplicitAnalyticTransfer.lean",
+      "object_sha256": "1182ca89613c26099070cb06a2f648a2e7ea5df6a660ad68c6a2691dd564ba61",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ExplicitAnalyticTransfer.COMPILED.json",
+      "receipt_sha256": "11594275040135d8d386e87ccab9311309d7f99e678e7b57f5b7f00c5c52d677",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ExplicitAnalyticTransfer.olean"
+    },
+    {
+      "module": "ExplicitScalarLogBounds",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitScalarLogBounds.lean",
+      "source_sha256": "22fb83257002c89814d7b5970b1e1908c6007d4f94deb1eaa5e36389282b02a7",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ExplicitScalarLogBounds.lean",
+      "object_sha256": "a82b2704d4df16c708de988c28f62443a1e7ab1f68f8b1f858336d373181349f",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ExplicitScalarLogBounds.COMPILED.json",
+      "receipt_sha256": "02d494beb1736e287a80af38a8214809b2cb1fc8d42f9dea702b36fe7af2eee3",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ExplicitScalarLogBounds.olean"
+    },
+    {
+      "module": "ExplicitProfileScalars",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitProfileScalars.lean",
+      "source_sha256": "fe99e472e665aaf960819d1f55f9a3469245f3cd8c4e820d250cca2fd20a7fb8",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ExplicitProfileScalars.lean",
+      "object_sha256": "390ae9c866ffbfa88fd597306fd90359357068b1fc1604f1fb9a5bc2d09cff07",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ExplicitProfileScalars.COMPILED.json",
+      "receipt_sha256": "ac0a9502d85f21239d21bbaf879119a4a502dbaaf8ec8d98e95fdc0212ea096f",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ExplicitProfileScalars.olean"
+    },
+    {
+      "module": "ExplicitProfileResiduals",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitProfileResiduals.lean",
+      "source_sha256": "082aba97ef2b9ed45709993fff7cf61f5d5c50264f45286d273ea9dbd5a92764",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ExplicitProfileResiduals.lean",
+      "object_sha256": "02a84deb085d2ab17de016a08910ab2293a237f75d3083601a0f106174895d58",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ExplicitProfileResiduals.COMPILED.json",
+      "receipt_sha256": "d9ba24fdf747322af8a4d75e8a90029a81b67f3703cd472d6b3a3a9f5bc34e4a",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ExplicitProfileResiduals.olean"
+    },
+    {
+      "module": "ScalarInputBounds",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/ScalarInputBounds.lean",
+      "source_sha256": "5352d99b473fc9ad4ad53ff6996e7442a120d3746538a9ba9651e246d3030eb4",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ScalarInputBounds.lean",
+      "object_sha256": "be87bd8e41c17c74932b354cef23cdfaa2dc4b1ff8c50183e740219e8d329039",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ScalarInputBounds.COMPILED.json",
+      "receipt_sha256": "67e92e97da6f181cc3efd1ea664974487fdf04fa94b6d8d71c3e5265e824db85",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ScalarInputBounds.olean"
+    },
+    {
+      "module": "GoldbachDirect.Syntax",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/GoldbachDirect/Syntax.lean",
+      "source_sha256": "cedf8c83f3e0701ec3ca39c205ba0a5d8bc731fc63395193cbf8d26520bf38e7",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/GoldbachDirect/Syntax.lean",
+      "object_sha256": "e5ed007235912655cd179b2d71cb41df28198735a03bd6398797a095ae1d17e2",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/GoldbachDirect.Syntax.COMPILED.json",
+      "receipt_sha256": "154b876ab8d882ccf26a309578347f7cbd31835e7fdc1af20430c3338a4c9f4b",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/GoldbachDirect/Syntax.olean"
+    },
+    {
+      "module": "GoldbachDirect.Correspondence.Lexical",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Study.v1/pv/lean/GoldbachDirect/Correspondence/Lexical.lean",
+      "source_sha256": "96b059cbc8cd3c0d2d08b2955727ab1db5470e053d890b37b34dd65f636a4677",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/GoldbachDirect/Correspondence/Lexical.lean",
+      "object_sha256": "349f72bd2e1e2c7ed7ad1879b5ec6cd30815dee9ca687df230738088a2739256",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/GoldbachDirect.Correspondence.Lexical.COMPILED.json",
+      "receipt_sha256": "7d45112344f6aa8f9ffee53e17c8feac4bfb4fecba2cdaed9af2437858492bd4",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/GoldbachDirect/Correspondence/Lexical.olean"
+    },
+    {
+      "module": "GoldbachDirect.SourceCheck",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Study.v1/pv/lean/GoldbachDirect/SourceCheck.lean",
+      "source_sha256": "4cf9208ac9d9e6629819cd35e0e47282094a190ac312f7cc22e6c4b646306745",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/GoldbachDirect/SourceCheck.lean",
+      "object_sha256": "0e3ac3bcf989988a85fcd1d934816824784e366a86a122b523d153de6e71bd5a",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/GoldbachDirect.SourceCheck.COMPILED.json",
+      "receipt_sha256": "f520f800fbc610edd8c9fec4bcb78e15e05123087c4174e355b8dcf1d18ba5eb",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/GoldbachDirect/SourceCheck.olean"
+    },
+    {
+      "module": "GoldbachDirect.Correspondence.Expressions",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Study.v1/pv/lean/GoldbachDirect/Correspondence/Expressions.lean",
+      "source_sha256": "02d7d08cf8876ec985bba5fd4a942a17e3c18946fb0ee43f2ead96d78f83ceca",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/GoldbachDirect/Correspondence/Expressions.lean",
+      "object_sha256": "79aed951e7f63f8c03cd9b6eed19a6fb729a5991e9d2d252bef931e3573a6eec",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/GoldbachDirect.Correspondence.Expressions.COMPILED.json",
+      "receipt_sha256": "65f5f3a675ddc1046d02a9580b0cd3ad6012f44d3e3316ebff7c06eca224e0d6",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/GoldbachDirect/Correspondence/Expressions.olean"
+    },
+    {
+      "module": "GoldbachDirect.Correspondence.Statements",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Study.v1/pv/lean/GoldbachDirect/Correspondence/Statements.lean",
+      "source_sha256": "0b0b7429878e6866789305d91771389c48a0d543ead8c6222bc97e66d87d09ae",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/GoldbachDirect/Correspondence/Statements.lean",
+      "object_sha256": "faedacbc842cd9d3e96254e6b23afb01885d3f25a48e7f23776673ca6f63aaed",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/GoldbachDirect.Correspondence.Statements.COMPILED.json",
+      "receipt_sha256": "50c7ac20af6cc500cb7e8998d5bef06457229c28b09ba79c266dbc8dde12afa9",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/GoldbachDirect/Correspondence/Statements.olean"
+    },
+    {
+      "module": "GoldbachDirect.Correspondence.StatementsProofs",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Study.v1/pv/lean/GoldbachDirect/Correspondence/StatementsProofs.lean",
+      "source_sha256": "251b5acc37e1880c15fb8cd9ac94f2e5e07ace85294e3aca0f847c89b5c0fb4d",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/GoldbachDirect/Correspondence/StatementsProofs.lean",
+      "object_sha256": "8ac0764559a58a75854758e31240b64f5a9d9b6f63239acf450d479b0919cfb3",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/GoldbachDirect.Correspondence.StatementsProofs.COMPILED.json",
+      "receipt_sha256": "8291e6723ddcdb7eed40a0d9df4ef378dae9ebdb9ee72424413975ad5dc7d463",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/GoldbachDirect/Correspondence/StatementsProofs.olean"
+    },
+    {
+      "module": "GoldbachDirect.Correspondence.Preprocessing",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Study.v1/pv/lean/GoldbachDirect/Correspondence/Preprocessing.lean",
+      "source_sha256": "cff0ae176c02b4e24e1714edcd83f714991d62ad0811f6378dfddda9ccd5ead1",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/GoldbachDirect/Correspondence/Preprocessing.lean",
+      "object_sha256": "5db893376d4c04caa5c705d4aa514829d07cc6d987726478990178e62072b428",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/GoldbachDirect.Correspondence.Preprocessing.COMPILED.json",
+      "receipt_sha256": "7ad9cc03f5fbf80097aab36f2e0cf0704b55cc0e39400105b01af0691b447224",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/GoldbachDirect/Correspondence/Preprocessing.olean"
+    },
+    {
+      "module": "GoldbachDirect.Correspondence.Specification",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Study.v1/pv/lean/GoldbachDirect/Correspondence/Specification.lean",
+      "source_sha256": "d9cc12573d198553819d4cad3a5ce68ae4e34d0f19a96b0e3cd57e8fa769f74b",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/GoldbachDirect/Correspondence/Specification.lean",
+      "object_sha256": "da3747ca8bd2caeb857f5d8260a2c1310438008db2b54e054b747683c1c88fe3",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/GoldbachDirect.Correspondence.Specification.COMPILED.json",
+      "receipt_sha256": "821625de66173c07ee62f7bd390c2eb34eba98ac2bc343bc3e39a70db9818a00",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/GoldbachDirect/Correspondence/Specification.olean"
+    },
+    {
+      "module": "FapAST",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FapAST.lean",
+      "source_sha256": "9c31da256a2c8f838cc179bcf39ed6ae806662b6fd991ee35c691ba07a8dfca3",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/FapAST.lean",
+      "object_sha256": "aa1e906adaee749bef327c7500139ee22ff054fcb337821c80d13a58d4e29e41",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FapAST.COMPILED.json",
+      "receipt_sha256": "84f32cb639aa7a1e67969e5b3897f5b995b313f1c04ae9c6d69ea575dbb989a9",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FapAST.olean"
+    },
+    {
+      "module": "FapSource",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FapSource.lean",
+      "source_sha256": "782cd3d74bc957af63e5c8fbf24121b835b6244a1b86d9db75520ae707272e9d",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/FapSource.lean",
+      "object_sha256": "a8e4957d5fdcaf36bdf94468e843f662217a2157fc8e78cac3ffea2dd2acd1ab",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FapSource.COMPILED.json",
+      "receipt_sha256": "ca2a132eed68ce121755a60ccb6a7c764c8b9b4e80d7119dd5ff1ffea45636bf",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FapSource.olean"
+    },
+    {
+      "module": "ScalarHost",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/ScalarHost.lean",
+      "source_sha256": "c5faab9bd4b2ee126618f93c16738c848f8c8e5702a49c04db63bfc15649fee8",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ScalarHost.lean",
+      "object_sha256": "2f848c7e4cbc15809c0eb61c373f121ed9d164e584049dee6657eee2bc080ef7",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ScalarHost.COMPILED.json",
+      "receipt_sha256": "f9189e7056414ca5320b1f97315757a3f169cc5f743f251404c09bb37c8ca90d",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ScalarHost.olean"
+    },
+    {
+      "module": "FapExecution",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FapExecution.lean",
+      "source_sha256": "68ff1fba553d50523ee4155ee5cbeb82e4c51593a0b359f7c8a1efb5c9efe8c1",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/FapExecution.lean",
+      "object_sha256": "1cd5f2b135fdfab55ed0a16727d695e1cf4c10ab04146e4b5aeec090da06a0fc",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FapExecution.COMPILED.json",
+      "receipt_sha256": "15e591fa52fae25a0fa2a4f2ae690d64eef1a328bc4c199ad11c0d6db7d28b6f",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FapExecution.olean"
+    },
+    {
+      "module": "FapActualF0",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FapActualF0.lean",
+      "source_sha256": "2319949c64f19cfa958c72b7132f30b093c5a8fa8d5a90a9ddba488edf875a8e",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/FapActualF0.lean",
+      "object_sha256": "b6194704e7286eedda259689aa9d33a2bd57ed572f546d456e26e56d37cf307b",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FapActualF0.COMPILED.json",
+      "receipt_sha256": "9b8c77614d4fe3d629733dbf1565565d9d42fd79515ee857b89467c38909bc57",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FapActualF0.olean"
+    },
+    {
+      "module": "FapActualArea",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FapActualArea.lean",
+      "source_sha256": "264b181891468b76ac3745d16d35170e6ef5ee57f018258ed20c795f5ba445fa",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/FapActualArea.lean",
+      "object_sha256": "0728e380152c998ba9b35b0357eecb763eb31e1cc294e568dc534511a57a66ed",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FapActualArea.COMPILED.json",
+      "receipt_sha256": "6d087bc403278a0e8f71a0f2b21b5ff4e5118f4f0505cb9960a7e2c8bd78834b",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FapActualArea.olean"
+    },
+    {
+      "module": "FapActualHeight",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FapActualHeight.lean",
+      "source_sha256": "1afc2dacf5217a421f20f40b853aecf6d6a55d07811a02ad61ad703b25afa78f",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/FapActualHeight.lean",
+      "object_sha256": "9667310744b8ed4e1f7df0ec489b6e52bfbc58bc68ef18efb15960fa797a3aef",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FapActualHeight.COMPILED.json",
+      "receipt_sha256": "d8d2c133b6fc3cb4b9a11cb498066b95a7aaf871ca2656c709f9d189f966b0e2",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FapActualHeight.olean"
+    },
+    {
+      "module": "FapActualV0",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FapActualV0.lean",
+      "source_sha256": "2b988dd555b61d85f3c684e4a656f62a365fe043c244b73c68682a9f46c9a5c8",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/FapActualV0.lean",
+      "object_sha256": "a16e8d0e106f9fe62fe1b1f9d516a48e0a8a6cc89db4b1d79ec98e607eb1671e",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FapActualV0.COMPILED.json",
+      "receipt_sha256": "3e2e144732989b7af07547680bb2d99393a43db1764a1b3fc4dea19b520ce00c",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FapActualV0.olean"
+    },
+    {
+      "module": "FapActualV1",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FapActualV1.lean",
+      "source_sha256": "c3c66f1a869c6ec89269ecff739819b50e6dd8b0f51cc1311e5ca43f9d9343cf",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/FapActualV1.lean",
+      "object_sha256": "fc7cc4e48c10966c0104bca4c5a91b5918cae7afc511b18df3e8f886a581758c",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FapActualV1.COMPILED.json",
+      "receipt_sha256": "f3266ec24a2f8fc2fab90448329ce0086d053b0a2eef3ed61a1e357f54f4887b",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FapActualV1.olean"
+    },
+    {
+      "module": "FapActualMu2",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FapActualMu2.lean",
+      "source_sha256": "80fd2bd0d445389caeb02123a991778164a7c2af9fac987b0abd160d0b525d64",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/FapActualMu2.lean",
+      "object_sha256": "680b09606daf2e7031ba8e533bd26906faf3bf71fa2fb0212dc7f1b74938e8bb",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FapActualMu2.COMPILED.json",
+      "receipt_sha256": "0ce1672b47d54457b6ec40317c8a0f62bca2768471491eda557c97d0929c8878",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FapActualMu2.olean"
+    },
+    {
+      "module": "FapActualMaximum",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FapActualMaximum.lean",
+      "source_sha256": "3073917719dd0dcb2f75c6e166a38e2d19d2f289df701af58670da6b182db2ae",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/FapActualMaximum.lean",
+      "object_sha256": "feab5df7b660fdc9adbfae5110846e5b0fc515ab3682811ad309efb2598c5589",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FapActualMaximum.COMPILED.json",
+      "receipt_sha256": "db3c6a6db63e4dabd9ba13550220cacb35f747cc75634f248d633d8ea0291df3",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FapActualMaximum.olean"
+    },
+    {
+      "module": "FapMain",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FapMain.lean",
+      "source_sha256": "09ecc5d04f6610cb0a5531f109a340237dd653788b5fb09c8eaca1b08d40126e",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/FapMain.lean",
+      "object_sha256": "9fba68c3891f53d91740856e4f28c3d1972f32bd371876bb08d29d572de10235",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FapMain.COMPILED.json",
+      "receipt_sha256": "340434a664b82ad3cf57dafbdef9eda5a07a9cbdeb573f7db87a8cd9462ccd51",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FapMain.olean"
+    },
+    {
+      "module": "FapData",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/FapData.lean",
+      "source_sha256": "3a58f1facab921d36eaa156038ebc557fcf5d92e2bf5c441551d9cdb673c8c29",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/FapData.lean",
+      "object_sha256": "449c720be461c702444fe1fd3c50ad380fd0abfea90ff5b483742bc37ec230fd",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FapData.COMPILED.json",
+      "receipt_sha256": "16e109b7f5bcc15bca04356968653524f37eb2ce394ff69d758eda44e7a32302",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FapData.olean"
+    },
+    {
+      "module": "FapAffineData",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FapAffineData.lean",
+      "source_sha256": "3f8a6d093145edf8f77e88fd3348b0434b1872753e1b50d13ad6bbc99cca39c3",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/FapAffineData.lean",
+      "object_sha256": "5f4e1d406ec7029a316c0d035e0a47ab4553d94983ae86b5372d6bc6e9e3dec9",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FapAffineData.COMPILED.json",
+      "receipt_sha256": "3cc95ffc8e9859e90902570d6062b3f666aa1b122ca22d6d817a309a3c7129c8",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FapAffineData.olean"
+    },
+    {
+      "module": "FapModel",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FapModel.lean",
+      "source_sha256": "89efad9fb153be6ff1729f8de39bb2de9812f4b0bdc9ee88e86e62abcb28b221",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/FapModel.lean",
+      "object_sha256": "de861ff2570dadfe00ca8d4aff128c6b0081baad0035c62fb4f7305a145a8ab4",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FapModel.COMPILED.json",
+      "receipt_sha256": "8372163feb865a872c7e78108e581b424174988f12f20b1d0780a505c51a7c6a",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FapModel.olean"
+    },
+    {
+      "module": "FapRationalBridge",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FapRationalBridge.lean",
+      "source_sha256": "e6b1a35654a11bd879fb0fea651895eae6f7c554f4761cc736999680ce785049",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/FapRationalBridge.lean",
+      "object_sha256": "417925cb5824caee0bf88eb8238a2a651c5fd84b298321fc59c2fe20ffcd0515",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FapRationalBridge.COMPILED.json",
+      "receipt_sha256": "510295bb62c1223afac8529c81d991b89b465cc2b4eb3e40f3430a6d51d129aa",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FapRationalBridge.olean"
+    },
+    {
+      "module": "FapSourceFinal",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FapSourceFinal.lean",
+      "source_sha256": "c62f087920fa755820f1ceb43ff5266787557f27b0f6f805c20e89f7e63e69b6",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/FapSourceFinal.lean",
+      "object_sha256": "6785795dbefb86c0be483b28a3e63d1bf26b8b340e23d6f39ea10d31d33456c2",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FapSourceFinal.COMPILED.json",
+      "receipt_sha256": "483d44ad83d1fe0440753840496649f49cf41d63ff86c99437f1d99a8af7207c",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FapSourceFinal.olean"
+    },
+    {
+      "module": "FapInputBounds",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FapInputBounds.lean",
+      "source_sha256": "1a0e91a3c2ee7e71cbb5711df8e1ed617592556c936aa75648c44421351bbf32",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/FapInputBounds.lean",
+      "object_sha256": "17e608d9372e6cffa0da0469d7a6f7ca082fe4cbdc1fa025c2c35195927225fb",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FapInputBounds.COMPILED.json",
+      "receipt_sha256": "f326d279e0776e4b03135e205a01e1128372c8197d0418da959a286d5abfddf0",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FapInputBounds.olean"
+    },
+    {
+      "module": "ScalarPositiveArea",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/ScalarPositiveArea.lean",
+      "source_sha256": "45d32212cb843744564b16bb5404973bee9dced6df1e5f117f81e980b9830e41",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ScalarPositiveArea.lean",
+      "object_sha256": "f90b850471569a74df577024d4c8052762bb9cfc75b1abbb5b00594d90d8c5f4",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ScalarPositiveArea.COMPILED.json",
+      "receipt_sha256": "02ce21d38b243cde04ed8117e6ce5cde865da90ae2462b8eb47d9b2d6e633915",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ScalarPositiveArea.olean"
+    },
+    {
+      "module": "FapPositiveArea",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FapPositiveArea.lean",
+      "source_sha256": "3f0afd0f1579e19beed636d42164faececbb36adb7ca74b9ec20d22234950316",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/FapPositiveArea.lean",
+      "object_sha256": "cad0d1605455709c06e8d573a5720a4891e83662a613ecc1c24145bb89493331",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FapPositiveArea.COMPILED.json",
+      "receipt_sha256": "be603c99788d6208ba40e7640b4def84f4dc55a45db7aea5d42e52489e9fb23a",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FapPositiveArea.olean"
+    },
+    {
+      "module": "WindowAST",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/WindowAST.lean",
+      "source_sha256": "4161dd920d06c9edbfe2f60b1fb756ac6d4add0f6efe90e1667f3939a492dc18",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/WindowAST.lean",
+      "object_sha256": "08d6527823b7380742f7cf57afc13107ebf1c683fd84d0cc022dfce8a56907e7",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/WindowAST.COMPILED.json",
+      "receipt_sha256": "c3e6413613a4465979e03620a5adb571fe38e2e70d4f59b9436704a0731f159f",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/WindowAST.olean"
+    },
+    {
+      "module": "WindowSource",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/WindowSource.lean",
+      "source_sha256": "ef1948628a47e8a28a3ebba35e1a8e142f7cbb1cc7794abfc6c65a6cef773cda",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/WindowSource.lean",
+      "object_sha256": "f653d7c79203bd24509b50e62c75986237cb78850c0fb5a3c86612fd9087c3b8",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/WindowSource.COMPILED.json",
+      "receipt_sha256": "2803bf143c92924b3238ea365d926196f92c5f107eee77a581cbe96a98c0416c",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/WindowSource.olean"
+    },
+    {
+      "module": "WindowExecution",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/WindowExecution.lean",
+      "source_sha256": "2204b2c80d3ac58bff2c397665056385bbfa28866ff3ab3beb4c3e623fd78dfd",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/WindowExecution.lean",
+      "object_sha256": "b7928dfddaa4db155ecc83101d14d15b3541eeb18169c1bbbaa24caa9a9fbc5a",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/WindowExecution.COMPILED.json",
+      "receipt_sha256": "9fff1525a5e18aa31ebe6b0810f9ead442c931d51d069dc7f82251aef487eca5",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/WindowExecution.olean"
+    },
+    {
+      "module": "WindowActualF0",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/WindowActualF0.lean",
+      "source_sha256": "c2d9029e092211bdb022c2e7ad5201cf70a427ed992dde97eb2660e25b3e8410",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/WindowActualF0.lean",
+      "object_sha256": "92985a6504782efbf78d8c731e37c8565fbc07861fdb3d8f4828dfaa9adf9178",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/WindowActualF0.COMPILED.json",
+      "receipt_sha256": "6e5338933ac7b0ccbe2dc0041a12cd56c6868b7bb212483fdc57eaaf208f5715",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/WindowActualF0.olean"
+    },
+    {
+      "module": "WindowActualArea",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/WindowActualArea.lean",
+      "source_sha256": "2c64ce4576a00a38a232b660c0cdd54ab72767a7e5285e2796797074fc9562b8",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/WindowActualArea.lean",
+      "object_sha256": "4f77ca2c09bc5e1ff99a8adee0738251a856dbf5a4eeee31e82b000fd928636c",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/WindowActualArea.COMPILED.json",
+      "receipt_sha256": "641283526304774561dd6f603dc89faacbc7af02cfc2be60ea9dd292b3c1c668",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/WindowActualArea.olean"
+    },
+    {
+      "module": "WindowActualHeight",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/WindowActualHeight.lean",
+      "source_sha256": "e3c48a5fd65f0c8cbcb49341da05dbad1a2c6c1d980691cc819d7782a0e16d6b",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/WindowActualHeight.lean",
+      "object_sha256": "4488d0c999ddb0c10fde57c14e767294fecbe980f7e3d1369481d5163418a580",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/WindowActualHeight.COMPILED.json",
+      "receipt_sha256": "a32a5968bdadea81abc981802403db52fbfc5340f71d2fe126aeaf5f27555a64",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/WindowActualHeight.olean"
+    },
+    {
+      "module": "WindowActualV0",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/WindowActualV0.lean",
+      "source_sha256": "f0223a1fd93a2807acc67a231638ca8f7e9214aa5afcf080eb5c1328015b3623",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/WindowActualV0.lean",
+      "object_sha256": "5ab318c0b03129058e8dc6ce824498fabb12f1fed211f72337fb8e7c9e894257",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/WindowActualV0.COMPILED.json",
+      "receipt_sha256": "15735ceea211512f784defd9528fbf0064f083b03eb5109f6469eea146fed231",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/WindowActualV0.olean"
+    },
+    {
+      "module": "WindowActualV1",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/WindowActualV1.lean",
+      "source_sha256": "aa19529b4082e576697fc1776a5c46c619f1b4716e745425c9000a055766c503",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/WindowActualV1.lean",
+      "object_sha256": "08a46f7ee28b6006bf8c688c851ed807c25127fa3333737e74dd379caa86723a",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/WindowActualV1.COMPILED.json",
+      "receipt_sha256": "68b95f82fffc856c685c45a991eb04f97cab3de44f046bbe9e4fe1a5f9b8f117",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/WindowActualV1.olean"
+    },
+    {
+      "module": "WindowActualMu2",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/WindowActualMu2.lean",
+      "source_sha256": "0287c485aa9dd3430257737214ac7b4a21a143d59361778ebee3afcfcd77cd8e",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/WindowActualMu2.lean",
+      "object_sha256": "618707fa9137357211d46bd5306c0c20f3cd0a8c3435df2d82f0f30dc7611f98",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/WindowActualMu2.COMPILED.json",
+      "receipt_sha256": "bd322091eb8c149f69ba760b9d5441e004c778d439a4e2eaa6d958326fb09d3a",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/WindowActualMu2.olean"
+    },
+    {
+      "module": "WindowActualMaximum",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/WindowActualMaximum.lean",
+      "source_sha256": "cbccb3673460705433441834e1323a6b07d6138ff9da7d71b93dc99452063b18",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/WindowActualMaximum.lean",
+      "object_sha256": "710233ff53dd799a07aa56e99d23ec94b46983c5188894e33094d88aa8949cfd",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/WindowActualMaximum.COMPILED.json",
+      "receipt_sha256": "d23e6bdfba36d9492dedbe940c247e23d438ed9a3eadf5b47807e9f1c637a5b7",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/WindowActualMaximum.olean"
+    },
+    {
+      "module": "WindowMain",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/WindowMain.lean",
+      "source_sha256": "2cf840777df635c9c23bf5432264d8c96e08a8e3d56a2e27da8a88baa6f02757",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/WindowMain.lean",
+      "object_sha256": "4196e45aee65ceb2b634aecdbdfafe9dacc4a9dac4edee3dd4974b7a96e1217a",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/WindowMain.COMPILED.json",
+      "receipt_sha256": "5d5b2bf99f46debf9f430294d89b7b84251d363eb823c36df17f865a652095d2",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/WindowMain.olean"
+    },
+    {
+      "module": "WindowData",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/WindowData.lean",
+      "source_sha256": "07d286c20038c870009729ecb426b9bbb4ff929dd9de5d6c96078d1e5db49725",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/WindowData.lean",
+      "object_sha256": "b6da1d39f8901fdb3b8902c7c647aef91b2c941c1f70081ddb6c683f106d7db1",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/WindowData.COMPILED.json",
+      "receipt_sha256": "5848d065bb19f0fd334d00a7e4df4d9fc8eb7d32ec1bc4761b12c885b9ce41cd",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/WindowData.olean"
+    },
+    {
+      "module": "WindowAffineData",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/WindowAffineData.lean",
+      "source_sha256": "9b490c5b6b10ca7e2a84ee4e240a382f95bc2eb04a5bad6c1745b14d04788e22",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/WindowAffineData.lean",
+      "object_sha256": "50abe060ac1f14990f8657b3a1473af3406e185d53f1fddd62e27bd6baf96ed5",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/WindowAffineData.COMPILED.json",
+      "receipt_sha256": "4278521decc758ab506dfd912917ea978c4c33dc73df1dc6e54036b3ffc19646",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/WindowAffineData.olean"
+    },
+    {
+      "module": "WindowModel",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/WindowModel.lean",
+      "source_sha256": "5b4aeb46d54fad3177c1071f0dbc1700cc403c2eaf66e76f9d1d3577a01f485a",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/WindowModel.lean",
+      "object_sha256": "f1c33ee51786faa7421006a7b4e6790b4f199ccc394ecf3712220ad142e858e2",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/WindowModel.COMPILED.json",
+      "receipt_sha256": "a1eefaf05f5a6adba9ecc86862bb797f981b702ac7f0d4cd188baa73aeec2ae3",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/WindowModel.olean"
+    },
+    {
+      "module": "WindowRationalBridge",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/WindowRationalBridge.lean",
+      "source_sha256": "61d42c53dbca47da9119382a8eba850dfabe45d71e2810664d653902bf2da968",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/WindowRationalBridge.lean",
+      "object_sha256": "cf0d783aa7d33f654f8c8366d764d8fe79fbdd4ea9883e6d65ff201634744f4a",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/WindowRationalBridge.COMPILED.json",
+      "receipt_sha256": "c57a641ab3f6b1432e395dc430deda05f3f92677e181617cd07d6b80265834d9",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/WindowRationalBridge.olean"
+    },
+    {
+      "module": "WindowSourceFinal",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/WindowSourceFinal.lean",
+      "source_sha256": "44de102b30b99306cbc0b9a8d7d08563e5ad943e8401e1808ccd3226dc36b9d9",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/WindowSourceFinal.lean",
+      "object_sha256": "d31f65dd608beb2cebcb35aa7887aefc96c352dc8cdc1ad842a0260ea94af09c",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/WindowSourceFinal.COMPILED.json",
+      "receipt_sha256": "0f158d376506ca378670e48f4886ab44df8b5d0ba3b43efe72d31c42680b5ba5",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/WindowSourceFinal.olean"
+    },
+    {
+      "module": "WindowInputBounds",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/WindowInputBounds.lean",
+      "source_sha256": "fcb9b0ac7b34bc80e1319d4a3c4a98234735ed93c09c8b5e84787b76020ada57",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/WindowInputBounds.lean",
+      "object_sha256": "10a9dec2f55eaf0a95bbf35080d8d1e379695b2e7c7bcd5f0e1d9271db4efb58",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/WindowInputBounds.COMPILED.json",
+      "receipt_sha256": "e8725e828bae4062da3df5635be6e6b437fab352bb58134061e2dbd76c8a67dd",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/WindowInputBounds.olean"
+    },
+    {
+      "module": "WindowPositiveArea",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/WindowPositiveArea.lean",
+      "source_sha256": "1d5f06de9853c4d7b4648c7389a4901709709c5b66cb6ee1b731c2949c08214b",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/WindowPositiveArea.lean",
+      "object_sha256": "2e8a39d6a88622c378509507e0fb94981cce13b63dc4492791e977cf2b53d6aa",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/WindowPositiveArea.COMPILED.json",
+      "receipt_sha256": "da0e67624afdf671ec598cd9ad618f075686dc40e7ab875ad581d6629716e4fb",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/WindowPositiveArea.olean"
+    },
+    {
+      "module": "ExplicitProfileApplications",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitProfileApplications.lean",
+      "source_sha256": "5715487adc3840a9ada4d120d57ad74263e5e72d0a753b9831ceea431760dd62",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ExplicitProfileApplications.lean",
+      "object_sha256": "42c36a948ad429a6bbbd472d44f511821682b797676e9da7d1ce2dff9ba80624",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ExplicitProfileApplications.COMPILED.json",
+      "receipt_sha256": "f426bd8e177c7c3b486d4c634da0f4d79a67fb4051e70418137f3c4f61e60c44",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ExplicitProfileApplications.olean"
+    },
+    {
+      "module": "FinitePrimeGapBridge",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FinitePrimeGapBridge.lean",
+      "source_sha256": "764d99359b06915eea34770f4733ce44f0cb14fdc268b57b6f6782de9eae3dab",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/FinitePrimeGapBridge.lean",
+      "object_sha256": "440d3a8b042a6842f402a474097abaf83a05fe72c4bb1eceb98ec40f5b651691",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FinitePrimeGapBridge.COMPILED.json",
+      "receipt_sha256": "3fb700c12b4e148b254238da6a392638cb25185b3afafde7c0d39b515137ea17",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FinitePrimeGapBridge.olean"
+    },
+    {
+      "module": "ExplicitFullRangeApplications",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitFullRangeApplications.lean",
+      "source_sha256": "5d8184d26c93f9cd6fc605b4bc1b7cf2daa568d0ce579bed419cb997eebdedbc",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ExplicitFullRangeApplications.lean",
+      "object_sha256": "7b4ca85257c536f3b68b9162adad949b0073fe1d6f6afe0ee2b23ce12b591b04",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ExplicitFullRangeApplications.COMPILED.json",
+      "receipt_sha256": "8778f257614e82ed49930e7f998199f56a3bfc3f2ad51f7f093a3fcb0a46a869",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ExplicitFullRangeApplications.olean"
+    },
+    {
+      "module": "ExplicitAsymptoticWidth",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitAsymptoticWidth.lean",
+      "source_sha256": "3c3f62807b9ebe5c9fa55f5e14ddd7b8d5d4603678c019de9b2f7a570fc97ffe",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/math-association-export-v1/source/ExplicitAsymptoticWidth.lean",
+      "object_sha256": "b7dfa5a2573ea44f473cc4e52c64adb48a20946dba8a4a39519e3dfcc7014e46",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/math-association-export-v1/ExplicitAsymptoticWidth.COMPILED.json",
+      "receipt_sha256": "52de6ef2c09dcc37cd983fc78c5f00f9bba1839127d6ee8cb9d2823797b7914e",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/math-association-export-v1/objects/ExplicitAsymptoticWidth.olean"
+    },
+    {
+      "module": "ExplicitAsymptoticAllowances",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitAsymptoticAllowances.lean",
+      "source_sha256": "50249eb2f4ba18d08057e28bed03ca4520925d8c411fff56cc3eef09380d0b67",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/math-association-export-v1/source/ExplicitAsymptoticAllowances.lean",
+      "object_sha256": "162deafa50379829e42ca15085cca27219a0c309b599d7c255450c74a9dc40bc",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/math-association-export-v1/ExplicitAsymptoticAllowances.COMPILED.json",
+      "receipt_sha256": "f803934cd2cf2e9b06bb5db5716fb754e0d87c6e00aeb47a9c5a2818018113b2",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/math-association-export-v1/objects/ExplicitAsymptoticAllowances.olean"
+    },
+    {
+      "module": "ExplicitAsymptoticCentral",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitAsymptoticCentral.lean",
+      "source_sha256": "f54480a5db8cfc398d73ba2e80d76b676925e1d59b10a3257967c2e4c0485329",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/math-association-export-v1/source/ExplicitAsymptoticCentral.lean",
+      "object_sha256": "4610a21703ca83d0d3257e5bb228743ca193318e5ca6b394cc777447791c9000",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/math-association-export-v1/ExplicitAsymptoticCentral.COMPILED.json",
+      "receipt_sha256": "b486f7399381219c832d84213d754fd094c9fa3a829002ae5cc96307a68d20b3",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/math-association-export-v1/objects/ExplicitAsymptoticCentral.olean"
+    },
+    {
+      "module": "ExplicitActualPopulation",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitActualPopulation.lean",
+      "source_sha256": "e5002736afc297e6e51eb31983e7645b0930974173b273010c573a957fa9c924",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/math-association-export-v1/source/ExplicitActualPopulation.lean",
+      "object_sha256": "83c3b0b8e976bb9957926bf332b5222d4febdaac05ce8b208f5280b53d4779ce",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/math-association-export-v1/ExplicitActualPopulation.COMPILED.json",
+      "receipt_sha256": "afbdbc339bb557e0b8ab152846ce7e46758b21f5a14176399a469f0016b5a717",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/math-association-export-v1/objects/ExplicitActualPopulation.olean"
+    },
+    {
+      "module": "WindowMaximum",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/WindowMaximum.lean",
+      "source_sha256": "e19a61db0fa402d2f6872f2214fddda778090aed571b6b4095e71bd5d93bc149",
+      "snapshot": "/data/ivy-rh080-next-20261125/pv/window-maximum-v1/source/WindowMaximum.lean",
+      "object_sha256": "0cc433b0c4e5f7e827daf2d061a87c6ef987cac43761ecf3ea9479ad73719586",
+      "receipt": "/data/ivy-rh080-next-20261125/pv/window-maximum-v1/RESULT.json",
+      "receipt_sha256": "70c1c4843cee768eeec2ebce8a63fda5313bab1183bb20d9dfffa89489a612d6",
+      "object_origin": "/data/ivy-rh080-next-20261125/pv/window-maximum-v1/objects/WindowMaximum.olean"
+    },
+    {
+      "module": "FFTPairedIntModel",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTPairedIntModel.lean",
+      "source_sha256": "fd8d893c36edb292548a2369a80102467a4412b0c694d8d35a483b6ef4dd40c8",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/FFTPairedIntModel.lean",
+      "object_sha256": "de38a2f7c47afe0f0395d8d8321eb604014cbc8947a6a2e1bcfde34c3b3ba6bc",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FFTPairedIntModel.COMPILED.json",
+      "receipt_sha256": "d0962ac9deb2fd025d8024b14c6cf41bc277e848483a966e8a0b83e1c7113304",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FFTPairedIntModel.olean"
+    },
+    {
+      "module": "FFTTraceChecker",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTTraceChecker.lean",
+      "source_sha256": "2dd2fbc69453ca29d2a2a3cf82c5032c98ea420f64dca2c2100e54059a1c7bb2",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/FFTTraceChecker.lean",
+      "object_sha256": "8319f810d7868a2525deea1474ecd1f424ce31d6311715e69a6dd2ccc5ea90ad",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FFTTraceChecker.COMPILED.json",
+      "receipt_sha256": "01b8c5721845d5fa66d8c1cd6c0ed0de3fa75a569a15c9260f90579f7181f2ac",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FFTTraceChecker.olean"
+    },
+    {
+      "module": "FFTForestTrace",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTForestTrace.lean",
+      "source_sha256": "f0745b4d0429eed265aa0ed01ff4fb9acd3331935d8c8d569048aa55e5abd3b4",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/FFTForestTrace.lean",
+      "object_sha256": "0ebfe7250987e9f682b8749ec4602b24c99ea6f26d44609437de15c676f7a2c1",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FFTForestTrace.COMPILED.json",
+      "receipt_sha256": "ac716e9af801b97b88a39a989840adc3a51250beef0c150d1664f031aee60cef",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FFTForestTrace.olean"
+    },
+    {
+      "module": "FFTButterfly",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTButterfly.lean",
+      "source_sha256": "7514aa391c68e82a478db77bbb419135b05cbcf4629e5c4c6bd73b538cfd4385",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/FFTButterfly.lean",
+      "object_sha256": "796a214faf8eac7e94c1e4e93d2f108e116d108c137f0885a649738ee05cacf4",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FFTButterfly.COMPILED.json",
+      "receipt_sha256": "c10772e0c0d2a6165352e0c45a3574d918c85932e7dd4a4ee5eaee9db2f6f154",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FFTButterfly.olean"
+    },
+    {
+      "module": "FFTRoundoff",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTRoundoff.lean",
+      "source_sha256": "50b5b99f227dd20c545800ffcc64e9d0e53cd49f28a8f3c45ced233941a98a87",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/FFTRoundoff.lean",
+      "object_sha256": "45e651cded1d63104c889f5a75b0453591e6643a86d35684284a6ffd899f9fdc",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FFTRoundoff.COMPILED.json",
+      "receipt_sha256": "de3bfb30260e026e5b32cff979154206941b389ccf03964de103bf21e120c007",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FFTRoundoff.olean"
+    },
+    {
+      "module": "FFTIntegerInterpretation",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTIntegerInterpretation.lean",
+      "source_sha256": "7434823f757a5c11362fb6fd48ae96fa162b03d45898a272b8e9df2f086f674b",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/FFTIntegerInterpretation.lean",
+      "object_sha256": "e4ad185a13e77920b8931a35f542084638c3a44268201598bd951c55febb0b91",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FFTIntegerInterpretation.COMPILED.json",
+      "receipt_sha256": "361e77a2afdfb32d5897a841a59b6e303e3e96a47fd35fee0c7f9562452be74c",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FFTIntegerInterpretation.olean"
+    },
+    {
+      "module": "FapFFTInput",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/primal/FapFFTInput.lean",
+      "source_sha256": "047fdff5c1d8cafc9cc3df6791e8d27351cf32f8ead7f79c4f6533d7e19cd1bf",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/FapFFTInput.lean",
+      "object_sha256": "8168af66b89daa314a21cee18448004ce46b1e1f14ce454e86898189868b3bbc",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FapFFTInput.COMPILED.json",
+      "receipt_sha256": "ea7866894175d56f380efa8c1a14891fbc2ccb01f549149cf8ced7ebcfc1a682",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FapFFTInput.olean"
+    },
+    {
+      "module": "FapFFTPolynomial",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/primal/FapFFTPolynomial.lean",
+      "source_sha256": "c91fe0390787235c03545c37e647b266877570506c37b572c271cf2b316b4ece",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/FapFFTPolynomial.lean",
+      "object_sha256": "335b05a61b3b5e29c2fccccb2c815d79744ee43fa23342332c1ab80a40d7ddbc",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FapFFTPolynomial.COMPILED.json",
+      "receipt_sha256": "109a2dc382e51cfee72d085637e3e3a7c56ade0d254bd7e20c20f773eb35bc19",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FapFFTPolynomial.olean"
+    },
+    {
+      "module": "ChordQuadrature",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/primal/ChordQuadrature.lean",
+      "source_sha256": "fa850477e84135b1c0d44b26aceed6bd10c83808f59441ca7ebdb4c2bb9ac93a",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ChordQuadrature.lean",
+      "object_sha256": "e5ff813f71e07eaeabd05e752d21df95c787c098fb156e5281c98cc2c793cfec",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ChordQuadrature.COMPILED.json",
+      "receipt_sha256": "f4979d9529d515f76540f0135eda4141805874b0c01d339bbb3d399ea913163e",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ChordQuadrature.olean"
+    },
+    {
+      "module": "ExplicitNormSourceBridge",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitNormSourceBridge.lean",
+      "source_sha256": "d11e42ee3cd548e0689ca999c5c5bcf1ba327c349f8cdca124dcc515ad471b27",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/ExplicitNormSourceBridge.lean",
+      "object_sha256": "b5b70e3f330b06c9f4da280c38a37efb3d7bb72496ce6afb0be1620a244b0b41",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ExplicitNormSourceBridge.COMPILED.json",
+      "receipt_sha256": "f5c7bdc332cd8d2070d455a6b6b526e3f6b95874654f971f4e20108ddd1f9166",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ExplicitNormSourceBridge.olean"
+    },
+    {
+      "module": "FapFFTNodes",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/primal/FapFFTNodes.lean",
+      "source_sha256": "24af1842afd31330fe68a53c92d660f3837b856d98f43ffa30bd744d1c5ea1c6",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/FapFFTNodes.lean",
+      "object_sha256": "cf4d81ff1e8cecad405c2bcb75fb2e1b511e553b0249a0ea4bf2ba3f61267523",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FapFFTNodes.COMPILED.json",
+      "receipt_sha256": "502c82092cc9bd956742f183276338db2dedc8de40bb60ea9a3409ffc73af485",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FapFFTNodes.olean"
+    },
+    {
+      "module": "FFTUntrustedData",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTUntrustedData.lean",
+      "source_sha256": "e9c170b6fd445eff03b282ac7c3cb7f1a3cc90b9702f73b9e96f706cc4be5863",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/FFTUntrustedData.lean",
+      "object_sha256": "e958f33eb4989836b1d57353783d464f5d9e299d77630fb3a7253d7fa17f96f4",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FFTUntrustedData.COMPILED.json",
+      "receipt_sha256": "7125fcbf9aa5c47d8c0128ff2eaf6a4d1ea29582625521f62aa27a5a57fb861d",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FFTUntrustedData.olean"
+    },
+    {
+      "module": "ForestTables",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestTables.lean",
+      "source_sha256": "3b36986d801a1765db29bc733f246db40627a276ab8759442b74ffd719bd4e12",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestTables.lean",
+      "object_sha256": "15a56aaeee4eb916c24850f04c5258576a26aef6b371dd9118ca83554f2b4b03",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ForestTables.COMPILED.json",
+      "receipt_sha256": "466419be23a09a1d48a3456b8cc8d0cbd5affc0cf92fc0bf3f8f96c890656480",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ForestTables.olean"
+    },
+    {
+      "module": "ForestTablesCheck",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestTablesCheck.lean",
+      "source_sha256": "cc88fb776cdf533f9f36b4bd3135f5be1db7b4e24af4ecdcf47ad49746b48ecd",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestTablesCheck.lean",
+      "object_sha256": "873199f22bb720f5d64ce7f9502f8b060962df2d1546509290682138eb964f9e",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ForestTablesCheck.COMPILED.json",
+      "receipt_sha256": "0d3c1e3828eabcaca6570abad608faee669808715dd1ab65281f2977e12cd6eb",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ForestTablesCheck.olean"
+    },
+    {
+      "module": "ForestData01",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestData01.lean",
+      "source_sha256": "cfd82df2a636d6813c66f910351123621504328389cf11fbe7abf48af5c6ad8c",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestData01.lean",
+      "object_sha256": "e5dfa01b6da4b14bf14fb0e9af321dc43a6f9db07ca159e4e4dc44b6b1d7b36a",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ForestData01.COMPILED.json",
+      "receipt_sha256": "50d5f8b14107cde386936cb203a94f72c0e73df41995f5595285e3f62423c015",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ForestData01.olean"
+    },
+    {
+      "module": "ForestCheck01",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestCheck01.lean",
+      "source_sha256": "9f2058b15f53be18f617a3aeb43f6ca8e77fdd3e6b617bee8bed74a6391f758e",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestCheck01.lean",
+      "object_sha256": "322f85d940525d4575f397c38fe059b3741ebcdd831e65cad6111f603b215f2b",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ForestCheck01.COMPILED.json",
+      "receipt_sha256": "b9382627d91d653cf03ad9e066c9624a36f27d6530f83b8d14d7db37c9b6a85e",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ForestCheck01.olean"
+    },
+    {
+      "module": "ForestData02",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestData02.lean",
+      "source_sha256": "db6356114802847b2995bd2ac0e0b30fa051e98a6cd1e9f96c0570ebc0b4269d",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestData02.lean",
+      "object_sha256": "8b48c7413315e0aaf5a97ff03bc45a1a08e83e69688f655d23206f56d65cdefc",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ForestData02.COMPILED.json",
+      "receipt_sha256": "b0b0004c62b7492dca8d88aa20368f2b9d78a35118b1d3b5a3a5ffa3a57f522c",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ForestData02.olean"
+    },
+    {
+      "module": "ForestCheck02",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestCheck02.lean",
+      "source_sha256": "909b078662fdd92ac521e3015d7f17dc612b745796943871d2473241a887f330",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestCheck02.lean",
+      "object_sha256": "fe6b4d6dd089d5abfe74a9ab5b5f4d77059e52f6a0ad2968569b2ab1e7da47d6",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ForestCheck02.COMPILED.json",
+      "receipt_sha256": "33480ece11ec60faebb7ed3e5b22813f576343381ca783caccc85e27bd42b198",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ForestCheck02.olean"
+    },
+    {
+      "module": "ForestData03",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestData03.lean",
+      "source_sha256": "c10c992cf6975ac49ffe8a1905b0a6777062e6eaac8e9f42acf326ce7025ba8d",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestData03.lean",
+      "object_sha256": "c289f35276278515cc996f5e15e064d428768a1b93bdc0e779a13349a77a54f5",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ForestData03.COMPILED.json",
+      "receipt_sha256": "42148300805c5b38513f54fdfdd9209a909585e3fa4b34f90d056cf25d8e574e",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ForestData03.olean"
+    },
+    {
+      "module": "ForestCheck03",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestCheck03.lean",
+      "source_sha256": "cdf063161a8df59f5ca569557d3280ed8fccbb391130cd2b9d6caacd4dce4aaf",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestCheck03.lean",
+      "object_sha256": "d458e9d0f2ed3341b1756e2d2e3f0ed8ac2848a1eea6b535a56777043042ffbe",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ForestCheck03.COMPILED.json",
+      "receipt_sha256": "441955179855aecb2122d08700aa996e87d2a436735c4bd75e129c9fe2bf4c46",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ForestCheck03.olean"
+    },
+    {
+      "module": "ForestData04",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestData04.lean",
+      "source_sha256": "1cecab565fb93128630eac86343297a8a43ca29492907d52f74613c1506dd01f",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestData04.lean",
+      "object_sha256": "8ea99f0efda80408642aea6a9eb9b577589873eca03433bf2ebd70c8a0f5c921",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ForestData04.COMPILED.json",
+      "receipt_sha256": "ac7ba3ddedf04eab5ef0b3dde05e1223f81ece6c137a8be0b5d577c63b179caa",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ForestData04.olean"
+    },
+    {
+      "module": "ForestCheck04",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestCheck04.lean",
+      "source_sha256": "a39d1685ec2b62767f88d08a64b987b4a0bbdcd64abea8bbe7742257f06adff1",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestCheck04.lean",
+      "object_sha256": "0afd670538ae1e3131a6c45a2b0078011d9a390d8c21002ba05fb6cae03d8b40",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ForestCheck04.COMPILED.json",
+      "receipt_sha256": "7dcc93f8c6aa77e63453faf02ca511c014f874e5a7de3800c3134e93f953f0eb",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ForestCheck04.olean"
+    },
+    {
+      "module": "ForestData05",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestData05.lean",
+      "source_sha256": "d37f6e8f4b27ba84b666f15237cb70ca43344217480ed6758a79e0a28a77838a",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestData05.lean",
+      "object_sha256": "fd7239055663c20aea22e6a5a9332fca38c7af7836c8f3a727ae099e96ee6a38",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ForestData05.COMPILED.json",
+      "receipt_sha256": "7253b7d9f1399126e3ff2933cb5d8ecfe6dee1a9e40115d843143264d900beca",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ForestData05.olean"
+    },
+    {
+      "module": "ForestCheck05",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestCheck05.lean",
+      "source_sha256": "4b73a3665756bcf5180898345af0bef167e670770c3cbf318fddaef979581c14",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestCheck05.lean",
+      "object_sha256": "3bdc62313bdd5be2deb845bc9829854f6c863cce07d6ce729a7eb78f8923dcbe",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ForestCheck05.COMPILED.json",
+      "receipt_sha256": "c500d7420443347f4aedae6a8863525cf7a47c7b87fae9a23f4d1458718f9f3c",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ForestCheck05.olean"
+    },
+    {
+      "module": "ForestData06",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestData06.lean",
+      "source_sha256": "86a931c7899ef793f78ce0b79c0aff29c34b970cdec1f26beb906b391dd350e3",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestData06.lean",
+      "object_sha256": "afe03f149cd80fcd07dd90560123fde01b4d743f72f3aba8f24471f8ac63ead1",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ForestData06.COMPILED.json",
+      "receipt_sha256": "b40aa9d03b156514e93203fdc19b1ec81a64adf456af9e147ce0f3e66d14ce8d",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ForestData06.olean"
+    },
+    {
+      "module": "ForestCheck06",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestCheck06.lean",
+      "source_sha256": "a3a74ce3a5f88cb05ea2d278a85878a60b6ab1775b83d3af1ccb359ceb82a20f",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestCheck06.lean",
+      "object_sha256": "f2fcabee2fd8244c9b68a481a7b27dc814a0b9c60908bfa429a896a89b6755c9",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ForestCheck06.COMPILED.json",
+      "receipt_sha256": "9ca6f87b94aa6ee894e9b92ef9c91c363771b8d323828c88cbc3e1c8daea55e0",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ForestCheck06.olean"
+    },
+    {
+      "module": "ForestData07",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestData07.lean",
+      "source_sha256": "b25b3360b0d4d73137607c3fb6c6fea401442b7b95f57d0d06321c77220c5b22",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestData07.lean",
+      "object_sha256": "723b266b18a2b2a7ba916df9976ed18d1287859d1d483c0c720c2c3b22e3bec0",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ForestData07.COMPILED.json",
+      "receipt_sha256": "cf6f56d3b9af7952e6eb26dfd9ae5939ca64be1d18d42bea63f7bbca95639836",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ForestData07.olean"
+    },
+    {
+      "module": "ForestCheck07",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestCheck07.lean",
+      "source_sha256": "17085e89357c3049ae86823f471977a7207104d99debbdb156f15c80232b5447",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestCheck07.lean",
+      "object_sha256": "d9cf260514a01a00e8c123834fca76c0c2cad6e2d21a90ae6f2652235a0a504f",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ForestCheck07.COMPILED.json",
+      "receipt_sha256": "d1900fd70f340eb8be17bd917150ff3db88cfd08408e2ae0a65a4f0c84694458",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ForestCheck07.olean"
+    },
+    {
+      "module": "ForestData08",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestData08.lean",
+      "source_sha256": "1ff46b8c1f2c15fcd8dd46323d33593e1242d9bf51eefa0789ac6df443e29a12",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestData08.lean",
+      "object_sha256": "573cd3f7d9be93be9d7a0752565e5e9a1764ed2a4bbae47d86834272878a950e",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ForestData08.COMPILED.json",
+      "receipt_sha256": "6dfc1ff1751f82e9d7efa91b861e1934296bd9c72bb18eb7e6c586c42096354e",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ForestData08.olean"
+    },
+    {
+      "module": "ForestCheck08",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestCheck08.lean",
+      "source_sha256": "a84e9f41fd8a27395c193bb17c22d1df09f5f59fe0f64528b36be06cdcae1744",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestCheck08.lean",
+      "object_sha256": "9ff88b49ab83fc2f37eae14a426555411d3d007e8bd90552d85cc73365ff28ed",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ForestCheck08.COMPILED.json",
+      "receipt_sha256": "9aa74fedc907264e1088d5612c97de94d9addb74f0455a846567893536d46a1e",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ForestCheck08.olean"
+    },
+    {
+      "module": "ForestData09",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestData09.lean",
+      "source_sha256": "e2c5b894ff97744b567446f76d1985c584f64fae7e615d888057bb38c3946a67",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestData09.lean",
+      "object_sha256": "5f72018b9007858319100deafbd7f99696960b7e7506bd52b3008b7155f746f0",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ForestData09.COMPILED.json",
+      "receipt_sha256": "8628de5cb9576608cee7c23ce07ba85068b1b3dce66c663dd1b5229e6198c1b5",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ForestData09.olean"
+    },
+    {
+      "module": "ForestCheck09",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestCheck09.lean",
+      "source_sha256": "4e3369c15d633daed502cda15762a3b3ca0489dcbe54e76ef9bb9c44bb5261ce",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestCheck09.lean",
+      "object_sha256": "63b3659a72844c1be87578b16f399c2052d7208b56e64ed186a4cabf224c8588",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ForestCheck09.COMPILED.json",
+      "receipt_sha256": "d8b7fbab0ead2c37ebf5e8206566545af381f3a9e0a56249ab3aaa0b091db408",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ForestCheck09.olean"
+    },
+    {
+      "module": "ForestData10",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestData10.lean",
+      "source_sha256": "7a24a46b5e3f64e625dcadff403afecacab532d874d17968345ff8b8f929d21f",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestData10.lean",
+      "object_sha256": "7faecea6452c92a5ceedc9b74b8ccbe0aeb753def2a4a94ce295aacedb0bf3e7",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ForestData10.COMPILED.json",
+      "receipt_sha256": "fc8bc14146355561bbc67fedfe3e0a297980b2bafd519c249536bd3b376d074d",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ForestData10.olean"
+    },
+    {
+      "module": "ForestCheck10",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestCheck10.lean",
+      "source_sha256": "342bb323e315c3d54eb196e2fd502397d6ac9ded61197f716e5b35a6651fe993",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestCheck10.lean",
+      "object_sha256": "ea730aa5012791faf027e4227eede8fc779986fb5d8c89ca48138a0272818c3e",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ForestCheck10.COMPILED.json",
+      "receipt_sha256": "632d54a40694c1fa6da8ce65d0198cbf42a18438c602e3ed027ed096e605f4d5",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ForestCheck10.olean"
+    },
+    {
+      "module": "ForestData11",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestData11.lean",
+      "source_sha256": "ed48acdefef0e1f75d783feb7a5920729d3624ca62afc9da908975369371f6ec",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestData11.lean",
+      "object_sha256": "d3f4d8902b331e60035aa759bb90ee4625d59481056ea15df1bcf8f369cf539e",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ForestData11.COMPILED.json",
+      "receipt_sha256": "3bb257f1fc9caa72964c3f33582c89975d01d621cc2aab54b205f52ebc4091b6",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ForestData11.olean"
+    },
+    {
+      "module": "ForestCheck11",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestCheck11.lean",
+      "source_sha256": "22136b5158e0908fafbfde8f1cf9120df2f3ec606411b20a247367097ffc0e2d",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestCheck11.lean",
+      "object_sha256": "be4856ba808c9a4f3ff4acb954d3d755ae8c453ec5a1713a9686c153cde3f3b1",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ForestCheck11.COMPILED.json",
+      "receipt_sha256": "0725b9ee52c78d5ffa4805231a663930b8882864086bb15ddbd6e69a716c1bdb",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ForestCheck11.olean"
+    },
+    {
+      "module": "ForestData12",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestData12.lean",
+      "source_sha256": "eda81798e9194cc258ad0e2a635ed6b54426df990477569bcb438350443006d4",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestData12.lean",
+      "object_sha256": "cba28f2f773d45adc17513455d77c096031f1fbd81d9a2b4cb8f5ad3e6e40d8f",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ForestData12.COMPILED.json",
+      "receipt_sha256": "ddbf562f347e169ba877127a776c4b66ed42f229d390dd3e6a46d181d09d4616",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ForestData12.olean"
+    },
+    {
+      "module": "ForestCheck12",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestCheck12.lean",
+      "source_sha256": "e06dc00be8c775a4986b8b21d74cc929125e1a2540f3b72c734323859f69d254",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestCheck12.lean",
+      "object_sha256": "896c21676319deda866985ae0292a1ce33ab08b40bbe5e740a34a21b0a0c644b",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ForestCheck12.COMPILED.json",
+      "receipt_sha256": "c670861a965dcd825ea8a50aac0667cf70a5d6dafde1021ffc61807a7418a7e4",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ForestCheck12.olean"
+    },
+    {
+      "module": "ForestData13",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestData13.lean",
+      "source_sha256": "4f58fc634927f1909c8b9fafaeb2706dcc5339f6144899d352485e7c79fb22ed",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestData13.lean",
+      "object_sha256": "8f031f0f3339012ebb7ca6b8c6c25230f227a02ce633decf832cfb9ef67dc693",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ForestData13.COMPILED.json",
+      "receipt_sha256": "b1671064b016270edfda2cc35830c1d09f1d506fae9e9ab0042f9693c1b44cfd",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ForestData13.olean"
+    },
+    {
+      "module": "ForestCheck13",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestCheck13.lean",
+      "source_sha256": "dbc8be556e0f2f15f5d23126bdf42e52d3b76b3c16dbf3ae24030feb16d2f206",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestCheck13.lean",
+      "object_sha256": "52adcd34889e929680de4efaa6ac6966325f35ee88ba32fecb29224d598a04b3",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ForestCheck13.COMPILED.json",
+      "receipt_sha256": "7f325b936ff128cad45315f5d4cacb37c2120b7d0f6c69adfb10e25b0760c5eb",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ForestCheck13.olean"
+    },
+    {
+      "module": "ForestData14",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestData14.lean",
+      "source_sha256": "f65def6fdd2ecfbdaa7cf9ab08f8cb1bb99c0b8c82850209625f6de68ba5b774",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestData14.lean",
+      "object_sha256": "92d5ca4abbb9dc67da0174db3c2d46cd215cf9efd17f3c487993965cf2e4e37b",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ForestData14.COMPILED.json",
+      "receipt_sha256": "8ea805dc316f71177a133d08a95b30d45a9c218edb70feb5cb1e5eac86fe415f",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ForestData14.olean"
+    },
+    {
+      "module": "ForestCheck14",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestCheck14.lean",
+      "source_sha256": "443a3d2e133a06d726c1bba987d02a5481a6dd1e8d0bf04ac721bbdc9949d35a",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestCheck14.lean",
+      "object_sha256": "5330dca2ac242d3cc8f308702154eb4a7b4b2a3e9b152d58650d88694d38c6f7",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ForestCheck14.COMPILED.json",
+      "receipt_sha256": "20f0ba7686d123586b4941b875de794204e22943d70589022b8279d5e571f6f0",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ForestCheck14.olean"
+    },
+    {
+      "module": "ForestData15",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestData15.lean",
+      "source_sha256": "2abf442735edfe744baccccc93e26e441bde826d5cb6159afb11ab56e54c778b",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestData15.lean",
+      "object_sha256": "cc279d56e5d0d9bbdff35795cffa4a6161ada1ebbb0f2516912944c29a897596",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ForestData15.COMPILED.json",
+      "receipt_sha256": "e02dd5f66b186c93c6e418972d5dfa5383f2050430e93fe811a76fdfccf7de7d",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ForestData15.olean"
+    },
+    {
+      "module": "ForestCheck15",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestCheck15.lean",
+      "source_sha256": "9283425097ed3aa31460f6346dda2a881d8fe2f2dc9b1cc9ef87a7aca7e3f40c",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestCheck15.lean",
+      "object_sha256": "dbf3729561263e88f4319fe4484098efd70edd43db937ad38d2c9b108e8c7b55",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ForestCheck15.COMPILED.json",
+      "receipt_sha256": "f9aac32414056391bb6fe66e28bb76530fd29dfff02e890d67e3a7e4c343caa6",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ForestCheck15.olean"
+    },
+    {
+      "module": "ForestData16",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestData16.lean",
+      "source_sha256": "190f19cbc118eb5873809626f56021e81d8802317d2a737422c9e7527e25e8e3",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestData16.lean",
+      "object_sha256": "4eb2fcbe48170fb7ca49dcab2a8cc7dce029eb61624f2ef24f3a7e3f0e95ac46",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ForestData16.COMPILED.json",
+      "receipt_sha256": "9fe02aaee19a7e852be47cb7f7b47b51089d200a6dc24801090d55b6bc4eba26",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ForestData16.olean"
+    },
+    {
+      "module": "ForestCheck16",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestCheck16.lean",
+      "source_sha256": "1f7f56fd0d45ef0def25f4ceac8dafd17c6f9b2b8d6fe4bcbaa999eb36434df2",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestCheck16.lean",
+      "object_sha256": "d6444eded39bfd860a9a4ce8584cdcab6c4dd8301acb7930a9e6da3bb9b5d544",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ForestCheck16.COMPILED.json",
+      "receipt_sha256": "1df4d0fb3dbb755acf731d189c4587d44bc9f8e3494147783795c2575a95712c",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ForestCheck16.olean"
+    },
+    {
+      "module": "ForestData17",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestData17.lean",
+      "source_sha256": "2ef43855f433af7c20c22cbb54711ec19182cf98e281d6045dcf5afcaf676568",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestData17.lean",
+      "object_sha256": "1b76894dec80951aea4734644f4a51fbfcd320dc7082391ee57ba086fe77c7b8",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ForestData17.COMPILED.json",
+      "receipt_sha256": "dc93b123164ba141908017c0b6712070b773370cb151f77641f8febf721e2f09",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ForestData17.olean"
+    },
+    {
+      "module": "ForestCheck17",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestCheck17.lean",
+      "source_sha256": "e60deb1abaf6ef7fcd4f94934e055192a80e34dae5621d4c6e31aac9c0de8bb1",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestCheck17.lean",
+      "object_sha256": "c69fa120930b335ebb0ea68259266480d01417226bd051d1d9f3d2fc7d88c84a",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ForestCheck17.COMPILED.json",
+      "receipt_sha256": "9ca671a789a4a2ad38d2f8f9d5d32330834652027fa44904298c510efa4486b7",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ForestCheck17.olean"
+    },
+    {
+      "module": "ForestFinal",
+      "source_origin": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestFinal.lean",
+      "source_sha256": "be9d824fc914058b451673d7cc5f5fa3f2442c4f1f32f4312b8b5af17372931e",
+      "snapshot": "/data/ivy-rh080-next-20261125/forest-public-normal-v1/sources/ForestFinal.lean",
+      "object_sha256": "f4ac3e2852e08ab5cd4f2f9fdb9eacaed792974dde5b484701c45fce8b68e584",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/ForestFinal.COMPILED.json",
+      "receipt_sha256": "bb4ac18d41f9b6370591ae4732a7c3746335d470a7edbed2a0b3c833afa72fdd",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/ForestFinal.olean"
+    },
+    {
+      "module": "FFTTraceTwiddles",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTTraceTwiddles.lean",
+      "source_sha256": "b3b3b2a6b2407d5d4a8a1dcd66db71f50c05563a1ab9f292e7e76f7d466b3210",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/FFTTraceTwiddles.lean",
+      "object_sha256": "61d309a2a61b2a1ca3eac9052397ab5a42ae6339c5c59bda4b2dbb755f3cf8ed",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FFTTraceTwiddles.COMPILED.json",
+      "receipt_sha256": "7466966e997fbec3651d348febde25cc58c39dc35fc55e17d76465ebcead6f99",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FFTTraceTwiddles.olean"
+    },
+    {
+      "module": "FFTSeedBounds",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTSeedBounds.lean",
+      "source_sha256": "ff508e14fabab4c608da6b5232ddb95f160affd998e6f45c8b7367ef784bd1ae",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/FFTSeedBounds.lean",
+      "object_sha256": "4d3fdb047e93d1f75902b50868f67849ff7e29866c582aef0b6de8be6f7caaf7",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FFTSeedBounds.COMPILED.json",
+      "receipt_sha256": "f00bc55827bfd47e19a88b5016a963052cf3753562f76735ea584bde297d0754",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FFTSeedBounds.olean"
+    },
+    {
+      "module": "FFTTwiddleBounds",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTTwiddleBounds.lean",
+      "source_sha256": "735792c07fd8929ab14fbfbb8e766da8bcb4563b24f3ae35530fcc6b1b43037f",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/FFTTwiddleBounds.lean",
+      "object_sha256": "2b82ee3971b293196fec45e76aa3775a7aec7751440105ecc28de4d94b9abdf2",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FFTTwiddleBounds.COMPILED.json",
+      "receipt_sha256": "8cae89987daf4382a4e162f5bcf6b067abffacaa24e44fdd2245216dc89a4881",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FFTTwiddleBounds.olean"
+    },
+    {
+      "module": "FFT17SeedBounds",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFT17SeedBounds.lean",
+      "source_sha256": "b1d0f0df890ba0188cb086cc436513e200130cb9028a5fd1ce9d9a7a61ae3776",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/FFT17SeedBounds.lean",
+      "object_sha256": "5c48132f12816c5f7c22a5ad4a549d5457c1f656f415e2c53998087285268eae",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FFT17SeedBounds.COMPILED.json",
+      "receipt_sha256": "cea3e0277941505edbf85f096b0176bc74acdbe1201f85074fb7cb724c45bac3",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FFT17SeedBounds.olean"
+    },
+    {
+      "module": "FFT17Bridge",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFT17Bridge.lean",
+      "source_sha256": "9fcdf9cbfdc293a5c1173b069684a87f1bbc88cf86030c2c3ddd2c4affa680fc",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/FFT17Bridge.lean",
+      "object_sha256": "e9ec9812c3684f50730828e5f19c1353e66387d8d7442d368ec8659b9411e8ee",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FFT17Bridge.COMPILED.json",
+      "receipt_sha256": "bda33b9cd55d3f048e9b371559898126aef3db53885e5fd3f2d2bc09cb24f665",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FFT17Bridge.olean"
+    },
+    {
+      "module": "FFTGlobalTraceBounds",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTGlobalTraceBounds.lean",
+      "source_sha256": "c616771a84e18657b72832b34c9faf3225297cdaed1a74e3b72391e0a13875b5",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/FFTGlobalTraceBounds.lean",
+      "object_sha256": "1ba0e43434b6bb368ce18209b1653f52db2dfd56948a4b10a0cb2c1b32c26d57",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FFTGlobalTraceBounds.COMPILED.json",
+      "receipt_sha256": "a78d59fdaab66dce0ee4de22a47d1107cd5eb7810524c7f412e18677608c9491",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FFTGlobalTraceBounds.olean"
+    },
+    {
+      "module": "FapFFTCertifiedSamples",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FapFFTCertifiedSamples.lean",
+      "source_sha256": "dc64638bcd819fb4c61c29d4f3a6e99c133ba6c04d16dcec82f4c57bd76cf554",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/FapFFTCertifiedSamples.lean",
+      "object_sha256": "5a313e62d106946133dc9939f996be226054b272ea85962d8445d2132b482118",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FapFFTCertifiedSamples.COMPILED.json",
+      "receipt_sha256": "a8ef17e393b0d373536a55eab21bfb7c58f48c1d03d4d72012f2cdaa2a618597",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FapFFTCertifiedSamples.olean"
+    },
+    {
+      "module": "FapFFTNorm",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/primal/FapFFTNorm.lean",
+      "source_sha256": "8d3b67135b6f128a8baa572a85f0c9c30608937a634c6b3db4c9edc897f72d51",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/FapFFTNorm.lean",
+      "object_sha256": "ac8451ff12b652d2b02b5c84aa2a6bbf11a56c4155f92c64acd5abc2526867aa",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FapFFTNorm.COMPILED.json",
+      "receipt_sha256": "f6c0f81888597e84bf76034041b54ea45917eba656788eae67d8cc143e321248",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FapFFTNorm.olean"
+    },
+    {
+      "module": "FapFFTAntConsumers",
+      "source_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/primal/FapFFTAntConsumers.lean",
+      "source_sha256": "c5ce7e67a28e325288ae4c913c94beedb158f6ea030129dd8fa4d2242fa809b4",
+      "snapshot": "/data/ivy-rh080-next-20261125/primal-runs/fap-fft-ant-resumed-v1/source/FapFFTAntConsumers.lean",
+      "object_sha256": "b99dc2c36f8697bb9afe6883c09d2969e2766b6e013d2e79fee982b94ded48e3",
+      "receipt": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/FapFFTAntConsumers.COMPILED.json",
+      "receipt_sha256": "abadf54134b3e264795fec3748f398e50602531c21c3bfc22394a0efd4b742e9",
+      "object_origin": "/data/ivy-rh080-next-20261125/explicit-lane/fap-math-format-export-v1/objects/FapFFTAntConsumers.olean"
+    }
+  ],
+  "context_sha256": "88a89fb62356f9ac34abaa4f50a32584a75a33bd8ad23aae92cf07965f344319",
+  "controller_sha256": "2de2fcbf30606ecb258423d4b27727c36d7d3beb55949d5b5850cd656515efcf",
+  "application_object_fallback": false,
+  "source_cold": false
+}

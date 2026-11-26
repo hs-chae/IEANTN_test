@@ -1,9 +1,36 @@
 # Current campaign status
 
-Latest progress: checkpoint4, additive on the owner research branch research/rh080-primal-dual-explicit-pv-20261125. Read CHECKPOINT_4.md for exact proof/trust boundaries; earlier checkpoints are historical snapshots.
+Latest reviewed progress: **checkpoint5**, on the owner research branch
+`research/rh080-primal-dual-explicit-pv-20261125`. Earlier checkpoints and the
+original20+8 study outcomes are historical evidence and remain unchanged.
 
-Completed: full CMS weak-duality class bridge and C-source barrier100/123; improved Gaussian coefficient20582561296/24680948495 (eventual, no explicit onset); two actual source-first16-node population C programs with matched kernel-only controls; original finite0.8/0.74/0.75 and small0.777 mathematical consumers and canonical nodes; many actual FFT C helper contracts with source/AST/model correctness.
+Completed: the CMS weak-duality class bridge and actual C-source barrier100/123;
+Gaussian eventual coefficient20582561296/24680948495 (no explicit onset); two
+source-first16-node population C programs with matched kernel-only controls;
+the original finite0.8/0.74/0.75 prime intervals and small0.777 bridge.
+The generalized zero partial-summation transfer is now a proved Lean theorem,
+not an added analytic premise. The full actual recursive C norm functions,
+application main, cast, printf invocation, return, failure alternatives, and
+finite ANT consumers are proved with standard Lean axioms only. See
+`pv/lean/FFTFapMainAudit.lean` and `explicit/CMS_ZERO_KERNEL_COMPLETION.md`.
 
-Still open: full W4 N24 kernel numerical leaf and final global/piecewise/weighted consumers; full recursive/main C FFT execution-to-norm-to-ANT integration; corrected prospective exposure execution/independent scoring; independent final review, one main offline English HTML, supplements and reproducible final evidence bundle. Helpers and kernel certificates alone are not full source-first PV. No sub0.8 eventual theorem or optimality/best-known claim has been proved.
+Generic source correctness was rebuilt from491 fresh sources. Operational I/O
+and concrete finite ANT integration were compiled separately using exact
+source-associated dependencies; these are not claimed as one fresh cold run.
+Logical stdio traces rely on documented generic compiler/runtime/ABI/flush/OS/
+hardware contracts to describe physical runs. The24 physical C runs all returned
+the expected integers; their per-run GNU-time peaks are recorded, while completed
+cgroup OOM counters were not retained and must not be inferred from exit status.
 
-Keep original20+8 study results and baseline commits unchanged. New study outcomes are separate posthoc-selected prospective transfer experiments. Generated Challenge sorry stubs are statement templates, never accepted proof leaves. The final proof closure must be audited independently.
+Pending: the large N24 kernel verification and its W4 global/piecewise/weighted
+source-first consumers; final additive canonical node sealing; independent final
+source/claim review; all16 exposure mathematical outcomes, including separate
+posthoc verification of13 primary-censored payloads; one offline English report
+with Korean summary, paper-ready text, final reproduction bundle and cleanup.
+The16 primary sessions are finished: only3 were admissible. Those3 compile and
+pass independent proof/type audits;13 output-admission stops keep their original
+primary status. This small study establishes no overall PV/network advantage.
+
+No eventual coefficient below0.8, optimality or best-known claim is proved.
+Generated Challenge sorry stubs are statement templates and never accepted
+Solution proof leaves. No official Comparator approval is claimed.

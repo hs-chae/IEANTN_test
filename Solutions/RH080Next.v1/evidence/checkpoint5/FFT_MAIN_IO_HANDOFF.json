@@ -1,0 +1,102 @@
+{
+  "status": "ACCEPTED_ADDITIVE_ACTUAL_C_MAIN_STDIO_SOURCE_PROOF",
+  "bank": "/data/ivy-rh080-next-20261125/fft-main-io-batch-v2",
+  "batch_result_sha256": "fc617afd032f10b8c3afbd5a137e40143d9d5e873f69821aa2d9530538cc7d53",
+  "modules": 7,
+  "accepted_dependencies": 482,
+  "seconds": 22.79744714125991,
+  "max_module_peak_RSS_KiB": 4231476,
+  "axiom_roots": 31,
+  "standard_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "success_closure": 37302,
+  "universal_closure": 37429,
+  "sources": [
+    {
+      "module": "FFTMainIOSemantics",
+      "file": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FFTMainIOSemantics.lean",
+      "sha256": "9b113302cc85f84936c665861387e158e790aab68a166839fc9bb193a4e95d4c"
+    },
+    {
+      "module": "FFTMainIOContract",
+      "file": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FFTMainIOContract.lean",
+      "sha256": "2e3c63127d56788f2465292f0b56281f16650783822b5400d2db6497ad85791b"
+    },
+    {
+      "module": "FFTMainIOArguments",
+      "file": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FFTMainIOArguments.lean",
+      "sha256": "b5b91b2671132f2bb0387096bcd4a36ceef742b4a608859abd062519bd4d1391"
+    },
+    {
+      "module": "FFTMainIOExecution",
+      "file": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FFTMainIOExecution.lean",
+      "sha256": "1b1990f3f846bde9174945d7da967a18cb17ad215e4bc004a0bad05194481555"
+    },
+    {
+      "module": "FFTMainIOAssociation",
+      "file": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FFTMainIOAssociation.lean",
+      "sha256": "2b32cd45aefe54a78e11fd1abaa774b2374471d3f9d11d159ddb158d58caed02"
+    },
+    {
+      "module": "FFTMainIOOutput",
+      "file": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FFTMainIOOutput.lean",
+      "sha256": "e74f12b31232c06c188017ff9b18cccd9b5ec4aace6ac4455338fe1fcdcaf799"
+    },
+    {
+      "module": "FFTMainIOAudit",
+      "file": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FFTMainIOAudit.lean",
+      "sha256": "d559bb89ca008e061206b45764fc1be119c2044da8e45728dfe06ee559cc3205"
+    }
+  ],
+  "import_module": "FFTMainIOOutput",
+  "namespace": "RH080Next.FFTPV.MainIO",
+  "API": {
+    "Result": "Result p out packages independent source syntax plus an actual full main Call from empty caller returning int0, exact logical stdout decimalLF(out), last actual successful printf event, fit and nonSentinel.",
+    "actual_result": "actual_result p certificate nonSentinel : Result p (MainSuffix.normAnswer p certificate)",
+    "result_value_eq": "result_value_eq certificate result : out = MainSuffix.normAnswer p certificate; follows actual main Call/last real printf event, not disconnected norm observation.",
+    "every_main_call": "Every actual completed main Call from caller(initial) returns int0 and exposes its actual nested norm Call plus actual printf operation/scope finish. Requested value is UINT64_MAX or the proved source answer.",
+    "actual_main_success": "Construct actual complete main Call with exact logical stdout appended decimalLF and successful event from arbitrary initial IOState.",
+    "actual_main_partial_failure": "Construct actual complete main Call with any prefix written and any int32 negative printf return; original source ignores this return and still returns0.",
+    "every_printf_arguments": "Both allowed source argument orders preserve literal format association, actual u64→ull cast, actual nested norm Call, and sentinel/numeric classification."
+  },
+  "validation": {
+    "positive_modes": [
+      "normal",
+      "-O",
+      "-OO"
+    ],
+    "identical_acceptance_sha256": "3e73d974e72d52e9294d8de4226f380c894bc604cdcec979d0ca126c3e10233c",
+    "negative_cases": 10,
+    "negative_rejections": 30,
+    "controls": "/data/ivy-rh080-next-20261125/fft-main-io-validator-controls-v1/RESULT.json",
+    "controls_sha256": "9219c7b5f329e8c0149e4cfa4839aa3181f965e5b2e4be965e9fb90138c05b82",
+    "validator": "/data/ivy-rh080-next-20261125/tools/check_fft_main_io_batch.py",
+    "validator_sha256": "0173e9954c989fe1f1a506352855d069f69010c58c64a01eff1cf9976612cdd1",
+    "control_script": "/data/ivy-rh080-next-20261125/tools/test_fft_main_io_validator.py",
+    "control_script_sha256": "ac8f2e6d9fe220d0a38b2ae818d0dc677c62253df272de65e2439e81ae943d63"
+  },
+  "review": {
+    "ledger": "/data/ivy-rh080-next-20261125/fft-source-output-independent-review-v1/FINAL_LEDGER.json",
+    "sha256": "6a592cc9a300f58bb53124d179ecadf217875c7a854c8c5a34e9261ff9e3ab9a",
+    "exact_compiled_types": "/data/ivy-rh080-next-20261125/fft-source-output-independent-review-v1/COMPILED_TYPES.json",
+    "compiled_type_count": 53,
+    "independent_source_norm_Fap_roots": 22,
+    "own_IO_roots_excluded_from_second_author_approval": 31
+  },
+  "reproduce": {
+    "compile": "python3 /data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/compile_verified_batch.py --context /data/ivy-rh-one-prime-20261124/clean_proof_context.json --bank /data/ivy-rh080-next-20261125/fft-source-output-v2 --root FFTMainIOAudit --run FRESH_OUTPUT --memory-gib 64",
+    "validate": "python3 [-O|-OO] /data/ivy-rh080-next-20261125/tools/check_fft_main_io_batch.py --bank BANK --output FRESH_RECEIPT",
+    "controls": "python3 /data/ivy-rh080-next-20261125/tools/test_fft_main_io_validator.py --run FRESH_CONTROLS"
+  },
+  "boundaries": [
+    "Source-first own application main/body/call/cast/argument-order/stdio-invocation/return/scope link is proved.",
+    "ioContext admits generic calloc/free failure and success, precise printf success or negative prefix failure; never SuccessfulEffects or initialized application representation.",
+    "IOState.stdout is logical stdio stream trace. Physical bytes require generic buffered termination/flush and OS/hardware/build/run association plus successful delivery; no unconditional physical I/O success claim.",
+    "Generic certificate still parameterizes profiles. Concrete Fap fapCertificate supplies actual kernel trace/data; root additive full-main numerical/ANT consumer imports this bank next.",
+    "This is a seven-module source-associated batch against482 exact accepted source/receipt dependencies, not a new489-module source-cold replay. Old491-module C cold excludes these newIO modules."
+  ],
+  "no_git_operations": true
+}

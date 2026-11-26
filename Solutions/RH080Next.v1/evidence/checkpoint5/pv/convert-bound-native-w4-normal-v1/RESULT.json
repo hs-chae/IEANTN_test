@@ -1,0 +1,106 @@
+{
+  "status": "PASS_ACTUAL_C_RUNTIME_SMOKE_AND_NEGATIVE_MUTATIONS_NOT_A_PROOF",
+  "source": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/fft/w4_fft_recursive.c",
+  "source_sha256": "0c9e29db9bbfacd8ed049dc8e4b2a2f18d8ae146c1d0e4dd47a93cd89b80e22b",
+  "validator_sha256": "1b1435d54e1d583fd33619b5f6caf831d04a08b57aa12033dc96a81b73a3f905",
+  "common_validator_sha256": "919f143785e60f766e5faf9f1b54b177b210e49e8e1ad8b04133fb943f83f150",
+  "python_optimization": 0,
+  "seed": 20261125,
+  "compiler": "/usr/bin/x86_64-linux-gnu-gcc-11",
+  "compiler_sha256": "821af3c74506283c179ca413bb33e6b528805a4dd8a5c09df125e5ad560a9e89",
+  "compiler_version": "cc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0\nCopyright (C) 2021 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "compilation": {
+    "command": [
+      "/usr/bin/cc",
+      "-std=c11",
+      "-O2",
+      "-fPIC",
+      "-shared",
+      "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/fft/w4_fft_recursive.c",
+      "-o",
+      "/data/ivy-rh080-next-20261125/pv/convert-bound-native-w4-normal-v1/actual.so"
+    ],
+    "seconds": 0.6331861689686775,
+    "source_sha256": "0c9e29db9bbfacd8ed049dc8e4b2a2f18d8ae146c1d0e4dd47a93cd89b80e22b",
+    "library_sha256": "f6ef1da354d374217a9c0d439874430524a3ea79789ab8d9a91ef65181a2c8b7"
+  },
+  "actual": {
+    "cases": 1920,
+    "mismatches": 0,
+    "first_mismatch": null
+  },
+  "negative": [
+    {
+      "name": "skip-upper-word",
+      "compilation": {
+        "command": [
+          "/usr/bin/cc",
+          "-std=c11",
+          "-O2",
+          "-fPIC",
+          "-shared",
+          "/data/ivy-rh080-next-20261125/pv/convert-bound-native-w4-normal-v1/skip-upper-word.c",
+          "-o",
+          "/data/ivy-rh080-next-20261125/pv/convert-bound-native-w4-normal-v1/skip-upper-word.so"
+        ],
+        "seconds": 0.6286291647702456,
+        "source_sha256": "cb0562ac9dcf7b1e0a5ec7f199bf5e8772fd494da4c302a150860c98761fe708",
+        "library_sha256": "1d74126bc5e2cb05025694660feccda4c93ca2d9c9bb9394c5429541f637716c"
+      },
+      "result": {
+        "cases": 1920,
+        "mismatches": 384,
+        "first_mismatch": {
+          "offset": 0,
+          "data": [
+            0,
+            0,
+            917232562,
+            0,
+            0,
+            0
+          ],
+          "expected": 18446744073709551615,
+          "actual": 0
+        }
+      }
+    },
+    {
+      "name": "wrong-base",
+      "compilation": {
+        "command": [
+          "/usr/bin/cc",
+          "-std=c11",
+          "-O2",
+          "-fPIC",
+          "-shared",
+          "/data/ivy-rh080-next-20261125/pv/convert-bound-native-w4-normal-v1/wrong-base.c",
+          "-o",
+          "/data/ivy-rh080-next-20261125/pv/convert-bound-native-w4-normal-v1/wrong-base.so"
+        ],
+        "seconds": 0.6311806738376617,
+        "source_sha256": "cf977e1e976685c40844f95392d73c7eefb4b19d9687232b8ff61d5c575de691",
+        "library_sha256": "c7d8620080a45f9fd65a3305fbcf75e151ac0054d33b7a993bb05f263c69ae35"
+      },
+      "result": {
+        "cases": 1920,
+        "mismatches": 288,
+        "first_mismatch": {
+          "offset": 0,
+          "data": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "expected": 1000000000,
+          "actual": 100000000
+        }
+      }
+    }
+  ],
+  "seconds": 2.0012081507593393,
+  "owner_defined_source_first_PV_complete": false
+}

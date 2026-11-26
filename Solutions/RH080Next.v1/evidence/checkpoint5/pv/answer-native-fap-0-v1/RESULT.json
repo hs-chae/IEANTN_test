@@ -1,0 +1,124 @@
+{
+  "status": "PASS_VERBATIM_MAIN_ANSWER_FRAGMENT_WITH_ACTUAL_CONVERT_C_NOT_FULL_MAIN_OR_PROOF",
+  "source": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/fft/fap_fft_recursive.c",
+  "source_sha256": "c1b958953998c2b655a40b3e25689a33c28d36ab2d145fdb22547a47ff5aa558",
+  "fragment_sha256": "ebf9182035178a3d68eecfaa5feac3c1e431c996b8f8065b25580167b1de8d9a",
+  "harness_sha256": "be9d34a3c1aae935b32e254d91f970e309a8b5ef51f07744e0aecb3ff0484c33",
+  "validator_sha256": "b2cdcbdec90f5f15b17dd502ce2842121f7b3d3f863327f9d2ba1efc72b5d8d7",
+  "common_validator_sha256": "919f143785e60f766e5faf9f1b54b177b210e49e8e1ad8b04133fb943f83f150",
+  "python_optimization": 0,
+  "seed": 20261125,
+  "compiler": "/usr/bin/x86_64-linux-gnu-gcc-11",
+  "compiler_sha256": "821af3c74506283c179ca413bb33e6b528805a4dd8a5c09df125e5ad560a9e89",
+  "compiler_version": "cc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0\nCopyright (C) 2021 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "compilation": {
+    "command": [
+      "/usr/bin/cc",
+      "-std=c11",
+      "-O2",
+      "-fPIC",
+      "-shared",
+      "/data/ivy-rh080-next-20261125/pv/answer-native-fap-0-v1/actual-answer-harness.c",
+      "-o",
+      "/data/ivy-rh080-next-20261125/pv/answer-native-fap-0-v1/actual.so"
+    ],
+    "seconds": 0.15197974257171154,
+    "source_sha256": "be9d34a3c1aae935b32e254d91f970e309a8b5ef51f07744e0aecb3ff0484c33",
+    "library_sha256": "a426624cb4690318942e464e71876140df8c96e5a116bf2098c0d550801f29f7"
+  },
+  "actual": {
+    "cases": 224,
+    "mismatches": 0,
+    "first_mismatch": null
+  },
+  "negative": [
+    {
+      "name": "wrong-allowance",
+      "compilation": {
+        "command": [
+          "/usr/bin/cc",
+          "-std=c11",
+          "-O2",
+          "-fPIC",
+          "-shared",
+          "/data/ivy-rh080-next-20261125/pv/answer-native-fap-0-v1/wrong-allowance.c",
+          "-o",
+          "/data/ivy-rh080-next-20261125/pv/answer-native-fap-0-v1/wrong-allowance.so"
+        ],
+        "seconds": 0.15324333310127258,
+        "source_sha256": "02f95c2b7a3dbfab981044d2c7d5d3946f03de67e106e66413c3f49016d786c1",
+        "library_sha256": "224cb1ef05a95c574eb4dd18c2df7346d13529803a0ef218b0a32e552dc8838b"
+      },
+      "result": {
+        "cases": 224,
+        "mismatches": 72,
+        "first_mismatch": {
+          "total": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "quad": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "status": 0,
+          "expected": 21,
+          "actual": 20
+        }
+      }
+    },
+    {
+      "name": "reversed-first-guard",
+      "compilation": {
+        "command": [
+          "/usr/bin/cc",
+          "-std=c11",
+          "-O2",
+          "-fPIC",
+          "-shared",
+          "/data/ivy-rh080-next-20261125/pv/answer-native-fap-0-v1/reversed-first-guard.c",
+          "-o",
+          "/data/ivy-rh080-next-20261125/pv/answer-native-fap-0-v1/reversed-first-guard.so"
+        ],
+        "seconds": 0.16823064163327217,
+        "source_sha256": "48eb5be5399c3a3df913ababe247afa5a03d0d2606ec687738e51ac27a592548",
+        "library_sha256": "ddb7275da2197efb978a6cadba0d63b2fd17f96b7d9fea52e38f232e76354725"
+      },
+      "result": {
+        "cases": 224,
+        "mismatches": 84,
+        "first_mismatch": {
+          "total": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "quad": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "status": 0,
+          "expected": 21,
+          "actual": 18446744073709551615
+        }
+      }
+    }
+  ],
+  "seconds": 0.5158903189003468,
+  "owner_defined_source_first_PV_complete": false
+}

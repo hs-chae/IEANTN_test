@@ -1,0 +1,106 @@
+{
+  "status": "PASS_ACTUAL_C_ROOT_TWIDDLE_RUNTIME_AND_NEGATIVE_CONTROL_NOT_A_PROOF",
+  "source": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/fft/fap_fft_recursive.c",
+  "source_sha256": "c1b958953998c2b655a40b3e25689a33c28d36ab2d145fdb22547a47ff5aa558",
+  "validator_sha256": "9a4868b32070500a2d8bba624856d4b3cc0e027721d1929ed345f0fe09f8434e",
+  "common_validator_sha256": "919f143785e60f766e5faf9f1b54b177b210e49e8e1ad8b04133fb943f83f150",
+  "python_optimization": 0,
+  "seed": 20261125,
+  "compiler": "/usr/bin/x86_64-linux-gnu-gcc-11",
+  "compiler_sha256": "821af3c74506283c179ca413bb33e6b528805a4dd8a5c09df125e5ad560a9e89",
+  "compiler_version": "cc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0\nCopyright (C) 2021 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "compilation": {
+    "command": [
+      "/usr/bin/cc",
+      "-std=c11",
+      "-O2",
+      "-fPIC",
+      "-shared",
+      "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/fft/fap_fft_recursive.c",
+      "-o",
+      "/data/ivy-rh080-next-20261125/pv/twiddle-native-fap-0-v1/actual.so"
+    ],
+    "seconds": 0.15165389515459538,
+    "source_sha256": "c1b958953998c2b655a40b3e25689a33c28d36ab2d145fdb22547a47ff5aa558",
+    "library_sha256": "0e669c01e5e153a2d085dbe58f113843865362decab12181920401e2227e0e0b"
+  },
+  "actual": {
+    "grids": [
+      {
+        "n": 131072,
+        "entries": 65536,
+        "full_original_table": true,
+        "mismatches": 0,
+        "first_mismatch": null
+      },
+      {
+        "n": 16777216,
+        "entries": 4096,
+        "full_original_table": false,
+        "mismatches": 0,
+        "first_mismatch": null
+      }
+    ],
+    "mismatches": 0
+  },
+  "negative_compilation": {
+    "command": [
+      "/usr/bin/cc",
+      "-std=c11",
+      "-O2",
+      "-fPIC",
+      "-shared",
+      "/data/ivy-rh080-next-20261125/pv/twiddle-native-fap-0-v1/wrong-real-sign.c",
+      "-o",
+      "/data/ivy-rh080-next-20261125/pv/twiddle-native-fap-0-v1/wrong-real-sign.so"
+    ],
+    "seconds": 0.1500215195119381,
+    "source_sha256": "acdb8f5b97b84a2a1c7b7c8296bba9871ba1b3e42852548fcb1ca35600867307",
+    "library_sha256": "fa2fb17a494b40f74571e8b76512abfd143441c211e4eac62b100bfa31d51c99"
+  },
+  "negative": {
+    "grids": [
+      {
+        "n": 131072,
+        "entries": 65536,
+        "full_original_table": true,
+        "mismatches": 65534,
+        "first_mismatch": {
+          "stage": "twiddle",
+          "index": 2,
+          "expected": [
+            999999995404107312890971933139606150,
+            -95873799095977345870517210976478
+          ],
+          "actual": [
+            1000000000000000000000000000000000000,
+            -95873799095977345870517210976478
+          ],
+          "status": 0
+        }
+      },
+      {
+        "n": 16777216,
+        "entries": 4096,
+        "full_original_table": false,
+        "mismatches": 4094,
+        "first_mismatch": {
+          "stage": "twiddle",
+          "index": 2,
+          "expected": [
+            999999999999719488971519214794719585,
+            -749014056584715721130498566730
+          ],
+          "actual": [
+            999999999999999999999999999999999999,
+            -749014056584715721130498566730
+          ],
+          "status": 0
+        }
+      }
+    ],
+    "mismatches": 69628
+  },
+  "seconds": 1.1457943338900805,
+  "owner_defined_source_first_PV_complete": false
+}

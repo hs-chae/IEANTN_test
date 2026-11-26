@@ -1,0 +1,120 @@
+{
+  "status": "COMPLETE_SCOPED_REVIEW",
+  "acceptance": {
+    "path": "/data/ivy-rh080-next-20261125/exposure-independent-review-v1/ACCEPTED.json",
+    "sha256": "8958bba58e10f29e4e0c94f72bacd25758379711cf28ded44fb6b54945cf470f"
+  },
+  "population": {
+    "requested_trials": 16,
+    "mechanically_admissible_reviewed": 3,
+    "primary_output_ceiling_stops_unchanged": 13,
+    "original20_plus8_untouched": true
+  },
+  "rows": [
+    {
+      "trial": "fixed_width-B_named-r1",
+      "authored_source_theorem_or_lemma_declarations": 58,
+      "compiler_module_theorem_declarations_including_generated": 111,
+      "source_sha256": "65fbe99b67bfa5b391a6d77ed840c118c3361eec977707d1ba927e103e5c2abd",
+      "real_dependency_and_all_Std3_status": "PASS",
+      "expected_type_status": "PASS",
+      "math_status": "VALID_WITH_EXPLICIT_ANALYTIC_INPUTS"
+    },
+    {
+      "trial": "fixed_width-C_network-r0",
+      "authored_source_theorem_or_lemma_declarations": 39,
+      "compiler_module_theorem_declarations_including_generated": 107,
+      "source_sha256": "e284989f57304d76271b1b8069f6f1009632d1e85f03bf871a02eceecb67456c",
+      "real_dependency_and_all_Std3_status": "PASS",
+      "expected_type_status": "PASS",
+      "math_status": "VALID_WITH_EXPLICIT_ANALYTIC_INPUTS"
+    },
+    {
+      "trial": "prime_index-B_named-r1",
+      "authored_source_theorem_or_lemma_declarations": 36,
+      "compiler_module_theorem_declarations_including_generated": 54,
+      "source_sha256": "253257517a2c6df22b8144d3db3a67b62b312ea43f0a91fee08cfb1d6bb4cefc",
+      "real_dependency_and_all_Std3_status": "PASS",
+      "expected_type_status": "PASS",
+      "math_status": "VALID_WITH_EXPLICIT_ANALYTIC_INPUTS"
+    }
+  ],
+  "total_authored_source_theorems": 133,
+  "total_compiler_theorems": 272,
+  "common_offline_runtime": "B_named fixed_width-B_named-r1 runtime, byte-pinned unchanged for all3 final replays",
+  "source_first_PV": false,
+  "assumptions": {
+    "rounded_affine_and_raw_witness_results": [
+      "ordinary RH",
+      "BR norm identity predicate",
+      "BR uniform population q1 predicate"
+    ],
+    "gaussian_and_adaptive_full_envelope": [
+      "ordinary RH",
+      "CMS functional population-reduction predicate",
+      "both BR predicates"
+    ],
+    "BT_uniform_shaving": [
+      "ordinary RH",
+      "both BR predicates",
+      "separate GrowingRank.BrunTitchmarsh premise; CMS Section6.2 Equation6.10 supports its weaker<=form"
+    ]
+  },
+  "verified_strengths": [
+    "Both fixed-width submissions attain 685251/387796 at width 3 and 465/128 at width 5 with unspecified positive eventual margins.",
+    "C_network additionally proves every strict deficit below raw suprema 193269011844967139/109374342622661960 and 31036198331144443607/8533333333333333328. Exact comparisons select sparse at width 3 and flat at width 5 among the two supplied raw witnesses and three rounded/Gaussian routes. Endpoint attainment and optimality are not inferred.",
+    "The prime_index B submission proves uniform strict rank transport for fixed caps, adaptive continuous-envelope transport retaining positive eta, and separate conditional BR coefficient shaving by some positive kappa(beta)."
+  ],
+  "limitations": [
+    "Independent verification is supplemental. It does not change admitted original submissions or their timed proof status and does not cure the 13 output-ceiling stops.",
+    "Analytic predicates remain explicit theorem hypotheses; imported estimates use kernel-onlyroutes, not the separate source-first C proofs.",
+    "No explicit onset and no numerical uniformkappa. Raw supremum endpoints are not proved attained.",
+    "Written optional diagonal growing-cap and PNT n-only arguments are not Lean theorems in this payload.",
+    "Small matched case study on posthoc-selected tasks, with 13 censored trials; no general treatment-superiority or best-known claim."
+  ],
+  "evidence": {
+    "theorem_tables": [
+      "/data/ivy-rh080-next-20261125/exposure-independent-review-v1/fixed_width-B_named-r1-replay-v4/submission/THEOREMS.json",
+      "/data/ivy-rh080-next-20261125/exposure-independent-review-v1/fixed_width-C_network-r0-replay-v4/submission/THEOREMS.json",
+      "/data/ivy-rh080-next-20261125/exposure-independent-review-v1/prime_index-B_named-r1-replay-v4/submission/THEOREMS.json"
+    ],
+    "math_review": "/data/ivy-rh080-next-20261125/exposure-independent-review-v1/MATHEMATICAL_REVIEW.json",
+    "exact_comparison": "/data/ivy-rh080-next-20261125/exposure-independent-review-v1/EXACT_WITNESS_COMPARISON.json",
+    "validator_controls": "/data/ivy-rh080-next-20261125/exposure-independent-review-v1/validator-controls-v1/RESULT.json",
+    "development_failures": "/data/ivy-rh080-next-20261125/exposure-independent-review-v1/DEVELOPMENT_FAILURES.json"
+  },
+  "reproduction": {
+    "controllers": [
+      {
+        "path": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/ablation/review/audit_generator.py",
+        "sha256": "81ab9647623256c865c2fb95296e1531653ae019b6382a50b52b14b5405b9e1c"
+      },
+      {
+        "path": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/ablation/review/check_reviews.py",
+        "sha256": "c962d29b6ca977912abc57d495a52f7bcbde6c66715ed3c68c2f75f7057b6c96"
+      },
+      {
+        "path": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/ablation/review/compare_witnesses.py",
+        "sha256": "8dd47967026b9b2e9456efd1946b56e8c73a3a0d972be83cb9303d042e1f3ccb"
+      },
+      {
+        "path": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/ablation/review/run_review.py",
+        "sha256": "4353eaa3e3eeea7ccd7ce93337db36c14ba1998f2d7f8b6a202f3794e3f5b952"
+      },
+      {
+        "path": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/ablation/review/test_acceptance.py",
+        "sha256": "680a41bb6028581485acde3d2db9371705d77381f34ca55457a13edf7f99d84f"
+      }
+    ],
+    "recipe": "Run ablation/review/run_review.py --trial <each of3TRIALS> --out <fresh owned D/exposure-independent-review-v1/TRIAL-replay-vN> under systemd MemoryMax64G/MemorySwapMax0/CPUQuota400%. Then check_reviews.py --root D/exposure-independent-review-v1 --attempt N --output fresh.json. compare_witnesses.py independently regenerates exact rational comparisons. Every runtime mount tree is revalidated against its frozen SHA manifest before execution. Existing pinned runtime/study inputs must be restored; this is not claimed portable without those dependencies.",
+    "executed_attempt": 4,
+    "acceptance_modes": [
+      "normal",
+      "-O",
+      "-OO"
+    ],
+    "negative_controls": 9,
+    "external_model_inference_calls": 0
+  },
+  "no_git": true
+}

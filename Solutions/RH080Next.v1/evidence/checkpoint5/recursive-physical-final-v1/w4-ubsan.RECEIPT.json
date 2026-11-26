@@ -1,0 +1,41 @@
+{
+  "program": "w4",
+  "mode": "ubsan",
+  "compile_command": [
+    "/usr/bin/x86_64-linux-gnu-gcc-11",
+    "-std=c11",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-pedantic",
+    "-O1",
+    "-fsanitize=undefined",
+    "-fno-sanitize-recover=all",
+    "/data/ivy-rh080-next-20261125/recursive-physical-final-v1/w4_fft_recursive.c",
+    "-o",
+    "/data/ivy-rh080-next-20261125/recursive-physical-final-v1/w4-ubsan.bin"
+  ],
+  "execute_command": [
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "/data/ivy-rh080-next-20261125/recursive-physical-final-v1/w4-ubsan.time",
+    "prlimit",
+    "--as=68719476736",
+    "--stack=268435456",
+    "--",
+    "/data/ivy-rh080-next-20261125/recursive-physical-final-v1/w4-ubsan.bin"
+  ],
+  "source_sha256": "0c9e29db9bbfacd8ed049dc8e4b2a2f18d8ae146c1d0e4dd47a93cd89b80e22b",
+  "executable_sha256": "d3bfc0731d319c3e105156f9bacb2380dfd384f92c818b1cf9869815b6169945",
+  "compile_seconds": 0.2953718714416027,
+  "execution_seconds": 132.1406264603138,
+  "returncode": 0,
+  "stdout_sha256": "aba7b8b448e6cefe0c8045b663b7bcafdc44612af110f610edf7bda46177f6d3",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "peak_rss_kib": 3934928,
+  "time_sha256": "e223fc3506eae45844aa146b53a1844740300d6276d02502309aa04fcc63e680",
+  "output": "7813568381279800\n",
+  "oom_event": "not_inferred_from_exit_code; inspect enclosing cgroup memory.events",
+  "acceptance": true
+}

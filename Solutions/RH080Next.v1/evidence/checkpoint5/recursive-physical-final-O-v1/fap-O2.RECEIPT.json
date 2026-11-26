@@ -1,0 +1,39 @@
+{
+  "program": "fap",
+  "mode": "O2",
+  "compile_command": [
+    "/usr/bin/x86_64-linux-gnu-gcc-11",
+    "-std=c11",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-pedantic",
+    "-O2",
+    "/data/ivy-rh080-next-20261125/recursive-physical-final-O-v1/fap_fft_recursive.c",
+    "-o",
+    "/data/ivy-rh080-next-20261125/recursive-physical-final-O-v1/fap-O2.bin"
+  ],
+  "execute_command": [
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "/data/ivy-rh080-next-20261125/recursive-physical-final-O-v1/fap-O2.time",
+    "prlimit",
+    "--as=68719476736",
+    "--stack=268435456",
+    "--",
+    "/data/ivy-rh080-next-20261125/recursive-physical-final-O-v1/fap-O2.bin"
+  ],
+  "source_sha256": "c1b958953998c2b655a40b3e25689a33c28d36ab2d145fdb22547a47ff5aa558",
+  "executable_sha256": "fb66e1d6de391eb51bc2a24e1198cee22dee2ef87e3e7c25677fa28c737f7c16",
+  "compile_seconds": 0.19015766121447086,
+  "execution_seconds": 0.3066266067326069,
+  "returncode": 0,
+  "stdout_sha256": "4b40d0028ace96fe6a713392fef787a1303c8d7a393eef23dc30e6fbbde33ea7",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "peak_rss_kib": 19664,
+  "time_sha256": "16310f4d26b85a9df5c59876163007fa6b1101014e06d09d571d0cc170c70dc1",
+  "output": "781796015790084776\n",
+  "oom_event": "not_inferred_from_exit_code; inspect enclosing cgroup memory.events",
+  "acceptance": true
+}

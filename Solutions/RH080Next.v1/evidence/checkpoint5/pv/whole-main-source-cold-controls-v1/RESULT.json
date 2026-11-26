@@ -1,0 +1,277 @@
+{
+  "status": "PASS_ACTUAL_MAIN_SOURCE_COLD_VALIDATOR_ALL_OPTIMIZATIONS_AND_MUTATIONS",
+  "real_run": "/data/ivy-rh080-next-20261125/pv/whole-main-source-cold-v1",
+  "real_result_sha256": "d52b4d62eee8c0e8a611b48e247598c49637e5a177ca74acc8a3ad4f9bc57b4d",
+  "controller_sha256": "cb0fa6e699d8827d809791dd50ce2e390cbfa3bcebc7c19d64aa7c02057a4dbd",
+  "validator_sha256": "34effe3d3c67e928f35e1924ec2d3fe1a26927edff36e74421a20164ab8f5145",
+  "positives": 3,
+  "negative_rejections": 12,
+  "cases": [
+    {
+      "label": "real-positive-0",
+      "optimization": 0,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_main_source_cold.py",
+        "--verify-only",
+        "/data/ivy-rh080-next-20261125/pv/whole-main-source-cold-v1"
+      ],
+      "exitcode": 0,
+      "stdout_sha256": "9a3536535df542e5e567c22fc3e7aa661558fbf1a8a860e53cb83acd641a7796",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "panic-exit0-0",
+      "optimization": 0,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_main_source_cold.py",
+        "--verify-only",
+        "/data/ivy-rh080-next-20261125/pv/whole-main-source-cold-controls-v1/fixture-panic-exit0-0"
+      ],
+      "exitcode": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e740b64b324b512836c145da64720d99c009b3323dd250c7e83e853c72a12377",
+      "mutation": {
+        "log_sha256": "4ba8070ab77815d7dde0ebef57c47215252121c38440ff7b3f41a11b0478ad32",
+        "receipt_sha256": "08a979f97cf3f91a56a58c63fbefe250c3cb6904ffb38f07c22bf3c93023e718",
+        "compiler_exitcode": 0
+      }
+    },
+    {
+      "label": "changed-proof-object-0",
+      "optimization": 0,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_main_source_cold.py",
+        "--verify-only",
+        "/data/ivy-rh080-next-20261125/pv/whole-main-source-cold-controls-v1/fixture-changed-proof-object-0"
+      ],
+      "exitcode": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "76427944a80e03b399e322afcbdfbdc950aeec3f6101b0a03ff045a4185e819a",
+      "mutation": {
+        "object_sha256": "1bea7e06ed86e2d4f0898addc8e1cf495644d6a33b42e4ef2b7310a74c40855c"
+      }
+    },
+    {
+      "label": "missing-compiler-receipt-0",
+      "optimization": 0,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_main_source_cold.py",
+        "--verify-only",
+        "/data/ivy-rh080-next-20261125/pv/whole-main-source-cold-controls-v1/fixture-missing-compiler-receipt-0"
+      ],
+      "exitcode": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "21c1c9dad46a432179e6cff9ef42281a0553372d836e729b83baa21490c251a2",
+      "mutation": {
+        "missing_receipt": "FFTMainSourceNormAudit.COMPILED.json"
+      }
+    },
+    {
+      "label": "omitted-source-row-0",
+      "optimization": 0,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_main_source_cold.py",
+        "--verify-only",
+        "/data/ivy-rh080-next-20261125/pv/whole-main-source-cold-controls-v1/fixture-omitted-source-row-0"
+      ],
+      "exitcode": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "bf3957ea7d1435b5b77e614651a3e38c5496bef9ebe89d6ee5027028d3fea980",
+      "mutation": {
+        "plan_sha256": "43de5f692b7d2399df836efaf82c4845eeb6b6280c421415f0d607dbe3c6e84d",
+        "result_sha256": "d046d93a657058b1c42a7a9f6aff57a6eb4ab0a95374e9ce6973d96de2a51807"
+      }
+    },
+    {
+      "label": "real-positive-1",
+      "optimization": 1,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_main_source_cold.py",
+        "--verify-only",
+        "/data/ivy-rh080-next-20261125/pv/whole-main-source-cold-v1"
+      ],
+      "exitcode": 0,
+      "stdout_sha256": "9a3536535df542e5e567c22fc3e7aa661558fbf1a8a860e53cb83acd641a7796",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "panic-exit0-1",
+      "optimization": 1,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_main_source_cold.py",
+        "--verify-only",
+        "/data/ivy-rh080-next-20261125/pv/whole-main-source-cold-controls-v1/fixture-panic-exit0-1"
+      ],
+      "exitcode": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e740b64b324b512836c145da64720d99c009b3323dd250c7e83e853c72a12377",
+      "mutation": {
+        "log_sha256": "4ba8070ab77815d7dde0ebef57c47215252121c38440ff7b3f41a11b0478ad32",
+        "receipt_sha256": "08a979f97cf3f91a56a58c63fbefe250c3cb6904ffb38f07c22bf3c93023e718",
+        "compiler_exitcode": 0
+      }
+    },
+    {
+      "label": "changed-proof-object-1",
+      "optimization": 1,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_main_source_cold.py",
+        "--verify-only",
+        "/data/ivy-rh080-next-20261125/pv/whole-main-source-cold-controls-v1/fixture-changed-proof-object-1"
+      ],
+      "exitcode": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "76427944a80e03b399e322afcbdfbdc950aeec3f6101b0a03ff045a4185e819a",
+      "mutation": {
+        "object_sha256": "1bea7e06ed86e2d4f0898addc8e1cf495644d6a33b42e4ef2b7310a74c40855c"
+      }
+    },
+    {
+      "label": "missing-compiler-receipt-1",
+      "optimization": 1,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_main_source_cold.py",
+        "--verify-only",
+        "/data/ivy-rh080-next-20261125/pv/whole-main-source-cold-controls-v1/fixture-missing-compiler-receipt-1"
+      ],
+      "exitcode": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "21c1c9dad46a432179e6cff9ef42281a0553372d836e729b83baa21490c251a2",
+      "mutation": {
+        "missing_receipt": "FFTMainSourceNormAudit.COMPILED.json"
+      }
+    },
+    {
+      "label": "omitted-source-row-1",
+      "optimization": 1,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_main_source_cold.py",
+        "--verify-only",
+        "/data/ivy-rh080-next-20261125/pv/whole-main-source-cold-controls-v1/fixture-omitted-source-row-1"
+      ],
+      "exitcode": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "bf3957ea7d1435b5b77e614651a3e38c5496bef9ebe89d6ee5027028d3fea980",
+      "mutation": {
+        "plan_sha256": "43de5f692b7d2399df836efaf82c4845eeb6b6280c421415f0d607dbe3c6e84d",
+        "result_sha256": "d046d93a657058b1c42a7a9f6aff57a6eb4ab0a95374e9ce6973d96de2a51807"
+      }
+    },
+    {
+      "label": "real-positive-2",
+      "optimization": 2,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_main_source_cold.py",
+        "--verify-only",
+        "/data/ivy-rh080-next-20261125/pv/whole-main-source-cold-v1"
+      ],
+      "exitcode": 0,
+      "stdout_sha256": "9a3536535df542e5e567c22fc3e7aa661558fbf1a8a860e53cb83acd641a7796",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "panic-exit0-2",
+      "optimization": 2,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_main_source_cold.py",
+        "--verify-only",
+        "/data/ivy-rh080-next-20261125/pv/whole-main-source-cold-controls-v1/fixture-panic-exit0-2"
+      ],
+      "exitcode": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e740b64b324b512836c145da64720d99c009b3323dd250c7e83e853c72a12377",
+      "mutation": {
+        "log_sha256": "4ba8070ab77815d7dde0ebef57c47215252121c38440ff7b3f41a11b0478ad32",
+        "receipt_sha256": "08a979f97cf3f91a56a58c63fbefe250c3cb6904ffb38f07c22bf3c93023e718",
+        "compiler_exitcode": 0
+      }
+    },
+    {
+      "label": "changed-proof-object-2",
+      "optimization": 2,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_main_source_cold.py",
+        "--verify-only",
+        "/data/ivy-rh080-next-20261125/pv/whole-main-source-cold-controls-v1/fixture-changed-proof-object-2"
+      ],
+      "exitcode": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "76427944a80e03b399e322afcbdfbdc950aeec3f6101b0a03ff045a4185e819a",
+      "mutation": {
+        "object_sha256": "1bea7e06ed86e2d4f0898addc8e1cf495644d6a33b42e4ef2b7310a74c40855c"
+      }
+    },
+    {
+      "label": "missing-compiler-receipt-2",
+      "optimization": 2,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_main_source_cold.py",
+        "--verify-only",
+        "/data/ivy-rh080-next-20261125/pv/whole-main-source-cold-controls-v1/fixture-missing-compiler-receipt-2"
+      ],
+      "exitcode": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "21c1c9dad46a432179e6cff9ef42281a0553372d836e729b83baa21490c251a2",
+      "mutation": {
+        "missing_receipt": "FFTMainSourceNormAudit.COMPILED.json"
+      }
+    },
+    {
+      "label": "omitted-source-row-2",
+      "optimization": 2,
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_main_source_cold.py",
+        "--verify-only",
+        "/data/ivy-rh080-next-20261125/pv/whole-main-source-cold-controls-v1/fixture-omitted-source-row-2"
+      ],
+      "exitcode": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "bf3957ea7d1435b5b77e614651a3e38c5496bef9ebe89d6ee5027028d3fea980",
+      "mutation": {
+        "plan_sha256": "43de5f692b7d2399df836efaf82c4845eeb6b6280c421415f0d607dbe3c6e84d",
+        "result_sha256": "d046d93a657058b1c42a7a9f6aff57a6eb4ab0a95374e9ce6973d96de2a51807"
+      }
+    }
+  ],
+  "cleaned_regenerable_fixture_directories": [
+    "/data/ivy-rh080-next-20261125/pv/whole-main-source-cold-controls-v1/fixture-panic-exit0-0",
+    "/data/ivy-rh080-next-20261125/pv/whole-main-source-cold-controls-v1/fixture-changed-proof-object-0",
+    "/data/ivy-rh080-next-20261125/pv/whole-main-source-cold-controls-v1/fixture-missing-compiler-receipt-0",
+    "/data/ivy-rh080-next-20261125/pv/whole-main-source-cold-controls-v1/fixture-omitted-source-row-0",
+    "/data/ivy-rh080-next-20261125/pv/whole-main-source-cold-controls-v1/fixture-panic-exit0-1",
+    "/data/ivy-rh080-next-20261125/pv/whole-main-source-cold-controls-v1/fixture-changed-proof-object-1",
+    "/data/ivy-rh080-next-20261125/pv/whole-main-source-cold-controls-v1/fixture-missing-compiler-receipt-1",
+    "/data/ivy-rh080-next-20261125/pv/whole-main-source-cold-controls-v1/fixture-omitted-source-row-1",
+    "/data/ivy-rh080-next-20261125/pv/whole-main-source-cold-controls-v1/fixture-panic-exit0-2",
+    "/data/ivy-rh080-next-20261125/pv/whole-main-source-cold-controls-v1/fixture-changed-proof-object-2",
+    "/data/ivy-rh080-next-20261125/pv/whole-main-source-cold-controls-v1/fixture-missing-compiler-receipt-2",
+    "/data/ivy-rh080-next-20261125/pv/whole-main-source-cold-controls-v1/fixture-omitted-source-row-2"
+  ],
+  "original_proof_artifacts_modified": false,
+  "new_proofs_claimed": false
+}
