@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/test_final_fap_data_v2.py", line 81, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/test_final_fap_data_v2.py", line 36, in main
+    if a.verify_stage:verify_stage(a.verify_stage);return
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/test_final_fap_data_v2.py", line 29, in verify_stage
+    meta=read_json(root/'STAGE.json');verify_data(root/'source',meta['staged_data'],meta['source_rows'],meta['inventory_data'])
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/final_fap_source_data_v2.py", line 167, in verify_data
+    checked = inventory_data(normalized, source_rows)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/final_fap_source_data_v2.py", line 118, in inventory_data
+    need(type(row.get(key)) is type(value) and row.get(key) == value,
+  File "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/final_fap_source_data_v2.py", line 16, in need
+    raise ValueError(message)
+ValueError: Literal loader identity/dimensions differ ('ForestData01', 'out01') destination

@@ -1,0 +1,908 @@
+{
+  "status": "PASS_DATA_AWARE_PREPARATION_AND_FINAL_DATA_CHECKS_ALL_OPTIMIZATIONS",
+  "source_modules": 681,
+  "literal_data_files": 34,
+  "literal_data_bytes": 104208750,
+  "prepare_positive_modes": 3,
+  "stage_verify_positive_modes": 3,
+  "prepare_negative_cases": 8,
+  "prepare_negative_rejections": 24,
+  "final_data_negative_cases": 5,
+  "final_data_negative_rejections": 15,
+  "original_sources_and_data_unchanged": true,
+  "regenerable_copied_fixtures_removed": [
+    "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/repository",
+    "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/stage-normal",
+    "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/stage-O",
+    "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/stage-OO"
+  ],
+  "proof_or_native_program_executions": 0,
+  "controller_sha256": "af4c6f564b78642a405f18d194f679f975c0f8655a3899d7d7976221be82b05d",
+  "cold_controller_sha256": "01c75c63018220e49082b1c9c6e68b86479afe7cd9e739e8bf786723acd12f64",
+  "helper_sha256": "33f1598308fc712e8e062943d8dde40d1fb7f3d0d2e6d8c185b56a0f5af12594",
+  "inputs_sha256": "8754df71c8e5261c4126e0f29a7c90be595a19f53e4977e15a4ef8f1ecbb5422",
+  "cases": [
+    {
+      "case": "positive-normal",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_final_fap_source_v2.py",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--run",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/positive-normal",
+        "--repository",
+        "/data/ivy-rh080-next-20261125/network",
+        "--inputs",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/evidence/FINAL_FAP_SOURCE_COLD_INPUTS_V2.json",
+        "--scratch-root",
+        "/data/ivy-rh080-next-20261125",
+        "--workers",
+        "2",
+        "--worker-memory-gib",
+        "128",
+        "--prepare-only"
+      ],
+      "exitcode": 0,
+      "intended_error": null
+    },
+    {
+      "case": "stage-normal",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/test_final_fap_data_v2.py",
+        "--stage-check",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/stage-normal",
+        "--inventory",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/positive-normal-inputs/SOURCE_INVENTORY.json"
+      ],
+      "exitcode": 0,
+      "intended_error": null
+    },
+    {
+      "case": "positive-O",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_final_fap_source_v2.py",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--run",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/positive-O",
+        "--repository",
+        "/data/ivy-rh080-next-20261125/network",
+        "--inputs",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/evidence/FINAL_FAP_SOURCE_COLD_INPUTS_V2.json",
+        "--scratch-root",
+        "/data/ivy-rh080-next-20261125",
+        "--workers",
+        "2",
+        "--worker-memory-gib",
+        "128",
+        "--prepare-only"
+      ],
+      "exitcode": 0,
+      "intended_error": null
+    },
+    {
+      "case": "stage-O",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/test_final_fap_data_v2.py",
+        "--stage-check",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/stage-O",
+        "--inventory",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/positive-O-inputs/SOURCE_INVENTORY.json"
+      ],
+      "exitcode": 0,
+      "intended_error": null
+    },
+    {
+      "case": "positive-OO",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_final_fap_source_v2.py",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--run",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/positive-OO",
+        "--repository",
+        "/data/ivy-rh080-next-20261125/network",
+        "--inputs",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/evidence/FINAL_FAP_SOURCE_COLD_INPUTS_V2.json",
+        "--scratch-root",
+        "/data/ivy-rh080-next-20261125",
+        "--workers",
+        "2",
+        "--worker-memory-gib",
+        "128",
+        "--prepare-only"
+      ],
+      "exitcode": 0,
+      "intended_error": null
+    },
+    {
+      "case": "stage-OO",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/test_final_fap_data_v2.py",
+        "--stage-check",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/stage-OO",
+        "--inventory",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/positive-OO-inputs/SOURCE_INVENTORY.json"
+      ],
+      "exitcode": 0,
+      "intended_error": null
+    },
+    {
+      "case": "prep-missing-data-normal",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_final_fap_source_v2.py",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--run",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/missing-data-normal",
+        "--repository",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/repository",
+        "--inputs",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/missing-data-inputs.json",
+        "--scratch-root",
+        "/data/ivy-rh080-next-20261125",
+        "--workers",
+        "2",
+        "--worker-memory-gib",
+        "128",
+        "--prepare-only"
+      ],
+      "exitcode": 1,
+      "intended_error": "Missing literal data"
+    },
+    {
+      "case": "prep-missing-data-O",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_final_fap_source_v2.py",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--run",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/missing-data-O",
+        "--repository",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/repository",
+        "--inputs",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/missing-data-inputs.json",
+        "--scratch-root",
+        "/data/ivy-rh080-next-20261125",
+        "--workers",
+        "2",
+        "--worker-memory-gib",
+        "128",
+        "--prepare-only"
+      ],
+      "exitcode": 1,
+      "intended_error": "Missing literal data"
+    },
+    {
+      "case": "prep-missing-data-OO",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_final_fap_source_v2.py",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--run",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/missing-data-OO",
+        "--repository",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/repository",
+        "--inputs",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/missing-data-inputs.json",
+        "--scratch-root",
+        "/data/ivy-rh080-next-20261125",
+        "--workers",
+        "2",
+        "--worker-memory-gib",
+        "128",
+        "--prepare-only"
+      ],
+      "exitcode": 1,
+      "intended_error": "Missing literal data"
+    },
+    {
+      "case": "prep-mutated-data-normal",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_final_fap_source_v2.py",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--run",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/mutated-data-normal",
+        "--repository",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/repository",
+        "--inputs",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/mutated-data-inputs.json",
+        "--scratch-root",
+        "/data/ivy-rh080-next-20261125",
+        "--workers",
+        "2",
+        "--worker-memory-gib",
+        "128",
+        "--prepare-only"
+      ],
+      "exitcode": 1,
+      "intended_error": "Literal data hash differs"
+    },
+    {
+      "case": "prep-mutated-data-O",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_final_fap_source_v2.py",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--run",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/mutated-data-O",
+        "--repository",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/repository",
+        "--inputs",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/mutated-data-inputs.json",
+        "--scratch-root",
+        "/data/ivy-rh080-next-20261125",
+        "--workers",
+        "2",
+        "--worker-memory-gib",
+        "128",
+        "--prepare-only"
+      ],
+      "exitcode": 1,
+      "intended_error": "Literal data hash differs"
+    },
+    {
+      "case": "prep-mutated-data-OO",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_final_fap_source_v2.py",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--run",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/mutated-data-OO",
+        "--repository",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/repository",
+        "--inputs",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/mutated-data-inputs.json",
+        "--scratch-root",
+        "/data/ivy-rh080-next-20261125",
+        "--workers",
+        "2",
+        "--worker-memory-gib",
+        "128",
+        "--prepare-only"
+      ],
+      "exitcode": 1,
+      "intended_error": "Literal data hash differs"
+    },
+    {
+      "case": "prep-traversal-input-normal",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_final_fap_source_v2.py",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--run",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/traversal-input-normal",
+        "--repository",
+        "/data/ivy-rh080-next-20261125/network",
+        "--inputs",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/traversal-input-inputs.json",
+        "--scratch-root",
+        "/data/ivy-rh080-next-20261125",
+        "--workers",
+        "2",
+        "--worker-memory-gib",
+        "128",
+        "--prepare-only"
+      ],
+      "exitcode": 1,
+      "intended_error": "Unsafe relative literal input path"
+    },
+    {
+      "case": "prep-traversal-input-O",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_final_fap_source_v2.py",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--run",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/traversal-input-O",
+        "--repository",
+        "/data/ivy-rh080-next-20261125/network",
+        "--inputs",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/traversal-input-inputs.json",
+        "--scratch-root",
+        "/data/ivy-rh080-next-20261125",
+        "--workers",
+        "2",
+        "--worker-memory-gib",
+        "128",
+        "--prepare-only"
+      ],
+      "exitcode": 1,
+      "intended_error": "Unsafe relative literal input path"
+    },
+    {
+      "case": "prep-traversal-input-OO",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_final_fap_source_v2.py",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--run",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/traversal-input-OO",
+        "--repository",
+        "/data/ivy-rh080-next-20261125/network",
+        "--inputs",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/traversal-input-inputs.json",
+        "--scratch-root",
+        "/data/ivy-rh080-next-20261125",
+        "--workers",
+        "2",
+        "--worker-memory-gib",
+        "128",
+        "--prepare-only"
+      ],
+      "exitcode": 1,
+      "intended_error": "Unsafe relative literal input path"
+    },
+    {
+      "case": "prep-traversal-destination-normal",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_final_fap_source_v2.py",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--run",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/traversal-destination-normal",
+        "--repository",
+        "/data/ivy-rh080-next-20261125/network",
+        "--inputs",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/traversal-destination-inputs.json",
+        "--scratch-root",
+        "/data/ivy-rh080-next-20261125",
+        "--workers",
+        "2",
+        "--worker-memory-gib",
+        "128",
+        "--prepare-only"
+      ],
+      "exitcode": 1,
+      "intended_error": "Unsafe relative literal destination"
+    },
+    {
+      "case": "prep-traversal-destination-O",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_final_fap_source_v2.py",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--run",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/traversal-destination-O",
+        "--repository",
+        "/data/ivy-rh080-next-20261125/network",
+        "--inputs",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/traversal-destination-inputs.json",
+        "--scratch-root",
+        "/data/ivy-rh080-next-20261125",
+        "--workers",
+        "2",
+        "--worker-memory-gib",
+        "128",
+        "--prepare-only"
+      ],
+      "exitcode": 1,
+      "intended_error": "Unsafe relative literal destination"
+    },
+    {
+      "case": "prep-traversal-destination-OO",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_final_fap_source_v2.py",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--run",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/traversal-destination-OO",
+        "--repository",
+        "/data/ivy-rh080-next-20261125/network",
+        "--inputs",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/traversal-destination-inputs.json",
+        "--scratch-root",
+        "/data/ivy-rh080-next-20261125",
+        "--workers",
+        "2",
+        "--worker-memory-gib",
+        "128",
+        "--prepare-only"
+      ],
+      "exitcode": 1,
+      "intended_error": "Unsafe relative literal destination"
+    },
+    {
+      "case": "prep-duplicate-data-normal",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_final_fap_source_v2.py",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--run",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/duplicate-data-normal",
+        "--repository",
+        "/data/ivy-rh080-next-20261125/network",
+        "--inputs",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/duplicate-data-inputs.json",
+        "--scratch-root",
+        "/data/ivy-rh080-next-20261125",
+        "--workers",
+        "2",
+        "--worker-memory-gib",
+        "128",
+        "--prepare-only"
+      ],
+      "exitcode": 1,
+      "intended_error": "Duplicate literal data identity"
+    },
+    {
+      "case": "prep-duplicate-data-O",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_final_fap_source_v2.py",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--run",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/duplicate-data-O",
+        "--repository",
+        "/data/ivy-rh080-next-20261125/network",
+        "--inputs",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/duplicate-data-inputs.json",
+        "--scratch-root",
+        "/data/ivy-rh080-next-20261125",
+        "--workers",
+        "2",
+        "--worker-memory-gib",
+        "128",
+        "--prepare-only"
+      ],
+      "exitcode": 1,
+      "intended_error": "Duplicate literal data identity"
+    },
+    {
+      "case": "prep-duplicate-data-OO",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_final_fap_source_v2.py",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--run",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/duplicate-data-OO",
+        "--repository",
+        "/data/ivy-rh080-next-20261125/network",
+        "--inputs",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/duplicate-data-inputs.json",
+        "--scratch-root",
+        "/data/ivy-rh080-next-20261125",
+        "--workers",
+        "2",
+        "--worker-memory-gib",
+        "128",
+        "--prepare-only"
+      ],
+      "exitcode": 1,
+      "intended_error": "Duplicate literal data identity"
+    },
+    {
+      "case": "prep-omitted-data-normal",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_final_fap_source_v2.py",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--run",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/omitted-data-normal",
+        "--repository",
+        "/data/ivy-rh080-next-20261125/network",
+        "--inputs",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/omitted-data-inputs.json",
+        "--scratch-root",
+        "/data/ivy-rh080-next-20261125",
+        "--workers",
+        "2",
+        "--worker-memory-gib",
+        "128",
+        "--prepare-only"
+      ],
+      "exitcode": 1,
+      "intended_error": "Missing/extra literal data universe"
+    },
+    {
+      "case": "prep-omitted-data-O",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_final_fap_source_v2.py",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--run",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/omitted-data-O",
+        "--repository",
+        "/data/ivy-rh080-next-20261125/network",
+        "--inputs",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/omitted-data-inputs.json",
+        "--scratch-root",
+        "/data/ivy-rh080-next-20261125",
+        "--workers",
+        "2",
+        "--worker-memory-gib",
+        "128",
+        "--prepare-only"
+      ],
+      "exitcode": 1,
+      "intended_error": "Missing/extra literal data universe"
+    },
+    {
+      "case": "prep-omitted-data-OO",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_final_fap_source_v2.py",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--run",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/omitted-data-OO",
+        "--repository",
+        "/data/ivy-rh080-next-20261125/network",
+        "--inputs",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/omitted-data-inputs.json",
+        "--scratch-root",
+        "/data/ivy-rh080-next-20261125",
+        "--workers",
+        "2",
+        "--worker-memory-gib",
+        "128",
+        "--prepare-only"
+      ],
+      "exitcode": 1,
+      "intended_error": "Missing/extra literal data universe"
+    },
+    {
+      "case": "prep-wrong-dimensions-normal",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_final_fap_source_v2.py",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--run",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/wrong-dimensions-normal",
+        "--repository",
+        "/data/ivy-rh080-next-20261125/network",
+        "--inputs",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/wrong-dimensions-inputs.json",
+        "--scratch-root",
+        "/data/ivy-rh080-next-20261125",
+        "--workers",
+        "2",
+        "--worker-memory-gib",
+        "128",
+        "--prepare-only"
+      ],
+      "exitcode": 1,
+      "intended_error": "Literal loader identity/dimensions differ"
+    },
+    {
+      "case": "prep-wrong-dimensions-O",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_final_fap_source_v2.py",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--run",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/wrong-dimensions-O",
+        "--repository",
+        "/data/ivy-rh080-next-20261125/network",
+        "--inputs",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/wrong-dimensions-inputs.json",
+        "--scratch-root",
+        "/data/ivy-rh080-next-20261125",
+        "--workers",
+        "2",
+        "--worker-memory-gib",
+        "128",
+        "--prepare-only"
+      ],
+      "exitcode": 1,
+      "intended_error": "Literal loader identity/dimensions differ"
+    },
+    {
+      "case": "prep-wrong-dimensions-OO",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_final_fap_source_v2.py",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--run",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/wrong-dimensions-OO",
+        "--repository",
+        "/data/ivy-rh080-next-20261125/network",
+        "--inputs",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/wrong-dimensions-inputs.json",
+        "--scratch-root",
+        "/data/ivy-rh080-next-20261125",
+        "--workers",
+        "2",
+        "--worker-memory-gib",
+        "128",
+        "--prepare-only"
+      ],
+      "exitcode": 1,
+      "intended_error": "Literal loader identity/dimensions differ"
+    },
+    {
+      "case": "prep-duplicate-json-normal",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_final_fap_source_v2.py",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--run",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/duplicate-json-normal",
+        "--repository",
+        "/data/ivy-rh080-next-20261125/network",
+        "--inputs",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/duplicate-json-inputs.json",
+        "--scratch-root",
+        "/data/ivy-rh080-next-20261125",
+        "--workers",
+        "2",
+        "--worker-memory-gib",
+        "128",
+        "--prepare-only"
+      ],
+      "exitcode": 1,
+      "intended_error": "Duplicate JSON key"
+    },
+    {
+      "case": "prep-duplicate-json-O",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_final_fap_source_v2.py",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--run",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/duplicate-json-O",
+        "--repository",
+        "/data/ivy-rh080-next-20261125/network",
+        "--inputs",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/duplicate-json-inputs.json",
+        "--scratch-root",
+        "/data/ivy-rh080-next-20261125",
+        "--workers",
+        "2",
+        "--worker-memory-gib",
+        "128",
+        "--prepare-only"
+      ],
+      "exitcode": 1,
+      "intended_error": "Duplicate JSON key"
+    },
+    {
+      "case": "prep-duplicate-json-OO",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_final_fap_source_v2.py",
+        "--context",
+        "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+        "--run",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/duplicate-json-OO",
+        "--repository",
+        "/data/ivy-rh080-next-20261125/network",
+        "--inputs",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/duplicate-json-inputs.json",
+        "--scratch-root",
+        "/data/ivy-rh080-next-20261125",
+        "--workers",
+        "2",
+        "--worker-memory-gib",
+        "128",
+        "--prepare-only"
+      ],
+      "exitcode": 1,
+      "intended_error": "Duplicate JSON key"
+    },
+    {
+      "case": "verify-missing-snapshot-normal",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/test_final_fap_data_v2.py",
+        "--verify-stage",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/missing-snapshot"
+      ],
+      "exitcode": 1,
+      "intended_error": "Missing literal data"
+    },
+    {
+      "case": "verify-missing-snapshot-O",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/test_final_fap_data_v2.py",
+        "--verify-stage",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/missing-snapshot"
+      ],
+      "exitcode": 1,
+      "intended_error": "Missing literal data"
+    },
+    {
+      "case": "verify-missing-snapshot-OO",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/test_final_fap_data_v2.py",
+        "--verify-stage",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/missing-snapshot"
+      ],
+      "exitcode": 1,
+      "intended_error": "Missing literal data"
+    },
+    {
+      "case": "verify-mutated-snapshot-normal",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/test_final_fap_data_v2.py",
+        "--verify-stage",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/mutated-snapshot"
+      ],
+      "exitcode": 1,
+      "intended_error": "Literal data hash differs"
+    },
+    {
+      "case": "verify-mutated-snapshot-O",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/test_final_fap_data_v2.py",
+        "--verify-stage",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/mutated-snapshot"
+      ],
+      "exitcode": 1,
+      "intended_error": "Literal data hash differs"
+    },
+    {
+      "case": "verify-mutated-snapshot-OO",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/test_final_fap_data_v2.py",
+        "--verify-stage",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/mutated-snapshot"
+      ],
+      "exitcode": 1,
+      "intended_error": "Literal data hash differs"
+    },
+    {
+      "case": "verify-traversal-snapshot-normal",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/test_final_fap_data_v2.py",
+        "--verify-stage",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/traversal-snapshot"
+      ],
+      "exitcode": 1,
+      "intended_error": "Literal loader identity/dimensions differ"
+    },
+    {
+      "case": "verify-traversal-snapshot-O",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/test_final_fap_data_v2.py",
+        "--verify-stage",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/traversal-snapshot"
+      ],
+      "exitcode": 1,
+      "intended_error": "Literal loader identity/dimensions differ"
+    },
+    {
+      "case": "verify-traversal-snapshot-OO",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/test_final_fap_data_v2.py",
+        "--verify-stage",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/traversal-snapshot"
+      ],
+      "exitcode": 1,
+      "intended_error": "Literal loader identity/dimensions differ"
+    },
+    {
+      "case": "verify-duplicate-snapshot-normal",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/test_final_fap_data_v2.py",
+        "--verify-stage",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/duplicate-snapshot"
+      ],
+      "exitcode": 1,
+      "intended_error": "Duplicate literal data identity"
+    },
+    {
+      "case": "verify-duplicate-snapshot-O",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/test_final_fap_data_v2.py",
+        "--verify-stage",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/duplicate-snapshot"
+      ],
+      "exitcode": 1,
+      "intended_error": "Duplicate literal data identity"
+    },
+    {
+      "case": "verify-duplicate-snapshot-OO",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/test_final_fap_data_v2.py",
+        "--verify-stage",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/duplicate-snapshot"
+      ],
+      "exitcode": 1,
+      "intended_error": "Duplicate literal data identity"
+    },
+    {
+      "case": "verify-wrong-snapshot-owner-normal",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/test_final_fap_data_v2.py",
+        "--verify-stage",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/wrong-snapshot-owner"
+      ],
+      "exitcode": 1,
+      "intended_error": "Literal snapshot/owning-source association differs"
+    },
+    {
+      "case": "verify-wrong-snapshot-owner-O",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-O",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/test_final_fap_data_v2.py",
+        "--verify-stage",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/wrong-snapshot-owner"
+      ],
+      "exitcode": 1,
+      "intended_error": "Literal snapshot/owning-source association differs"
+    },
+    {
+      "case": "verify-wrong-snapshot-owner-OO",
+      "command": [
+        "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+        "-OO",
+        "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/test_final_fap_data_v2.py",
+        "--verify-stage",
+        "/data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/wrong-snapshot-owner"
+      ],
+      "exitcode": 1,
+      "intended_error": "Literal snapshot/owning-source association differs"
+    }
+  ]
+}

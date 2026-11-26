@@ -1,0 +1,73 @@
+# Node metadata for `CMSZeroSummation.v1`.  See docs/NODES.md.
+version: v0.4
+
+node:
+  id: CMSZeroSummation.v1
+  family: CMSZeroSummation
+  version: v1
+  kind: standard
+  status: awaiting-verification # change this once the node is filled in
+
+project:
+  name: CMSZeroSummation.v1
+  description: Kernel proof of the exact existing general weighted-zero partial-summation rule, from
+    literal zero-counting and explicit admissibility hypotheses.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+
+classification:
+  arxiv: [math.NT]
+  msc2020: [11N05]
+
+conclusions:
+- id: partial_summation
+  declaration: CMSZeroSummation.v1.partial_summation
+  challenge: CMSZeroSummation.v1.challenge_partial_summation
+  imports: []
+  imports_status: none
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: Complete ordinary Lean-kernel proof of the rule, with only standard axioms. The rule 
+      retains the literal CMS zero-counting input internally. No generalized literature proof-scheme
+      premise or numerical execution leaf. Source-cold proof and independent semantic review are 
+      local evidence; no official Comparator receipt.
+  designated: local-kernel-proof
+sources:
+- title: An independent proof of general weighted zero partial summation
+  authors:
+  - IEANTN contributors
+  type: original-proof
+  id: CMS-zero-kernel-20261126
+  relationship: independently-proves
+  note: ExplicitCMSZeroKernel.cms_zero_partial_summation_kernel; actual finite-cutoff integration, 
+    modulus approximation, convergence and negative-zero conjugation.
+- title: Fourier optimization and prime gaps
+  authors:
+  - Emanuel Carneiro
+  - Micah B. Milinovich
+  - Kannan Soundararajan
+  type: paper
+  id: arXiv:1708.04122v2
+  relationship: background
+  note: 'Section6.1, printed pp23–24: literal Lemma9 count estimate and following specialized partial-summation
+    display. The universal rule is independently proved here, not attributed verbatim to that display.'
+automation:
+  methods:
+  - method: manual
+    role: Formal FTC, finite/countable Fubini, smooth modulus approximation, improper integral 
+      limits, actual zero multiplicities and conjugation.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI (Codex)
+limitations:
+- The imported proposition is the exact v1 rule, including its explicit literal source-counting and 
+  analytic admissibility hypotheses; it is not a proof of the source zero-counting estimate.
+- No official Comparator receipt is asserted; historical nodes and experimental outcomes are 
+  unchanged.

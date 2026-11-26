@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/test_final_fap_data_v2.py", line 81, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/test_final_fap_data_v2.py", line 36, in main
+    if a.verify_stage:verify_stage(a.verify_stage);return
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/test_final_fap_data_v2.py", line 29, in verify_stage
+    meta=read_json(root/'STAGE.json');verify_data(root/'source',meta['staged_data'],meta['source_rows'],meta['inventory_data'])
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/final_fap_source_data_v2.py", line 178, in verify_data
+    check_file(target, row)
+  File "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/final_fap_source_data_v2.py", line 99, in check_file
+    need(digest.hexdigest() == row["sha256"], "Literal data hash differs " + str(path))
+  File "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/final_fap_source_data_v2.py", line 16, in need
+    raise ValueError(message)
+ValueError: Literal data hash differs /data/ivy-rh080-next-20261125/final-fap-source-cold-independent-review-v1/data-controls-v2-final/mutated-snapshot/source/layer-01.csv

@@ -1,0 +1,426 @@
+{
+  "status": "PASS_SCOPED_EIGHT_NAMED_INPUT_SOURCE_CLAIM_AUDIT",
+  "audited_source_tree_HEAD": "32c6498f6419f70cfef56d13376171569656a024",
+  "scope_created_by": "root explicit delegation: exact eight remaining named input families for final finite/global consumers",
+  "inclusion_ids": [
+    "BR-norm",
+    "BR-strip",
+    "CMS-Guinand-Weil",
+    "CMS-zero-count",
+    "DLMF-digamma",
+    "DLMF-real-eta",
+    "Montgomery-Vaughan",
+    "CMS-historical-gap"
+  ],
+  "exclusions": [
+    "Unrelated IEANTN nodes and old sorry queues",
+    "The separate BRuniform_population_q1 source input used by other population routes; not one of these eight finite/global contracts",
+    "An independent rerun or source-first re-verification of the old Oliveira eSilva–Herzog–Pardi computation",
+    "A claim to have kernel-proved the eight published analytic/historical theorems"
+  ],
+  "rows": [
+    {
+      "id": "BR-norm",
+      "lean": {
+        "file": "Solutions/RH080Next.v1/explicit/ExplicitNormSourceBridge.lean",
+        "declaration": "SourceBRFourierNormFive",
+        "line": 18,
+        "source_sha256": "d11e42ee3cd548e0689ca999c5c5bcf1ba327c349f8cdca124dcc515ad471b27",
+        "written_contract": "def SourceBRFourierNormFive : Prop :=\n  ∀ nodes : List ℚ, ∀ m : ℕ, 0 < m → nodes.length = 5*m+1 →\n    node nodes (5*m) = 0 →\n      (∫ u : ℝ, |inverseCosine (affineSpectrum nodes m) u|) =\n        ∫ y in (0:ℝ)..1, |nodalPolynomial nodes y|"
+      },
+      "canonical_blueprint": {
+        "file": "IEANTN/Nodes/BRFourierInput/v1/Conclusions.lean",
+        "declaration": "norm_identity",
+        "line": 25,
+        "source_sha256": "88e7158442fd1cb84639c6ffcd118652cab959ea9d38aba948a6d7d400c5344a",
+        "written_contract": "def norm_identity : Prop :=\n  ∀ nodes : List ℚ, ∀ m : ℕ, 0<m → nodes.length=5*m+1 →\n    node nodes (5*m)=0 →\n      (∫ u : ℝ, |inverseCosine (affineSpectrum nodes m) u|) =\n        ∫ y in (0 : ℝ)..1, |nodalPolynomial nodes y|"
+      },
+      "blueprint_note": "This canonical IEANTN node definition/docstring is the correspondence; no separate traditional Blueprint label exists.",
+      "compiled_identity_bridge": {
+        "file": "Solutions/RH080Next.v1/primal/finite/FapSourceInterfaces.lean",
+        "declaration": "RH080Next.Primal.FiniteCanonical.norm_interface",
+        "proof": "rfl; compiled among the16fresh sources in canonical-evolution-fullmain-v1"
+      },
+      "primary": {
+        "title": "Rational Fourier certificates for prime gaps, explicit intervals, and arithmetic progressions, v2",
+        "url": "https://zenodo.org/records/24429650/files/prime-gaps-v2.pdf#page=3",
+        "locator": "Section2.1, Lemma5, Eq(4), printed/PDFp3; TeX lem:fourier-norm/eq:pair",
+        "artifact_sha256": "2f15da8545766012902e6dcc46f9bc4daa9951661dae2cc4809b97fd729dc380",
+        "formula_tex": "F(u)=m^{-1}\\operatorname{sinc}^{2}(u/m)P(u/m),\\quad\\|F\\|_1=\\int_0^1|P(t)|\\,dt",
+        "domain": "Positive integer m,N=5m; arbitrary rational a0,...,a(N−1), even extension, a(±N)=0; W is affine interpolation at j/m and zero outside[−5,5]."
+      },
+      "comparison": {
+        "status": "ALIGNED_LITERAL_GENERAL_INPUT",
+        "actual_flawed_fragment": null,
+        "explanation": "The primary statement is genuinely general in the rational nodes, not limited to the later Fap/F_GRH numerical witness or10^−12 rounding grid. The formal positive-m restriction supplies the denominator domain. Even compact affine interpolation and inverseCosine implement this W and its inverse transform. No norm cap, numerical algorithm or final prime bound is assumed by the contract. Its periodization proof remains a named literature input, not a claimed new Lean proof."
+      },
+      "published_analytic_or_historical_proof_formalized_here": false,
+      "remains_explicit_mathematical_hypothesis": true,
+      "identity_key": [
+        "Solutions/RH080Next.v1/explicit/ExplicitNormSourceBridge.lean",
+        "SourceBRFourierNormFive",
+        18
+      ]
+    },
+    {
+      "id": "BR-strip",
+      "lean": {
+        "file": "Solutions/RH080Next.v1/explicit/ExplicitBRStripTransfer.lean",
+        "declaration": "SourceBRFourierNormStrip",
+        "line": 26,
+        "source_sha256": "f6b14caa02f7eebc237fe795c694ab3f88e55ccbd314565e83695d224980fe1e",
+        "written_contract": "def SourceBRFourierNormStrip : Prop :=\n  ∀ nodes : List ℚ, ∀ m : ℕ, 0 < m → nodes.length = 5*m+1 →\n    node nodes (5*m) = 0 → ∃ H : ℂ → ℂ,\n      Differentiable ℂ H ∧\n      (∀ u : ℝ, H (u:ℂ) = (inverseCosine (affineSpectrum nodes m) u : ℂ)) ∧\n      HorizontalQuadraticDecay H ∧ HorizontalQuadraticDecay (deriv H)"
+      },
+      "canonical_blueprint": {
+        "file": "IEANTN/Nodes/CMSExplicitInputs/v1/Conclusions.lean",
+        "declaration": "strip_regularity",
+        "line": 18,
+        "source_sha256": "5cd2e3c017d1274da46b89f2e5f98dc8074f38e7800e0c422b866de08c791d59",
+        "written_contract": "def strip_regularity : Prop :=\n  ∀ nodes : List ℚ, ∀ m : ℕ, 0 < m → nodes.length = 5*m+1 →\n    node nodes (5*m) = 0 → ∃ H : ℂ → ℂ,\n      Differentiable ℂ H ∧\n      (∀ u : ℝ, H (u:ℂ) = (inverseCosine (affineSpectrum nodes m) u : ℂ)) ∧\n      HorizontalQuadraticDecay H ∧ HorizontalQuadraticDecay (deriv H)"
+      },
+      "blueprint_note": "This canonical IEANTN node definition/docstring is the correspondence; no separate traditional Blueprint label exists.",
+      "compiled_identity_bridge": {
+        "file": "Solutions/RH080Next.v1/primal/finite/FapSourceInterfaces.lean",
+        "declaration": "RH080Next.Primal.FiniteCanonical.strip_interface",
+        "proof": "rfl; compiled among the16fresh sources in canonical-evolution-fullmain-v1"
+      },
+      "primary": {
+        "title": "BR v2",
+        "url": "https://zenodo.org/records/24429650/files/prime-gaps-v2.pdf#page=3",
+        "locator": "Section2.1, Lemma5, sentence immediately after Eq(4), printed/PDFp3",
+        "artifact_sha256": "2f15da8545766012902e6dcc46f9bc4daa9951661dae2cc4809b97fd729dc380",
+        "formula_tex": "F\\ \\text{entire},\\qquad F(z),F^{\\prime}(z)=O((1+|\\Re z|)^{-2})",
+        "domain": "Same arbitrary rational N=5m family; every fixed horizontal strip."
+      },
+      "comparison": {
+        "status": "ALIGNED_LITERAL_GENERAL_INPUT",
+        "actual_flawed_fragment": null,
+        "explanation": "The actual source explicitly covers both F and its complex derivative on every fixed strip. Formal HorizontalQuadraticDecay spells out the nonnegative O constants and large-|Re z| threshold for every width. The wider-support/m360→m504 transfer rescales the strip width in a proved Lean theorem; no support7 assertion is attributed verbatim to Lemma5. Fap m80 already lies in the literal support5 class."
+      },
+      "published_analytic_or_historical_proof_formalized_here": false,
+      "remains_explicit_mathematical_hypothesis": true,
+      "identity_key": [
+        "Solutions/RH080Next.v1/explicit/ExplicitBRStripTransfer.lean",
+        "SourceBRFourierNormStrip",
+        26
+      ]
+    },
+    {
+      "id": "CMS-Guinand-Weil",
+      "lean": {
+        "file": "Solutions/RH080Next.v1/explicit/ExplicitGuinandWeilApplication.lean",
+        "declaration": "SourceCMSGuinandWeil",
+        "line": 48,
+        "source_sha256": "ee283176bef2f1b5ae35c8973ca71ac63531d04bd4fa2c79a2ff83d2361130ee",
+        "written_contract": "def SourceCMSGuinandWeil : Prop :=\n  ∀ h : ℂ → ℂ, Differentiable ℂ h → HorizontalQuadraticDecay h →\n    CMSGuinandWeilFormula h"
+      },
+      "canonical_blueprint": {
+        "file": "IEANTN/Nodes/CMSExplicitInputs/v1/Conclusions.lean",
+        "declaration": "guinand_weil",
+        "line": 26,
+        "source_sha256": "5cd2e3c017d1274da46b89f2e5f98dc8074f38e7800e0c422b866de08c791d59",
+        "written_contract": "def guinand_weil : Prop :=\n  ∀ h : ℂ → ℂ, Differentiable ℂ h → HorizontalQuadraticDecay h →\n    CMSGuinandWeilFormula h"
+      },
+      "blueprint_note": "This canonical IEANTN node definition/docstring is the correspondence; no separate traditional Blueprint label exists.",
+      "compiled_identity_bridge": {
+        "file": "Solutions/RH080Next.v1/primal/finite/FapSourceInterfaces.lean",
+        "declaration": "RH080Next.Primal.FiniteCanonical.guinand_interface",
+        "proof": "rfl; compiled among the16fresh sources in canonical-evolution-fullmain-v1"
+      },
+      "primary": {
+        "title": "Fourier optimization and prime gaps, arXiv1708.04122v2",
+        "url": "https://arxiv.org/pdf/1708.04122v2#page=17",
+        "locator": "Lemma6, Section5 opening, printed/PDFp17; source proof cites Iwaniec–Kowalski Theorem5.12",
+        "artifact_sha256": "45b6c7f991831a2dc456c10285206cb17a53ef46c6ae15e43cfa5671554b0dce",
+        "formula_tex": "\\sum_\\rho h((\\rho-1/2)/i)=h(1/(2i))+h(-1/(2i))-\\frac{\\log\\pi}{2\\pi}\\widehat h(0)+\\frac1{2\\pi}\\int_{\\mathbb R}h(u)\\Re\\psi(1/4+iu/2)\\,du-\\frac1{2\\pi}\\sum_{n\\ge2}\\frac{\\Lambda(n)}{\\sqrt n}(\\widehat h(\\log n/(2\\pi))+\\widehat h(-\\log n/(2\\pi)))",
+        "domain": "h analytic in |Im s|≤1/2+ε for some ε>0, with |h(s)|=O((1+|s|)^(−1−δ)),δ>0, uniformly as |Re s|→∞."
+      },
+      "comparison": {
+        "status": "ALIGNED_RESTRICTED_LITERAL_GENERAL_INPUT",
+        "actual_flawed_fragment": null,
+        "explanation": "Formal h is entire and quadratically decreasing on every fixed strip, a stronger subclass (take stripwidth1,ε1/2,δ1). On a bounded strip the Re-based decay is equivalent up to a fixed constant to the source modulus-based decay. All signs,1/(2π) factors, h pole arguments and both prime frequencies agree. Explicit convergence clauses encode the actual convergent zero/prime series and gamma integral. Actual nontrivial zeros0<Reρ<1 and IEANTN.zetaOrder multiplicities are used. The later CMS fixed-Schwartz setup does not restrict the preceding general Lemma6."
+      },
+      "published_analytic_or_historical_proof_formalized_here": false,
+      "remains_explicit_mathematical_hypothesis": true,
+      "identity_key": [
+        "Solutions/RH080Next.v1/explicit/ExplicitGuinandWeilApplication.lean",
+        "SourceCMSGuinandWeil",
+        48
+      ]
+    },
+    {
+      "id": "CMS-zero-count",
+      "lean": {
+        "file": "Solutions/RH080Next.v1/explicit/ExplicitCMSZeroSource.lean",
+        "declaration": "SourceCMSZeroCounting",
+        "line": 34,
+        "source_sha256": "2155f90e7509729918f5d010d6bdd1b6cff270966e92af4a7adbbf85493f4e40",
+        "written_contract": "def SourceCMSZeroCounting : Prop :=\n  (∀ T : ℝ, Summable (cmsCountFamily T)) ∧ cmsPositiveZeroCount 10 = 0 ∧\n    ∀ T : ℝ, exp 1 ≤ T → |cmsCountRemainder T| ≤ (3/20:ℝ)*log T+3"
+      },
+      "canonical_blueprint": {
+        "file": "IEANTN/Nodes/CMSExplicitInputs/v1/Conclusions.lean",
+        "declaration": "zero_counting",
+        "line": 44,
+        "source_sha256": "5cd2e3c017d1274da46b89f2e5f98dc8074f38e7800e0c422b866de08c791d59",
+        "written_contract": "def zero_counting : Prop :=\n  (∀ T : ℝ, Summable (cmsCountFamily T)) ∧ cmsPositiveZeroCount 10 = 0 ∧\n    ∀ T : ℝ, exp 1 ≤ T → |cmsCountRemainder T| ≤ (3/20:ℝ)*log T+3"
+      },
+      "blueprint_note": "This canonical IEANTN node definition/docstring is the correspondence; no separate traditional Blueprint label exists.",
+      "compiled_identity_bridge": {
+        "file": "Solutions/RH080Next.v1/primal/finite/FapSourceInterfaces.lean",
+        "declaration": "RH080Next.Primal.FiniteCanonical.count_interface",
+        "proof": "rfl; compiled among the16fresh sources in canonical-evolution-fullmain-v1"
+      },
+      "primary": {
+        "title": "CMS v2",
+        "url": "https://arxiv.org/pdf/1708.04122v2#page=23",
+        "locator": "Section6.1, Lemma9 and its proof first sentence, printed/PDFp23",
+        "artifact_sha256": "45b6c7f991831a2dc456c10285206cb17a53ef46c6ae15e43cfa5671554b0dce",
+        "formula_tex": "N(T)=\\#\\{\\rho=\\beta+i\\gamma:0<\\gamma\\le T\\},\\quad Q(T)=\\frac{T}{2\\pi}\\log\\frac{T}{2\\pi e}+\\frac78,\\quad|N(T)-Q(T)|\\le0.15\\log T+3,\\quad N(10)=0",
+        "domain": "Count includes multiplicity; upper ordinate endpoint is closed. Error estimate T≥e. N(10)=0 is separately used in the printed proof."
+      },
+      "comparison": {
+        "status": "ALIGNED_LITERAL_COUNT_AND_SEPARATE_PRINTED_BASE_FACT",
+        "actual_flawed_fragment": null,
+        "explanation": "The formal coefficient3/20 equals0.15, and Q signs/constants match. Local summability makes the finite actual count explicit instead of relying on totalized tsum. The existing open-endpoint zetaN vocabulary is not substituted. N(10)=0 is an explicit source fact, not incorrectly inferred from the error bound. The exact root in(9,10) is now kernel-proved by cms_zero_count_root_exists. The generalized partial-summation extension is separately kernel-proved; no SourceScheme premise remains in the composed finite roots."
+      },
+      "published_analytic_or_historical_proof_formalized_here": false,
+      "remains_explicit_mathematical_hypothesis": true,
+      "identity_key": [
+        "Solutions/RH080Next.v1/explicit/ExplicitCMSZeroSource.lean",
+        "SourceCMSZeroCounting",
+        34
+      ]
+    },
+    {
+      "id": "DLMF-digamma",
+      "lean": {
+        "file": "Solutions/RH080Next.v1/explicit/ExplicitDigammaDifference.lean",
+        "declaration": "SourceDLMFDigammaIntegral",
+        "line": 19,
+        "source_sha256": "15aee12776c006189ec582c23a6bd5fe2707c23f65ad05ffae7a9871ba6f944a",
+        "written_contract": "def SourceDLMFDigammaIntegral : Prop :=\n  ∀ z : ℂ, 0 < z.re → IntegrableOn (dlmfDigammaIntegrand z) (Ioi (0:ℝ)) ∧\n    Complex.digamma z+(Real.eulerMascheroniConstant:ℂ) =\n      ∫ u in Ioi (0:ℝ), dlmfDigammaIntegrand z u"
+      },
+      "canonical_blueprint": {
+        "file": "IEANTN/Nodes/CMSExplicitInputs/v1/Conclusions.lean",
+        "declaration": "digamma_integral",
+        "line": 31,
+        "source_sha256": "5cd2e3c017d1274da46b89f2e5f98dc8074f38e7800e0c422b866de08c791d59",
+        "written_contract": "def digamma_integral : Prop :=\n  ∀ z : ℂ, 0 < z.re → IntegrableOn (dlmfDigammaIntegrand z) (Ioi (0:ℝ)) ∧\n    Complex.digamma z+(Real.eulerMascheroniConstant:ℂ) =\n      ∫ u in Ioi (0:ℝ), dlmfDigammaIntegrand z u"
+      },
+      "blueprint_note": "This canonical IEANTN node definition/docstring is the correspondence; no separate traditional Blueprint label exists.",
+      "compiled_identity_bridge": {
+        "file": "Solutions/RH080Next.v1/primal/finite/FapSourceInterfaces.lean",
+        "declaration": "RH080Next.Primal.FiniteCanonical.digamma_interface",
+        "proof": "rfl; compiled among the16fresh sources in canonical-evolution-fullmain-v1"
+      },
+      "primary": {
+        "title": "NIST DLMF",
+        "url": "https://dlmf.nist.gov/5.9.E16",
+        "locator": "Eq5.9.16; common Re(z)>0 domain in Section5.9(ii) immediately before Eq5.9.12",
+        "artifact_sha256": "03df5820fc46a8bdd98f3c75efa00f26aa38df5b543107de8e0fc017e7c0cd97",
+        "formula_tex": "\\psi(z)+\\gamma=\\int_0^\\infty\\frac{e^{-t}-e^{-zt}}{1-e^{-t}}\\,dt",
+        "domain": "Complex z with Re z>0; convergent integral."
+      },
+      "comparison": {
+        "status": "ALIGNED_LITERAL_GENERAL_INTEGRAL",
+        "actual_flawed_fragment": null,
+        "explanation": "The integrand, Euler constant, sign and complex domain are identical. The formal absolute Bochner integrability makes the convergent analytic integral explicit. Actual uses substitute z=1/4+ir/2 and z=1/4, so Re z=1/4>0 for every real r. Their subtraction, real-part interchange and the positive kernel(1−cos(ru/2)) are actually proved in Lean, rather than assumed as a window-specific gamma formula."
+      },
+      "published_analytic_or_historical_proof_formalized_here": false,
+      "remains_explicit_mathematical_hypothesis": true,
+      "identity_key": [
+        "Solutions/RH080Next.v1/explicit/ExplicitDigammaDifference.lean",
+        "SourceDLMFDigammaIntegral",
+        19
+      ]
+    },
+    {
+      "id": "DLMF-real-eta",
+      "lean": {
+        "file": "Solutions/RH080Next.v1/explicit/ExplicitRealZetaNonzero.lean",
+        "declaration": "SourceDLMFRealEtaIntegral",
+        "line": 22,
+        "source_sha256": "7b41e10e63df415c507a868792533f2ba6ddc10ea1c8af994526d8a75da58cc6",
+        "written_contract": "def SourceDLMFRealEtaIntegral : Prop :=\n  ∀ s : ℝ, 0<s → s≠1 →\n    IntegrableOn (fun x : ℝ => x^(s-1)/(exp x+1)) (Ioi (0:ℝ)) ∧\n      (∫ x in Ioi (0:ℝ), x^(s-1)/(exp x+1)) =\n        (1-(2:ℝ)^(1-s))*Gamma s*(riemannZeta (s:ℂ)).re"
+      },
+      "canonical_blueprint": {
+        "file": "IEANTN/Nodes/CMSExplicitInputs/v1/Conclusions.lean",
+        "declaration": "real_eta_integral",
+        "line": 37,
+        "source_sha256": "5cd2e3c017d1274da46b89f2e5f98dc8074f38e7800e0c422b866de08c791d59",
+        "written_contract": "def real_eta_integral : Prop :=\n  ∀ s : ℝ, 0<s → s≠1 →\n    IntegrableOn (fun x : ℝ => x^(s-1)/(exp x+1)) (Ioi (0:ℝ)) ∧\n      (∫ x in Ioi (0:ℝ), x^(s-1)/(exp x+1)) =\n        (1-(2:ℝ)^(1-s))*Gamma s*(riemannZeta (s:ℂ)).re"
+      },
+      "blueprint_note": "This canonical IEANTN node definition/docstring is the correspondence; no separate traditional Blueprint label exists.",
+      "compiled_identity_bridge": {
+        "file": "Solutions/RH080Next.v1/primal/finite/FapSourceInterfaces.lean",
+        "declaration": "RH080Next.Primal.FiniteCanonical.eta_interface",
+        "proof": "rfl; compiled among the16fresh sources in canonical-evolution-fullmain-v1"
+      },
+      "primary": {
+        "title": "NIST DLMF",
+        "url": "https://dlmf.nist.gov/25.5.E3",
+        "locator": "Eq25.5.3; Section25.5(i) introductory s≠1 and equation domain Re s>0; source Erdélyi etal1953a,(1.12.5),p32",
+        "artifact_sha256": "0566301d0fafa4f2fa1184daa527e64719a59ea4dbc9664ea134f45c3045b3aa",
+        "formula_tex": "\\zeta(s)=\\frac{1}{(1-2^{1-s})\\Gamma(s)}\\int_0^\\infty\\frac{x^{s-1}}{e^x+1}\\,dx",
+        "domain": "For the audited real restriction: s>0,s≠1. The subsection excludes s=1; the displayed equation has Re s>0."
+      },
+      "comparison": {
+        "status": "ALIGNED_REAL_SPECIALIZATION",
+        "actual_flawed_fragment": null,
+        "explanation": "The contract restricts to real s, multiplies the nonzero denominator and takes real parts. Positive x makes the real power match the source principal complex power. It never uses problematic complex denominator zeros. Kernel positivity and Gamma positivity derive Reζ(s)<0 for0<s<1 and hence ζ(1/2)≠0. No numerical zeta value or unsupported inference from the positive-ordinate count is used. The general eta integral identity itself remains the explicit source hypothesis."
+      },
+      "published_analytic_or_historical_proof_formalized_here": false,
+      "remains_explicit_mathematical_hypothesis": true,
+      "identity_key": [
+        "Solutions/RH080Next.v1/explicit/ExplicitRealZetaNonzero.lean",
+        "SourceDLMFRealEtaIntegral",
+        22
+      ]
+    },
+    {
+      "id": "Montgomery-Vaughan",
+      "lean": {
+        "file": "Solutions/RH080Next.v1/explicit/ExplicitMontgomeryVaughan.lean",
+        "declaration": "SourceMontgomeryVaughan",
+        "line": 39,
+        "source_sha256": "1136c20fa7fd3ef57728f486d023d38d83a6d995739e24526cd03b42bf5dc86c",
+        "written_contract": "def SourceMontgomeryVaughan : Prop :=\n  ∀ a y : ℝ, 1 < a → 1 < y →\n    ((Nat.primeCounting ⌊a+y⌋₊-Nat.primeCounting ⌊a⌋₊:ℕ):ℝ) ≤ 2*y/log y"
+      },
+      "canonical_blueprint": {
+        "file": "IEANTN/Nodes/CMSExplicitInputs/v1/Conclusions.lean",
+        "declaration": "montgomery_vaughan",
+        "line": 59,
+        "source_sha256": "5cd2e3c017d1274da46b89f2e5f98dc8074f38e7800e0c422b866de08c791d59",
+        "written_contract": "def montgomery_vaughan : Prop :=\n  ∀ a y : ℝ, 1 < a → 1 < y →\n    ((Nat.primeCounting ⌊a+y⌋₊-Nat.primeCounting ⌊a⌋₊:ℕ):ℝ) ≤ 2*y/log y"
+      },
+      "blueprint_note": "This canonical IEANTN node definition/docstring is the correspondence; no separate traditional Blueprint label exists.",
+      "compiled_identity_bridge": {
+        "file": "Solutions/RH080Next.v1/primal/finite/FapSourceInterfaces.lean",
+        "declaration": "RH080Next.Primal.FiniteCanonical.mv_interface",
+        "proof": "rfl; compiled among the16fresh sources in canonical-evolution-fullmain-v1"
+      },
+      "primary": {
+        "title": "Montgomery–Vaughan, The large sieve, Mathematika20(1973),119–134",
+        "url": "https://personal.science.psu.edu/rcv4/personal/Publications/large_sieve.pdf#page=3",
+        "locator": "Theorem2, printedp121/PDFp3, Eq(1.12), the modulus-one case of Eq(1.10). CMS also displays a strict form at Eq(6.10),printedp24.",
+        "artifact_sha256": "720058876b871e8d1fef22acb285550a227ae9e3b1bedaa042f6d62f3299e8b9",
+        "formula_tex": "\\pi(M+N)-\\pi(M)\\le\\frac{2N}{\\log N}",
+        "domain": "Original Eq(1.12): M>0,N>1, real parameters inherited from Theorem2. Formal restriction a>1,y>1 is narrower."
+      },
+      "comparison": {
+        "status": "ALIGNED_LITERAL_NONSTRICT_MODULUS_ONE_BOUND",
+        "actual_flawed_fragment": null,
+        "explanation": "The actual original PDF Eq(1.12) has≤; the formal input also has≤, so no unsupported strictness is introduced. CMS Eq(6.10) prints<, but that stronger source is unnecessary. Floor prime counts encode exactly(a,a+y], and y>1 implies monotonicity removes Nat subtraction saturation. The entrance allowance below is derived in Lean, not attributed as a printed source term. Actual application lower endpoints exceed1; logarithmic denominators are positive."
+      },
+      "published_analytic_or_historical_proof_formalized_here": false,
+      "remains_explicit_mathematical_hypothesis": true,
+      "identity_key": [
+        "Solutions/RH080Next.v1/explicit/ExplicitMontgomeryVaughan.lean",
+        "SourceMontgomeryVaughan",
+        39
+      ]
+    },
+    {
+      "id": "CMS-historical-gap",
+      "lean": {
+        "file": "Solutions/RH080Next.v1/dual/FinitePrimeGapBridge.lean",
+        "declaration": "HistoricalFiniteGap",
+        "line": 20,
+        "source_sha256": "764d99359b06915eea34770f4733ce44f0cb14fdc268b57b6f6782de9eae3dab",
+        "written_contract": "def HistoricalFiniteGap : Prop :=\n  ∀ n : ℕ, 11 ≤ Nat.nth Nat.Prime n →\n    Nat.nth Nat.Prime n ≤ 4 * 10 ^ 18 →\n    (Nat.nth Nat.Prime (n+1) : ℝ) - Nat.nth Nat.Prime n <\n      log (Nat.nth Nat.Prime n : ℝ) ^ 2"
+      },
+      "canonical_blueprint": {
+        "file": "IEANTN/Nodes/CMSExplicitInputs/v1/Conclusions.lean",
+        "declaration": "historical_finite_gap",
+        "line": 64,
+        "source_sha256": "5cd2e3c017d1274da46b89f2e5f98dc8074f38e7800e0c422b866de08c791d59",
+        "written_contract": "def historical_finite_gap : Prop :=\n  ∀ n : ℕ, 11 ≤ Nat.nth Nat.Prime n →\n    Nat.nth Nat.Prime n ≤ 4 * 10 ^ 18 →\n    (Nat.nth Nat.Prime (n+1) : ℝ) - Nat.nth Nat.Prime n <\n      log (Nat.nth Nat.Prime n : ℝ) ^ 2"
+      },
+      "blueprint_note": "This canonical IEANTN node definition/docstring is the correspondence; no separate traditional Blueprint label exists.",
+      "compiled_identity_bridge": {
+        "file": "Solutions/RH080Next.v1/primal/finite/FapSourceInterfaces.lean",
+        "declaration": "RH080Next.Primal.FiniteCanonical.historical_interface",
+        "proof": "rfl; compiled among the16fresh sources in canonical-evolution-fullmain-v1"
+      },
+      "primary": {
+        "title": "CMS v2",
+        "url": "https://arxiv.org/pdf/1708.04122v2#page=6",
+        "locator": "Eq(1.15), printed/PDFp6 and immediately following sentence; named antecedent Oliveira eSilva–Herzog–Pardi[37],Section2.2",
+        "artifact_sha256": "45b6c7f991831a2dc456c10285206cb17a53ef46c6ae15e43cfa5671554b0dce",
+        "formula_tex": "p_{n+1}-p_n<(\\log p_n)^2\\qquad(11\\le p_n\\le4\\cdot10^{18})",
+        "domain": "Every lower prime value between11 and4×10^18, inclusive. Strict gap comparison."
+      },
+      "comparison": {
+        "status": "ALIGNED_LITERAL_HISTORICAL_COMPUTATION_INPUT",
+        "actual_flawed_fragment": null,
+        "explanation": "The printed comparison is genuinely strict. The threshold11 applies to the lower prime value, not the index n. Formal Nat.nth is zero-based, but its value inequalities select exactly the same prime pairs as the paper. The cutoff is also the lower prime; the next prime need not lie below it. This is a preserved external historical-computation hypothesis, not a new source-first verification of that old computation. The finite-gap-to-real-interval and small-prime5/7/11 bridges are separately kernel-proved."
+      },
+      "published_analytic_or_historical_proof_formalized_here": false,
+      "remains_explicit_mathematical_hypothesis": true,
+      "identity_key": [
+        "Solutions/RH080Next.v1/dual/FinitePrimeGapBridge.lean",
+        "HistoricalFiniteGap",
+        20
+      ]
+    }
+  ],
+  "material_source_to_contract_mismatches": 0,
+  "unresolved_source_to_contract_mismatches_in_this_scope": [],
+  "verified_generic_extensions": [
+    {
+      "theorem": "RH080Next.Explicit.affine_strip_extension_by_mesh_dilation",
+      "file": "Solutions/RH080Next.v1/explicit/ExplicitBRStripTransfer.lean",
+      "status": "kernel-proved from literal support5 source class; strip width scales before applying the source bound"
+    },
+    {
+      "theorem": "RH080Next.Explicit.affine_norm_eq_periodic_of_five_mesh",
+      "file": "Solutions/RH080Next.v1/explicit/ExplicitNormSourceBridge.lean",
+      "status": "kernel-proved from literal norm source identity and mesh L1 invariance"
+    },
+    {
+      "theorem": "RH080Next.Explicit.cms_zero_count_root_exists",
+      "file": "Solutions/RH080Next.v1/explicit/ExplicitCMSZeroRoot.lean",
+      "status": "unconditional kernel proof, no approximate-root source oracle"
+    },
+    {
+      "theorem": "RH080Next.Explicit.cms_zero_partial_summation_kernel",
+      "file": "Solutions/RH080Next.v1/explicit/ExplicitCMSZeroKernel.lean",
+      "status": "unconditional kernel proof of general rule; literal zero-count input remains internal; finite-cutoff smoothing before infinity and actual conjugation"
+    },
+    {
+      "theorem": "RH080Next.Explicit.source_affine_mellin_identity",
+      "file": "Solutions/RH080Next.v1/explicit/ExplicitMellinIdentity.lean",
+      "status": "kernel reconstruction from general CMSLemma6 and DLMF formula, not an assumption that BRfixed-witness Eq15 is universally quantified"
+    }
+  ],
+  "MV_entrance_allowance_derivation": {
+    "source": "MVTheorem2/Eq1.12, not a new source allowance",
+    "derived_Lean_theorem": "RH080Next.Explicit.mv_interval_entrance_bound",
+    "file": "Solutions/RH080Next.v1/explicit/ExplicitMontgomeryVaughan.lean:46",
+    "hypotheses": "a>1,a≤b,ell>1; y=b−a+ell",
+    "steps_tex": [
+      "\\#\\{p:a<p\\le b\\}\\le\\pi(a+y)-\\pi(a)",
+      "\\pi(a+y)-\\pi(a)\\le2y/\\log y",
+      "y\\ge\\ell>1\\implies2y/\\log y\\le2y/\\log\\ell",
+      "2y/\\log\\ell=2(b-a)/\\log\\ell+2\\ell/\\log\\ell"
+    ],
+    "added_terms": "2ell/logell is exactly the enlarged-interval entrance allowance; no unexplained endpoint, floor or component-count term. The later actual atomic/BV proof derives the nodalH factor."
+  },
+  "boundaries": [
+    "The eight named propositions remain explicit mathematical hypotheses in final theorem signatures. Source alignment is not a Lean proof of their published proofs.",
+    "The now-proved generic CMS zero-summation rule is genuinely consumed; its old under-development source-contract note is marked historical.",
+    "Original finiteFap claims are connected to full modeled Cmain/printf output. W4 numerical source-first completion is separately gated by the still-running N24 evidence, not supplied by this source audit.",
+    "RH remains the unchanged explicit canonical RH hypothesis.",
+    "This is exactly the requested eight-family audit, not a checked source-claim census for the whole repository."
+  ],
+  "primary_download_receipt_sha256": "3985440876ae124d8bf0b20f77dd0ccda8f753960e71a4d20fb07ae97adc1034",
+  "BR_official_API_current_record": {
+    "id": 24429650,
+    "version": "2",
+    "api_sha256": "9ae2200dff7deace38b2cd155d824ef2e67a5a2c535aba8ecc5f1df7a79366a5",
+    "pdf_sha256": "2f15da8545766012902e6dcc46f9bc4daa9951661dae2cc4809b97fd729dc380",
+    "supplement_TeX_sha256": "3c05af131a1603bd9af2df87a44bb20a651220b454015faf7412896e3cbb92b2",
+    "locked_TeX_matches_new_official_supplement": true
+  },
+  "reproducibility": "Every row records its actual written-source identity(file,declaration,line), exact source bytes, full contract and exact primary locator. The canonical identity bridges are actual compiled rfl theorems in the frozen full-main canonical proof batch. Official primary pages were freshly opened; original MVandBR formulas were visually inspected from pinnedPDFpages."
+}

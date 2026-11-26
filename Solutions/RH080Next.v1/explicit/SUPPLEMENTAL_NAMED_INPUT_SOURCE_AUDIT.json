@@ -1,0 +1,182 @@
+{
+  "status": "PASS_SEPARATE_THREE_FAMILY_SUPPLEMENTAL_SOURCE_INPUT_AUDIT",
+  "preserved_original_eight_family_ledger_sha256": "b2d7ea1b33b74af86bcb160209b5026dca920db28b5e19266d4111744a7e2ebd",
+  "scope_created_by": "Root supplemental delegation: all remaining mathematical input contracts used by sparse/flat,D exposure,Gaussian/primal/dual report theorem routes.",
+  "supplemental_ids": [
+    "BR-uniform-population-q1",
+    "CMS-functional-gap",
+    "CMS-functional-population"
+  ],
+  "combined_named_input_families": 11,
+  "source_to_contract_material_mismatches": 0,
+  "unresolved_source_to_contract_mismatches_in_this_supplement": [],
+  "rows": [
+    {
+      "id": "BR-uniform-population-q1",
+      "lean": {
+        "file": "Solutions/RH080Next.v1/explicit/ExplicitBRPopulationConsumer.lean",
+        "declaration": "SourceBRUniformPopulationQ1",
+        "qualified_declaration": "RH080Next.Explicit.SourceBRUniformPopulationQ1",
+        "line": 30,
+        "source_sha256": "d568f6ac3da17900b0012ae2947b1647579ac800e45cf60ffdd18d12bf6cabe0",
+        "written_contract": "def SourceBRUniformPopulationQ1 : Prop :=\n  ∀ nodes : List ℚ, ∀ m : ℕ, 0 < m → nodes.length = 5*m+1 →\n    node nodes (5*m) = 0 → ∀ M : ℝ, 0 < M →\n    (∀ v : ℝ, |affineSpectrum nodes m v| ≤ M) →\n    (∃ v : ℝ, |affineSpectrum nodes m v| = M) →\n    0 < brDenominatorFour nodes m → ∀ c : ℝ, 0 < c → RiemannHypothesis →\n    ∃ C : ℝ, 0 ≤ C ∧ ∀ᶠ x : ℝ in atTop,\n      (c*brDenominatorFour nodes m-brAmplitudeMass nodes m)/(2*M)-C*brQ1Error x ≤\n        IEANTN.CMSFunctional.normalizedPopulation c x"
+      },
+      "canonical_blueprint": {
+        "file": "IEANTN/Nodes/BRFourierInput/v1/Conclusions.lean",
+        "declaration": "uniform_population_q1",
+        "qualified_declaration": "BRFourierInput.v1.uniform_population_q1",
+        "line": 37,
+        "source_sha256": "88e7158442fd1cb84639c6ffcd118652cab959ea9d38aba948a6d7d400c5344a",
+        "written_contract": "def uniform_population_q1 : Prop :=\n  ∀ nodes : List ℚ, ∀ m : ℕ, 0<m → nodes.length=5*m+1 →\n    node nodes (5*m)=0 → ∀ M : ℝ, 0<M →\n    (∀ v : ℝ, |affineSpectrum nodes m v|≤M) →\n    (∃ v : ℝ, |affineSpectrum nodes m v|=M) →\n    0<denominatorFour nodes m → ∀ c : ℝ, 0<c → RiemannHypothesis →\n    ∃ C : ℝ, 0≤C ∧ ∀ᶠ x : ℝ in atTop,\n      (c*denominatorFour nodes m-amplitudeMass nodes m)/(2*M)-C*q1Error x ≤\n        IEANTN.CMSFunctional.normalizedPopulation c x"
+      },
+      "blueprint_note": "Exact canonical node definition/docstring; no separate traditional Blueprint label.",
+      "primary": {
+        "title": "Rational Fourier certificates for prime gaps, explicit intervals, and arithmetic progressions, v2",
+        "url": "https://zenodo.org/records/24429650/files/prime-gaps-v2.pdf#page=7",
+        "locator": "Section3, Proposition6, Eq(6), printed/PDFp7, label eq:uniform-count; family Eq(1),p2; Section3.4 explicit The moduli1and2 paragraph,p10. Eq(7) is scaling, not the uniform-count formula.",
+        "formula_tex": "\\frac{\\pi(x+c\\varphi(q)\\sqrt{x}\\log x;q,b)-\\pi(x;q,b)}{\\sqrt{x}}\\ge\\frac{cD_4(F)-\\|F\\|_1}{2M_W}-O_{F,c}\\!\\left(\\eta(x)+\\frac{\\log\\log x}{\\log x}+\\frac{\\log x}{\\sqrt{x}}\\right)",
+        "domain": "F arbitrary in Lemma5 rational support5 class, D4(F)>0,c>0, admissible familyQ(x),coprime residue. Proposition is stated under GRH; the explicit q=1/2 source paragraph requires only RH because the only inducing primitive L-function is ζ.",
+        "artifact_sha256": "2f15da8545766012902e6dcc46f9bc4daa9951661dae2cc4809b97fd729dc380"
+      },
+      "comparison": {
+        "status": "ALIGNED_EXPLICIT_PUBLISHED_Q1_SPECIALIZATION",
+        "actual_flawed_fragment": null,
+        "explanation": "Q(x)={1} is nonempty,φ(1)=1 and the source family definition givesη=log(x)/sqrt(x)→0. The error becomes exactly loglog(x)/log(x)+2log(x)/sqrt(x), as formal brQ1Error. The formal positiveM,global upper bound and attained absolute value identifyM with the actual sup norm of this continuous compact window. The general sourceO(F,c) is retained as∃C≥0,eventually,not discarded or turned into a finite onset. Ordinary RH is justified by the source explicit q=1/2 paragraph and conductor-one proof; it is not inferred merely by substitutingq=1 into a GRH theorem. The exact real-prime half-open count and fixed positivec agree. The full published analytic count proof remains a named mathematical input, while its error→0,padding of shorter16node inputs and GoodCoefficient consumers are kernel-proved."
+      },
+      "remains_explicit_mathematical_hypothesis": true,
+      "published_analytic_proof_formalized_here": false,
+      "compiled_identity_bridge": {
+        "file": "Solutions/RH080Next.v1/primal/population/BRSourceInterfaces.lean",
+        "declaration": "RH080Next.PopulationCanonical.population_source_exact",
+        "proof": "rfl; independently used by PopulationCanonicalAudit and actual source-first sparse/flat routes"
+      },
+      "formal_specialization_steps_tex": [
+        "\\mathcal Q(x)=\\{1\\},\\quad\\varphi(1)=1,\\quad\\eta(x)=\\log x/\\sqrt{x}\\to0",
+        "\\eta(x)+\\log\\log x/\\log x+\\log x/\\sqrt{x}=\\log\\log x/\\log x+2\\log x/\\sqrt{x}",
+        "M>0,\\ |W(v)|\\le M\\ \\forall v,\\ \\exists v:|W(v)|=M\\ \\Longrightarrow M=\\|W\\|_\\infty"
+      ],
+      "finite_onset_claimed": false,
+      "identity_key": [
+        "Solutions/RH080Next.v1/explicit/ExplicitBRPopulationConsumer.lean",
+        "SourceBRUniformPopulationQ1",
+        30
+      ]
+    },
+    {
+      "id": "CMS-functional-gap",
+      "lean": {
+        "file": "IEANTN/Vocabulary/CMSFunctional.lean",
+        "declaration": "SourceCMSFunctional",
+        "qualified_declaration": "IEANTN.CMSFunctional.SourceCMSFunctional",
+        "line": 54,
+        "source_sha256": "40390e5de266dccbc335698017508711afc271e67618ecdfe91084935db92c28",
+        "written_contract": "def SourceCMSFunctional : Prop :=\n  ∀ F G : ℝ → ℝ, Eligible F G → 0 < denominator F G →\n    RiemannHypothesis → PaperEventualGapBound (inverseObjective F G)"
+      },
+      "canonical_blueprint": {
+        "file": "IEANTN/Nodes/CMSFunctionalInput/v1/Conclusions.lean",
+        "declaration": "gap_reduction",
+        "qualified_declaration": "CMSFunctionalInput.v1.gap_reduction",
+        "line": 6,
+        "source_sha256": "21753fbed2b46524ea49d54a91bd1a7158a3b94effcf8baee710fc42835efa1f",
+        "written_contract": "def gap_reduction : Prop := IEANTN.CMSFunctional.SourceCMSFunctional"
+      },
+      "blueprint_note": "Exact canonical source-node definition; no separate traditional Blueprint label.",
+      "primary": {
+        "title": "Fourier optimization and prime gaps,arXiv1708.04122v2",
+        "url": "https://arxiv.org/pdf/1708.04122v2#page=5",
+        "locator": "CMSv2 Eq(1.3),printedp2; Eq(1.12) and Corollary4,Eq(1.14),printed/PDFp5",
+        "formula_tex": "\\limsup_{n\\to\\infty}\\frac{p_{n+1}-p_n}{\\sqrt{p_n}\\log p_n}\\le\\frac{1}{\\mathcal C^+(B)}<21/25",
+        "domain": "Ordinary RH; sourceC+(B) uses the general even continuous realL1 class of Eq(1.3),not a fixedGaussian. α≥0 for population. CandidateF,G satisfyEligible and positive denominator atA36/11.",
+        "artifact_sha256": "45b6c7f991831a2dc456c10285206cb17a53ef46c6ae15e43cfa5671554b0dce"
+      },
+      "comparison": {
+        "status": "ALIGNED_UNIVERSAL_CONSEQUENCE_OF_EXACT_PUBLISHED_THEOREM",
+        "actual_flawed_fragment": null,
+        "explanation": "The formal rule is the universal numerical-free consequence of the actual Corollary4 and optimization definition; it does not claim the arbitraryF quotient is printed verbatim in Corollary4. The below reciprocal derivation gives the candidate bound. PaperEventualGapBound is the ordinary epsilon/eventual form of the finite limsup bound. The source uses one-based primes; paperPrime(n)=nthPrime(n−1), and only eventualn≥1 are used. The zero-based shift is separately kernel-proved; its totalizedn=0 value has no proof-bearing use. No finite-x or explicit onset claim is introduced."
+      },
+      "remains_explicit_mathematical_hypothesis": true,
+      "published_analytic_proof_formalized_here": false,
+      "source_to_formal_derivation": {
+        "class_source": "CMS Eq(1.3),printedp2: even continuous real nonzeroL1 functions; Fourier convention exp(−2πixt). Eligible adds explicit genuineG=FourierF and finite positive leakage, a valid restriction. No L1(G) hypothesis is added.",
+        "B_source": "CMS Eq(1.12),printedp5:1≤B≤36/11, withB defined by Eq(1.11). Source module attributes this exact statement toCMS before its antecedent IwaniecTheorem14.",
+        "notation": "m=massF>0,J=positiveLeakG≥0,A=36/11,d=F(0)−AJ>0; these are the actual formal denominator/mass, not new source constants.",
+        "derivation_steps_tex": [
+          "B\\le A=36/11,\\quad\\mathcal C^+(B)\\ge\\mathcal C^+(A)",
+          "\\mathcal C^+(A)\\ge\\frac{F(0)-A\\int_{|t|>1}(\\widehat F(t))_+\\,dt}{\\|F\\|_1}=d/m>0",
+          "1/\\mathcal C^+(B)\\le m/d=\\operatorname{inverseObjective}(F,G)"
+        ]
+      },
+      "compiled_identity_bridge": {
+        "file": "Solutions/RH080Next.v1/primal/scaled40/Scaled40CanonicalAudit.lean",
+        "proof": "Existing exact rfl checks for both CMSFunctionalInput source propositions; SourceCMSFunctional/Population are actual canonicalaliases."
+      },
+      "identity_key": [
+        "IEANTN/Vocabulary/CMSFunctional.lean",
+        "SourceCMSFunctional",
+        54
+      ]
+    },
+    {
+      "id": "CMS-functional-population",
+      "lean": {
+        "file": "IEANTN/Vocabulary/CMSFunctional.lean",
+        "declaration": "SourceCMSPopulation",
+        "qualified_declaration": "IEANTN.CMSFunctional.SourceCMSPopulation",
+        "line": 77,
+        "source_sha256": "40390e5de266dccbc335698017508711afc271e67618ecdfe91084935db92c28",
+        "written_contract": "def SourceCMSPopulation : Prop :=\n  ∀ F G : ℝ → ℝ, Eligible F G → 0 < denominator F G → RiemannHypothesis →\n    ∀ α : ℝ, 0 ≤ α → (goodCoefficients α).Nonempty ∧\n      sInf (goodCoefficients α) ≤ (1+2*α)*inverseObjective F G"
+      },
+      "canonical_blueprint": {
+        "file": "IEANTN/Nodes/CMSFunctionalInput/v1/Conclusions.lean",
+        "declaration": "population_reduction",
+        "qualified_declaration": "CMSFunctionalInput.v1.population_reduction",
+        "line": 9,
+        "source_sha256": "21753fbed2b46524ea49d54a91bd1a7158a3b94effcf8baee710fc42835efa1f",
+        "written_contract": "def population_reduction : Prop := IEANTN.CMSFunctional.SourceCMSPopulation"
+      },
+      "blueprint_note": "Exact canonical source-node definition; no separate traditional Blueprint label.",
+      "primary": {
+        "title": "Fourier optimization and prime gaps,arXiv1708.04122v2",
+        "url": "https://arxiv.org/pdf/1708.04122v2#page=5",
+        "locator": "CMSv2 Eq(1.3),printedp2; Eq(1.12) and Theorem3,Eq(1.13),printed/PDFp5",
+        "formula_tex": "\\inf\\!\\left\\{c>0:\\liminf_{x\\to\\infty}\\frac{\\pi(x+c\\sqrt{x}\\log x)-\\pi(x)}{\\sqrt{x}}>\\alpha\\right\\}\\le\\frac{1+2\\alpha}{\\mathcal C^+(B)}<\\frac{21}{25}(1+2\\alpha)",
+        "domain": "Ordinary RH; sourceC+(B) uses the general even continuous realL1 class of Eq(1.3),not a fixedGaussian. α≥0 for population. CandidateF,G satisfyEligible and positive denominator atA36/11.",
+        "artifact_sha256": "45b6c7f991831a2dc456c10285206cb17a53ef46c6ae15e43cfa5671554b0dce"
+      },
+      "comparison": {
+        "status": "ALIGNED_UNIVERSAL_CONSEQUENCE_OF_EXACT_PUBLISHED_THEOREM",
+        "actual_flawed_fragment": null,
+        "explanation": "The same reciprocal candidate bound, multiplied by1+2α≥0, yields the formal universal infimum inequality forα≥0. GoodCoefficient requires a positiveδ with an eventual lower marginα+δ, exactly the source strict liminf>α condition; it does not replace it with liminf≥α. Nonempty goodCoefficients is explicit, as warranted by the source finite bound/proof, so Lean sInf(empty)=0 cannot fake success. piReal(floorx) implements the actual real-valued half-open count and Nat subtraction is monotone in the eventual positive domain. No claim that the infimum coefficient itself is attained or any old finite onset survives is made."
+      },
+      "remains_explicit_mathematical_hypothesis": true,
+      "published_analytic_proof_formalized_here": false,
+      "source_to_formal_derivation": {
+        "class_source": "CMS Eq(1.3),printedp2: even continuous real nonzeroL1 functions; Fourier convention exp(−2πixt). Eligible adds explicit genuineG=FourierF and finite positive leakage, a valid restriction. No L1(G) hypothesis is added.",
+        "B_source": "CMS Eq(1.12),printedp5:1≤B≤36/11, withB defined by Eq(1.11). Source module attributes this exact statement toCMS before its antecedent IwaniecTheorem14.",
+        "notation": "m=massF>0,J=positiveLeakG≥0,A=36/11,d=F(0)−AJ>0; these are the actual formal denominator/mass, not new source constants.",
+        "derivation_steps_tex": [
+          "B\\le A=36/11,\\quad\\mathcal C^+(B)\\ge\\mathcal C^+(A)",
+          "\\mathcal C^+(A)\\ge\\frac{F(0)-A\\int_{|t|>1}(\\widehat F(t))_+\\,dt}{\\|F\\|_1}=d/m>0",
+          "1/\\mathcal C^+(B)\\le m/d=\\operatorname{inverseObjective}(F,G)"
+        ]
+      },
+      "compiled_identity_bridge": {
+        "file": "Solutions/RH080Next.v1/primal/scaled40/Scaled40CanonicalAudit.lean",
+        "proof": "Existing exact rfl checks for both CMSFunctionalInput source propositions; SourceCMSFunctional/Population are actual canonicalaliases."
+      },
+      "positive_margin_equivalence_tex": "\\liminf f>\\alpha\\quad\\Longleftrightarrow\\quad\\exists\\delta>0:\\forall^{\\infty}x,\\ f(x)\\ge\\alpha+\\delta",
+      "identity_key": [
+        "IEANTN/Vocabulary/CMSFunctional.lean",
+        "SourceCMSPopulation",
+        77
+      ]
+    }
+  ],
+  "scope_boundaries": [
+    "All three source propositions remain explicit mathematical hypotheses. Their published proofs are not newly claimed Lean-kernel-closed.",
+    "The q1 source formula is the exact general rational support5 theorem plus its explicit ordinary-RH principal-character paragraph. Its O remainder is retained and no finite threshold is invented.",
+    "The two CMS rules are universal scalar consequences of the cited supremum/theorem statements,with the full Eligible source class; not witness-specific assumptions or extra conjectures.",
+    "The original eight-family ledger is unchanged. This11family coverage concerns the requested formal input contracts,not every unrelated declaration or external benchmark paragraph in the repository."
+  ],
+  "source_locator_correction": "Pinned BRv2 Proposition6 count is displayedEq(6),notEq(7). Eq(7) is scaling; TeXeq:uniform-count is the correct label."
+}

@@ -1,0 +1,26 @@
+Traceback (most recent call last):
+  File "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/verify_recursive_physical_receipts.py", line 79, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/verify_recursive_physical_receipts.py", line 28, in main
+    b=a.runs_root/run;p=strict(b/'PLAN.json');result=strict(b/'RESULT.json')
+                                                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/verify_recursive_physical_receipts.py", line 21, in strict
+    return json.loads(p.read_text(encoding="utf-8"),object_pairs_hook=pairs,parse_constant=bad)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/__init__.py", line 359, in loads
+    return cls(**kw).decode(s)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/verify_recursive_physical_receipts.py", line 18, in pairs
+    need(k not in d,"duplicate JSON key "+k);d[k]=v
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/verify_recursive_physical_receipts.py", line 12, in need
+    if not ok:raise ValueError(msg)
+              ^^^^^^^^^^^^^^^^^^^^^
+ValueError: duplicate JSON key status

@@ -16,3 +16,5 @@
 
 ## 2026-11-25: Cold Fourier transform address-space admission
 The complete 92-source cold replay compiled 80 modules but Scaled40CoefficientTransform threw std::bad_alloc under 16 GiB RLIMIT_AS, with 8,151,132 KiB measured RSS. This is an address-space resource failure, not a mathematical rejection or observed OOM kill. Preserve failed evidence and rerun fresh at four workers ×32 GiB, unchanged aggregate128 GiB policy and unchanged proof sources.
+
+- Population envelope algebra first draft (2026-11-26): real-valued rational definitions lacked a noncomputable section. The compiler rejected code generation despite Std3 theorem proofs; receipt population-envelope-algebra-v1 remains failed. Added the required declaration annotation and reran in a fresh bank; no failed run is promoted.

@@ -38,6 +38,7 @@ import IEANTN.Nodes.CMSDualCertificate.v1.Challenge
 import IEANTN.Nodes.CMSExplicitInputs.v1.Challenge
 import IEANTN.Nodes.CMSFunctionalInput.v1.Challenge
 import IEANTN.Nodes.CMSFunctionalObstruction.v1.Challenge
+import IEANTN.Nodes.CMSZeroSummation.v1.Challenge
 import IEANTN.Nodes.Chebyshev.v1.Challenge
 import IEANTN.Nodes.ChebyshevNumerics.v1.Challenge
 import IEANTN.Nodes.ChengGraham2004.v1.Challenge
@@ -80,6 +81,8 @@ import IEANTN.Nodes.FKS2Numerics.v7.Challenge
 import IEANTN.Nodes.FKSComputationLed.v1.Challenge
 import IEANTN.Nodes.FapFourierNorm.v1.Tables
 import IEANTN.Nodes.FapFourierNorm.v1.Challenge
+import IEANTN.Nodes.FapFourierNorm.v2.Tables
+import IEANTN.Nodes.FapFourierNorm.v2.Challenge
 import IEANTN.Nodes.FiniteLogSquaredPrimeGaps.v1.Challenge
 import IEANTN.Nodes.GammaAsymptotics.v1.Challenge
 import IEANTN.Nodes.GammaAsymptotics.v2.Challenge
@@ -162,6 +165,7 @@ import IEANTN.Nodes.RHAsymptoticGaussian.v2.Challenge
 import IEANTN.Nodes.RHAsymptoticGaussian.v3.Challenge
 import IEANTN.Nodes.RHAsymptoticGaussian.v4.Challenge
 import IEANTN.Nodes.RHFiniteAffineIntervals.v1.Challenge
+import IEANTN.Nodes.RHFiniteAffineIntervals.v2.Challenge
 import IEANTN.Nodes.RHOnePrimeEvolution.v1.Challenge
 import IEANTN.Nodes.RHPrimeCounting.v1.Challenge
 import IEANTN.Nodes.RHPrimeCounting.v2.Challenge

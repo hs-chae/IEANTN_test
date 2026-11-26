@@ -1,3 +1,13 @@
+# Historical source-contract memo — generalized scheme now kernel-proved
+
+**Resolved on 2026-11-26.** The memo below records the earlier source audit and its then-open proof obligation. Its original content and source pins are preserved. Its phrases “under development” and “named source-backed input” describe that historical stage, not the current final proof.
+
+The general rule is now proved by `RH080Next.Explicit.cms_zero_partial_summation_kernel` in `ExplicitCMSZeroKernel.lean`, with the exact canonical adapter in `ExplicitCMSCanonicalZero.lean`. The nine replacement consumers actually use that proof. See [the completed proof and reproduction account](CMS_ZERO_KERNEL_COMPLETION.md) and [its source/resource/receipt manifest](CMS_ZERO_KERNEL_COMPLETION_MANIFEST.json). The literal CMS Lemma 9 zero-counting proposition remains an explicit mathematical input; no generalized integration-by-parts premise remains unproved on these paths.
+
+Original historical memo SHA256: `e056e66933199826c1a5eea45133354e4ce0f1b8a3f2d42b18d382384ea46d99`.
+
+---
+
 # General zero-summation source contract under development
 
 This is an audit of an additional general analytic source input, not a claim

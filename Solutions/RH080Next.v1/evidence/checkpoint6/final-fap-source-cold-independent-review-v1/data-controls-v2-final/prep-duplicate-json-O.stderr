@@ -1,0 +1,24 @@
+Traceback (most recent call last):
+  File "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_final_fap_source_v2.py", line 42, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_final_fap_source_v2.py", line 18, in main
+    a=ap.parse_args();repository=a.repository.resolve();run=a.run.resolve();inputs=read_json(a.inputs)
+                                                                                   ^^^^^^^^^^^^^^^^^^^
+  File "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/final_fap_source_data_v2.py", line 36, in read_json
+    return json.loads(path.read_text(encoding="utf-8"), object_pairs_hook=pairs, parse_constant=bad)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/__init__.py", line 359, in loads
+    return cls(**kw).decode(s)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ryu/hyunsik/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/final_fap_source_data_v2.py", line 31, in pairs
+    need(key not in result, "Duplicate JSON key " + key)
+  File "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/final_fap_source_data_v2.py", line 16, in need
+    raise ValueError(message)
+ValueError: Duplicate JSON key kind

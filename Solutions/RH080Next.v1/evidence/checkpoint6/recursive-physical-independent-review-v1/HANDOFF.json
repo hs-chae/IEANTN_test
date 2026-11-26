@@ -1,0 +1,85 @@
+{
+  "status": "PASS_INDEPENDENT_24_PHYSICAL_RECEIPT_REVIEW",
+  "audited_population": "Exactly2 preserved C programs ×4 compiler modes ×3 Python optimizer modes =24 original retained observations; no new numerical runs.",
+  "script": {
+    "file": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_recursive_physical.py",
+    "sha256": "6692cb0ba165c83623a6f7781cd6871f7e8376985bfe25ee06cd79a35891b9f5",
+    "reviewed_declaration": "main",
+    "line": 58,
+    "acceptance_line": 128,
+    "result_line": 138,
+    "assessment": "Explicit need validates subprocess exit, exact decimal LF, no stderr, RSS and preserved source; physical-not-PV labels are accurate."
+  },
+  "validator": {
+    "file": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/verify_recursive_physical_receipts.py",
+    "sha256": "4c9994dd2c505052ac65205fb3f39899bccc15aae549ac168463d87d591a4640",
+    "receipt": "/data/ivy-rh080-next-20261125/recursive-physical-independent-review-v1/ACCEPTED_FINAL.json",
+    "identical_normal_O_OO_sha256": "d7b2b9c87ee547062927d73b81132cf26a109fc834fb7ee02071c31e8eb351e8",
+    "checks": "Duplicate/nonfinite JSON rejected; all24 routes mandatory; exact source/controller/pinned compiler/binary/log/time/command/RSS associations. No assert or receipt-selected process execution."
+  },
+  "controls": {
+    "file": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/test_recursive_physical_receipts.py",
+    "sha256": "dfac3a9f49cabccd635ef11e24011dc2cf4eba6493d2a9da4739c7d64d05077c",
+    "result": "/data/ivy-rh080-next-20261125/recursive-physical-independent-review-v1/controls-v1/RESULT.json",
+    "sha256_result": "1fc7658a281e3dc352e7b3454db4e46b021855b95904920bd934deaf75d6e70b",
+    "negative_cases": 14,
+    "rejections": 42,
+    "intended_error_text_checked": true,
+    "own_regenerable_fixtures_removed": true,
+    "original24_revalidated_identical_final_receipt": true
+  },
+  "observation_scope": {
+    "fap_output": "781796015790084776\n",
+    "w4_output": "7813568381279800\n",
+    "maximum_peak_RSS_KiB": 3934928,
+    "physical_outputs_preserved": 24,
+    "mathematical_assumptions_discharged_by_script_or_validator": false
+  },
+  "source_Blueprint_comparison": {
+    "Lean": "FFTFapMainNumerics.source_first_actual_norm consumes MainIO.Result with actual complete main Call; FFTFapMainConsumers supplies3 original strict ANT intervals.",
+    "Blueprint": "RHFiniteAffineIntervals/v1/Conclusions.lean interval08/interval074/interval075. No standalone Blueprint theorem for subprocess observations.",
+    "primary": "Preserved fap_fft_recursive.c main line122; w4_fft_recursive.c main line124. All24 raw stdout files are the primary physical observations.",
+    "precise_fragment": "reproduce_recursive_physical.main compares observed bytes to locked values and writes source_first_PV_complete=False.",
+    "trigger_and_impact": "Treating24 matches or clean UBSan observations as universal program correctness would exceed this script. Separate Lean actual-source/main/numeric/ANT proofs provide that model-level result. Current labels are aligned."
+  },
+  "limitations": [
+    "Parent confirms no retained completed cgroup memory.events receipts. Exact GNU-time peakRSS and process/log outcomes do not establish OOMcounter0.",
+    "UBSan actual binary contains original absolute source path. Different run-directory binary hashes are legitimate and each is preserved.",
+    "Metadata/hash checks do not authenticate subprocess history independently of trusted controller execution and receipt recording.",
+    "Generic compiler/core runtime/stdio/normal termination/flush/OS/hardware contracts remain trusted; no unconditional I/O success claim.",
+    "Physical observations alone are not called PV."
+  ],
+  "reproduction": {
+    "controller": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/reproduce_recursive_physical.py",
+    "programs": [
+      "fap",
+      "w4"
+    ],
+    "compiler_modes": [
+      "O0",
+      "O2",
+      "O3",
+      "ubsan"
+    ],
+    "python_modes": [
+      "normal",
+      "-O",
+      "-OO"
+    ],
+    "compiler": "Exact recorded GCC11 SHA/version; enough RAM including256GiB host reserve.",
+    "run_command": "python3 PYTHON_MODE CONTROLLER --run FRESH_ROOT/EXACT_RUN_NAME --cc /usr/bin/x86_64-linux-gnu-gcc-11 --memory-gib 64",
+    "exact_run_names": [
+      "recursive-physical-final-v1",
+      "recursive-physical-final-O-v1",
+      "recursive-physical-final-OO-v1"
+    ],
+    "validate_command": "python3 [-O|-OO] /data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/verify_recursive_physical_receipts.py --runs-root ROOT --source-root /data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv --output FRESH_RECEIPT",
+    "controls_command": "python3 /data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/test_recursive_physical_receipts.py --runs-root ROOT --run FRESH_CONTROLS"
+  },
+  "development_notes": [
+    "Initial reviewer validator invoked compiler --version after receipt-supplied hash validation; actual inputs selected trusted GCC11. Final version pins compiler SHA/version independently and executes no receipt-selected code. Historical initial positive receipts retained; final V2 receipt is authoritative.",
+    "First handoff packaging command had a Python dict syntax error and wrote no file; corrected structured dict below."
+  ],
+  "no_native_programs_rerun": true,
+  "no_Git": true
+}
