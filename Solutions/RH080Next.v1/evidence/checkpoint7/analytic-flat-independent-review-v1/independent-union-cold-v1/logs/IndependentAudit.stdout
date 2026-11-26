@@ -1,0 +1,192 @@
+RH080Next.AnalyticFlat64.poly (t : ℝ) : ℝ
+RH080Next.AnalyticFlat64.continuous_poly : Continuous RH080Next.AnalyticFlat64.poly
+RH080Next.AnalyticFlat64.poly_abs_le (t : ℝ) : |RH080Next.AnalyticFlat64.poly t| ≤ 127
+RH080Next.AnalyticFlat64.sin_mul_poly (t : ℝ) : sin (π * t) * RH080Next.AnalyticFlat64.poly t = sin (127 * π * t)
+RH080Next.AnalyticFlat64.sin_positive_half (t : ℝ) (ht : 0 < t) (htop : t ≤ 1 / 2) : 0 < sin (π * t)
+RH080Next.AnalyticFlat64.poly_abs_le_csc (t : ℝ) (ht : 0 < t) (htop : t ≤ 1 / 2) :
+  |RH080Next.AnalyticFlat64.poly t| ≤ 1 / sin (π * t)
+RH080Next.AnalyticFlat64.poly_reflect (t : ℝ) : RH080Next.AnalyticFlat64.poly (1 - t) = RH080Next.AnalyticFlat64.poly t
+RH080Next.AnalyticFlat64.periodic_norm_eq_twice_half :
+  ∫ (t : ℝ) in 0..1, |RH080Next.AnalyticFlat64.poly t| = 2 * ∫ (t : ℝ) in 0..1 / 2, |RH080Next.AnalyticFlat64.poly t|
+RH080Next.AnalyticFlat64.cut : ℝ
+RH080Next.AnalyticFlat64.cscPrimitive (t : ℝ) : ℝ
+RH080Next.AnalyticFlat64.cut_pos : 0 < RH080Next.AnalyticFlat64.cut
+RH080Next.AnalyticFlat64.cut_le_half : RH080Next.AnalyticFlat64.cut ≤ 1 / 2
+RH080Next.AnalyticFlat64.half_angle_pos (t : ℝ) (ht : 0 < t) (htop : t ≤ 1 / 2) : 0 < π * t / 2 ∧ π * t / 2 < π / 2
+RH080Next.AnalyticFlat64.cscPrimitive_hasDerivAt (t : ℝ) (ht : 0 < t) (htop : t ≤ 1 / 2) :
+  HasDerivAt RH080Next.AnalyticFlat64.cscPrimitive (1 / sin (π * t)) t
+RH080Next.AnalyticFlat64.integral_csc_cut_half :
+  ∫ (t : ℝ) in RH080Next.AnalyticFlat64.cut..1 / 2, 1 / sin (π * t) ≤ Real.log 254 / π
+RH080Next.AnalyticFlat64.periodic_norm_bound :
+  ∫ (t : ℝ) in 0..1, |RH080Next.AnalyticFlat64.poly t| ≤ 2 / π * (1 + Real.log 254)
+RH080Next.AnalyticFlat64.nodes : List ℚ
+RH080Next.AnalyticFlat64.nodes_length : RH080Next.AnalyticFlat64.nodes.length = 321
+RH080Next.AnalyticFlat64.node_eq (j : ℕ) : node RH080Next.AnalyticFlat64.nodes j = if j < 64 then 1 else 0
+RH080Next.AnalyticFlat64.terminal_zero : node RH080Next.AnalyticFlat64.nodes 320 = 0
+RH080Next.AnalyticFlat64.sum_node_mul (f : ℕ → ℝ) :
+  ∑ j ∈ Finset.Ico 1 320, node RH080Next.AnalyticFlat64.nodes j * f j = ∑ j ∈ Finset.Ico 1 64, f j
+RH080Next.AnalyticFlat64.polynomial_identity (t : ℝ) :
+  nodalPolynomial RH080Next.AnalyticFlat64.nodes t = RH080Next.AnalyticFlat64.poly t
+RH080Next.AnalyticFlat64.normalization : nodalF0 RH080Next.AnalyticFlat64.nodes 64 = 127 / 64
+RH080Next.AnalyticFlat64.actual_F0 : inverseCosine (affineSpectrum RH080Next.AnalyticFlat64.nodes 64) 0 = 127 / 64
+RH080Next.AnalyticFlat64.window_bound (v : ℝ) : |affineSpectrum RH080Next.AnalyticFlat64.nodes 64 v| ≤ 1
+RH080Next.AnalyticFlat64.attained_maximum : ∃ v, |affineSpectrum RH080Next.AnalyticFlat64.nodes 64 v| = 1
+RH080Next.AnalyticFlat64.leakage_zero :
+  IEANTN.CMSFunctional.positiveLeak (affineSpectrum RH080Next.AnalyticFlat64.nodes 64) = 0
+RH080Next.AnalyticFlat64.denominator : brDenominatorFour RH080Next.AnalyticFlat64.nodes 64 = 127 / 64
+RH080Next.AnalyticFlat64.width (α : ℝ) : ℝ
+RH080Next.AnalyticFlat64.actual_eligible :
+  IEANTN.CMSFunctional.Eligible (inverseCosine (affineSpectrum RH080Next.AnalyticFlat64.nodes 64))
+    (affineSpectrum RH080Next.AnalyticFlat64.nodes 64)
+RH080Next.AnalyticFlat64.analytic_intercept_strict : 2 / π * (1 + Real.log 254) < 21 / 10 * (127 / 64)
+RH080Next.AnalyticFlat64.actual_norm_strict (hNorm : SourceBRFourierNormFive) :
+  brAmplitudeMass RH080Next.AnalyticFlat64.nodes 64 < 21 / 10 * (127 / 64)
+RH080Next.AnalyticFlat64.actual_population_curve (hNorm : SourceBRFourierNormFive)
+  (hUniform : SourceBRUniformPopulationQ1) (hRH : RiemannHypothesis) (α : ℝ) (hα : 0 ≤ α) :
+  IEANTN.CMSFunctional.GoodCoefficient α (RH080Next.AnalyticFlat64.width α)
+RH080Next.AnalyticFlat64.actual_population_eventual (hNorm : SourceBRFourierNormFive)
+  (hUniform : SourceBRUniformPopulationQ1) (hRH : RiemannHypothesis) (α : ℝ) (hα : 0 ≤ α) :
+  ∃ δ,
+    0 < δ ∧
+      ∀ᶠ (x : ℝ) in atTop, (α + δ) * √x ≤ ↑(IEANTN.CMSFunctional.halfOpenCount (RH080Next.AnalyticFlat64.width α) x)
+RH080Next.AnalyticFlat64.width_forty : RH080Next.AnalyticFlat64.width 40 = 53867 / 1270
+RH080Next.AnalyticFlat64.actual_population_forty (hNorm : SourceBRFourierNormFive)
+  (hUniform : SourceBRUniformPopulationQ1) (hRH : RiemannHypothesis) :
+  IEANTN.CMSFunctional.GoodCoefficient 40 (53867 / 1270)
+RH080Next.AnalyticFlat64.improves_previous_flat (α : ℝ) (hα : 14859 / 896 < α) :
+  RH080Next.AnalyticFlat64.width α < 9 / 8 + 16 / 15 * α
+RH080Next.AnalyticFlat64.forty_improves_previous_flat : RH080Next.AnalyticFlat64.width 40 < 9 / 8 + 16 / 15 * 40
+RH080Next.AnalyticFlatFamily.order (m : ℕ) : ℝ
+RH080Next.AnalyticFlatFamily.poly (m : ℕ) (t : ℝ) : ℝ
+RH080Next.AnalyticFlatFamily.order_ge_one (m : ℕ) (hm : 0 < m) : 1 ≤ RH080Next.AnalyticFlatFamily.order m
+RH080Next.AnalyticFlatFamily.continuous_poly (m : ℕ) : Continuous (RH080Next.AnalyticFlatFamily.poly m)
+RH080Next.AnalyticFlatFamily.poly_abs_le (m : ℕ) (hm : 0 < m) (t : ℝ) :
+  |RH080Next.AnalyticFlatFamily.poly m t| ≤ RH080Next.AnalyticFlatFamily.order m
+RH080Next.AnalyticFlatFamily.sin_mul_poly (m : ℕ) (hm : 0 < m) (t : ℝ) :
+  sin (π * t) * RH080Next.AnalyticFlatFamily.poly m t = sin (RH080Next.AnalyticFlatFamily.order m * π * t)
+RH080Next.AnalyticFlatFamily.poly_abs_le_csc (m : ℕ) (hm : 0 < m) (t : ℝ) (ht : 0 < t) (htop : t ≤ 1 / 2) :
+  |RH080Next.AnalyticFlatFamily.poly m t| ≤ 1 / sin (π * t)
+RH080Next.AnalyticFlatFamily.poly_reflect (m : ℕ) (t : ℝ) :
+  RH080Next.AnalyticFlatFamily.poly m (1 - t) = RH080Next.AnalyticFlatFamily.poly m t
+RH080Next.AnalyticFlatFamily.periodic_norm_eq_twice_half (m : ℕ) :
+  ∫ (t : ℝ) in 0..1, |RH080Next.AnalyticFlatFamily.poly m t| =
+    2 * ∫ (t : ℝ) in 0..1 / 2, |RH080Next.AnalyticFlatFamily.poly m t|
+RH080Next.AnalyticFlatFamily.cut (r : ℝ) : ℝ
+RH080Next.AnalyticFlatFamily.cut_pos (r : ℝ) (hr : 1 ≤ r) : 0 < RH080Next.AnalyticFlatFamily.cut r
+RH080Next.AnalyticFlatFamily.cut_le_half (r : ℝ) (hr : 1 ≤ r) : RH080Next.AnalyticFlatFamily.cut r ≤ 1 / 2
+RH080Next.AnalyticFlatFamily.integral_csc_cut_half (r : ℝ) (hr : 1 ≤ r) :
+  ∫ (t : ℝ) in RH080Next.AnalyticFlatFamily.cut r..1 / 2, 1 / sin (π * t) ≤ Real.log (2 * r) / π
+RH080Next.AnalyticFlatFamily.periodic_norm_bound (m : ℕ) (hm : 0 < m) :
+  ∫ (t : ℝ) in 0..1, |RH080Next.AnalyticFlatFamily.poly m t| ≤ 2 / π * (1 + Real.log (4 * ↑m - 2))
+RH080Next.AnalyticFlatFamily.nodes (m : ℕ) : List ℚ
+RH080Next.AnalyticFlatFamily.nodes_length (m : ℕ) : (RH080Next.AnalyticFlatFamily.nodes m).length = 5 * m + 1
+RH080Next.AnalyticFlatFamily.node_eq (m j : ℕ) : node (RH080Next.AnalyticFlatFamily.nodes m) j = if j < m then 1 else 0
+RH080Next.AnalyticFlatFamily.terminal_zero (m : ℕ) : node (RH080Next.AnalyticFlatFamily.nodes m) (5 * m) = 0
+RH080Next.AnalyticFlatFamily.sum_node_mul (m : ℕ) (f : ℕ → ℝ) :
+  ∑ j ∈ Finset.Ico 1 (5 * m), node (RH080Next.AnalyticFlatFamily.nodes m) j * f j = ∑ j ∈ Finset.Ico 1 m, f j
+RH080Next.AnalyticFlatFamily.polynomial_identity (m : ℕ) (hm : 0 < m) (t : ℝ) :
+  nodalPolynomial (RH080Next.AnalyticFlatFamily.nodes m) t = RH080Next.AnalyticFlatFamily.poly m t
+RH080Next.AnalyticFlatFamily.normalization (m : ℕ) (hm : 0 < m) :
+  nodalF0 (RH080Next.AnalyticFlatFamily.nodes m) m = RH080Next.AnalyticFlatFamily.order m / ↑m
+RH080Next.AnalyticFlatFamily.actual_F0 (m : ℕ) (hm : 0 < m) :
+  inverseCosine (affineSpectrum (RH080Next.AnalyticFlatFamily.nodes m) m) 0 = RH080Next.AnalyticFlatFamily.order m / ↑m
+RH080Next.AnalyticFlatFamily.window_bound (m : ℕ) (hm : 0 < m) (v : ℝ) :
+  |affineSpectrum (RH080Next.AnalyticFlatFamily.nodes m) m v| ≤ 1
+RH080Next.AnalyticFlatFamily.attained_maximum (m : ℕ) (hm : 0 < m) :
+  ∃ v, |affineSpectrum (RH080Next.AnalyticFlatFamily.nodes m) m v| = 1
+RH080Next.AnalyticFlatFamily.leakage_zero (m : ℕ) (hm : 0 < m) :
+  IEANTN.CMSFunctional.positiveLeak (affineSpectrum (RH080Next.AnalyticFlatFamily.nodes m) m) = 0
+RH080Next.AnalyticFlatFamily.denominator (m : ℕ) (hm : 0 < m) :
+  brDenominatorFour (RH080Next.AnalyticFlatFamily.nodes m) m = RH080Next.AnalyticFlatFamily.order m / ↑m
+RH080Next.AnalyticFlatFamily.actual_eligible (m : ℕ) (hm : 0 < m) :
+  IEANTN.CMSFunctional.Eligible (inverseCosine (affineSpectrum (RH080Next.AnalyticFlatFamily.nodes m) m))
+    (affineSpectrum (RH080Next.AnalyticFlatFamily.nodes m) m)
+RH080Next.AnalyticFlatFamily.normCap (m : ℕ) : ℝ
+RH080Next.AnalyticFlatFamily.width (m : ℕ) (α : ℝ) : ℝ
+RH080Next.AnalyticFlatFamily.actual_norm_le (hNorm : SourceBRFourierNormFive) (m : ℕ) (hm : 0 < m) :
+  brAmplitudeMass (RH080Next.AnalyticFlatFamily.nodes m) m ≤ RH080Next.AnalyticFlatFamily.normCap m
+RH080Next.AnalyticFlatFamily.width_positive (m : ℕ) (hm : 0 < m) (α : ℝ) (hα : 0 ≤ α) :
+  0 < RH080Next.AnalyticFlatFamily.width m α
+RH080Next.AnalyticFlatFamily.width_mass_identity (m : ℕ) (hm : 0 < m) (α : ℝ) :
+  RH080Next.AnalyticFlatFamily.width m α * (RH080Next.AnalyticFlatFamily.order m / ↑m) -
+      RH080Next.AnalyticFlatFamily.normCap m =
+    2 * α
+RH080Next.AnalyticFlatFamily.actual_population_curve (hNorm : SourceBRFourierNormFive)
+  (hUniform : SourceBRUniformPopulationQ1) (hRH : RiemannHypothesis) (m : ℕ) (hm : 0 < m) (α ε : ℝ) (hα : 0 ≤ α)
+  (hε : 0 < ε) : IEANTN.CMSFunctional.GoodCoefficient α (RH080Next.AnalyticFlatFamily.width m α + ε)
+RH080Next.AnalyticFlatFamily.actual_population_infimum (hNorm : SourceBRFourierNormFive)
+  (hUniform : SourceBRUniformPopulationQ1) (hRH : RiemannHypothesis) (m : ℕ) (hm : 0 < m) (α : ℝ) (hα : 0 ≤ α) :
+  (IEANTN.CMSFunctional.goodCoefficients α).Nonempty ∧
+    sInf (IEANTN.CMSFunctional.goodCoefficients α) ≤ RH080Next.AnalyticFlatFamily.width m α
+RH080Next.AnalyticFlat64.log254_lt : Real.log 254 < 277 / 50
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlat64.continuous_poly: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlat64.poly_abs_le: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlat64.sin_mul_poly: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlat64.sin_positive_half: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlat64.poly_abs_le_csc: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlat64.poly_reflect: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlat64.periodic_norm_eq_twice_half: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlat64.cut_pos: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlat64.cut_le_half: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlat64.half_angle_pos: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlat64.cscPrimitive_hasDerivAt: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlat64.integral_csc_cut_half: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlat64.periodic_norm_bound: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlat64.nodes_length: [propext, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlat64.node_eq: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlat64.terminal_zero: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlat64.sum_node_mul: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlat64.polynomial_identity: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlat64.normalization: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlat64.actual_F0: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlat64.window_bound: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlat64.attained_maximum: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlat64.leakage_zero: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlat64.denominator: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlat64.actual_eligible: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlat64.analytic_intercept_strict: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlat64.actual_norm_strict: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlat64.actual_population_curve: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlat64.actual_population_eventual: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlat64.width_forty: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlat64.actual_population_forty: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlat64.improves_previous_flat: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlat64.forty_improves_previous_flat: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlatFamily.order_ge_one: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlatFamily.continuous_poly: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlatFamily.poly_abs_le: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlatFamily.sin_mul_poly: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlatFamily.poly_abs_le_csc: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlatFamily.poly_reflect: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlatFamily.periodic_norm_eq_twice_half: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlatFamily.cut_pos: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlatFamily.cut_le_half: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlatFamily.integral_csc_cut_half: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlatFamily.periodic_norm_bound: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlatFamily.nodes_length: [propext, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlatFamily.node_eq: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlatFamily.terminal_zero: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlatFamily.sum_node_mul: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlatFamily.polynomial_identity: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlatFamily.normalization: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlatFamily.actual_F0: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlatFamily.window_bound: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlatFamily.attained_maximum: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlatFamily.leakage_zero: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlatFamily.denominator: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlatFamily.actual_eligible: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlatFamily.actual_norm_le: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlatFamily.width_positive: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlatFamily.width_mass_identity: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlatFamily.actual_population_curve: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlatFamily.actual_population_infimum: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_AXIOMS RH080Next.AnalyticFlat64.log254_lt: [propext, Classical.choice, Quot.sound]
+INDEPENDENT_CLOSURE RH080Next.AnalyticFlat64.actual_population_curve: 53116
+INDEPENDENT_CLOSURE RH080Next.AnalyticFlatFamily.actual_population_infimum: 53074
+INDEPENDENT_REVIEW_PASS theorem_count=62 canonical_interfaces_rfl actual_pi no_extra_CMS_source no_native Std3
+/data/ivy-rh080-next-20261125/analytic-flat-independent-review-v1/independent-union-cold-v1/source/IndependentAudit.lean:268:21: warning: Variable name `info` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _info
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

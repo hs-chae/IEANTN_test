@@ -1,0 +1,89 @@
+{
+  "status": "PASS_NORMAL_O_OO_REAL_CLI_CONTROLS",
+  "controls": [
+    {
+      "mode": "normal",
+      "control": "help",
+      "exitcode": 0,
+      "stdout": "usage: reproduce_analytic_flat_family.py [-h] --context CONTEXT --run RUN\n                                         [--memory-gib MEMORY_GIB]\n\noptions:\n  -h, --help            show this help message and exit\n  --context CONTEXT\n  --run RUN\n  --memory-gib MEMORY_GIB\n",
+      "stderr": ""
+    },
+    {
+      "mode": "normal",
+      "control": "invalid-memory",
+      "exitcode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/reproduce_analytic_flat_family.py\", line 61, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/reproduce_analytic_flat_family.py\", line 23, in main\n    need(not a.run.exists(),'fresh experiment-owned run directory required');need(1<=a.memory_gib<=300,'invalid memory allowance')\n                                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/reproduce_analytic_flat_family.py\", line 13, in need\n    if not ok:raise ValueError(message)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: invalid memory allowance\n"
+    },
+    {
+      "mode": "normal",
+      "control": "changed-compiler",
+      "exitcode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/reproduce_analytic_flat_family.py\", line 61, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/reproduce_analytic_flat_family.py\", line 24, in main\n    c=json.loads(a.context.read_text());need(sha(Path(c['compiler']))==COMPILER_SHA==c['compiler_sha256'],'pinned Lean compiler differs')\n                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/reproduce_analytic_flat_family.py\", line 13, in need\n    if not ok:raise ValueError(message)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: pinned Lean compiler differs\n"
+    },
+    {
+      "mode": "normal",
+      "control": "existing-run",
+      "exitcode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/reproduce_analytic_flat_family.py\", line 61, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/reproduce_analytic_flat_family.py\", line 23, in main\n    need(not a.run.exists(),'fresh experiment-owned run directory required');need(1<=a.memory_gib<=300,'invalid memory allowance')\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/reproduce_analytic_flat_family.py\", line 13, in need\n    if not ok:raise ValueError(message)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: fresh experiment-owned run directory required\n"
+    },
+    {
+      "mode": "-O",
+      "control": "help",
+      "exitcode": 0,
+      "stdout": "usage: reproduce_analytic_flat_family.py [-h] --context CONTEXT --run RUN\n                                         [--memory-gib MEMORY_GIB]\n\noptions:\n  -h, --help            show this help message and exit\n  --context CONTEXT\n  --run RUN\n  --memory-gib MEMORY_GIB\n",
+      "stderr": ""
+    },
+    {
+      "mode": "-O",
+      "control": "invalid-memory",
+      "exitcode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/reproduce_analytic_flat_family.py\", line 61, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/reproduce_analytic_flat_family.py\", line 23, in main\n    need(not a.run.exists(),'fresh experiment-owned run directory required');need(1<=a.memory_gib<=300,'invalid memory allowance')\n                                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/reproduce_analytic_flat_family.py\", line 13, in need\n    if not ok:raise ValueError(message)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: invalid memory allowance\n"
+    },
+    {
+      "mode": "-O",
+      "control": "changed-compiler",
+      "exitcode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/reproduce_analytic_flat_family.py\", line 61, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/reproduce_analytic_flat_family.py\", line 24, in main\n    c=json.loads(a.context.read_text());need(sha(Path(c['compiler']))==COMPILER_SHA==c['compiler_sha256'],'pinned Lean compiler differs')\n                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/reproduce_analytic_flat_family.py\", line 13, in need\n    if not ok:raise ValueError(message)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: pinned Lean compiler differs\n"
+    },
+    {
+      "mode": "-O",
+      "control": "existing-run",
+      "exitcode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/reproduce_analytic_flat_family.py\", line 61, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/reproduce_analytic_flat_family.py\", line 23, in main\n    need(not a.run.exists(),'fresh experiment-owned run directory required');need(1<=a.memory_gib<=300,'invalid memory allowance')\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/reproduce_analytic_flat_family.py\", line 13, in need\n    if not ok:raise ValueError(message)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: fresh experiment-owned run directory required\n"
+    },
+    {
+      "mode": "-OO",
+      "control": "help",
+      "exitcode": 0,
+      "stdout": "usage: reproduce_analytic_flat_family.py [-h] --context CONTEXT --run RUN\n                                         [--memory-gib MEMORY_GIB]\n\noptions:\n  -h, --help            show this help message and exit\n  --context CONTEXT\n  --run RUN\n  --memory-gib MEMORY_GIB\n",
+      "stderr": ""
+    },
+    {
+      "mode": "-OO",
+      "control": "invalid-memory",
+      "exitcode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/reproduce_analytic_flat_family.py\", line 61, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/reproduce_analytic_flat_family.py\", line 23, in main\n    need(not a.run.exists(),'fresh experiment-owned run directory required');need(1<=a.memory_gib<=300,'invalid memory allowance')\n                                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/reproduce_analytic_flat_family.py\", line 13, in need\n    if not ok:raise ValueError(message)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: invalid memory allowance\n"
+    },
+    {
+      "mode": "-OO",
+      "control": "changed-compiler",
+      "exitcode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/reproduce_analytic_flat_family.py\", line 61, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/reproduce_analytic_flat_family.py\", line 24, in main\n    c=json.loads(a.context.read_text());need(sha(Path(c['compiler']))==COMPILER_SHA==c['compiler_sha256'],'pinned Lean compiler differs')\n                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/reproduce_analytic_flat_family.py\", line 13, in need\n    if not ok:raise ValueError(message)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: pinned Lean compiler differs\n"
+    },
+    {
+      "mode": "-OO",
+      "control": "existing-run",
+      "exitcode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/reproduce_analytic_flat_family.py\", line 61, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/reproduce_analytic_flat_family.py\", line 23, in main\n    need(not a.run.exists(),'fresh experiment-owned run directory required');need(1<=a.memory_gib<=300,'invalid memory allowance')\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/reproduce_analytic_flat_family.py\", line 13, in need\n    if not ok:raise ValueError(message)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: fresh experiment-owned run directory required\n"
+    }
+  ]
+}

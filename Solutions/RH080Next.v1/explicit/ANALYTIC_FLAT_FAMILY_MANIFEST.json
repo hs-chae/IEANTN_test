@@ -1,0 +1,477 @@
+{
+  "status": "COMPLETE_SOURCE_COLD_KERNEL_ONLY_ANALYTIC_ANT_FAMILY_NOT_PV",
+  "classification": "kernel-only analytic; not source-first PV",
+  "source_files": [
+    {
+      "path": "Solutions/RH080Next.v1/explicit/AnalyticFlatFamilyDirichlet.lean",
+      "sha256": "9c1b04cc4e5b665e21c6f69f59b9c2a5c891df26eb04118d29e25fdf6458a2f7"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/AnalyticFlatFamilyIntegral.lean",
+      "sha256": "4574166f7477ea36b1944527b4b8ba0820cf3c94fbaa11635c2d32e6f4900376"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/AnalyticFlatFamilyNodes.lean",
+      "sha256": "5132d291b1924f91b5701d9301321cb8f6aed74f49f53c9d18c7af894212e5c7"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/AnalyticFlatFamilyPopulation.lean",
+      "sha256": "dd10cdddfa34c02994eb6fbdd13be8c2b1cb1a827788ba1b4aaac4c018353899"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/AnalyticFlatFamilyAudit.lean",
+      "sha256": "ac1e235284afff6fa173dfb7f59f7411bb6b2c626de11bea218ce41b1749d646"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/ANALYTIC_FLAT_FAMILY.md",
+      "sha256": "4a8581497a17c0ad21685d3a66df512f1718b0a89f599d10ad33e89ff830776f"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/reproduce_analytic_flat_family.py",
+      "sha256": "ae6d622a5b488279a47fcfd791ef3079f21f372e526008126d0175eb9ae94a37"
+    }
+  ],
+  "fixed64_sealed_unchanged": true,
+  "fixed64_manifest_sha256": "2fc3372ed301788ccea0780cc1cd41b28e47024b6f011b334becddfe69e716df",
+  "exact_parameters": {
+    "mesh": "arbitrary integer m>=1",
+    "node_count": "5m+1",
+    "nonzero_nodes": "a_j=1 for0<=j<m; all others zero",
+    "normalization": "(2m-1)/m",
+    "maximum": "1",
+    "positive_leakage": "0",
+    "numerical_program": null,
+    "seeds": null
+  },
+  "theorems": [
+    {
+      "file": "AnalyticFlatFamilyPopulation.lean",
+      "declaration": "RH080Next.AnalyticFlatFamily.actual_population_curve",
+      "statement": "forall integer m>=1, alpha>=0, epsilon>0: same literal BRnorm/q1+RH imply GoodCoefficient alpha (2m/(2m-1)*(alpha+(1+log(4m-2))/pi)+epsilon)"
+    },
+    {
+      "file": "AnalyticFlatFamilyPopulation.lean",
+      "declaration": "RH080Next.AnalyticFlatFamily.actual_population_infimum",
+      "statement": "same inputs imply nonempty goodCoefficients alpha and sInf<=2m/(2m-1)*(alpha+(1+log(4m-2))/pi)"
+    }
+  ],
+  "proof_audit": {
+    "roots": 22,
+    "real_actual_infimum_consumer_proof_closure": 52398,
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "native_execution_axioms": [],
+    "sorry": false,
+    "new_axioms": false,
+    "actual_fourier_eligibility": true,
+    "actual_prime_count_consumer": true,
+    "endpoint_attainment_claimed": false,
+    "source_first_PV": false
+  },
+  "source_inputs": [
+    "SourceBRFourierNormFive (BRv2 Lemma5 Eq4 p3)",
+    "SourceBRUniformPopulationQ1 (BRv2 Proposition6 Eq6 p7 + q1 RH p10)",
+    "RiemannHypothesis"
+  ],
+  "replay": {
+    "run": "/data/ivy-rh080-next-20261125/explicit-lane/analytic-flat-family-cold-v2",
+    "result_sha256": "c9727a2e3c9d4590826118f3860af564d2b79f21ef466396fad849c0830b8ac0",
+    "plan_sha256": "2f43f6f998f8d95f0a4a75ab80fe58d288c457269f8a3eab9156da81e2fa18bd",
+    "modules": 21,
+    "seconds": 60.5455068461597,
+    "max_process_rss_bytes": 4452716544,
+    "peak_aggregate_cgroup_memory": "not measured; per-compiler process maxima reported",
+    "scratch_bytes": 7726645,
+    "oom_events": 0,
+    "application_object_fallback": false,
+    "command": [
+      "python3",
+      "Solutions/RH080Next.v1/explicit/reproduce_analytic_flat_family.py",
+      "--context",
+      "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+      "--run",
+      "<fresh experiment-owned directory>",
+      "--memory-gib",
+      "32"
+    ]
+  },
+  "earlier_rejected_replay": {
+    "run": "/data/ivy-rh080-next-20261125/explicit-lane/analytic-flat-family-cold-v1",
+    "failed_receipt_sha256": "e22d074b3e3e2d255515d36c3c688a29fa95971feec7c8ef24ced933286cc833",
+    "reason": "Ambiguous unqualified log in final typed audit examples; Lean rejected it. Qualified Real.log in newv2 before fresh full replay. Mathematical proof modules unchanged; not a resource failure; never counted accepted.",
+    "oom_events": 0
+  },
+  "evidence": [
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/AffinePopulationBounds.COMPILED.json",
+      "sha256": "34785cbbd38297a356f24453fd2e98120ac6c670962683dc623bc9c70b0f548f"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/AnalyticFlat64Dirichlet.COMPILED.json",
+      "sha256": "8fff486eb1225da7b101a2c6babfa579b762186c20774891daaf0358e09ef64d"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/AnalyticFlat64Integral.COMPILED.json",
+      "sha256": "b317fc4291df107d75d36e1beab4566255f34cafa5eb3efa7c52b74bb5c901a7"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/AnalyticFlatFamilyAudit.COMPILED.json",
+      "sha256": "acefbb3e63e920511d78d84679d87d4e0a207313c7c031e7d1fcd87a131e907d"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/AnalyticFlatFamilyDirichlet.COMPILED.json",
+      "sha256": "6ad630b2fed28843660a3ef785e16448ccedba92ce5cffce42190747945f6b45"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/AnalyticFlatFamilyIntegral.COMPILED.json",
+      "sha256": "6e13e33db6099abb3360fd7192b59e11d6b800d4deeab609024bc5220b259f30"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/AnalyticFlatFamilyNodes.COMPILED.json",
+      "sha256": "ba8b9902458909f82109875111bfc150a2c06ec18c84dc1fe0e5fdf85a006bce"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/AnalyticFlatFamilyPopulation.COMPILED.json",
+      "sha256": "45eabc595ee65a4ce211582ddbaf88fce98fbada2100cd0ef186795775d35bef"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/CONTROLLER_CONTROLS.json",
+      "sha256": "cd8efb537e78ac28573ef12a6b49f88abdbb5c33a89ac6985e4ec787a0450752"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/ExplicitAffineFourier.COMPILED.json",
+      "sha256": "0ca44477f65fb22796aca8fb380bc530c3d0658954a055bac04032a250256530"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/ExplicitAffineIntegrals.COMPILED.json",
+      "sha256": "7f42a98d51af898196ef3530eaaddaa7e8bcaff70b2a54a61819a5baf97f263e"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/ExplicitAffineWindow.COMPILED.json",
+      "sha256": "3906027dcf3f102957bf44ec939b378d5d7d222ee7885497c8af5035d9c9bea2"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/ExplicitBRPopulationConsumer.COMPILED.json",
+      "sha256": "6cffb0222f42c6b2b842ad2f3c987c3b9cee69b9024730e4fdf8fd6bfbe7493e"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/ExplicitCMSEligible.COMPILED.json",
+      "sha256": "fcc814f21f2781a20692d6409dfc7ff890270c67fc273f12f0e8c69cce147d49"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/ExplicitCosineMoment.COMPILED.json",
+      "sha256": "efe18727671eb6acfd5163670130e90040f49271659f58800b3e8e1177678e80"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/ExplicitFiniteDifference.COMPILED.json",
+      "sha256": "23dce5577a3a7c2629a6a7f84b7a2901de44e7546ae2104e903205d15483ff45"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/ExplicitFourierPair.COMPILED.json",
+      "sha256": "c16a2355993b1b10d82475eff29954ffcc3b4a460b2b55a75cea09d2968843c2"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/ExplicitHatFourier.COMPILED.json",
+      "sha256": "2b71b4cb31dc05c5e2b5613cb3927d00d878475e01365e2f3667eb524f8e57f3"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/ExplicitHatIntegrals.COMPILED.json",
+      "sha256": "5f1ece13aeec959be95f5544456e4f6e8a478a329163538705b767fc1cea111c"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/ExplicitNormSourceBridge.COMPILED.json",
+      "sha256": "ea196e59f6e8a5f5a1f41596576ab5b68a362391def9b81f84f576d6d57707a8"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/ExplicitSignedLogMoment.COMPILED.json",
+      "sha256": "ce01ac72b94ceb51f84c78635d324d48c71898b2ac92d4115bae2c204747c786"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/IEANTN.Vocabulary.CMSFunctional.COMPILED.json",
+      "sha256": "1d41136f9f83c3fc608f6d62c0a3e0d5e981ffa7504cf2f5c83ffac38b000ba7"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/PLAN.json",
+      "sha256": "2f43f6f998f8d95f0a4a75ab80fe58d288c457269f8a3eab9156da81e2fa18bd"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/RESULT.json",
+      "sha256": "c9727a2e3c9d4590826118f3860af564d2b79f21ef466396fad849c0830b8ac0"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/AffinePopulationBounds.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/AffinePopulationBounds.stdout",
+      "sha256": "526ff13fbb792e694c44ad3da6913e092bfb5ff21163991ea73e6134f5bb9984"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/AffinePopulationBounds.time",
+      "sha256": "933d1fbdd3fb16ac30d1ebe40b2623a46f77353a8eadeb11f2a81d91a3736354"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/AnalyticFlat64Dirichlet.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/AnalyticFlat64Dirichlet.stdout",
+      "sha256": "0ca2a8195c52bea9b48707563c9ffe46fddb30c26397e90ef361adf43c6df865"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/AnalyticFlat64Dirichlet.time",
+      "sha256": "90fae997a3ce9edfe3ced8213c320c2a5a40083440cf7da8e983891f3a9a8a26"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/AnalyticFlat64Integral.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/AnalyticFlat64Integral.stdout",
+      "sha256": "164a9275b6b51c5ff6089b528a3e7a8d985b30d099ceb46e35923b0330a29f16"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/AnalyticFlat64Integral.time",
+      "sha256": "cfe79e17a1572a845fab052dc7ee1ad45b5a9cca7797b9795d6f64f626010302"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/AnalyticFlatFamilyAudit.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/AnalyticFlatFamilyAudit.stdout",
+      "sha256": "86881ccca37e3dd2392fb31918eea08a8dc8dc14282cf98a91c3ff8f000d30d9"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/AnalyticFlatFamilyAudit.time",
+      "sha256": "eaae764126da7fa46d1a4475ebd7475d3e8bc949ad9ca2a71ee5d2c82d41d651"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/AnalyticFlatFamilyDirichlet.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/AnalyticFlatFamilyDirichlet.stdout",
+      "sha256": "8bf470950bfb8f4ab1f623ba8515ee927392b4faaddc89e9d3e1d779ec830e52"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/AnalyticFlatFamilyDirichlet.time",
+      "sha256": "2aa44256f60dadc942255f0fc2e2ad6558613d909cba3d8ab19730d92d3d4938"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/AnalyticFlatFamilyIntegral.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/AnalyticFlatFamilyIntegral.stdout",
+      "sha256": "939417041c0985a3f57461161dd9817138def692a0a119a8e578cc0585d3e6b0"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/AnalyticFlatFamilyIntegral.time",
+      "sha256": "ae02dd12a7d960e444b49329de499dc12ee8ff773b38fd92082279791e30c1e8"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/AnalyticFlatFamilyNodes.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/AnalyticFlatFamilyNodes.stdout",
+      "sha256": "156cd0c764f77687298435de6dc5007024bee5ca75157a399906dd1aa4c3bc9f"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/AnalyticFlatFamilyNodes.time",
+      "sha256": "f1f81d4bfdd9947f25bc717f3ca51f4d51e0247de2101b30998c2fcd3fcb96df"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/AnalyticFlatFamilyPopulation.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/AnalyticFlatFamilyPopulation.stdout",
+      "sha256": "04d4e4483fe7bc63c6ce7cf7790f44e290b31d8e83f1a05f5e33787b71050f58"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/AnalyticFlatFamilyPopulation.time",
+      "sha256": "fff6c5262681ca64edc1bcad669c3126cf35a0cd3b5a234694442cfb7106e1f0"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/ExplicitAffineFourier.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/ExplicitAffineFourier.stdout",
+      "sha256": "46df282c73bec823f5fb5bfab2b2b23202eb6f0a5fd99b4e410de9a92fd1cd63"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/ExplicitAffineFourier.time",
+      "sha256": "abee4ffc03656e416486610a41d39004ffb47a6e685b790f2949ef03154ba8b5"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/ExplicitAffineIntegrals.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/ExplicitAffineIntegrals.stdout",
+      "sha256": "4c5c512760154916243dbae8b51f2a054093950bd5d1cd77bdd237f0a94eb90e"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/ExplicitAffineIntegrals.time",
+      "sha256": "712a290c20c57a10b5f7d2fccd9cef841816352636d488c4e8f9363e06202cb3"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/ExplicitAffineWindow.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/ExplicitAffineWindow.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/ExplicitAffineWindow.time",
+      "sha256": "74229ae15cfdd7da6bafc40e85b94c8b4ed3190cd0ada672cfb35cca5451ff4b"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/ExplicitBRPopulationConsumer.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/ExplicitBRPopulationConsumer.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/ExplicitBRPopulationConsumer.time",
+      "sha256": "5c612f6c1fbe2a3902f8ddc67347ae97eddc038777056592d92695d6caf20193"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/ExplicitCMSEligible.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/ExplicitCMSEligible.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/ExplicitCMSEligible.time",
+      "sha256": "e81c68c7f89799d6e3579a8a7c9eeb51842b768085014ef20bd50195f8503609"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/ExplicitCosineMoment.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/ExplicitCosineMoment.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/ExplicitCosineMoment.time",
+      "sha256": "38fa52c0e33ef48d3fa121594cecc08b4d1d13b42f00b4d48d5447287aceabd7"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/ExplicitFiniteDifference.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/ExplicitFiniteDifference.stdout",
+      "sha256": "53017d0bca570a00b88252a0b6d537712fe936b8f20e96af22d817641b74de37"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/ExplicitFiniteDifference.time",
+      "sha256": "95c98ab90d14502e68c8a0a9713cdbcc524ed8e759514e402b119c4741d45cce"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/ExplicitFourierPair.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/ExplicitFourierPair.stdout",
+      "sha256": "3fef8c808e16056a42e3a93200385830c147e418438a1b01365266657edf806b"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/ExplicitFourierPair.time",
+      "sha256": "53c99cd72bd0c58ed58465d594b7ed294841eb47978fcdf460bf8d8ebfe4b824"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/ExplicitHatFourier.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/ExplicitHatFourier.stdout",
+      "sha256": "675ac45c69a3872c215e47e8787aa12a432b5dbf29b9ac5a4a02b6ee6d57bc08"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/ExplicitHatFourier.time",
+      "sha256": "ee29f534391016d5d120908f94f28740e33a144ef59c360044e022e1efc6b629"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/ExplicitHatIntegrals.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/ExplicitHatIntegrals.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/ExplicitHatIntegrals.time",
+      "sha256": "bc7dbf577f1b0d7b72e19080d1bc8f6664e26a3b12759c61595a2de76f3d8f0d"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/ExplicitNormSourceBridge.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/ExplicitNormSourceBridge.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/ExplicitNormSourceBridge.time",
+      "sha256": "504ff511ca609d6935dc5d04a87eedf3bbacdf9c6a201d6f0007c60789a5adb7"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/ExplicitSignedLogMoment.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/ExplicitSignedLogMoment.stdout",
+      "sha256": "6c92b9b7111a20d61af6542b3437ffa9bcf2a2c8b3bc515b9e6078f7c17ec9cf"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/ExplicitSignedLogMoment.time",
+      "sha256": "243cb33e1e5c701bd3aa97037de05b26d260c644f34cad85ab3ed8a57e75e3b9"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/IEANTN.Vocabulary.CMSFunctional.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/IEANTN.Vocabulary.CMSFunctional.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/logs/IEANTN.Vocabulary.CMSFunctional.time",
+      "sha256": "00369ea449f2bd5bf7024396250113eae7e987413d98f7885e8feb5000b8ce7a"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/rejected-v1/AnalyticFlatFamilyAudit.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/rejected-v1/AnalyticFlatFamilyAudit.stdout",
+      "sha256": "654ddd984ef8960f95bc27fe26ddc619bac1e48ba1f365f885e5e63e3ee54e47"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family/rejected-v1/FAILED.json",
+      "sha256": "e22d074b3e3e2d255515d36c3c688a29fa95971feec7c8ef24ced933286cc833"
+    }
+  ],
+  "remaining_obligations_for_this_conditional_claim": [],
+  "limitations": [
+    "Published analytic propositions remain explicit mathematical hypotheses",
+    "Every attained good coefficient carries arbitrary positiveepsilon; no unsupported exactendpoint attainment",
+    "No finite onset or optimality or best-known claim",
+    "No C program or PV claim",
+    "Fixed64 sealed source and original locked results remain unchanged"
+  ]
+}

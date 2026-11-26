@@ -1,0 +1,320 @@
+{
+  "roots": [
+    "AnalyticFlat64Audit"
+  ],
+  "source_rows": [
+    {
+      "module": "AnalyticFlat64Dirichlet",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/AnalyticFlat64Dirichlet.lean",
+      "source_sha256": "6d9cb87e2da1e635f4b207aa727963f3dc675ad98b37029022c5c355f2b892c4",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Complex",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic",
+        "Mathlib.Tactic"
+      ],
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/analytic-flat64-cold-v1/source/AnalyticFlat64Dirichlet.lean"
+    },
+    {
+      "module": "ExplicitAffineWindow",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitAffineWindow.lean",
+      "source_sha256": "6ed6d252704d29b5b2bbc46905f186f88b17fabc66406993dfcb251f300e5cd0",
+      "imports": [
+        "Mathlib.Analysis.Fourier.Inversion",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Bounds",
+        "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+        "Mathlib.MeasureTheory.Function.LocallyIntegrable",
+        "Mathlib.Tactic"
+      ],
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/analytic-flat64-cold-v1/source/ExplicitAffineWindow.lean"
+    },
+    {
+      "module": "ExplicitHatIntegrals",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitHatIntegrals.lean",
+      "source_sha256": "71728d275566b842afbeaac2f239e0c04ab7e6e4c87ac011d7ea4322185326fa",
+      "imports": [
+        "ExplicitAffineWindow",
+        "Mathlib.Analysis.SpecialFunctions.Integrals.Basic",
+        "Mathlib.MeasureTheory.Measure.Haar.NormedSpace"
+      ],
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/analytic-flat64-cold-v1/source/ExplicitHatIntegrals.lean"
+    },
+    {
+      "module": "ExplicitAffineIntegrals",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitAffineIntegrals.lean",
+      "source_sha256": "9e93315a1d6eae8069044c901dee2794a78f16fb97544be071e4a30ad1e639d4",
+      "imports": [
+        "ExplicitHatIntegrals"
+      ],
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/analytic-flat64-cold-v1/source/ExplicitAffineIntegrals.lean"
+    },
+    {
+      "module": "ExplicitHatFourier",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitHatFourier.lean",
+      "source_sha256": "993a82c239a194eb587f3cd266e4497451ae905c3b78ab18f82ee50d837e5964",
+      "imports": [
+        "ExplicitHatIntegrals",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Sinc"
+      ],
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/analytic-flat64-cold-v1/source/ExplicitHatFourier.lean"
+    },
+    {
+      "module": "ExplicitSignedLogMoment",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitSignedLogMoment.lean",
+      "source_sha256": "fe2814c3fc3fd7bb410692361b2a9d07899315c72c4ed4f51aa9945fbc481278",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.Integrals.Basic",
+        "Mathlib.MeasureTheory.Integral.IntegralEqImproper",
+        "Mathlib.MeasureTheory.Measure.Lebesgue.Integral",
+        "Mathlib.Tactic",
+        "Mathlib.Analysis.Real.Pi.Bounds"
+      ],
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/analytic-flat64-cold-v1/source/ExplicitSignedLogMoment.lean"
+    },
+    {
+      "module": "ExplicitCosineMoment",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitCosineMoment.lean",
+      "source_sha256": "00a3215e659843833051dd1ad48bc22afec6542b461ce464caa8d73a6c29a716",
+      "imports": [
+        "ExplicitAffineWindow",
+        "ExplicitSignedLogMoment",
+        "Mathlib.MeasureTheory.Integral.DominatedConvergence"
+      ],
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/analytic-flat64-cold-v1/source/ExplicitCosineMoment.lean"
+    },
+    {
+      "module": "ExplicitAffineFourier",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitAffineFourier.lean",
+      "source_sha256": "47636e2f4766f3f20743dc32d3544573db64223d4bed823c89af39a4a5d4dcbb",
+      "imports": [
+        "ExplicitAffineIntegrals",
+        "ExplicitHatFourier",
+        "ExplicitCosineMoment"
+      ],
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/analytic-flat64-cold-v1/source/ExplicitAffineFourier.lean"
+    },
+    {
+      "module": "ExplicitFiniteDifference",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitFiniteDifference.lean",
+      "source_sha256": "7c20823f22cf741b207d9417450877bcaeb9dc9b162d13eee851cc17efdef3d6",
+      "imports": [
+        "ExplicitAffineFourier"
+      ],
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/analytic-flat64-cold-v1/source/ExplicitFiniteDifference.lean"
+    },
+    {
+      "module": "ExplicitFourierPair",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitFourierPair.lean",
+      "source_sha256": "0d3e50c8f120360237487c33c0d2d955f7bbba99111ee3ac7bb09a8c9f260cba",
+      "imports": [
+        "ExplicitFiniteDifference"
+      ],
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/analytic-flat64-cold-v1/source/ExplicitFourierPair.lean"
+    },
+    {
+      "module": "ExplicitNormSourceBridge",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitNormSourceBridge.lean",
+      "source_sha256": "d11e42ee3cd548e0689ca999c5c5bcf1ba327c349f8cdca124dcc515ad471b27",
+      "imports": [
+        "ExplicitFourierPair",
+        "Mathlib.Data.List.GetD"
+      ],
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/analytic-flat64-cold-v1/source/ExplicitNormSourceBridge.lean"
+    },
+    {
+      "module": "IEANTN.Vocabulary.CMSFunctional",
+      "origin": "/data/ivy-rh080-next-20261125/network/IEANTN/Vocabulary/CMSFunctional.lean",
+      "source_sha256": "40390e5de266dccbc335698017508711afc271e67618ecdfe91084935db92c28",
+      "imports": [
+        "Mathlib.Analysis.Fourier.FourierTransform",
+        "Mathlib.NumberTheory.PrimeCounting",
+        "Mathlib.NumberTheory.LSeries.RiemannZeta"
+      ],
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/analytic-flat64-cold-v1/source/IEANTN/Vocabulary/CMSFunctional.lean"
+    },
+    {
+      "module": "ExplicitBRPopulationConsumer",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitBRPopulationConsumer.lean",
+      "source_sha256": "d568f6ac3da17900b0012ae2947b1647579ac800e45cf60ffdd18d12bf6cabe0",
+      "imports": [
+        "ExplicitNormSourceBridge",
+        "IEANTN.Vocabulary.CMSFunctional",
+        "Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics"
+      ],
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/analytic-flat64-cold-v1/source/ExplicitBRPopulationConsumer.lean"
+    },
+    {
+      "module": "AffinePopulationBounds",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/primal/AffinePopulationBounds.lean",
+      "source_sha256": "7067b834964ed05a59c285a174d9d15b0b98f83c079a4e8b3a29314c916870d0",
+      "imports": [
+        "ExplicitAffineIntegrals",
+        "Mathlib.Tactic",
+        "Mathlib.MeasureTheory.Integral.IntegralEqImproper"
+      ],
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/analytic-flat64-cold-v1/source/AffinePopulationBounds.lean"
+    },
+    {
+      "module": "AnalyticFlat64Nodes",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/AnalyticFlat64Nodes.lean",
+      "source_sha256": "f4a59d57f529fc31ac7df1339ffe5e9568da0a491545ee89a01a229458eef393",
+      "imports": [
+        "AnalyticFlat64Dirichlet",
+        "ExplicitBRPopulationConsumer",
+        "ExplicitAffineIntegrals",
+        "AffinePopulationBounds"
+      ],
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/analytic-flat64-cold-v1/source/AnalyticFlat64Nodes.lean"
+    },
+    {
+      "module": "AnalyticFlat64Integral",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/AnalyticFlat64Integral.lean",
+      "source_sha256": "f50c18147f53880d44fd25c4221bbd41188a4de7ab4203785d95fad889ba2a60",
+      "imports": [
+        "AnalyticFlat64Dirichlet",
+        "Mathlib.Analysis.Real.Pi.Bounds",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Bounds",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus"
+      ],
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/analytic-flat64-cold-v1/source/AnalyticFlat64Integral.lean"
+    },
+    {
+      "module": "AnalyticFlat64Log254",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/primal/AnalyticFlat64Log254.lean",
+      "source_sha256": "2614c3da9852ad04012ca24cbe519091873fcabaaf659d4dc457b7f448f969fd",
+      "imports": [
+        "Mathlib.Analysis.Complex.Exponential",
+        "Mathlib.Tactic"
+      ],
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/analytic-flat64-cold-v1/source/AnalyticFlat64Log254.lean"
+    },
+    {
+      "module": "ExplicitCMSEligible",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/ExplicitCMSEligible.lean",
+      "source_sha256": "b828718f7dad5eabad6c4e8695c9fcf2382edae44f7d41280f80f729cebe1590",
+      "imports": [
+        "ExplicitFourierPair",
+        "IEANTN.Vocabulary.CMSFunctional"
+      ],
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/analytic-flat64-cold-v1/source/ExplicitCMSEligible.lean"
+    },
+    {
+      "module": "AnalyticFlat64Population",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/AnalyticFlat64Population.lean",
+      "source_sha256": "a3f147b4b41c820e75c2f934dadf17b7c80d41fe283d74415dc6a592967ae001",
+      "imports": [
+        "AnalyticFlat64Nodes",
+        "AnalyticFlat64Integral",
+        "AnalyticFlat64Log254",
+        "ExplicitCMSEligible"
+      ],
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/analytic-flat64-cold-v1/source/AnalyticFlat64Population.lean"
+    },
+    {
+      "module": "AnalyticFlat64Audit",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/AnalyticFlat64Audit.lean",
+      "source_sha256": "b2d61635781a971f41986b9d5fbfc727b2afbfd59c8267dc8d2630347a96596a",
+      "imports": [
+        "AnalyticFlat64Population",
+        "Lean"
+      ],
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/analytic-flat64-cold-v1/source/AnalyticFlat64Audit.lean"
+    }
+  ],
+  "context_sha256": "88a89fb62356f9ac34abaa4f50a32584a75a33bd8ad23aae92cf07965f344319",
+  "compiler_sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+  "generic_dependencies": [
+    {
+      "name": "mathlib",
+      "revision": "71a80585ee495fc24472fd0eaffc89d94e4fd8d6"
+    },
+    {
+      "name": "plausible",
+      "revision": "d9598f07b1bc701f1e3aae163d2681c1fd978793"
+    },
+    {
+      "name": "LeanSearchClient",
+      "revision": "ba67e212be1197b84c1f1f6299488a10a3002713"
+    },
+    {
+      "name": "importGraph",
+      "revision": "1681d78dd6e65e38b143f9740d829c826673807c"
+    },
+    {
+      "name": "proofwidgets",
+      "revision": "a8acbfd87375ff4abe14ce09db5b7664d383bc7f"
+    },
+    {
+      "name": "aesop",
+      "revision": "18889deb9e83ea7420ef51c160d6f88552e744e3"
+    },
+    {
+      "name": "Qq",
+      "revision": "507746ab8f4b643ccdacb2ec4cdb5853fa9f8ab3"
+    },
+    {
+      "name": "batteries",
+      "revision": "4cac2177c37f5530c4da76aa8e4307f3fc9e4dcb"
+    }
+  ],
+  "controller_sha256": "9d111c8b0acfdbc5376ac56be3971c5d087a74aec58a12ce5e32720acf994f92",
+  "application_object_fallback": false,
+  "memory_limit_bytes": 34359738368,
+  "host_resource_probe": {
+    "memory": {
+      "MemTotal": 1623029682176,
+      "MemFree": 252169166848,
+      "MemAvailable": 1165334900736,
+      "Buffers": 33931079680,
+      "Cached": 1026259734528,
+      "SwapCached": 208953344,
+      "Active": 474987929600,
+      "Inactive": 829553209344,
+      "Active(anon)": 3518353408,
+      "Inactive(anon)": 418684088320,
+      "Active(file)": 471469576192,
+      "Inactive(file)": 410869121024,
+      "Unevictable": 28651520,
+      "Mlocked": 28651520,
+      "SwapTotal": 8589930496,
+      "SwapFree": 12288,
+      "Dirty": 2007040,
+      "Writeback": 0,
+      "AnonPages": 244170960896,
+      "Mapped": 183467642880,
+      "Shmem": 177842929664,
+      "KReclaimable": 40177135616,
+      "Slab": 49723678720,
+      "SReclaimable": 40177135616,
+      "SUnreclaim": 9546543104,
+      "KernelStack": 411205632,
+      "PageTables": 1682661376,
+      "NFS_Unstable": 0,
+      "Bounce": 0,
+      "WritebackTmp": 0,
+      "CommitLimit": 820104769536,
+      "Committed_AS": 939431804928,
+      "VmallocTotal": 14073748835531776,
+      "VmallocUsed": 9005641728,
+      "VmallocChunk": 0,
+      "Percpu": 663748608,
+      "HardwareCorrupted": 0,
+      "AnonHugePages": 285212672,
+      "ShmemHugePages": 0,
+      "ShmemPmdMapped": 0,
+      "FileHugePages": 0,
+      "FilePmdMapped": 0,
+      "HugePages_Total": 0,
+      "HugePages_Free": 0,
+      "HugePages_Rsvd": 0,
+      "HugePages_Surp": 0,
+      "Hugepagesize": 2097152,
+      "Hugetlb": 0,
+      "DirectMap4k": 506764824576,
+      "DirectMap2M": 971467915264,
+      "DirectMap1G": 170724950016
+    },
+    "disk_total": 7619219456000,
+    "disk_free": 6684279734272
+  }
+}

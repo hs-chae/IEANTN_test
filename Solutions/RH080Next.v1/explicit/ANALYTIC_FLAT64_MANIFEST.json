@@ -1,0 +1,449 @@
+{
+  "status": "COMPLETE_SOURCE_COLD_KERNEL_ONLY_ANALYTIC_ANT_NOT_PV",
+  "classification": "kernel-only analytic; not source-first PV",
+  "source_files": [
+    {
+      "path": "Solutions/RH080Next.v1/explicit/AnalyticFlat64Dirichlet.lean",
+      "sha256": "6d9cb87e2da1e635f4b207aa727963f3dc675ad98b37029022c5c355f2b892c4"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/AnalyticFlat64Integral.lean",
+      "sha256": "f50c18147f53880d44fd25c4221bbd41188a4de7ab4203785d95fad889ba2a60"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/AnalyticFlat64Nodes.lean",
+      "sha256": "f4a59d57f529fc31ac7df1339ffe5e9568da0a491545ee89a01a229458eef393"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/AnalyticFlat64Population.lean",
+      "sha256": "a3f147b4b41c820e75c2f934dadf17b7c80d41fe283d74415dc6a592967ae001"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/AnalyticFlat64Audit.lean",
+      "sha256": "b2d61635781a971f41986b9d5fbfc727b2afbfd59c8267dc8d2630347a96596a"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/ANALYTIC_FLAT64.md",
+      "sha256": "160fd35eeb9a5667168693a4d0902dad6c63cf1ad2c4533a56c23da729951aeb"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/reproduce_analytic_flat64.py",
+      "sha256": "9d111c8b0acfdbc5376ac56be3971c5d087a74aec58a12ce5e32720acf994f92"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/primal/AnalyticFlat64Log254.lean",
+      "sha256": "2614c3da9852ad04012ca24cbe519091873fcabaaf659d4dc457b7f448f969fd"
+    }
+  ],
+  "exact_parameters": {
+    "mesh": 64,
+    "terminal_index": 320,
+    "node_count": 321,
+    "nonzero_nodes": "a_j=1 for 0<=j<64; all other nodes zero",
+    "normalization": "127/64",
+    "maximum": "1",
+    "positive_leakage": "0",
+    "numerical_program": null,
+    "seeds": null
+  },
+  "theorems": [
+    {
+      "file": "AnalyticFlat64Population.lean",
+      "declaration": "RH080Next.AnalyticFlat64.actual_population_curve",
+      "statement": "forall alpha>=0, SourceBRFourierNormFive -> SourceBRUniformPopulationQ1 -> RH -> GoodCoefficient alpha (21/10+128*alpha/127)"
+    },
+    {
+      "file": "AnalyticFlat64Population.lean",
+      "declaration": "RH080Next.AnalyticFlat64.actual_population_eventual",
+      "statement": "exists delta>0, eventually (alpha+delta)*sqrt(x) <= actual half-open prime count at width21/10+128alpha/127"
+    },
+    {
+      "file": "AnalyticFlat64Population.lean",
+      "declaration": "RH080Next.AnalyticFlat64.actual_population_forty",
+      "statement": "same three inputs imply GoodCoefficient 40 (53867/1270)"
+    }
+  ],
+  "proof_audit": {
+    "roots": 21,
+    "real_actual_population_proof_closure": 52440,
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "native_execution_axioms": [],
+    "sorry": false,
+    "new_axioms": false,
+    "actual_fourier_eligibility": true,
+    "actual_prime_count_consumer": true,
+    "source_first_PV": false
+  },
+  "source_inputs": [
+    "SourceBRFourierNormFive (BRv2 Lemma5 Eq4 p3)",
+    "SourceBRUniformPopulationQ1 (BRv2 Proposition6 Eq6 p7 + q1 RH p10)",
+    "RiemannHypothesis"
+  ],
+  "replay": {
+    "run": "/data/ivy-rh080-next-20261125/explicit-lane/analytic-flat64-cold-v1",
+    "result_sha256": "dcb80d1abe1c3687e32c161055e6c716f0f4ea877bead20adcbb21efe0d98572",
+    "plan_sha256": "9436a8164537d70572096bd6030d27b9919f05fccf2bede5ab763f19a0d44861",
+    "modules": 20,
+    "seconds": 58.35404540039599,
+    "max_process_rss_bytes": 4451762176,
+    "peak_aggregate_cgroup_memory": "not measured; per-compiler process maxima reported",
+    "scratch_bytes": 7136825,
+    "oom_events": 0,
+    "application_object_fallback": false,
+    "command": [
+      "python3",
+      "Solutions/RH080Next.v1/explicit/reproduce_analytic_flat64.py",
+      "--context",
+      "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+      "--run",
+      "<fresh experiment-owned directory>",
+      "--memory-gib",
+      "32"
+    ]
+  },
+  "evidence": [
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/AffinePopulationBounds.COMPILED.json",
+      "sha256": "a67052d34fbd3e9c037881dcce7c1e93d0ee6cd4de3cffeef8cbf9297141287a"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/AnalyticFlat64Audit.COMPILED.json",
+      "sha256": "af2fe12cf71fa6b25872a1d7f5d4066727712554d81540a1f2832ac4c4122c05"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/AnalyticFlat64Dirichlet.COMPILED.json",
+      "sha256": "0ff410f4a7eb8507031c1c5f0d383a2be6cde81e29b9046e90e315a047c39d31"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/AnalyticFlat64Integral.COMPILED.json",
+      "sha256": "311c5f2bf85879b87de9d21a5d09f1fb3cccee766c8c0b1ad29cd811ea7df264"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/AnalyticFlat64Log254.COMPILED.json",
+      "sha256": "dfe600bfa42bb796d93dfb82b15701a8516e1fe8cd0697ac0504e92f5a923660"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/AnalyticFlat64Nodes.COMPILED.json",
+      "sha256": "8dd94bccc1836acc1e7db48cf4f3cad7f701e3ddd7320bcff9d6e2a19b13b602"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/AnalyticFlat64Population.COMPILED.json",
+      "sha256": "4ee9b17619246bc5fa6efc0467accd63c9bbb2fdae6f316571defd23a7783042"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/CONTROLLER_CONTROLS.json",
+      "sha256": "30432e5f6defae3d9c132c11dc2f1a126ee2d88f32524b58dea1a3c9dbe6fbfe"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/ExplicitAffineFourier.COMPILED.json",
+      "sha256": "71042970ef5d9276d65de1e4aa0eb0366a5c27ed6d6afe27cd305b23a56d650d"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/ExplicitAffineIntegrals.COMPILED.json",
+      "sha256": "ace784bd3802b68ab889e22bce0f3a0484131349dc8a2a6bf6fec21102e284a8"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/ExplicitAffineWindow.COMPILED.json",
+      "sha256": "1add700c12ba75d53cdffc6c52ff0a28f1c704c43e42282c3fe6426e07faa7bb"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/ExplicitBRPopulationConsumer.COMPILED.json",
+      "sha256": "37923f844dc8620475c8e3f8ba23fb4b56027fcd3c847f0c97d592a0f80a07f1"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/ExplicitCMSEligible.COMPILED.json",
+      "sha256": "95420c96d4d28ac5670cd635640e419f23202eaff097d890878c863370b92c86"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/ExplicitCosineMoment.COMPILED.json",
+      "sha256": "02cfe3693088111fe84761738f08fb4f10cbbc5d3dd765189bfe1e9a50115e9b"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/ExplicitFiniteDifference.COMPILED.json",
+      "sha256": "16f6277ce492a099d6c3b43bcaa9eea6a5a1e1d5587e37e40cb0542b63e6fc5e"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/ExplicitFourierPair.COMPILED.json",
+      "sha256": "a829d5bcd532a2458ef32489557ba3e072247d82313d4176aea4b55a97b74125"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/ExplicitHatFourier.COMPILED.json",
+      "sha256": "67553e64b996be35680e38f34db74e17cf2bc38c17d02cffdeb52054ef94a358"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/ExplicitHatIntegrals.COMPILED.json",
+      "sha256": "025b78093b5b9efb873e30da34a3be0cdde251e063025476b9e7c60648334f3d"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/ExplicitNormSourceBridge.COMPILED.json",
+      "sha256": "0f08bf5b973f0c91eaef68ad67219638700fde083d15759e73c8cce1a7db67d3"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/ExplicitSignedLogMoment.COMPILED.json",
+      "sha256": "fe9072e7b115a88342cd84f8bea805726298efbf2ff91eb7a1d381a25b90fba4"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/IEANTN.Vocabulary.CMSFunctional.COMPILED.json",
+      "sha256": "ca95503db1764ff1c20f129c7306e2988ce8158c8b727ee64e938b4cfa0708c2"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/PLAN.json",
+      "sha256": "9436a8164537d70572096bd6030d27b9919f05fccf2bede5ab763f19a0d44861"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/RESULT.json",
+      "sha256": "dcb80d1abe1c3687e32c161055e6c716f0f4ea877bead20adcbb21efe0d98572"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/AffinePopulationBounds.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/AffinePopulationBounds.stdout",
+      "sha256": "526ff13fbb792e694c44ad3da6913e092bfb5ff21163991ea73e6134f5bb9984"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/AffinePopulationBounds.time",
+      "sha256": "4b702ca32be7a3ecb3cddfe7b5bfc26a0940756edcc479b24431dc8deee48be5"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/AnalyticFlat64Audit.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/AnalyticFlat64Audit.stdout",
+      "sha256": "a9747877afb73d31fbc0e93e93a4c1516442eae14171d31886ab82261dbee4f0"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/AnalyticFlat64Audit.time",
+      "sha256": "de3814d7ca1183e27ab3fa83936d551a523e859cb997ccdf8280006d4f43470c"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/AnalyticFlat64Dirichlet.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/AnalyticFlat64Dirichlet.stdout",
+      "sha256": "0ca2a8195c52bea9b48707563c9ffe46fddb30c26397e90ef361adf43c6df865"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/AnalyticFlat64Dirichlet.time",
+      "sha256": "7db9595c618dea138e343fe04cfc06c22e3e32e4fb716c64c562d733d569fa57"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/AnalyticFlat64Integral.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/AnalyticFlat64Integral.stdout",
+      "sha256": "164a9275b6b51c5ff6089b528a3e7a8d985b30d099ceb46e35923b0330a29f16"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/AnalyticFlat64Integral.time",
+      "sha256": "b169b138d59a48bf8498dd2cf9ac3f6ba1ba0824242e1de93dd3c0528c0f5285"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/AnalyticFlat64Log254.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/AnalyticFlat64Log254.stdout",
+      "sha256": "f7760f42a76faa05f7fd8383b5d42ae9e13e50012fa67a20274929163ddb61ad"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/AnalyticFlat64Log254.time",
+      "sha256": "143903bf9824244818b943397b649d3de44d2a0b590f99d12305bbf9e0af78d5"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/AnalyticFlat64Nodes.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/AnalyticFlat64Nodes.stdout",
+      "sha256": "963bb00ec8ce18bffe7b06a0ba3b637f2521965058422364de7bc8896785d9c9"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/AnalyticFlat64Nodes.time",
+      "sha256": "80241dfea4c4d19f3592a184174b3e598045eaed233559ece39f24a0648ab129"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/AnalyticFlat64Population.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/AnalyticFlat64Population.stdout",
+      "sha256": "cf17bd02554abc0b09c438fabf3cb6ef2d759529221c0e736dc943588e41fcaf"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/AnalyticFlat64Population.time",
+      "sha256": "268e4970eba51778bf97d5aa0b9c1653e9a27abaaf3103090645eea1af23f4b3"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/ExplicitAffineFourier.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/ExplicitAffineFourier.stdout",
+      "sha256": "0672def36e56492e48355af7cb655a874006b5e65e4eace9458bee45165b1aad"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/ExplicitAffineFourier.time",
+      "sha256": "1ad872bbe9dbf2beee9095dd9c25654e675937d7398144f832c992d4bb007971"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/ExplicitAffineIntegrals.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/ExplicitAffineIntegrals.stdout",
+      "sha256": "f6b68791215216a078102f743c1ed9f48301aae0cf7135a538998cf3cf89f237"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/ExplicitAffineIntegrals.time",
+      "sha256": "a52c3fe80c871f24894a22e9e58e2bfa015c7130979ed92265ec15af311bae6b"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/ExplicitAffineWindow.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/ExplicitAffineWindow.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/ExplicitAffineWindow.time",
+      "sha256": "ff9bc71769e7e98c74cc386bd5c5ef15bd51c574851e2f21d658f14d181cfb31"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/ExplicitBRPopulationConsumer.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/ExplicitBRPopulationConsumer.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/ExplicitBRPopulationConsumer.time",
+      "sha256": "7e484d8eef030b6d1de75eabc198edaebc78b76dee09126416d8a46299dac471"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/ExplicitCMSEligible.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/ExplicitCMSEligible.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/ExplicitCMSEligible.time",
+      "sha256": "9c103684dc317b55c61a668210043bcc1229732dd36dab7aaa81eee88ebdd6a9"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/ExplicitCosineMoment.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/ExplicitCosineMoment.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/ExplicitCosineMoment.time",
+      "sha256": "94b10c60d7f33b5d96b5daf01250b00ebb479823fc187bc7c5878b6999772ff2"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/ExplicitFiniteDifference.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/ExplicitFiniteDifference.stdout",
+      "sha256": "8b36f6e3774bd9fe95d7a146775a135a6578f2729bdc62edec5ca0731bb2e3bb"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/ExplicitFiniteDifference.time",
+      "sha256": "848d9405f527c159d328dceec73ed69b8e70a6dd3e612a0a7ba5fc3c49c25dd8"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/ExplicitFourierPair.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/ExplicitFourierPair.stdout",
+      "sha256": "bca7c66a995d42782d6cca1eb47a23a45d2f2e501047c134bd0dbb634adb3b0a"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/ExplicitFourierPair.time",
+      "sha256": "7c9c97dec616d62b07df7a123d755e1b2e6d88c43a10a42eb7e875749b48cb49"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/ExplicitHatFourier.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/ExplicitHatFourier.stdout",
+      "sha256": "4323b000e24033f0114cf939743d3b86cda9b39f609a32c8f68e219be04a6a53"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/ExplicitHatFourier.time",
+      "sha256": "bc6c1ff0d24d386cdbd8ec3b8bca2c6bb47313e42aaa8698170a14c2f545cbb0"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/ExplicitHatIntegrals.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/ExplicitHatIntegrals.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/ExplicitHatIntegrals.time",
+      "sha256": "0ca9d2052a82f60dd00cc0baf9dcf7daa24565e7245c24444d1d5d0cc4ba51fd"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/ExplicitNormSourceBridge.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/ExplicitNormSourceBridge.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/ExplicitNormSourceBridge.time",
+      "sha256": "0f590b6b6bd966dab0bdaac6628a5c15db60f6a85f68dc82f77e91d6a6c0f574"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/ExplicitSignedLogMoment.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/ExplicitSignedLogMoment.stdout",
+      "sha256": "44baed1a9adea4cd41d555852167e8655106cf13ac05c73168ed370050e583e2"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/ExplicitSignedLogMoment.time",
+      "sha256": "7628cd3ebe110fd6f293bf1395e53e70ecf1043ca7ac3b54f70c08a3e95c510b"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/IEANTN.Vocabulary.CMSFunctional.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/IEANTN.Vocabulary.CMSFunctional.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat64/logs/IEANTN.Vocabulary.CMSFunctional.time",
+      "sha256": "47864bea995508cf88c2147bdbf43b0efab4da3a051787b49da35056e5d5ef5c"
+    }
+  ],
+  "remaining_obligations_for_this_conditional_claim": [],
+  "limitations": [
+    "Published analytic propositions remain explicit mathematical hypotheses",
+    "No finite onset or optimality or best-known claim",
+    "No C program or PV claim",
+    "Existing source-first16-node program results and locked outcomes remain unchanged"
+  ]
+}
