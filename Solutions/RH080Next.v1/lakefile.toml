@@ -1,0 +1,38 @@
+name = "RH080Next"
+version = "0.1.0"
+moreLeanArgs = ["-j1"]
+defaultTargets = ["RH080NextScaled40"]
+
+[[require]]
+name = "RH080Study"
+path = "../RH080Study.v1"
+
+[[lean_lib]]
+name = "RH080NextPrimalCommon"
+srcDir = "primal"
+roots = ["GaussianDilation", "ChordQuadrature", "AffinePopulationBounds", "PopulationFrontierComparison", "AffineDerivativeBounds", "AffineCellInterpolation"]
+
+[[lean_lib]]
+name = "RH080NextScaled40"
+srcDir = "primal/scaled40"
+roots = ["Scaled40ActualConsumers", "Scaled40ActualFourier", "Scaled40CanonicalConsumers", "Scaled40Cells00", "Scaled40Cells01", "Scaled40Cells02", "Scaled40Cells03", "Scaled40Cells04", "Scaled40Cells05", "Scaled40Cells06", "Scaled40Cells07", "Scaled40Cells08", "Scaled40Cells09", "Scaled40Cells10", "Scaled40Cells11", "Scaled40Cells12", "Scaled40Cells13", "Scaled40Cells14", "Scaled40Cells15", "Scaled40Cells16", "Scaled40Cells17", "Scaled40Cells18", "Scaled40Cells19", "Scaled40Cells20", "Scaled40Cells21", "Scaled40Cells22", "Scaled40Cells23", "Scaled40Cells24", "Scaled40Cells25", "Scaled40Cells26", "Scaled40Cells27", "Scaled40Cells28", "Scaled40Cells29", "Scaled40Cells30", "Scaled40Cells31", "Scaled40Cells32", "Scaled40Cells33", "Scaled40Cells34", "Scaled40Cells35", "Scaled40CoefficientTransform", "Scaled40Consumers", "Scaled40FiniteNorm", "Scaled40FiniteWing", "Scaled40FullRays", "Scaled40Functions", "Scaled40NumericalWitness", "Scaled40Objective", "Scaled40Physical", "Scaled40Sources", "Scaled40Wings"]
+
+[[lean_lib]]
+name = "RH080NextPopulation"
+srcDir = "primal/population"
+roots = ["BRSourceInterfaces", "AffineProgramsSolution", "WeightedPopulationSolution", "PopulationActualConsumers", "PopulationMatchedControl", "PopulationCanonicalAudit"]
+
+[[lean_lib]]
+name = "RH080NextSourcePrograms"
+srcDir = "pv/lean"
+roots = ["FFTAST", "FFTActualRoot", "FFTDecodedSeed", "FFTInitialization", "FFTInput", "FFTInputScaling", "FFTInterpreter", "FFTRecursiveAST", "FFTRecursiveSource", "FFTSource", "FFTSourceSteps", "FFTVerifiedRoot", "FFTWordArithmetic", "FFTWordArrays", "FFTWordBounds", "FFTWordStore", "FFTZeroTrace", "FapAST", "FapActualArea", "FapActualF0", "FapActualHeight", "FapActualMaximum", "FapActualMu2", "FapActualV0", "FapActualV1", "FapAffineData", "FapData", "FapExecution", "FapFFTAST", "FapFFTInterpreter", "FapFFTRecursiveAST", "FapFFTRecursiveSource", "FapFFTSource", "FapMain", "FapModel", "FapRationalBridge", "FapRescaling", "FapSource", "FapSourceFinal", "FapTrustAudit", "FlatPopulationAST", "FlatPopulationActual", "FlatPopulationBounds", "FlatPopulationControl", "FlatPopulationExecution", "FlatPopulationMain", "FlatPopulationModel", "FlatPopulationNodes", "FlatPopulationNorm", "FlatPopulationSamples", "FlatPopulationSource", "FlatPopulationSourceFinal", "FlatPopulationTrustAudit", "GoldbachDirect.Interpreter", "GoldbachDirect.InterpreterArgs", "GoldbachDirect.Memory", "GoldbachDirect.PlatformMemory", "GoldbachDirect.PureEval", "GoldbachDirect.PureEvalComplete", "GoldbachDirect.Scalar", "GoldbachDirect.Semantics", "GoldbachDirect.SourcePure", "GoldbachDirect.Syntax", "PopulationAST", "PopulationActual", "PopulationBounds", "PopulationControl", "PopulationExecution", "PopulationMain", "PopulationModel", "PopulationMutations", "PopulationNodes", "PopulationNorm", "PopulationSamples", "PopulationSource", "PopulationSourceFinal", "PopulationTrustAudit", "ScalarHost", "WindowAST", "WindowActualArea", "WindowActualF0", "WindowActualHeight", "WindowActualMaximum", "WindowActualMu2", "WindowActualV0", "WindowActualV1", "WindowAffineData", "WindowData", "WindowExecution", "WindowMain", "WindowModel", "WindowRationalBridge", "WindowSource", "WindowSourceFinal", "WindowTrustAudit"]
+
+[[lean_lib]]
+name = "RH080NextExplicit"
+srcDir = "explicit"
+roots = ["ExplicitAffineDerivative", "ExplicitAffineFourier", "ExplicitAffineIntegrals", "ExplicitAffineSignedMoment", "ExplicitAffineWindow", "ExplicitAudit", "ExplicitBRPopulationConsumer", "ExplicitBRStripTransfer", "ExplicitCMSEligible", "ExplicitCMSZeroSource", "ExplicitCompactLaplace", "ExplicitCosineMoment", "ExplicitDerivativeIntegrals", "ExplicitDigammaDifference", "ExplicitDigammaFubini", "ExplicitDiscreteBV", "ExplicitDomain", "ExplicitEntireUniqueness", "ExplicitFiniteDifference", "ExplicitFlatPopulationANT", "ExplicitFlatPopulationControlWitness", "ExplicitFlatPopulationSourceWitness", "ExplicitFlatPopulationWitness", "ExplicitFourierPair", "ExplicitGWTestFunction", "ExplicitGammaAffine", "ExplicitGammaFourier", "ExplicitGammaSubstitution", "ExplicitGuinandWeilApplication", "ExplicitHatFourier", "ExplicitHatIntegrals", "ExplicitMellinArithmetic", "ExplicitMellinFourier", "ExplicitMellinGammaCancellation", "ExplicitMellinIdentity", "ExplicitMellinPoles", "ExplicitNodalMoments", "ExplicitNormSourceBridge", "ExplicitPoleError", "ExplicitPoleQuantitative", "ExplicitPopulationANT", "ExplicitPopulationControlWitness", "ExplicitPopulationSourceWitness", "ExplicitPopulationWitness", "ExplicitRHMellin", "ExplicitRealZetaNonzero", "ExplicitSecondPoleIntegral", "ExplicitSignedLogMoment", "ExplicitW4SourceMoment", "ExplicitWindowErrors"]
+
+[[lean_lib]]
+name = "RH080NextDual"
+srcDir = "dual"
+roots = ["AbelFourierInversion", "CMSWeakDuality", "CoupledCMSObstruction", "DualCampaignAudit", "FFT17Bridge", "FFT17SeedBounds", "FFT24Bridge", "FFTButterfly", "FFTPolynomial", "FFTRoundoff", "FFTSeedBounds", "FFTTwiddleBounds", "FinitePrimeGapBridge", "SourceFirstCMSObstruction", "TangentKernel"]

@@ -1,0 +1,46 @@
+import ExplicitAffineSignedMoment
+import ExplicitCMSEligible
+import ExplicitDomain
+import ExplicitWindowErrors
+import ExplicitGuinandWeilApplication
+import ExplicitMellinFourier
+import ExplicitNormSourceBridge
+import ExplicitRHMellin
+import ExplicitBRPopulationConsumer
+import ExplicitPoleError
+import ExplicitPoleQuantitative
+import ExplicitAffineDerivative
+import ExplicitDerivativeIntegrals
+import ExplicitCMSZeroSource
+
+#print axioms RH080Next.Explicit.signed_log_affine_inverse_three_eighths
+#print axioms RH080Next.Explicit.fourier_affine_inverse_eq_window
+#print axioms RH080Next.Explicit.affine_inverse_eligible
+#print axioms RH080Next.Explicit.integral_sq_abs_affineSpectrum_le
+#print axioms RH080Next.Explicit.inverseCosine_affineSpectrum_variation_bound
+#print axioms RH080Next.Explicit.support_lower_geometry
+
+#print axioms RH080Next.Explicit.affine_strip_extension_by_mesh_dilation
+#print axioms RH080Next.Explicit.mellin_test_function_strip
+#print axioms RH080Next.Explicit.guinand_weil_affine_test
+#print axioms RH080Next.Explicit.fourier_mellin_extension
+#print axioms RH080Next.Explicit.affine_norm_eq_periodic_by_padding
+#print axioms RH080Next.Explicit.poleScale_lower
+#print axioms RH080Next.Explicit.log_inverse_halfLogWidth_upper
+
+
+#print axioms RH080Next.Explicit.entire_extension_eq_compactLaplace
+#print axioms RH080Next.Explicit.mellinTest_imaginary_value
+#print axioms RH080Next.Explicit.digammaDifference_integral
+#print axioms RH080Next.Explicit.gamma_affine_frequency_integral
+#print axioms RH080Next.Explicit.affine_mellin_identity
+#print axioms RH080Next.Explicit.source_RH_affine_mellin_identity
+#print axioms RH080Next.Explicit.source_BR_population_goodCoefficient
+#print axioms RH080Next.Explicit.windowLaplaceIntegral_error
+#print axioms RH080Next.Explicit.mellin_pole_lower
+#print axioms RH080Next.Explicit.actual_mellin_pole_lower_domain
+#print axioms RH080Next.Explicit.derivative_halfline_envelopes
+#print axioms RH080Next.Explicit.hasDerivAt_inverseCosine_affineSpectrum
+#print axioms RH080Next.Explicit.inverseCosine_affineSpectrum_deriv_bound
+#print axioms RH080Next.Explicit.real_zeta_ne_zero
+#print axioms RH080Next.Explicit.cms_full_zero_bound_from_sources

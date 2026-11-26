@@ -1,0 +1,71 @@
+version: v0.4
+node:
+  id: GaussianFourierWitness.v4
+  family: GaussianFourierWitness
+  version: v4
+  kind: computation
+  status: awaiting-verification
+project:
+  name: GaussianFourierWitness.v4
+  description: Scaled Laguerre40 / physical80 Gaussian witness with a new exact kernel-proved quotient; all 
+    v1-v3 results and locked experiments are preserved.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+conclusions:
+- id: integral_fourier_witness
+  declaration: GaussianFourierWitness.v4.integral_fourier_witness
+  challenge: GaussianFourierWitness.v4.challenge_integral_fourier_witness
+  imports: []
+  imports_status: none
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: 'Complete development Lean proofs use only propext, Classical.choice and Quot.sound: actual Fourier transform,
+      1124 numerical cells, infinite tails, mass/leakage, and CMS consumers. Source-only cold replay and canonical
+      type/value audits are recorded separately. Official Comparator approval is still absent.'
+  designated: local-kernel-proof
+- id: objective_witness
+  declaration: GaussianFourierWitness.v4.objective_witness
+  challenge: GaussianFourierWitness.v4.challenge_objective_witness
+  imports:
+  - node: GaussianFourierWitness.v4
+    conclusion: integral_fourier_witness
+  imports_status: identified
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: 'Complete development Lean proofs use only propext, Classical.choice and Quot.sound: actual Fourier transform,
+      1124 numerical cells, infinite tails, mass/leakage, and CMS consumers. Source-only cold replay and canonical
+      type/value audits are recorded separately. Official Comparator approval is still absent.'
+  designated: local-kernel-proof
+sources:
+- id: CMS2019
+  title: Fourier optimization and prime gaps
+  authors:
+  - Emanuel Carneiro
+  - Micah B. Milinovich
+  - Kannan Soundararajan
+  type: paper
+  relationship: adapts
+  url: https://arxiv.org/abs/1708.04122v2
+  note: Theorem3/Corollary4 and optimization definition(1.3), B definition/bound(1.11)-(1.12); no H-only 
+    explicit-onset reduction is used for the Gaussian.
+limitations:
+- The unchanged general CMS gap/population reductions and ordinary RH remain explicit analytic inputs; the new
+  numerical and actual Fourier witness is kernel-proved.
+- No explicit onset, best-known claim, optimality, official Comparator approval, source-first PV or eventual 
+  coefficient0.8 is asserted.
+- This is an additive new search/proof result; original locked prospective outcomes and every v1-v3 source are
+  preserved.
+- The population conclusion preserves half-open source intervals and positive width epsilon.

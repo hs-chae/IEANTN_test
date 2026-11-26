@@ -1,5 +1,9 @@
 # RH080 continuation: mathematical and source-first verification campaign
 
+**Work is in progress.** See [CURRENT_STATUS.md](CURRENT_STATUS.md) for the
+completed results, exact verification boundaries and remaining work. The
+paragraphs below retain the original campaign-start plan, not final status.
+
 This additive branch starts from the delivered RH080 study at `1c668b75`, whose mathematical checkpoint is `5a87c48d`. The complete previous report and all locked submissions remain unchanged in `Solutions/RH080Study.v1`. Baseline source and resource identities are in `BASELINE_LOCK.json`.
 
 The workstreams run in parallel:

@@ -1,0 +1,165 @@
+version: v0.4
+node:
+  id: RHAsymptoticGaussian.v4
+  family: RHAsymptoticGaussian
+  version: v4
+  kind: pipeline
+  status: awaiting-verification
+project:
+  name: RHAsymptoticGaussian.v4
+  description: Scaled Laguerre40 / physical80 Gaussian witness with a new exact kernel-proved quotient; all 
+    v1-v3 results and locked experiments are preserved.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+conclusions:
+- id: normalized_gap
+  declaration: RHAsymptoticGaussian.v4.normalized_gap
+  challenge: RHAsymptoticGaussian.v4.challenge_normalized_gap
+  imports:
+  - node: CMSFunctionalInput.v1
+    conclusion: gap_reduction
+  - node: RH.v1
+    conclusion: hypothesis
+  - node: GaussianFourierWitness.v4
+    conclusion: objective_witness
+  imports_status: identified
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: 'Complete development Lean proofs use only propext, Classical.choice and Quot.sound: actual Fourier transform,
+      1124 numerical cells, infinite tails, mass/leakage, and CMS consumers. Source-only cold replay and canonical
+      type/value audits are recorded separately. Official Comparator approval is still absent.'
+  designated: local-kernel-proof
+- id: gap_below_readable
+  declaration: RHAsymptoticGaussian.v4.gap_below_readable
+  challenge: RHAsymptoticGaussian.v4.challenge_gap_below_readable
+  imports:
+  - node: RHAsymptoticGaussian.v4
+    conclusion: normalized_gap
+  imports_status: identified
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: 'Complete development Lean proofs use only propext, Classical.choice and Quot.sound: actual Fourier transform,
+      1124 numerical cells, infinite tails, mass/leakage, and CMS consumers. Source-only cold replay and canonical
+      type/value audits are recorded separately. Official Comparator approval is still absent.'
+  designated: local-kernel-proof
+- id: gap_below_v3
+  declaration: RHAsymptoticGaussian.v4.gap_below_v3
+  challenge: RHAsymptoticGaussian.v4.challenge_gap_below_v3
+  imports:
+  - node: RHAsymptoticGaussian.v4
+    conclusion: normalized_gap
+  imports_status: identified
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: 'Complete development Lean proofs use only propext, Classical.choice and Quot.sound: actual Fourier transform,
+      1124 numerical cells, infinite tails, mass/leakage, and CMS consumers. Source-only cold replay and canonical
+      type/value audits are recorded separately. Official Comparator approval is still absent.'
+  designated: local-kernel-proof
+- id: gap_below_v2
+  declaration: RHAsymptoticGaussian.v4.gap_below_v2
+  challenge: RHAsymptoticGaussian.v4.challenge_gap_below_v2
+  imports:
+  - node: RHAsymptoticGaussian.v4
+    conclusion: normalized_gap
+  imports_status: identified
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: 'Complete development Lean proofs use only propext, Classical.choice and Quot.sound: actual Fourier transform,
+      1124 numerical cells, infinite tails, mass/leakage, and CMS consumers. Source-only cold replay and canonical
+      type/value audits are recorded separately. Official Comparator approval is still absent.'
+  designated: local-kernel-proof
+- id: gap_below_v1
+  declaration: RHAsymptoticGaussian.v4.gap_below_v1
+  challenge: RHAsymptoticGaussian.v4.challenge_gap_below_v1
+  imports:
+  - node: RHAsymptoticGaussian.v4
+    conclusion: normalized_gap
+  imports_status: identified
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: 'Complete development Lean proofs use only propext, Classical.choice and Quot.sound: actual Fourier transform,
+      1124 numerical cells, infinite tails, mass/leakage, and CMS consumers. Source-only cold replay and canonical
+      type/value audits are recorded separately. Official Comparator approval is still absent.'
+  designated: local-kernel-proof
+- id: gap_below_printed_2026
+  declaration: RHAsymptoticGaussian.v4.gap_below_printed_2026
+  challenge: RHAsymptoticGaussian.v4.challenge_gap_below_printed_2026
+  imports:
+  - node: RHAsymptoticGaussian.v4
+    conclusion: normalized_gap
+  imports_status: identified
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: 'Complete development Lean proofs use only propext, Classical.choice and Quot.sound: actual Fourier transform,
+      1124 numerical cells, infinite tails, mass/leakage, and CMS consumers. Source-only cold replay and canonical
+      type/value audits are recorded separately. Official Comparator approval is still absent.'
+  designated: local-kernel-proof
+- id: population_curve
+  declaration: RHAsymptoticGaussian.v4.population_curve
+  challenge: RHAsymptoticGaussian.v4.challenge_population_curve
+  imports:
+  - node: CMSFunctionalInput.v1
+    conclusion: population_reduction
+  - node: RH.v1
+    conclusion: hypothesis
+  - node: GaussianFourierWitness.v4
+    conclusion: objective_witness
+  imports_status: identified
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: 'Complete development Lean proofs use only propext, Classical.choice and Quot.sound: actual Fourier transform,
+      1124 numerical cells, infinite tails, mass/leakage, and CMS consumers. Source-only cold replay and canonical
+      type/value audits are recorded separately. Official Comparator approval is still absent.'
+  designated: local-kernel-proof
+- id: population_count
+  declaration: RHAsymptoticGaussian.v4.population_count
+  challenge: RHAsymptoticGaussian.v4.challenge_population_count
+  imports:
+  - node: RHAsymptoticGaussian.v4
+    conclusion: population_curve
+  imports_status: identified
+  justifications:
+  - id: local-kernel-proof
+    kind: lean-noncompliant
+    note: 'Complete development Lean proofs use only propext, Classical.choice and Quot.sound: actual Fourier transform,
+      1124 numerical cells, infinite tails, mass/leakage, and CMS consumers. Source-only cold replay and canonical
+      type/value audits are recorded separately. Official Comparator approval is still absent.'
+  designated: local-kernel-proof
+sources:
+- id: CMS2019
+  title: Fourier optimization and prime gaps
+  authors:
+  - Emanuel Carneiro
+  - Micah B. Milinovich
+  - Kannan Soundararajan
+  type: paper
+  relationship: adapts
+  url: https://arxiv.org/abs/1708.04122v2
+  note: Theorem3/Corollary4 and optimization definition(1.3), B definition/bound(1.11)-(1.12); no H-only 
+    explicit-onset reduction is used for the Gaussian.
+limitations:
+- The unchanged general CMS gap/population reductions and ordinary RH remain explicit analytic inputs; the new
+  numerical and actual Fourier witness is kernel-proved.
+- No explicit onset, best-known claim, optimality, official Comparator approval, source-first PV or eventual 
+  coefficient0.8 is asserted.
+- This is an additive new search/proof result; original locked prospective outcomes and every v1-v3 source are
+  preserved.
+- The population conclusion preserves half-open source intervals and positive width epsilon.

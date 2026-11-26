@@ -1,0 +1,73 @@
+version: v0.4
+node:
+  id: BRFourierInput.v1
+  family: BRFourierInput
+  version: v1
+  kind: paper
+  status: active
+project:
+  name: BRFourierInput.v1
+  description: The literal finite-affine Fourier norm identity and ordinary-RH q=1
+    population source specialization, with the source remainder and attained maximum
+    explicit; no numerical answer is a source premise.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+conclusions:
+- id: norm_identity
+  declaration: BRFourierInput.v1.norm_identity
+  challenge: BRFourierInput.v1.challenge_norm_identity
+  imports: []
+  imports_status: none
+  justifications:
+  - id: primary-source
+    kind: literature
+    source: BR2026v2
+    locator: Lemma5, §2.1, eq:pair
+    note: General norm identity on the literal support-five finite mesh; shorter exact
+      witnesses are zero-padded by proved identities.
+  designated: primary-source
+- id: uniform_population_q1
+  declaration: BRFourierInput.v1.uniform_population_q1
+  challenge: BRFourierInput.v1.challenge_uniform_population_q1
+  imports: []
+  imports_status: none
+  justifications:
+  - id: primary-source
+    kind: literature
+    source: BR2026v2
+    locator: Proposition6, §3, eq:uniform-count; its q=1 proof case and following
+      moduli1/2 paragraph
+    note: Ordinary-RH specialization derived from the proof for the principal conductor-one
+      character, not an implication from RH to GRH. The O(F,c) remainder remains an
+      eventual nonnegative-constant bound.
+  designated: primary-source
+sources:
+- id: BR2026v2
+  title: Rational Fourier certificates for prime gaps, explicit intervals, and arithmetic
+    progressions
+  authors:
+  - Rafael Blanquer Robles
+  type: paper
+  relationship: adapts
+  url: https://zenodo.org/records/24429650
+  note: 'Version2: Lemma5 (§2.1, eq:pair) and Proposition6 (§3, eq:uniform-count);
+    the q=1 proof case and following moduli1/2 paragraph justify ordinary RH rather
+    than full GRH for this specialization.'
+limitations:
+- These analytic propositions remain explicitly literature-backed inputs, not Lean-proved
+  analytic theorems.
+- The language fragment is the published support-five finite-affine construction,
+  not arbitrary Fourier pairs.
+- No fixed numerical result, explicit onset, optimality or official Comparator approval
+  is imported.

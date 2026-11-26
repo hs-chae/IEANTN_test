@@ -1,0 +1,135 @@
+version: v0.4
+node:
+  id: RHWeightedPopulation.v1
+  family: RHWeightedPopulation
+  version: v1
+  kind: pipeline
+  status: awaiting-verification
+project:
+  name: RHWeightedPopulation.v1
+  description: Two ordinary-RH eventual actual-prime population curves and their minimum,
+    improving the previous octic leading-width frontier on the common asymptotic comparison
+    domain without transferring the old explicit onset.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+conclusions:
+- id: sparse_curve
+  declaration: RHWeightedPopulation.v1.sparse_curve
+  challenge: RHWeightedPopulation.v1.challenge_sparse_curve
+  imports:
+  - node: BRFourierInput.v1
+    conclusion: uniform_population_q1
+  - node: RH.v1
+    conclusion: hypothesis
+  - node: AffineFourierPrograms.v1
+    conclusion: sparse_witness
+  imports_status: identified
+  justifications:
+  - &id001
+    id: local-kernel-consumer
+    kind: lean-noncompliant
+    note: Completed development Lean consumer with only standard axioms. The numerical
+      witness, q=1 source theorem and RH are explicit inputs. Source-first and matched
+      kernel-only providers share this same consumer. A complete typed/value dependency
+      audit and cold source replay are recorded separately; official Comparator receipt
+      is absent.
+  designated: local-kernel-consumer
+- id: flat_curve
+  declaration: RHWeightedPopulation.v1.flat_curve
+  challenge: RHWeightedPopulation.v1.challenge_flat_curve
+  imports:
+  - node: BRFourierInput.v1
+    conclusion: uniform_population_q1
+  - node: RH.v1
+    conclusion: hypothesis
+  - node: AffineFourierPrograms.v1
+    conclusion: flat_witness
+  imports_status: identified
+  justifications:
+  - *id001
+  designated: local-kernel-consumer
+- id: frontier_curve
+  declaration: RHWeightedPopulation.v1.frontier_curve
+  challenge: RHWeightedPopulation.v1.challenge_frontier_curve
+  imports:
+  - node: RHWeightedPopulation.v1
+    conclusion: sparse_curve
+  - node: RHWeightedPopulation.v1
+    conclusion: flat_curve
+  imports_status: identified
+  justifications:
+  - *id001
+  designated: local-kernel-consumer
+- id: frontier_count
+  declaration: RHWeightedPopulation.v1.frontier_count
+  challenge: RHWeightedPopulation.v1.challenge_frontier_count
+  imports:
+  - node: RHWeightedPopulation.v1
+    conclusion: frontier_curve
+  imports_status: identified
+  justifications:
+  - *id001
+  designated: local-kernel-consumer
+- id: one_population
+  declaration: RHWeightedPopulation.v1.one_population
+  challenge: RHWeightedPopulation.v1.challenge_one_population
+  imports:
+  - node: RHWeightedPopulation.v1
+    conclusion: sparse_curve
+  imports_status: identified
+  justifications:
+  - *id001
+  designated: local-kernel-consumer
+- id: ten_population
+  declaration: RHWeightedPopulation.v1.ten_population
+  challenge: RHWeightedPopulation.v1.challenge_ten_population
+  imports:
+  - node: RHWeightedPopulation.v1
+    conclusion: flat_curve
+  imports_status: identified
+  justifications:
+  - *id001
+  designated: local-kernel-consumer
+- id: below_octic_leading_frontier
+  declaration: RHWeightedPopulation.v1.below_octic_leading_frontier
+  challenge: RHWeightedPopulation.v1.challenge_below_octic_leading_frontier
+  imports: []
+  imports_status: none
+  justifications:
+  - *id001
+  designated: local-kernel-consumer
+sources:
+- id: BR2026v2
+  title: Rational Fourier certificates for prime gaps, explicit intervals, and arithmetic
+    progressions
+  authors:
+  - Rafael Blanquer Robles
+  type: paper
+  relationship: adapts
+  url: https://zenodo.org/records/24429650
+  note: 'Version2: Lemma5 (§2.1, eq:pair) and Proposition6 (§3, eq:uniform-count);
+    the q=1 proof case and following moduli1/2 paragraph justify ordinary RH rather
+    than full GRH for this specialization.'
+limitations:
+- Every new population/count conclusion is eventual, with a positive GoodCoefficient
+  margin; no explicit onset or uniform threshold in alpha is claimed.
+- PrimeInterval.v4.optimized_strict_family has onsetexp24, strict endpoints and1.03<=c<=16.
+  Only its exact asymptotic leading width (9/8)*(alpha+18203/20000) is compared; those
+  stronger finite-domain features are preserved in the old node.
+- 'The minimum improves that octic leading line for all nonnegative alpha, but is
+  not a global optimum: the separate new Gaussian gap coefficient is smaller at alpha0.'
+- The analytic BR norm identity and q=1 uniform population proposition remain declared
+  literature inputs, with ordinary RH supplied separately.
+- No overall PV causal discovery advantage, official Comparator approval, or new unrestricted
+  RH-only analytic theorem is claimed.

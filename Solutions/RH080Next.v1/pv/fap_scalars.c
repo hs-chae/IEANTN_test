@@ -1,0 +1,168 @@
+/*
+Copyright (c) 2026 IEANTN contributors. Apache-2.0.
+Authors: OpenAI (Codex).
+Fixed rational input; every reported scalar is computed by the loops below.
+*/
+#include <stdint.h>
+#include <stdio.h>
+
+uint64_t encoded_node(uint64_t j) {
+  if (j >= 400ULL) { return 10000000000000000ULL; }
+  if (j < 200ULL) { if (j < 100ULL) { if (j < 50ULL) { if (j < 25ULL) { if (j < 12ULL) { if (j < 6ULL) { if (j < 3ULL) { if (j < 1ULL) { return 16915614327570000ULL; } else { if (j < 2ULL) { return 16914693966930000ULL; } else { return 16911932262910000ULL; } } } else { if (j < 4ULL) { return 16907327357780000ULL; } else { if (j < 5ULL) { return 16900876188230000ULL; } else { return 16892574536960000ULL; } } } } else { if (j < 9ULL) { if (j < 7ULL) { return 16882417099400000ULL; } else { if (j < 8ULL) { return 16870397573760000ULL; } else { return 16856508765200000ULL; } } } else { if (j < 10ULL) { return 16840742711770000ULL; } else { if (j < 11ULL) { return 16823090819580000ULL; } else { return 16803544020400000ULL; } } } } } else { if (j < 18ULL) { if (j < 15ULL) { if (j < 13ULL) { return 16782092934780000ULL; } else { if (j < 14ULL) { return 16758728048170000ULL; } else { return 16733439898630000ULL; } } } else { if (j < 16ULL) { return 16706219261860000ULL; } else { if (j < 17ULL) { return 16677057346380000ULL; } else { return 16645945984240000ULL; } } } } else { if (j < 21ULL) { if (j < 19ULL) { return 16612877813380000ULL; } else { if (j < 20ULL) { return 16577846459650000ULL; } else { return 16540846696080000ULL; } } } else { if (j < 23ULL) { if (j < 22ULL) { return 16501874592590000ULL; } else { return 16460927638600000ULL; } } else { if (j < 24ULL) { return 16418004842890000ULL; } else { return 16373106803310000ULL; } } } } } } else { if (j < 37ULL) { if (j < 31ULL) { if (j < 28ULL) { if (j < 26ULL) { return 16326235738990000ULL; } else { if (j < 27ULL) { return 16277395493100000ULL; } else { return 16226591486960000ULL; } } } else { if (j < 29ULL) { return 16173830639850000ULL; } else { if (j < 30ULL) { return 16119121241630000ULL; } else { return 16062472783400000ULL; } } } } else { if (j < 34ULL) { if (j < 32ULL) { return 16003895749590000ULL; } else { if (j < 33ULL) { return 15943401365380000ULL; } else { return 15881001315640000ULL; } } } else { if (j < 35ULL) { return 15816707429840000ULL; } else { if (j < 36ULL) { return 15750531343200000ULL; } else { return 15682484153180000ULL; } } } } } else { if (j < 43ULL) { if (j < 40ULL) { if (j < 38ULL) { return 15612576054260000ULL; } else { if (j < 39ULL) { return 15540816000670000ULL; } else { return 15467211373270000ULL; } } } else { if (j < 41ULL) { return 15391767685020000ULL; } else { if (j < 42ULL) { return 15314488340610000ULL; } else { return 15235374449020000ULL; } } } } else { if (j < 46ULL) { if (j < 44ULL) { return 15154424724070000ULL; } else { if (j < 45ULL) { return 15071635475640000ULL; } else { return 14987000707880000ULL; } } } else { if (j < 48ULL) { if (j < 47ULL) { return 14900512344830000ULL; } else { return 14812160582660000ULL; } } else { if (j < 49ULL) { return 14721934397150000ULL; } else { return 14629822186760000ULL; } } } } } } } else { if (j < 75ULL) { if (j < 62ULL) { if (j < 56ULL) { if (j < 53ULL) { if (j < 51ULL) { return 14535812588250000ULL; } else { if (j < 52ULL) { return 14439895434140000ULL; } else { return 14342062868170000ULL; } } } else { if (j < 54ULL) { return 14242310608890000ULL; } else { if (j < 55ULL) { return 14140639335400000ULL; } else { return 14037056196720000ULL; } } } } else { if (j < 59ULL) { if (j < 57ULL) { return 13931576411070000ULL; } else { if (j < 58ULL) { return 13824224925380000ULL; } else { return 13715038121470000ULL; } } } else { if (j < 60ULL) { return 13604065505550000ULL; } else { if (j < 61ULL) { return 13491371374910000ULL; } else { return 13377036389160000ULL; } } } } } else { if (j < 68ULL) { if (j < 65ULL) { if (j < 63ULL) { return 13261159025310000ULL; } else { if (j < 64ULL) { return 13143856861580000ULL; } else { return 13025267641070000ULL; } } } else { if (j < 66ULL) { return 12905550087890000ULL; } else { if (j < 67ULL) { return 12784884414170000ULL; } else { return 12663472498570000ULL; } } } } else { if (j < 71ULL) { if (j < 69ULL) { return 12541537696120000ULL; } else { if (j < 70ULL) { return 12419324248020000ULL; } else { return 12297096292540000ULL; } } } else { if (j < 73ULL) { if (j < 72ULL) { return 12175136436710000ULL; } else { return 12053743922150000ULL; } } else { if (j < 74ULL) { return 11933232363680000ULL; } else { return 11813927096630000ULL; } } } } } } else { if (j < 87ULL) { if (j < 81ULL) { if (j < 78ULL) { if (j < 76ULL) { return 11696162163690000ULL; } else { if (j < 77ULL) { return 11580276961410000ULL; } else { return 11466612622260000ULL; } } } else { if (j < 79ULL) { return 11355508165730000ULL; } else { if (j < 80ULL) { return 11247296494940000ULL; } else { return 11142300313060000ULL; } } } } else { if (j < 84ULL) { if (j < 82ULL) { return 11040828023940000ULL; } else { if (j < 83ULL) { return 10943169710660000ULL; } else { return 10849593258550000ULL; } } } else { if (j < 85ULL) { return 10760340714280000ULL; } else { if (j < 86ULL) { return 10675624950910000ULL; } else { return 10595626709710000ULL; } } } } } else { if (j < 93ULL) { if (j < 90ULL) { if (j < 88ULL) { return 10520492096030000ULL; } else { if (j < 89ULL) { return 10450330564560000ULL; } else { return 10385213466000000ULL; } } } else { if (j < 91ULL) { return 10325173169630000ULL; } else { if (j < 92ULL) { return 10270202792990000ULL; } else { return 10220256554400000ULL; } } } } else { if (j < 96ULL) { if (j < 94ULL) { return 10175250728640000ULL; } else { if (j < 95ULL) { return 10135065205030000ULL; } else { return 10099545606670000ULL; } } } else { if (j < 98ULL) { if (j < 97ULL) { return 10068505929340000ULL; } else { return 10041731652290000ULL; } } else { if (j < 99ULL) { return 10018983242750000ULL; } else { return 10000000000000000ULL; } } } } } } } } else { if (j < 150ULL) { if (j < 125ULL) { if (j < 112ULL) { if (j < 106ULL) { if (j < 103ULL) { if (j < 101ULL) { return 9984504137820000ULL; } else { if (j < 102ULL) { return 9972205040990000ULL; } else { return 9962803595820000ULL; } } } else { if (j < 104ULL) { return 9955996512780000ULL; } else { if (j < 105ULL) { return 9951480559180000ULL; } else { return 9948956613540000ULL; } } } } else { if (j < 109ULL) { if (j < 107ULL) { return 9948133473900000ULL; } else { if (j < 108ULL) { return 9948731348410000ULL; } else { return 9950484966830000ULL; } } } else { if (j < 110ULL) { return 9953146276910000ULL; } else { if (j < 111ULL) { return 9956486668400000ULL; } else { return 9960298723660000ULL; } } } } } else { if (j < 118ULL) { if (j < 115ULL) { if (j < 113ULL) { return 9964397459140000ULL; } else { if (j < 114ULL) { return 9968621076500000ULL; } else { return 9972831218030000ULL; } } } else { if (j < 116ULL) { return 9976912763560000ULL; } else { if (j < 117ULL) { return 9980773187500000ULL; } else { return 9984341526540000ULL; } } } } else { if (j < 121ULL) { if (j < 119ULL) { return 9987567004580000ULL; } else { if (j < 120ULL) { return 9990417364980000ULL; } else { return 9992876973740000ULL; } } } else { if (j < 123ULL) { if (j < 122ULL) { return 9994944758910000ULL; } else { return 9996632029420000ULL; } } else { if (j < 124ULL) { return 9997960266320000ULL; } else { return 9998958909270000ULL; } } } } } } else { if (j < 137ULL) { if (j < 131ULL) { if (j < 128ULL) { if (j < 126ULL) { return 9999663220550000ULL; } else { if (j < 127ULL) { return 10000112259820000ULL; } else { return 10000347017040000ULL; } } } else { if (j < 129ULL) { return 10000408736830000ULL; } else { if (j < 130ULL) { return 10000337464480000ULL; } else { return 10000170825410000ULL; } } } } else { if (j < 134ULL) { if (j < 132ULL) { return 9999943058200000ULL; } else { if (j < 133ULL) { return 9999684288740000ULL; } else { return 9999420059310000ULL; } } } else { if (j < 135ULL) { return 9999171073420000ULL; } else { if (j < 136ULL) { return 9998953170010000ULL; } else { return 9998777468330000ULL; } } } } } else { if (j < 143ULL) { if (j < 140ULL) { if (j < 138ULL) { return 9998650685100000ULL; } else { if (j < 139ULL) { return 9998575573710000ULL; } else { return 9998551460560000ULL; } } } else { if (j < 141ULL) { return 9998574849670000ULL; } else { if (j < 142ULL) { return 9998640053150000ULL; } else { return 9998739830970000ULL; } } } } else { if (j < 146ULL) { if (j < 144ULL) { return 9998866007220000ULL; } else { if (j < 145ULL) { return 9999010031740000ULL; } else { return 9999163493840000ULL; } } } else { if (j < 148ULL) { if (j < 147ULL) { return 9999318538630000ULL; } else { return 9999468212400000ULL; } } else { if (j < 149ULL) { return 9999606705960000ULL; } else { return 9999729511080000ULL; } } } } } } } else { if (j < 175ULL) { if (j < 162ULL) { if (j < 156ULL) { if (j < 153ULL) { if (j < 151ULL) { return 9999833488790000ULL; } else { if (j < 152ULL) { return 9999916857200000ULL; } else { return 9999979112240000ULL; } } } else { if (j < 154ULL) { return 10000020887760000ULL; } else { if (j < 155ULL) { return 10000043778440000ULL; } else { return 10000050130100000ULL; } } } } else { if (j < 159ULL) { if (j < 157ULL) { return 10000042815320000ULL; } else { if (j < 158ULL) { return 10000025014560000ULL; } else { return 10000000000000000ULL; } } } else { if (j < 160ULL) { return 9999970945650000ULL; } else { if (j < 161ULL) { return 9999940768830000ULL; } else { return 9999911997260000ULL; } } } } } else { if (j < 168ULL) { if (j < 165ULL) { if (j < 163ULL) { return 9999886683490000ULL; } else { if (j < 164ULL) { return 9999866349960000ULL; } else { return 9999851974470000ULL; } } } else { if (j < 166ULL) { return 9999844006720000ULL; } else { if (j < 167ULL) { return 9999842414300000ULL; } else { return 9999846751600000ULL; } } } } else { if (j < 171ULL) { if (j < 169ULL) { return 9999856241330000ULL; } else { if (j < 170ULL) { return 9999869870120000ULL; } else { return 9999886482210000ULL; } } } else { if (j < 173ULL) { if (j < 172ULL) { return 9999904870070000ULL; } else { return 9999923861610000ULL; } } else { if (j < 174ULL) { return 9999942385250000ULL; } else { return 9999959531130000ULL; } } } } } } else { if (j < 187ULL) { if (j < 181ULL) { if (j < 178ULL) { if (j < 176ULL) { return 9999974584970000ULL; } else { if (j < 177ULL) { return 9999987051630000ULL; } else { return 9999996657830000ULL; } } } else { if (j < 179ULL) { return 10000003342170000ULL; } else { if (j < 180ULL) { return 10000007232940000ULL; } else { return 10000008613440000ULL; } } } } else { if (j < 184ULL) { if (j < 182ULL) { return 10000007885240000ULL; } else { if (j < 183ULL) { return 10000005526220000ULL; } else { return 10000002046560000ULL; } } } else { if (j < 185ULL) { return 9999997953440000ULL; } else { if (j < 186ULL) { return 9999993715190000ULL; } else { return 9999989735890000ULL; } } } } } else { if (j < 193ULL) { if (j < 190ULL) { if (j < 188ULL) { return 9999986335750000ULL; } else { if (j < 189ULL) { return 9999983742010000ULL; } else { return 9999982084960000ULL; } } } else { if (j < 191ULL) { return 9999981402080000ULL; } else { if (j < 192ULL) { return 9999981650110000ULL; } else { return 9999982717820000ULL; } } } } else { if (j < 196ULL) { if (j < 194ULL) { return 9999984444880000ULL; } else { if (j < 195ULL) { return 9999986641920000ULL; } else { return 9999989106170000ULL; } } } else { if (j < 198ULL) { if (j < 197ULL) { return 9999991642840000ULL; } else { return 9999994076700000ULL; } } else { if (j < 199ULL) { return 9999996262790000ULL; } else { return 9999998096420000ULL; } } } } } } } } } else { if (j < 300ULL) { if (j < 250ULL) { if (j < 225ULL) { if (j < 212ULL) { if (j < 206ULL) { if (j < 203ULL) { if (j < 201ULL) { return 9999999512320000ULL; } else { if (j < 202ULL) { return 10000000487680000ULL; } else { return 10000001035290000ULL; } } } else { if (j < 204ULL) { return 10000001201110000ULL; } else { if (j < 205ULL) { return 10000001051740000ULL; } else { return 10000000670510000ULL; } } } } else { if (j < 209ULL) { if (j < 207ULL) { return 10000000145720000ULL; } else { if (j < 208ULL) { return 9999999562840000ULL; } else { return 9999998998920000ULL; } } } else { if (j < 210ULL) { return 9999998516400000ULL; } else { if (j < 211ULL) { return 9999998158890000ULL; } else { return 9999997953150000ULL; } } } } } else { if (j < 218ULL) { if (j < 215ULL) { if (j < 213ULL) { return 9999997904940000ULL; } else { if (j < 214ULL) { return 9999998005070000ULL; } else { return 9999998229740000ULL; } } } else { if (j < 216ULL) { return 9999998547230000ULL; } else { if (j < 217ULL) { return 9999998919090000ULL; } else { return 9999999307930000ULL; } } } } else { if (j < 221ULL) { if (j < 219ULL) { return 9999999677940000ULL; } else { if (j < 220ULL) { return 10000000000000000ULL; } else { return 10000000251540000ULL; } } } else { if (j < 223ULL) { if (j < 222ULL) { return 10000000421210000ULL; } else { return 10000000503700000ULL; } } else { if (j < 224ULL) { return 10000000505440000ULL; } else { return 10000000437120000ULL; } } } } } } else { if (j < 237ULL) { if (j < 231ULL) { if (j < 228ULL) { if (j < 226ULL) { return 10000000317160000ULL; } else { if (j < 227ULL) { return 10000000164620000ULL; } else { return 10000000000000000ULL; } } } else { if (j < 229ULL) { return 9999999842410000ULL; } else { if (j < 230ULL) { return 9999999706780000ULL; } else { return 9999999604650000ULL; } } } } else { if (j < 234ULL) { if (j < 232ULL) { return 9999999543190000ULL; } else { if (j < 233ULL) { return 9999999522080000ULL; } else { return 9999999540160000ULL; } } } else { if (j < 235ULL) { return 9999999588900000ULL; } else { if (j < 236ULL) { return 9999999659860000ULL; } else { return 9999999742040000ULL; } } } } } else { if (j < 243ULL) { if (j < 240ULL) { if (j < 238ULL) { return 9999999825610000ULL; } else { if (j < 239ULL) { return 9999999900210000ULL; } else { return 9999999959970000ULL; } } } else { if (j < 241ULL) { return 10000000000000000ULL; } else { if (j < 242ULL) { return 10000000018390000ULL; } else { return 10000000017410000ULL; } } } } else { if (j < 246ULL) { if (j < 244ULL) { return 10000000000000000ULL; } else { if (j < 245ULL) { return 9999999971700000ULL; } else { return 9999999939440000ULL; } } } else { if (j < 248ULL) { if (j < 247ULL) { return 9999999908560000ULL; } else { return 9999999885560000ULL; } } else { if (j < 249ULL) { return 9999999874320000ULL; } else { return 9999999876660000ULL; } } } } } } } else { if (j < 275ULL) { if (j < 262ULL) { if (j < 256ULL) { if (j < 253ULL) { if (j < 251ULL) { return 9999999893620000ULL; } else { if (j < 252ULL) { return 9999999922590000ULL; } else { return 9999999959560000ULL; } } } else { if (j < 254ULL) { return 10000000000000000ULL; } else { if (j < 255ULL) { return 10000000037350000ULL; } else { return 10000000065840000ULL; } } } } else { if (j < 259ULL) { if (j < 257ULL) { return 10000000079590000ULL; } else { if (j < 258ULL) { return 10000000074520000ULL; } else { return 10000000048210000ULL; } } } else { if (j < 260ULL) { return 10000000000000000ULL; } else { if (j < 261ULL) { return 9999999932000000ULL; } else { return 9999999847290000ULL; } } } } } else { if (j < 268ULL) { if (j < 265ULL) { if (j < 263ULL) { return 9999999752240000ULL; } else { if (j < 264ULL) { return 9999999652160000ULL; } else { return 9999999556070000ULL; } } } else { if (j < 266ULL) { return 9999999469930000ULL; } else { if (j < 267ULL) { return 9999999401030000ULL; } else { return 9999999355220000ULL; } } } } else { if (j < 271ULL) { if (j < 269ULL) { return 9999999335400000ULL; } else { if (j < 270ULL) { return 9999999344450000ULL; } else { return 9999999380620000ULL; } } } else { if (j < 273ULL) { if (j < 272ULL) { return 9999999441490000ULL; } else { return 9999999522970000ULL; } } else { if (j < 274ULL) { return 9999999617560000ULL; } else { return 9999999719920000ULL; } } } } } } else { if (j < 287ULL) { if (j < 281ULL) { if (j < 278ULL) { if (j < 276ULL) { return 9999999821470000ULL; } else { if (j < 277ULL) { return 9999999917230000ULL; } else { return 10000000000000000ULL; } } } else { if (j < 279ULL) { return 10000000066820000ULL; } else { if (j < 280ULL) { return 10000000114450000ULL; } else { return 10000000141870000ULL; } } } } else { if (j < 284ULL) { if (j < 282ULL) { return 10000000149680000ULL; } else { if (j < 283ULL) { return 10000000140810000ULL; } else { return 10000000117260000ULL; } } } else { if (j < 285ULL) { return 10000000084810000ULL; } else { if (j < 286ULL) { return 10000000046550000ULL; } else { return 10000000008690000ULL; } } } } } else { if (j < 293ULL) { if (j < 290ULL) { if (j < 288ULL) { return 9999999973930000ULL; } else { if (j < 289ULL) { return 9999999946680000ULL; } else { return 9999999928700000ULL; } } } else { if (j < 291ULL) { return 9999999920960000ULL; } else { if (j < 292ULL) { return 9999999923920000ULL; } else { return 9999999935630000ULL; } } } } else { if (j < 296ULL) { if (j < 294ULL) { return 9999999954060000ULL; } else { if (j < 295ULL) { return 9999999977070000ULL; } else { return 10000000000000000ULL; } } } else { if (j < 298ULL) { if (j < 297ULL) { return 10000000023050000ULL; } else { return 10000000040970000ULL; } } else { if (j < 299ULL) { return 10000000054260000ULL; } else { return 10000000060160000ULL; } } } } } } } } else { if (j < 350ULL) { if (j < 325ULL) { if (j < 312ULL) { if (j < 306ULL) { if (j < 303ULL) { if (j < 301ULL) { return 10000000058910000ULL; } else { if (j < 302ULL) { return 10000000050880000ULL; } else { return 10000000036840000ULL; } } } else { if (j < 304ULL) { return 10000000019100000ULL; } else { if (j < 305ULL) { return 10000000000000000ULL; } else { return 9999999981620000ULL; } } } } else { if (j < 309ULL) { if (j < 307ULL) { return 9999999966330000ULL; } else { if (j < 308ULL) { return 9999999955300000ULL; } else { return 9999999950350000ULL; } } } else { if (j < 310ULL) { return 9999999950420000ULL; } else { if (j < 311ULL) { return 9999999957100000ULL; } else { return 9999999968180000ULL; } } } } } else { if (j < 318ULL) { if (j < 315ULL) { if (j < 313ULL) { return 9999999982820000ULL; } else { if (j < 314ULL) { return 10000000000000000ULL; } else { return 10000000017040000ULL; } } } else { if (j < 316ULL) { return 10000000033450000ULL; } else { if (j < 317ULL) { return 10000000047580000ULL; } else { return 10000000057700000ULL; } } } } else { if (j < 321ULL) { if (j < 319ULL) { return 10000000064380000ULL; } else { if (j < 320ULL) { return 10000000065820000ULL; } else { return 10000000062790000ULL; } } } else { if (j < 323ULL) { if (j < 322ULL) { return 10000000056020000ULL; } else { return 10000000045600000ULL; } } else { if (j < 324ULL) { return 10000000033670000ULL; } else { return 10000000021050000ULL; } } } } } } else { if (j < 337ULL) { if (j < 331ULL) { if (j < 328ULL) { if (j < 326ULL) { return 10000000009730000ULL; } else { if (j < 327ULL) { return 10000000000000000ULL; } else { return 9999999993960000ULL; } } } else { if (j < 329ULL) { return 9999999991130000ULL; } else { if (j < 330ULL) { return 9999999991930000ULL; } else { return 9999999996530000ULL; } } } } else { if (j < 334ULL) { if (j < 332ULL) { return 10000000003470000ULL; } else { if (j < 333ULL) { return 10000000012720000ULL; } else { return 10000000022540000ULL; } } } else { if (j < 335ULL) { return 10000000031860000ULL; } else { if (j < 336ULL) { return 10000000039910000ULL; } else { return 10000000044590000ULL; } } } } } else { if (j < 343ULL) { if (j < 340ULL) { if (j < 338ULL) { return 10000000046410000ULL; } else { if (j < 339ULL) { return 10000000043940000ULL; } else { return 10000000037570000ULL; } } } else { if (j < 341ULL) { return 10000000027700000ULL; } else { if (j < 342ULL) { return 10000000014970000ULL; } else { return 10000000000000000ULL; } } } } else { if (j < 346ULL) { if (j < 344ULL) { return 9999999984770000ULL; } else { if (j < 345ULL) { return 9999999969480000ULL; } else { return 9999999955520000ULL; } } } else { if (j < 348ULL) { if (j < 347ULL) { return 9999999944730000ULL; } else { return 9999999936790000ULL; } } else { if (j < 349ULL) { return 9999999932850000ULL; } else { return 9999999933140000ULL; } } } } } } } else { if (j < 375ULL) { if (j < 362ULL) { if (j < 356ULL) { if (j < 353ULL) { if (j < 351ULL) { return 9999999936870000ULL; } else { if (j < 352ULL) { return 9999999944160000ULL; } else { return 9999999953980000ULL; } } } else { if (j < 354ULL) { return 9999999965370000ULL; } else { if (j < 355ULL) { return 9999999977700000ULL; } else { return 9999999989450000ULL; } } } } else { if (j < 359ULL) { if (j < 357ULL) { return 10000000000000000ULL; } else { if (j < 358ULL) { return 10000000007850000ULL; } else { return 10000000013480000ULL; } } } else { if (j < 360ULL) { return 10000000015680000ULL; } else { if (j < 361ULL) { return 10000000015140000ULL; } else { return 10000000012490000ULL; } } } } } else { if (j < 368ULL) { if (j < 365ULL) { if (j < 363ULL) { return 10000000007800000ULL; } else { if (j < 364ULL) { return 10000000002410000ULL; } else { return 9999999997590000ULL; } } } else { if (j < 366ULL) { return 9999999993910000ULL; } else { if (j < 367ULL) { return 9999999993220000ULL; } else { return 9999999994420000ULL; } } } } else { if (j < 371ULL) { if (j < 369ULL) { return 10000000000000000ULL; } else { if (j < 370ULL) { return 10000000007600000ULL; } else { return 10000000018860000ULL; } } } else { if (j < 373ULL) { if (j < 372ULL) { return 10000000031450000ULL; } else { return 10000000044720000ULL; } } else { if (j < 374ULL) { return 10000000057930000ULL; } else { return 10000000069190000ULL; } } } } } } else { if (j < 387ULL) { if (j < 381ULL) { if (j < 378ULL) { if (j < 376ULL) { return 10000000078320000ULL; } else { if (j < 377ULL) { return 10000000085170000ULL; } else { return 10000000086970000ULL; } } } else { if (j < 379ULL) { return 10000000086340000ULL; } else { if (j < 380ULL) { return 10000000080310000ULL; } else { return 10000000071680000ULL; } } } } else { if (j < 384ULL) { if (j < 382ULL) { return 10000000059400000ULL; } else { if (j < 383ULL) { return 10000000045290000ULL; } else { return 10000000029990000ULL; } } } else { if (j < 385ULL) { return 10000000014710000ULL; } else { if (j < 386ULL) { return 10000000000000000ULL; } else { return 9999999987440000ULL; } } } } } else { if (j < 393ULL) { if (j < 390ULL) { if (j < 388ULL) { return 9999999976140000ULL; } else { if (j < 389ULL) { return 9999999968740000ULL; } else { return 9999999963350000ULL; } } } else { if (j < 391ULL) { return 9999999961710000ULL; } else { if (j < 392ULL) { return 9999999962050000ULL; } else { return 9999999965000000ULL; } } } } else { if (j < 396ULL) { if (j < 394ULL) { return 9999999969060000ULL; } else { if (j < 395ULL) { return 9999999974090000ULL; } else { return 9999999979760000ULL; } } } else { if (j < 398ULL) { if (j < 397ULL) { return 9999999985160000ULL; } else { return 9999999990360000ULL; } } else { if (j < 399ULL) { return 9999999995090000ULL; } else { return 9999999997380000ULL; } } } } } } } } }
+}
+
+uint64_t positive_part(uint64_t e) {
+  if (e >= 10000000000000000ULL) { return (e - 10000000000000000ULL); }
+  return 0ULL;
+}
+
+uint64_t negative_part(uint64_t e) {
+  if (e < 10000000000000000ULL) { return (10000000000000000ULL - e); }
+  return 0ULL;
+}
+
+uint64_t absolute_difference(uint64_t a, uint64_t b) {
+  if (a >= b) { return (a - b); }
+  return (b - a);
+}
+
+uint64_t muldiv_ceil(uint64_t a, uint64_t b, uint64_t d) {
+  if (d == 0ULL) { return 0ULL; }
+  uint64_t q = 0ULL;
+  uint64_t r = 0ULL;
+  uint64_t power = 9223372036854775808ULL;
+  while (power > 0ULL) {
+    uint64_t bit = ((b / power) % 2ULL);
+    uint64_t t = ((2ULL * r) + (bit * a));
+    q = ((2ULL * q) + (t / d));
+    r = (t % d);
+    power = (power / 2ULL);
+  }
+  if (r > 0ULL) { q = (q + 1ULL); }
+  return q;
+}
+
+uint64_t f0_positive(void) {
+  uint64_t sum = positive_part(encoded_node(0ULL));
+  uint64_t j = 1ULL;
+  while (j < 400ULL) {
+    sum = (sum + (2ULL * positive_part(encoded_node(j))));
+    j = (j + 1ULL);
+  }
+  return sum;
+}
+
+uint64_t f0_negative(void) {
+  uint64_t sum = negative_part(encoded_node(0ULL));
+  uint64_t j = 1ULL;
+  while (j < 400ULL) {
+    sum = (sum + (2ULL * negative_part(encoded_node(j))));
+    j = (j + 1ULL);
+  }
+  return sum;
+}
+
+uint64_t f0_numerator(void) {
+  return (f0_positive() - f0_negative());
+}
+
+uint64_t positive_area_numerator(void) {
+  uint64_t sum = 0ULL;
+  uint64_t j = 80ULL;
+  while (j < 400ULL) {
+    uint64_t left = encoded_node(j);
+    uint64_t right = encoded_node((j + 1ULL));
+    uint64_t a = positive_part(left);
+    uint64_t b = positive_part(right);
+    if (left >= 10000000000000000ULL) {
+      if (right >= 10000000000000000ULL) {
+        sum = (sum + (a + b));
+      } else {
+        uint64_t neg = negative_part(right);
+        sum = (sum + muldiv_ceil(a, a, (a + neg)));
+      }
+    } else {
+      if (right > 10000000000000000ULL) {
+        uint64_t neg = negative_part(left);
+        sum = (sum + muldiv_ceil(b, b, (b + neg)));
+      }
+    }
+    j = (j + 1ULL);
+  }
+  return sum;
+}
+
+uint64_t component_height_numerator(void) {
+  uint64_t sum = positive_part(encoded_node(80ULL));
+  uint64_t j = 80ULL;
+  while (j < 400ULL) {
+    uint64_t a = positive_part(encoded_node(j));
+    uint64_t b = positive_part(encoded_node((j + 1ULL)));
+    if (b > a) { sum = (sum + (b - a)); }
+    j = (j + 1ULL);
+  }
+  return sum;
+}
+
+uint64_t first_variation_numerator(void) {
+  uint64_t sum = 0ULL;
+  uint64_t j = 0ULL;
+  while (j < 400ULL) {
+    uint64_t a = encoded_node(j);
+    uint64_t b = encoded_node((j + 1ULL));
+    sum = (sum + absolute_difference(a, b));
+    j = (j + 1ULL);
+  }
+  return (2ULL * sum);
+}
+
+uint64_t derivative_variation_numerator(void) {
+  uint64_t sum = absolute_difference(encoded_node(1ULL), encoded_node(0ULL));
+  uint64_t j = 0ULL;
+  while (j < 400ULL) {
+    uint64_t a = encoded_node(j);
+    uint64_t b = encoded_node((j + 1ULL));
+    uint64_t c = encoded_node((j + 2ULL));
+    sum = (sum + absolute_difference((a + c), (2ULL * b)));
+    j = (j + 1ULL);
+  }
+  return ((2ULL * 80ULL) * sum);
+}
+
+uint64_t second_moment_numerator(void) {
+  uint64_t sum = 0ULL;
+  uint64_t j = 0ULL;
+  while (j < 400ULL) {
+    uint64_t a = absolute_difference(encoded_node(j), 10000000000000000ULL);
+    uint64_t b = absolute_difference(encoded_node((j + 1ULL)), 10000000000000000ULL);
+    a = ((a + 9999999ULL) / 10000000ULL);
+    b = ((b + 9999999ULL) / 10000000ULL);
+    uint64_t left = (((6ULL * (j * j)) + (4ULL * j)) + 1ULL);
+    uint64_t right = (((6ULL * (j * j)) + (8ULL * j)) + 3ULL);
+    sum = (sum + ((a * left) + (b * right)));
+    j = (j + 1ULL);
+  }
+  return sum;
+}
+
+uint64_t maximum_numerator(void) {
+  uint64_t maximum = 0ULL;
+  uint64_t j = 0ULL;
+  while (j < 400ULL) {
+    uint64_t value = absolute_difference(encoded_node(j), 10000000000000000ULL);
+    if (value > maximum) { maximum = value; }
+    j = (j + 1ULL);
+  }
+  return maximum;
+}
+
+int main(void) {
+  printf("%llu\n", (unsigned long long)f0_numerator());
+  printf("%llu\n", (unsigned long long)positive_area_numerator());
+  printf("%llu\n", (unsigned long long)component_height_numerator());
+  printf("%llu\n", (unsigned long long)first_variation_numerator());
+  printf("%llu\n", (unsigned long long)derivative_variation_numerator());
+  printf("%llu\n", (unsigned long long)second_moment_numerator());
+  printf("%llu\n", (unsigned long long)maximum_numerator());
+  return 0;
+}

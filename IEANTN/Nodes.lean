@@ -3,6 +3,8 @@ Copyright (c) 2026 IEANTN contributors. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Terence Tao
 -/
+import IEANTN.Nodes.AffineFourierPrograms.v1.Tables
+import IEANTN.Nodes.AffineFourierPrograms.v1.Challenge
 import IEANTN.Nodes.BKLNW.v1.Tables
 import IEANTN.Nodes.BKLNW.v1.Challenge
 import IEANTN.Nodes.BKLNW.v2.Challenge
@@ -10,6 +12,7 @@ import IEANTN.Nodes.BKLNW.v3.Challenge
 import IEANTN.Nodes.BKLNW.v4.Challenge
 import IEANTN.Nodes.BKLNWNumerics.v1.Challenge
 import IEANTN.Nodes.BPTOffOrdinate.v1.Challenge
+import IEANTN.Nodes.BRFourierInput.v1.Challenge
 import IEANTN.Nodes.BellottiWongZeroCount.v1.Challenge
 import IEANTN.Nodes.BoxMellinInputs.v1.Challenge
 import IEANTN.Nodes.BoxMellinInputs.v2.Challenge
@@ -80,6 +83,7 @@ import IEANTN.Nodes.GammaAsymptotics.v2.Challenge
 import IEANTN.Nodes.GaussianFourierWitness.v1.Challenge
 import IEANTN.Nodes.GaussianFourierWitness.v2.Challenge
 import IEANTN.Nodes.GaussianFourierWitness.v3.Challenge
+import IEANTN.Nodes.GaussianFourierWitness.v4.Challenge
 import IEANTN.Nodes.Goldbach.v1.Challenge
 import IEANTN.Nodes.Goldbach.v2.Challenge
 import IEANTN.Nodes.Goldbach.v3.Challenge
@@ -153,6 +157,7 @@ import IEANTN.Nodes.RHAdapters.v1.Challenge
 import IEANTN.Nodes.RHAsymptoticGaussian.v1.Challenge
 import IEANTN.Nodes.RHAsymptoticGaussian.v2.Challenge
 import IEANTN.Nodes.RHAsymptoticGaussian.v3.Challenge
+import IEANTN.Nodes.RHAsymptoticGaussian.v4.Challenge
 import IEANTN.Nodes.RHOnePrimeEvolution.v1.Challenge
 import IEANTN.Nodes.RHPrimeCounting.v1.Challenge
 import IEANTN.Nodes.RHPrimeCounting.v2.Challenge
@@ -165,6 +170,7 @@ import IEANTN.Nodes.RHSmoothing.v2.Challenge
 import IEANTN.Nodes.RHSmoothing.v3.Challenge
 import IEANTN.Nodes.RHSmoothingInputs.v1.Challenge
 import IEANTN.Nodes.RHSmoothingInputs.v2.Challenge
+import IEANTN.Nodes.RHWeightedPopulation.v1.Challenge
 import IEANTN.Nodes.RamanujanGap.v1.Challenge
 import IEANTN.Nodes.RamanujanGap.v2.Challenge
 import IEANTN.Nodes.RamanujanGap.v3.Challenge

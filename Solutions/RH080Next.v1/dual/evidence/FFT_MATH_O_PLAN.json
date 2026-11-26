@@ -1,0 +1,116 @@
+{
+  "status": "FROZEN_MATHEMATICAL_FFT_BUILD_NOT_C_PV",
+  "sources": [
+    {
+      "module": "FFTButterfly",
+      "source": "Solutions/RH080Next.v1/dual/FFTButterfly.lean",
+      "sha256": "7514aa391c68e82a478db77bbb419135b05cbcf4629e5c4c6bd73b538cfd4385",
+      "audited_roots": [
+        "dft_even_odd",
+        "dft_even_odd_second",
+        "norm_dft_le_mass",
+        "butterfly_error",
+        "complex_four_product_rounding",
+        "twiddle_step_error",
+        "binary_mass_roundoff_budget",
+        "negativeRoot_norm",
+        "negativeRoot_half_power",
+        "negativeRoot_square",
+        "recursiveFFT_eq_dft",
+        "negativeRoot_product_power",
+        "fft24_error_budget"
+      ]
+    },
+    {
+      "module": "FFTRoundoff",
+      "source": "Solutions/RH080Next.v1/dual/FFTRoundoff.lean",
+      "sha256": "50b5b99f227dd20c545800ffcc64e9d0e53cd49f28a8f3c45ced233941a98a87",
+      "audited_roots": [
+        "roundedFFT_error",
+        "roundedFFT_dft_error"
+      ]
+    },
+    {
+      "module": "FFTSeedBounds",
+      "source": "Solutions/RH080Next.v1/dual/FFTSeedBounds.lean",
+      "sha256": "ff508e14fabab4c608da6b5232ddb95f160affd998e6f45c8b7367ef784bd1ae",
+      "audited_roots": [
+        "rootSeed_error"
+      ]
+    },
+    {
+      "module": "FFTTwiddleBounds",
+      "source": "Solutions/RH080Next.v1/dual/FFTTwiddleBounds.lean",
+      "sha256": "735792c07fd8929ab14fbfbb8e766da8bcb4563b24f3ae35530fcc6b1b43037f",
+      "audited_roots": [
+        "repeated_twiddle_error",
+        "small_growth_bound",
+        "fft24_twiddle_bound"
+      ]
+    },
+    {
+      "module": "FFT24Bridge",
+      "source": "Solutions/RH080Next.v1/dual/FFT24Bridge.lean",
+      "sha256": "a9a620299e1e5d4a5cb660e60f31870aaea1708422da48d94d97bcf1f757a5a9",
+      "audited_roots": [
+        "fft24_stage_stride",
+        "globalTwiddle24_bound",
+        "fft24_dft_error"
+      ]
+    },
+    {
+      "module": "FFTPolynomial",
+      "source": "Solutions/RH080Next.v1/dual/FFTPolynomial.lean",
+      "sha256": "2b3d28acef2a7ed0faa167ac0d6f498f579ab81502dc06bd92cd299892f22a8a",
+      "audited_roots": [
+        "mirrored_dft",
+        "negativeRoot_power_re",
+        "mirrored_dft_re"
+      ]
+    },
+    {
+      "module": "FFT17SeedBounds",
+      "source": "Solutions/RH080Next.v1/dual/FFT17SeedBounds.lean",
+      "sha256": "b1d0f0df890ba0188cb086cc436513e200130cb9028a5fd1ce9d9a7a61ae3776",
+      "audited_roots": [
+        "imaginary_exp_sixth_order",
+        "rootSeed17_error",
+        "fft17_twiddle_bound"
+      ]
+    },
+    {
+      "module": "FFT17Bridge",
+      "source": "Solutions/RH080Next.v1/dual/FFT17Bridge.lean",
+      "sha256": "9fcdf9cbfdc293a5c1173b069684a87f1bbc88cf86030c2c3ddd2c4affa680fc",
+      "audited_roots": [
+        "fft17_stage_stride",
+        "globalTwiddle17_bound",
+        "fft17_dft_error"
+      ]
+    }
+  ],
+  "context_sha256": "88a89fb62356f9ac34abaa4f50a32584a75a33bd8ad23aae92cf07965f344319",
+  "controller_sha256": "ae0e45ca00c4ab02991c6a2cc42cffc2c7a1cc363ece9ef23ed40454554b6f17",
+  "context_helper_sha256": "bd46aa86253e5e079087bf9260c93015eb63063159a8bb2bbebac9382ea1f122",
+  "compiler_sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+  "optimization": 1,
+  "command": [
+    "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+    "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/reproduce_fft_math.py",
+    "--repository",
+    "/data/ivy-rh080-next-20261125/network",
+    "--context",
+    "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+    "--run",
+    "/data/ivy-rh080-next-20261125/fft-math-cold-O-v1"
+  ],
+  "remaining_source_obligations": [
+    "C helper/caller refinement",
+    "source-linked full FFT output"
+  ],
+  "permitted_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ]
+}

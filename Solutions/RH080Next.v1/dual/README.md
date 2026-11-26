@@ -14,7 +14,7 @@ The historical input is strict: consecutive-prime gap smaller than the square of
 
 ## Actual-C source-first consequence
 
-`SourceFirstCMSObstruction.lean` composes the new full-class proof with the preserved `RH080Study.v1/pv/dual_grid.c` source-first chain. Its intended theorem gives the exact functional floor100/123 on the full CMS class, and consequently excludes0.8 within this functional. The old C source, execution model and numerical cap are unchanged. The combined49-module source-cold replay is **running at this checkpoint**; only a successful `RESULT.json` with the complete axiom audit establishes acceptance of this new combined closure.
+`SourceFirstCMSObstruction.lean` composes the new full-class proof with the preserved `RH080Study.v1/pv/dual_grid.c` source-first chain. Its intended theorem gives the exact functional floor100/123 on the full CMS class, and consequently excludes0.8 within this functional. The old C source, execution model and numerical cap are unchanged. The combined49-module source-cold replay **passed**, including all11exact theorem-identity and standard-axiom audits. It rebuilt every application dependency from source, without an application object-bank fallback. This is local Lean verification, not official Comparator acceptance.
 
 The C compiler, ABI, documented libc output behavior, OS and hardware remain the stated physical execution boundary. This project does not formally prove those platforms correct. Functional obstructions do not constitute lower bounds on actual prime gaps.
 

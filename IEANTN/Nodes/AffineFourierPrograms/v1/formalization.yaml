@@ -1,0 +1,77 @@
+version: v0.4
+node:
+  id: AffineFourierPrograms.v1
+  family: AffineFourierPrograms
+  version: v1
+  kind: computation
+  status: awaiting-verification
+project:
+  name: AffineFourierPrograms.v1
+  description: Two distinct actual source-first C program instances, with exact source-model
+    input tables, numerical L1 caps, genuine Fourier witnesses, exact positive leakage,
+    normalization and attained maxima.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+conclusions:
+- id: sparse_witness
+  declaration: AffineFourierPrograms.v1.sparse_witness
+  challenge: AffineFourierPrograms.v1.challenge_sparse_witness
+  imports:
+  - node: BRFourierInput.v1
+    conclusion: norm_identity
+  imports_status: identified
+  justifications:
+  - &id001
+    id: local-source-first-proof
+    kind: lean-noncompliant
+    note: Completed development Lean proof with only propext, Classical.choice and
+      Quot.sound. Exact input Tables agree definitionally with the actual C source
+      models; source syntax, execution, overflow, sine error and periodic norm outputs
+      are consumed by the witness proof. Full source-only replay is recorded separately.
+      Official Comparator receipt is absent.
+  designated: local-source-first-proof
+- id: flat_witness
+  declaration: AffineFourierPrograms.v1.flat_witness
+  challenge: AffineFourierPrograms.v1.challenge_flat_witness
+  imports:
+  - node: BRFourierInput.v1
+    conclusion: norm_identity
+  imports_status: identified
+  justifications:
+  - *id001
+  designated: local-source-first-proof
+sources:
+- id: BR2026v2
+  title: Rational Fourier certificates for prime gaps, explicit intervals, and arithmetic
+    progressions
+  authors:
+  - Rafael Blanquer Robles
+  type: paper
+  relationship: adapts
+  url: https://zenodo.org/records/24429650
+  note: 'Version2: Lemma5 (§2.1, eq:pair) and Proposition6 (§3, eq:uniform-count);
+    the q=1 proof case and following moduli1/2 paragraph justify ordinary RH rather
+    than full GRH for this specialization.'
+limitations:
+- The norm identity is the explicit general BRFourierInput.v1 literature premise;
+  actual Fourier correspondence, eligibility, normalization, leakage and maxima are
+  Lean proved.
+- Source-first PV trusts the pinned Lean kernel and declared compiler, runtime, OS/API
+  and hardware boundary; it does not claim a verified compiler or physical hardware.
+- The flat source input has origin value15*533333333333333333/(8*10^18), slightly
+  below1; it is not replaced by1.
+- Matched kernel-only numerical controls prove the same mathematical caps, so this
+  evidence establishes source provenance rather than a causal mathematical advantage
+  of PV.
+- Official Comparator approval and any explicit ANT onset are absent.
