@@ -1,0 +1,25 @@
+{
+  "command": [
+    "systemd-run",
+    "--user",
+    "--unit",
+    "ivy-n24-nested-source-cold-v2",
+    "--property=MemoryMax=300G",
+    "--property=MemoryHigh=270G",
+    "--property=MemorySwapMax=0",
+    "--property=AllowedCPUs=64-79",
+    "--property=CPUQuota=1200%",
+    "--property=TasksMax=512",
+    "--property=LimitNOFILE=1048576",
+    "/ryu/hyunsik/PNTs/gauss/OpenGauss/venv/bin/python3",
+    "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/supervise_resource_run.py",
+    "--root",
+    "/data/ivy-rh080-next-20261125",
+    "--command",
+    "/data/ivy-rh080-next-20261125/N24_NESTED_EXECUTION_COMMAND_v2.json",
+    "--receipt",
+    "/data/ivy-rh080-next-20261125/N24_NESTED_SUPERVISOR_v2.json",
+    "--live",
+    "/data/ivy-rh080-next-20261125/N24_NESTED_LIVE_v2.json"
+  ]
+}

@@ -1,0 +1,529 @@
+{
+  "status": "PASS_SCOPED_INDEPENDENT_SOURCE_AND_MATHEMATICAL_REVIEW",
+  "scope_author": "Root delegation for the final RH080 requested global/finite/piecewise/weighted chain",
+  "audited_population": {
+    "source_input_contract_families": 11,
+    "original_finite_global_families": 8,
+    "supplemental_families": 3,
+    "analytic_mechanism_declarations": 18,
+    "actual_final_conclusion_roots_in_fresh_associated_audit": 9
+  },
+  "strict_material_mismatches_found_in_this_scope": [],
+  "whole_network_source_claim_census": false,
+  "upstream_currency_claim": false,
+  "source_contract_rows": [
+    {
+      "id": "BR-norm",
+      "lean": {
+        "file": "Solutions/RH080Next.v1/explicit/ExplicitNormSourceBridge.lean",
+        "declaration": "SourceBRFourierNormFive",
+        "line": 18,
+        "source_sha256": "d11e42ee3cd548e0689ca999c5c5bcf1ba327c349f8cdca124dcc515ad471b27",
+        "written_contract": "def SourceBRFourierNormFive : Prop :=\n  ∀ nodes : List ℚ, ∀ m : ℕ, 0 < m → nodes.length = 5*m+1 →\n    node nodes (5*m) = 0 →\n      (∫ u : ℝ, |inverseCosine (affineSpectrum nodes m) u|) =\n        ∫ y in (0:ℝ)..1, |nodalPolynomial nodes y|"
+      },
+      "canonical_blueprint": {
+        "file": "IEANTN/Nodes/BRFourierInput/v1/Conclusions.lean",
+        "declaration": "norm_identity",
+        "line": 25,
+        "source_sha256": "88e7158442fd1cb84639c6ffcd118652cab959ea9d38aba948a6d7d400c5344a",
+        "written_contract": "def norm_identity : Prop :=\n  ∀ nodes : List ℚ, ∀ m : ℕ, 0<m → nodes.length=5*m+1 →\n    node nodes (5*m)=0 →\n      (∫ u : ℝ, |inverseCosine (affineSpectrum nodes m) u|) =\n        ∫ y in (0 : ℝ)..1, |nodalPolynomial nodes y|"
+      },
+      "primary": {
+        "title": "Rational Fourier certificates for prime gaps, explicit intervals, and arithmetic progressions, v2",
+        "url": "https://zenodo.org/records/24429650/files/prime-gaps-v2.pdf#page=3",
+        "locator": "Section2.1, Lemma5, Eq(4), printed/PDFp3; TeX lem:fourier-norm/eq:pair",
+        "artifact_sha256": "2f15da8545766012902e6dcc46f9bc4daa9951661dae2cc4809b97fd729dc380",
+        "formula_tex": "F(u)=m^{-1}\\operatorname{sinc}^{2}(u/m)P(u/m),\\quad\\|F\\|_1=\\int_0^1|P(t)|\\,dt",
+        "domain": "Positive integer m,N=5m; arbitrary rational a0,...,a(N−1), even extension, a(±N)=0; W is affine interpolation at j/m and zero outside[−5,5]."
+      },
+      "independent_verdict": "ALIGNED_SOURCE_CONTRACT",
+      "source_audit_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/FINAL_NAMED_INPUT_SOURCE_AUDIT.json"
+    },
+    {
+      "id": "BR-strip",
+      "lean": {
+        "file": "Solutions/RH080Next.v1/explicit/ExplicitBRStripTransfer.lean",
+        "declaration": "SourceBRFourierNormStrip",
+        "line": 26,
+        "source_sha256": "f6b14caa02f7eebc237fe795c694ab3f88e55ccbd314565e83695d224980fe1e",
+        "written_contract": "def SourceBRFourierNormStrip : Prop :=\n  ∀ nodes : List ℚ, ∀ m : ℕ, 0 < m → nodes.length = 5*m+1 →\n    node nodes (5*m) = 0 → ∃ H : ℂ → ℂ,\n      Differentiable ℂ H ∧\n      (∀ u : ℝ, H (u:ℂ) = (inverseCosine (affineSpectrum nodes m) u : ℂ)) ∧\n      HorizontalQuadraticDecay H ∧ HorizontalQuadraticDecay (deriv H)"
+      },
+      "canonical_blueprint": {
+        "file": "IEANTN/Nodes/CMSExplicitInputs/v1/Conclusions.lean",
+        "declaration": "strip_regularity",
+        "line": 18,
+        "source_sha256": "5cd2e3c017d1274da46b89f2e5f98dc8074f38e7800e0c422b866de08c791d59",
+        "written_contract": "def strip_regularity : Prop :=\n  ∀ nodes : List ℚ, ∀ m : ℕ, 0 < m → nodes.length = 5*m+1 →\n    node nodes (5*m) = 0 → ∃ H : ℂ → ℂ,\n      Differentiable ℂ H ∧\n      (∀ u : ℝ, H (u:ℂ) = (inverseCosine (affineSpectrum nodes m) u : ℂ)) ∧\n      HorizontalQuadraticDecay H ∧ HorizontalQuadraticDecay (deriv H)"
+      },
+      "primary": {
+        "title": "BR v2",
+        "url": "https://zenodo.org/records/24429650/files/prime-gaps-v2.pdf#page=3",
+        "locator": "Section2.1, Lemma5, sentence immediately after Eq(4), printed/PDFp3",
+        "artifact_sha256": "2f15da8545766012902e6dcc46f9bc4daa9951661dae2cc4809b97fd729dc380",
+        "formula_tex": "F\\ \\text{entire},\\qquad F(z),F^{\\prime}(z)=O((1+|\\Re z|)^{-2})",
+        "domain": "Same arbitrary rational N=5m family; every fixed horizontal strip."
+      },
+      "independent_verdict": "ALIGNED_SOURCE_CONTRACT",
+      "source_audit_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/FINAL_NAMED_INPUT_SOURCE_AUDIT.json"
+    },
+    {
+      "id": "CMS-Guinand-Weil",
+      "lean": {
+        "file": "Solutions/RH080Next.v1/explicit/ExplicitGuinandWeilApplication.lean",
+        "declaration": "SourceCMSGuinandWeil",
+        "line": 48,
+        "source_sha256": "ee283176bef2f1b5ae35c8973ca71ac63531d04bd4fa2c79a2ff83d2361130ee",
+        "written_contract": "def SourceCMSGuinandWeil : Prop :=\n  ∀ h : ℂ → ℂ, Differentiable ℂ h → HorizontalQuadraticDecay h →\n    CMSGuinandWeilFormula h"
+      },
+      "canonical_blueprint": {
+        "file": "IEANTN/Nodes/CMSExplicitInputs/v1/Conclusions.lean",
+        "declaration": "guinand_weil",
+        "line": 26,
+        "source_sha256": "5cd2e3c017d1274da46b89f2e5f98dc8074f38e7800e0c422b866de08c791d59",
+        "written_contract": "def guinand_weil : Prop :=\n  ∀ h : ℂ → ℂ, Differentiable ℂ h → HorizontalQuadraticDecay h →\n    CMSGuinandWeilFormula h"
+      },
+      "primary": {
+        "title": "Fourier optimization and prime gaps, arXiv1708.04122v2",
+        "url": "https://arxiv.org/pdf/1708.04122v2#page=17",
+        "locator": "Lemma6, Section5 opening, printed/PDFp17; source proof cites Iwaniec–Kowalski Theorem5.12",
+        "artifact_sha256": "45b6c7f991831a2dc456c10285206cb17a53ef46c6ae15e43cfa5671554b0dce",
+        "formula_tex": "\\sum_\\rho h((\\rho-1/2)/i)=h(1/(2i))+h(-1/(2i))-\\frac{\\log\\pi}{2\\pi}\\widehat h(0)+\\frac1{2\\pi}\\int_{\\mathbb R}h(u)\\Re\\psi(1/4+iu/2)\\,du-\\frac1{2\\pi}\\sum_{n\\ge2}\\frac{\\Lambda(n)}{\\sqrt n}(\\widehat h(\\log n/(2\\pi))+\\widehat h(-\\log n/(2\\pi)))",
+        "domain": "h analytic in |Im s|≤1/2+ε for some ε>0, with |h(s)|=O((1+|s|)^(−1−δ)),δ>0, uniformly as |Re s|→∞."
+      },
+      "independent_verdict": "ALIGNED_SOURCE_CONTRACT",
+      "source_audit_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/FINAL_NAMED_INPUT_SOURCE_AUDIT.json"
+    },
+    {
+      "id": "CMS-zero-count",
+      "lean": {
+        "file": "Solutions/RH080Next.v1/explicit/ExplicitCMSZeroSource.lean",
+        "declaration": "SourceCMSZeroCounting",
+        "line": 34,
+        "source_sha256": "2155f90e7509729918f5d010d6bdd1b6cff270966e92af4a7adbbf85493f4e40",
+        "written_contract": "def SourceCMSZeroCounting : Prop :=\n  (∀ T : ℝ, Summable (cmsCountFamily T)) ∧ cmsPositiveZeroCount 10 = 0 ∧\n    ∀ T : ℝ, exp 1 ≤ T → |cmsCountRemainder T| ≤ (3/20:ℝ)*log T+3"
+      },
+      "canonical_blueprint": {
+        "file": "IEANTN/Nodes/CMSExplicitInputs/v1/Conclusions.lean",
+        "declaration": "zero_counting",
+        "line": 44,
+        "source_sha256": "5cd2e3c017d1274da46b89f2e5f98dc8074f38e7800e0c422b866de08c791d59",
+        "written_contract": "def zero_counting : Prop :=\n  (∀ T : ℝ, Summable (cmsCountFamily T)) ∧ cmsPositiveZeroCount 10 = 0 ∧\n    ∀ T : ℝ, exp 1 ≤ T → |cmsCountRemainder T| ≤ (3/20:ℝ)*log T+3"
+      },
+      "primary": {
+        "title": "CMS v2",
+        "url": "https://arxiv.org/pdf/1708.04122v2#page=23",
+        "locator": "Section6.1, Lemma9 and its proof first sentence, printed/PDFp23",
+        "artifact_sha256": "45b6c7f991831a2dc456c10285206cb17a53ef46c6ae15e43cfa5671554b0dce",
+        "formula_tex": "N(T)=\\#\\{\\rho=\\beta+i\\gamma:0<\\gamma\\le T\\},\\quad Q(T)=\\frac{T}{2\\pi}\\log\\frac{T}{2\\pi e}+\\frac78,\\quad|N(T)-Q(T)|\\le0.15\\log T+3,\\quad N(10)=0",
+        "domain": "Count includes multiplicity; upper ordinate endpoint is closed. Error estimate T≥e. N(10)=0 is separately used in the printed proof."
+      },
+      "independent_verdict": "ALIGNED_SOURCE_CONTRACT",
+      "source_audit_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/FINAL_NAMED_INPUT_SOURCE_AUDIT.json"
+    },
+    {
+      "id": "DLMF-digamma",
+      "lean": {
+        "file": "Solutions/RH080Next.v1/explicit/ExplicitDigammaDifference.lean",
+        "declaration": "SourceDLMFDigammaIntegral",
+        "line": 19,
+        "source_sha256": "15aee12776c006189ec582c23a6bd5fe2707c23f65ad05ffae7a9871ba6f944a",
+        "written_contract": "def SourceDLMFDigammaIntegral : Prop :=\n  ∀ z : ℂ, 0 < z.re → IntegrableOn (dlmfDigammaIntegrand z) (Ioi (0:ℝ)) ∧\n    Complex.digamma z+(Real.eulerMascheroniConstant:ℂ) =\n      ∫ u in Ioi (0:ℝ), dlmfDigammaIntegrand z u"
+      },
+      "canonical_blueprint": {
+        "file": "IEANTN/Nodes/CMSExplicitInputs/v1/Conclusions.lean",
+        "declaration": "digamma_integral",
+        "line": 31,
+        "source_sha256": "5cd2e3c017d1274da46b89f2e5f98dc8074f38e7800e0c422b866de08c791d59",
+        "written_contract": "def digamma_integral : Prop :=\n  ∀ z : ℂ, 0 < z.re → IntegrableOn (dlmfDigammaIntegrand z) (Ioi (0:ℝ)) ∧\n    Complex.digamma z+(Real.eulerMascheroniConstant:ℂ) =\n      ∫ u in Ioi (0:ℝ), dlmfDigammaIntegrand z u"
+      },
+      "primary": {
+        "title": "NIST DLMF",
+        "url": "https://dlmf.nist.gov/5.9.E16",
+        "locator": "Eq5.9.16; common Re(z)>0 domain in Section5.9(ii) immediately before Eq5.9.12",
+        "artifact_sha256": "03df5820fc46a8bdd98f3c75efa00f26aa38df5b543107de8e0fc017e7c0cd97",
+        "formula_tex": "\\psi(z)+\\gamma=\\int_0^\\infty\\frac{e^{-t}-e^{-zt}}{1-e^{-t}}\\,dt",
+        "domain": "Complex z with Re z>0; convergent integral."
+      },
+      "independent_verdict": "ALIGNED_SOURCE_CONTRACT",
+      "source_audit_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/FINAL_NAMED_INPUT_SOURCE_AUDIT.json"
+    },
+    {
+      "id": "DLMF-real-eta",
+      "lean": {
+        "file": "Solutions/RH080Next.v1/explicit/ExplicitRealZetaNonzero.lean",
+        "declaration": "SourceDLMFRealEtaIntegral",
+        "line": 22,
+        "source_sha256": "7b41e10e63df415c507a868792533f2ba6ddc10ea1c8af994526d8a75da58cc6",
+        "written_contract": "def SourceDLMFRealEtaIntegral : Prop :=\n  ∀ s : ℝ, 0<s → s≠1 →\n    IntegrableOn (fun x : ℝ => x^(s-1)/(exp x+1)) (Ioi (0:ℝ)) ∧\n      (∫ x in Ioi (0:ℝ), x^(s-1)/(exp x+1)) =\n        (1-(2:ℝ)^(1-s))*Gamma s*(riemannZeta (s:ℂ)).re"
+      },
+      "canonical_blueprint": {
+        "file": "IEANTN/Nodes/CMSExplicitInputs/v1/Conclusions.lean",
+        "declaration": "real_eta_integral",
+        "line": 37,
+        "source_sha256": "5cd2e3c017d1274da46b89f2e5f98dc8074f38e7800e0c422b866de08c791d59",
+        "written_contract": "def real_eta_integral : Prop :=\n  ∀ s : ℝ, 0<s → s≠1 →\n    IntegrableOn (fun x : ℝ => x^(s-1)/(exp x+1)) (Ioi (0:ℝ)) ∧\n      (∫ x in Ioi (0:ℝ), x^(s-1)/(exp x+1)) =\n        (1-(2:ℝ)^(1-s))*Gamma s*(riemannZeta (s:ℂ)).re"
+      },
+      "primary": {
+        "title": "NIST DLMF",
+        "url": "https://dlmf.nist.gov/25.5.E3",
+        "locator": "Eq25.5.3; Section25.5(i) introductory s≠1 and equation domain Re s>0; source Erdélyi etal1953a,(1.12.5),p32",
+        "artifact_sha256": "0566301d0fafa4f2fa1184daa527e64719a59ea4dbc9664ea134f45c3045b3aa",
+        "formula_tex": "\\zeta(s)=\\frac{1}{(1-2^{1-s})\\Gamma(s)}\\int_0^\\infty\\frac{x^{s-1}}{e^x+1}\\,dx",
+        "domain": "For the audited real restriction: s>0,s≠1. The subsection excludes s=1; the displayed equation has Re s>0."
+      },
+      "independent_verdict": "ALIGNED_SOURCE_CONTRACT",
+      "source_audit_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/FINAL_NAMED_INPUT_SOURCE_AUDIT.json"
+    },
+    {
+      "id": "Montgomery-Vaughan",
+      "lean": {
+        "file": "Solutions/RH080Next.v1/explicit/ExplicitMontgomeryVaughan.lean",
+        "declaration": "SourceMontgomeryVaughan",
+        "line": 39,
+        "source_sha256": "1136c20fa7fd3ef57728f486d023d38d83a6d995739e24526cd03b42bf5dc86c",
+        "written_contract": "def SourceMontgomeryVaughan : Prop :=\n  ∀ a y : ℝ, 1 < a → 1 < y →\n    ((Nat.primeCounting ⌊a+y⌋₊-Nat.primeCounting ⌊a⌋₊:ℕ):ℝ) ≤ 2*y/log y"
+      },
+      "canonical_blueprint": {
+        "file": "IEANTN/Nodes/CMSExplicitInputs/v1/Conclusions.lean",
+        "declaration": "montgomery_vaughan",
+        "line": 59,
+        "source_sha256": "5cd2e3c017d1274da46b89f2e5f98dc8074f38e7800e0c422b866de08c791d59",
+        "written_contract": "def montgomery_vaughan : Prop :=\n  ∀ a y : ℝ, 1 < a → 1 < y →\n    ((Nat.primeCounting ⌊a+y⌋₊-Nat.primeCounting ⌊a⌋₊:ℕ):ℝ) ≤ 2*y/log y"
+      },
+      "primary": {
+        "title": "Montgomery–Vaughan, The large sieve, Mathematika20(1973),119–134",
+        "url": "https://personal.science.psu.edu/rcv4/personal/Publications/large_sieve.pdf#page=3",
+        "locator": "Theorem2, printedp121/PDFp3, Eq(1.12), the modulus-one case of Eq(1.10). CMS also displays a strict form at Eq(6.10),printedp24.",
+        "artifact_sha256": "720058876b871e8d1fef22acb285550a227ae9e3b1bedaa042f6d62f3299e8b9",
+        "formula_tex": "\\pi(M+N)-\\pi(M)\\le\\frac{2N}{\\log N}",
+        "domain": "Original Eq(1.12): M>0,N>1, real parameters inherited from Theorem2. Formal restriction a>1,y>1 is narrower."
+      },
+      "independent_verdict": "ALIGNED_SOURCE_CONTRACT",
+      "source_audit_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/FINAL_NAMED_INPUT_SOURCE_AUDIT.json"
+    },
+    {
+      "id": "CMS-historical-gap",
+      "lean": {
+        "file": "Solutions/RH080Next.v1/dual/FinitePrimeGapBridge.lean",
+        "declaration": "HistoricalFiniteGap",
+        "line": 20,
+        "source_sha256": "764d99359b06915eea34770f4733ce44f0cb14fdc268b57b6f6782de9eae3dab",
+        "written_contract": "def HistoricalFiniteGap : Prop :=\n  ∀ n : ℕ, 11 ≤ Nat.nth Nat.Prime n →\n    Nat.nth Nat.Prime n ≤ 4 * 10 ^ 18 →\n    (Nat.nth Nat.Prime (n+1) : ℝ) - Nat.nth Nat.Prime n <\n      log (Nat.nth Nat.Prime n : ℝ) ^ 2"
+      },
+      "canonical_blueprint": {
+        "file": "IEANTN/Nodes/CMSExplicitInputs/v1/Conclusions.lean",
+        "declaration": "historical_finite_gap",
+        "line": 64,
+        "source_sha256": "5cd2e3c017d1274da46b89f2e5f98dc8074f38e7800e0c422b866de08c791d59",
+        "written_contract": "def historical_finite_gap : Prop :=\n  ∀ n : ℕ, 11 ≤ Nat.nth Nat.Prime n →\n    Nat.nth Nat.Prime n ≤ 4 * 10 ^ 18 →\n    (Nat.nth Nat.Prime (n+1) : ℝ) - Nat.nth Nat.Prime n <\n      log (Nat.nth Nat.Prime n : ℝ) ^ 2"
+      },
+      "primary": {
+        "title": "CMS v2",
+        "url": "https://arxiv.org/pdf/1708.04122v2#page=6",
+        "locator": "Eq(1.15), printed/PDFp6 and immediately following sentence; named antecedent Oliveira eSilva–Herzog–Pardi[37],Section2.2",
+        "artifact_sha256": "45b6c7f991831a2dc456c10285206cb17a53ef46c6ae15e43cfa5671554b0dce",
+        "formula_tex": "p_{n+1}-p_n<(\\log p_n)^2\\qquad(11\\le p_n\\le4\\cdot10^{18})",
+        "domain": "Every lower prime value between11 and4×10^18, inclusive. Strict gap comparison."
+      },
+      "independent_verdict": "ALIGNED_SOURCE_CONTRACT",
+      "source_audit_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/FINAL_NAMED_INPUT_SOURCE_AUDIT.json"
+    },
+    {
+      "id": "BR-uniform-population-q1",
+      "lean": {
+        "file": "Solutions/RH080Next.v1/explicit/ExplicitBRPopulationConsumer.lean",
+        "declaration": "SourceBRUniformPopulationQ1",
+        "qualified_declaration": "RH080Next.Explicit.SourceBRUniformPopulationQ1",
+        "line": 30,
+        "source_sha256": "d568f6ac3da17900b0012ae2947b1647579ac800e45cf60ffdd18d12bf6cabe0",
+        "written_contract": "def SourceBRUniformPopulationQ1 : Prop :=\n  ∀ nodes : List ℚ, ∀ m : ℕ, 0 < m → nodes.length = 5*m+1 →\n    node nodes (5*m) = 0 → ∀ M : ℝ, 0 < M →\n    (∀ v : ℝ, |affineSpectrum nodes m v| ≤ M) →\n    (∃ v : ℝ, |affineSpectrum nodes m v| = M) →\n    0 < brDenominatorFour nodes m → ∀ c : ℝ, 0 < c → RiemannHypothesis →\n    ∃ C : ℝ, 0 ≤ C ∧ ∀ᶠ x : ℝ in atTop,\n      (c*brDenominatorFour nodes m-brAmplitudeMass nodes m)/(2*M)-C*brQ1Error x ≤\n        IEANTN.CMSFunctional.normalizedPopulation c x"
+      },
+      "canonical_blueprint": {
+        "file": "IEANTN/Nodes/BRFourierInput/v1/Conclusions.lean",
+        "declaration": "uniform_population_q1",
+        "qualified_declaration": "BRFourierInput.v1.uniform_population_q1",
+        "line": 37,
+        "source_sha256": "88e7158442fd1cb84639c6ffcd118652cab959ea9d38aba948a6d7d400c5344a",
+        "written_contract": "def uniform_population_q1 : Prop :=\n  ∀ nodes : List ℚ, ∀ m : ℕ, 0<m → nodes.length=5*m+1 →\n    node nodes (5*m)=0 → ∀ M : ℝ, 0<M →\n    (∀ v : ℝ, |affineSpectrum nodes m v|≤M) →\n    (∃ v : ℝ, |affineSpectrum nodes m v|=M) →\n    0<denominatorFour nodes m → ∀ c : ℝ, 0<c → RiemannHypothesis →\n    ∃ C : ℝ, 0≤C ∧ ∀ᶠ x : ℝ in atTop,\n      (c*denominatorFour nodes m-amplitudeMass nodes m)/(2*M)-C*q1Error x ≤\n        IEANTN.CMSFunctional.normalizedPopulation c x"
+      },
+      "primary": {
+        "title": "Rational Fourier certificates for prime gaps, explicit intervals, and arithmetic progressions, v2",
+        "url": "https://zenodo.org/records/24429650/files/prime-gaps-v2.pdf#page=7",
+        "locator": "Section3, Proposition6, Eq(6), printed/PDFp7, label eq:uniform-count; family Eq(1),p2; Section3.4 explicit The moduli1and2 paragraph,p10. Eq(7) is scaling, not the uniform-count formula.",
+        "formula_tex": "\\frac{\\pi(x+c\\varphi(q)\\sqrt{x}\\log x;q,b)-\\pi(x;q,b)}{\\sqrt{x}}\\ge\\frac{cD_4(F)-\\|F\\|_1}{2M_W}-O_{F,c}\\!\\left(\\eta(x)+\\frac{\\log\\log x}{\\log x}+\\frac{\\log x}{\\sqrt{x}}\\right)",
+        "domain": "F arbitrary in Lemma5 rational support5 class, D4(F)>0,c>0, admissible familyQ(x),coprime residue. Proposition is stated under GRH; the explicit q=1/2 source paragraph requires only RH because the only inducing primitive L-function is ζ.",
+        "artifact_sha256": "2f15da8545766012902e6dcc46f9bc4daa9951661dae2cc4809b97fd729dc380"
+      },
+      "independent_verdict": "ALIGNED_SOURCE_CONTRACT",
+      "source_audit_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/SUPPLEMENTAL_NAMED_INPUT_SOURCE_AUDIT.json"
+    },
+    {
+      "id": "CMS-functional-gap",
+      "lean": {
+        "file": "IEANTN/Vocabulary/CMSFunctional.lean",
+        "declaration": "SourceCMSFunctional",
+        "qualified_declaration": "IEANTN.CMSFunctional.SourceCMSFunctional",
+        "line": 54,
+        "source_sha256": "40390e5de266dccbc335698017508711afc271e67618ecdfe91084935db92c28",
+        "written_contract": "def SourceCMSFunctional : Prop :=\n  ∀ F G : ℝ → ℝ, Eligible F G → 0 < denominator F G →\n    RiemannHypothesis → PaperEventualGapBound (inverseObjective F G)"
+      },
+      "canonical_blueprint": {
+        "file": "IEANTN/Nodes/CMSFunctionalInput/v1/Conclusions.lean",
+        "declaration": "gap_reduction",
+        "qualified_declaration": "CMSFunctionalInput.v1.gap_reduction",
+        "line": 6,
+        "source_sha256": "21753fbed2b46524ea49d54a91bd1a7158a3b94effcf8baee710fc42835efa1f",
+        "written_contract": "def gap_reduction : Prop := IEANTN.CMSFunctional.SourceCMSFunctional"
+      },
+      "primary": {
+        "title": "Fourier optimization and prime gaps,arXiv1708.04122v2",
+        "url": "https://arxiv.org/pdf/1708.04122v2#page=5",
+        "locator": "CMSv2 Eq(1.3),printedp2; Eq(1.12) and Corollary4,Eq(1.14),printed/PDFp5",
+        "formula_tex": "\\limsup_{n\\to\\infty}\\frac{p_{n+1}-p_n}{\\sqrt{p_n}\\log p_n}\\le\\frac{1}{\\mathcal C^+(B)}<21/25",
+        "domain": "Ordinary RH; sourceC+(B) uses the general even continuous realL1 class of Eq(1.3),not a fixedGaussian. α≥0 for population. CandidateF,G satisfyEligible and positive denominator atA36/11.",
+        "artifact_sha256": "45b6c7f991831a2dc456c10285206cb17a53ef46c6ae15e43cfa5671554b0dce"
+      },
+      "independent_verdict": "ALIGNED_SOURCE_CONTRACT",
+      "source_audit_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/SUPPLEMENTAL_NAMED_INPUT_SOURCE_AUDIT.json"
+    },
+    {
+      "id": "CMS-functional-population",
+      "lean": {
+        "file": "IEANTN/Vocabulary/CMSFunctional.lean",
+        "declaration": "SourceCMSPopulation",
+        "qualified_declaration": "IEANTN.CMSFunctional.SourceCMSPopulation",
+        "line": 77,
+        "source_sha256": "40390e5de266dccbc335698017508711afc271e67618ecdfe91084935db92c28",
+        "written_contract": "def SourceCMSPopulation : Prop :=\n  ∀ F G : ℝ → ℝ, Eligible F G → 0 < denominator F G → RiemannHypothesis →\n    ∀ α : ℝ, 0 ≤ α → (goodCoefficients α).Nonempty ∧\n      sInf (goodCoefficients α) ≤ (1+2*α)*inverseObjective F G"
+      },
+      "canonical_blueprint": {
+        "file": "IEANTN/Nodes/CMSFunctionalInput/v1/Conclusions.lean",
+        "declaration": "population_reduction",
+        "qualified_declaration": "CMSFunctionalInput.v1.population_reduction",
+        "line": 9,
+        "source_sha256": "21753fbed2b46524ea49d54a91bd1a7158a3b94effcf8baee710fc42835efa1f",
+        "written_contract": "def population_reduction : Prop := IEANTN.CMSFunctional.SourceCMSPopulation"
+      },
+      "primary": {
+        "title": "Fourier optimization and prime gaps,arXiv1708.04122v2",
+        "url": "https://arxiv.org/pdf/1708.04122v2#page=5",
+        "locator": "CMSv2 Eq(1.3),printedp2; Eq(1.12) and Theorem3,Eq(1.13),printed/PDFp5",
+        "formula_tex": "\\inf\\!\\left\\{c>0:\\liminf_{x\\to\\infty}\\frac{\\pi(x+c\\sqrt{x}\\log x)-\\pi(x)}{\\sqrt{x}}>\\alpha\\right\\}\\le\\frac{1+2\\alpha}{\\mathcal C^+(B)}<\\frac{21}{25}(1+2\\alpha)",
+        "domain": "Ordinary RH; sourceC+(B) uses the general even continuous realL1 class of Eq(1.3),not a fixedGaussian. α≥0 for population. CandidateF,G satisfyEligible and positive denominator atA36/11.",
+        "artifact_sha256": "45b6c7f991831a2dc456c10285206cb17a53ef46c6ae15e43cfa5671554b0dce"
+      },
+      "independent_verdict": "ALIGNED_SOURCE_CONTRACT",
+      "source_audit_origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/explicit/SUPPLEMENTAL_NAMED_INPUT_SOURCE_AUDIT.json"
+    }
+  ],
+  "semantic_mechanisms": [
+    {
+      "identity": [
+        "Solutions/RH080Next.v1/explicit/ExplicitBRStripTransfer.lean",
+        "affine_strip_extension_by_mesh_dilation",
+        80
+      ],
+      "source_sha256": "f6b14caa02f7eebc237fe795c694ab3f88e55ccbd314565e83695d224980fe1e",
+      "verdict": "PASS_SCOPED_SEMANTIC_REVIEW",
+      "reason": "Support7 follows from the published support 5 class on the same2521 nodes at mesh 504, rescaled by504/360=7/5. Whole-strip and derivative dilation are proved; no support 7 source premise is introduced."
+    },
+    {
+      "identity": [
+        "Solutions/RH080Next.v1/explicit/ExplicitNormSourceBridge.lean",
+        "affine_norm_eq_periodic_of_five_mesh",
+        42
+      ],
+      "source_sha256": "d11e42ee3cd548e0689ca999c5c5bcf1ba327c349f8cdca124dcc515ad471b27",
+      "verdict": "PASS_SCOPED_SEMANTIC_REVIEW",
+      "reason": "Whole-line L1 norm is invariant under the same mesh dilation. The literal BR norm identity remains explicit."
+    },
+    {
+      "identity": [
+        "Solutions/RH080Next.v1/explicit/ExplicitCMSZeroKernel.lean",
+        "cms_zero_partial_summation_kernel",
+        19
+      ],
+      "source_sha256": "f423295b4bd29f2c5b74c8c9ce586c238b8d9854098a8afdc93168b89c94c0b6",
+      "verdict": "PASS_SCOPED_SEMANTIC_REVIEW",
+      "reason": "Generic zero partial summation is a proved kernel theorem, not a surviving assumption; actual positive and negative zeta orders are connected by conjugation."
+    },
+    {
+      "identity": [
+        "Solutions/RH080Next.v1/explicit/ExplicitRealZetaNonzero.lean",
+        "real_zeta_ne_zero",
+        59
+      ],
+      "source_sha256": "7b41e10e63df415c507a868792533f2ba6ddc10ea1c8af994526d8a75da58cc6",
+      "verdict": "PASS_SCOPED_SEMANTIC_REVIEW",
+      "reason": "The DLMF real eta integral plus positivity excludes ordinate-zero roots; N(10)=0 alone is not used to make that inference."
+    },
+    {
+      "identity": [
+        "Solutions/RH080Next.v1/explicit/ExplicitAffineSignedMoment.lean",
+        "signed_log_affine_inverse_three_eighths",
+        62
+      ],
+      "source_sha256": "bc71532100b346aecbec7bc40b88accd737f886da8ddee61118cb35e447cc004",
+      "verdict": "PASS_SCOPED_SEMANTIC_REVIEW",
+      "reason": "Actual signed logarithmic integral includes a negative center on0..3/8, nonpositive middle up to1 and positive tail from1. No sign ofF is improperly assumed."
+    },
+    {
+      "identity": [
+        "Solutions/RH080Next.v1/explicit/ExplicitErrorBudget.lean",
+        "explicit_budget_assembly",
+        25
+      ],
+      "source_sha256": "1d1fc25db133d95e560619a85047c22652a2b1a931e1fbee04a8d89b1a8858ec",
+      "verdict": "PASS_SCOPED_SEMANTIC_REVIEW",
+      "reason": "Unchanged.0012 covers.00011 Mellin + <.001 prime powers + <=.000002 pole linearization, leaving.000088 slack. The1e-6 strict-endpoint margin is separate."
+    },
+    {
+      "identity": [
+        "Solutions/RH080Next.v1/explicit/ExplicitProfileApplications.lean",
+        "fap_source_finite_caps",
+        46
+      ],
+      "source_sha256": "5715487adc3840a9ada4d120d57ad74263e5e72d0a753b9831ceea431760dd62",
+      "verdict": "PASS_SCOPED_SEMANTIC_REVIEW",
+      "reason": "Actual Fap F(0) is slightly below1 and is used through the proved lower bound.999999999; no exactF0=1 normalization is assumed."
+    },
+    {
+      "identity": [
+        "Solutions/RH080Next.v1/explicit/ExplicitProfileApplications.lean",
+        "w4_source_finite_caps",
+        64
+      ],
+      "source_sha256": "5715487adc3840a9ada4d120d57ad74263e5e72d0a753b9831ceea431760dd62",
+      "verdict": "PASS_SCOPED_SEMANTIC_REVIEW",
+      "reason": "Actual W4 F(0) is slightly below1 and is used through the same safe lower bound; source scalar outputs and actual coefficient caps are consumed."
+    },
+    {
+      "identity": [
+        "Solutions/RH080Next.v1/explicit/ExplicitProfileApplications.lean",
+        "fap_strict_interval_of_norm",
+        97
+      ],
+      "source_sha256": "5715487adc3840a9ada4d120d57ad74263e5e72d0a753b9831ceea431760dd62",
+      "verdict": "PASS_SCOPED_SEMANTIC_REVIEW",
+      "reason": "Actual finite slabs use k = 16, radius 5, all real logx in42..174/42..63/42..70 and original normcap."
+    },
+    {
+      "identity": [
+        "Solutions/RH080Next.v1/explicit/ExplicitProfileApplications.lean",
+        "w4_strict_ray_of_norm",
+        135
+      ],
+      "source_sha256": "5715487adc3840a9ada4d120d57ad74263e5e72d0a753b9831ceea431760dd62",
+      "verdict": "PASS_SCOPED_SEMANTIC_REVIEW",
+      "reason": "Actual global analytic ray uses k = 1, radius 7, and original normcap; no finite upper log endpoint is extrapolated."
+    },
+    {
+      "identity": [
+        "Solutions/RH080Next.v1/explicit/ExplicitResidual.lean",
+        "explicitResidual_slab_lower",
+        39
+      ],
+      "source_sha256": "fd6a166fac185f75abeb93f94f75271b5c77710dcdfcfc0653cf091c40b564fa",
+      "verdict": "PASS_SCOPED_SEMANTIC_REVIEW",
+      "reason": "Concavity proves minimum at an endpoint over the full continuous positive slab."
+    },
+    {
+      "identity": [
+        "Solutions/RH080Next.v1/explicit/ExplicitProfileResiduals.lean",
+        "w4_ray_residual",
+        81
+      ],
+      "source_sha256": "082aba97ef2b9ed45709993fff7cf61f5d5c50264f45286d273ea9dbd5a92764",
+      "verdict": "PASS_SCOPED_SEMANTIC_REVIEW",
+      "reason": "The whole ray is monotone because cD-U=203483/10^12>0 under the safe rounded caps."
+    },
+    {
+      "identity": [
+        "Solutions/RH080Next.v1/explicit/ExplicitCentralPrimes.lean",
+        "strict_prime_of_two_halfopen",
+        39
+      ],
+      "source_sha256": "b4b4b179fad330d9dac63f0257ad2d529310b856e1fdd933076a3e1b73f9efda",
+      "verdict": "PASS_SCOPED_SEMANTIC_REVIEW",
+      "reason": "A positive1e-6 central residual forces at least2 actual primes in the half-open interval, so a possible right-endpoint prime can be discarded."
+    },
+    {
+      "identity": [
+        "Solutions/RH080Next.v1/dual/FinitePrimeGapBridge.lean",
+        "historical_gap_implies_074",
+        70
+      ],
+      "source_sha256": "764d99359b06915eea34770f4733ce44f0cb14fdc268b57b6f6782de9eae3dab",
+      "verdict": "PASS_SCOPED_SEMANTIC_REVIEW",
+      "reason": "Brackets every real x>=11 by consecutive primes. The lower prime satisfies the historical11..4e18 cutoff. Its successor is strictly inside the requested realinterval."
+    },
+    {
+      "identity": [
+        "Solutions/RH080Next.v1/dual/FinitePrimeGapBridge.lean",
+        "direct_small_0777",
+        118
+      ],
+      "source_sha256": "764d99359b06915eea34770f4733ce44f0cb14fdc268b57b6f6782de9eae3dab",
+      "verdict": "PASS_SCOPED_SEMANTIC_REVIEW",
+      "reason": "Direct4/5/7/11 overlap is kernel proved with strict boundaries; x=5 andx=7 are covered by the next prime."
+    },
+    {
+      "identity": [
+        "Solutions/RH080Next.v1/dual/FinitePrimeGapBridge.lean",
+        "exp42_lt_historical_cutoff",
+        151
+      ],
+      "source_sha256": "764d99359b06915eea34770f4733ce44f0cb14fdc268b57b6f6782de9eae3dab",
+      "verdict": "PASS_SCOPED_SEMANTIC_REVIEW",
+      "reason": "The exact exp42<4e18 bridge overlaps the analytic threshold without a giant new finite computation."
+    },
+    {
+      "identity": [
+        "Solutions/RH080Next.v1/explicit/ExplicitW4StrictPopulation.lean",
+        "w4_recorded_population_inf_lt_of_norm",
+        19
+      ],
+      "source_sha256": "313103224b30cba37286dd1f3fcaa523464f659db3ddf89a45757ba45dfa1510",
+      "verdict": "PASS_SCOPED_SEMANTIC_REVIEW",
+      "reason": "Proves the strict infimum inequality by an actually good coefficient1e-8 below the recorded line. Nonempty good coefficients and bounded-below sInf use are proved; no endpoint attainment or finite onset is asserted."
+    },
+    {
+      "identity": [
+        "Solutions/RH080Next.v1/explicit/ExplicitActualPopulation.lean",
+        "actual_population_goodCoefficient",
+        43
+      ],
+      "source_sha256": "e5002736afc297e6e51eb31983e7645b0930974173b273010c573a957fa9c924",
+      "verdict": "PASS_SCOPED_SEMANTIC_REVIEW",
+      "reason": "Actual primeCounting/floor half-open counts are consumed with a strictly positive eventualdelta. The radius 7 route is proved from Mellin/MV rather than misapplying the radius 5 BR uniform theorem."
+    }
+  ],
+  "Lean_audit_result": "/data/ivy-rh080-next-20261125/final-independent-math-review-v1/LEAN_AUDIT_RESULT.json",
+  "Lean_audit_result_sha256": "f04889b73c3b83a31974b0d92ddc26762623f1a8542cb6c17556b1ad00b23517",
+  "W4_final_norm_and_main_status": "PREPARED_PENDING_ACTUAL_N24_AND_SUBSEQUENT_COMPILATION_NOT_ACCEPTED_BY_THIS_REVIEW",
+  "accepted_exact_conclusions": {
+    "conditional_W4_norm_route": "For every real x >= 4, an actual natural prime p satisfies x < p < x + (425531/500000) sqrt(x) log(x). The actual W4 norm cap remains an explicit premise of the audited root.",
+    "finite_Fap_source_first_main_routes": "Under RH and the eight named general/historical inputs, strict coefficient 0.8 on 4 <= x <= exp(174), 0.74 on 11 <= x <= exp(63), and 0.75 on 11 <= x <= exp(70). The full modeled C main norm provider and kernel zero theorem are genuinely consumed.",
+    "weighted_conditional_norm_route": "For every real alpha >= 0, GoodCoefficient(alpha, 0.851061745 + 1.505657839 alpha), and strict sInf(goodCoefficients(alpha)) < that line. W4 norm remains explicit in this review; no finite numerical onset is claimed."
+  },
+  "remaining_assumptions": [
+    "Ordinary canonical RiemannHypothesis.",
+    "Literal SourceBRFourierNormFive, SourceBRFourierNormStrip, SourceCMSGuinandWeil, SourceCMSZeroCounting, SourceDLMFDigammaIntegral, SourceDLMFRealEtaIntegral, and SourceMontgomeryVaughan. HistoricalFiniteGap is additionally used for the finite/global small-x branches.",
+    "Published analytic proofs and the historical Oliveira e Silva–Herzog–Pardi computation are source inputs, not newly kernel formalized or independently source-first rerun here.",
+    "Lean/compiler and generic dependency pins plus the standard propext/Classical.choice/Quot.sound boundary. No native leaf, new axiom, or sorry is admitted by the actual nine-root axiom gate.",
+    "Source-first C semantics to physical execution retains pinned compiler/ABI/runtime/libc allocation and stdio/flush, OS and hardware contracts; this independent math review does not replace the separate exact Csyntax/physical-run audit."
+  ],
+  "review_artifacts_are_not_new_Human_HTML": true,
+  "reproduction": "python /data/ivy-rh080-next-20261125/final-independent-math-review-v1/run_audit.py",
+  "independent_exact_five_branch_proof": {
+    "file": "/data/ivy-rh080-next-20261125/final-independent-math-review-v1/PiecewiseMathAuditV2.lean",
+    "theorem": "IndependentFinalMathReview.exact_piecewise_from_current_math",
+    "status": "PASS_NORMAL_O_OO_IDENTICAL_SOURCE_STDOUT_OBJECT",
+    "explicit_W4_norm_premise_remains": true,
+    "results": [
+      "/data/ivy-rh080-next-20261125/final-independent-math-review-v1/piecewise-v2-normal/RESULT.json",
+      "/data/ivy-rh080-next-20261125/final-independent-math-review-v1/piecewise-v2--O/RESULT.json",
+      "/data/ivy-rh080-next-20261125/final-independent-math-review-v1/piecewise-v2--OO/RESULT.json"
+    ]
+  }
+}

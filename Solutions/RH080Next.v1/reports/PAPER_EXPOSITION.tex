@@ -1,0 +1,725 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,longtable,array,tabularx,xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!55!black,urlcolor=blue!55!black,citecolor=blue!55!black]{hyperref}
+\usepackage{microtype}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newcommand{\RR}{\mathbb R}
+\newcommand{\Good}{\operatorname{Good}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\qG}{\frac{20582561296}{24680948495}}
+\newcommand{\Kflat}{\frac{2+\log(2\pi)}{\pi}}
+\newcommand{\Pending}[1]{\textcolor{red!65!black}{\textbf{PENDING FINAL GATE:} #1}}
+% Root must replace these status macros from actual final receipts.
+\newcommand{\WfourGateStatus}{\Pending{N24 numerical leaf, actual-main norm consumption,
+global/population consumers and canonical integration.}}
+\newcommand{\FiniteReplayStatus}{\Pending{final receipt for the 681-module
+same-experiment source-cold continuation. Associated finite proofs are accepted.}}
+\newcommand{\RealAlphaReviewStatus}{Independent root source and expanded actual-count audit passed: one freshly compiled module, 22 exact source-associated dependencies, standard axioms only. Receipt: \texttt{root-asymptotic-review-v4/RESULT.json}.}
+\title{Conditional prime intervals, population bounds, and source-first numerical verification}
+\author{IEANTN RH080 continuation campaign}
+\date{Mathematical exposition, 26 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We study three distinct questions: which conditional prime bounds follow from
+particular Fourier witnesses; how a numerical source program can be connected
+to those bounds; and what mathematical transfers appear under different proof
+representations. Accepted results include strict finite prime intervals,
+a kernel-proved Gaussian witness, full-class functional duality, source-linked
+small population witnesses, and an analytic flat-window family. A rounded
+integer mesh gives a full real-density bound with coefficient
+\(\alpha+\pi^{-1}\log\alpha+\Kflat+\eta\), for every \(\eta>0\) and all
+sufficiently large \(\alpha\). Published analytic statements and the historical
+finite prime-gap computation remain named hypotheses. Source-first
+verification, kernel-only mathematics, external interval checks and physical
+execution observations are distinguished throughout. The final large
+whole-ray source-first chain is explicitly pending; no optimality, originality,
+best-known-result or general PV/network advantage is asserted.
+\end{abstract}
+
+\paragraph{Acceptance status.}
+\WfourGateStatus\ \FiniteReplayStatus\
+The mathematical whole-ray and weighted-population implications conditional on
+their exact norm premise are proved. The W4 source providers that discharge that norm premise are not
+reported as accepted here.
+The new real-density theorem has the further review status:
+\RealAlphaReviewStatus\ These placeholders must be resolved from actual receipts,
+not inferred from the presence of source files or a worker's completion message.
+
+\section{Statements, endpoints and assumptions}
+Let \(p_n\) denote the \(n\)-th prime, with the one-based paper convention;
+formal zero-based indexing is connected by a proved shift. Put
+\[
+ H(x)=\sqrt{x}\log x,\qquad
+ N_c(x)=\pi(x+cH(x))-\pi(x).
+\]
+Thus \(N_c(x)\) counts primes in the half-open interval \((x,x+cH(x)]\).
+For \(\alpha\ge0\), write
+\[
+ \Good(\alpha,c)\ \Longleftrightarrow\
+ c>0\ \text{and}\ \exists\delta>0\
+ \forall x\ \text{sufficiently large}:\quad N_c(x)/\sqrt{x}\ge\alpha+\delta.
+ \tag{1}\label{eq:good}
+\]
+Define \(\mathcal G_\alpha=\{c:\Good(\alpha,c)\}\) and
+\(C(\alpha)=\inf\mathcal G_\alpha\), with nonemptiness proved whenever this
+notation is used for a conclusion. Equation~\eqref{eq:good} is the strict
+liminf condition, not merely a weak lower limit. An upper bound for
+\(C(\alpha)\) does not assert that its endpoint belongs to \(\mathcal G_\alpha\).
+A positive margin absorbs the removal of a possible endpoint prime
+asymptotically.
+
+The finite source-linked prime statements are
+\[
+ \exists p\ \text{prime}:\quad x<p<x+cH(x),
+ \tag{2}\label{eq:finite}
+\]
+with both endpoints strict, in the following exact ranges.
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Coefficient \(c\)&Real-variable range&Status\\
+\midrule
+\(4/5\)&\(4\le x\le e^{174}\)&Accepted associated source-first proof\\
+\(37/50\)&\(11\le x\le e^{63}\)&Accepted associated source-first proof\\
+\(3/4\)&\(11\le x\le e^{70}\)&Accepted associated source-first proof\\
+\(777/1000\)&\(4\le x<11\)&Unconditional kernel proof\\
+\(425531/500000\)&\(x\ge4\)&Norm-conditional theorem; final source gate pending\\
+\bottomrule
+\end{tabular}
+\end{center}
+The first three use RH and eight explicitly named analytic or historical
+inputs. Their final composition supplies the Fourier norm and generalized
+zero-transfer rule by proved providers; neither remains an additional desired
+conclusion premise. The unfinished cold continuation concerns final
+reconstruction evidence, not the existence of the already accepted associated
+finite proofs.
+
+The eight finite-route inputs are the rational-window norm identity and strip
+regularity, Guinand--Weil, zeta zero counting, digamma and eta integral formulas,
+Montgomery--Vaughan, and the historical finite prime-gap statement.
+The exact primary locators are BR Lemma~5, Eq.~(4), p.~3 \cite{BR};
+CMS Lemma~6, p.~17, Lemma~9, p.~23, and Eq.~(1.15), p.~6 \cite{CMS};
+DLMF 5.9.16 and 25.5.3 \cite{DLMF}; and Montgomery--Vaughan
+Theorem~2, Eq.~(1.12), p.~121 \cite{MV}.
+The historical input is
+\[
+ p_{n+1}-p_n<(\log p_n)^2
+ \quad\text{for every lower prime }11\le p_n\le4\cdot10^{18}.
+ \tag{3}\label{eq:3}
+\]
+Its underlying computation is literature-backed; it is not newly rerun here.
+The theorem-specific source contracts retain their exact domains.
+
+Population-only affine routes use the two general BR inputs described below
+and RH. Gaussian gap and population consequences use the named CMS functional
+reductions \cite[Theorem~3, Eq.~(1.13), and Corollary~4, Eq.~(1.14)]{CMS}.
+These three supplemental source-input families make eleven in the campaign's
+named-input audit. This is a census of the inputs consumed by the selected
+routes, not an audit of every externally attributed IEANTN declaration.
+\par\begingroup\raggedright
+The unchanged BR canonical aliases are
+\nolinkurl{BRFourierInput.v1.norm_identity} and
+\nolinkurl{BRFourierInput.v1.uniform_population_q1}.
+Their correspondence is the input-node definition file
+\nolinkurl{IEANTN/Nodes/BRFourierInput/v1/Conclusions.lean}; the new flat
+and real-density constructions have no separate traditional Blueprint label.
+\par\endgroup
+
+\section{Fourier witnesses and the actual analytic transfer}
+Use the convention
+\[
+ \widehat F(v)=\int_{\RR}F(u)e^{-2\pi iuv}\,du,\quad
+ J(F)=\int_{|v|>1}\max(0,\widehat F(v))\,dv,\quad
+ D_A(F)=F(0)-AJ(F).
+\]
+The CMS class consists of real even continuous nonzero \(L^1\) functions,
+with genuine real Fourier transform, finite positive-part leakage, and
+\(D_A(F)>0\) when a quotient is used. Integrability of the whole Fourier
+transform is not imposed. Set \(Q_A(F)=\norm F_1/D_A(F)\).
+
+For positive integer mesh \(m\), rational nodes with terminal value zero define
+an even affine window \(W\). With \(N=5m\), BR Lemma~5 states
+\[
+ \begin{split}
+ P(t)&=a_0+2\sum_{j=1}^{N-1}a_j\cos(2\pi jt),\\
+ F(u)&=m^{-1}\operatorname{sinc}^2(u/m)P(u/m),\\
+ \norm F_1&=\int_0^1|P(t)|\,dt,
+ \end{split}\tag{4}\label{eq:BRpair}
+\]
+where \(\operatorname{sinc}(t)=\sin(\pi t)/(\pi t)\) with its removable value
+at zero \cite[Lemma~5, Eq.~(4), p.~3]{BR}.
+The norm identity remains a named general literature input. The actual affine
+Fourier correspondence, integrability and nonzero eligibility are separately
+kernel-proved. The support-seven witness uses mesh \(360\); a proved mesh
+dilation to \(504\) places the same nodal data in the literal support-five
+source class. No new support-seven source axiom or normalization \(F(0)=1\)
+is introduced.
+
+BR Proposition~6 gives the source population inequality
+\[
+ \frac{\pi(x+c\varphi(q)H(x);q,b)-\pi(x;q,b)}{\sqrt{x}}
+ \ge
+ \frac{cD_4(F)-\norm F_1}{2M_W}
+ -O_{F,c}\!\left(
+ \eta(x)+\frac{\log\log x}{\log x}+\frac{\log x}{\sqrt{x}}\right),
+ \tag{5}\label{eq:BRcount}
+\]
+where \(M_W=\norm W_\infty\), under its modulus-family hypotheses
+\cite[Proposition~6, Eq.~(6), p.~7]{BR}. The source explicitly states the
+ordinary-RH specialization for moduli one and two
+\cite[Section~3.4, p.~10]{BR}. For \(\mathcal Q(x)=\{1\}\),
+\(\varphi(1)=1\), \(\eta(x)=\log x/\sqrt{x}\), and the error is exactly
+\[
+ \frac{\log\log x}{\log x}+2\frac{\log x}{\sqrt{x}}\longrightarrow0.
+\]
+The formal contract retains an eventual error constant \(C\ge0\), a global
+window bound and an attained value identifying \(M_W\). It follows that
+\[
+ \alpha<\frac{cD_4(F)-\norm F_1}{2M_W}
+ \quad\Longrightarrow\quad\Good(\alpha,c).
+ \tag{6}\label{eq:margin}
+\]
+This is an actual prime-count consumer. It does not manufacture an explicit
+onset from an asymptotic source estimate.
+
+For finite explicit bounds, the generalized zero-summation step is proved
+for actual nontrivial zeta zeros with multiplicity. Its source counting input is
+\[
+ N(T)=\sum_{0<\gamma\le T}\operatorname{mult}(\gamma),\quad
+ Q(T)=\frac{T}{2\pi}\log\frac{T}{2\pi e}+\frac78,\quad
+ |N(T)-Q(T)|\le0.15\log T+3\quad(T\ge e),
+ \tag{7}
+\]
+together with the separately printed \(N(10)=0\)
+\cite[Section~6.1, Lemma~9 and proof, p.~23]{CMS}.
+The arbitrary-function transfer is not attributed to the particular
+test-function calculation printed after that lemma. The formal proof first
+uses finite-cutoff integration by parts and Fubini, then passes to limits.
+For \(g_\varepsilon=\sqrt{F^2+\varepsilon^2}\), it proves
+\[
+ |g_\varepsilon'|\le |F'|,\qquad
+ 0\le g_\varepsilon-|F|\le\varepsilon.
+\]
+The smoothing parameter tends to zero at fixed cutoff before the cutoff
+tends to infinity. Actual conjugate-zero multiplicities supply the negative
+ordinates; no differentiability of \(|F|\) at its zeros is assumed.
+
+A signed logarithmic moment strengthens the explicit estimate. If
+\(F(u)\ge f_0-2\pi^2\mu_2u^2\) on \(0\le u\le\tau\le1\) and
+\(|F(u)|\le V_1/(4\pi^2u^2)\) for \(u>1\), the proved even-function bound is
+\[
+ \int_{\RR}|F(u)|\log|u|\,du
+ \le \frac{V_1}{2\pi^2}
+ -2f_0\tau(1-\log\tau)
+ +4\pi^2\mu_2\tau^3\left(\frac19-\frac{\log\tau}{3}\right).
+ \tag{8}\label{eq:signedlog}
+\]
+The actual applications use \(\tau=3/8\). On \([\tau,1]\) the integrand is
+nonpositive; the tail starts at \(1\). Equation~\eqref{eq:signedlog}
+uses sign information in the density correction, not cancellation between
+different complex zeros.
+
+The explicit prime argument also proves its wing, prime-power, endpoint,
+finite-slab and infinite-ray inequalities. The finite slab uses
+Montgomery--Vaughan block choice \(16\), the ray choice \(1\), and the
+original \(0.0012\) reserve is retained. For example, the entrance allowance
+comes from the actual source inequality
+\[
+ \pi(M+N)-\pi(M)\le\frac{2N}{\log N}
+ \quad(M>0,\ N>1),
+ \tag{9}
+\]
+followed, for \(y=b-a+\ell\ge\ell>1\), by
+\[
+ \#\{a<p\le b\}\le\frac{2y}{\log y}
+ \le\frac{2(b-a)}{\log\ell}+\frac{2\ell}{\log\ell}.
+\]
+The extra entrance term is thus derived rather than inserted as an unexplained
+source constant. Concavity controls the full finite log interval and
+monotonicity controls the ray. Direct small-prime proofs and \eqref{eq:3}
+are used only in their valid ranges.
+
+\section{The functional frontier and its verification tiers}
+Abel-regularized Fourier inversion establishes weak duality for the full CMS
+class without assuming \(\widehat F\in L^1\). Composing this proof with the
+preserved source-first C dual witness gives
+\[
+ Q_{36/11}(F)\ge\frac{100}{123}>0.8.
+ \tag{10}\label{eq:10}
+\]
+A finite nonnegative combination of the same window budgets retains the
+common obstruction. This constrains that functional; it is not a lower bound
+on actual prime gaps and does not exclude every different RH reduction.
+
+The four relevant levels must be kept separate:
+\begin{center}
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+Bound&Evidence and interpretation\\
+\midrule
+\(100/123\)&Source-first C plus full-class Lean duality.\\
+\(50000/60393\)&Published BR Theorem~4 floor, independently source-checked;
+not a new Lean numerical certificate.\\
+\(2000/2399\)&New rational step dual, directed-Arb checked by two algorithms,
+including non-FFT complex Horner; outside Lean and source-first PV.\\
+\(\qG\)&Kernel-proved Gaussian upper witness, degree \(80\), dilation \(5/4\),
+exact Fourier transform and \(1124\) integral cells.\\
+\bottomrule
+\end{tabularx}
+\end{center}
+The strongest external numerical enclosure has width about \(0.000264612\).
+Its lower endpoint is not promoted to the formal source-first tier.
+
+Under the named CMS reduction and RH, the Gaussian witness gives
+\[
+ \limsup_{n\to\infty}\frac{p_{n+1}-p_n}{H(p_n)}
+ \le q,\qquad q=\qG<0.833945313,
+ \tag{11}
+\]
+and, for every \(\alpha\ge0\) and \(\varepsilon>0\),
+\(\Good(\alpha,q(1+2\alpha)+\varepsilon)\).
+No finite onset or membership at the Gaussian limiting recipe boundary
+is claimed. Negative family searches and numerical optimization plateaux do
+not prove optimality. The finite bounds below \(0.8\) in Section~1 have
+bounded ranges and a different explicit transfer; they do not contradict
+\eqref{eq:10}.
+
+\section{Population coefficients and a computation-free family}
+Two completed 16-node source-first C programs, with matched kernel-only
+controls, give attained curves
+\[
+ S(\alpha)=0.944247+1.163388\alpha,\qquad
+ F_{\rm old}(\alpha)=\frac98+\frac{16}{15}\alpha
+ \quad(\alpha\ge0).
+ \tag{12}
+\]
+Their norm/output facts are actually consumed by \eqref{eq:margin};
+PV does not improve their coefficients relative to the matched controls.
+Write \(G(\alpha)=q(1+2\alpha)\).
+The support-seven recorded line
+\[
+ W(\alpha)=0.851061745+1.505657839\alpha
+ \tag{13}
+\]
+has a proved norm-conditional consumer, including a strict infimum inequality.
+Its final source-norm discharge remains \WfourGateStatus\
+An envelope using \(W\) must retain that status.
+
+The following analytic construction uses the same two BR source inputs and
+RH, and no numerical source program.
+
+\begin{theorem}[Flat family and fixed specialization]\label{thm:flat}
+For every integer \(m\ge1\), \(\alpha\ge0\) and \(\varepsilon>0\), put
+\[
+ c_m(\alpha)=\frac{2m}{2m-1}
+ \left(\alpha+\frac{1+\log(4m-2)}{\pi}\right).
+ \tag{14}
+\]
+Then \(\Good(\alpha,c_m(\alpha)+\varepsilon)\);
+\(\mathcal G_\alpha\ne\varnothing\); and \(C(\alpha)\le c_m(\alpha)\).
+Separately, the fixed \(m=64\) rational-slack specialization proves
+\[
+ \Good\!\left(\alpha,\frac{21}{10}+\frac{128}{127}\alpha\right).
+ \tag{15}\label{eq:15}
+\]
+The coefficient in \eqref{eq:15} is not exactly \(c_{64}(\alpha)\).
+\end{theorem}
+\begin{proof}
+Choose \(5m+1\) rational nodes: the first \(m\) are one and the remaining
+\(4m+1\) are zero. Their actual affine spectrum has
+\[
+ F(0)=D_4(F)=\frac{2m-1}{m},\quad J(F)=0,\quad M_W=W(0)=1.
+\]
+The corresponding polynomial is
+\(P_m(t)=1+2\sum_{j=1}^{m-1}\cos(2\pi jt)\). Set \(r=2m-1\).
+The proof establishes, on their stated domains,
+\[
+ \sin(\pi t)P_m(t)=\sin(r\pi t),\quad
+ P_m(1-t)=P_m(t),\quad |P_m(t)|\le r,\quad
+ |P_m(t)|\le\frac1{\sin(\pi t)}\ (0<t\le1/2).
+\]
+Split at \(a=1/(r\pi)\). The small interval contributes at most \(1/\pi\).
+On the other interval use
+\[
+ \frac{d}{dt}\frac{\log\tan(\pi t/2)}{\pi}
+ =\frac1{\sin(\pi t)},\qquad
+ \tan(1/(2r))\ge1/(2r)>0.
+\]
+Continuity and all nonzero denominators are proved before applying FTC.
+Reflection gives
+\(\int_0^1|P_m|\le(2/\pi)(1+\log(2r))\).
+Equation~\eqref{eq:BRpair} and the exact denominator show
+\(c_m(\alpha)D_4-\operatorname{cap}=2\alpha\).
+Adding any positive \(\varepsilon\) makes \eqref{eq:margin} strict.
+Nonemptiness and boundedness below are proved before taking the infimum.
+
+For the fixed specialization the kernel proves
+\[
+ 254<\sum_{k=0}^{14}\frac{(277/50)^k}{k!}\le e^{277/50},
+ \qquad \log254<277/50.
+\]
+Together with \(\pi>3.14\), this gives
+\((2/\pi)(1+\log254)<(21/10)(127/64)\).
+The additional strict slack proves the coefficient in \eqref{eq:15} itself.
+\end{proof}
+
+\begin{theorem}[Full real-density consequence]\label{thm:realalpha}
+Let \(K=\Kflat\). For every \(\eta>0\), for all sufficiently large real
+\(\alpha\),
+\[
+ \Good\!\left(\alpha,\alpha+\frac{\log\alpha}{\pi}+K+\eta\right),
+ \qquad
+ \varnothing\ne\mathcal G_\alpha,\quad
+ C(\alpha)\le\alpha+\frac{\log\alpha}{\pi}+K+\eta.
+ \tag{16}
+\]
+In \eqref{eq:good}, the subsequent prime-variable threshold and the positive
+margin may depend on \(\alpha,\eta\).
+\end{theorem}
+\begin{proof}
+Take \(m(\alpha)=\lfloor(\pi/2)\alpha\rfloor_++1\) and
+\(r(\alpha)=2m(\alpha)-1\). The formal proof uses the natural-floor ratio limit
+to obtain \(r(\alpha)/\alpha\to\pi\) and \(r(\alpha)\to\infty\).
+For \(\alpha>0\), exact algebra and the positive-domain logarithm identity give
+\[
+ \begin{split}
+ c_{m(\alpha)}(\alpha)-\alpha-\frac{\log\alpha}{\pi}
+ ={}&\frac{\alpha}{r(\alpha)}
+ +\frac{1+\log(2r(\alpha)/\alpha)}{\pi}\\
+ &+\frac{1+\log(2r(\alpha))}{\pi r(\alpha)}.
+ \end{split}\tag{17}
+\]
+The terms tend to \(1/\pi\), \((1+\log(2\pi))/\pi\), and zero,
+respectively; the last uses \(\log r/r\to0\). Thus the left side tends
+to \(K\). Its eventual strict upper bound leaves a positive allowance in
+Theorem~\ref{thm:flat}, proving the actual GoodCoefficient statement and the
+nonempty-infimum conclusion. This is a full real-\(\alpha\) limit, not merely
+an integer subsequence. No joint uniform prime-variable onset is deduced.
+\end{proof}
+The exact limit declaration is
+\begin{quote}\raggedright
+\nolinkurl{RH080Next.AnalyticFlatFamilyAsymptotic.width_offset_tendsto}.
+\end{quote}
+The same namespace contains the three actual-population consumers:
+\begin{quote}\ttfamily\raggedright
+actual\_population\_curve\\
+actual\_population\_infimum\\
+actual\_population\_eventual.
+\end{quote}
+There is no assertion that the mesh is an optimizer or that \(K\) is best
+possible.
+
+\section{Direct comparisons with written source statements}
+BR's printed population comparator is the minimum of both lines
+\[
+ C(\alpha)<\min\{0.851127043+1.505827\alpha,\,
+                    0.85124642+1.505237\alpha\}
+ \tag{18}
+\]
+\cite[Theorem~2, Eq.~(2), p.~2]{BR}.
+Its general progression form assumes GRH and a vanishing modulus-family
+parameter; the modulus-one paragraph supplies the RH specialization.
+Any comparison must use both lines and preserve the strict-infimum convention.
+
+Lee's exact primary estimate is different \cite[Theorem~1.1, Eqs.~(2) and (4)]{Lee}. Under RH, for \(x\ge e^{20}\) and
+\(\sqrt{x}\log x\le h\le x^{3/4}\), Theorem~1.1, Eq.~(4), states
+\[
+ |\theta(x+h)-\theta(x)-h|
+ <
+ \left(\frac1\pi\log\frac{h}{\sqrt{x}\log x}
+       +L+\frac{1.046}{\log x}\right)\sqrt{x}\log x,
+ \tag{19}
+\]
+where Eq.~(2) defines
+\[
+ L=\frac2{\pi+\sqrt{\pi^2+4\pi}}
+ +\frac{2+\log\{\pi(\pi+\sqrt{\pi^2+4\pi}+2)/4\}}{\pi}
+ \simeq1.542627287776.
+ \tag{20}
+\]
+For fixed \(c\ge1\), \(h=cH(x)\) is eventually in this range and
+\(\theta(x+h)-\theta(x)\le\log(x+h)N_c(x)\). Consequently
+\[
+ \liminf_{x\to\infty}N_c(x)/\sqrt{x}\ge c-\frac{\log c}{\pi}-L.
+ \tag{21}\label{eq:leeconsequence}
+\]
+This is a written consequence of the literal theorem, not an extra Lean
+result or a numerical input to our proofs. Equality on its right side
+does not establish a positive GoodCoefficient margin at that density.
+
+At density \(40\), the fixed analytic coefficient is exactly
+\(53867/1270\simeq42.414960630\); the direct Lee threshold solving
+\(c-\pi^{-1}\log c-L=40\) is about \(42.737908384\).
+Lee's right side at our fixed coefficient is about \(39.679466679\).
+The fixed64 line therefore improves this specific direct consequence there.
+The general \(m=64\) endpoint is slightly smaller,
+\(c_{64}(40)\simeq42.412243781\), with positive allowance still required.
+These decimals are native high-precision illustrations, not certified
+numerical premises.
+
+Theorem~\ref{thm:realalpha} also has a meaningful large-density comparison:
+\[
+ K=\Kflat\simeq1.2216342122<L.
+\]
+The threshold from \eqref{eq:leeconsequence} has expansion
+\(\alpha+\pi^{-1}\log\alpha+L+o(1)\), whereas the proved construction
+permits \(K+\eta\) for every \(\eta>0\). This comparison does not identify the
+best consequence of all of Lee's arguments or the literature.
+The fixed64-versus-Lee curves have two illustrative crossings, near
+\(4.268500217\) and \(125.564476795\); the old flat16 crossing near
+\(21.436663\) refers to a different line.
+General Fourier-population reductions, Dirichlet identities and rational
+affine windows are prior work \cite{CMS,CPDL,BR}. A bounded source check does
+not establish field originality.
+
+\section{What source-first PV establishes}
+Here PV means correspondence between the actual external C source, an
+independent restricted grammar and execution model, mathematical correctness
+of that program, and consumption of its derived bound by the prime theorem.
+Kernel-only quadrature or a successful physical run alone is not PV.
+
+The actual recursive C ports use signed base-\(10^9\) fixed-point arithmetic
+at scale \(10^{36}\). Their proofs cover arithmetic and rounding, allocated
+buffers, application initialization, recursive calls and butterflies, twiddle
+recurrences, magnitude summation, quadrature, upward normalization, and the
+actual modeled \texttt{main}/\texttt{printf} path. Allocation failure retains
+the sentinel path. Printing may fail after a prefix although the original
+\texttt{main} returns zero. Logical successful stdio is distinct from physical
+delivery. No desired norm output, initial application representation, or
+successful-effect predicate is accepted as a generic platform fact.
+
+For the finite witness the actual modeled output is
+\(781796015790084776\), normalized at \(10^{18}\); the supplied safe norm cap is
+\[
+ \norm{F_{\rm finite}}_1\le
+ \frac{7817960157900848}{10^{16}}.
+ \tag{22}
+\]
+This is consumed by the accepted finite prime proofs.
+The support-seven output observation is \(7813568381279800\);
+the pending source provider targets the safe cap
+\(7813568381304104/10^{16}\). The latter is not reported as a completed
+source-first ANT chain before \WfourGateStatus
+
+The compiler, pinned core/runtime/ABI, applicable documented allocation and
+stdio contracts, OS and hardware remain trusted at the stated boundary.
+The application proofs establish applicability, buffer/stream lifetimes and
+source/build/run association. They do not verify the compiler, arbitrary ISO C,
+or the platform implementation. Twenty-four physical C observations agree with
+the recorded integers; this corroboration does not replace source-first
+mathematical correctness.
+
+IEANTN composition supplies the exact propositions through proved providers.
+For the finite route these are \texttt{CMSZeroSummation.v1},
+\texttt{FapFourierNorm.v2}, and \texttt{RHFiniteAffineIntervals.v2}.
+The proof-value audit checks that the new provider facts are actually used.
+Permanent Challenge statement templates are not accepted Solution proofs.
+Accepted proof closures use only
+\(\operatorname{propext},\operatorname{Classical.choice},\operatorname{Quot.sound}\);
+in particular, no native numerical leaf is hidden in a kernel-only result.
+
+\section{Exposure study: original status and mathematical content}
+The new transfer study has four arms, two tasks and two replicates:
+\(16\) sessions in a balanced order seeded by \(20261126080\).
+The tasks request population improvements at fixed widths three and five (FW)
+and uniform growing-rank intervals (Rank). It is prospective transfer after
+coordinator selection, not blind discovery.
+The original \(20+8\) study is preserved separately.
+
+All arms received the same selected \(169\)-module mathematical statement and
+ordinary-definition packet and the same two small C sources. The compiled
+exposure differed: A was flat text without application proof objects;
+B exposed \(143\) named compiled modules; C added graph/source navigation to
+those same modules; D exposed \(168\) modules including \(25\) completed
+source-first proofs of the two small programs. Compiled proof/dependency
+inspection was possible in the named arm. The unfinished large FFT was not
+exposed as a completed PV result. The selected packet contained \(9371\)
+declaration types; it was not an exhaustive source-claim universe.
+
+The original primary result is exactly three admissible sessions and thirteen
+generated-output-ceiling censored sessions. The admissible IDs are
+\begin{quote}\ttfamily
+fixed\_width-B\_named-r1\\
+fixed\_width-C\_network-r0\\
+prime\_index-B\_named-r1
+\end{quote}
+Censoring is not mathematical failure. The subsequent exact-lock
+mathematical assessment changes no primary score.
+
+The attained rounded fixed-width densities and the stronger raw caps are
+\[
+ a_3=\frac{685251}{387796},\quad a_5=\frac{465}{128},\qquad
+ R_3=\frac{193269011844967139}{109374342622661960},\quad
+ R_5=\frac{31036198331144443607}{8533333333333333328}.
+ \tag{23}
+\]
+The rounded endpoints are attained. Raw GoodCoefficient claims require
+\(\alpha<R_3\) or \(\alpha<R_5\); a weak liminf bound at a raw cap is not
+GoodCoefficient membership there.
+
+For growing ranks, the correct density is
+\(r=(j-1)/\sqrt{p_n}\), and a representative closed C-arm result is, for every
+fixed \(\beta\ge0,\varepsilon>0\), eventually in \(n\), simultaneously for
+\(1\le j\le\lfloor\beta\sqrt{p_n}\rfloor+1\),
+\[
+ \frac{p_{n+j}-p_n}{H(p_n)}
+ <\min\{G(r)+\varepsilon,S(r),F_{\rm old}(r)\}.
+ \tag{24}\label{eq:24}
+\]
+The eventual quantifier is outside the rank quantifier.
+A collection of separate fixed-rank eventual statements does not establish
+this uniform result.
+
+Table~\ref{tab:16} records all sixteen mathematical assessments. A local
+interface transfer and its written shared-fact substitution are distinguished
+from a compiled end-to-end RH consumer. All nonlocal closed statements retain
+their named common source hypotheses; the extra BT assumption in B/rank/r1
+is separate.
+\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{.17\linewidth}>{\raggedright\arraybackslash}p{.10\linewidth}>{\raggedright\arraybackslash}p{.66\linewidth}@{}}
+\caption{All sixteen locked sessions. P: primary admissible; X: primary censored.
+Supplemental verification does not alter these labels.}\label{tab:16}\\
+\toprule
+Task/arm/rep.&Primary&Mathematical content and limits\\
+\midrule
+\endfirsthead
+\toprule Task/arm/rep.&Primary&Mathematical content and limits\\\midrule
+\endhead
+FW/A/0&X&Attained rounded populations and endpoint/rank transfer; local curve
+interfaces, with written shared-fact identification.\\
+FW/A/1&X&Rounded endpoints and inverse recipe; Gaussian boundary only through
+lower targets; local interfaces, no compiled RH wrapper.\\
+FW/B/0&X&Rounded endpoints and common-premise width improvement by \(1/200\)
+above the baseline leading inverse for every comparison width at least \(1.03\).\\
+FW/B/1&P&Attained rounded strict-open counts exceed \(a\sqrt{x}+K_0\) for any
+fixed \(K_0\), with rank and recipe-infimum consequences.\\
+FW/C/0&P&Raw limiting populations below \(R_3,R_5\), strict-open/rank bridge;
+rounded endpoints separately attained.\\
+FW/C/1&X&Separate exact raw kernel-witness consumer and rounded transfer;
+no raw-cap GoodCoefficient attainment.\\
+FW/D/0&X&Same raw limiting caps through existing source witnesses;
+not an exclusive PV mathematical improvement.\\
+FW/D/1&X&Raw half-open and strict-open counts and inverse gains;
+only targets strictly below the caps.\\
+Rank/A/0&X&Uniform envelope plus clipped cap, conditional raw profiles;
+shared-fact substitutions written, not compiled RH consumers.\\
+Rank/A/1&X&Uniform clipped envelope and raw-margin transport;
+local margin predicate remains an explicit input.\\
+Rank/B/0&X&Uniform \(E(r)+\eta\) profile for \(E=\min(G,S,F_{\rm old})\);
+common-premise RH consumer and positive padding.\\
+Rank/B/1&P&Common-premise adaptive profile; stronger existential shaving
+requires a separate explicit Brun--Titchmarsh predicate.\\
+Rank/C/0&X&Raw rank-adaptive profiles with small pads recover exact rounded
+BR lines uniformly; Gaussian padding remains.\\
+Rank/C/1&X&Uniform \eqref{eq:24} without BR padding; positive subleading headroom
+with an explicit additive \(2\).\\
+Rank/D/0&X&Exact locked \(8329\)-byte submission proves a fixed-cap bound and
+headroom; the later adaptive \(16208\)-byte draft is excluded.\\
+Rank/D/1&X&Clipped adaptive profile and raw fixed-cap thresholds;
+not a raw pointwise adaptive profile.\\
+\bottomrule
+\end{longtable}
+\normalsize
+
+The old leading inverse comparisons are restricted to the original theorem's
+width domain \(1.03\le c\le16\). The new eventual results inherit neither its
+explicit \(e^{24}\) onset nor a wider comparison domain. B/rank/r1's BT
+predicate is the source-aligned inequality
+\(\pi(x+y)-\pi(x)\le2y/\log y\) for \(x,y>1\); it is not inferred from three
+abstract population curves.
+
+All thirteen censored payloads were subsequently checked with exact locked
+bytes under the same richest original D runtime. A clean replay rebuilt
+\(169\) common, \(15\) payload and \(15\) audit modules without research-model
+access or an application object bank. Its \(1235\) exported types, axiom sets
+and dependencies match the separate assessment. Generated auxiliary
+declarations are not counted as new discoveries. Four sessions per arm,
+heavy censoring and the selected-transfer design do not establish an overall
+causal PV or network advantage. No new numerical PV program was authored by
+these transfer payloads.
+
+\section{Reproduction and the scope of the conclusion}
+Proof records distinguish source-cold reconstruction from source-associated
+compilation over exact source/snapshot/compiler/object-verified dependencies.
+A validated same-experiment prefix plus fresh continuation is not described
+as a single monolithic fresh run. Failed, interrupted, resource-stopped and
+censored outcomes retain their original statuses. Per-process address-space
+limits are not aggregate physical-memory commitments; unavailable completed
+OOM counters are unknown, not zero.
+
+Lean \(4.34.0\)-rc2, Mathlib
+\texttt{71a80585ee495fc24472fd0eaffc89d94e4fd8d6}, all generic-library pins,
+exact source/data hashes, commands and receipts are recorded. The finite
+certificate includes its \(34\) exact CSV inputs. Deterministic proof/data
+replay is distinguished from nondeterministic research-model output.
+The real-density addition passed fresh \(23\)-module builds in normal,
+\texttt{-O} and \texttt{-OO} modes; its \(15\) theorem roots use only the three
+standard axioms. This does not resolve the separate large W4 gate.
+
+The mathematical changes arise from stronger witnesses, a proved general
+zero transfer, a signed logarithmic estimate and the flat-family construction.
+Source-first verification supplies an explicit source-to-theorem chain.
+It does not itself improve a coefficient already obtained from the same
+mathematical facts by a kernel-only control. No eventual sub-\(0.8\) coefficient
+or global optimizer is proved. The exact final W4 acceptance status remains
+the explicit placeholder at the beginning of this document.
+
+
+\paragraph{Artifact map.}
+\begingroup\raggedright
+The exact eleven-family source contracts and locators are in
+\nolinkurl{explicit/FINAL_NAMED_INPUT_SOURCE_AUDIT.json} and
+\nolinkurl{explicit/SUPPLEMENTAL_NAMED_INPUT_SOURCE_AUDIT.json}.
+Finite canonical integration is recorded in
+\nolinkurl{explicit/CANONICAL_EVOLUTION_MANIFEST.json}.
+The flat64, integer-family and real-density statements and exact source
+closures are recorded respectively in
+\nolinkurl{explicit/ANALYTIC_FLAT64_MANIFEST.json},
+\nolinkurl{explicit/ANALYTIC_FLAT_FAMILY_MANIFEST.json} and
+\nolinkurl{explicit/ANALYTIC_FLAT_FAMILY_ASYMPTOTIC_MANIFEST.json}.
+All sixteen exact-lock interpretation rows are in
+\nolinkurl{ablation/review/portable_clean_evidence_v1/REPORT_EXPOSURE_ROWS_V2.json};
+their deeper source/type ledger is
+\nolinkurl{ablation/review/supplemental_evidence_v1/evidence/ALL16_MATHEMATICAL_INTERPRETATION.json}.
+Paths are relative to \nolinkurl{Solutions/RH080Next.v1}.
+The final gate statuses above take precedence over a planned source filename.
+\par\endgroup
+
+\begin{thebibliography}{9}
+\bibitem{BR}
+R.~Blanquer Robles, \emph{Rational Fourier certificates for prime gaps,
+explicit intervals, and arithmetic progressions}, v2,
+\url{https://zenodo.org/records/24429650/files/prime-gaps-v2.pdf}.
+\bibitem{CMS}
+E.~Carneiro, M.~B.~Milinovich and K.~Soundararajan,
+\emph{Fourier optimization and prime gaps}, arXiv:1708.04122v2;
+Comment.\ Math.\ Helv.\ 94 (2019), 533--568.
+\url{https://arxiv.org/pdf/1708.04122v2}.
+\bibitem{CPDL}
+A.~Chirre, V.~J.~Pereira J\'unior and D.~de Laat,
+\emph{Primes in arithmetic progressions and semidefinite programming},
+arXiv:2005.02393v2.
+\url{https://arxiv.org/html/2005.02393v2}.
+\bibitem{Lee}
+E.~S.~Lee, \emph{On the error in the prime number theorem in short intervals},
+arXiv:2403.11814v4, Theorem~1.1, Eq.~(2) for \(L\), Eq.~(4) for \(\theta\).
+\url{https://arxiv.org/html/2403.11814v4#S1.E2};
+\url{https://arxiv.org/html/2403.11814v4#S1.E4}.
+\bibitem{MV}
+H.~L.~Montgomery and R.~C.~Vaughan, \emph{The large sieve},
+Mathematika 20 (1973), 119--134, Theorem~2, Eq.~(1.12).
+\url{https://personal.science.psu.edu/rcv4/personal/Publications/large_sieve.pdf#page=3}.
+\bibitem{DLMF}
+NIST Digital Library of Mathematical Functions, Eqs.~5.9.16 and 25.5.3,
+with their stated domains.
+\url{https://dlmf.nist.gov/5.9.E16};
+\url{https://dlmf.nist.gov/25.5.E3}.
+\end{thebibliography}
+\end{document}

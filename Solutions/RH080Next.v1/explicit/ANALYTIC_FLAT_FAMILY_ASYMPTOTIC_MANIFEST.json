@@ -1,0 +1,1257 @@
+{
+  "status": "COMPLETE_SOURCE_COLD_KERNEL_ONLY_ANALYTIC_REAL_ALPHA_ASYMPTOTIC_ROOT_REVIEW_PENDING",
+  "classification": "kernel-only analytic mathematics; not source-first PV",
+  "source_files": [
+    {
+      "path": "Solutions/RH080Next.v1/explicit/AnalyticFlatFamilyAsymptoticLimits.lean",
+      "sha256": "74acd753946ca15bda024d8ff507dc85bd189c2d7ec5253ae1773c435743d8a5"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/AnalyticFlatFamilyAsymptoticPopulation.lean",
+      "sha256": "1d6aba3a4a1d250868fc3a8aa930094dccd5ba288a2627df75ae011c9774a465"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/AnalyticFlatFamilyAsymptoticAudit.lean",
+      "sha256": "3ac6339bdb350a4e60fb64deba7081843be8b996fc086948a825cd9fd6eed1fe"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/reproduce_analytic_flat_family_asymptotic.py",
+      "sha256": "110e1b3186764f32fcee792069ff4fa7ad67284e1bf7c3313bc5bcbbcead3bcc"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/ANALYTIC_FLAT_FAMILY_ASYMPTOTIC.md",
+      "sha256": "44b4764132d571480d37dc9199bc10160c17728017c500882ac8e67bf8c56ee1"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/ANALYTIC_FLAT_FAMILY_ASYMPTOTIC_SOURCE_AUDIT.json",
+      "sha256": "27dd54d750d22cf25cecbf3ee940c31827f9480869a0878434d763db93f675f1"
+    }
+  ],
+  "mesh": "Nat.floor((pi/2)*alpha)+1",
+  "constant": "(2+Real.log(2*Real.pi))/Real.pi",
+  "new_theorems": 15,
+  "actual_population_claims": [
+    "For all eta>0, eventually as real alpha->infty: GoodCoefficient alpha(alpha+log(alpha)/pi+K+eta).",
+    "Same quantifiers: goodCoefficients(alpha) nonempty and sInf<=alpha+log(alpha)/pi+K+eta.",
+    "Same density quantifiers, then exists delta>0, eventually real x: (alpha+delta)*sqrt(x)<=actual half-open prime count at that coefficient."
+  ],
+  "limit": "width(mesh alpha,alpha)-alpha-log(alpha)/pi -> K as real alpha->infty",
+  "source_inputs": [
+    "SourceBRFourierNormFive",
+    "SourceBRUniformPopulationQ1",
+    "RiemannHypothesis"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "native_leaves": [],
+  "numerical_program": null,
+  "seeds": null,
+  "optimality_claim": false,
+  "endpoint_eta_zero_claim": false,
+  "uniform_joint_density_prime_onset": false,
+  "prior_sources_changed": false,
+  "prior_independent_audit_changed": false,
+  "root_independent_review": "pending; new proof author differs from the preceding completed independent-review role",
+  "replays": [
+    {
+      "mode": "normal",
+      "run": "/data/ivy-rh080-next-20261125/explicit-lane/analytic-flat-family-asymptotic-cold-v1",
+      "result_sha256": "4d3782c4a09ad30a1cada1106dddad0b05bb77f1157f5ff2062062f4bb240c91",
+      "plan_sha256": "83334d7d1a6b5f856cdf97af719a3b0a5fee80c3461b79afebe67e47992ec2aa",
+      "modules": 23,
+      "seconds": 68.36706402525306,
+      "max_compiler_rss_bytes": 4453003264,
+      "proof_type_closures": [
+        "REAL_ALPHA_ASYMPTOTIC_CLOSURE RH080Next.AnalyticFlatFamilyAsymptotic.actual_population_curve: 53097",
+        "REAL_ALPHA_ASYMPTOTIC_CLOSURE RH080Next.AnalyticFlatFamilyAsymptotic.actual_population_infimum: 53100",
+        "REAL_ALPHA_ASYMPTOTIC_CLOSURE RH080Next.AnalyticFlatFamilyAsymptotic.actual_population_eventual: 53098"
+      ]
+    },
+    {
+      "mode": "-O",
+      "run": "/data/ivy-rh080-next-20261125/explicit-lane/analytic-flat-family-asymptotic-cold-O-v1",
+      "result_sha256": "3a69e817b09cb7424b35e61ee0dad9d48402ba9923f50f0965dbd5f4c769ba9c",
+      "plan_sha256": "beac8ec09084754bed441af5e13a0360affebbee1f152a2049b0a55580acfc5d",
+      "modules": 23,
+      "seconds": 69.22823194041848,
+      "max_compiler_rss_bytes": 4453285888,
+      "proof_type_closures": [
+        "REAL_ALPHA_ASYMPTOTIC_CLOSURE RH080Next.AnalyticFlatFamilyAsymptotic.actual_population_curve: 53097",
+        "REAL_ALPHA_ASYMPTOTIC_CLOSURE RH080Next.AnalyticFlatFamilyAsymptotic.actual_population_infimum: 53100",
+        "REAL_ALPHA_ASYMPTOTIC_CLOSURE RH080Next.AnalyticFlatFamilyAsymptotic.actual_population_eventual: 53098"
+      ]
+    },
+    {
+      "mode": "-OO",
+      "run": "/data/ivy-rh080-next-20261125/explicit-lane/analytic-flat-family-asymptotic-cold-OO-v1",
+      "result_sha256": "504621b337b4b149e9d0802845fa41f76becfb46d14897d3b9e873c9aea85941",
+      "plan_sha256": "7c93994648912eff1b11a6362355bd571d3eb1f4bad2426689fc0cfe45defd9f",
+      "modules": 23,
+      "seconds": 74.04410475865006,
+      "max_compiler_rss_bytes": 4451864576,
+      "proof_type_closures": [
+        "REAL_ALPHA_ASYMPTOTIC_CLOSURE RH080Next.AnalyticFlatFamilyAsymptotic.actual_population_curve: 53097",
+        "REAL_ALPHA_ASYMPTOTIC_CLOSURE RH080Next.AnalyticFlatFamilyAsymptotic.actual_population_infimum: 53100",
+        "REAL_ALPHA_ASYMPTOTIC_CLOSURE RH080Next.AnalyticFlatFamilyAsymptotic.actual_population_eventual: 53098"
+      ]
+    }
+  ],
+  "cli_controls": {
+    "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/CONTROLLER_CONTROLS.json",
+    "sha256": "bd28d0e9a5b6350ee0e8f9bc60286f8bc02f7dd02436bf314a67836ec88200f0",
+    "cases": 15,
+    "negative": 12,
+    "modes": [
+      "normal",
+      "-O",
+      "-OO"
+    ]
+  },
+  "evidence": [
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/AffinePopulationBounds.COMPILED.json",
+      "sha256": "0565ddafe1b182b6d0970319aee6b4bcf9709f791633006254194c44195b2bd3"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/AnalyticFlat64Dirichlet.COMPILED.json",
+      "sha256": "b27dbec853fa0a21055b3efbb38377ec0edc77143f567866a40516e2742e883c"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/AnalyticFlat64Integral.COMPILED.json",
+      "sha256": "89a0e23f0dc7440a8a4adfada555253af8c5112753040b19445e984bf9fe4633"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/AnalyticFlatFamilyAsymptoticAudit.COMPILED.json",
+      "sha256": "2a01135f73d9f14f695c00aca50bfebbe54c09429c49fcaa25cd8319f7d7f587"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/AnalyticFlatFamilyAsymptoticLimits.COMPILED.json",
+      "sha256": "08097c78629e36087cc6a3fe16126756c795b577d06b50dcc3610a404f842771"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/AnalyticFlatFamilyAsymptoticPopulation.COMPILED.json",
+      "sha256": "c7f064a8cfeb7e149dfeeb01a2a223aa208dd3109660d77f700e83ca183a5981"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/AnalyticFlatFamilyDirichlet.COMPILED.json",
+      "sha256": "2b630830e1c4440625ea378634be5eab330d11d52929f0b84290b7947a527104"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/AnalyticFlatFamilyIntegral.COMPILED.json",
+      "sha256": "e0314344ef143f49f5c72130dbfe5fe7d386e45abb26f8eb2e1a4671f5641b1e"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/AnalyticFlatFamilyNodes.COMPILED.json",
+      "sha256": "78d9423ef8cd6d65c5f47ba84862930d283dcdc1e49b84180b859b44d66903d0"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/AnalyticFlatFamilyPopulation.COMPILED.json",
+      "sha256": "78213b83beb8329bedaa25c778b7ffcb27357afdbbd83a13a8e9d40f945716ce"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/ExplicitAffineFourier.COMPILED.json",
+      "sha256": "9696ffe2755ca2a80900f9ad31226df1935b30caa6045466c1fe446b5f44bfb5"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/ExplicitAffineIntegrals.COMPILED.json",
+      "sha256": "c241de9080e0815e3711ce6fa6fc6a05bf1de38a8cd02911022c5674cd85903a"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/ExplicitAffineWindow.COMPILED.json",
+      "sha256": "dcbfbc684b0fd1d51b36e1c001051441381816b15da28343d2b6aeb0332e5485"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/ExplicitBRPopulationConsumer.COMPILED.json",
+      "sha256": "0996f25cd77fef8617cccd86e5611f1b216ddaffe549cc6bd129a6c348051b8c"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/ExplicitCMSEligible.COMPILED.json",
+      "sha256": "47d79b928da46a34af192b68389a2d0487e886978ec805771e58156834d1cc41"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/ExplicitCosineMoment.COMPILED.json",
+      "sha256": "6206f1504e7279a4fecd67daad1ef41c65ebc2fe0ef39fa945f9fc7cc5514d9c"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/ExplicitFiniteDifference.COMPILED.json",
+      "sha256": "b680d08e21dea7008c8848d57fb607b80a3b798529270c3d1a381662eb1bf561"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/ExplicitFourierPair.COMPILED.json",
+      "sha256": "3718aa96bb92616dc006e69d149e06a5182f169601cacd22275d5c0af2598779"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/ExplicitHatFourier.COMPILED.json",
+      "sha256": "e237c4323edd87c0f29d6e9bf69131b6f3a11bcc800a1643bb112021be4cf5cf"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/ExplicitHatIntegrals.COMPILED.json",
+      "sha256": "c7231308d977d5dc57e29e2f8c0fbff9722cd21d039e5a1478f31e238a67bd38"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/ExplicitNormSourceBridge.COMPILED.json",
+      "sha256": "c0f1f8c01e2975fe4313fe3677b4105b0655ae29e94cce682c44e6adf697fd01"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/ExplicitSignedLogMoment.COMPILED.json",
+      "sha256": "abba19253d0f18ebff5beccbfa23bff24c71e378ad6d7712d77077932c825a1b"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/IEANTN.Vocabulary.CMSFunctional.COMPILED.json",
+      "sha256": "23f5bddc36753bf7f33449b543bde2aad2b758c5b4fc878e7f8e480ee29d7023"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/PLAN.json",
+      "sha256": "beac8ec09084754bed441af5e13a0360affebbee1f152a2049b0a55580acfc5d"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/RESULT.json",
+      "sha256": "3a69e817b09cb7424b35e61ee0dad9d48402ba9923f50f0965dbd5f4c769ba9c"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/AffinePopulationBounds.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/AffinePopulationBounds.stdout",
+      "sha256": "526ff13fbb792e694c44ad3da6913e092bfb5ff21163991ea73e6134f5bb9984"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/AffinePopulationBounds.time",
+      "sha256": "2710c26cb6daf101e9eb9ec06fbcc1ca2a8758971bece92c4f7093271e851eac"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/AnalyticFlat64Dirichlet.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/AnalyticFlat64Dirichlet.stdout",
+      "sha256": "0ca2a8195c52bea9b48707563c9ffe46fddb30c26397e90ef361adf43c6df865"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/AnalyticFlat64Dirichlet.time",
+      "sha256": "ad088ee8d8c16f3167e98e3d640a1c2daae8b7ad26b3d9cfca1e2eb0d46548a1"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/AnalyticFlat64Integral.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/AnalyticFlat64Integral.stdout",
+      "sha256": "164a9275b6b51c5ff6089b528a3e7a8d985b30d099ceb46e35923b0330a29f16"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/AnalyticFlat64Integral.time",
+      "sha256": "8e1040957da9124cd4acce3cf08599a5c0399763fb62803c52f33b976178302a"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/AnalyticFlatFamilyAsymptoticAudit.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/AnalyticFlatFamilyAsymptoticAudit.stdout",
+      "sha256": "4bdaea66806cc567ac28311d89f4d8c017e5a2490e42b8e89f02014f98ee229c"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/AnalyticFlatFamilyAsymptoticAudit.time",
+      "sha256": "ee6a21d4074539fa51e7b906e0be7f53046e909721e3db520f0b6ee0ebe9b419"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/AnalyticFlatFamilyAsymptoticLimits.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/AnalyticFlatFamilyAsymptoticLimits.stdout",
+      "sha256": "a2f71c5eef848dd7ec594f33592a27279c6349d734583ce096086656edccac51"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/AnalyticFlatFamilyAsymptoticLimits.time",
+      "sha256": "485e6a459d137260fe29b4b1de00b6bed2c7477f5380309feb32f098c60f1606"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/AnalyticFlatFamilyAsymptoticPopulation.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/AnalyticFlatFamilyAsymptoticPopulation.stdout",
+      "sha256": "438d98fdb5fe9a7baf05c0fe960f44467001159be6953fd4169e0ba065dacf27"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/AnalyticFlatFamilyAsymptoticPopulation.time",
+      "sha256": "49c1946eecb9882262b2f510000aa11d57fa3389bb42cb7f78359ace5b7c52a1"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/AnalyticFlatFamilyDirichlet.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/AnalyticFlatFamilyDirichlet.stdout",
+      "sha256": "8bf470950bfb8f4ab1f623ba8515ee927392b4faaddc89e9d3e1d779ec830e52"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/AnalyticFlatFamilyDirichlet.time",
+      "sha256": "52551e8656d905fe615687c24cf1337dfc05511c3f5eac5806cb36918baa6763"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/AnalyticFlatFamilyIntegral.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/AnalyticFlatFamilyIntegral.stdout",
+      "sha256": "939417041c0985a3f57461161dd9817138def692a0a119a8e578cc0585d3e6b0"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/AnalyticFlatFamilyIntegral.time",
+      "sha256": "6704a4e63630d90435dcd0af2d39efc3519cf799543344d68c95915da1238332"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/AnalyticFlatFamilyNodes.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/AnalyticFlatFamilyNodes.stdout",
+      "sha256": "717208a8350d25f9cff242113acd8b9794838052c2a664805a8b64e34fc1c746"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/AnalyticFlatFamilyNodes.time",
+      "sha256": "2a7bbb749727e0dc114ffd4a31f3ee1a90e60e7f3b1ca3e9d9702662abc65a58"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/AnalyticFlatFamilyPopulation.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/AnalyticFlatFamilyPopulation.stdout",
+      "sha256": "2042211e4d0cd45d821a26aeaf5401ee64e0509bde808eeaa08f18170c363dd7"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/AnalyticFlatFamilyPopulation.time",
+      "sha256": "419e6a74015716fc8cf81eb66872d5037c8df15526cfaa99fc1fcdf7a486c807"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/ExplicitAffineFourier.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/ExplicitAffineFourier.stdout",
+      "sha256": "28f9b3529023e092ea4e253680b1af38a79db640e9c1a4587474013413c2f5f1"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/ExplicitAffineFourier.time",
+      "sha256": "69dd6639d7d6d45ad10c716c57e475d86fd4bf0882bb0990f92f1b75928bde26"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/ExplicitAffineIntegrals.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/ExplicitAffineIntegrals.stdout",
+      "sha256": "de07a84bd88f06557058d101a9e60a2b20117565ba4ea18151b68ac376d35a44"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/ExplicitAffineIntegrals.time",
+      "sha256": "54ae71665d696d2c5cb42d7df56b7db1e75c85f5a40e3d3fb4e40ece17cc6a63"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/ExplicitAffineWindow.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/ExplicitAffineWindow.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/ExplicitAffineWindow.time",
+      "sha256": "c0e63f45b17f6d5f0bec3c034529d476045e8e5dd99f7ad814496f3d2e22e89a"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/ExplicitBRPopulationConsumer.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/ExplicitBRPopulationConsumer.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/ExplicitBRPopulationConsumer.time",
+      "sha256": "b010669261ba97e86fb4d01f29c41ef020ab4a389062880b122920785510f318"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/ExplicitCMSEligible.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/ExplicitCMSEligible.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/ExplicitCMSEligible.time",
+      "sha256": "9a1656777cf5433144134730ff1b33312e8d60a85395c7be3ad987965b704630"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/ExplicitCosineMoment.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/ExplicitCosineMoment.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/ExplicitCosineMoment.time",
+      "sha256": "80a1815a1b52860e1fe1b3562fbe2380e3c533b6051e1f732b6696a4fccaa4d1"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/ExplicitFiniteDifference.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/ExplicitFiniteDifference.stdout",
+      "sha256": "22d014bb94c965add99f100ca9214b6982f73879b8f443568be62957defd433e"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/ExplicitFiniteDifference.time",
+      "sha256": "5a00a8e13ccd10839f4e70e65e81d7f1769a39c0119aa53010c106e109964932"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/ExplicitFourierPair.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/ExplicitFourierPair.stdout",
+      "sha256": "49b665e04257bb8f720400664b024b4047458169c1bcc8684149a6005534e697"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/ExplicitFourierPair.time",
+      "sha256": "200a84d4b2406549b1bbe50f7310f24c527cd36092ece91dc6df76aa0b5f4c92"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/ExplicitHatFourier.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/ExplicitHatFourier.stdout",
+      "sha256": "86576bf2c65c7bc691630da4edef8693f8c1511c4c048343a67e2684dc93c3b6"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/ExplicitHatFourier.time",
+      "sha256": "a4923e58a77c7306deb9fdb147b7541eaae2529d56fc33fcf7cc46caecaca813"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/ExplicitHatIntegrals.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/ExplicitHatIntegrals.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/ExplicitHatIntegrals.time",
+      "sha256": "490387327b06e88661e0569bf06147e9a6539ad661e9b0fefc23ba4e1b9ed6d8"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/ExplicitNormSourceBridge.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/ExplicitNormSourceBridge.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/ExplicitNormSourceBridge.time",
+      "sha256": "049390982de8435cf2d0b128d86ffb80f9b37004c1fc8e24b8c762469cdc3b14"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/ExplicitSignedLogMoment.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/ExplicitSignedLogMoment.stdout",
+      "sha256": "b4b99246e8066a0faad13e47b9fd1323bb8fa5f33e1205ddb8c4801bb55669cb"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/ExplicitSignedLogMoment.time",
+      "sha256": "e54a0154e80da3441a0f86b9ba69039eff477f441fd75f3513e57785be5b44f6"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/IEANTN.Vocabulary.CMSFunctional.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/IEANTN.Vocabulary.CMSFunctional.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-O/logs/IEANTN.Vocabulary.CMSFunctional.time",
+      "sha256": "bddca561a7478da451c3073545d84a8359a216e1c91ceb6109076f892dd1e80d"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/AffinePopulationBounds.COMPILED.json",
+      "sha256": "c3e908738ac0bd5881443f6ae80764f232405a33a1b4483ce32244d1e069555d"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/AnalyticFlat64Dirichlet.COMPILED.json",
+      "sha256": "6b22fd23107633c46b4443f06a43b689d0d273b06420a5883d2a7587c30a1ce7"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/AnalyticFlat64Integral.COMPILED.json",
+      "sha256": "4c9f98b54f3be07321208e898467669f6d5d7312268f4cab10d2aaa622ee9cfd"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/AnalyticFlatFamilyAsymptoticAudit.COMPILED.json",
+      "sha256": "1e382eca1c33575689d2d4569dfe6b4f3e42387621f284f32ff2ab8a9a1e2d77"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/AnalyticFlatFamilyAsymptoticLimits.COMPILED.json",
+      "sha256": "c238465fca9e982525d3614f2a1801c453f3af77d3c2f9a8bc751f0b5fad4b5f"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/AnalyticFlatFamilyAsymptoticPopulation.COMPILED.json",
+      "sha256": "9543d53a402f9dacac9b56b4d370b83070c1f70a3604090d49a87edc4c08b8ff"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/AnalyticFlatFamilyDirichlet.COMPILED.json",
+      "sha256": "11a90984bda264550fc81e2f0740cf8ef66e0d7a6aa075baae3a611909fde81a"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/AnalyticFlatFamilyIntegral.COMPILED.json",
+      "sha256": "9359bfce6d5ba69f5b85a2332be44dfc8ad1c4cc8d4b2a8355ee8e1c06ee35df"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/AnalyticFlatFamilyNodes.COMPILED.json",
+      "sha256": "3a791384f13b0f977c821c5f30f72a84a3ab8d0d8f8eb34a75b859056159ca52"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/AnalyticFlatFamilyPopulation.COMPILED.json",
+      "sha256": "9027ab4c1413d96a8c16a7aa7ceffbb5a6465dd47ce586103d8f2b15ba6bfe6d"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/ExplicitAffineFourier.COMPILED.json",
+      "sha256": "74cefb80d47597df0154d7d203fe781efc6ba548b3f1b8a3c0719107488e7800"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/ExplicitAffineIntegrals.COMPILED.json",
+      "sha256": "ca2074c3884403c38776a0a5d6dfb25a71aae9a48a1cb892b4345c2e8fa39ac7"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/ExplicitAffineWindow.COMPILED.json",
+      "sha256": "f56ea268a49f9205523c0f48076e0e859fd34f6cf23091b0229e7b7d7fb3b72a"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/ExplicitBRPopulationConsumer.COMPILED.json",
+      "sha256": "198eb4f95ff865264056675a0d25414dc7f07a7dfdb2039cc5eff6972f8df706"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/ExplicitCMSEligible.COMPILED.json",
+      "sha256": "f33d42262da4c500a6a1686c5c6908e6ccbe8493128b45cd4886e25d6162259f"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/ExplicitCosineMoment.COMPILED.json",
+      "sha256": "2c3f633f490d96c2e4b4866221767ea7864d32a320dceedfcb97e35cb281c89a"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/ExplicitFiniteDifference.COMPILED.json",
+      "sha256": "fa27550e2359ec5d1cc2ce52b97c60d93d09a9fd6174b206ea07163f0a011099"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/ExplicitFourierPair.COMPILED.json",
+      "sha256": "232621f82b2613e3c30ab2ded7a87c149f3888a7eae3c2e8efb42c8e9198f342"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/ExplicitHatFourier.COMPILED.json",
+      "sha256": "9c9adfec9bb5650f2c0fc127bb4c1f09717d4fe64bb32c9ba896bea01c3d0849"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/ExplicitHatIntegrals.COMPILED.json",
+      "sha256": "716c549ddd53cfbe09db7f5f50aeea2bf8ff555cbdc7156787a2d02484c8c588"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/ExplicitNormSourceBridge.COMPILED.json",
+      "sha256": "ef107cb59c9d027e2388cddf1eacee48fba9b7fd00b9f57a35436d1d61aca71b"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/ExplicitSignedLogMoment.COMPILED.json",
+      "sha256": "27f298d71320940bcb9eb378e06ace88e7b665f9259d419a36a128ea5e1b277c"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/IEANTN.Vocabulary.CMSFunctional.COMPILED.json",
+      "sha256": "3c758abe88849e9e888450ce00d307c16984bf531969b2ad5fa556cb0209f502"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/PLAN.json",
+      "sha256": "7c93994648912eff1b11a6362355bd571d3eb1f4bad2426689fc0cfe45defd9f"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/RESULT.json",
+      "sha256": "504621b337b4b149e9d0802845fa41f76becfb46d14897d3b9e873c9aea85941"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/AffinePopulationBounds.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/AffinePopulationBounds.stdout",
+      "sha256": "526ff13fbb792e694c44ad3da6913e092bfb5ff21163991ea73e6134f5bb9984"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/AffinePopulationBounds.time",
+      "sha256": "f39a6642ab4bced1518e3e8efd4262f9167373aeb73a13c44bdab6afb95b676d"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/AnalyticFlat64Dirichlet.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/AnalyticFlat64Dirichlet.stdout",
+      "sha256": "0ca2a8195c52bea9b48707563c9ffe46fddb30c26397e90ef361adf43c6df865"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/AnalyticFlat64Dirichlet.time",
+      "sha256": "14424133fdd0b37f5e79ba2e8f6c1b7184d4b5c0c0bcaf12d106661f0ef33042"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/AnalyticFlat64Integral.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/AnalyticFlat64Integral.stdout",
+      "sha256": "164a9275b6b51c5ff6089b528a3e7a8d985b30d099ceb46e35923b0330a29f16"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/AnalyticFlat64Integral.time",
+      "sha256": "62ea676a0facf12388397e1ab74dc9c80153cdd81f4a38be2021bc778e3129f3"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/AnalyticFlatFamilyAsymptoticAudit.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/AnalyticFlatFamilyAsymptoticAudit.stdout",
+      "sha256": "4bdaea66806cc567ac28311d89f4d8c017e5a2490e42b8e89f02014f98ee229c"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/AnalyticFlatFamilyAsymptoticAudit.time",
+      "sha256": "f9bd1d504b37376fac42e1898786a3bad5dab522a45c47cd650ed5489c756818"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/AnalyticFlatFamilyAsymptoticLimits.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/AnalyticFlatFamilyAsymptoticLimits.stdout",
+      "sha256": "89c66b40803555885159ada4887cba6dc2c5cd912470ed75594d1c061e346bec"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/AnalyticFlatFamilyAsymptoticLimits.time",
+      "sha256": "c5fac685bb2aa11c0a19af933c5702539ad92402e211028bf8fbaa4ee3ed23ad"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/AnalyticFlatFamilyAsymptoticPopulation.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/AnalyticFlatFamilyAsymptoticPopulation.stdout",
+      "sha256": "438d98fdb5fe9a7baf05c0fe960f44467001159be6953fd4169e0ba065dacf27"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/AnalyticFlatFamilyAsymptoticPopulation.time",
+      "sha256": "ead4e1a51c8f80b68ce6418fa8cfd00693eab503488d3a83914efb00b1429f7f"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/AnalyticFlatFamilyDirichlet.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/AnalyticFlatFamilyDirichlet.stdout",
+      "sha256": "8bf470950bfb8f4ab1f623ba8515ee927392b4faaddc89e9d3e1d779ec830e52"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/AnalyticFlatFamilyDirichlet.time",
+      "sha256": "caff8a43f9b7c8e6786fd74cb071255b4e287654db20a953ce808f5938c4721a"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/AnalyticFlatFamilyIntegral.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/AnalyticFlatFamilyIntegral.stdout",
+      "sha256": "939417041c0985a3f57461161dd9817138def692a0a119a8e578cc0585d3e6b0"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/AnalyticFlatFamilyIntegral.time",
+      "sha256": "1daf4feda635130df9657e5d2b6532c1cd48cee8ed88e362b1e8aed4700bfe47"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/AnalyticFlatFamilyNodes.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/AnalyticFlatFamilyNodes.stdout",
+      "sha256": "198b9cac7cd12e81f6e16eca2bfe3a0ae03d06b170ede7d82c6f382a10704607"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/AnalyticFlatFamilyNodes.time",
+      "sha256": "ba61f519f97087d2681891e1fd38ee2e8a819fc878483b47b1f3c8371df87133"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/AnalyticFlatFamilyPopulation.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/AnalyticFlatFamilyPopulation.stdout",
+      "sha256": "36c1b52bbcdde57557419d09fe0edb911f98a92332e473a43b086c033046dfbb"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/AnalyticFlatFamilyPopulation.time",
+      "sha256": "7673a48dc27f24057111b7b6ae9cfcda87203df8dec94e46789f19da5949ead9"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/ExplicitAffineFourier.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/ExplicitAffineFourier.stdout",
+      "sha256": "f49d8e53f70aa30702582ba0b4439890ed88b98792d5e21443e75ec66c5891ba"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/ExplicitAffineFourier.time",
+      "sha256": "e1f4001c929c6365293a62e4cdd9dd9e9fdbff390902b7d393993aecb368354d"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/ExplicitAffineIntegrals.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/ExplicitAffineIntegrals.stdout",
+      "sha256": "dcbda0088f6c9df7b66eeca110ce146f460a9acc86e27b342c0d45e74fc18b12"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/ExplicitAffineIntegrals.time",
+      "sha256": "dffc60ed04dd4520dde453705da6ab437904fd25bf2f1186734a1b4b0e15552e"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/ExplicitAffineWindow.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/ExplicitAffineWindow.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/ExplicitAffineWindow.time",
+      "sha256": "c0c9b4cc7d32d4125a2bd497bff1bf90a2920e02fc4356c9731a887a0e82c35d"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/ExplicitBRPopulationConsumer.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/ExplicitBRPopulationConsumer.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/ExplicitBRPopulationConsumer.time",
+      "sha256": "ca0eff488019db99824c9337b1bf1a844fba6ec292bac991d40ac5750bdc4ec4"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/ExplicitCMSEligible.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/ExplicitCMSEligible.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/ExplicitCMSEligible.time",
+      "sha256": "bd5ceddae6351062039819a60cb63ef1f6537c369cd33ffa16c30625427b007e"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/ExplicitCosineMoment.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/ExplicitCosineMoment.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/ExplicitCosineMoment.time",
+      "sha256": "14c61a632160d8e5183cfb94dca9dbe87e2410a7cb4f4eeda404a7ede03ef5e5"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/ExplicitFiniteDifference.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/ExplicitFiniteDifference.stdout",
+      "sha256": "9ac4389ff66200330d0a0650b71c59b59067822216a418d197226ee2daa34f44"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/ExplicitFiniteDifference.time",
+      "sha256": "fc4f2c881f94238b0648be5c1b68517c4ea3d1ad44b5ff7fc6781e5bdae11813"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/ExplicitFourierPair.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/ExplicitFourierPair.stdout",
+      "sha256": "5c5dd53b2f95291fa58331f7be98acca33c8b795bc6ef76a2e09fad3a66b780b"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/ExplicitFourierPair.time",
+      "sha256": "a113ea5a495f6330a2df2b516508b85ee13e5061ed06eaf4c7ed86a1d22891f7"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/ExplicitHatFourier.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/ExplicitHatFourier.stdout",
+      "sha256": "7e10da86ba8723f3fe8a04f078f2eccb68fee17966dbfbb7fb4c071ba5528f9b"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/ExplicitHatFourier.time",
+      "sha256": "df59119a7b7437e438c374543aa37418e4a46dcc03758fc7d792fb6652bbadd8"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/ExplicitHatIntegrals.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/ExplicitHatIntegrals.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/ExplicitHatIntegrals.time",
+      "sha256": "a1faacb226d9459f928f182cc2bd024561ef4c059b52c7f2a486dc0a19919353"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/ExplicitNormSourceBridge.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/ExplicitNormSourceBridge.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/ExplicitNormSourceBridge.time",
+      "sha256": "07c960c79332e6cfd574f0f92d5da2db598e8b8346170d139feb0a86d897d4c9"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/ExplicitSignedLogMoment.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/ExplicitSignedLogMoment.stdout",
+      "sha256": "3e52b8c420ee2d5808e7b9fc945f90b60e512d4db83a5287d0d962aa98e8a49d"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/ExplicitSignedLogMoment.time",
+      "sha256": "49723fa572822ffa60be028002c4911dd8ce1e4fc5bd41c8dbc259738a7239ae"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/IEANTN.Vocabulary.CMSFunctional.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/IEANTN.Vocabulary.CMSFunctional.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/-OO/logs/IEANTN.Vocabulary.CMSFunctional.time",
+      "sha256": "bd9f969fe8b5a319b0fcb8a3facea2928878536a7854100dc2770fe8aa293144"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/CONTROLLER_CONTROLS.json",
+      "sha256": "bd28d0e9a5b6350ee0e8f9bc60286f8bc02f7dd02436bf314a67836ec88200f0"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/AffinePopulationBounds.COMPILED.json",
+      "sha256": "b34c3a716d7e7e0951f578a57ddc88738a3a86bacf7a39ec29e87815fe0a167c"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/AnalyticFlat64Dirichlet.COMPILED.json",
+      "sha256": "e0bf915d9a6b82001ccc16034e7b0ccf7324ef6356209cc05993dee35e1c56c9"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/AnalyticFlat64Integral.COMPILED.json",
+      "sha256": "11895b3a5045fd827eacfc9f5bfb38cf527457def984eccf4fded5949c5969fc"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/AnalyticFlatFamilyAsymptoticAudit.COMPILED.json",
+      "sha256": "01fb595ef8cc8c18618cbb6372c679e6c172ebbabea6e3625b41999bda403a8f"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/AnalyticFlatFamilyAsymptoticLimits.COMPILED.json",
+      "sha256": "5b2ecc3335ad2ca1e078bd9f4daaa4ed37f7bde53fb903b0523838d83b9a534d"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/AnalyticFlatFamilyAsymptoticPopulation.COMPILED.json",
+      "sha256": "1ff94a515216efd23f492260efc4577e703d7b840b2c25c0f8f1e50afe7e219d"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/AnalyticFlatFamilyDirichlet.COMPILED.json",
+      "sha256": "2be010bad0c802f42e0324ceecca9ab74c2745047bb0299c106bffce99c13e1c"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/AnalyticFlatFamilyIntegral.COMPILED.json",
+      "sha256": "e5ece36d7899336741502480f16a28f250a2b5cccbfb99b070ef2e3965da0691"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/AnalyticFlatFamilyNodes.COMPILED.json",
+      "sha256": "5b65cca1ff891f3f94d5e6aa50143d4ea13edac3f90dc1bd4d157e70d9873016"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/AnalyticFlatFamilyPopulation.COMPILED.json",
+      "sha256": "e5e96c4763f7a09d16477a3903dd18813569284210460b40fcb0adff76da5654"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/ExplicitAffineFourier.COMPILED.json",
+      "sha256": "2200e47a640b37d04c2fb7bb85100f8ba0b802dc5ac34399693968d43160e405"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/ExplicitAffineIntegrals.COMPILED.json",
+      "sha256": "041d0b49eb85a5f71122e1d57677d9b29c06bfdef1638b47b35ba51727188aa8"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/ExplicitAffineWindow.COMPILED.json",
+      "sha256": "46401e2ecb1523493a225ca372564c62884101d34d801ae1deb7c2940dd693db"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/ExplicitBRPopulationConsumer.COMPILED.json",
+      "sha256": "8eeef7b5d66bd38aefb866699b7a9ea3a2a8aee6cc7331590970772bcf47e958"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/ExplicitCMSEligible.COMPILED.json",
+      "sha256": "c77efb4e3aaad2bee7b2eb7b343a92e43fb3626533702bb43286340c1aa7ab3a"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/ExplicitCosineMoment.COMPILED.json",
+      "sha256": "3bee3a4658aa203147967c980e15c3624d93fcbc8eee59e8400664966c21e615"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/ExplicitFiniteDifference.COMPILED.json",
+      "sha256": "b6fcd33a7f2da27fb2e90850b7b9a0d670397aa6e701901fbd355164ae1843d0"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/ExplicitFourierPair.COMPILED.json",
+      "sha256": "bd9ad8ced81ed54d1a025f2dacbb1da8bcd50011fb92732d1509f5c03e7bfe63"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/ExplicitHatFourier.COMPILED.json",
+      "sha256": "a1c415d3a9faf60b9492be180da216f592ee41a86a08fddc7cab3c1ad5efdde0"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/ExplicitHatIntegrals.COMPILED.json",
+      "sha256": "6ecbbed691c53383aab50f70c8458cc9a3fea24e7616e174eafe60742fce0a6e"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/ExplicitNormSourceBridge.COMPILED.json",
+      "sha256": "1cbe113ff93af96d0bc8ada281d15e9975f49279e11fa996739e783a060978ba"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/ExplicitSignedLogMoment.COMPILED.json",
+      "sha256": "ad2045ebc2ae96b2d0b94472759ce2ffc04dc2a0d09a1aa13f8adb52ea75e4cb"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/IEANTN.Vocabulary.CMSFunctional.COMPILED.json",
+      "sha256": "500014d64d25a1c6de466848d885d8d95bd9de8f665c8f610209078482b5f50e"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/PLAN.json",
+      "sha256": "83334d7d1a6b5f856cdf97af719a3b0a5fee80c3461b79afebe67e47992ec2aa"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/RESULT.json",
+      "sha256": "4d3782c4a09ad30a1cada1106dddad0b05bb77f1157f5ff2062062f4bb240c91"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/AffinePopulationBounds.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/AffinePopulationBounds.stdout",
+      "sha256": "526ff13fbb792e694c44ad3da6913e092bfb5ff21163991ea73e6134f5bb9984"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/AffinePopulationBounds.time",
+      "sha256": "0b8c3ab631b5b44be0eeba23d56779716f93094ffdaa282b414b590a4286a2dc"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/AnalyticFlat64Dirichlet.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/AnalyticFlat64Dirichlet.stdout",
+      "sha256": "0ca2a8195c52bea9b48707563c9ffe46fddb30c26397e90ef361adf43c6df865"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/AnalyticFlat64Dirichlet.time",
+      "sha256": "2f4ee0cc2cb542d939e158a1461029499baf754877a8159cdc5064794dd084b8"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/AnalyticFlat64Integral.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/AnalyticFlat64Integral.stdout",
+      "sha256": "164a9275b6b51c5ff6089b528a3e7a8d985b30d099ceb46e35923b0330a29f16"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/AnalyticFlat64Integral.time",
+      "sha256": "92988f08c9a737edba715171d0c67f7bee08c5499ae179bd4366981bc593584e"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/AnalyticFlatFamilyAsymptoticAudit.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/AnalyticFlatFamilyAsymptoticAudit.stdout",
+      "sha256": "4bdaea66806cc567ac28311d89f4d8c017e5a2490e42b8e89f02014f98ee229c"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/AnalyticFlatFamilyAsymptoticAudit.time",
+      "sha256": "5029d8c232a15b2cfe3c5b86789bebd15ac58883a862560b500682de12bbc77f"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/AnalyticFlatFamilyAsymptoticLimits.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/AnalyticFlatFamilyAsymptoticLimits.stdout",
+      "sha256": "4299016639720713bf848b49cd16d689aa0e68bc18081c9a9edbf2df49caff9e"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/AnalyticFlatFamilyAsymptoticLimits.time",
+      "sha256": "30ae866091b6268bc43086f653e0caa13dcecd95b441ae9eaf96515a26b67fc6"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/AnalyticFlatFamilyAsymptoticPopulation.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/AnalyticFlatFamilyAsymptoticPopulation.stdout",
+      "sha256": "438d98fdb5fe9a7baf05c0fe960f44467001159be6953fd4169e0ba065dacf27"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/AnalyticFlatFamilyAsymptoticPopulation.time",
+      "sha256": "9b2777b8b49afcb35b1d16e8eacd74a4ac56198798cd4d6d8ed3756d0f8b2296"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/AnalyticFlatFamilyDirichlet.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/AnalyticFlatFamilyDirichlet.stdout",
+      "sha256": "8bf470950bfb8f4ab1f623ba8515ee927392b4faaddc89e9d3e1d779ec830e52"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/AnalyticFlatFamilyDirichlet.time",
+      "sha256": "9bc6cbd6d6c3aa2e6e54d62b75a5b8b1bd5cdb850dafb9e918083a94823ae2d0"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/AnalyticFlatFamilyIntegral.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/AnalyticFlatFamilyIntegral.stdout",
+      "sha256": "939417041c0985a3f57461161dd9817138def692a0a119a8e578cc0585d3e6b0"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/AnalyticFlatFamilyIntegral.time",
+      "sha256": "ad9242dcbe0b96e8bbc233a7e2a4ff9c2caed0db6cbc81c2160787d62f0b3c52"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/AnalyticFlatFamilyNodes.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/AnalyticFlatFamilyNodes.stdout",
+      "sha256": "bb40e3670dbd7ebf35f0140145c15969e57ee0b7840758242f23b84d196d8bc7"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/AnalyticFlatFamilyNodes.time",
+      "sha256": "a80261407d94b59e02adc49928aaa8ecac1313eb562fec7b5b0d1aa48b94b78e"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/AnalyticFlatFamilyPopulation.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/AnalyticFlatFamilyPopulation.stdout",
+      "sha256": "02816c2afcd8cc5f4d88f5dfec29b64280db6f92ca5f94c611d020d2b192b803"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/AnalyticFlatFamilyPopulation.time",
+      "sha256": "9aad396b013034b598c2894d8deb1ad0d0cd1c13d576b9a5d02a0f156f543d59"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/ExplicitAffineFourier.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/ExplicitAffineFourier.stdout",
+      "sha256": "068b495a74fd5427e855c9ae36a03fd49e25b23d9878403e636bcbf83ca52bd2"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/ExplicitAffineFourier.time",
+      "sha256": "9730e3e94d1547749e6b71a254d90e50b7b791e3127d833b2d60bacf03da367a"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/ExplicitAffineIntegrals.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/ExplicitAffineIntegrals.stdout",
+      "sha256": "d8487c92fe09516e9fe89949f35fd599f9928d6e4aae5f7a7e8d5b538eb535f5"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/ExplicitAffineIntegrals.time",
+      "sha256": "f6a9a4ae5fbb3ddf9afbd6160362888f1315dd9862afb9d52082f65fe835ad6c"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/ExplicitAffineWindow.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/ExplicitAffineWindow.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/ExplicitAffineWindow.time",
+      "sha256": "eb752d7840f0c02faab132bd2f5ec982a63005f4d0ea2058d94fd6f88c5f3064"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/ExplicitBRPopulationConsumer.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/ExplicitBRPopulationConsumer.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/ExplicitBRPopulationConsumer.time",
+      "sha256": "043382245a16da3ef280cad0b679b008976da3594435eb4dedab76deeb8e3428"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/ExplicitCMSEligible.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/ExplicitCMSEligible.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/ExplicitCMSEligible.time",
+      "sha256": "2eef5a0046485d8c7969b8a03cb1fc8846b92382e25624396b58999c8d8933ca"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/ExplicitCosineMoment.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/ExplicitCosineMoment.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/ExplicitCosineMoment.time",
+      "sha256": "aedd1ac8006e2fa2d762e7c7cbc77da099f7d2b5dbbb026b2598a2ecc5232b66"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/ExplicitFiniteDifference.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/ExplicitFiniteDifference.stdout",
+      "sha256": "e79c0cf0ace3423824c4aaf4fb41a4d72b349d44634de31c3ece5188e19c3c4e"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/ExplicitFiniteDifference.time",
+      "sha256": "f6869439cbda8a52cea3ed7edbcb9ff975534a7b7e418e30adbd81778ccf1e97"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/ExplicitFourierPair.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/ExplicitFourierPair.stdout",
+      "sha256": "a6fbd95043ee6049a0784e424c896e84055e870aae36b14a5e5cc12b05ef9927"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/ExplicitFourierPair.time",
+      "sha256": "0c4375246622733c770f7fc3dd4e39eb51ba9aa5e4ffefa0f4ab43e252312d33"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/ExplicitHatFourier.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/ExplicitHatFourier.stdout",
+      "sha256": "2172d2b6e761baae3f9f84855c547ef53d6e37a46627b433ee5cbcb92f982710"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/ExplicitHatFourier.time",
+      "sha256": "ba00b4c5e7ca1926c237ed406a882da5194870de8f62afc76cc64946f445d00b"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/ExplicitHatIntegrals.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/ExplicitHatIntegrals.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/ExplicitHatIntegrals.time",
+      "sha256": "3a52a83aa4e09e70c938509f683d293861bf641fffc4e99c4ac51073110ec4be"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/ExplicitNormSourceBridge.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/ExplicitNormSourceBridge.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/ExplicitNormSourceBridge.time",
+      "sha256": "de86010dc5b1fa6c536f09b72b500d5527409a82a0e4ce8a73b3a10bdb25a64c"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/ExplicitSignedLogMoment.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/ExplicitSignedLogMoment.stdout",
+      "sha256": "28f4429ecc98a4eaa056a13b5bf501581df22b1253a51fbfe4362fa37bd1dba9"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/ExplicitSignedLogMoment.time",
+      "sha256": "49c316cfe7e8a03ada85a22a8facbf121becf4a5d0c5a0f4f46dd20af44769aa"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/IEANTN.Vocabulary.CMSFunctional.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/IEANTN.Vocabulary.CMSFunctional.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Solutions/RH080Next.v1/explicit/evidence/analytic-flat-family-asymptotic/normal/logs/IEANTN.Vocabulary.CMSFunctional.time",
+      "sha256": "07dfc678e9bf8a54a0d9d41c362f145d6ee0e4fc27646d9d1d0ad77b956c1d3c"
+    }
+  ],
+  "aggregate_cgroup_peak": "not measured",
+  "oom_events": "not independently measured; no zero-OOM claim",
+  "reproduce": [
+    "python3",
+    "Solutions/RH080Next.v1/explicit/reproduce_analytic_flat_family_asymptotic.py",
+    "--context",
+    "<pinned clean_proof_context.json>",
+    "--run",
+    "<fresh experiment-owned directory>"
+  ]
+}
