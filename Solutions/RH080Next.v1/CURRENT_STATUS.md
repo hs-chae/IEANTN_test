@@ -1,5 +1,12 @@
 # Current campaign status
 
+## Resumed27November2026 — resource-only continuation active
+
+Finite681source-cold lineage and independent gates remain complete. The unchanged N24 candidate retains1031successfulmodules. A new continuation is validating those receipts before attempting the two remaining modules. Its physical300GiB/noSwap cgroup, separate RAM/disk admission and host/scratch reserves are unchanged; virtual address space is explicitly unlimited to avoid the previous nonphysical limit. Bounded source/CLI/negative controls pass. This is not a new global theorem acceptance.
+
+The previous regeneration produced byte-identical1020Lean+937CSVfiles. Verified-regenerable duplicate output and private generatedIR were safely cleaned with exact manifests; accepted proof objects, original inputs and receipts were protected. Six final W4 theorem modules,29canonical claims, full reproduction and the final report/bundle remain pending. Historical checkpoints below preserve the failed/interrupted attempts.
+
+
 ## Usage checkpoint, 26 November 2026 (latest)
 
 The finite681-module source-cold lineage and independent normal/-O/-OO gates are complete. The W4 N24 lineage has1031 successful modules of1033; its Final module failed at virtualAS256GiB after3301.358s with an allocation panic (max compilerRSS141287720KiB, completed owned physical cgroup OOM/kill counters0). The physical limit remained300GiB. This is a resource failure, not a mathematical counterexample.
