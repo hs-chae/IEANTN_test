@@ -17,17 +17,18 @@ PYTHON=sys.executable
 ORDER=["source-fixtures","gaussian-inputs","gaussian","dual","population",
        "analytic-flat64","analytic-family","analytic-asymptotic",
        "finite-inputs","finite-main","canonical-finite",
-       "n24-inputs","n24-kernel","n24-bank","w4-main","canonical-w4",
+       "n24-inputs","n24-compact","n24-kernel","n24-bank","w4-main","canonical-w4","c7-kernel-control",
        "exposure","physical"]
 DEPS={
  "gaussian":["gaussian-inputs"],"finite-main":["finite-inputs"],
- "canonical-finite":["finite-main"],"n24-kernel":["n24-inputs"],
+ "canonical-finite":["finite-main"],"n24-compact":["n24-inputs"],"n24-kernel":["n24-compact"],
  "n24-bank":["n24-kernel"],"w4-main":["n24-bank","finite-main","population"],
  "canonical-w4":["w4-main","canonical-finite","analytic-flat64","analytic-family","analytic-asymptotic","population"],
+ "c7-kernel-control":["canonical-w4","w4-main"],
  "physical":["source-fixtures"],
 }
 PROTECTED={"gaussian","dual","population","finite-main","canonical-finite",
-           "n24-inputs","n24-kernel","w4-main","canonical-w4","exposure"}
+           "n24-inputs","n24-kernel","w4-main","canonical-w4","c7-kernel-control","exposure"}
 REQUIRED={
  "source-fixtures":["pv/check_regeneration.py"],
  "gaussian-inputs":["primal/generate_scaled_gaussian.py","primal/generate_scaled_fourier.py","primal/generate_scaled_assembly.py"],
@@ -41,10 +42,12 @@ REQUIRED={
  "finite-main":["pv/reproduce_final_fap_source_cold_v2.py"],
  "canonical-finite":["pv/compile_verified_batch_linked.py","explicit/verify_canonical_evolution.py","explicit/CANONICAL_EVOLUTION_BASELINE.json"],
  "n24-inputs":["dual/produce_fft_dag_certificate.py","dual/evidence/W4_N24_EXPECTED_INPUTS.json"],
- "n24-kernel":["dual/reproduce_fft_dag_physical_v2.py","dual/reproduce_fft_dag_v2.py","dual/verify_fft_dag_fresh_v3.py","pv/supervise_resource_run.py"],
- "n24-bank":["dual/export_fft_dag_fresh_bank_v3.py"],
+ "n24-compact":["compact-proof-repair-v1/tools/derive_compact_candidate.py","compact-proof-repair-v1/tools/compact_contract.py","compact-proof-repair-v1/tools/generate_compact_final_v2.py","compact-proof-repair-v1/locked/w4-input.json","compact-proof-repair-v1/locked/original-candidate-24.json","compact-proof-repair-v1/locked/original-foundations-24.json","compact-proof-repair-v1/locked/mathematical-source-identities-24.json","compact-proof-repair-v1/locked/original-tool-identities.json"],
+ "n24-kernel":["dual/reproduce_fft_dag_physical_v2.py","dual/reproduce_fft_dag_v2.py","dual/verify_fft_dag_fresh_v3.py","compact-proof-repair-v1/tools/verify_fresh_compact.py","compact-proof-repair-v1/tools/compact_contract.py","pv/supervise_resource_run.py"],
+ "n24-bank":["compact-proof-repair-v1/tools/export_fresh_compact.py","compact-proof-repair-v1/tools/verify_fresh_compact.py","compact-proof-repair-v1/tools/compact_contract.py"],
  "w4-main":["pv/reproduce_w4_main_v2.py","pv/compile_verified_batch_linked_v2.py","pv/lean/FFTW4MainAudit.lean"],
- "canonical-w4":["explicit/reproduce_canonical_w4_evolution_v2.py","explicit/verify_canonical_w4_evolution_v2.py","explicit/CANONICAL_W4_BASELINE.json","explicit/CanonicalW4EvolutionAudit.lean"],
+ "canonical-w4":["explicit/reproduce_canonical_w4_evolution_v2.py","explicit/verify_canonical_w4_evolution_v4.py","explicit/CANONICAL_W4_BASELINE.json","explicit/CanonicalW4EvolutionAudit.lean"],
+ "c7-kernel-control":["pv/compile_verified_batch_linked_v2.py","pv/lean/C7KernelScalars.lean","pv/lean/C7KernelGlobal.lean","pv/lean/C7KernelAudit.lean"],
  "exposure":["ablation/review/reproduce_clean_proofs.py"],
  "physical":["pv/reproduce_recursive_physical.py","pv/verify_recursive_physical_receipts.py","pv/test_recursive_physical_receipts.py"],
 }
@@ -218,27 +221,58 @@ class Runner:
             atomic(folder/"RESULT.json",dict(status="PASS_REGENERATED_FIXED_N24_UNTRUSTED_PROPOSAL_IDENTITIES",
                 N=16777216,norm_numerator=7813568381279800,CSV_files=937,mathematical_proof=False))
             return self.result(name,folder/"RESULT.json","PASS_REGENERATED_FIXED_N24_UNTRUSTED_PROPOSAL_IDENTITIES")
+        if name=="n24-compact":
+            original=self.root/"n24-inputs/work"
+            self.call(name,"derive-source-only",[PYTHON,str(PROJECT/"compact-proof-repair-v1/tools/derive_compact_candidate.py"),
+                "--candidate",str(original),"--out",str(work),"--project-root",str(PROJECT)])
+            transformed=read_json(work/"PROOF_TRANSFORM_RECEIPT.json")
+            need(transformed.get("status")=="PASS_SOURCE_ONLY_TRANSFORM_NOT_PROOF_NOT_PV",
+                "Compact source derivation did not pass its locked contract")
+            derived=read_json(work/"PLAN.json");old=read_json(original/"PLAN.json")
+            need(len(old["modules"])==1020 and len(derived["modules"])==1022,
+                "Original and compact source inventories differ")
+            need(derived["payloads"]==old["payloads"] and len(derived["payloads"])==937,
+                "Compact derivation changed numerical payload identities")
+            need(sha(work/"ORIGINAL_PRODUCER_PLAN.json")==sha(original/"PLAN.json"),
+                "The original numerical producer PLAN was not preserved")
+            atomic(folder/"RESULT.json",dict(status="PASS_SOURCE_ONLY_COMPACT_DERIVATION_NOT_PROOF_NOT_PV",
+                original_generated_modules=1020,derived_generated_modules=1022,unchanged_CSV_files=937,
+                original_plan_sha256=sha(original/"PLAN.json"),derived_plan_sha256=sha(work/"PLAN.json"),
+                transform_receipt_sha256=sha(work/"PROOF_TRANSFORM_RECEIPT.json"),
+                mathematical_proof=False,source_first_PV_complete=False))
+            return self.result(name,folder/"RESULT.json","PASS_SOURCE_ONLY_COMPACT_DERIVATION_NOT_PROOF_NOT_PV")
         if name=="n24-kernel":
-            candidate=self.root/"n24-inputs/work"
+            candidate=self.root/"n24-compact/work"
             command=[PYTHON,"-u",str(PROJECT/"dual/reproduce_fft_dag_physical_v2.py"),
                 "--context",str(self.context),"--candidate",str(candidate),"--run",str(work),
                 "--workers",str(self.a.n24_workers),"--worker-virtual-as","unlimited"]
             self.call(name,"compile",command,True)
             proof=self.supervisors[name];gate=folder/"INDEPENDENT_ACCEPTED.json"
-            self.call(name,"independent-gate",[PYTHON,str(PROJECT/"dual/verify_fft_dag_fresh_v3.py"),
+            self.call(name,"independent-gate",[PYTHON,str(PROJECT/"compact-proof-repair-v1/tools/verify_fresh_compact.py"),
                 "--run",str(work),"--context",str(self.context),"--candidate",str(candidate),
+                "--project-root",str(PROJECT),
                 "--output",str(gate),"--supervisor",str(proof["receipt"]),
                 "--command-plan",str(proof["command_plan"]),"--stdout",str(proof["stdout"]),
                 "--stderr",str(proof["stderr"]),"--unit",self.a.unit])
-            need(gate.is_file(),"Independent fresh N24 acceptance absent")
+            need(gate.is_file(),"Independent fresh compact N24 acceptance absent")
+            independent=read_json(gate)
+            need(independent.get("status")=="PASS_INDEPENDENT_FRESH_COMPACT_W4_KERNEL_ONLY_NOT_C_PV"
+                and type(independent.get("modules"))is int and independent["modules"]==1035
+                and independent.get("source_cold")is True and independent.get("toy_only")is False,
+                "Complete production compact N24 independent gate absent")
             return self.result(name,work/"RESULT.json","PASS_W4_COMPLETE_INTEGER_FFT_TRACE_CHECKED_TWIDDLES_AND_NUMERATOR_NOT_SOURCE_PV",
-                dict(modules=1033,N=16777216,audited_roots=29))
+                dict(modules=1035,N=16777216,audited_roots=29))
         if name=="n24-bank":
-            self.call(name,"format-export",[PYTHON,str(PROJECT/"dual/export_fft_dag_fresh_bank_v3.py"),
+            self.call(name,"format-export",[PYTHON,str(PROJECT/"compact-proof-repair-v1/tools/export_fresh_compact.py"),
                 "--base",str(self.root/"n24-kernel/work"),"--context",str(self.context),
-                "--candidate",str(self.root/"n24-inputs/work"),
+                "--candidate",str(self.root/"n24-compact/work"),"--project-root",str(PROJECT),
                 "--accepted",str(self.root/"n24-kernel/INDEPENDENT_ACCEPTED.json"),"--run",str(work)])
-            need((work/"PLAN.json").is_file()and(work/"RESULT.json").is_file(),"Format-only N24 bank absent")
+            need((work/"PLAN.json").is_file()and(work/"RESULT.json").is_file(),"Format-only compact N24 bank absent")
+            exported=read_json(work/"RESULT.json")
+            need(exported.get("status")=="PASS_FORMAT_ONLY_ACCEPTED_FRESH_COMPACT_BANK_NO_NEW_COMPILATION"
+                and type(exported.get("sources"))is int and exported["sources"]==1035
+                and type(exported.get("objects"))is int and exported["objects"]==1035,
+                "Complete compact N24 format export absent")
             atomic(folder/"RESULT.json",dict(status="PASS_FORMAT_ONLY_NEW_N24_BANK",
                 original_gate_sha256=sha(self.root/"n24-kernel/INDEPENDENT_ACCEPTED.json"),
                 format_result_sha256=sha(work/"RESULT.json"),new_mathematical_claim=False))
@@ -280,7 +314,7 @@ class Runner:
             command += ["--root","CanonicalW4EvolutionAudit"]
             self.call(name,"compile",command,True)
             verification=folder/"verification"
-            self.call(name,"exact-claim-gate",[PYTHON,str(PROJECT/"explicit/verify_canonical_w4_evolution_v2.py"),
+            self.call(name,"exact-claim-gate",[PYTHON,str(PROJECT/"explicit/verify_canonical_w4_evolution_v4.py"),
                 "--context",str(self.context),"--bank",str(work),
                 "--baseline",str(PROJECT/"explicit/CANONICAL_W4_BASELINE.json"),
                 "--out",str(verification),"--memory-gib","300","--worker-virtual-as","unlimited"])
@@ -290,6 +324,36 @@ class Runner:
             need(accepted.get("status")=="PASS_CANONICAL_EXACT_CLAIMS_AND_DEPENDENCIES"
                 and accepted.get("scope")=="w4","Canonical W4 exact-claim gate absent")
             return self.result(name,work/"RESULT.json","PASS_SOURCE_ASSOCIATED_BATCH_MODULES_ONLY")
+        if name=="c7-kernel-control":
+            need(not os.path.lexists(folder/"C7_CONTROL_ACCEPTANCE.json") and
+                not os.path.lexists(folder/"STAGE_RESULT.json"),"Fresh C7 terminal receipts required")
+            command=[PYTHON,str(PROJECT/"pv/compile_verified_batch_linked_v2.py"),
+                "--context",str(self.context),"--bank",str(self.root/"canonical-w4/work"),
+                "--bank",str(self.root/"w4-main/work"),"--root","C7KernelAudit",
+                "--run",str(work),"--memory-gib","300","--worker-virtual-as","unlimited"]
+            # The public helper already searches PROJECT/pv/lean. Repeating that
+            # same --source-root would create an ambiguous duplicate candidate.
+            self.call(name,"compile-and-audit",command,True)
+            generic=read_json(work/"RESULT.json")
+            need(generic.get("status")=="PASS_SOURCE_ASSOCIATED_BATCH_MODULES_ONLY" and
+                type(generic.get("modules"))is int and generic["modules"]==3,"C7 fresh compiler scope differs")
+            audit=work/"logs/C7KernelAudit.stdout";need(audit.is_file(),"C7 actual audit stdout absent")
+            marker="C7_FULL_KERNEL_CONTROL_PASS exact-PV-and-FFT-only-control-types same-W4-2520-coefficients same-N24-norm same-ANT-residual-consumer Std3 no-native four-opaque-kernel-scalar-certificates no-new-numerical-premise unused-source-containing-imports-disclosed POSTHOC-NON-PV"
+            text=audit.read_text();need(text.splitlines().count(marker)==1,"Exact complete C7 proof-value audit did not pass")
+            for required in ["C7_FULL_KERNEL_CONTROL_AXIOMS","C7_PURE_N24_MODULE_GRAPH appmodules=1059 declarations=",
+                             "C7_FULL_KERNEL_CONTROL_PROOF_CLOSURE names=","actual-C-source-correspondence-run=0",
+                             "C7_PRUNED_PURE_DATA_BOUNDARIES"]:
+                need(required in text,"Required C7 audit evidence missing: "+required)
+            atomic(folder/"C7_CONTROL_ACCEPTANCE.json",dict(status="PASS_POSTHOC_FULL_KERNEL_NONPV_W4_CONTROL_SAME_PREMISES",
+                result_sha256=sha(work/"RESULT.json"),audit_stdout_sha256=sha(audit),
+                final_theorem="RH080Next.PosthocKernelControl.matched_fully_kernel_global",
+                final_theorem_axiom_roots=1,actual_type_comparisons=2,scalar_caps=8,
+                opaque_kernel_scalar_certificates=4,existing_rational_bridge_facts=4,
+                original_N24_norm_same=True,ANT_residual_consumer_same=True,
+                source_free_proof_value_path_checked=True,source_free_module_import_graph_claimed=False,
+                source_free_elaborator_IO_claimed=False,posthoc_not_primary_trial=True,
+                source_first_PV=False,full_new_heavy681_orN24_replay_claimed=False))
+            return self.result(name,folder/"C7_CONTROL_ACCEPTANCE.json","PASS_POSTHOC_FULL_KERNEL_NONPV_W4_CONTROL_SAME_PREMISES")
         if name=="exposure":
             self.call(name,"compile",[PYTHON,str(PROJECT/"ablation/review/reproduce_clean_proofs.py"),
                 "--context",str(self.context),"--out",str(work),"--workers","4",
@@ -364,6 +428,11 @@ def main():
         controller_sha256=sha(Path(__file__)),application_object_banks_from_old_studies=[],
         repository=str(REPOSITORY),outputs_are_new_executions_only=True,
         expensive_full_clean_replay_executed=False,automatic_cleanup=False,
+        original_numerical_inventory_preserved=True,
+        compact_proof_only_derivation=dict(original_generated_modules=1020,derived_generated_modules=1022,
+            unchanged_CSV_files=937,fresh_mathematical_provider_count=1035,
+            original_typed_roots=29,diagnostic_import_probe_is_not_provider=True,
+            modified_numeric_CSV_algorithm_or_claim=False),
         resources=dict(physical_owned_cgroup_bytes=300*2**30,host_reserve_bytes=256*2**30,
             independent_free_RAM_and_disk_for_heavy_stages=2**40,total_scratch_limit_bytes=300*2**30,
             scratch_stop_bytes=290*2**30,per_process_virtual_limits_are_not_RAM_commitments=True))

@@ -1,0 +1,367 @@
+{
+  "status": "PASS_ACTUAL_COMPACT_CONTROLLER_CLI_ALL_MODES_PREPARATION_ONLY",
+  "controller_sha256": "fed37e31d8de41d1f1a1611c8d50b43ba1e46f34e5e58686e450ea3e6320addb",
+  "control_source_sha256": "afa6f6502b667ad3d3ad8b441479d0623a995e49ed29b12fcfa8568b0f2c73ba",
+  "positive_preparations": 3,
+  "negative_controls": 15,
+  "mathematical_children_launched": 0,
+  "records": [
+    {
+      "mode": 0,
+      "label": "positive",
+      "command": [
+        "/usr/bin/python3",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py",
+        "--assembly",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/s13-compact-v2",
+        "--run",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compact-controller-cli-controls-v2/prepare-0",
+        "--physical-gib",
+        "64",
+        "--prepare-only"
+      ],
+      "returncode": 0,
+      "positive_preparation_only": true,
+      "stdout": "PREPARED ONLY NO PROOF ACCEPTANCE\n",
+      "stderr": ""
+    },
+    {
+      "mode": 0,
+      "label": "stale-run",
+      "command": [
+        "/usr/bin/python3",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py",
+        "--assembly",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/s13-compact-v2",
+        "--run",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compact-controller-cli-controls-v2/prepare-0",
+        "--physical-gib",
+        "64",
+        "--prepare-only"
+      ],
+      "returncode": 1,
+      "positive_preparation_only": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py\", line 318, in <module>\n    main()\n  File \"/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py\", line 52, in main\n    need(not os.path.lexists(a.run), 'Fresh private proof run required')\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/reproduce_dual.py\", line 13, in need\n    if not ok:raise ValueError(msg)\nValueError: Fresh private proof run required\n"
+    },
+    {
+      "mode": 0,
+      "label": "wrong-stage-physical",
+      "command": [
+        "/usr/bin/python3",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py",
+        "--assembly",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/s13-compact-v2",
+        "--run",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compact-controller-cli-controls-v2/wrong-stage-physical-0",
+        "--physical-gib",
+        "300",
+        "--prepare-only"
+      ],
+      "returncode": 1,
+      "positive_preparation_only": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py\", line 318, in <module>\n    main()\n  File \"/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py\", line 60, in main\n    need((stage == 13 and a.physical_gib == 64) or\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/reproduce_dual.py\", line 13, in need\n    if not ok:raise ValueError(msg)\nValueError: Matched actual stage physical policy required\n"
+    },
+    {
+      "mode": 0,
+      "label": "owned64-rejects-N24-300-policy",
+      "command": [
+        "/usr/bin/python3",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py",
+        "--assembly",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/s24-compact-v2",
+        "--run",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compact-controller-cli-controls-v2/owned64-rejects-N24-300-policy-0",
+        "--physical-gib",
+        "300",
+        "--prepare-only"
+      ],
+      "returncode": 1,
+      "positive_preparation_only": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py\", line 318, in <module>\n    main()\n  File \"/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py\", line 86, in main\n    need((cg / 'memory.max').read_text().strip() == str(limit) and\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/reproduce_dual.py\", line 13, in need\n    if not ok:raise ValueError(msg)\nValueError: Actual physical cap/noSwap required\n"
+    },
+    {
+      "mode": 0,
+      "label": "modified-assembly",
+      "command": [
+        "/usr/bin/python3",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py",
+        "--assembly",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compact-controller-cli-controls-v2/modified-assembly",
+        "--run",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compact-controller-cli-controls-v2/modified-assembly-0",
+        "--physical-gib",
+        "64",
+        "--prepare-only"
+      ],
+      "returncode": 1,
+      "positive_preparation_only": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py\", line 318, in <module>\n    main()\n  File \"/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py\", line 57, in main\n    need(stage in expected_assemblies and sha(a.assembly / 'ASSEMBLY.json') ==\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/reproduce_dual.py\", line 13, in need\n    if not ok:raise ValueError(msg)\nValueError: Reviewed exact proof-only assembly required\n"
+    },
+    {
+      "mode": 0,
+      "label": "unknown-option",
+      "command": [
+        "/usr/bin/python3",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py",
+        "--assembly",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/s13-compact-v2",
+        "--run",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compact-controller-cli-controls-v2/unknown-option-0",
+        "--physical-gib",
+        "64",
+        "--prepare-only",
+        "--unknown-acceptance-flag"
+      ],
+      "returncode": 2,
+      "positive_preparation_only": false,
+      "stdout": "",
+      "stderr": "usage: compile_compact_final_v2.py [-h] --assembly ASSEMBLY --run RUN\n                                   --physical-gib {64,300} [--prepare-only]\ncompile_compact_final_v2.py: error: unrecognized arguments: --unknown-acceptance-flag\n"
+    },
+    {
+      "mode": 1,
+      "label": "positive",
+      "command": [
+        "/usr/bin/python3",
+        "-O",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py",
+        "--assembly",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/s13-compact-v2",
+        "--run",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compact-controller-cli-controls-v2/prepare-1",
+        "--physical-gib",
+        "64",
+        "--prepare-only"
+      ],
+      "returncode": 0,
+      "positive_preparation_only": true,
+      "stdout": "PREPARED ONLY NO PROOF ACCEPTANCE\n",
+      "stderr": ""
+    },
+    {
+      "mode": 1,
+      "label": "stale-run",
+      "command": [
+        "/usr/bin/python3",
+        "-O",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py",
+        "--assembly",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/s13-compact-v2",
+        "--run",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compact-controller-cli-controls-v2/prepare-1",
+        "--physical-gib",
+        "64",
+        "--prepare-only"
+      ],
+      "returncode": 1,
+      "positive_preparation_only": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py\", line 318, in <module>\n    main()\n  File \"/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py\", line 52, in main\n    need(not os.path.lexists(a.run), 'Fresh private proof run required')\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/reproduce_dual.py\", line 13, in need\n    if not ok:raise ValueError(msg)\nValueError: Fresh private proof run required\n"
+    },
+    {
+      "mode": 1,
+      "label": "wrong-stage-physical",
+      "command": [
+        "/usr/bin/python3",
+        "-O",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py",
+        "--assembly",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/s13-compact-v2",
+        "--run",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compact-controller-cli-controls-v2/wrong-stage-physical-1",
+        "--physical-gib",
+        "300",
+        "--prepare-only"
+      ],
+      "returncode": 1,
+      "positive_preparation_only": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py\", line 318, in <module>\n    main()\n  File \"/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py\", line 60, in main\n    need((stage == 13 and a.physical_gib == 64) or\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/reproduce_dual.py\", line 13, in need\n    if not ok:raise ValueError(msg)\nValueError: Matched actual stage physical policy required\n"
+    },
+    {
+      "mode": 1,
+      "label": "owned64-rejects-N24-300-policy",
+      "command": [
+        "/usr/bin/python3",
+        "-O",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py",
+        "--assembly",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/s24-compact-v2",
+        "--run",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compact-controller-cli-controls-v2/owned64-rejects-N24-300-policy-1",
+        "--physical-gib",
+        "300",
+        "--prepare-only"
+      ],
+      "returncode": 1,
+      "positive_preparation_only": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py\", line 318, in <module>\n    main()\n  File \"/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py\", line 86, in main\n    need((cg / 'memory.max').read_text().strip() == str(limit) and\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/reproduce_dual.py\", line 13, in need\n    if not ok:raise ValueError(msg)\nValueError: Actual physical cap/noSwap required\n"
+    },
+    {
+      "mode": 1,
+      "label": "modified-assembly",
+      "command": [
+        "/usr/bin/python3",
+        "-O",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py",
+        "--assembly",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compact-controller-cli-controls-v2/modified-assembly",
+        "--run",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compact-controller-cli-controls-v2/modified-assembly-1",
+        "--physical-gib",
+        "64",
+        "--prepare-only"
+      ],
+      "returncode": 1,
+      "positive_preparation_only": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py\", line 318, in <module>\n    main()\n  File \"/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py\", line 57, in main\n    need(stage in expected_assemblies and sha(a.assembly / 'ASSEMBLY.json') ==\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/reproduce_dual.py\", line 13, in need\n    if not ok:raise ValueError(msg)\nValueError: Reviewed exact proof-only assembly required\n"
+    },
+    {
+      "mode": 1,
+      "label": "unknown-option",
+      "command": [
+        "/usr/bin/python3",
+        "-O",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py",
+        "--assembly",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/s13-compact-v2",
+        "--run",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compact-controller-cli-controls-v2/unknown-option-1",
+        "--physical-gib",
+        "64",
+        "--prepare-only",
+        "--unknown-acceptance-flag"
+      ],
+      "returncode": 2,
+      "positive_preparation_only": false,
+      "stdout": "",
+      "stderr": "usage: compile_compact_final_v2.py [-h] --assembly ASSEMBLY --run RUN\n                                   --physical-gib {64,300} [--prepare-only]\ncompile_compact_final_v2.py: error: unrecognized arguments: --unknown-acceptance-flag\n"
+    },
+    {
+      "mode": 2,
+      "label": "positive",
+      "command": [
+        "/usr/bin/python3",
+        "-OO",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py",
+        "--assembly",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/s13-compact-v2",
+        "--run",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compact-controller-cli-controls-v2/prepare-2",
+        "--physical-gib",
+        "64",
+        "--prepare-only"
+      ],
+      "returncode": 0,
+      "positive_preparation_only": true,
+      "stdout": "PREPARED ONLY NO PROOF ACCEPTANCE\n",
+      "stderr": ""
+    },
+    {
+      "mode": 2,
+      "label": "stale-run",
+      "command": [
+        "/usr/bin/python3",
+        "-OO",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py",
+        "--assembly",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/s13-compact-v2",
+        "--run",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compact-controller-cli-controls-v2/prepare-2",
+        "--physical-gib",
+        "64",
+        "--prepare-only"
+      ],
+      "returncode": 1,
+      "positive_preparation_only": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py\", line 318, in <module>\n    main()\n  File \"/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py\", line 52, in main\n    need(not os.path.lexists(a.run), 'Fresh private proof run required')\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/reproduce_dual.py\", line 13, in need\n    if not ok:raise ValueError(msg)\nValueError: Fresh private proof run required\n"
+    },
+    {
+      "mode": 2,
+      "label": "wrong-stage-physical",
+      "command": [
+        "/usr/bin/python3",
+        "-OO",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py",
+        "--assembly",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/s13-compact-v2",
+        "--run",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compact-controller-cli-controls-v2/wrong-stage-physical-2",
+        "--physical-gib",
+        "300",
+        "--prepare-only"
+      ],
+      "returncode": 1,
+      "positive_preparation_only": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py\", line 318, in <module>\n    main()\n  File \"/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py\", line 60, in main\n    need((stage == 13 and a.physical_gib == 64) or\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/reproduce_dual.py\", line 13, in need\n    if not ok:raise ValueError(msg)\nValueError: Matched actual stage physical policy required\n"
+    },
+    {
+      "mode": 2,
+      "label": "owned64-rejects-N24-300-policy",
+      "command": [
+        "/usr/bin/python3",
+        "-OO",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py",
+        "--assembly",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/s24-compact-v2",
+        "--run",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compact-controller-cli-controls-v2/owned64-rejects-N24-300-policy-2",
+        "--physical-gib",
+        "300",
+        "--prepare-only"
+      ],
+      "returncode": 1,
+      "positive_preparation_only": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py\", line 318, in <module>\n    main()\n  File \"/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py\", line 86, in main\n    need((cg / 'memory.max').read_text().strip() == str(limit) and\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/reproduce_dual.py\", line 13, in need\n    if not ok:raise ValueError(msg)\nValueError: Actual physical cap/noSwap required\n"
+    },
+    {
+      "mode": 2,
+      "label": "modified-assembly",
+      "command": [
+        "/usr/bin/python3",
+        "-OO",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py",
+        "--assembly",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compact-controller-cli-controls-v2/modified-assembly",
+        "--run",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compact-controller-cli-controls-v2/modified-assembly-2",
+        "--physical-gib",
+        "64",
+        "--prepare-only"
+      ],
+      "returncode": 1,
+      "positive_preparation_only": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py\", line 318, in <module>\n    main()\n  File \"/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py\", line 57, in main\n    need(stage in expected_assemblies and sha(a.assembly / 'ASSEMBLY.json') ==\n  File \"/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/reproduce_dual.py\", line 13, in need\n    if not ok:raise ValueError(msg)\nValueError: Reviewed exact proof-only assembly required\n"
+    },
+    {
+      "mode": 2,
+      "label": "unknown-option",
+      "command": [
+        "/usr/bin/python3",
+        "-OO",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compile_compact_final_v2.py",
+        "--assembly",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/s13-compact-v2",
+        "--run",
+        "/data/ivy-rh080-next-20261125/proof-only-staged-fallback-20261127/compact-controller-cli-controls-v2/unknown-option-2",
+        "--physical-gib",
+        "64",
+        "--prepare-only",
+        "--unknown-acceptance-flag"
+      ],
+      "returncode": 2,
+      "positive_preparation_only": false,
+      "stdout": "",
+      "stderr": "usage: compile_compact_final_v2.py [-h] --assembly ASSEMBLY --run RUN\n                                   --physical-gib {64,300} [--prepare-only]\ncompile_compact_final_v2.py: error: unrecognized arguments: --unknown-acceptance-flag\n"
+    }
+  ]
+}

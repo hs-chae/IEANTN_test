@@ -1,8 +1,18 @@
 # RH080 continuation: mathematical and source-first verification campaign
 
-**Work is in progress.** See [CURRENT_STATUS.md](CURRENT_STATUS.md) for the
-completed results, exact verification boundaries and remaining work. The
-paragraphs below retain the original campaign-start plan, not final status.
+**The selected mathematical proof chains are complete.** The source-first
+global coefficient is 0.851062 for every real x ≥ 4; the finite coefficient
+0.8 holds through exp(174). The piecewise interval, Gaussian witness,
+population family and separate kernel-only control have also passed their
+scoped proof gates. RH and named published analytic/historical inputs remain
+explicit hypotheses.
+
+See [CURRENT_STATUS.md](CURRENT_STATUS.md) and the
+[reproduction guide](reproduction/README.md) for exact proof scopes and receipts.
+The ordinary native build succeeded, but six of its 23 workflow commands
+failed on inherited-receipt repository identity. Those raw failures remain
+failures; local mathematical verification and official node approval are
+separate. The paragraphs below preserve the original campaign-start plan.
 
 This additive branch starts from the delivered RH080 study at `1c668b75`, whose mathematical checkpoint is `5a87c48d`. The complete previous report and all locked submissions remain unchanged in `Solutions/RH080Study.v1`. Baseline source and resource identities are in `BASELINE_LOCK.json`.
 

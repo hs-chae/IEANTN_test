@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+"""Consolidate already completed immutable receipts; does not reverify/prove mathematics."""
+import hashlib,json,os,tempfile,datetime
+from pathlib import Path
+Q=Path(__file__).resolve().parent;D=Q.parent;P=Q/'n24-compact-parallel-v2';B=Q/'n24-compact-format-bank-v1'
+def need(v,m):
+    if not v:raise ValueError(m)
+def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+def load(p):return json.loads(Path(p).read_text())
+def main():
+    result=load(P/'RESULT.json');bank=load(B/'PLAN.json');br=load(B/'RESULT.json');need(result['status']=='PASS_ACTUAL_FULL_NORMAL_O_OO_COMPACT_GATES_AND1035_IMMUTABLE_BANK','Consolidated actual allmode pipeline incomplete');need(br['sources']==br['objects']==len(bank['source_rows'])==1035,'Wrong final provider count')
+    stages=bank['compile_phases'];need(stages=={'ORIGINAL_SOURCE_COLD':992,'VALIDATED_CONTINUATION_1':4,'VALIDATED_NESTED_CONTINUATION_2':35,'FRESH_COMPACT_PROOF_ONLY_SAME_MATHEMATICAL_CLAIMS':4},'Wrong original and proof-only lineage counts')
+    need(not any(r['module']=='W4D24FinalImportsProbe'for r in bank['source_rows']),'Diagnostic probe became mathematical provider')
+    modes=[]
+    for row in result['accepted_receipts']:
+        path=Path(row['path']);need(sha(path)==row['sha256'],'Actual mode receipt changed');v=load(path);need(v['math_bank_modules']==1035 and v['typed_original_roots']==29 and v['validator_sha256']==sha(Q/'verify_compact_final.py'),'Actual accepted scope differs');modes.append(dict(path=str(path),sha256=row['sha256'],actual_gate_seconds=v['seconds'],root_axioms=v['root_axioms']))
+    raw_proof=load(Q/'run-s24-compact-v2/RESULT.json');proof_rows={r['module']:r for r in raw_proof['records']};resource=load(Q/'N24_COMPACT_COMPLETED_RESOURCE_SUPPLEMENT_v1.json')
+    axes=modes[0]['root_axioms'];need(all(m['root_axioms']==axes for m in modes),'Original typed-root axiom sets differ')
+    files=[Q/'generate_compact_final_v2.py',Q/'compile_compact_final_v2.py',Q/'verify_compact_final.py',Q/'export_compact_final_bank.py',Q/'finish_n24_compact_parallel.py',Q/'s24-compact-v2/ASSEMBLY.json',P/'PLAN.json',P/'RESULT.json',P/'SERIAL_BOUNDARY_STOP_PLAN.json',P/'SERIAL_BOUNDARY_STOP_RESULT.json',P/'ORIGINAL_MODE_RECEIPT_LINKS.json',B/'PLAN.json',B/'RESULT.json',Q/'N24_COMPACT_COMPLETED_RESOURCE_SUPPLEMENT_v1.json',D/'N24_COMPACT_SUPERVISOR_v2.json',D/'N24_COMPACT_UNIT_COMMAND_v2.json',D/'N24_COMPACT_PROCESS_POLICY_v2.json']
+    handoff=dict(status='PASS_ACTUAL_N24_SAME_CLAIMS_KERNEL_BANK_ALL3_INDEPENDENT_MODES_C_PV_MAIN_PENDING',time_UTC=datetime.datetime.now(datetime.timezone.utc).isoformat(),format_bank=str(B),consolidated_pipeline_result=str(P/'RESULT.json'),consolidated_pipeline_result_sha256=sha(P/'RESULT.json'),format_bank_result_sha256=sha(B/'RESULT.json'),existing_linked_compiler_compatibility='PLAN.context_sha256 + source_rows(module,origin,snapshot,source_sha256,imports) + per-module COMPILED exitcode0/object_sha256; all large artifacts hardlinked.',numeric_old_source_cold_lineage_modules=1031,new_mathematical_proof_modules=4,math_providers=1035,diagnostic_import_probe_compiler_calls=1,actual_fresh_compiler_calls=5,compile_phases=stages,actual_independent_modes=modes,unchanged_reader_source_sha256=sha(Q/'verify_compact_final.py'),unchanged_exporter_source_sha256=sha(Q/'export_compact_final_bank.py'),actual_full_N24_kernel_Final_seconds=proof_rows['W4D24Final']['seconds'],actual_full_N24_ClaimAudit_seconds=proof_rows['W4D24ClaimAudit']['seconds'],actual_max_GNU_compiler_RSS_KiB=raw_proof['max_individual_RSS_KiB'],actual_final_owned_OOM_events=resource['actual_completed_cgroup_events_final']['oom'],actual_final_owned_OOM_kills=resource['actual_completed_cgroup_events_final']['oom_kill'],original_public_declaration_headers_preserved=31,original_typed_ClaimAudit_byte_identical_roots=29,only_public_proof_bodies_changed=['top_shape','numerator_checked'],C_source_algorithms_numeric_data_parameters_bounds_and_analytic_assumptions_unchanged=True,original_primary_outcomes_and_failed_attempts_preserved=True,old_serial_v1_status='INTENTIONAL_PARTIAL_AFTER_ACTUAL_NORMAL_AND_O_PASSES; no v1 success RESULT fabricated',new_parallel_v2_has_its_own_actual_RESULT=True,source_cold=False,new_source_first_C_PV_complete=False,full_program_ANT_consumers_pending='Root must compile actual six Main modules, typed consumers and canonical acceptance before C-source-to-ANT completion.',v1_export_generated_source_field_convention='True precisely for the four fresh compact proof-provider rows; it is not a census of all originally generated numerical sources. Actual inherited origins are preserved by per_module_lineage/compile_phases.',original_physical_OOM_cause_limit='The original monolithic source had no per-declaration markers; do not identify its exact failing declaration or attribute an isolated causal speedup. Both generic head and generic numerator proof bodies changed; actual numerical C algorithm did not.',source_and_receipt_pins=[dict(path=str(f),bytes=f.stat().st_size,sha256=sha(f))for f in files])
+    out=Q/'N24_COMPACT_ACCEPTED_BANK_HANDOFF_v3.json';fd,tmp=tempfile.mkstemp(prefix='.receipt-',dir=Q)
+    try:
+        with os.fdopen(fd,'w')as f:json.dump(handoff,f,indent=2,allow_nan=False);f.write('\n');f.flush();os.fsync(f.fileno())
+        os.link(tmp,out)
+    finally:Path(tmp).unlink()
+    print(str(out),sha(out))
+if __name__=='__main__':main()

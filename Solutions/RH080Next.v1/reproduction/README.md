@@ -1,9 +1,11 @@
 # Clean-environment reproduction
 
-The current source-identical continuation uses the process-only page policy
-in [PROCESS_RESOURCE_PROFILE.md](PROCESS_RESOURCE_PROFILE.md). Apply that
+The preserved source-identical retry used the process-only page policy
+in [PROCESS_RESOURCE_PROFILE.md](PROCESS_RESOURCE_PROFILE.md) and later hit
+the physical300GiB limit. The accepted compact proof assembly is a separate
+proof-only repair with unchanged numerical source, payloads and claims. Apply that
 wrapper outside the whole coordinator/supervisor before compiler version or
-context checks, including a real bootstrap fetch. The exact source and
+context checks, including a real bootstrap fetch. The numerical C source and original
 mathematical checker remain unchanged; the physical 300GiB/no-swap and separate
 RAM/disk/scratch admission still apply. Put new dependency caches and run
 outputs under one owned campaign root and let the outer supervisor count
@@ -19,9 +21,16 @@ generic Lean libraries may begin as compiled objects.
 **The new driver has not executed a complete heavy clean rerun.** Original exact
 pipeline receipts remain evidence of their own executions. A driver plan,
 format export, or successful compiler overlay is not a new complete campaign
-result. Missing final W4/canonical interfaces stop the driver with an explicit
-incomplete receipt. The three collaborator documents in reports/ retain their
-own final-status placeholders; this driver does not rewrite them.
+result. Missing W4/canonical interfaces stop the driver with an explicit
+incomplete receipt. Bounded current private CLI plans report zero missing
+interfaces. This counts only listed entrypoints and locks; it does not establish
+the complete transitive runtime closure or execute proofs. Complete bundle
+coverage rests on the full source/runtime inventories, typed source/data
+regeneration recipes and actual component runs. The actual associated W4 Main
+source-first chain and the local canonical29-claim/38-root/8-route gates have passed.
+The separate posthoc fully kernel control has also passed. The normal repository build and fingerprint generation succeeded. Seventeen
+of23 commands passed; six inherited receipt-provenance checks failed in the
+local clone context. Official Comparator statuses are unchanged. This driver does not rewrite collaborator proof statuses.
 
 ## Prerequisites and pinned generic context
 
@@ -119,6 +128,8 @@ RH080_UNIT=rh080-clean-reproduction.service
 systemd-run --user --wait --pipe --unit="$RH080_UNIT" \
   --property=MemoryMax=300G --property=MemorySwapMax=0 \
   --property=TasksMax=4096 \
+  python3 /absolute/repository/Solutions/RH080Next.v1/pv/generic_page_policy_exec.py \
+    --disable-thp --receipt /fresh/output/PROCESS_POLICY.json -- \
   python3 /absolute/repository/Solutions/RH080Next.v1/reproduction/reproduce_all.py \
     --context /fresh/output/context.json --run /fresh/output/full \
     --unit "$RH080_UNIT" --n24-workers 12 --execute
@@ -142,10 +153,13 @@ their dependencies are added automatically.
 | finite-inputs | Original17-stage integer-forest producer; regenerate all34 CSV and owner Lean sources; verify byte/hash/count/width against portable manifest. |
 | finite-main | Fresh681-source operational-main/numerical/finite ANT closure using regenerated34 CSV inputs. |
 | canonical-finite | Canonical providers/consumers over new source-associated hardlinked dependencies; separate exact-claim gate required. |
-| n24-inputs / n24-kernel | New stages24,chunk-log13,pairs-per-module524288 proposal; original1033-module checker and29 typed roots; independent actual completed resource gate. |
+| n24-inputs | Original stages24,chunk-log13,pairs-per-module524288 producer; all1020 original generated Lean and937 CSV identities remain fixed. |
+| n24-compact | Source-only derivation changes two Final proof bodies and adds two helpers, preserving original PLAN, numerical data and31 public declaration headers. This is an untrusted proposal. |
+| n24-kernel | Unchanged original checker over the derived candidate:1035 source-cold mathematical providers and29 original typed roots; independent actual completed resource gate. |
 | n24-bank | Format-only export of the newly accepted run; no historical992/4/37 lineage imported. |
 | w4-main | Actual six W4 source-main/norm/global/population/piecewise roots; exact audit marker and matched control. |
 | canonical-w4 | W4/analytic providers and actual consumers; separate final canonical exact-claim gate. |
+| c7-kernel-control | Three fresh public proof/audit modules, same scalar caps, N24 norm and ANT consumer; full kernel non-PV proof-value control with exact PV/control type comparisons and Std3 audit. This is a separate posthoc control, not the FFT-layer-only control. |
 | exposure |169-common+15-locked+15-audit source replay; original3-admissible/13-censored primary statuses unchanged. |
 | physical | New24 C observations in normal/-O/-OO and O0/O2/O3/UBSan; strict all-mode validation and mutation controls. Observations alone are not PV. |
 
@@ -236,12 +250,19 @@ Cli is not an extra compiled generic root in the proof context.32GiB free disk
 is a planning admission threshold, not a proven upper bound. Existing eight
 repositories allocate8.735GiB and their object roots6.314GiB; the observed shared
 multi-revision archive cache cannot be attributed to this one pin. No measured
-cold-fetch duration or successful new --fetch execution is claimed here.
+cold-fetch claim is inferred from planning. A later actual supplemental fetch
+completed in71.440s, independent fresh-context validation in0.340s, and all23
+source-cold analytic modules/15 Std3 theorem roots in102.089s. The outer
+coordinator completed in177.132s with actual completed OOM/kill0/0. Its
+independent receipt is `bootstrap-real-fetch-v4/INDEPENDENT_ACCEPTED.json`.
+The fresh generic roots and their build/cache infrastructure remain trusted;
+this is neither source-first PV nor a new full681/1035-module clean replay.
 
 Fresh N24 proof launches use `dual/reproduce_fft_dag_physical_v2.py` with
 explicit `--worker-virtual-as unlimited`, the unchanged original numerical/kernel
-checker, and independent `verify_fft_dag_fresh_v3.py` /
-`export_fft_dag_fresh_bank_v3.py` gates. Unlimited virtual address space does not
+checker. The additive `compact-proof-repair-v1/tools/verify_fresh_compact.py`
+and `export_fresh_compact.py` gates invoke the unchanged independent fresh
+checker/gate contracts and additionally pin the approved compact source identities. Unlimited virtual address space does not
 raise the physical memory allowance: the actual owned cgroup remains 300GiB,
 noSwap, with the separate fresh RAM/disk admission and host/scratch reserves.
 The producer's1020 generated Lean identities and937 CSV identities are compared
@@ -285,3 +306,152 @@ Its independent type/axiom/dependency validators use explicit checked errors
 and run under normal Python, `-O` and `-OO`. The historical submission is
 retained unchanged; no current success is inferred from its assert-only
 checker or from a plan/exit status alone.
+
+## Original numerical inputs and compact proof assembly
+
+The original `dual/evidence/W4_N24_EXPECTED_INPUTS.json` remains an immutable
+1020-generated-Lean/937-CSV history. The driver first regenerates and checks
+those exact bytes. The separate `n24-compact` stage executes:
+
+~~~bash
+python3 Solutions/RH080Next.v1/compact-proof-repair-v1/tools/derive_compact_candidate.py \
+  --candidate /fresh/output/full/n24-inputs/work \
+  --out /fresh/output/full/n24-compact/work \
+  --project-root Solutions/RH080Next.v1
+~~~
+
+The derived PLAN remains UNTRUSTED. It contains1022 generated modules: original
+numeric modules with two approved Final proof bodies, plus TopShapeSymbolic and
+NormSymbolic. The original twelve mathematical foundations and the exact original
+29-root audit complete1035 mathematical providers. A diagnostic import probe
+is excluded from that count. This repair changes proof assembly, not the C
+program, arithmetic algorithm,937 CSV payloads, numerical statement, analytic
+assumptions or downstream theorem types.
+
+Derivation and format export are not source-first PV. The actual kernel checker,
+independent source/resource gate and actual Main source-to-execution-to-ANT
+consumers must still pass in a fresh run. The recorded accepted lineage reuses
+1031 previously validated numerical modules and compiles four proof modules;
+it is not a monolithic new1035-module replay. The portable clean route is fully
+specified, but its new heavy1035/681 replay has not been claimed completed.
+
+The bounded CLI coverage for the additive driver comprises9 positives and12
+negative cases in normal Python, -O and -OO; unowned execution is rejected before
+an application stage. The compact contract has separate all-mode source/mutation
+controls. None of these counts includes a full heavy clean replay.
+
+## Supplemental bootstrap resource accounting
+
+The original two real fetch attempts failed their resource-monitor observation
+route before producing an accepted fresh context; they are not mathematical or
+dependency failures. Retain both histories. The additive quiescent resource guard
+pauses only its owned child lineage around complete disk scans and always resumes
+it, retaining the physical300GiB/noSwap, host256GiB reserve, whole-campaign288GiB
+stop and1200-second deadline. Its optional workspace cap is bounded1..24GiB,
+default24; the prepared fetch profile uses22. Whole campaign and workspace paths
+must both lie under the same owned scratch root. Counts are sampled, not exact
+instantaneous peaks. A resource completion is not proof acceptance.
+
+
+## Normal repository CLI and retained native cache
+
+The actual normal workflow runs `lake build IEANTN ieantn_hash`, generates
+fingerprints once, and runs seven strict checks in normal Python, -O and -OO:
+`fingerprint --check`, `check-graph`, `check-closure`, `check-pins`,
+`gen-challenges --check`, `check-receipts`, and final `check`. Source and old
+26-file node baselines are preserved; STATE/GRAPH views are not rewritten.
+The phase runner records GNU time and maximum RSS per actual command, plus
+final binary, core object and hash-source identities. This metadata workflow
+is separate from local mathematical proof acceptance and official Comparator.
+
+The first native build reached its1200-second generic wall bound before
+finishing; the completed guard recorded zero OOM/OOM kills. Its mixed
+4-to32-CPU timing is not a controlled performance comparison. Native caches
+and all first-run evidence were retained. The additive generic resource guard
+v4 permits an explicit wall bound up to7200 seconds, default1200, preserving
+the owned physical300GiB/noSwap, host256GiB reserve, initial cap bounded at280,
+strict initial plus workspace below288GiB, and runtime288GiB stop. The
+continuation uses the existing native prefix and new receipts; it does not
+retroactively make the interrupted first build a success.
+
+After the actual bootstrap/23-module reproduction was independently checked,
+8865 single-link downloaded generic-cache archives (466,849,792 allocated
+bytes) were removed using an exact reviewed inventory. All eight installed
+generic roots, their sources/Git, the accepted context and all23 proof objects
+remain. Cache archive cleanup is neither mathematical nor source-first PV
+acceptance.
+
+
+### Reproduce the fully kernel posthoc control
+
+Select `--stages c7-kernel-control` with the driver command above. Its
+canonical-W4 and W4-Main dependencies run first; the unchanged linked compiler
+then compiles `C7KernelAudit` and its two public mathematical source dependencies
+from source. The helper already searches `pv/lean`; do not repeat that directory
+with `--source-root`. The final check compares the exact theorem type to both
+source-W4 and the earlier FFT-layer-only control, checks the final axiom closure,
+and excludes C-source/execution providers from the audited proof-value path.
+Unused source-containing module imports and elaborator I/O remain disclosed;
+this does not claim a source-free module graph or a verified Lean compiler.
+
+The historical accepted execution compiled the two mathematical modules first
+and then reused those exact objects while compiling the repaired audit. A clean
+driver run compiles all three anew. Bounded driver CLI tests and synthetic stage
+control-flow/freshness tests are separate from that actual Lean execution. No
+full new681/N24 clean-driver replay is claimed.
+
+### Reproduce the normal repository checks
+
+The standalone entry point is `reproduction/verify_normal_network.py`:
+
+~~~bash
+python3 Solutions/RH080Next.v1/reproduction/verify_normal_network.py \
+  --repository /absolute/repository --context /fresh/context.json \
+  --run /fresh/normal-checks --python /absolute/pinned-venv/bin/python
+~~~
+
+Run this inside the documented owned resource service, with the process-only
+THP wrapper applied before the entire guard and phase runner. Use pinned
+PyYAML6.0.3 in the selected Python environment. The runner checks nine separate
+mutable package Git checkouts under the repository's `.lake/packages`, at the
+revisions in the root `lake-manifest.json`. For each of its nine git package
+records, clone the recorded `url` into the fresh `.lake/packages/<name>`
+directory and run `git checkout --detach <rev>` using that record's exact `rev`.
+Reject an existing destination, a mismatched HEAD or any dirty tracked source;
+leave the root manifest unchanged. Retain real package directories and their
+own build caches, without links to the
+protected accepted generic-library context. The runner rejects dirty or
+mismatched source revisions. Generic library/compiler/cache infrastructure is
+trusted; the separate accepted context is used for dependency identity checks.
+
+The selected per-run log/cache-directory cap excludes mutable repository package
+caches. The whole-campaign unique allocation guard counts both locations and
+remains authoritative. A cached continuation uses new command/result receipts
+and never changes the first deadline stop into a success. Resource guard-v4
+controls and preserved failed admission history are documented under
+`evidence/generic-guard-v4`; they do not constitute mathematical acceptance.
+
+
+## Actual ordinary repository workflow outcome
+
+The cached continuation completed the18,647-job native build, the updated
+`ieantn_hash` executable and core object, fingerprint generation, and every
+planned command. Seventeen of23 commands returned0. In each of normal Python,
+-O and -OO, the five fingerprint/graph/closure/pin/challenge checks passed;
+`check-receipts` and aggregate `check` returned1. All49 inherited receipt files
+name the public upstream repository, while the local snapshot's inherited
+origin is a filesystem path. No inherited receipt, validator or mathematical
+source was changed to make these checks pass. Thus the normal workflow remains
+incomplete, while the separately audited mathematical results retain their
+actual acceptance. This is not official Comparator approval for the owner fork.
+
+Build/phase/outer durations were1010.190/1218.497/1228.272seconds. Completed
+owned OOM/OOM-kill counters were0/0. Maximum individual command GNU RSS was
+7,183,768KiB; the sampled cgroup charge15,188,430,848bytes is only a lower
+bound, with no exact peak available. Independent post-execution review
+rechecked65,875 protected sources, the original26-file baseline,198generated
+fingerprints,53execution pins and the actual command/log/time/binary identities.
+The51text source pins are retained byte-for-byte with an INDEX; the other two
+generic executable payloads are represented by exact hashes. These historical
+execution snapshots remain distinct from later report/documentation edits.
+The first1200-second native deadline stop remains a separate failed attempt.

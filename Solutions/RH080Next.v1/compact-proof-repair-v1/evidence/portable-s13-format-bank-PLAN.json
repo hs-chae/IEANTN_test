@@ -1,0 +1,2329 @@
+{
+  "status": "FORMAT_ONLY_ACCEPTED_FRESH_COMPACT_BANK_NO_NEW_EXECUTION",
+  "source_rows": [
+    {
+      "module": "FapData",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FapData.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/FapData.lean",
+      "source_sha256": "3a58f1facab921d36eaa156038ebc557fcf5d92e2bf5c441551d9cdb673c8c29",
+      "imports": [
+        "Mathlib.Data.Rat.Defs",
+        "Mathlib.Data.List.Range"
+      ],
+      "generated_source": false,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "FFTPairedIntModel",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTPairedIntModel.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/FFTPairedIntModel.lean",
+      "source_sha256": "fd8d893c36edb292548a2369a80102467a4412b0c694d8d35a483b6ef4dd40c8",
+      "imports": [
+        "FapData"
+      ],
+      "generated_source": false,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "FFTUntrustedData",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTUntrustedData.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/FFTUntrustedData.lean",
+      "source_sha256": "e9c170b6fd445eff03b282ac7c3cb7f1a3cc90b9702f73b9e96f706cc4be5863",
+      "imports": [
+        "FFTPairedIntModel",
+        "Lean"
+      ],
+      "generated_source": false,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "FFTTraceChecker",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTTraceChecker.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/FFTTraceChecker.lean",
+      "source_sha256": "2dd2fbc69453ca29d2a2a3cf82c5032c98ea420f64dca2c2100e54059a1c7bb2",
+      "imports": [
+        "FFTPairedIntModel"
+      ],
+      "generated_source": false,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "FFTForestTrace",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTForestTrace.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/FFTForestTrace.lean",
+      "source_sha256": "f0745b4d0429eed265aa0ed01ff4fb9acd3331935d8c8d569048aa55e5abd3b4",
+      "imports": [
+        "FFTTraceChecker"
+      ],
+      "generated_source": false,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "FFTButterfly",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTButterfly.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/FFTButterfly.lean",
+      "source_sha256": "7514aa391c68e82a478db77bbb419135b05cbcf4629e5c4c6bd73b538cfd4385",
+      "imports": [
+        "Mathlib.Analysis.Complex.Basic",
+        "Mathlib.Tactic"
+      ],
+      "generated_source": false,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "FFTRoundoff",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTRoundoff.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/FFTRoundoff.lean",
+      "source_sha256": "50b5b99f227dd20c545800ffcc64e9d0e53cd49f28a8f3c45ced233941a98a87",
+      "imports": [
+        "FFTButterfly"
+      ],
+      "generated_source": false,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "FFTIntegerInterpretation",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTIntegerInterpretation.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/FFTIntegerInterpretation.lean",
+      "source_sha256": "7434823f757a5c11362fb6fd48ae96fa162b03d45898a272b8e9df2f086f674b",
+      "imports": [
+        "FFTForestTrace",
+        "FFTRoundoff",
+        "Mathlib.Data.List.GetD"
+      ],
+      "generated_source": false,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "FFTTraceTwiddles",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTTraceTwiddles.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/FFTTraceTwiddles.lean",
+      "source_sha256": "b3b3b2a6b2407d5d4a8a1dcd66db71f50c05563a1ab9f292e7e76f7d466b3210",
+      "imports": [
+        "FFTIntegerInterpretation"
+      ],
+      "generated_source": false,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "FFTCertificateComposition",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/FFTCertificateComposition.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/FFTCertificateComposition.lean",
+      "source_sha256": "7e2eec47f696c4715c31f61e217a03a5e6fda48e7e89e02fdd5491e48989c38d",
+      "imports": [
+        "FFTTraceTwiddles"
+      ],
+      "generated_source": false,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "WindowData",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/WindowData.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/WindowData.lean",
+      "source_sha256": "07d286c20038c870009729ecb426b9bbb4ff929dd9de5d6c96078d1e5db49725",
+      "imports": [
+        "Mathlib.Data.Rat.Defs",
+        "Mathlib.Data.List.Range"
+      ],
+      "generated_source": false,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4FFTPairedIntModel",
+      "origin": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/W4FFTPairedIntModel.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4FFTPairedIntModel.lean",
+      "source_sha256": "f127aa2c61d0f19dd0e7ec72b86d57cd249b8aa237940336ce92b61d0c1112d1",
+      "imports": [
+        "FFTCertificateComposition",
+        "WindowData"
+      ],
+      "generated_source": false,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13Base",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13Base.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13Base.lean",
+      "source_sha256": "ab9608d7fbb6aad5504ca17f26401e7087bc3254be7bcc893a70b854fe4dbbbc",
+      "imports": [
+        "FFTUntrustedData",
+        "W4FFTPairedIntModel"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13W01G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13W01G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13W01G0.lean",
+      "source_sha256": "3e05f389c1af5a656872038c44908d6928634d986848b4c5ced94e826874a82a",
+      "imports": [
+        "W4D13Base"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13W02G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13W02G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13W02G0.lean",
+      "source_sha256": "d1a23f914a8cec71a27545c6985e7ac5844b2725a75a4533e894b5ddd9c26b6d",
+      "imports": [
+        "W4D13Base"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13W03G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13W03G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13W03G0.lean",
+      "source_sha256": "db2298c72c9870965ce3c85b9cd299cd2869d3c9fbd8d3494265192e32455333",
+      "imports": [
+        "W4D13Base"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13W04G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13W04G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13W04G0.lean",
+      "source_sha256": "477cb7385628b1b1f3728b3dab3bc5a690528e252631020cefc601f32a410793",
+      "imports": [
+        "W4D13Base"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13W05G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13W05G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13W05G0.lean",
+      "source_sha256": "a1c200f324f0d3e5cea736446947094d64fd19fe4907817eb876e6b7c592679f",
+      "imports": [
+        "W4D13Base"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13W06G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13W06G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13W06G0.lean",
+      "source_sha256": "61ae72e32244f9aa0a1871774e90a762de35d0ad8c40104cb0adba02886305ce",
+      "imports": [
+        "W4D13Base"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13W07G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13W07G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13W07G0.lean",
+      "source_sha256": "b1cb23e344ffeee6d6bd702aedb574bec2342e167b5ffc85c09df393bc6d6f66",
+      "imports": [
+        "W4D13Base"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13W08G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13W08G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13W08G0.lean",
+      "source_sha256": "bc0e43b9d6dc3eb6232b7841d22e1040be5d7bb65bcbfca2430209aed3c4f6cd",
+      "imports": [
+        "W4D13Base"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13W09G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13W09G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13W09G0.lean",
+      "source_sha256": "6adc79b885fadc9425c6bd0a5ceab00a10e4be18e9157e969a8068df8c4902c5",
+      "imports": [
+        "W4D13Base"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13W10G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13W10G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13W10G0.lean",
+      "source_sha256": "32858ac5299fa47fdeb445ab0bb46050b69f6cf0ba0f9c5cc73098c2073d5ca0",
+      "imports": [
+        "W4D13Base"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13W11G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13W11G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13W11G0.lean",
+      "source_sha256": "ee3377fc902d8ba5b87f0d72b7e9add0d156af1a24c7d5e787fc3c3d9b8587a6",
+      "imports": [
+        "W4D13Base"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13W12G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13W12G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13W12G0.lean",
+      "source_sha256": "6a21d9a83c10f8caf1f60fcf35d1abb1bae6d8bd647914de251ddb47ffa46889",
+      "imports": [
+        "W4D13Base"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13W13G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13W13G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13W13G0.lean",
+      "source_sha256": "71b6fb7579f713dc131e3fe94af0e2744568a2ea75a009f97a3cd83f506d073e",
+      "imports": [
+        "W4D13Base"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13Tables",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13Tables.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13Tables.lean",
+      "source_sha256": "0921612858e98e53b8302cac5335a00edf291b235a10fa967a0126c7d452dcb8",
+      "imports": [
+        "W4D13Base",
+        "W4D13W01G0",
+        "W4D13W02G0",
+        "W4D13W03G0",
+        "W4D13W04G0",
+        "W4D13W05G0",
+        "W4D13W06G0",
+        "W4D13W07G0",
+        "W4D13W08G0",
+        "W4D13W09G0",
+        "W4D13W10G0",
+        "W4D13W11G0",
+        "W4D13W12G0",
+        "W4D13W13G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13E01G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13E01G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13E01G0.lean",
+      "source_sha256": "106233cb9875f0cbd6beddce9c935bbe9055528e54787e1fd6c86e776b69d0c8",
+      "imports": [
+        "W4D13Base",
+        "W4D13W01G0",
+        "W4D13W02G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13E02G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13E02G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13E02G0.lean",
+      "source_sha256": "70b6d07d619a46b42dc9d2afa46fa099dcfc3ef97eba8b42877d63e1aaa21b43",
+      "imports": [
+        "W4D13Base",
+        "W4D13W02G0",
+        "W4D13W03G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13E03G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13E03G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13E03G0.lean",
+      "source_sha256": "4769e1713ecae6c303b34cd4437d5959bd06a22f53079c7f02506fe43615c92c",
+      "imports": [
+        "W4D13Base",
+        "W4D13W03G0",
+        "W4D13W04G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13E04G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13E04G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13E04G0.lean",
+      "source_sha256": "766a15c0f916dbc51ab245d02fbd597ef789ffae042b6aaf2fbce4a92c6fcc00",
+      "imports": [
+        "W4D13Base",
+        "W4D13W04G0",
+        "W4D13W05G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13E05G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13E05G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13E05G0.lean",
+      "source_sha256": "f2718110269a4746ccc25fa20a871fa67bb4949179f6e59be5899e26ead464f1",
+      "imports": [
+        "W4D13Base",
+        "W4D13W05G0",
+        "W4D13W06G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13E06G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13E06G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13E06G0.lean",
+      "source_sha256": "10fbfcf9cd267258977cc6717c37308600ec75a8ca9fcd2c6f4b431e28099815",
+      "imports": [
+        "W4D13Base",
+        "W4D13W06G0",
+        "W4D13W07G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13E07G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13E07G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13E07G0.lean",
+      "source_sha256": "2ae5b8eb55b488f68afec374b4300b201b687368057f377dcb5cbb3a4f16c499",
+      "imports": [
+        "W4D13Base",
+        "W4D13W07G0",
+        "W4D13W08G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13E08G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13E08G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13E08G0.lean",
+      "source_sha256": "01aef95517d40f3b37031ad9f804e47ad1986d4680142157fa16c67f518484bd",
+      "imports": [
+        "W4D13Base",
+        "W4D13W08G0",
+        "W4D13W09G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13E09G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13E09G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13E09G0.lean",
+      "source_sha256": "5b0b390164927aee38c09c0015d1ab8dd4118e8e6e141ebd6dfd1ce89b956794",
+      "imports": [
+        "W4D13Base",
+        "W4D13W09G0",
+        "W4D13W10G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13E10G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13E10G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13E10G0.lean",
+      "source_sha256": "0e241caa1e84fb609f18182826e444f24d4e5d35005fb85bc3185320fe471539",
+      "imports": [
+        "W4D13Base",
+        "W4D13W10G0",
+        "W4D13W11G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13E11G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13E11G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13E11G0.lean",
+      "source_sha256": "3a43ef95d9a8865d85f3ca3e7905201f22159602a80d19c629c539433b0c1516",
+      "imports": [
+        "W4D13Base",
+        "W4D13W11G0",
+        "W4D13W12G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13E12G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13E12G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13E12G0.lean",
+      "source_sha256": "04a93018a8daa1e253e46b13c48f29e4f2f2774cf19877ee53d688339c905954",
+      "imports": [
+        "W4D13Base",
+        "W4D13W12G0",
+        "W4D13W13G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N01G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N01G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N01G0.lean",
+      "source_sha256": "681cb0e9cd38130e63c534b343c1df747a15eac8e0077bce84240434220d98f2",
+      "imports": [
+        "W4D13Tables",
+        "W4D13W01G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N01G16",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N01G16.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N01G16.lean",
+      "source_sha256": "fbecc88afd03afdaaad0c6ff60ddd6b8d60264742f70c8605962a37e87c3f4da",
+      "imports": [
+        "W4D13Tables",
+        "W4D13W01G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N02G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N02G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N02G0.lean",
+      "source_sha256": "4a4e5e7e8982866fe126b93f9e8c2a7b80d4ba58f35a54ff65a2a2017c193206",
+      "imports": [
+        "W4D13N01G0",
+        "W4D13N01G16",
+        "W4D13Tables",
+        "W4D13W02G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N01G8",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N01G8.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N01G8.lean",
+      "source_sha256": "bc9271b1079b0fd41e6c00f1f5749edb31f87876b259b3e11d375f4f6a096870",
+      "imports": [
+        "W4D13Tables",
+        "W4D13W01G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N01G24",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N01G24.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N01G24.lean",
+      "source_sha256": "b90fa2d594fa2388db531f57bc43d3da30c7546ff8fc9808512c17e2c49bfe2d",
+      "imports": [
+        "W4D13Tables",
+        "W4D13W01G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N02G8",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N02G8.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N02G8.lean",
+      "source_sha256": "ff30d11e2b118718a81fdc40c52e27f8e3c4d988648e8568bf4da821cdcada52",
+      "imports": [
+        "W4D13N01G24",
+        "W4D13N01G8",
+        "W4D13Tables",
+        "W4D13W02G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N03G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N03G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N03G0.lean",
+      "source_sha256": "c6c9cc4a2fbc5cce6a02b7b9641dad4bc709e629226319d94aa7369d4a70f4e8",
+      "imports": [
+        "W4D13N02G0",
+        "W4D13N02G8",
+        "W4D13Tables",
+        "W4D13W03G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N01G4",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N01G4.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N01G4.lean",
+      "source_sha256": "10ef5a8e01393a9249a0153492d98f62fb0591b8e8927ff670eb000fb63f0431",
+      "imports": [
+        "W4D13Tables",
+        "W4D13W01G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N01G20",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N01G20.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N01G20.lean",
+      "source_sha256": "2e0da26e1f8c7cd021b3c45f8002d30385fe3c7adb87cb7d95ffd4aff08e7015",
+      "imports": [
+        "W4D13Tables",
+        "W4D13W01G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N02G4",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N02G4.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N02G4.lean",
+      "source_sha256": "345db560ee62bf668d28ace66c5c9aebe5d099921684a32a265981336ffa4b37",
+      "imports": [
+        "W4D13N01G20",
+        "W4D13N01G4",
+        "W4D13Tables",
+        "W4D13W02G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N01G12",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N01G12.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N01G12.lean",
+      "source_sha256": "ae22ae59c91ebfde1af0fa16987746cc4ab91ae0df863abef0d1788b27435d10",
+      "imports": [
+        "W4D13Tables",
+        "W4D13W01G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N01G28",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N01G28.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N01G28.lean",
+      "source_sha256": "c7f42e5f5b47ca2bd9013cc21d0cacf4f8e5275cdcb8d57eb031a4803d6cbd38",
+      "imports": [
+        "W4D13Tables",
+        "W4D13W01G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N02G12",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N02G12.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N02G12.lean",
+      "source_sha256": "7a225fb75d56f8d4d41b5e692777f988de69f11f16d677c9056e4935ba8bd03f",
+      "imports": [
+        "W4D13N01G12",
+        "W4D13N01G28",
+        "W4D13Tables",
+        "W4D13W02G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N03G4",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N03G4.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N03G4.lean",
+      "source_sha256": "cbd96c9ae11a6654febb6726fce0ce31c49b8d464c65fb1aef8adf11dfe5d1b4",
+      "imports": [
+        "W4D13N02G12",
+        "W4D13N02G4",
+        "W4D13Tables",
+        "W4D13W03G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N04G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N04G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N04G0.lean",
+      "source_sha256": "761afc64a0262a25208c6b5d57d053a2d3e341e4ef6c4643b4238b3369d088fa",
+      "imports": [
+        "W4D13N03G0",
+        "W4D13N03G4",
+        "W4D13Tables",
+        "W4D13W04G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N01G2",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N01G2.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N01G2.lean",
+      "source_sha256": "33268af38921878457802d4d708efab1035aa455ae95e1956f011b862cb9d8d4",
+      "imports": [
+        "W4D13Tables",
+        "W4D13W01G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N01G18",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N01G18.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N01G18.lean",
+      "source_sha256": "63ad93a110d24bb9737d7e2719be787e0eba05611370bf23585ea5250c92d5de",
+      "imports": [
+        "W4D13Tables",
+        "W4D13W01G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N02G2",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N02G2.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N02G2.lean",
+      "source_sha256": "56488b31b236e4856e8b3649499ce76bee37df494a7d91be0c557d22b5ef4984",
+      "imports": [
+        "W4D13N01G18",
+        "W4D13N01G2",
+        "W4D13Tables",
+        "W4D13W02G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N01G10",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N01G10.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N01G10.lean",
+      "source_sha256": "94e725b17670288d830e5d5cec07e906e0ae51e9180b9105480cb67af4e7365c",
+      "imports": [
+        "W4D13Tables",
+        "W4D13W01G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N01G26",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N01G26.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N01G26.lean",
+      "source_sha256": "1eaab190e100b2fa9857a0ba46d3c6eabe07ca4a05c50d6ccb8c52b7e034b252",
+      "imports": [
+        "W4D13Tables",
+        "W4D13W01G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N02G10",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N02G10.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N02G10.lean",
+      "source_sha256": "3c61843c989929adf788b8aee007a1f6ef71fd277750678a1c62ea64c5a44ac4",
+      "imports": [
+        "W4D13N01G10",
+        "W4D13N01G26",
+        "W4D13Tables",
+        "W4D13W02G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N03G2",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N03G2.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N03G2.lean",
+      "source_sha256": "7ae781153ec62a01c63bdc2324793e79e7fd6fa16b10d7c83f0e3521ff79c41b",
+      "imports": [
+        "W4D13N02G10",
+        "W4D13N02G2",
+        "W4D13Tables",
+        "W4D13W03G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N01G6",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N01G6.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N01G6.lean",
+      "source_sha256": "171d3d0add67b7fe45bb8330bfac0bbd777bf27a4dcb6b85b09363f80221f9a5",
+      "imports": [
+        "W4D13Tables",
+        "W4D13W01G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N01G22",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N01G22.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N01G22.lean",
+      "source_sha256": "0b1883f6ebc84cb9364328e10fcf2a60b8b46b4e138b976142ba60a50cab8cc5",
+      "imports": [
+        "W4D13Tables",
+        "W4D13W01G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N02G6",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N02G6.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N02G6.lean",
+      "source_sha256": "df3757e6967a3f71a8f3e006740a217230ccfb57a9dddd1415cedcc2cb6e7650",
+      "imports": [
+        "W4D13N01G22",
+        "W4D13N01G6",
+        "W4D13Tables",
+        "W4D13W02G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N01G14",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N01G14.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N01G14.lean",
+      "source_sha256": "6d782a7b468d3d55f96b07e7507ff8d2ecc1a3900036306fbadf79e57630832e",
+      "imports": [
+        "W4D13Tables",
+        "W4D13W01G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N01G30",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N01G30.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N01G30.lean",
+      "source_sha256": "1c69b6e0f751d43c5adba36421e21ec2f9f8f38c265afc267adffae9a5bac9d1",
+      "imports": [
+        "W4D13Tables",
+        "W4D13W01G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N02G14",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N02G14.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N02G14.lean",
+      "source_sha256": "58c8462caecfaba066cfbd814bb034b40d42d4c5e5f14b4962bce5d1ba0e7d44",
+      "imports": [
+        "W4D13N01G14",
+        "W4D13N01G30",
+        "W4D13Tables",
+        "W4D13W02G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N03G6",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N03G6.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N03G6.lean",
+      "source_sha256": "6ca77efaf3e8a909f3d02c82a26a8bed6d9a55b524229853b15115b8914d20ae",
+      "imports": [
+        "W4D13N02G14",
+        "W4D13N02G6",
+        "W4D13Tables",
+        "W4D13W03G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N04G2",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N04G2.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N04G2.lean",
+      "source_sha256": "9a8f152b6accb81ff3cdf696dd0e2ea128cbde9259f834f815479dc119394808",
+      "imports": [
+        "W4D13N03G2",
+        "W4D13N03G6",
+        "W4D13Tables",
+        "W4D13W04G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N05G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N05G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N05G0.lean",
+      "source_sha256": "2306840a9c04e1c83a5e52ad5fb9aef1ced47d8fa314f371c47bb3241798b8cc",
+      "imports": [
+        "W4D13N04G0",
+        "W4D13N04G2",
+        "W4D13Tables",
+        "W4D13W05G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N01G1",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N01G1.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N01G1.lean",
+      "source_sha256": "67f689a9852a207613357bc499e0c4bc4665bbd6dff863426807596bab207a50",
+      "imports": [
+        "W4D13Tables",
+        "W4D13W01G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N01G17",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N01G17.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N01G17.lean",
+      "source_sha256": "9c0d5a61f3ead27685325532ae64d5e3d666de392768307751e7391a129647d2",
+      "imports": [
+        "W4D13Tables",
+        "W4D13W01G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N02G1",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N02G1.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N02G1.lean",
+      "source_sha256": "b6083dd0986e82513c92cb73387917ba2cd8cd5d11ede5d7771b895de041c797",
+      "imports": [
+        "W4D13N01G1",
+        "W4D13N01G17",
+        "W4D13Tables",
+        "W4D13W02G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N01G9",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N01G9.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N01G9.lean",
+      "source_sha256": "11461e9b757c61c745639935122a2368139b7dc172dae502a41492040724093f",
+      "imports": [
+        "W4D13Tables",
+        "W4D13W01G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N01G25",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N01G25.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N01G25.lean",
+      "source_sha256": "d802a7475749736d3be9446fefcd0e9493a239842f98b9c7554f6aa213ce3bca",
+      "imports": [
+        "W4D13Tables",
+        "W4D13W01G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N02G9",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N02G9.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N02G9.lean",
+      "source_sha256": "6fc123cf540430713ac256e389fea8c096409649a7624f3722be0ebf0f7f86cc",
+      "imports": [
+        "W4D13N01G25",
+        "W4D13N01G9",
+        "W4D13Tables",
+        "W4D13W02G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N03G1",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N03G1.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N03G1.lean",
+      "source_sha256": "8ca71a9e933c1ce613f23d250e7fb496b5af41781f56bb50d15783f02f4e16fc",
+      "imports": [
+        "W4D13N02G1",
+        "W4D13N02G9",
+        "W4D13Tables",
+        "W4D13W03G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N01G5",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N01G5.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N01G5.lean",
+      "source_sha256": "aad8c2793f15d028e5e9ed1fb4ceab39ffda4aaad28bd25e91aebfd7609c2ebd",
+      "imports": [
+        "W4D13Tables",
+        "W4D13W01G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N01G21",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N01G21.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N01G21.lean",
+      "source_sha256": "96cb284666a553c9915751021c2f8c2e07c9fef86e313373b0fc084c9e64ac8b",
+      "imports": [
+        "W4D13Tables",
+        "W4D13W01G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N02G5",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N02G5.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N02G5.lean",
+      "source_sha256": "b6593480decb1c88aa0778a7c344034283cdbeb7abc9d44d439b51736060c9ad",
+      "imports": [
+        "W4D13N01G21",
+        "W4D13N01G5",
+        "W4D13Tables",
+        "W4D13W02G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N01G13",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N01G13.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N01G13.lean",
+      "source_sha256": "be58fb89e78ad86058a0afe3024f69d8f4ab588f013441eeb6e425b4de3214c5",
+      "imports": [
+        "W4D13Tables",
+        "W4D13W01G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N01G29",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N01G29.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N01G29.lean",
+      "source_sha256": "89152f3d06908dfccf2d39bb80d41dc0f8558cf9979a0efb81de49a2490d1b54",
+      "imports": [
+        "W4D13Tables",
+        "W4D13W01G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N02G13",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N02G13.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N02G13.lean",
+      "source_sha256": "0dffddd13368503b3db2d7cf60597fd2cf8ec48a96581faf36c005ac18e9dc4f",
+      "imports": [
+        "W4D13N01G13",
+        "W4D13N01G29",
+        "W4D13Tables",
+        "W4D13W02G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N03G5",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N03G5.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N03G5.lean",
+      "source_sha256": "354464ac43970d6b0d44f636eec98cf7d36ccd06663845006f2d05abaf825434",
+      "imports": [
+        "W4D13N02G13",
+        "W4D13N02G5",
+        "W4D13Tables",
+        "W4D13W03G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N04G1",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N04G1.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N04G1.lean",
+      "source_sha256": "dc0b23a59822729704abab7153dd0ae425159d1205ed77e8f5362f16c31e8440",
+      "imports": [
+        "W4D13N03G1",
+        "W4D13N03G5",
+        "W4D13Tables",
+        "W4D13W04G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N01G3",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N01G3.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N01G3.lean",
+      "source_sha256": "e1fd3d2918bceabcbeb73fb9ec9caf4fc6d9504ba9a85f4038586d29372c9ce7",
+      "imports": [
+        "W4D13Tables",
+        "W4D13W01G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N01G19",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N01G19.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N01G19.lean",
+      "source_sha256": "b068e45d9c9acf8641f1fc6f6ac9fe57a9a481e28a98663f0ab9b3a88947111f",
+      "imports": [
+        "W4D13Tables",
+        "W4D13W01G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N02G3",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N02G3.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N02G3.lean",
+      "source_sha256": "2fa9f392dfac62eb26bcd9367b56bcd672942b4e9c4203ee890b71a2e16c24e2",
+      "imports": [
+        "W4D13N01G19",
+        "W4D13N01G3",
+        "W4D13Tables",
+        "W4D13W02G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N01G11",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N01G11.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N01G11.lean",
+      "source_sha256": "62a6375821e81179e6c1a3838b20f2cad5d6d858fe6c23861d9f0842f6321eee",
+      "imports": [
+        "W4D13Tables",
+        "W4D13W01G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N01G27",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N01G27.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N01G27.lean",
+      "source_sha256": "779cb63236d87e23ffd2fec57683dca90ba34794a0835cc373035d11197aaa69",
+      "imports": [
+        "W4D13Tables",
+        "W4D13W01G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N02G11",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N02G11.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N02G11.lean",
+      "source_sha256": "46cc2d669434b74aec012b325a400a1437c7bd74143431bfc177f58f8f1064a7",
+      "imports": [
+        "W4D13N01G11",
+        "W4D13N01G27",
+        "W4D13Tables",
+        "W4D13W02G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N03G3",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N03G3.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N03G3.lean",
+      "source_sha256": "f7315e3228e76497d892d7bd8c977585fd630ad0f906795b363fe8c7b46a2f5d",
+      "imports": [
+        "W4D13N02G11",
+        "W4D13N02G3",
+        "W4D13Tables",
+        "W4D13W03G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N01G7",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N01G7.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N01G7.lean",
+      "source_sha256": "adf897261bc3c8e89bb1c90c3da3954b3e134ecfc39d4f758192133be9abd3f7",
+      "imports": [
+        "W4D13Tables",
+        "W4D13W01G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N01G23",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N01G23.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N01G23.lean",
+      "source_sha256": "b6a1bfa8a36cb332d2ebfa571ec83fd3e4829dfbdd3452d15ad8e7ae260d6771",
+      "imports": [
+        "W4D13Tables",
+        "W4D13W01G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N02G7",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N02G7.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N02G7.lean",
+      "source_sha256": "c15f5994276be00e427442edd612d976d76ef6839cfc89faa94b08486702ac0c",
+      "imports": [
+        "W4D13N01G23",
+        "W4D13N01G7",
+        "W4D13Tables",
+        "W4D13W02G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N01G15",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N01G15.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N01G15.lean",
+      "source_sha256": "f81a459117a73ef7403b8a6ebd7ff1b74e13ad07ce909b65c492ef89bfa96093",
+      "imports": [
+        "W4D13Tables",
+        "W4D13W01G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N01G31",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N01G31.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N01G31.lean",
+      "source_sha256": "9b3a68f614dca48864cce0db09b72b3707444aa9eb061bd5cebf2433f86cf762",
+      "imports": [
+        "W4D13Tables",
+        "W4D13W01G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N02G15",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N02G15.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N02G15.lean",
+      "source_sha256": "4a18eb2033abcef3a009c7ef1fa6200f88a54fd00046d83e3368ef4225ac4795",
+      "imports": [
+        "W4D13N01G15",
+        "W4D13N01G31",
+        "W4D13Tables",
+        "W4D13W02G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N03G7",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N03G7.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N03G7.lean",
+      "source_sha256": "c2a05f0041a74bd1d56b195db5945cd20474464afd5741f15a76c77c0af29f12",
+      "imports": [
+        "W4D13N02G15",
+        "W4D13N02G7",
+        "W4D13Tables",
+        "W4D13W03G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N04G3",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N04G3.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N04G3.lean",
+      "source_sha256": "ae2b65ef9a74d979c382316074cf8ecca02b7e84b74ba6881eda60e6b6bf949a",
+      "imports": [
+        "W4D13N03G3",
+        "W4D13N03G7",
+        "W4D13Tables",
+        "W4D13W04G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N05G1",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N05G1.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N05G1.lean",
+      "source_sha256": "9c2045a1b508dda71c9c05c3476ef02e6e4fd2c154426d572bfb52e2d9817b21",
+      "imports": [
+        "W4D13N04G1",
+        "W4D13N04G3",
+        "W4D13Tables",
+        "W4D13W05G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N06G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N06G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N06G0.lean",
+      "source_sha256": "a621961134181c4fc469a8303a70c3b7f4ca330db608659a9932389d0bfbcc66",
+      "imports": [
+        "W4D13N05G0",
+        "W4D13N05G1",
+        "W4D13Tables",
+        "W4D13W06G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N06G1",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N06G1.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N06G1.lean",
+      "source_sha256": "60b074c7a7b61edd65c20754a0099dfd53745bfffe1fc25dea9dc8d2c2f978e0",
+      "imports": [
+        "W4D13N05G0",
+        "W4D13N05G1",
+        "W4D13Tables",
+        "W4D13W06G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N07G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N07G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N07G0.lean",
+      "source_sha256": "d02f8a33fa1a5d38a0278bfaae3502f2eb5887d4fef7b0c8f556807bb4f1d4ab",
+      "imports": [
+        "W4D13N06G0",
+        "W4D13N06G1",
+        "W4D13Tables",
+        "W4D13W07G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N07G1",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N07G1.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N07G1.lean",
+      "source_sha256": "a00e26cc1f867e64b93852f1e2854f68af2e960931e7f8cf8bf1d3a23d9435f5",
+      "imports": [
+        "W4D13N06G0",
+        "W4D13N06G1",
+        "W4D13Tables",
+        "W4D13W07G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N08G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N08G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N08G0.lean",
+      "source_sha256": "17b4e94b55e8935530d4a7dc40b4708295df9e787d3aebf9fedef015ba4f35b1",
+      "imports": [
+        "W4D13N07G0",
+        "W4D13N07G1",
+        "W4D13Tables",
+        "W4D13W08G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N08G1",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N08G1.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N08G1.lean",
+      "source_sha256": "21a77110b015aba2de3c6670e4446fdaf72716797b949beaaa27fb145c5de5be",
+      "imports": [
+        "W4D13N07G0",
+        "W4D13N07G1",
+        "W4D13Tables",
+        "W4D13W08G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N09G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N09G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N09G0.lean",
+      "source_sha256": "a08ea26d2b687921ca9e309af4c9e7529e2934e8afe06ee0bd95f514166ce6f2",
+      "imports": [
+        "W4D13N08G0",
+        "W4D13N08G1",
+        "W4D13Tables",
+        "W4D13W09G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N09G1",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N09G1.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N09G1.lean",
+      "source_sha256": "af1543745002b3cf6a1fb5d40cd6a5e174fac8d487505a0ff2f2e3ae950b26b5",
+      "imports": [
+        "W4D13N08G0",
+        "W4D13N08G1",
+        "W4D13Tables",
+        "W4D13W09G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N10G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N10G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N10G0.lean",
+      "source_sha256": "72a2c150727c442c8df8f3d93ef3269f7fcd40b8ae879a7025a7778abda31677",
+      "imports": [
+        "W4D13N09G0",
+        "W4D13N09G1",
+        "W4D13Tables",
+        "W4D13W10G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N10G1",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N10G1.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N10G1.lean",
+      "source_sha256": "6ce3d068096522daf891953f9758243ee1dc84276ea0a4b6aa61e114e817d447",
+      "imports": [
+        "W4D13N09G0",
+        "W4D13N09G1",
+        "W4D13Tables",
+        "W4D13W10G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N11G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N11G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N11G0.lean",
+      "source_sha256": "a2287c8606fc2b4e7dedf19d9524be1e9a478d65b64685064bcde8d2133d263e",
+      "imports": [
+        "W4D13N10G0",
+        "W4D13N10G1",
+        "W4D13Tables",
+        "W4D13W11G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N11G1",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N11G1.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N11G1.lean",
+      "source_sha256": "f0757370ab9c871cb02265f823e1da098e3f57ba92db8fb6915f8d1e6565881b",
+      "imports": [
+        "W4D13N10G0",
+        "W4D13N10G1",
+        "W4D13Tables",
+        "W4D13W11G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N12G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N12G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N12G0.lean",
+      "source_sha256": "8ec96c7a59003fff4281bdabd01c2c975c9ea74939a12456f498f6095acf205a",
+      "imports": [
+        "W4D13N11G0",
+        "W4D13N11G1",
+        "W4D13Tables",
+        "W4D13W12G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N12G1",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N12G1.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N12G1.lean",
+      "source_sha256": "af2e5732a0591c2cfecde8802dc43231b111e8bc36b22284d3e34dd26f94aa3f",
+      "imports": [
+        "W4D13N11G0",
+        "W4D13N11G1",
+        "W4D13Tables",
+        "W4D13W12G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13B13I0G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13B13I0G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13B13I0G0.lean",
+      "source_sha256": "3ef21b4eda5a7faa6bfe2f8a658a1ab39c0afb098549ebad360aa4ce36f6f265",
+      "imports": [
+        "W4D13N12G0",
+        "W4D13N12G1",
+        "W4D13Tables",
+        "W4D13W13G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13B13I0G1",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13B13I0G1.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13B13I0G1.lean",
+      "source_sha256": "9ddd0e0913c2ade8b3b4fda5248356f4fb937e5c6cd09ade3a90727006c7ced0",
+      "imports": [
+        "W4D13N12G0",
+        "W4D13N12G1",
+        "W4D13Tables",
+        "W4D13W13G0"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13N13G0",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13N13G0.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13N13G0.lean",
+      "source_sha256": "55df8c93d8dec73a48309a81c485624a7ac92380523bc40b9be6b4674f25fa87",
+      "imports": [
+        "W4D13B13I0G0",
+        "W4D13B13I0G1",
+        "W4D13N12G0",
+        "W4D13N12G1",
+        "W4D13Tables"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "TopShapeSymbolic",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/TopShapeSymbolic.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/TopShapeSymbolic.lean",
+      "source_sha256": "121b1b44651f312abf569164f5117fe33ffb18d5ab3fc4f1c6f564fafee56726",
+      "imports": [
+        "Init"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "NormSymbolic",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/NormSymbolic.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/NormSymbolic.lean",
+      "source_sha256": "dc3590afbf7a804cc8d033db03dbdda826f4575f6d2f59755a9c97d43500b333",
+      "imports": [
+        "W4FFTPairedIntModel"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13Final",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate/W4D13Final.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13Final.lean",
+      "source_sha256": "f9385eea472ff94103487ac94b64fe02dab5c354da6ace5b591bacdc323ad416",
+      "imports": [
+        "TopShapeSymbolic",
+        "NormSymbolic",
+        "W4D13E01G0",
+        "W4D13E02G0",
+        "W4D13E03G0",
+        "W4D13E04G0",
+        "W4D13E05G0",
+        "W4D13E06G0",
+        "W4D13E07G0",
+        "W4D13E08G0",
+        "W4D13E09G0",
+        "W4D13E10G0",
+        "W4D13E11G0",
+        "W4D13E12G0",
+        "W4D13N13G0",
+        "W4D13Tables"
+      ],
+      "generated_source": true,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    },
+    {
+      "module": "W4D13ClaimAudit",
+      "origin": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13ClaimAudit.lean",
+      "snapshot": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank/source/W4D13ClaimAudit.lean",
+      "source_sha256": "e8b3eca548be6a43769f50744859e388fff2276eadb1d537836ac34d1be23a65",
+      "imports": [
+        "W4D13Final"
+      ],
+      "generated_source": false,
+      "regeneration": "Original pinned producer and original numeric inventory; deterministic compact source-only proof transform; unchanged original fresh checker."
+    }
+  ],
+  "context_sha256": "88a89fb62356f9ac34abaa4f50a32584a75a33bd8ad23aae92cf07965f344319",
+  "original_base": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel",
+  "original_plan_sha256": "1461475d861e75691a92df46fa0b5f99f220c8be5dd680875472fd595c3a750a",
+  "original_result_sha256": "26fd71e519391b3238bd0559ee268865bc0ba6f9ad59eab06611e54cab348ad7",
+  "candidate_plan_sha256": "5a7352c9f4a8dac35ec64f75fbda6fb61152141091237be5c93a23317e6c09b4",
+  "independent_acceptance": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/accepted-0.json",
+  "independent_acceptance_sha256": "d938716a448634f8c03ada00a2360e00594954e1a0617258615ac3b90cbefe21",
+  "per_module_lineage": [
+    {
+      "module": "FapData",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/FapData.COMPILED.json",
+      "original_receipt_sha256": "c2c44f5dccae220f3ddb102fb47359b4ae7fdd7c3947c78a2408d4eef97484b0",
+      "object_sha256": "449c720be461c702444fe1fd3c50ad380fd0abfea90ff5b483742bc37ec230fd"
+    },
+    {
+      "module": "FFTPairedIntModel",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/FFTPairedIntModel.COMPILED.json",
+      "original_receipt_sha256": "65599df24d4dfda5864ba8af8d1a5e5c08eca554d59919d8bb63f192f513b5de",
+      "object_sha256": "de38a2f7c47afe0f0395d8d8321eb604014cbc8947a6a2e1bcfde34c3b3ba6bc"
+    },
+    {
+      "module": "FFTUntrustedData",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/FFTUntrustedData.COMPILED.json",
+      "original_receipt_sha256": "c9ee406bc8e86abc59f8cda657c79f3c89222f8c3ce1b1ce2854bbdae34cc73d",
+      "object_sha256": "e958f33eb4989836b1d57353783d464f5d9e299d77630fb3a7253d7fa17f96f4"
+    },
+    {
+      "module": "FFTTraceChecker",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/FFTTraceChecker.COMPILED.json",
+      "original_receipt_sha256": "d2aa9aafff4d9c823854ad98c001cee6e22e8d8889a599deb772aef92c58c6e3",
+      "object_sha256": "8319f810d7868a2525deea1474ecd1f424ce31d6311715e69a6dd2ccc5ea90ad"
+    },
+    {
+      "module": "FFTForestTrace",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/FFTForestTrace.COMPILED.json",
+      "original_receipt_sha256": "94a9c2371ae872c76313a0ef7d5db7c8fddf97823c4f213a4ee1730876bf0fbc",
+      "object_sha256": "0ebfe7250987e9f682b8749ec4602b24c99ea6f26d44609437de15c676f7a2c1"
+    },
+    {
+      "module": "FFTButterfly",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/FFTButterfly.COMPILED.json",
+      "original_receipt_sha256": "8198c599ddaedf5d8252483d5ec6f5b3c5c64ba2877969724ef863ea5746f5b4",
+      "object_sha256": "55c3e18319f37af4f7b8a0aa0e62f781744e60820b5c1f82d67318160a19033c"
+    },
+    {
+      "module": "FFTRoundoff",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/FFTRoundoff.COMPILED.json",
+      "original_receipt_sha256": "8967e9ff4e15beb83a19c1d95da76fa1f76c2e58b6cb71f96a7e1dae048e3d4c",
+      "object_sha256": "a55c0f7274b2ee26f39100d833c5322d2bbb36d859f9426983bd02962d8ca5bb"
+    },
+    {
+      "module": "FFTIntegerInterpretation",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/FFTIntegerInterpretation.COMPILED.json",
+      "original_receipt_sha256": "444d67fdaa9fc9815c7c185ac928aabe2e4bea1f54601c4fd3d52aa909a28a72",
+      "object_sha256": "6eb8dd473cada9244bd55490a5888e1db1428c2e4a61c457abb0ec34bbef7099"
+    },
+    {
+      "module": "FFTTraceTwiddles",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/FFTTraceTwiddles.COMPILED.json",
+      "original_receipt_sha256": "802c4c4fe6766b6a5f1f6be81bc03ae6c4a22ae4fe3f7df9a2a2a308ab058c9c",
+      "object_sha256": "61d309a2a61b2a1ca3eac9052397ab5a42ae6339c5c59bda4b2dbb755f3cf8ed"
+    },
+    {
+      "module": "FFTCertificateComposition",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/FFTCertificateComposition.COMPILED.json",
+      "original_receipt_sha256": "21369b2973dd874dba1d3fa55c190e27e38d30f59b7a9a92be03d907720aff72",
+      "object_sha256": "f19219ab9078b1c5301da1e408ce8942da2cf6fadb69e9dcf0a363275e0e3861"
+    },
+    {
+      "module": "WindowData",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/WindowData.COMPILED.json",
+      "original_receipt_sha256": "af71caa4e9b9aa0cb6ed56522dba264603ad1af36a0bf461bf63e76f6aa441ed",
+      "object_sha256": "b6da1d39f8901fdb3b8902c7c647aef91b2c941c1f70081ddb6c683f106d7db1"
+    },
+    {
+      "module": "W4FFTPairedIntModel",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4FFTPairedIntModel.COMPILED.json",
+      "original_receipt_sha256": "ef2ddddcfceb462de9442ecbd7a9f5607b3eb7fa972f39e60d6c026348950165",
+      "object_sha256": "71bf0621edb57c850da00a8fdd1659dd27dc4e34397648cbbbf29ce5e09090c3"
+    },
+    {
+      "module": "W4D13Base",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13Base.COMPILED.json",
+      "original_receipt_sha256": "18c15b7442a2349aec0eb0ebb0660bdd02ef07f76e1e58f74e32f9ed0a0be7cc",
+      "object_sha256": "50eeaee4b2e7b55f032557b1844cc17b0b83ed2d17132c07685fcce2bfc25b38"
+    },
+    {
+      "module": "W4D13W01G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13W01G0.COMPILED.json",
+      "original_receipt_sha256": "00e80a97bdb8226e663bcdae81c73edcdfba780740bf80db147d0512331aaddd",
+      "object_sha256": "e32689f253363787d1680cf2d9c0457f58e99240cf6f4e4556742735409282c6"
+    },
+    {
+      "module": "W4D13W02G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13W02G0.COMPILED.json",
+      "original_receipt_sha256": "2b9a85a89e393ceea1ace54a2ae4b9d80c50822056d87b1d2a719db324071359",
+      "object_sha256": "5156788b705fa1217412ac1cc40e388c5f0c0aefa04ef7799bd0094e50e5d48e"
+    },
+    {
+      "module": "W4D13W03G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13W03G0.COMPILED.json",
+      "original_receipt_sha256": "a3636f6096242c44aeb375a5af87357e6392ff7077df281c34ec5ee6c61227e9",
+      "object_sha256": "99596a853c3a411abd4dd6c3397f694a3fc154e4b7ba7b546dd4c5fff970387d"
+    },
+    {
+      "module": "W4D13W04G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13W04G0.COMPILED.json",
+      "original_receipt_sha256": "2671fdc0cd94adf92615605256b9ca5131502cfddb3f45b7e293bed20359ea96",
+      "object_sha256": "ba661d2946b20fa1a6f3679fe0e13a4937febcf9450b8fe6b51af3ff6117a034"
+    },
+    {
+      "module": "W4D13W05G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13W05G0.COMPILED.json",
+      "original_receipt_sha256": "f4185131b1c52e3e098a0aaf4c1b363ef1ddc29ff22adc76cb3459c55d717fa5",
+      "object_sha256": "1e94c2728e37078e3390d31f9735c2bc53d1b1a9a976d703c36c1eb0a9317752"
+    },
+    {
+      "module": "W4D13W06G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13W06G0.COMPILED.json",
+      "original_receipt_sha256": "48f96966cb7b23afc22e6fed581212d1b3be90d98210a680067dc00d77083721",
+      "object_sha256": "fe75ba2bf906cac5573fb1edf6a828ae8e8209491515fb913fb94d2559dd8013"
+    },
+    {
+      "module": "W4D13W07G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13W07G0.COMPILED.json",
+      "original_receipt_sha256": "ef662a87957a6980a7d9f8a02396f2227d5f4a86176c49570daf803d72f1ecf0",
+      "object_sha256": "7a7b9a6013676155a7b4e003d274ec2b096c3779d7ad84edb87d358442c8ad74"
+    },
+    {
+      "module": "W4D13W08G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13W08G0.COMPILED.json",
+      "original_receipt_sha256": "9027f6a6015b2b28092dcc8b32819812e8b897379e4da288fde3a9b436721237",
+      "object_sha256": "4669f981b9bf518c1a9a1b9998c0880a970b7d60f5bf175a64557a72c5e85f73"
+    },
+    {
+      "module": "W4D13W09G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13W09G0.COMPILED.json",
+      "original_receipt_sha256": "d36d243c8b951510399700bd612bfa7d1b5901718e0d86a3a7e61b1bbb15f5dd",
+      "object_sha256": "7f2ca04bbced501eea4edbfde7afc190ae12e1b1c63556e77867275d89c027a8"
+    },
+    {
+      "module": "W4D13W10G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13W10G0.COMPILED.json",
+      "original_receipt_sha256": "b5761cacefa1ba878ba2ac63e7759566ae06ef463c31f942603ad58fe7960a62",
+      "object_sha256": "b03552111cd91427e41d747d01108efde1eb5b83070ccd9d78298366d92eedd4"
+    },
+    {
+      "module": "W4D13W11G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13W11G0.COMPILED.json",
+      "original_receipt_sha256": "93891868e9c880ad08594a6e3c3730703db88c0cfb502b219aeffa4fabc0b7ca",
+      "object_sha256": "2bb1e33f3f53d5f653316f8cc88b08e47db9c6239ac80cfa807bfa355f515dce"
+    },
+    {
+      "module": "W4D13W12G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13W12G0.COMPILED.json",
+      "original_receipt_sha256": "7d2eb92e635f80af07aa2b93daf2e2dbc56df9eca48d693d0102478bfd3c7b91",
+      "object_sha256": "337ba5620fdf75c7aaaedf1fb9df5dac2d160cc88d46bb7e87ab9c209bccfc87"
+    },
+    {
+      "module": "W4D13W13G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13W13G0.COMPILED.json",
+      "original_receipt_sha256": "1edfcb08798631f631f3fa8c906f2abd2e063afc552bc700a89c9d61ba1eaf93",
+      "object_sha256": "899c4a34fc78d0e93bf0b36b61a4bd3f2359ddd5558cd0d3530ffeec4adaf020"
+    },
+    {
+      "module": "W4D13Tables",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13Tables.COMPILED.json",
+      "original_receipt_sha256": "f93813610c8d9a71df2172055b6b51b4ebcf3ec6033be40655db1ed2ebd02bdc",
+      "object_sha256": "42822f4d35f42704742e45e70b653542de9b50dfde9b06b6a338b3c9f9005f2c"
+    },
+    {
+      "module": "W4D13E01G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13E01G0.COMPILED.json",
+      "original_receipt_sha256": "ba80dfb0721c3de0942c0640bf007d755c489ab9491c46cde5580658086e618d",
+      "object_sha256": "73a477620bf46258b377baa222a45c7e5879559bcaa0aebf55e33b6373444a2e"
+    },
+    {
+      "module": "W4D13E02G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13E02G0.COMPILED.json",
+      "original_receipt_sha256": "a982f05f6b7e0c898bafbe5133a08a5b13803d8b7b10ab2fa69e27b475230513",
+      "object_sha256": "390bee9302abd5a29be21729c63609a27c3661564f6db273696398e2e2f7c0d3"
+    },
+    {
+      "module": "W4D13E03G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13E03G0.COMPILED.json",
+      "original_receipt_sha256": "a20a97b9d69cb57604dae9e50998753a890194b8a58be696beefc1b0d58d3e21",
+      "object_sha256": "19825d5083afffe2ca6b0339ff74687a6b36560717b77a4db1c00aad6f665106"
+    },
+    {
+      "module": "W4D13E04G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13E04G0.COMPILED.json",
+      "original_receipt_sha256": "d6bde276435f5aff69b6ef772117388fce2089d571398f74f31a47c8c8b1971f",
+      "object_sha256": "90e9f106a682764e83ae317105244d4ba06faf6441497a7125c1380db18a6590"
+    },
+    {
+      "module": "W4D13E05G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13E05G0.COMPILED.json",
+      "original_receipt_sha256": "5f237a515c5e067a990b4e8a09a86c02320fa482f3ce2db2ae2ff35797cdef43",
+      "object_sha256": "53d76c7c6bddc0d9ac437b131b662a1e71e22942bb1798d472eaa90cc02c50ab"
+    },
+    {
+      "module": "W4D13E06G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13E06G0.COMPILED.json",
+      "original_receipt_sha256": "885e7db6a992e8a0c0a4abcaceb34501ecb02bc7fa64972da0f355d2ff87e5d5",
+      "object_sha256": "9a9466b08a09f87f3e480aead6535de8ba6628f3f8f348711057925cdf83f322"
+    },
+    {
+      "module": "W4D13E07G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13E07G0.COMPILED.json",
+      "original_receipt_sha256": "eef2a635266531f3bd8fc5b8bc165256eca7c1e61b68fc00b62698a4b7327826",
+      "object_sha256": "44d6250d2d7d61f2c8ffa667908ede42bfe28da8afa417477516679906ee7040"
+    },
+    {
+      "module": "W4D13E08G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13E08G0.COMPILED.json",
+      "original_receipt_sha256": "ff200989fa1125c5ed43fecdefc47da6f3bf71fda026476d58c14e6c8cd57af6",
+      "object_sha256": "22612c2ec12c147cd383ea08c9d9f4fc476cc6d2af806a0cafa297032e1e9a71"
+    },
+    {
+      "module": "W4D13E09G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13E09G0.COMPILED.json",
+      "original_receipt_sha256": "e9a10668b3895aad8ccf2f7a378c52bd51fa1d74152cab6c5976cf6c355faa3a",
+      "object_sha256": "d140e447f8a1e66f083c2971dae01f5a79f439058d7b7305fc6e1fcd408fbe3b"
+    },
+    {
+      "module": "W4D13E10G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13E10G0.COMPILED.json",
+      "original_receipt_sha256": "a22c833069af8620740fea1415232f1401c76d021a1bb740f96c6bfdf9c23b33",
+      "object_sha256": "cf3dee79bb6f98561e275f2dc01dbf7940c1165970913c87892d5751c8984584"
+    },
+    {
+      "module": "W4D13E11G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13E11G0.COMPILED.json",
+      "original_receipt_sha256": "d59fddd9befb69b8a76f59f3d6ce85a4e717e9024b6cf35e622d03d84e651d9a",
+      "object_sha256": "a2fb4a438ca8dab1074fee77dd3b2e2847e3372a0eb00b6e13ca8520f6a078cf"
+    },
+    {
+      "module": "W4D13E12G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13E12G0.COMPILED.json",
+      "original_receipt_sha256": "55299e844ddda5d01eef697a8d39b364e81209ce9a858b213325c480dc39c278",
+      "object_sha256": "afc5d1cfab852721ebe2a6b6436dd95063eb8631845e3293385b4d96fb343331"
+    },
+    {
+      "module": "W4D13N01G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N01G0.COMPILED.json",
+      "original_receipt_sha256": "c60a489f728b4b4ffbd981690f7385b63b012fcd2ea24f6b52e48aca40a83ff2",
+      "object_sha256": "ce35da37c6d270c0e587dcfe7a4f5cfabb1b2a00f41eff2bc140242a0a090822"
+    },
+    {
+      "module": "W4D13N01G16",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N01G16.COMPILED.json",
+      "original_receipt_sha256": "308ac417f97e7807fd66989163acbdffdb4b641c811a9ee0fe5e147bdc0ba56f",
+      "object_sha256": "f1012279c5ab01ee845b4cc7336221471a991785b8fb562d4c3155095eae6a31"
+    },
+    {
+      "module": "W4D13N02G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N02G0.COMPILED.json",
+      "original_receipt_sha256": "38c8da4461f7454a1a00ede21ec99c3780d9da79ac804e0945b6ec2a73b0b09a",
+      "object_sha256": "82b42738371f5c65be92274353e23640f1f95e09e9b7e2808a04f8a989dce07e"
+    },
+    {
+      "module": "W4D13N01G8",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N01G8.COMPILED.json",
+      "original_receipt_sha256": "3c50ad291e55b314e1891e64441b2e35c46fc5acdbfdb46cbb2476844322e54e",
+      "object_sha256": "710e0619aad6a769ad30baefc5fe7bd04a6c3363d13caad1a3e9c85a08f89e22"
+    },
+    {
+      "module": "W4D13N01G24",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N01G24.COMPILED.json",
+      "original_receipt_sha256": "77135319cf9716e4032bee0019243329ab47d8ae85c212c3a2767593fa3de8f8",
+      "object_sha256": "fd3bb0373a53a84b25d31ed79b375cf77eef314b55d78bec870ef90c3cfe909b"
+    },
+    {
+      "module": "W4D13N02G8",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N02G8.COMPILED.json",
+      "original_receipt_sha256": "d86d966ebe9c0678cd821c61d4126fe8635badc42e1a455d3761ad7eadf7455d",
+      "object_sha256": "31160490d3883d525935d2754bda78a60345925654e3d8b31e63b233e0d536c1"
+    },
+    {
+      "module": "W4D13N03G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N03G0.COMPILED.json",
+      "original_receipt_sha256": "f73cc1ccec5e68281a6c045a37a7e04b751be2ac05eebddd0bcd76a05a9bcd3b",
+      "object_sha256": "c11e5b4311aa656f2732c7ec0e3a10df482a60d9a6a9646af1121f2d9e99afde"
+    },
+    {
+      "module": "W4D13N01G4",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N01G4.COMPILED.json",
+      "original_receipt_sha256": "07eff5be1fd94c3882b21ba084714390fd96f15dc246dfef11555319157f7efa",
+      "object_sha256": "a6adbd2bbb77c30277ecb2c05c2d8100447c07162ed4fd2653cbfc2ee2b50947"
+    },
+    {
+      "module": "W4D13N01G20",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N01G20.COMPILED.json",
+      "original_receipt_sha256": "836d5dc9c412aa66e3e64985212cb469d28a857567568dd71199a52ce0cea6d7",
+      "object_sha256": "7b7fb14848da4583a20fa508f43b1566931650556fa07f1e12f187344b7e3b50"
+    },
+    {
+      "module": "W4D13N02G4",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N02G4.COMPILED.json",
+      "original_receipt_sha256": "d13bf119207139b48ac7caa3c2f3ca075956cdb339a687fd6841dc4342c6c385",
+      "object_sha256": "e879d0c3f9a5910bca058de97679bf8c24082fcd5d5767938b5f898c743be898"
+    },
+    {
+      "module": "W4D13N01G12",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N01G12.COMPILED.json",
+      "original_receipt_sha256": "53b98586dd5f3bbcbd6de634673cf9fbc1bbd72eea4802f1330ef2e889036820",
+      "object_sha256": "bc81c016294e27d5589783505cd76b83170d6a477f065f5b90cc7da864d1a219"
+    },
+    {
+      "module": "W4D13N01G28",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N01G28.COMPILED.json",
+      "original_receipt_sha256": "cadd4268ba07b4c84c40e1dd58f77f6470898d3c7d9690dc2f3eb7693bb5fe1f",
+      "object_sha256": "7d066dcba680f94eb4b6cd69e691c6882a92e4df777699895cad867bd899831b"
+    },
+    {
+      "module": "W4D13N02G12",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N02G12.COMPILED.json",
+      "original_receipt_sha256": "2127af49919ff1fbbb0df2da4a17f194a160a54e8b695ac4f9ec1de9cb4c7fac",
+      "object_sha256": "3d1e9f01a3c130ca044c904e7f3cb0ee4def219bc1139cbb4a5f492de3802fa2"
+    },
+    {
+      "module": "W4D13N03G4",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N03G4.COMPILED.json",
+      "original_receipt_sha256": "61c0453929b8e9d72cfec2839395874348d4fc9d655b50fb01df863a465053a8",
+      "object_sha256": "d6787e059bf75fcc29a01ac9efec0ea5f27d455452fc46f262c053911ebe180b"
+    },
+    {
+      "module": "W4D13N04G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N04G0.COMPILED.json",
+      "original_receipt_sha256": "446016c0acee61758643319ad275d0f2d9db6ba45ccc4c919e121df1ddb33234",
+      "object_sha256": "ddb862aa73ac0efd999fe732cafb123906d85a5d38604a776fd6f50cf71095e8"
+    },
+    {
+      "module": "W4D13N01G2",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N01G2.COMPILED.json",
+      "original_receipt_sha256": "52fedb439e36d1bccce373840d2e193a49fc1817bdb3b7a3c9cea92116cf9d27",
+      "object_sha256": "7ffbecab3c3435e1e31e5ce09e2f7fcbab821537c744813f07fb02b2a748348c"
+    },
+    {
+      "module": "W4D13N01G18",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N01G18.COMPILED.json",
+      "original_receipt_sha256": "c0828af0876dd5632c8986154f8646f76c25197a1a8f3e554423980fb0fc11ff",
+      "object_sha256": "c700f595cfee704efba027e06be9e935a30f8f45614fea83028bd725b8ccf1d8"
+    },
+    {
+      "module": "W4D13N02G2",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N02G2.COMPILED.json",
+      "original_receipt_sha256": "f684162f4ae6e21d992dce892b04d1a38c511f2553780a0553a62959a99ae3ff",
+      "object_sha256": "bd39624dd018a616af83b417085cad043a7bbd4f31b7c6bed8296fd36f35b48d"
+    },
+    {
+      "module": "W4D13N01G10",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N01G10.COMPILED.json",
+      "original_receipt_sha256": "23b8b8b158ec8855998e99afcfa626eee51951b417871b793fe570aafdfc26fe",
+      "object_sha256": "da9f37c19ac363b9b4aa49cfd1d30f4e45750ed47711eaa5f5b310442fee555d"
+    },
+    {
+      "module": "W4D13N01G26",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N01G26.COMPILED.json",
+      "original_receipt_sha256": "d6cb91ed331403efaf26e7e0c4f87e2cf0710ae1104125e62b419c451c96eeea",
+      "object_sha256": "5c14d918e6773f1177e4e511100f4af09b23cbe5675e3b34ce27a1d6dcae090a"
+    },
+    {
+      "module": "W4D13N02G10",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N02G10.COMPILED.json",
+      "original_receipt_sha256": "50dcfce6ef52d41c8df3bdc16edb74ae65cec54ab3af8602457265d269a8d1db",
+      "object_sha256": "8e03355f51026dfd92a74959c0bf938f4e077f6a91600a9b3e45c3995cc662dc"
+    },
+    {
+      "module": "W4D13N03G2",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N03G2.COMPILED.json",
+      "original_receipt_sha256": "32829dcd3edf1ff5f1ce61da289ffebc3292edc5953ace8957facf48202200be",
+      "object_sha256": "dd16f77b1b444a14bbc42145ca9c741ace8d62236be07d1357916c02e629da91"
+    },
+    {
+      "module": "W4D13N01G6",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N01G6.COMPILED.json",
+      "original_receipt_sha256": "c95a12617536f0a116a55bf44d43ae6d018f1f49b131c264f6671275fce981a1",
+      "object_sha256": "18687e707b66865ee82d11f4b448b742aa1c5091324f43087d584ba5bd3f8c3c"
+    },
+    {
+      "module": "W4D13N01G22",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N01G22.COMPILED.json",
+      "original_receipt_sha256": "0a40c6b13ad4184f09968f4a8aec80ee93c07409b91c42d8c073c8310b20a44f",
+      "object_sha256": "126dda818a13a8cc7373965075f43832af9eda736323b3ed8e510ac1d44ea9f0"
+    },
+    {
+      "module": "W4D13N02G6",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N02G6.COMPILED.json",
+      "original_receipt_sha256": "e7c7b5f06410d66da8e386b920aeb115b79d8349b974e79b920f6deb1698ad1b",
+      "object_sha256": "a35620737008359a02f7a535ddf39f2930c570a95b0203f8a747bcb3e4defa03"
+    },
+    {
+      "module": "W4D13N01G14",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N01G14.COMPILED.json",
+      "original_receipt_sha256": "8f56954b1064027612d7d9a80f95100c0f1bc0b6fe00c7dc3e17717ff1b00d4c",
+      "object_sha256": "d50ad8c57571290cda9b13b8a900c797d9fe36055d0cba2e99dcfe29e81236ce"
+    },
+    {
+      "module": "W4D13N01G30",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N01G30.COMPILED.json",
+      "original_receipt_sha256": "93566b45c19782d5e878907bd0e3820ca98a26d30fdb6052d493253d7d264a3f",
+      "object_sha256": "89b1742c48f54f104883b6c654f7a148a3520ba01489f8d3e60ca9d55a06a8fa"
+    },
+    {
+      "module": "W4D13N02G14",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N02G14.COMPILED.json",
+      "original_receipt_sha256": "fbf57f781124996762426e7a49a9fb733b8f582b55aec743af021b99d153df32",
+      "object_sha256": "55640b0763476c6ccf02b1da7598cc92aee28f506699f669a569b1814b4390dc"
+    },
+    {
+      "module": "W4D13N03G6",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N03G6.COMPILED.json",
+      "original_receipt_sha256": "ec13bd47202335863f70a42356eb8b8860c4b3581425e76bc004951124d090f4",
+      "object_sha256": "22b953b4cf1af16d7e7bc04b9b354574436d08b9ce703e83ae028bd668160b2e"
+    },
+    {
+      "module": "W4D13N04G2",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N04G2.COMPILED.json",
+      "original_receipt_sha256": "9bb409b5c1d8b1b7dc8b304b9af1d47bc6bae4ddb3267274b1983ddb962bd584",
+      "object_sha256": "3212c0bde3ffea2f58e7de52d3533a24b7f24f96b6f5899257fcb82937055c6c"
+    },
+    {
+      "module": "W4D13N05G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N05G0.COMPILED.json",
+      "original_receipt_sha256": "3efc8edde05c7cf6cf366ec4f6c9e4ed44b90ec26d34c5ce64c5316dffd4a70e",
+      "object_sha256": "eba87ba66e70f5ab13fd370edfc4f479e465acb64db9e3ecffaf95da470d6435"
+    },
+    {
+      "module": "W4D13N01G1",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N01G1.COMPILED.json",
+      "original_receipt_sha256": "f69787bf0bcfdc21ae8addba43412bc16a0917d323bb089fe096dd4f44a62e07",
+      "object_sha256": "11c42682dfc881f2dc42d77baa03c0a52c756579cc77bb4f238a71c8d037e036"
+    },
+    {
+      "module": "W4D13N01G17",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N01G17.COMPILED.json",
+      "original_receipt_sha256": "d6db426f1722cfc2ce4ba6382e52731b462506a3fcc534e8bafb8cf9e307eba8",
+      "object_sha256": "a870108e11a89d3d8c401a92c9fd1b90c882003f7b6b303898b5d330b36727af"
+    },
+    {
+      "module": "W4D13N02G1",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N02G1.COMPILED.json",
+      "original_receipt_sha256": "9e238cc1fff5a6f6722fd6d3e26d80db7dc0887b28605f3071d18fc63c9050cd",
+      "object_sha256": "d19ec71b9270a962dbdf2be3bae713d7461c2067cc0426874d4daecf3402a5d3"
+    },
+    {
+      "module": "W4D13N01G9",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N01G9.COMPILED.json",
+      "original_receipt_sha256": "818be192ee085e611a0605579d38ba31a071d8531c8413a9d9b5cfce29ea56c4",
+      "object_sha256": "d568bee78f960d95437ed4af053c4ec1359c816e44b8eed9b1353ca70ca455eb"
+    },
+    {
+      "module": "W4D13N01G25",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N01G25.COMPILED.json",
+      "original_receipt_sha256": "092109abd25089f145950cfc1bad2fcf2f9a0aadb011572c4aba9802fd7ebd70",
+      "object_sha256": "26cabdb270b1aa8d5777336b83cf72ac8936aa8fdf41f847ee4efea67675b20d"
+    },
+    {
+      "module": "W4D13N02G9",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N02G9.COMPILED.json",
+      "original_receipt_sha256": "7a8a8f97d6a3f977e2e5953f781b2aff903ab32e8cea9e5dfb0f63fd7548a550",
+      "object_sha256": "88d4901499e1d3cfb74f4586f134a379de07a2840ddd0b69cdddc275dbe478e7"
+    },
+    {
+      "module": "W4D13N03G1",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N03G1.COMPILED.json",
+      "original_receipt_sha256": "8abbdd312c2612714f939cbe9925c202d244f398d921f2a95c0209cbb0e56107",
+      "object_sha256": "94ebfcd624a082f9fd8b50c1376cea0307607ecc67dadef94c444100c21adbc1"
+    },
+    {
+      "module": "W4D13N01G5",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N01G5.COMPILED.json",
+      "original_receipt_sha256": "b9e4d550018f735d11b74f34f3a9a3fc0750e93ac9c48244f947a271e3f194de",
+      "object_sha256": "dab415bce21b765e2a378c4e9dbd86949e640943939d852c8f64a1cf95f0d9fa"
+    },
+    {
+      "module": "W4D13N01G21",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N01G21.COMPILED.json",
+      "original_receipt_sha256": "304c52aa3fe9f39325e548c641740a2f4e85826901d4bf026ebd1fc19cb5ecca",
+      "object_sha256": "716e520dbdfca72b75121f0c663e8e3fd43a6899b112bfd7114842902a02a781"
+    },
+    {
+      "module": "W4D13N02G5",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N02G5.COMPILED.json",
+      "original_receipt_sha256": "a7917c189d0cff6effd83ebc37eedfd3328765241204aa8b775c2beef1fb3c3b",
+      "object_sha256": "96186e25f9a22f59bead8fc7543cd14addfe7816e4cec3462a7972e32f589747"
+    },
+    {
+      "module": "W4D13N01G13",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N01G13.COMPILED.json",
+      "original_receipt_sha256": "81750fbaa944b9554e6ea769a250ebd030077624d57b998b599505b55e443e9c",
+      "object_sha256": "191f791391853a2e5fa011019524f49f6c91a25bf8e307a59bb8d5dd8c69f207"
+    },
+    {
+      "module": "W4D13N01G29",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N01G29.COMPILED.json",
+      "original_receipt_sha256": "ccb98e44193ad2f36c0cf6d4cbc0aedef298a6c3c5fb88c2fa0139407365fd3a",
+      "object_sha256": "7b19428ea22c16ce1c071cfb03ecb4589b4f85a8fc5ae2b640ae96b8d1cde2c7"
+    },
+    {
+      "module": "W4D13N02G13",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N02G13.COMPILED.json",
+      "original_receipt_sha256": "ea851586a5aad374716e250ea76cf47880dd95c53f7a0c14ab189f6913b5b972",
+      "object_sha256": "078e65f2007ee9940f081adb9974e49d878902406bd5c7fabab2af30a0fe3a1e"
+    },
+    {
+      "module": "W4D13N03G5",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N03G5.COMPILED.json",
+      "original_receipt_sha256": "b6f842d06468e7a3196c2d283081e330e9f41b91acd19705edc813685cec0739",
+      "object_sha256": "5c43e38f22c2eabe944fa1fcd8b35a4eca037773bba5b756e2a57d581f33a773"
+    },
+    {
+      "module": "W4D13N04G1",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N04G1.COMPILED.json",
+      "original_receipt_sha256": "9166ab08a334ba46a4aa2ba650d90f9c9f0e44d5a0465ca4974e41680a87c5fd",
+      "object_sha256": "0df4a179a9fbf5258502de35d82fa2471fbd0bbefea31fd9d6f8183c4de5753c"
+    },
+    {
+      "module": "W4D13N01G3",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N01G3.COMPILED.json",
+      "original_receipt_sha256": "34590d004ae50ce515f31b06a42123df081d250323fc823df04dce7d178a62c7",
+      "object_sha256": "fce2070f9936e3a72d59b758fe3b18f34ec543b83fb3f3c908c7409e87c08c9b"
+    },
+    {
+      "module": "W4D13N01G19",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N01G19.COMPILED.json",
+      "original_receipt_sha256": "9437f802ea29a0d049f9bc5c759d6171e86b3687a3d024732dd501a4ab1dd0b6",
+      "object_sha256": "2ba4d5ff648a0b48ce50fcd3eea994b429ba055eace1e0392013d35f28691454"
+    },
+    {
+      "module": "W4D13N02G3",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N02G3.COMPILED.json",
+      "original_receipt_sha256": "7693bde04b574543e3a7e8aba1ca396b05a066f57a12acf002ff635208e3c070",
+      "object_sha256": "41d6cf142a67b656812b436c5e26300f038d62788dacff2890cbc52dfccb9654"
+    },
+    {
+      "module": "W4D13N01G11",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N01G11.COMPILED.json",
+      "original_receipt_sha256": "297b8f6e2946f124074401f2b11ae04e00b7c9813a5c10eb8933ce68e8a994f3",
+      "object_sha256": "6453b209fdd369c3b315ff32ee4bc5fb786c2ad67bddda280cb1914edf52106b"
+    },
+    {
+      "module": "W4D13N01G27",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N01G27.COMPILED.json",
+      "original_receipt_sha256": "db6305dd57ee093ea625bf6b859dcade0342a58dcb72ed657b7d797f47e16ab6",
+      "object_sha256": "657d110cc2e3fdd8852b4b1465ca13e634710455a289d395a2e7b6efa26f7e01"
+    },
+    {
+      "module": "W4D13N02G11",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N02G11.COMPILED.json",
+      "original_receipt_sha256": "57380667d4ffbb1659fdd740f70e5ba5c764e50e579b6aa343ab479d127e166a",
+      "object_sha256": "8fac000fa5d647d22c32e43dda3d68daa77795e4d4c14b7d102969c6d7cf1f53"
+    },
+    {
+      "module": "W4D13N03G3",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N03G3.COMPILED.json",
+      "original_receipt_sha256": "ffa7793804401b10adcf891340be275f7aac8260c27aa604506758dd7b2f827e",
+      "object_sha256": "b06c5aa3ef6ba8014fc54d1f35d939905699e6957e9465e9dd9d915f7bc26bd3"
+    },
+    {
+      "module": "W4D13N01G7",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N01G7.COMPILED.json",
+      "original_receipt_sha256": "8367dfe5058e3fc65409d6b29b9df0f96820a61bd2bfefd39903b59bd91da0b5",
+      "object_sha256": "b3391019793bdac10126d97589a033855d669cdd81e0c240210be46a1dd1a738"
+    },
+    {
+      "module": "W4D13N01G23",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N01G23.COMPILED.json",
+      "original_receipt_sha256": "1fa79604b2431c32f111673515eec585ed4cf1357db57b1cf6464ef2c19d8acb",
+      "object_sha256": "dd2b4298ad877f359a6f3e716b4aa0ca6cbfefe40c180bb31d0e35e992c61eab"
+    },
+    {
+      "module": "W4D13N02G7",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N02G7.COMPILED.json",
+      "original_receipt_sha256": "28a03a5b4ef0c91cb83302b6b26b56cb2e860b912dec6f031827430da1f011bb",
+      "object_sha256": "5d397e9fde77a2adce72a0a252c228c247048baca909d01ef31a6f728499cd89"
+    },
+    {
+      "module": "W4D13N01G15",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N01G15.COMPILED.json",
+      "original_receipt_sha256": "b8c9786ed73e16bfb86f1a0e8317348bdf9954a44694d93c59c260de6a3a0bbc",
+      "object_sha256": "0fe3d02bc6f291447437a40ff417238c2a6ab6608273f2afce37fde32f62c934"
+    },
+    {
+      "module": "W4D13N01G31",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N01G31.COMPILED.json",
+      "original_receipt_sha256": "69503d5a8f2a83e7960bcd7e7c59ffd776697e4869da298b04b5c560e8e12534",
+      "object_sha256": "e76a7a5f0932e99216ef13c1e27e58eabe794d995fefc8ca227d1171c6693b55"
+    },
+    {
+      "module": "W4D13N02G15",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N02G15.COMPILED.json",
+      "original_receipt_sha256": "fee6bd081b3f57e7d14a05bf195409c32e3ae910208a08bd96a300c7c619a601",
+      "object_sha256": "6b6a2f22315c2387a25784276e12ae9e8570d128f937b616aac6635191a2d889"
+    },
+    {
+      "module": "W4D13N03G7",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N03G7.COMPILED.json",
+      "original_receipt_sha256": "2f4bc9f4f6dff03e73ef8a0a1d94730cda8dee3b29eb5db1b13eb2915966863a",
+      "object_sha256": "86616396d4b29a35500ca687bc534584baa0f6d197e73f5f00b5938e7d51d924"
+    },
+    {
+      "module": "W4D13N04G3",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N04G3.COMPILED.json",
+      "original_receipt_sha256": "44c7a4efb18ee42d48b02e972714d47a11433d15f1786462dbcdcc88c9a98590",
+      "object_sha256": "ea38561909adfbc8533e7177c30fe3c17389186fdcb2e092d48f673fe9a3de5f"
+    },
+    {
+      "module": "W4D13N05G1",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N05G1.COMPILED.json",
+      "original_receipt_sha256": "783eab3b397c02939fafe7a48190ab06c5ffceaa9170f1ec1c499c42edf0cdb1",
+      "object_sha256": "92b5a6f9fd57d06a53872362b28fb606724bf4ea377f0975bf9c2a493ebab9ea"
+    },
+    {
+      "module": "W4D13N06G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N06G0.COMPILED.json",
+      "original_receipt_sha256": "4eafc49422acfa2cfea176ec58119fdb28d04428c4bbbe12d01496ab983efbdb",
+      "object_sha256": "c14ffa09d09014590bd4102e0065de449286b3898ddd1b6e9ee7f2d1021e5b19"
+    },
+    {
+      "module": "W4D13N06G1",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N06G1.COMPILED.json",
+      "original_receipt_sha256": "a63b0785d0a3df06077ab3800a0b4f4f8b62672709588a10990745187f9b6085",
+      "object_sha256": "f2d09289083a580e7b4e3f5257c2146c2c96cc2af05e5415e69c8d790cde232d"
+    },
+    {
+      "module": "W4D13N07G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N07G0.COMPILED.json",
+      "original_receipt_sha256": "8b8ff1ab57218eb0989cd46fa77117dd00b9fa481a113c7a54588d25a98ff5b0",
+      "object_sha256": "0a09a1f4368a8082c6004f1766a9c3adc810f5be58652f96f348059e2b0205c9"
+    },
+    {
+      "module": "W4D13N07G1",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N07G1.COMPILED.json",
+      "original_receipt_sha256": "882a06da30d19f651be21f5cf11e9250214014a3e73ef6040729d60d68cc40c5",
+      "object_sha256": "49326d6e89f4c3fadac5394ff0fcf8b2ada5d0f1cbd5563a3db704783176b416"
+    },
+    {
+      "module": "W4D13N08G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N08G0.COMPILED.json",
+      "original_receipt_sha256": "f60e9c59e85fd8efd6b8dc3cb19a143146801a66d020b0b528373d0054089f18",
+      "object_sha256": "4eeebfdca38df81a19bbf74ba0fc7e30db4ea10f2be18e320a46f8232ee2000a"
+    },
+    {
+      "module": "W4D13N08G1",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N08G1.COMPILED.json",
+      "original_receipt_sha256": "6c61be60e34aad9683fcd5b3cf8482428c9559100677f3712a26fc63f906a419",
+      "object_sha256": "31e91b5770c0e0f3189cacc83595947f7a5551d48fd4e0bd84c83962651ae1c3"
+    },
+    {
+      "module": "W4D13N09G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N09G0.COMPILED.json",
+      "original_receipt_sha256": "25bb07f6251d7c07a84fa3fa3317806b04826171eeba2c9a39e2e748800168b9",
+      "object_sha256": "9fac3604921326e65c980313ff6d8eb1fcc1674aeb6018a8080f84f275d0b180"
+    },
+    {
+      "module": "W4D13N09G1",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N09G1.COMPILED.json",
+      "original_receipt_sha256": "eb783ce167a315b1c7f2e6f2c469aaf4551c9347abb98770669e0a3568d4bb81",
+      "object_sha256": "39a71c987206582b64372a6e39948888ddbe1262908162f82a846fe64fd744d4"
+    },
+    {
+      "module": "W4D13N10G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N10G0.COMPILED.json",
+      "original_receipt_sha256": "a0fc20915cc82ad8befbbdea69c8c904f2db17b6efa22ef15c442bea46f21cd5",
+      "object_sha256": "dbd29e14db7c0fac87ef6445f45b7963a32aed3fc2d9f2aae3bd3619487edb22"
+    },
+    {
+      "module": "W4D13N10G1",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N10G1.COMPILED.json",
+      "original_receipt_sha256": "295da018946fb2bc34597e9c7443b31ccf76d2e82ab2bd942ab2fb49976cc7b2",
+      "object_sha256": "8e8e32ff2c83964d57f08b38e46c7c4ff944a4210c650579aa2391901a6cc776"
+    },
+    {
+      "module": "W4D13N11G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N11G0.COMPILED.json",
+      "original_receipt_sha256": "26d2889a9a09ca0afb3479cc51dc70a3c1eaca3c3d44366760497418344a0090",
+      "object_sha256": "2533b8b323a629aaa431285bcbd15d6843ae4e2954ead1a51cd51f0c624cf623"
+    },
+    {
+      "module": "W4D13N11G1",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N11G1.COMPILED.json",
+      "original_receipt_sha256": "ceaf2c0d66ae315583e28df42cde0908356ce9a262125dcbe2bea44557897749",
+      "object_sha256": "79fcfbc84a757031f9a79ed03f9893cdfbea013a9e8caac35aeab64cfdaff500"
+    },
+    {
+      "module": "W4D13N12G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N12G0.COMPILED.json",
+      "original_receipt_sha256": "cd7e7b037663e649bad80c5642592cf97d28e318ae847138add7893f90864ba9",
+      "object_sha256": "bd1834a0d82955b29271c21bedc64993d95952f4f55ed709d098cb4f06886533"
+    },
+    {
+      "module": "W4D13N12G1",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N12G1.COMPILED.json",
+      "original_receipt_sha256": "57e00f9df168e780f38854dc0f73a6735328ab9abd582db9782544729651eb6b",
+      "object_sha256": "28b7e393644e6571488d48e6bb085139a7fdfda3b9a97cf7b3fdec66165a6229"
+    },
+    {
+      "module": "W4D13B13I0G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13B13I0G0.COMPILED.json",
+      "original_receipt_sha256": "9a50338be2f80d5b3ed4dd4092f20d203189e2d5e9e28d5469d562ef403a7d63",
+      "object_sha256": "d0794a45937c78c4fbb239366abf63bda8de824013b7bbf6b65015e2dfdf3b80"
+    },
+    {
+      "module": "W4D13B13I0G1",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13B13I0G1.COMPILED.json",
+      "original_receipt_sha256": "7c10af4038dcb55d056ce131715495eff47de1ed8e1e4e126fec918d1d111fb4",
+      "object_sha256": "03f0ed6f5526656777c68178de49f7c0f9a2c67f717da5fc1530ae100871ab7a"
+    },
+    {
+      "module": "W4D13N13G0",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13N13G0.COMPILED.json",
+      "original_receipt_sha256": "1dcb3766b05b9b2fac09cd559c5af8428f2bb69c85a980acd2cc0b5cc3d8fc9f",
+      "object_sha256": "c5e3fe51c968224a97385503d250a625b30c67609684ba1fea39063ceeb0cb9a"
+    },
+    {
+      "module": "TopShapeSymbolic",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/TopShapeSymbolic.COMPILED.json",
+      "original_receipt_sha256": "daac752d8b4d6ed1bc77777337524b58dd9c811d658c7546031bc3d4d9d15b6e",
+      "object_sha256": "0e269ee7949919d2213e6b4862ed9737a8868309e6c73903bd9d0d08d2187f3c"
+    },
+    {
+      "module": "NormSymbolic",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/NormSymbolic.COMPILED.json",
+      "original_receipt_sha256": "f6d0d218ff06c55ddff41c94ce422b0e0d89904be8f7b3b9a753bc730349abd8",
+      "object_sha256": "b2f8d98fd30a9c83ef485baac4416074deb73d61780215a77694f63f0e78d2bc"
+    },
+    {
+      "module": "W4D13Final",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13Final.COMPILED.json",
+      "original_receipt_sha256": "61152b543973a402308a02293c26032d976305437764cacc538f359127c39603",
+      "object_sha256": "38cdb4742850edb15c6bcceef4adb58ccbde9df46287ede39be997bb2081380e"
+    },
+    {
+      "module": "W4D13ClaimAudit",
+      "original_receipt": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel/W4D13ClaimAudit.COMPILED.json",
+      "original_receipt_sha256": "26e64124ddee194ba34db63ff8effc17bf563a24cb4fe0b7f3c4a71b0004d274",
+      "object_sha256": "f22d236ab3b45ac9378f9b5f08cbbc7256fcf3d9032709849347e0dd17cdfef3"
+    }
+  ],
+  "source_cold": false,
+  "original_fresh_source_cold_provenance_preserved": true,
+  "application_object_fallback": false,
+  "new_compilation": false,
+  "new_numerical_run": false,
+  "source_first_PV_complete": false,
+  "controller_sha256": "8311cc72f8e1af47805ae648695a3657d4d9bbe34563c9328b148f26439db169"
+}

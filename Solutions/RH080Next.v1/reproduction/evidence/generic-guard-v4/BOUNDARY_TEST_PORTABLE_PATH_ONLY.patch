@@ -1,0 +1,18 @@
+--- executed/test_guard_v4_cli_boundaries.py
++++ portable/test_bootstrap_guard_v4_cli_boundaries.py
+@@ -1,8 +1,13 @@
+ #!/usr/bin/env python3
+ """Actual parser/range rejections only; no renaming/resource child launches."""
+ from pathlib import Path
+-import hashlib,json,os,subprocess,tempfile
+-L=Path(__file__).resolve().parent;H=L/'network/Solutions/RH080Next.v1/reproduction';G=H/'bootstrap_quiescent_resource_guard_v4.py';OUT=L/'guard-v4-cli-boundaries-v1';OUT.mkdir()
++import argparse,hashlib,json,os,subprocess,tempfile
++ap=argparse.ArgumentParser(allow_abbrev=False)
++ap.add_argument('--source',type=Path,default=Path(__file__).resolve().with_name('bootstrap_quiescent_resource_guard_v4.py'))
++ap.add_argument('--out',type=Path,required=True)
++a=ap.parse_args();G=a.source.resolve();OUT=a.out.resolve()
++if OUT.exists():raise ValueError('Fresh boundary-control output required')
++OUT.mkdir(parents=True)
+ def need(v,m):
+  if not v:raise ValueError(m)
+ def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()

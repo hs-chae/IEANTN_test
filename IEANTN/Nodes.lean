@@ -160,12 +160,14 @@ import IEANTN.Nodes.QRHPropagation.v2.Challenge
 import IEANTN.Nodes.QRHPropagation.v3.Challenge
 import IEANTN.Nodes.RH.v1.Challenge
 import IEANTN.Nodes.RHAdapters.v1.Challenge
+import IEANTN.Nodes.RHAnalyticFlatPopulation.v1.Challenge
 import IEANTN.Nodes.RHAsymptoticGaussian.v1.Challenge
 import IEANTN.Nodes.RHAsymptoticGaussian.v2.Challenge
 import IEANTN.Nodes.RHAsymptoticGaussian.v3.Challenge
 import IEANTN.Nodes.RHAsymptoticGaussian.v4.Challenge
 import IEANTN.Nodes.RHFiniteAffineIntervals.v1.Challenge
 import IEANTN.Nodes.RHFiniteAffineIntervals.v2.Challenge
+import IEANTN.Nodes.RHGlobalAffineIntervals.v1.Challenge
 import IEANTN.Nodes.RHOnePrimeEvolution.v1.Challenge
 import IEANTN.Nodes.RHPrimeCounting.v1.Challenge
 import IEANTN.Nodes.RHPrimeCounting.v2.Challenge
@@ -179,6 +181,7 @@ import IEANTN.Nodes.RHSmoothing.v3.Challenge
 import IEANTN.Nodes.RHSmoothingInputs.v1.Challenge
 import IEANTN.Nodes.RHSmoothingInputs.v2.Challenge
 import IEANTN.Nodes.RHWeightedPopulation.v1.Challenge
+import IEANTN.Nodes.RHWeightedPopulation.v2.Challenge
 import IEANTN.Nodes.RamanujanGap.v1.Challenge
 import IEANTN.Nodes.RamanujanGap.v2.Challenge
 import IEANTN.Nodes.RamanujanGap.v3.Challenge
@@ -196,6 +199,8 @@ import IEANTN.Nodes.ThetaCubePopulation.v1.Challenge
 import IEANTN.Nodes.ThetaCubePopulation.v2.Challenge
 import IEANTN.Nodes.ThetaCubePopulation.v3.Challenge
 import IEANTN.Nodes.Trudgian2011.v1.Challenge
+import IEANTN.Nodes.W4FourierNorm.v1.Tables
+import IEANTN.Nodes.W4FourierNorm.v1.Challenge
 import IEANTN.Nodes.Wedeniwski.v1.Challenge
 import IEANTN.Nodes.ZeroCount.v1.Challenge
 import IEANTN.Nodes.ZeroCountEnvelope.v1.Challenge

@@ -1,0 +1,51 @@
+{
+  "status": "REVIEWED_OWNED_UNIT_LAUNCH_COMMAND",
+  "command": [
+    "systemd-run",
+    "--user",
+    "--unit",
+    "ivy-n24-compact-proof-v2",
+    "--property=MemoryMax=300G",
+    "--property=MemoryHigh=300G",
+    "--property=MemorySwapMax=0",
+    "--property=OOMPolicy=continue",
+    "--property=TasksMax=512",
+    "--property=LimitNOFILE=1048576",
+    "--property=TimeoutStopSec=90",
+    "--property=KillMode=control-group",
+    "/usr/bin/taskset",
+    "--cpu-list",
+    "96-99",
+    "/usr/bin/python3",
+    "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/generic_page_policy_exec.py",
+    "--disable-thp",
+    "--receipt",
+    "/data/ivy-rh080-next-20261125/N24_COMPACT_PROCESS_POLICY_v2.json",
+    "--",
+    "/usr/bin/python3",
+    "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/supervise_resource_run.py",
+    "--root",
+    "/data/ivy-rh080-next-20261125",
+    "--command",
+    "/data/ivy-rh080-next-20261125/N24_COMPACT_EXECUTION_COMMAND_v2.json",
+    "--receipt",
+    "/data/ivy-rh080-next-20261125/N24_COMPACT_SUPERVISOR_v2.json",
+    "--live",
+    "/data/ivy-rh080-next-20261125/N24_COMPACT_LIVE_v2.json"
+  ],
+  "command_file_sha256": "d685a5fbe1a27d25b12cd5d98c0e95f8dd48938cf4c78c8c16e98e2067f39b9a",
+  "page_policy_source_sha256": "b702ded5c9f73e2559bb3f1f3b5116f98dd0646fb60e816bff5617df6180cd9c",
+  "supervisor_source_sha256": "03015a743b49c1cb840e2cb5e2a6c6d7e49be93b69aa244cf6f698b7dff74d56",
+  "cgroup_policy": {
+    "memory_max_bytes": 322122547200,
+    "memory_high_bytes": 322122547200,
+    "swap_max_bytes": 0,
+    "OOMPolicy": "continue"
+  },
+  "ordinary_CPU_affinity": [
+    96,
+    97,
+    98,
+    99
+  ]
+}

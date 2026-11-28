@@ -1,0 +1,128 @@
+{
+  "status": "PREPARED_SMALL_S13_ACTUAL_COLD_SMOKE_NOT_ACCEPTED",
+  "commands": [
+    [
+      "/usr/bin/python3",
+      "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/Solutions/RH080Next.v1/compact-proof-repair-v1/tools/prepare_clean_compact_candidate.py",
+      "--stage",
+      "13",
+      "--work",
+      "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract",
+      "--project-root",
+      "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1"
+    ],
+    [
+      "/usr/bin/python3",
+      "-u",
+      "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/reproduce_fft_dag_physical_v2.py",
+      "--context",
+      "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+      "--candidate",
+      "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate",
+      "--run",
+      "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel",
+      "--workers",
+      "4",
+      "--worker-virtual-as",
+      "unlimited"
+    ],
+    [
+      "/usr/bin/python3",
+      "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/Solutions/RH080Next.v1/compact-proof-repair-v1/tools/verify_fresh_compact.py",
+      "--run",
+      "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel",
+      "--context",
+      "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+      "--candidate",
+      "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate",
+      "--output",
+      "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/accepted-0.json",
+      "--project-root",
+      "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1",
+      "--proof-only-toy"
+    ],
+    [
+      "/usr/bin/python3",
+      "-O",
+      "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/Solutions/RH080Next.v1/compact-proof-repair-v1/tools/verify_fresh_compact.py",
+      "--run",
+      "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel",
+      "--context",
+      "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+      "--candidate",
+      "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate",
+      "--output",
+      "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/accepted-1.json",
+      "--project-root",
+      "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1",
+      "--proof-only-toy"
+    ],
+    [
+      "/usr/bin/python3",
+      "-OO",
+      "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/Solutions/RH080Next.v1/compact-proof-repair-v1/tools/verify_fresh_compact.py",
+      "--run",
+      "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel",
+      "--context",
+      "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+      "--candidate",
+      "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate",
+      "--output",
+      "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/accepted-2.json",
+      "--project-root",
+      "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1",
+      "--proof-only-toy"
+    ],
+    [
+      "/usr/bin/python3",
+      "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/Solutions/RH080Next.v1/compact-proof-repair-v1/tools/export_fresh_compact.py",
+      "--base",
+      "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/cold-kernel",
+      "--context",
+      "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+      "--candidate",
+      "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/source-contract/compact-candidate",
+      "--accepted",
+      "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/accepted-0.json",
+      "--run",
+      "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1/format-bank",
+      "--project-root",
+      "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1",
+      "--toy"
+    ]
+  ],
+  "source_pins": [
+    {
+      "path": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/Solutions/RH080Next.v1/compact-proof-repair-v1/tools/run_small_clean_smoke.py",
+      "sha256": "493f681c9134f4549c81f02bb56ef48112deb196b1ee735f41e3c33bbcf2b7c4"
+    },
+    {
+      "path": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/Solutions/RH080Next.v1/compact-proof-repair-v1/tools/compact_contract.py",
+      "sha256": "efb2dbfbbdc44eae3b89fe6bb4e136062683b06767de3e01bb723c8044486e4f"
+    },
+    {
+      "path": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/Solutions/RH080Next.v1/compact-proof-repair-v1/tools/prepare_clean_compact_candidate.py",
+      "sha256": "1ad871639a367453557f9786291f054ad257cf905b0e967c5698592a9c1eb068"
+    },
+    {
+      "path": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/Solutions/RH080Next.v1/compact-proof-repair-v1/tools/derive_compact_candidate.py",
+      "sha256": "5dc2e4580b7d19f3528e397702c6715f18fe5e5095e1ad4f7d5ce0df872b0cdf"
+    },
+    {
+      "path": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/Solutions/RH080Next.v1/compact-proof-repair-v1/tools/generate_compact_final_v2.py",
+      "sha256": "e04d714e7cc0d09c9d399cec36be2c007649bd07a3db1c9b3af4296480165fd2"
+    },
+    {
+      "path": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/Solutions/RH080Next.v1/compact-proof-repair-v1/tools/verify_fresh_compact.py",
+      "sha256": "52078a8962200cf2cef31bc2076b4da98dcaecb8130d9fcf5b73b0ac5a1299a9"
+    },
+    {
+      "path": "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/Solutions/RH080Next.v1/compact-proof-repair-v1/tools/export_fresh_compact.py",
+      "sha256": "8311cc72f8e1af47805ae648695a3657d4d9bbe34563c9328b148f26439db169"
+    }
+  ],
+  "actual_physical_limit_bytes": 68719476736,
+  "actual_memory_events_before": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\n",
+  "source_cold_if_completed": true,
+  "N24_or681_replay_claimed": false
+}

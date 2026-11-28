@@ -56,3 +56,27 @@ roots = ["ActualArithmeticSplit", "ActualPrimePowerAllowance", "ActualPrimeWings
 name = "RH080NextFiniteCanonical"
 srcDir = "primal/finite"
 roots = ["FapSourceInterfaces", "FapNormNodeSolution", "FiniteIntervalsNodeSolution", "FiniteCanonicalAudit"]
+
+# Authored W4 main-to-ANT and canonical evolution sources. Numerical FFT
+# artifacts are regenerated/compiled by the source-based reproduction pipeline.
+[[lean_lib]]
+name = "RH080NextW4MainPrimal"
+srcDir = "primal"
+roots = ["W4FFTCertifiedNorm", "PopulationEnvelopeConsumers"]
+
+[[lean_lib]]
+name = "RH080NextW4MainSourceConsumers"
+srcDir = "pv/lean"
+roots = ["FFTW4SourceCertificate", "FFTW4MainNumerics", "FFTW4MainConsumers", "FFTW4MainAudit"]
+
+[[lean_lib]]
+name = "RH080NextCanonicalW4Evolution"
+srcDir = "explicit"
+roots = ["CanonicalW4NormNodeSolution", "CanonicalW4GlobalNodeSolution", "CanonicalAnalyticFlatNodeSolution", "CanonicalW4PopulationNodeSolution", "CanonicalW4ActualConsumers", "CanonicalW4EvolutionAudit"]
+
+# Posthoc numerical kernel control. Its audit compares exact final theorem types;
+# unused source-containing imports are retained and disclosed.
+[[lean_lib]]
+name = "RH080NextPosthocKernelControl"
+srcDir = "pv/lean"
+roots = ["C7KernelScalars", "C7KernelGlobal", "C7KernelAudit"]

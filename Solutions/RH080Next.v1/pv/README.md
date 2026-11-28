@@ -5,6 +5,39 @@ syntax proofs, checked execution semantics, numerical enclosure proofs and a
 matched kernel-only control. Historical RH080Study files are reused unchanged.
 The word **PV** below means source-first program verification.
 
+## Latest acceptance — 27 November 2026
+
+The selected W4 and finite Fap FFT source-first chains are now accepted through
+`fft/w4_fft_recursive.c` and `fft/fap_fft_recursive.c`, their restricted
+syntax/AST, modeled execution, numerical
+enclosure and prime-theorem consumers. See [the current status](../CURRENT_STATUS.md)
+for the exact scope, retained analytic hypotheses, source-associated versus
+source-cold build distinction, and remaining publication checks. In particular,
+the old section titled “Original FFT norm migration remains incomplete” below
+is a historical progress entry, superseded for these selected final chains.
+The C ports preserve the mathematical algorithms; this does not verify the
+original Python source or all of C. Compilers, runtime/OS contracts and hardware
+remain within the stated platform trust boundary.
+
+The repaired N24 aggregation changes only two Lean proof bodies; it changes no
+numerical program, mathematical statement, parameter or locked numerical data.
+The matched control without the FFT source-execution layer reaches the same
+prime bound; common scalar providers remain shared. The additional
+source-first chain proves correspondence with the actual source program,
+without establishing a mathematical advantage over that control.
+
+The separate posthoc `lean/C7KernelGlobal.lean` control now proves the exact
+same global theorem using the N24 kernel norm and four existing opaque rational
+scalar certificates. Its mathematical proof-value closure excludes actual
+C-source correspondence and execution providers. `lean/C7KernelAudit.lean`
+compares its type with both original routes and checks the full unpruned
+standard-axiom closure. The actual repaired audit passed in 23.457 seconds;
+the two mathematical modules had already compiled in the preserved first run.
+The only audit repair was a natural-number annotation on a diagnostic counter.
+Unused source-containing imports and the pinned generic library/compiler and
+data-loader boundaries remain disclosed. This kernel-only control does not
+establish a controlled research-effort or exposure advantage.
+
 ## Completed new population numerical provider
 
 `population_norm.c` computes an upper enclosure of the periodic absolute norm

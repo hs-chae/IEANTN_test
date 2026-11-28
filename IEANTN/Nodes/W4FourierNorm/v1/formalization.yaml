@@ -1,0 +1,56 @@
+version: v0.4
+node:
+  id: W4FourierNorm.v1
+  family: W4FourierNorm
+  version: v1
+  kind: computation
+  status: awaiting-verification
+project:
+  name: W4FourierNorm.v1
+  description: PRIVATE source-gated additive canonical draft; not a registered accepted result.
+  authors:
+  - OpenAI (Codex)
+  license: Apache-2.0
+  responsible_maintainers:
+  - hschae
+repository:
+  role: substantive-development
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11N05
+  - 11M26
+conclusions:
+- id: l1_bound
+  declaration: W4FourierNorm.v1.l1_bound
+  challenge: W4FourierNorm.v1.challenge_l1_bound
+  imports:
+  - node: BRFourierInput.v1
+    conclusion: norm_identity
+  imports_status: identified
+  justifications:
+  - id: local-source-first-kernel-checked
+    kind: lean-noncompliant
+    note: Complete local pinned-Lean proof, checked with standard axioms only (propext, Classical.choice,
+      Quot.sound); no forbidden axioms and no native execution leaves. The exact canonical interfaces
+      and source-cold Challenge/Solution type routes passed in normal, -O and -OO, with the full 38-root
+      proof/value/type audit. Source-first C program verification supplies the actual W4 numerical norm
+      and is connected to the canonical bound. The imported BR norm-identity statement remains explicit.
+      The proof was checked through our custom source-associated and source-cold commands. The standalone
+      normal-Lake build and official Comparator workflow have not been validated or executed for this
+      solution; no official receipt exists. The pending action is to validate that ordinary workflow,
+      not to resolve a failed theorem. See [local verification tracking](../../../../Solutions/RH080Next.v1/CURRENT_STATUS.md)
+      and [reproduction procedure](../../../../Solutions/RH080Next.v1/pv/README.md). The numerical-support
+      paths additionally need generated source/data and high-resource build integration to be validated
+      within the ordinary workflow. This note does not assert that the workflow is impossible to run.
+  designated: local-source-first-kernel-checked
+limitations:
+- Complete local pinned-Lean proofs and independently checked canonical interfaces are available. Standalone
+  normal-Lake and official Comparator workflow validation/execution remain pending; no official receipt
+  is claimed.
+- Original mathematical inputs, algorithms, parameters and experimental outcomes are preserved. RH and
+  the declared literature/finite inputs remain explicit. No best-known or optimality claim is made.
+- Generated numerical-source/data and high-resource build integration need ordinary-workflow validation
+  for numerical-support paths. Kernel-only analytic components and mixed hybrids retain their separate
+  verification scopes.

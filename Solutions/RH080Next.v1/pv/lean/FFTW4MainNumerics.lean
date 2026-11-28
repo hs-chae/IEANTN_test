@@ -15,11 +15,17 @@ open FFT FFT.IntegerModel MainCertificate MainSuffix MainFinish
 open RH080Next.Explicit
 
 theorem norm_answer_checked : normAnswer .w4 w4Certificate=7813568381279800 := by
+  suffices h : ∀ c : Certificate .w4,
+      absSum c.output = 13108990146528710930483896317271209147027400 →
+      W4.quad = 1157537949152935144487960 →
+      normAnswer .w4 c = 7813568381279800 by
+    exact h w4Certificate w4_certificate_sum W4DAG24.quad_checked
+  intro c hsum hquad
   change finishValue false 16777216
     (NormalizeSource.totalValue false
-      (FFT.Limbs.ceilQuotient (absSum w4Certificate.output) (1000000000^2)) 16777216)
+      (FFT.Limbs.ceilQuotient (absSum c.output) (1000000000^2)) 16777216)
     W4.quad=7813568381279800
-  rw [w4_certificate_sum,W4DAG24.quad_checked]
+  rw [hsum,hquad]
   norm_num [finishValue,scalarConvert,NormalizeSource.totalValue,NormalizeSource.quadValue,
     FFT.Limbs.ceilQuotient,AnswerSource.computed,AnswerSource.profileAllowance,
     AnswerSource.limit,AnswerSource.sentinel]

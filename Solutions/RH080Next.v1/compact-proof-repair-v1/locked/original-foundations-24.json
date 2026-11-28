@@ -1,0 +1,108 @@
+{
+  "stage": 24,
+  "source_rows": [
+    {
+      "module": "FapData",
+      "project_relative_source": "pv/lean/FapData.lean",
+      "sha256": "3a58f1facab921d36eaa156038ebc557fcf5d92e2bf5c441551d9cdb673c8c29",
+      "imports": [
+        "Mathlib.Data.Rat.Defs",
+        "Mathlib.Data.List.Range"
+      ]
+    },
+    {
+      "module": "FFTPairedIntModel",
+      "project_relative_source": "dual/FFTPairedIntModel.lean",
+      "sha256": "fd8d893c36edb292548a2369a80102467a4412b0c694d8d35a483b6ef4dd40c8",
+      "imports": [
+        "FapData"
+      ]
+    },
+    {
+      "module": "FFTUntrustedData",
+      "project_relative_source": "dual/FFTUntrustedData.lean",
+      "sha256": "e9c170b6fd445eff03b282ac7c3cb7f1a3cc90b9702f73b9e96f706cc4be5863",
+      "imports": [
+        "FFTPairedIntModel",
+        "Lean"
+      ]
+    },
+    {
+      "module": "FFTTraceChecker",
+      "project_relative_source": "dual/FFTTraceChecker.lean",
+      "sha256": "2dd2fbc69453ca29d2a2a3cf82c5032c98ea420f64dca2c2100e54059a1c7bb2",
+      "imports": [
+        "FFTPairedIntModel"
+      ]
+    },
+    {
+      "module": "FFTForestTrace",
+      "project_relative_source": "dual/FFTForestTrace.lean",
+      "sha256": "f0745b4d0429eed265aa0ed01ff4fb9acd3331935d8c8d569048aa55e5abd3b4",
+      "imports": [
+        "FFTTraceChecker"
+      ]
+    },
+    {
+      "module": "FFTButterfly",
+      "project_relative_source": "dual/FFTButterfly.lean",
+      "sha256": "7514aa391c68e82a478db77bbb419135b05cbcf4629e5c4c6bd73b538cfd4385",
+      "imports": [
+        "Mathlib.Analysis.Complex.Basic",
+        "Mathlib.Tactic"
+      ]
+    },
+    {
+      "module": "FFTRoundoff",
+      "project_relative_source": "dual/FFTRoundoff.lean",
+      "sha256": "50b5b99f227dd20c545800ffcc64e9d0e53cd49f28a8f3c45ced233941a98a87",
+      "imports": [
+        "FFTButterfly"
+      ]
+    },
+    {
+      "module": "FFTIntegerInterpretation",
+      "project_relative_source": "dual/FFTIntegerInterpretation.lean",
+      "sha256": "7434823f757a5c11362fb6fd48ae96fa162b03d45898a272b8e9df2f086f674b",
+      "imports": [
+        "FFTForestTrace",
+        "FFTRoundoff",
+        "Mathlib.Data.List.GetD"
+      ]
+    },
+    {
+      "module": "FFTTraceTwiddles",
+      "project_relative_source": "dual/FFTTraceTwiddles.lean",
+      "sha256": "b3b3b2a6b2407d5d4a8a1dcd66db71f50c05563a1ab9f292e7e76f7d466b3210",
+      "imports": [
+        "FFTIntegerInterpretation"
+      ]
+    },
+    {
+      "module": "FFTCertificateComposition",
+      "project_relative_source": "dual/FFTCertificateComposition.lean",
+      "sha256": "7e2eec47f696c4715c31f61e217a03a5e6fda48e7e89e02fdd5491e48989c38d",
+      "imports": [
+        "FFTTraceTwiddles"
+      ]
+    },
+    {
+      "module": "WindowData",
+      "project_relative_source": "pv/lean/WindowData.lean",
+      "sha256": "07d286c20038c870009729ecb426b9bbb4ff929dd9de5d6c96078d1e5db49725",
+      "imports": [
+        "Mathlib.Data.Rat.Defs",
+        "Mathlib.Data.List.Range"
+      ]
+    },
+    {
+      "module": "W4FFTPairedIntModel",
+      "project_relative_source": "dual/W4FFTPairedIntModel.lean",
+      "sha256": "f127aa2c61d0f19dd0e7ec72b86d57cd249b8aa237940336ce92b61d0c1112d1",
+      "imports": [
+        "FFTCertificateComposition",
+        "WindowData"
+      ]
+    }
+  ]
+}

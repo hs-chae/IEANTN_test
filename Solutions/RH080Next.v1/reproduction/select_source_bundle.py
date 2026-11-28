@@ -12,7 +12,7 @@ from bootstrap_context import PROJECT,REPOSITORY,atomic,need,read_json,sha,valid
 
 GENERIC={'Mathlib','Lean','Init','Std','Aesop','Batteries','Qq','ProofWidgets','Plausible','ImportGraph','LeanSearchClient'}
 REQUIRED_FAMILIES={'dual49':49,'gaussian92':92,'population91':91,'w4_math35':35,
-                   'canonical_finite':None,'canonical_w4':None,'w4_actual':None}
+                   'canonical_finite':None,'canonical_w4':None,'w4_actual':None,'c7_kernel_control':None}
 ROOT_FILES=['LICENSE','README.md','CONTRIBUTING.md','SECURITY.md','STATE.md','GRAPH.md',
             'AGENTS.md','CLAUDE.md','requirements-dev.txt',
             'lakefile.toml','lake-manifest.json','lean-toolchain','IEANTN.lean',
@@ -105,6 +105,75 @@ def main():
     checker_owned=[r for r in n24['sources']if r['kind']=='checker_owned']
     need(len(checker_owned)==1 and checker_owned[0]['module']=='W4D24ClaimAudit','Exact checker-owned generated source differs')
     n24_generated.update({r['module']:r for r in checker_owned})
+    # The original1020-source producer inventory remains immutable. The actual
+    # accepted Main closure uses three additional exact written-source identities:
+    # two proof helpers and the approved proof-only replacement Final. Selection
+    # records them separately; source inclusion/derivation is not proof acceptance.
+    compact_root=PROJECT/'compact-proof-repair-v1'
+    compact_manifest=compact_root/'PACKAGE_MANIFEST.json'
+    compact_handoff=compact_root/'PACKAGE_REVIEW_HANDOFF.json'
+    compact_closure=dict(status='PENDING_REVIEWED_PACKAGE_AND_RUNTIME_CLOSURE')
+    manifest_sha='e3e35a131b819e43ec91333a9c030dd84b6b06b6f0d07cedcc462d774048bcda'
+    handoff_sha='cf1be3df1607723141fc6fda02ecec7574b00df1534d4a6d3e8ff7e1e53c7a34'
+    add(compact_manifest,'reviewed_compact_package_manifest',manifest_sha)
+    add(compact_handoff,'reviewed_compact_package_handoff',handoff_sha)
+    if compact_manifest.is_file()and compact_handoff.is_file()and sha(compact_manifest)==manifest_sha and sha(compact_handoff)==handoff_sha:
+        publication=read_json(compact_manifest);published=publication['files']
+        need(type(published)is list and len(published)==108,'Reviewed108 compact source/evidence assets required')
+        listed={row['path']:row for row in published};need(len(listed)==108,'Duplicate compact publication path')
+        for suffix,row in listed.items():
+            need(not Path(suffix).is_absolute()and '..'not in Path(suffix).parts,'Unsafe compact package path')
+            add(compact_root/suffix,'reviewed_compact_package_asset',row['sha256'])
+            if(compact_root/suffix).is_file():need((compact_root/suffix).stat().st_size==row['bytes'],'Compact asset byte count differs')
+        runtime=read_json(compact_root/'RUNTIME_SOURCE_CLOSURE.json')
+        need(len(runtime['package_runtime_files'])==26,'Reviewed compact runtime population differs')
+        for suffix in runtime['package_runtime_files']:
+            need(suffix in listed,'Required compact runtime missing from reviewed publication')
+            add(compact_root/suffix,'explicit_compact_runtime_source',listed[suffix]['sha256'])
+        for row in runtime['required_existing_project_sources']:
+            add(PROJECT/row['project_relative_path'],'explicit_compact_existing_runtime_source',row['sha256'])
+        for row in runtime['required_repo_relative_data']:
+            add(REPOSITORY/row['path'],'explicit_compact_fixed_runtime_input',row['sha256'])
+        compact_closure=dict(status='EXACT_REVIEWED_PACKAGE_RUNTIME_INVENTORY_SELECTED_NOT_NEW_EXECUTION',
+            manifested_assets=108,metadata_files=2,package_runtime_files=26,
+            existing_project_runtime_sources=len(runtime['required_existing_project_sources']),
+            fixed_repository_inputs=len(runtime['required_repo_relative_data']),
+            manifest_sha256=manifest_sha,handoff_sha256=handoff_sha,
+            endpoint_existence_is_not_transitive_closure_or_fresh_proof=True)
+    c7_sources={}
+    for module,digest in {
+        'C7KernelScalars':'6a5593534522d941971363e5f13adebdcf5e994bb80e3ee435ef8b9b3d409d9b',
+        'C7KernelGlobal':'e191e407eeec3951ddd94ea83c4243ad45b581140d61911b4b7055db6d64575a',
+        'C7KernelAudit':'498990d834866343440771ac3d95a9040addde808571462fd98d6c1366e858e4',
+    }.items():
+        path=PROJECT/'pv/lean'/(module+'.lean')
+        add(path,'posthoc_C7_full_kernel_control_source:'+module,digest)
+        if path.is_file()and sha(path)==digest:c7_sources[(module,digest)]=path
+    compact_expected={
+        'TopShapeSymbolic':('helpers/TopShapeSymbolic.lean','121b1b44651f312abf569164f5117fe33ffb18d5ab3fc4f1c6f564fafee56726'),
+        'NormSymbolic':('helpers/NormSymbolic.lean','dc3590afbf7a804cc8d033db03dbdda826f4575f6d2f59755a9c97d43500b333'),
+        'W4D24Final':('locked/accepted-W4D24Final.lean','edd68a4f35cb9c5bc34385630683145c3782f8516d8ee87ab3b2fac42488667e'),
+    }
+    compact_sources={}
+    for module,(suffix,digest)in compact_expected.items():
+        path=PROJECT/'compact-proof-repair-v1'/suffix
+        add(path,'actual_compact_proof_source:'+module,digest)
+        if path.is_file()and sha(path)==digest:compact_sources[(module,digest)]=path
+    compact_deriver=PROJECT/'compact-proof-repair-v1/tools/derive_compact_candidate.py'
+    if compact_deriver.is_file():
+        add(compact_deriver,'N24_proof_only_compact_derivation')
+        recipes.append(dict(id='N24_compact_proof_only',producer=relative(compact_deriver),
+            producer_sha256=sha(compact_deriver),
+            command=['python3',relative(compact_deriver),'--candidate','FRESH_N24_CANDIDATE',
+                     '--out','FRESH_COMPACT_N24_CANDIDATE','--project-root','Solutions/RH080Next.v1'],
+            original_producer_inventory_preserved=relative(n24_path),
+            original_generated_modules=1020,derived_generated_modules=1022,
+            unchanged_CSV_files=937,fresh_math_providers=1035,original_typed_audit_roots=29,
+            exact_replacement_proof_sources=[dict(module=n,file=relative(p),sha256=d)
+                for(n,d),p in sorted(compact_sources.items())],
+            only_two_Final_proof_bodies_and_two_helpers_changed=True,
+            numerical_source_algorithm_claims_unchanged=True,proposal_is_not_proof=True))
+    else:problem('missing_compact_proof_derivation_source')
     checker=PROJECT/'dual/reproduce_fft_dag_v2.py';add(checker,'N24_checker_owned_source_generator',n24['original_controller_sha256'])
     n24_by_file={r['file']:r for r in n24['generated_modules']+n24['payloads']+checker_owned}
     producer=PROJECT/'dual/produce_fft_dag_certificate.py';add(producer,'N24_producer',n24['producer_sha256'])
@@ -169,7 +238,11 @@ def main():
             try:rel=p.relative_to(REPOSITORY).as_posix()
             except ValueError:
                 g=n24_generated.get(n)
-                if g and digest==g['sha256']:
+                if (n,digest)in c7_sources:
+                    p=c7_sources[(n,digest)];rel=relative(p)
+                elif (n,digest)in compact_sources:
+                    p=compact_sources[(n,digest)];rel=relative(p)
+                elif g and digest==g['sha256']:
                     rel=virtual_prefix+g['file'];generated='N24'
                 elif (n,digest)in finite_generated:
                     rel=finite_generated[(n,digest)];p=REPOSITORY/rel
@@ -199,14 +272,18 @@ def main():
         path=Path(raw);plan=read_json(path);rows=plan.get('source_rows',plan.get('modules'))
         if isinstance(rows,dict):rows=[dict(v,module=n)for n,v in rows.items()]
         need(type(rows)is list,'Exact source rows required: '+label)
-        if label.startswith('canonical')or label=='w4_actual':
+        if label.startswith('canonical')or label in {'w4_actual','c7_kernel_control'}:
             expected_roots={'canonical_finite':['CanonicalEvolutionAudit'],
-                'canonical_w4':CANONICAL_W4_ROOTS,
+                'canonical_w4':['CanonicalW4EvolutionAudit'],'c7_kernel_control':['C7KernelAudit'],
                 'w4_actual':['W4FFTCertifiedNorm','FFTW4SourceCertificate','FFTW4MainNumerics',
                              'FFTW4MainConsumers','PopulationEnvelopeConsumers','FFTW4MainAudit']}[label]
             need(plan.get('roots')==expected_roots,'Exact selected final proof roots differ: '+label)
             rows=rows+plan.get('accepted_dependencies',[])
             need(set(expected_roots)<={r['module']for r in rows},'Selected final root source rows missing: '+label)
+            if label=='canonical_w4':
+                need(set(CANONICAL_W4_ROOTS)<={r['module']for r in rows},'All six actual canonical proof sources required despite one selected audit root')
+            if label=='c7_kernel_control':
+                need({'C7KernelScalars','C7KernelGlobal','C7KernelAudit'}<={r['module']for r in rows},'All three exact posthoc C7 source modules required')
         consume(label,path,rows,REQUIRED_FAMILIES[label]);supplied[label]=True
     for label in REQUIRED_FAMILIES:
         if label not in supplied:problem('required_proof_family_not_supplied',family=label)
@@ -269,7 +346,7 @@ def main():
         compiler_sha256=context['compiler_sha256'],compiler_version=context['compiler_version'],generic_dependencies=context['generic_dependencies'],
         reviewed_commit=a.reviewed_commit,current_HEAD=head,files=files,selected_files=len(files),selected_bytes=sum(r['bytes']for r in files),
         exact_written_source_identities=identities,proof_family_coverage=families,proof_plan_identities=plan_hashes,
-        locked_payloads=trials,regeneration_recipes=recipes,excluded_existing_files=excluded,unresolved=unresolved,
+        locked_payloads=trials,regeneration_recipes=recipes,compact_source_closure=compact_closure,excluded_existing_files=excluded,unresolved=unresolved,
         selection_policy_author='Codex analytic_review at owner/root request',
         requested_universe='Complete selected campaign application proof/program/generator/input sources; all reviewed project files; all16 locks;169 common exposure; selected normal canonical CLI/core/node scaffold; exact regenerated N17/N24 outputs',
         inclusion_criteria=['Every project file passes final reviewed-commit byte matching except enumerated exclusions',

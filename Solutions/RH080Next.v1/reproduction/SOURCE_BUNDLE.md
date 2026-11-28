@@ -107,3 +107,81 @@ acceptance validator. Reproduction uses the separate199-module compiler and
 independent type/axiom/dependency audits. The original payload bytes are never
 modified to make modern validators pass, and ordinary Python certificate
 checking is not labeled source-first PV.
+
+
+## Accepted compact proof source identities
+
+Keep the original1033-source N24 inventory and its original1020-source/937-CSV
+regeneration recipe unchanged. The actual accepted Main closure also consumes
+three separately identified files in `compact-proof-repair-v1`:
+`helpers/TopShapeSymbolic.lean`, `helpers/NormSymbolic.lean`, and
+`locked/accepted-W4D24Final.lean`. The selector keys each by module, written file
+and exact SHA256; the accepted replacement Final is not collapsed with the
+original producer Final. Both histories remain in the archive.
+
+The additive `N24_compact_proof_only` recipe regenerates original numeric bytes,
+derives two approved proof bodies plus two helpers, then runs the unchanged
+checker with the original29-root audit and the independent compact gate. The
+package also preserves the original executed controllers and source-publication
+mapping; those path-specific historical receipts are not relabeled portable
+acceptance. Its source-only contract, fresh small smoke and full accepted N24
+lineage are separate evidence populations. Inclusion in the bundle is not proof
+acceptance and does not imply a monolithic new1035-provider cold replay.
+
+Actual Main receipts, its completed resource supplement, the compact N24
+acceptance/supervisor, and the final canonical receipts belong in the explicit
+evidence manifests. No SDK, prompt, transcript, private context or upload helper
+is selected. Final reviewed-commit matching and every-member archive hashes
+remain mandatory.
+
+The selector explicitly checks all108 reviewed package assets plus the package
+manifest and handoff (110 files total), the26 paths in RUNTIME_SOURCE_CLOSURE,
+its22 pinned existing project sources and2 fixed repository inputs. This is
+stronger source coverage than the driver's endpoint-only MissingInterfaces0;
+neither source existence nor inventory hashing constitutes a fresh proof run.
+
+The actual clean dependency-bootstrap/23-module receipt population and prior
+monitor failures are selected by a separate evidence manifest. Generic Lean
+context JSON records are dependency environments, not agent contexts; no
+model SDK, prompts or transcripts are included. The accepted23 application
+objects and all imported generic objects remain in the workspace; source and
+regeneration recipes, actual commands and artifact hashes are preserved.
+
+
+The source closure additionally includes the exact three public
+`pv/lean/C7Kernel{Scalars,Global,Audit}.lean` files and the clean
+`c7-kernel-control` driver route, plus `reproduction/verify_normal_network.py`
+for the ordinary23-command repository workflow. C7 is a posthoc full kernel
+non-PV proof-value control, distinct from the earlier FFT-layer-only control
+with shared scalar PV providers. Actual C7 receipts associate private historical
+origins with those identical public module/hash identities. Clean replay compiles
+all three modules; historical audit-v2 reused the two accepted math objects.
+The selector requires the three exact public sources even though its selected
+compiler root is only `C7KernelAudit`. No source-free import-graph or elaborator
+I/O claim is made. All mutable normal-Lake caches must remain independently
+owned; the whole-campaign disk guard accounts for those caches as well as logs.
+
+
+## Actual ordinary repository workflow outcome
+
+The cached continuation completed the18,647-job native build, the updated
+`ieantn_hash` executable and core object, fingerprint generation, and every
+planned command. Seventeen of23 commands returned0. In each of normal Python,
+-O and -OO, the five fingerprint/graph/closure/pin/challenge checks passed;
+`check-receipts` and aggregate `check` returned1. All49 inherited receipt files
+name the public upstream repository, while the local snapshot's inherited
+origin is a filesystem path. No inherited receipt, validator or mathematical
+source was changed to make these checks pass. Thus the normal workflow remains
+incomplete, while the separately audited mathematical results retain their
+actual acceptance. This is not official Comparator approval for the owner fork.
+
+Build/phase/outer durations were1010.190/1218.497/1228.272seconds. Completed
+owned OOM/OOM-kill counters were0/0. Maximum individual command GNU RSS was
+7,183,768KiB; the sampled cgroup charge15,188,430,848bytes is only a lower
+bound, with no exact peak available. Independent post-execution review
+rechecked65,875 protected sources, the original26-file baseline,198generated
+fingerprints,53execution pins and the actual command/log/time/binary identities.
+The51text source pins are retained byte-for-byte with an INDEX; the other two
+generic executable payloads are represented by exact hashes. These historical
+execution snapshots remain distinct from later report/documentation edits.
+The first1200-second native deadline stop remains a separate failed attempt.

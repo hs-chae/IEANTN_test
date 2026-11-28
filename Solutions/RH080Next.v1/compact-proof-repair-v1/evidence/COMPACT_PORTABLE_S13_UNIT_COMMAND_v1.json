@@ -1,0 +1,31 @@
+{
+  "command": [
+    "systemd-run",
+    "--user",
+    "--unit",
+    "ivy-compact-portable-s13-v1",
+    "--property=MemoryMax=64G",
+    "--property=MemoryHigh=64G",
+    "--property=MemorySwapMax=0",
+    "--property=OOMPolicy=continue",
+    "--property=TasksMax=512",
+    "/usr/bin/taskset",
+    "--cpu-list",
+    "96-99",
+    "/usr/bin/python3",
+    "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/generic_page_policy_exec.py",
+    "--disable-thp",
+    "--receipt",
+    "/data/ivy-rh080-next-20261125/COMPACT_PORTABLE_S13_PROCESS_POLICY_v1.json",
+    "--",
+    "/usr/bin/python3",
+    "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/Solutions/RH080Next.v1/compact-proof-repair-v1/tools/run_small_clean_smoke.py",
+    "--project-root",
+    "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1",
+    "--context",
+    "/data/ivy-rh-one-prime-20261124/clean_proof_context.json",
+    "--work",
+    "/data/ivy-rh080-next-20261125/compact-proof-publication-candidate-v1/controls/s13-cold-smoke-v1"
+  ],
+  "smoke_source_sha256": "493f681c9134f4549c81f02bb56ef48112deb196b1ee735f41e3c33bbcf2b7c4"
+}
