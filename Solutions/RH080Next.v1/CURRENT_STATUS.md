@@ -1,5 +1,30 @@
 # Current campaign status
 
+## Final bounded study — 28 November 2026 UTC
+
+The selected mathematical proof chains, C-main-to-ANT consumers, separate
+fully kernel control, and canonical local verification are complete. Read the
+[single offline report](reports/RH080_NEXT_RESEARCH_REPORT.html),
+[paper](reports/PAPER_EXPOSITION.pdf), [final handoff](FINAL_HANDOFF.md), and
+[reproduction guide](reproduction/README.md) for the final evidence and limits.
+The dated entries below preserve the campaign history; their earlier pending
+states do not override this final scoped status.
+
+The ordinary native build and fingerprint generation completed. The actual
+23-command workflow retained 17 passes and six inherited-receipt repository
+identity failures. A separate upstream-only view passed the unchanged online
+receipt checker in all three Python modes for all 49 inherited receipts;
+it neither changes the raw 17/6 outcome nor provides official approval for
+new owner-fork nodes. Shared Git configuration was preserved.
+
+Safe cleanup removed 18,662 reproducible C/object leaves after exact identity
+checks, preserving all proof objects, interfaces, serialized IR and runtime
+libraries. The direct pinned hash executable then ran successfully without
+rebuilding those leaves. Numerical algorithms, locked inputs, mathematical
+hypotheses and original experimental outcomes remain fixed. Source-cold
+lineages and separate associated rebuilds are disclosed; no new monolithic
+replay of the entire 681/N24 pipeline is claimed.
+
 ## Accepted main proof and public integration — 27 November 2026
 
 The actual W4 C-main-to-ANT chain is now accepted. The six public main/norm/

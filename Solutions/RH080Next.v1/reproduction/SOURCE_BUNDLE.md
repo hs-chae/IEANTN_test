@@ -185,3 +185,35 @@ The51text source pins are retained byte-for-byte with an INDEX; the other two
 generic executable payloads are represented by exact hashes. These historical
 execution snapshots remain distinct from later report/documentation edits.
 The first1200-second native deadline stop remains a separate failed attempt.
+
+
+## Supplemental provenance, measured cleanup, and historical scouts
+
+A separate disposable upstream checkout ran the unchanged online inherited
+receipt validator in normal/-O/-OO: allthree passed for49files/20workflow runs
+and their jobs in94.321seconds. All50inputs and seven shared Git configurations
+were unchanged. This upstream-only supplement preserves the raw local17PASS/
+6contextFAIL matrix and confers no official approval on new owner-fork nodes.
+
+The exact cleanup removed18,662regenerable generated C/object leaves,
+824,431,612logical/864,055,296allocatedleafbytes. All90,704protected proof,
+interface,IR,binary andlibrary identities were retained. SerializedIR remains
+a hasher runtime input. A direct post-cleanup hasher check passed in4.508seconds
+with the same recorded fingerprint; all removed leaves stayed absent, so none
+were rebuilt. These leaf totals are distinct from global disk changes.
+
+The scientific evidence index maps actual accepted Gaussian92, CMSdual49,
+population91, analytic20/21/23-module routes,199exposure compilers,24physical
+observations/42mutation rejections,11named-source contracts and18asymptotic
+audit rows to exact source/evidence members. N24 has a separate exact index
+of1035original compile receipts and3105stdout/stderr/time files, three full
+independent readers, and the originalAS/stall/physicalOOM histories.
+
+The fixed-W4 native449-mesh scout(252..700) is retained with its exact original
+code/result and a fresh-output-only reproduction adapter. Its best mesh remains
+360; it misses0.851/0.850/0.845/0.8 and establishes no other-family or continuous
+optimality claim. The original LP40 main source is hash-exactly recovered; its
+local helper was not pinned by that original receipt, though the retained helper
+matches the later contemporaneous fine-run pin. The record preserves this
+limitation. Accepted Gaussian reproduction uses the locked rational witness
+and kernel proofs, independently of repeating a floating LP optimization.

@@ -27,6 +27,13 @@ def table(head,rows):return '<div class="table-scroll" tabindex="0"><table><thea
 def card(title,body,tone='proved'):return '<article class="card '+tone+'"><h3>'+title+'</h3>'+body+'</article>'
 def p(text):return '<p>'+text+'</p>'
 def details(title,body):return '<details><summary>'+title+'</summary>'+body+'</details>'
+def rich(segments):
+ out=[]
+ for segment in segments:
+  if set(segment)=={'text'}:out.append(esc(segment['text']))
+  elif set(segment)=={'math'}:out.append(m(segment['math']))
+  else:raise ValueError('Reading fragments require exactly text or math')
+ return ''.join(out)
 
 def main():
  ap=argparse.ArgumentParser(allow_abbrev=False);ap.add_argument('--data',required=True,type=Path);ap.add_argument('--out',required=True,type=Path);ap.add_argument('--font',required=True,type=Path);ap.add_argument('--allow-incomplete',action='store_true');a=ap.parse_args()
@@ -38,7 +45,7 @@ def main():
  cms='https://arxiv.org/pdf/1708.04122v2';br='https://zenodo.org/records/24429650/files/prime-gaps-v2.pdf';lee='https://arxiv.org/html/2403.11814v4'
  q=r'\frac{20582561296}{24680948495}'
  intro=p('A conditional number-theory and program-verification study. RH is a hypothesis throughout the prime theorems. Published analytic inputs remain named hypotheses unless their proofs are explicitly supplied here.')
- intro+=p('Source checkpoint '+link(data['source_commit'][:12],'https://github.com/hs-chae/IEANTN_test/commit/'+data['source_commit'])+'. Original 20+8 trial outcomes and all 16 new primary statuses are preserved. This report is one offline file; source, exact receipts and regeneration commands are in the accompanying bundle.')
+ intro+=p('Mathematical source checkpoint '+link(data['source_commit'][:12],'https://github.com/hs-chae/IEANTN_test/commit/'+data['source_commit'])+'. Original 20+8 trial outcomes and all 16 new primary statuses are preserved. This report is one offline file; source, exact receipts and regeneration commands are in the accompanying bundle.')
  intro+=p('Open statement cards to read the details. Wide formulas and tables scroll horizontally: swipe, or focus them with Tab and use the arrow keys.')
  if not complete:intro=card('Work remains',p('This is a draft. '+esc('; '.join(data['completion']['remaining']))),'pending')+intro
  if data.get('normal_network',{}).get('accepted') is False:
@@ -46,7 +53,7 @@ def main():
  sections=[]
  lead=[]
  for row in data['leaderboard']:
-  lead.append([esc(row['result']),m(row['formula']),esc(row['domain']),esc(row['verification']),esc(row['premises']),source(row['file'],row['declaration'],row.get('line'))])
+  lead.append([esc(row['result']),m(row['formula']),rich(row['domain_segments'])if 'domain_segments'in row else esc(row['domain']),esc(row['verification']),esc(row['premises']),source(row['file'],row['declaration'],row.get('line'))])
  sections.append(('results','What is proved',p('A lower coefficient means a shorter interval only when the ranges, endpoint rules and hypotheses match. Eventual statements have no explicit numerical onset. Functional lower bounds constrain the Fourier method; they are not lower bounds for actual prime gaps.')+table(['Result','Exact claim or coefficient','Range / endpoints','Verification','Additional inputs','Lean declaration'],lead)))
  A=p('The comparison uses the full continuous, real, even '+m(r'L^1(\mathbb R)')+' CMS class with genuine Fourier transform '+m(r'\widehat F(t)=\int_{\mathbb R}F(x)e^{-2\pi ixt}\,dx')+'. The positive exterior leakage must be integrable, and the denominator below must be positive. Integrability of the entire Fourier transform is not assumed.')
  A+=m(r'Q_A(F)=\frac{\|F\|_1}{F(0)-A\int_{|t|>1}\max(0,\widehat F(t))\,dt},\qquad A=\frac{36}{11}',True)
@@ -69,7 +76,7 @@ def main():
  B+=p('The proved declaration is '+source('Solutions/RH080Next.v1/explicit/ExplicitCMSZeroKernel.lean','cms_zero_partial_summation_kernel')+'; its exact canonical correspondence is '+source('IEANTN/Nodes/CMSExplicitInputs/v1/Conclusions.lean','CMSExplicitInputs.v1.zero_partial_summation',49)+'. The printed calculation selects a particular test function. Applying that display to every even differentiable function satisfying the stated tail conditions was the extra obligation:')
  B+=m(r'F(x)=H(x/\lambda),\qquad H(x)=\frac{\cos(2\pi x)}{1-16x^2}\quad\text{(removable values at }x=\pm1/4\text{)}',True)
  B+=m(r'N(T)=\sum_{0<\gamma\le T}\operatorname{mult}(\gamma),\quad Q(T)=\frac{T}{2\pi}\log\frac{T}{2\pi e}+\frac78,\quad |N(T)-Q(T)|\le0.15\log T+3\ (T\ge e)',True)
- B+=p(link('CMS §6.1, Lemma9 and following display, pp23–24',cms+'#page=23')+'. The proof uses the actual right-closed count, derives countable support and summability, and performs finite-cutoff FTC/Fubini before taking any infinite limit. It also proves the exact base root and handles the negative and real-zero contributions.')
+ B+=p(link('CMS §6.1, Lemma9 and following display, pp23–24',cms+'#page=23')+'. The proof uses the actual right-closed count, derives countable support and summability, and performs finite-cutoff FTC/Fubini before taking any infinite limit. It proves the auxiliary zero of the displayed counting main term '+m(r'Q(T)')+' and handles the negative-ordinate and real-zero contributions.')
  B+=m(r'g_\varepsilon(t)=\sqrt{F(t)^2+\varepsilon^2},\qquad |g_\varepsilon^\prime(t)|\le|F^\prime(t)|,\qquad 0\le g_\varepsilon(t)-|F(t)|\le\varepsilon',True)
  B+=p('Smooth modulus approximation avoids assuming that the absolute value of a differentiable function is differentiable at its zeros. The smoothing parameter tends to zero at fixed cutoff first; the cutoff then tends to infinity. Complex zeta conjugation and multiplicity preservation supply the negative-ordinate reindexing. These are mathematical proofs, not numerical checks.')
  B+=p('The signed logarithmic moment keeps its negative central contribution at '+m(r'\tau=3/8')+'. The middle contribution on '+m(r'[\tau,1]')+' is nonpositive; the positive tail is bounded by derivative variation. This is sign information in the density correction, not cancellation between different complex zeros. The finite slab uses Montgomery–Vaughan block choice16, the ray uses1, and both retain the original0.0012 error reserve.')
@@ -175,8 +182,8 @@ def main():
    body+=p('For the actual modulus-one family, '+m(r'\mathcal Q(x)=\{1\},\ \varphi(1)=1,\ \eta(x)=\log(x)/\sqrt{x}')+'. The formal source retains an existential nonnegative error constant and an eventual domain; it does not discard the error or infer a finite onset. The ordinary-RH specialization is explicitly justified in the source’s moduli1and2 paragraph on p10.')
   derivation=row.get('source_to_formal_derivation')
   if derivation:
-   body+=p('Candidate-class correspondence: '+esc(derivation['class_source']))
-   body+=p('Source parameter: '+esc(derivation['B_source']))
+   body+=p('Candidate-class correspondence: '+(rich(derivation['class_source_segments'])if 'class_source_segments'in derivation else esc(derivation['class_source'])))
+   body+=p('Source parameter: '+(rich(derivation['B_source_segments'])if 'B_source_segments'in derivation else esc(derivation['B_source'])))
    if row['id']in['CMS-functional-gap','CMS-functional-population']:
     body+=p('CMS Eqs (1.11)–(1.12), printed/PDF p5, define and bound the parameter as follows; both statements are unconditional. The following gap and population theorems add RH. Here '+m(r'\pi(y)')+' counts primes not exceeding the real argument:')
     body+=m(r'B:=\limsup_{x\to\infty}\frac{\pi(x+\sqrt{x})-\pi(x)}{\sqrt{x}/\log x},\qquad 1\le B\le36/11',True)
@@ -186,8 +193,8 @@ def main():
    if row.get('positive_margin_equivalence_tex'):
     body+=p('The strict liminf uses the usual extended-real interpretation. The formal contract states the positive eventual margin explicitly:')
     body+=legacy_one_line_math(row['positive_margin_equivalence_tex'],True)
-  body+=p('Source domain: '+esc(primary['domain']))
-  body+=p(esc(row['comparison'])if isinstance(row['comparison'],str)else esc(row['comparison'].get('explanation',row['comparison'].get('conclusion','See the exact machine-readable comparison ledger.'))))
+  body+=p('Source domain: '+(rich(primary['domain_segments'])if 'domain_segments'in primary else esc(primary['domain'])))
+  body+=p(rich(row['comparison_segments'])if 'comparison_segments'in row else esc(row['comparison'])if isinstance(row['comparison'],str)else esc(row['comparison'].get('explanation',row['comparison'].get('conclusion','See the exact machine-readable comparison ledger.'))))
   body+=p('The published analytic or historical proof remains an explicit mathematical hypothesis.'if row.get('remains_explicit_mathematical_hypothesis')else'This component is proved in the supplied Lean development.')
   F+=details(esc(row['id'])+' — exact source and formal contract',body)
  F+=p('No material source-to-contract mismatch was found in the audited input families. The CMS weighted-zero partial-summation obligation used in this RH proof is now discharged. Historical direct computations remain literature-backed. Metadata fingerprints and local canonical checks are not official Comparator approval receipts.')
@@ -207,8 +214,8 @@ def main():
   canonical=[]
   for row in data['canonical_statements']:
    route=row['verification_route'];classification=route.get('classification','')if isinstance(route,dict)else str(route)
-   domain=legacy_one_line_math(row['domain'])if chr(92)in row['domain']else esc(row['domain'])
-   if chr(92)not in row['domain']:
+   domain=rich(row['domain_segments'])if 'domain_segments'in row else legacy_one_line_math(row['domain'])if chr(92)in row['domain']else esc(row['domain'])
+   if 'domain_segments'not in row and chr(92)not in row['domain']:
     for token,tex in [('a2520=0',r'a_{2520}=0'),('mesh360',r'm=360'),('scale10^16',r'10^{16}')]:
      domain=domain.replace(esc(token),m(tex))
    premises=row['premises']
@@ -220,10 +227,10 @@ def main():
    external=[]
    for item in premises['expanded_external_mathematical_inputs']:
     family,version,decl=item['id'].rsplit('.',2)
-    external.append('<li>'+source('IEANTN/Nodes/'+family+'/'+version+'/Conclusions.lean',item['id'])+' — '+esc(item['primary_claim'])+'</li>')
+    external.append('<li>'+source('IEANTN/Nodes/'+family+'/'+version+'/Conclusions.lean',item['id'])+' — '+(rich(item['primary_claim_segments'])if 'primary_claim_segments'in item else esc(item['primary_claim']))+'</li>')
    assumptions+=details('Expanded RH / literature inputs ('+str(len(external))+')','<ul>'+''.join(external)+'</ul>')if external else p('No external mathematical input: this route is unconditional.')
    identity=row['canonical_id']+'.'+row['declaration'].split('.')[-1]
-   statement=m(row['formula_tex'],True)+p('Domain: '+domain)+p(esc(row['endpoints']))
+   statement=m(row['formula_tex'],True)+p('Domain: '+domain)+p(rich(row['endpoints_segments'])if 'endpoints_segments'in row else esc(row['endpoints']))
    statement+=p(esc(row['claim_relationship']+' '+classification))
    statement+=details('Inputs for this conclusion',assumptions)
    statement+=p('Lean declaration: '+source(row.get('planned_repository_file',row['actual_source_file']),row['declaration'],row['line']))
@@ -239,6 +246,7 @@ def main():
  H+=p('The N24 final aggregation first failed under a256GiB virtual-address ceiling while the owned300GiB physical cgroup recorded no OOM or kill. An unlimited-address retry then spent most CPU time in memory management and was deliberately stopped; its actual compiler receipt143 and absent proof object are authoritative, even though GNU time printed an exit-status0 field after signal termination. The later process-only resource profile disables transparent huge pages before the supervisor and all children, and verifies actual CPU affinity. It changes no numerical source, data, theorem or checker and makes no host-global setting change. Huge-page compaction as the earlier cause is an inference, not a controlled causal result. A pre-exec policy receipt establishes process configuration, never proof acceptance. See '+source('Solutions/RH080Next.v1/reproduction/PROCESS_RESOURCE_PROFILE.md','exact resource profile')+'.')
  H+=p('That separate THP-disabled source-identical retry actually reached the physical300GiB limit: its completed counters record one OOM and one OOM kill. Its empty GNU-time output does not supply a final compiler peak. The successful next route changes two Lean aggregation proof bodies, using general symbolic fold and norm identities instead of reducing the entire16,777,216-element output at the final step. Numerical C source, all original data, algorithms, parameters and mathematical statement headers are preserved. The repaired Final and original29-claim audit passed, followed by three exhaustive independent readers and the actual C-main-to-ANT consumers. Reused numerical proofs and freshly compiled repair/consumer modules remain separately counted.')
  H+=p('Evidence limitation: a rejected watcher control used an old output directory and overwrote one historical private failure JSON. Its failed event, error and exit1 are independently retained in the user-unit journal; its exact original JSON bytes and timing field remain unavailable. The misplaced control receipt is preserved separately, and all new watcher terminal receipts reject overwrites. The original primary locks, accepted proofs, mathematical sources and approved payloads were checked unchanged.')
+ H+=p('One exploratory floating-point LP record pinned its main script but did not pin the imported local helper. The original main script was recovered with an exact match to its recorded SHA256; the supplied helper matches a later fine-search record. That later hash does not prove the original run-time helper identity. The accepted Gaussian witness is independently regenerated and kernel-checked from fixed rational data, so its mathematical validity does not depend on reproducing the historical floating search.')
  H+=p('Two public-interface test attempts also failed for checker-generation reasons: reused mutable Lean variable names, then a canonical RH alias absent from the generated probe’s imports. Their failures are preserved. The repaired checker uses distinct local names and freshly compiles every metadata input/target definition from public source in each separate route. All eight routes passed the subsequent88-call cold preflight; these fixes change no mathematical statement or numerical program.')
  if data.get('normal_network',{}).get('accepted') is False:
   H+=p('The completed ordinary workflow has17 successful commands and6 failures. Native compilation, fingerprint generation, and all three modes of fingerprint, graph, import-closure, pin and generated-Challenge checks passed. Each mode’s receipt-provenance check and combined check failed: all49 inherited receipt files name the canonical upstream repository, while this shared research worktree’s origin is a local clone path. The unchanged checker obtains its expected repository from that origin. No receipt or validator was rewritten, shared Git configuration was left intact, and those raw failures remain failures. Independent source, binary and execution-receipt checks completed; the successful local proof gates remain distinct. '+source('scripts/ieantn.py','receipt-provenance implementation',546)+'.')

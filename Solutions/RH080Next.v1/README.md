@@ -7,8 +7,10 @@ population family and separate kernel-only control have also passed their
 scoped proof gates. RH and named published analytic/historical inputs remain
 explicit hypotheses.
 
-See [CURRENT_STATUS.md](CURRENT_STATUS.md) and the
-[reproduction guide](reproduction/README.md) for exact proof scopes and receipts.
+Start with the [single offline research report](reports/RH080_NEXT_RESEARCH_REPORT.html),
+[paper](reports/PAPER_EXPOSITION.pdf), [final handoff](FINAL_HANDOFF.md), and
+[reproduction guide](reproduction/README.md).
+[CURRENT_STATUS.md](CURRENT_STATUS.md) preserves exact proof scopes and historical checkpoints.
 The ordinary native build succeeded, but six of its 23 workflow commands
 failed on inherited-receipt repository identity. Those raw failures remain
 failures; local mathematical verification and official node approval are
