@@ -1,0 +1,77 @@
+{
+  "status": "FIXED_EXISTING_EXTERNAL_INTERVAL_FRONTIER_REPRODUCTION_PARAMETERS_NOT_LEAN_OR_PV",
+  "python_version": "3.12.9",
+  "python_flint_version": "0.9.0",
+  "profiles": [
+    {
+      "id": "rh-dft",
+      "A": "36/11",
+      "witness": "dual/inputs/dual-rh-generated-m48-R60.json",
+      "witness_sha256": "a470a54f6ea70e362b394250bc3a700f80c2c47fd27949f36ce276af4693b3cf",
+      "algorithm": "DFT",
+      "script": "dual/replay_source_dual.py",
+      "script_sha256": "46417084121457081aaf1de0726d9affb0e3c7ac85373c02d69d2a4a6ed55344",
+      "bits": 128,
+      "panels": 16777216,
+      "target": "2399/2000",
+      "expected_result_status": "PASS_RATIONAL_STEP_DUAL_GLOBAL_ENCLOSURE_EXTERNAL_ARBITRARY_PRECISION_NOT_LEAN_OR_PV",
+      "original_plan_sha256": "f010d8e52456e2d616814a42dab29d7f5cf8c2a189f037900976fa49421a3d3c",
+      "original_result_sha256": "d39f03f7f32074ba52704f851eb68b1e3b82cb84e6d3ef3a90b23b0c214000f0"
+    },
+    {
+      "id": "rh-horner",
+      "A": "36/11",
+      "witness": "dual/inputs/dual-rh-generated-m48-R60.json",
+      "witness_sha256": "a470a54f6ea70e362b394250bc3a700f80c2c47fd27949f36ce276af4693b3cf",
+      "algorithm": "Horner",
+      "script": "dual/verify_dual_adaptive_derivative.py",
+      "script_sha256": "fa4e092a2c50028c9b8c5b0886b52439d62e64182ae140a3fde470d518d1518b",
+      "bits": 3008,
+      "panels": null,
+      "target": "2399/2000",
+      "expected_result_status": "PASS_INDEPENDENT_DERIVATIVE_HORNER_GLOBAL_DUAL_ENCLOSURE_NOT_LEAN_OR_PV",
+      "original_plan_sha256": "023626748b2a679248406bb3acbd0309e9206f51fb997d1c289b8871fadd210c",
+      "original_result_sha256": "6058fd71f8aacf9ed364642f480eecb70143c6a2ea2d3158143bf0c43dd8a271"
+    },
+    {
+      "id": "a4-dft",
+      "A": "4",
+      "witness": "dual/inputs/dual-a4-generated-m48-R60.json",
+      "witness_sha256": "918c75517c2f836f1b198f7a5c7eaa1e0a17fe211c853accb1c2e825fd786a20",
+      "algorithm": "DFT",
+      "script": "dual/replay_source_dual.py",
+      "script_sha256": "46417084121457081aaf1de0726d9affb0e3c7ac85373c02d69d2a4a6ed55344",
+      "bits": 128,
+      "panels": 16777216,
+      "target": "5877/5000",
+      "expected_result_status": "PASS_RATIONAL_STEP_DUAL_GLOBAL_ENCLOSURE_EXTERNAL_ARBITRARY_PRECISION_NOT_LEAN_OR_PV",
+      "original_plan_sha256": "c41cfa692f2500a1150d5c442878fd71e683f3ddb4a9b5c763ab601066911355",
+      "original_result_sha256": "d96a726859ed64f4c37b222b62148a6b3d1961976c75b8efdc158c0925ad57aa"
+    },
+    {
+      "id": "a4-horner",
+      "A": "4",
+      "witness": "dual/inputs/dual-a4-generated-m48-R60.json",
+      "witness_sha256": "918c75517c2f836f1b198f7a5c7eaa1e0a17fe211c853accb1c2e825fd786a20",
+      "algorithm": "Horner",
+      "script": "dual/verify_dual_adaptive_derivative.py",
+      "script_sha256": "fa4e092a2c50028c9b8c5b0886b52439d62e64182ae140a3fde470d518d1518b",
+      "bits": 3008,
+      "panels": null,
+      "target": "5877/5000",
+      "expected_result_status": "PASS_INDEPENDENT_DERIVATIVE_HORNER_GLOBAL_DUAL_ENCLOSURE_NOT_LEAN_OR_PV",
+      "original_plan_sha256": "691b52905a2c4b34c22f12dab561989418ac2eb5bc423aa3055d63a6f50ee6ad",
+      "original_result_sha256": "3efdabf76cb6de156c7afc689048ac00bd4d83a1f6ec1a365457a53fa11b373f"
+    }
+  ],
+  "common_helper": {
+    "file": "dual/replay_source_dual.py",
+    "sha256": "46417084121457081aaf1de0726d9affb0e3c7ac85373c02d69d2a4a6ed55344"
+  },
+  "strongest_reciprocal_floors": {
+    "rh": "2000/2399",
+    "A4": "5000/5877"
+  },
+  "full_CMS_class_applicability": "Written/Lean full-class duality argument is distinct from these external numerical leaves; no new Lean numerical closure or verified network insertion.",
+  "optimization_or_originality_or_best_known_claim": false
+}

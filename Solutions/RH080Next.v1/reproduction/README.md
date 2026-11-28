@@ -270,3 +270,18 @@ See `../dual/README.md` for exact caps, inverses, profile distinctions and
 recorded precision parameters. Plan-only controls were run in all three
 Python optimization modes; no additional heavy replay is claimed merely
 because this wrapper was authored.
+
+## Immutable exposure payloads versus active acceptance
+
+The preserved original model submission
+`ablation/review/primary_locked_payloads/fixed_width-B_named-r1/check.py`
+contains Python `assert` checks. Its bytes are locked historical evidence;
+it is not an acceptance validator, is not invoked by the reproduction
+acceptance path, and does not become source-first PV by being bundled.
+The active exposure route runs
+`ablation/review/reproduce_clean_proofs.py`:169 common modules,15 exact locked
+transfer modules and15 independent audit modules are compiled and compared.
+Its independent type/axiom/dependency validators use explicit checked errors
+and run under normal Python, `-O` and `-OO`. The historical submission is
+retained unchanged; no current success is inferred from its assert-only
+checker or from a plan/exit status alone.

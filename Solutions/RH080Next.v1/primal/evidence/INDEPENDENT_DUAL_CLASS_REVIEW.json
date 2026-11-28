@@ -1,0 +1,72 @@
+{
+  "status": "INDEPENDENT_SOURCE_MATH_REVIEW_NO_MATERIAL_DEFECT_FOUND",
+  "reviewer": "primal_frontier",
+  "review_scope": "Current AbelFourierInversion and CMSWeakDuality declarations, actual imported FourierWeakDuality generic lemmas, primary BR v2 sec2.4 sec:dual proof; no numerical cap review or global-optimality claim.",
+  "findings": [
+    {
+      "actual_lean": "weak_duality_even_cms: F integrable, continuous at0, even; positive exterior of actual cosine/Fourier transform integrable; V integrable; dual pointwise constraints and genuine cosine-transform cap. No Integrable G premise.",
+      "primary": "BR v2 sec2.4 proof of Theorem dual uses same positive exterior penalty, F continuous at0 and L1, compact even V, and Fejer regularization to remove any Fourier-L1 restriction.",
+      "assessment": "ALIGNED. Lean instead proves Gaussian Abel regularization from Mathlib, dominated convergence for exterior penalty/GV, and true Fubini pairing. This is an independently proved substitute approximate identity; not an assumed source identity."
+    },
+    {
+      "actual_lean": "abelWeight c x=exp(-c^-1*x^2); estimates/integrability only used on c>0 or c>=0; convergence c\u2192infty.",
+      "primary": "BR source uses compact Fejer cutoff (1-|v|/T)+ with T\u2192infty; required output is F(0) limit.",
+      "assessment": "ALIGNED. c=0/negative totalized definitions are harmless: proof-bearing inversion/integrability uses c>0 and DCT eventual c>=0. No out-of-domain value used analytically."
+    },
+    {
+      "actual_lean": "functional_lower_bound_even_cms assumes M>0 and denominator>0 and concludes1/M<=normF/denominator.",
+      "primary": "C+(A)<=norm(checkV)_infty; inverse quotient floor1/M.",
+      "assessment": "ALIGNED. Direction and normalization correct: e^-2piixv source, real-even cosine kernel matches inverse sign. No prime-gap upper bound inferred."
+    },
+    {
+      "actual_lean": "hcenter V=1 on |v|<=1 and pointwise outer bounds; published dual conditions are a.e. with open center.",
+      "primary": "BR sec2.4 V=1 on(-1,1),1-A<=V<=1 a.e.exterior.",
+      "assessment": "STRONGER DUAL HYPOTHESES, mathematically sound. Finite endpoint values can be assigned1 without changing integral. Applying to a concrete step source still needs its endpoint contract proved; not a restriction on full admissible F class."
+    }
+  ],
+  "checked_source_claim": "General full-class weak duality valid; concrete rational dual numerical cap not reviewed here.",
+  "modules": [
+    {
+      "file": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/AbelFourierInversion.lean",
+      "sha256": "5466665c28429237811bfa5aa937dbabf4310f8da8529292d811777609ec2f12",
+      "cold_receipt": "/data/ivy-rh080-next-20261125/dual-full-cms-cold-v1/AbelFourierInversion.RESULT.json",
+      "cold_receipt_data": {
+        "module": "AbelFourierInversion",
+        "returncode": 0,
+        "seconds": 2.865464821457863,
+        "source_sha256": "5466665c28429237811bfa5aa937dbabf4310f8da8529292d811777609ec2f12",
+        "command": [
+          "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+          "-j1",
+          "-R",
+          "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual",
+          "-o",
+          "/data/ivy-rh080-next-20261125/dual-full-cms-cold-v1/objects/AbelFourierInversion.olean",
+          "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/AbelFourierInversion.lean"
+        ]
+      },
+      "axiom_stdout": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/AbelFourierInversion.lean:37:14: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n'RH080Next.Dual.abel_fourier_inversion' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RH080Next.Dual.abel_real_inversion_zero' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    {
+      "file": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/CMSWeakDuality.lean",
+      "sha256": "941ba36d0540846fa723723354ce69cded7aac330a151b3f0f23da9e2cc3d128",
+      "cold_receipt": "/data/ivy-rh080-next-20261125/dual-full-cms-cold-v1/CMSWeakDuality.RESULT.json",
+      "cold_receipt_data": {
+        "module": "CMSWeakDuality",
+        "returncode": 0,
+        "seconds": 3.2572839464992285,
+        "source_sha256": "941ba36d0540846fa723723354ce69cded7aac330a151b3f0f23da9e2cc3d128",
+        "command": [
+          "/ryu/hyunsik/.elan/toolchains/leanprover--lean4---v4.34.0-rc2/bin/lean",
+          "-j1",
+          "-R",
+          "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual",
+          "-o",
+          "/data/ivy-rh080-next-20261125/dual-full-cms-cold-v1/objects/CMSWeakDuality.olean",
+          "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/dual/CMSWeakDuality.lean"
+        ]
+      },
+      "axiom_stdout": "'RH080Next.Dual.weak_duality_cms' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RH080Next.Dual.weak_duality_even_cms' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RH080Next.Dual.functional_lower_bound_even_cms' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    }
+  ]
+}

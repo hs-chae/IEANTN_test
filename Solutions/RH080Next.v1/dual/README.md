@@ -51,3 +51,38 @@ python3 replay_controls.py /absolute/fresh/rejection-controls
 ```
 
 The two interval scripts generate their numerical data deterministically. No random seed is used. Preserve their source hashes, plan/result receipts and the small compressed adaptive certificate. Large object banks and failed-run temporary arrays are regenerable; remove them only after a checked completed reproduction, keeping the sources and receipts.
+
+## Reproduce the strongest existing external interval proposals
+
+The previous R10 command is retained as historical context. The strongest
+reported fixed proposals use `inputs/dual-rh-generated-m48-R60.json` and
+`inputs/dual-a4-generated-m48-R60.json`, byte-identical to their original
+recorded inputs. The strict supremum caps are respectively 2399/2000 and
+5877/5000; their reciprocal functional floors are 2000/2399 and5000/5877.
+The latter profile has leakage penalty 4, so it is a different functional from
+the ordinary-RH 36/11 profile. These are external directed-interval numerical
+results, not Lean numerical leaves, source-first PV, optimizer certificates,
+or inputs promoted into the verified network.
+
+Use Python3.12.9 with `python-flint==0.9.0` (see
+`../reproduction/requirements-external-duals.txt`). The exact four-command
+plan is produced without running any large numerical work by:
+
+```sh
+python3 ../reproduction/reproduce_external_duals.py \
+  --python /absolute/path/to/python3.12.9 --run /absolute/fresh/dual-plan
+```
+
+Run that same wrapper with `--execute` and a different fresh output directory
+to regenerate the four results. It pins every witness, verifier and common
+helper hash before execution and checks the distinct final result kinds.
+Both DFT replays use 16777216 panels at 128 bits. Both independent non-FFT
+complex-Horner replays use 3008 bits, the original 32 initial intervals and
+maximum depth 30. No optimizer or random seed is used. Successful output
+includes the newly generated compressed adaptive certificates and their
+hashes; preserve them together with PLAN/RESULT/source records.
+
+Earlier 160-bit Horner attempts did not produce acceptance; their executed
+sources/plans remain historical evidence. The later higher-precision result
+does not retroactively convert those attempts into successes. In particular,
+a wide interval enclosure is not a counterexample to the target cap.

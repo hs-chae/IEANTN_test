@@ -1,0 +1,107 @@
+#!/usr/bin/env python3
+"""Strict completed681-source finite-Fap gate, with owned cgroup evidence.
+Read-only Git in the pinned generic-context verifier is explicitly authorized.
+"""
+from __future__ import annotations
+import argparse,hashlib,json,math,os,re
+from pathlib import Path
+import reproduce_final_fap_source_cold as core
+from compile_verified_batch import atomic,imports,need
+HERE=Path(__file__).resolve().parent
+PINS={'reproduce_final_fap_source.py': '5ca3a5cea68de2c55cbd314bc498435cb4c4232fb9d6edfa7219c9c622d21402', 'reproduce_final_fap_source_cold.py': '3c5b57f7c3fc1216a64716ced04a02695b0d7e30b5d7a09d59f44e007863dcfe', 'compile_verified_batch.py': '2de2fcbf30606ecb258423d4b27727c36d7d3beb55949d5b5850cd656515efcf', 'evidence/FINAL_FAP_SOURCE_COLD_INPUTS.json': 'abd00afd0d74f96b5b39c116ab890fd544476513f2bb96b5eb95098fb4e2dfe9'}
+CONTEXT_SHA='88a89fb62356f9ac34abaa4f50a32584a75a33bd8ad23aae92cf07965f344319'
+C_PINS={"fap_fft_recursive.c":"c1b958953998c2b655a40b3e25689a33c28d36ab2d145fdb22547a47ff5aa558","w4_fft_recursive.c":"0c9e29db9bbfacd8ed049dc8e4b2a2f18d8ae146c1d0e4dd47a93cd89b80e22b"}
+ALLOWED={'propext','Classical.choice','Quot.sound'}
+def sha(p):
+    h=hashlib.sha256()
+    with p.open('rb')as f:
+        for block in iter(lambda:f.read(1024*1024),b''):h.update(block)
+    return h.hexdigest()
+def strict(p):
+    def pairs(items):
+        d={}
+        for k,v in items:need(k not in d,'duplicate JSON key '+k);d[k]=v
+        return d
+    def bad(v):raise ValueError('nonfinite JSON '+v)
+    return json.loads(p.read_text(encoding='utf-8'),object_pairs_hook=pairs,parse_constant=bad)
+def positive(v):return type(v)in[int,float]and math.isfinite(v)and v>0
+def events(text):
+    result={}
+    for line in text.splitlines():
+        parts=line.split();need(len(parts)==2 and parts[0]not in result and parts[1].isdigit(),'malformed cgroup memory.events')
+        result[parts[0]]=int(parts[1])
+    need({'oom','oom_kill'}<=set(result),'missing actual OOM counters');return result
+def main():
+    ap=argparse.ArgumentParser(allow_abbrev=False)
+    for flag in ['run','supervisor','execution-plan','driver-stdout','driver-stderr','output']:ap.add_argument('--'+flag,required=True,type=Path)
+    a=ap.parse_args();b=a.run
+    need(not a.output.exists(),'fresh atomic acceptance output required')
+    need((b/'RESULT.json').is_file(),'missing completed atomic RESULT')
+    need(a.supervisor.is_file(),'missing completed owned supervisor')
+    frozen={str(p):sha(p)for p in [b/'PLAN.json',b/'RESULT.json',a.supervisor,a.execution_plan]}
+    p=strict(b/'PLAN.json');r=strict(b/'RESULT.json');supervisor=strict(a.supervisor);execution=strict(a.execution_plan)
+    need(r['status']=='PASS_COMPLETE_FINITE_FAP_FULL_MAIN_ANT_SOURCE_COLD','wrong completed finite-Fap result status')
+    need(supervisor['status']=='COMPLETE_CHILD'and type(supervisor['exitcode'])is int and supervisor['exitcode']==0,'source-cold supervisor did not complete successfully')
+    need(positive(supervisor['seconds']),'invalid supervisor elapsed time')
+    need(sha(a.driver_stdout)==supervisor['stdout_sha256']and sha(a.driver_stderr)==supervisor['stderr_sha256'],'owned supervisor log identity')
+    need(not a.driver_stderr.read_bytes(),'source-cold supervisor stderr')
+    need(a.driver_stdout.read_text().endswith('PASS complete finite Fap actual-main, literal FFT and ANT source-cold replay\n'),'missing actual driver completion marker')
+    before=supervisor['before'];after=supervisor['final'];owned=before['path']
+    need(owned==after['path']==execution['before']['path']and owned!='/'and owned.endswith('/ivy-final-fap-full-main-source-cold-v1.service'),'wrong owned cgroup identity')
+    need(before==execution['before'],'supervisor/execution-plan initial cgroup association')
+    first=events(before['memory.events']);last=events(after['memory.events']);need(set(first)==set(last),'cgroup event population changed')
+    delta={k:last[k]-first[k]for k in first};need(all(v>=0 for v in delta.values()),'cgroup counters decreased')
+    need(all(delta.get(k,0)==0 for k in ['oom','oom_kill','oom_group_kill']),'actual owned OOM events occurred')
+    need(r['OOM_events']is None and r['OOM_event_counter_not_inferred_from_success']is True,'child must not invent actual OOM counters')
+    for name,digest in PINS.items():need(sha(HERE/name)==digest,'reviewed final source-cold controller/input changed '+name)
+    need(p['controller_sha256']==PINS['reproduce_final_fap_source_cold.py']and p['helper_sha256']==PINS['compile_verified_batch.py'],'controller/helper plan association')
+    need(execution['controller_sha256']==PINS['reproduce_final_fap_source_cold.py']and execution['inputs_sha256']==PINS['evidence/FINAL_FAP_SOURCE_COLD_INPUTS.json'],'supervisor source/input association')
+    need(execution['source_cold']is True and execution['application_cache']is False,'supervisor allows application cache')
+    need(p['source_cold']is True and p['application_object_fallback']is False and r['source_cold']is True and r['application_object_fallback']is False,'not complete fresh source-only execution')
+    need(p['literal_FFT_DAG_recompiled']is True and r['literal_FFT_DAG_recompiled']is True and r['fixed_literal_certificate_and_ANT_pending']is False,'literal FFT or final ANT still pending')
+    inputData=strict(HERE/'evidence/FINAL_FAP_SOURCE_COLD_INPUTS.json');need(inputData['kind']=='SOURCE_IDENTITIES_ONLY_NO_APPLICATION_PROOF_CACHE'and inputData['modules']==681 and len(inputData['sources'])==681,'wrong finite-Fap portable scope')
+    expected={x['module']:x for x in inputData['sources']};need(len(expected)==681,'duplicate portable compiler identity')
+    names=[x['module']for x in p['source_rows']];need(len(names)==681 and len(set(names))==681 and set(names)==set(expected),'omitted/extra/collapsed source identity')
+    need(r['modules']==681 and type(r['modules'])is int,'wrong completed source population')
+    need(r['plan_sha256']==sha(b/'PLAN.json'),'completed plan hash differs')
+    need(p['workers']==r['workers']and 1<=p['workers']<=4 and p['worker_AS_bytes']==r['worker_AS_bytes'],'worker allowance association')
+    need(p['workers']*p['worker_AS_bytes']==p['aggregate_AS_allowance_bytes']<=300*2**30,'aggregate memory allowance exceeds scope')
+    need(p['host_reserve_bytes']==256*2**30 and p['admission_MemAvailable_bytes']>=max(2**40,p['aggregate_AS_allowance_bytes']+p['host_reserve_bytes']),'host RAM admission reserve')
+    need(p['admission_free_disk_bytes']>=2**40 and p['scratch_stop_bytes']<=290*2**30,'disk/scratch admission reserve')
+    need(not r['resource_failures'],'source-cold resource failure')
+    need(r['minimum_MemAvailable_bytes']>=p['host_reserve_bytes']and r['campaign_scratch_max_sampled_bytes']<p['scratch_stop_bytes'],'sampled host/scratch reserve failed')
+    need(r['sampled_group_RSS_not_exact_peak']is True,'sampled RSS mislabeled exact')
+    inventory=strict(Path(p['inventory']));need(inventory['portable_inputs_sha256']==PINS['evidence/FINAL_FAP_SOURCE_COLD_INPUTS.json']and inventory['portable_controller_sha256']==PINS['reproduce_final_fap_source.py'],'portable inventory lineage')
+    need(len(inventory['full_dependency_cone'])==681,'inventory scope changed')
+    context=strict(Path(p['context']));need(sha(Path(p['context']))==p['context_sha256']==CONTEXT_SHA,'approved pinned context association')
+    firstRow=p['source_rows'][0];logicalRun=Path(firstRow['snapshot']).parents[len(firstRow['module'].split('.'))-1].parent
+    expectedDriver=['python3',str(HERE/'reproduce_final_fap_source.py'),'--context',p['context'],'--run',str(logicalRun),'--scratch-root',p['scratch_root'],'--workers',str(p['workers']),'--worker-memory-gib',str(p['worker_AS_bytes']//2**30)]
+    need(execution['command']==expectedDriver,'actual supervised portable-driver command differs')
+    records={x['module']:x for x in r['commands']};need(len(r['commands'])==681 and set(records)==set(expected),'missing/duplicate actual compiler route')
+    repo=HERE.parents[2];peak=[];attempts=[]
+    for row in p['source_rows']:
+        n=row['module'];origin=(repo/expected[n]['path']).resolve()
+        need(origin.is_relative_to(repo)and str(origin)==row['origin']and row['source_sha256']==expected[n]['sha256'],'written source identity differs '+n)
+        need(row['imports']==imports(origin),'actual import inventory differs '+n)
+        q=strict(b/(n+'.COMPILED.json'));attempt=strict(b/(n+'.ATTEMPT.json'))
+        need(q==records[n]and {k:v for k,v in q.items()if k!='object_sha256'}==attempt,'compiler/attempt/final receipt association '+n)
+        need(q['exitcode']==0 and positive(q['seconds']),'failed actual compiler '+n)
+        logical=Path(row['snapshot']).parents[len(n.split('.'))-1].parent
+        expectedCommand=['/usr/bin/time','-v','-o',str(logical/'logs'/(n+'.time')),'prlimit','--as='+str(p['worker_AS_bytes']),'--stack='+str(256*2**20),'--',context['compiler'],'-j1','--root='+str(logical/'source'),'-o',str(logical/'objects'/(n.replace('.','/')+'.olean')),row['snapshot']]
+        need(q['command']==expectedCommand,'actual compiler flags/source/cache context differs '+n)
+        timing=(b/'logs'/(n+'.time')).read_text();rss=re.findall(r'^\s*Maximum resident set size \(kbytes\):\s*(\d+)\s*$',timing,re.M);exitStatus=re.findall(r'^\s*Exit status:\s*(-?\d+)\s*$',timing,re.M)
+        need(len(rss)==1 and len(exitStatus)==1 and exitStatus[0]=='0'and 'Command terminated by signal'not in timing,'compiler resource completion '+n);peak.append(int(rss[0])*1024)
+        attempts.append(n)
+    need(r['peak_compiler_child_RSS_bytes']==max(peak),'actual compiler RSS aggregate differs')
+    samples=strict(b/'SAMPLED_RESOURCES.json');need(samples['sampled_not_exact_peak']is True and samples['samples'],'missing sampled resource evidence')
+    ss=samples['samples'];need(r['sampled_group_RSS_max_bytes']==max(x['RSS_bytes']for x in ss)and r['minimum_MemAvailable_bytes']==min(x['MemAvailable_bytes']for x in ss)and r['campaign_scratch_max_sampled_bytes']==max(x['campaign_scratch_bytes']for x in ss),'sampled resource summary association')
+    for name,digest in C_PINS.items():need(sha(HERE/'fft'/name)==digest,'actual preserved C differs '+name)
+    os.environ['GIT_OPTIONAL_LOCKS']='0'
+    need(core.verify(b)==681,'base strict source-cold validation scope differs')
+    finalAudit=(b/'logs/FFTFapMainAudit.stdout').read_text();axes=re.findall(r'^FAP_FULL_MAIN_ANT_AUDIT_ROOT (\S+) axioms=\[([^\]]*)\] closure=(\d+)$',finalAudit,re.M)
+    need([x[0]for x in axes]==['RH080Next.FFTPV.FapMain.source_fap_'+x+'_full'for x in ['08','074','075']],'wrong actual full-main ANT root population')
+    for _,axioms,_ in axes:need({x.strip()for x in axioms.split(',')if x.strip()}<=ALLOWED,'new final ANT axiom')
+    for path,digest in frozen.items():need(sha(Path(path))==digest,'completion evidence changed during acceptance')
+    result=dict(status='PASS_INDEPENDENT_COMPLETE_FINITE_FAP_MAIN_ANT_681_SOURCE_COLD',run=str(b),modules=681,source_cold=True,application_object_fallback=False,literal_N17_FFT_recompiled=True,final_ANT_roots=3,model='selected exact C source/grammar/operational main/logical stdio; generic compiler/runtime/flush/OS/hardware contracts remain',actual_owned_memory_events_delta=delta,OOM_events_inferred_from_success=False,supervisor_sha256=sha(a.supervisor),result_sha256=sha(b/'RESULT.json'),plan_sha256=sha(b/'PLAN.json'),validator_sha256=sha(Path(__file__)),reviewed_source_pins=PINS,source_first_scope='actual main+all norm failure choices+real arithmetic+postnorm+all3 original finite ANT conclusions; no N24 W4 claim')
+    atomic(a.output,result);print(json.dumps(dict(status=result['status'],modules=681,actual_OOM_delta=delta,receipt=str(a.output),sha256=sha(a.output))))
+if __name__=='__main__':main()

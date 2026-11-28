@@ -1,0 +1,455 @@
+{
+  "status": "PASS_NATIVE_QUAD_CORROBORATION_AND_WRONG_SOURCE_CONTROLS_ONLY",
+  "source_first_PV_complete": false,
+  "proof": false,
+  "seed": 8429741,
+  "rows": [
+    {
+      "formal_source": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FFTSource.lean",
+      "formal_sha256": "004dd5e296cdad3ef9d94446ea1edb2ec8880ac61613acbe9aaecaddb8db1cfb",
+      "concrete_source": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/fft/w4_fft.c",
+      "source_sha256": "c0f4210a608ef7902848e1a26700f2be49ff2cd93d7080c4058b1fd7679a5243",
+      "input": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/WindowData.lean",
+      "input_sha256": "07d286c20038c870009729ecb426b9bbb4ff929dd9de5d6c96078d1e5db49725",
+      "count": 2520,
+      "grid": 16777216,
+      "Fap_extra100": false,
+      "raw_quad": "1157537949152935144487960",
+      "scaled_quad": "1157537949152935144487960",
+      "extracted_segment_sha256": "7a55b36a5cf706ba905aec628fed165a09c7903b323fa140a874194bbc388f60",
+      "segment_byte_start": 154033,
+      "segment_byte_end": 154347,
+      "command": [
+        "/usr/bin/cc",
+        "-std=c11",
+        "-O2",
+        "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/w4_fft.c.test.c",
+        "-o",
+        "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/w4_fft.c.test"
+      ],
+      "harness_sha256": "9bdf3f1ca94e7d9b23c32d57a020c44adc6acc4fa85eae9f57dc70f00d4e4ea1",
+      "executable_sha256": "9fea5bc0ad0ee22af00ec99466a092b814e790a4a0436e17c2a876c02d8f06b7",
+      "cases": 8,
+      "mutations": [
+        {
+          "name": "factor20-to21",
+          "original_fragment": "20ULL*j",
+          "mutated_fragment": "21ULL*j",
+          "source_sha256": "77c476eeefb4c0456454a7941fa58b47f3764f6528cdd7913aa5a6d45c530be5",
+          "harness_sha256": "364c71391cb58f563a8059212cb48597317bd0071825c962d6eedc467df1a3b5",
+          "command": [
+            "/usr/bin/cc",
+            "-std=c11",
+            "-O2",
+            "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/w4_fft.c.factor20-to21.test.c",
+            "-o",
+            "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/w4_fft.c.factor20-to21.test"
+          ],
+          "exitcode": 2,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "negative-branch-zero",
+          "original_fragment": "value=(10000000000000000ULL-e);",
+          "mutated_fragment": "value=0ULL;",
+          "source_sha256": "a939bd4d1b97295236fbe06f14f8a627d4ca3b1afe5adb2fec228be9f60a18b5",
+          "harness_sha256": "0dbcd5ffb96b453cb68e99a93a4bf29c5568ca15f2b9b459be19338494e20b6e",
+          "command": [
+            "/usr/bin/cc",
+            "-std=c11",
+            "-O2",
+            "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/w4_fft.c.negative-branch-zero.test.c",
+            "-o",
+            "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/w4_fft.c.negative-branch-zero.test"
+          ],
+          "exitcode": 2,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "add-only-one-word",
+          "original_fragment": "add_magnitude(quad,temp,6ULL)",
+          "mutated_fragment": "add_magnitude(quad,temp,1ULL)",
+          "source_sha256": "00117b6fc8259951c5a324d4037bafd8085610163a8fc44a56d8308c6b1ac34a",
+          "harness_sha256": "89d8890fda9f9b9263e7c5969d0e14684f9c337c5c41bde82d1b3507e3c596ad",
+          "command": [
+            "/usr/bin/cc",
+            "-std=c11",
+            "-O2",
+            "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/w4_fft.c.add-only-one-word.test.c",
+            "-o",
+            "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/w4_fft.c.add-only-one-word.test"
+          ],
+          "exitcode": 1,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "truncated-loop",
+          "original_fragment": "j<2520ULL",
+          "mutated_fragment": "j<2ULL",
+          "source_sha256": "a93bccdf4f9f6275aa189873d907eb83a0c367c38c05150dd8c2c2d68b6be8f7",
+          "harness_sha256": "4577278260df0a18d3bea4a40ace2564dd462d82719120830f50b0174fa3258b",
+          "command": [
+            "/usr/bin/cc",
+            "-std=c11",
+            "-O2",
+            "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/w4_fft.c.truncated-loop.test.c",
+            "-o",
+            "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/w4_fft.c.truncated-loop.test"
+          ],
+          "exitcode": 1,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "formal_source": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FapFFTSource.lean",
+      "formal_sha256": "e87e8de86df138023650b44ddce62322cd0d2d75614a8010f8d25e068e1069b1",
+      "concrete_source": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/fft/fap_fft.c",
+      "source_sha256": "acc73c04d46f3163da8183f89bef09c3c379e97a0b8708d6deb99df34bbe24b2",
+      "input": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FapData.lean",
+      "input_sha256": "3a58f1facab921d36eaa156038ebc557fcf5d92e2bf5c441551d9cdb673c8c29",
+      "count": 400,
+      "grid": 131072,
+      "Fap_extra100": true,
+      "raw_quad": "12681061983660556400000",
+      "scaled_quad": "1268106198366055640000000",
+      "extracted_segment_sha256": "31d6f3792502605ca8a267fb9fc9f0e2785a2f1234b9a87801bccd55d8ca014f",
+      "segment_byte_start": 30685,
+      "segment_byte_end": 31050,
+      "command": [
+        "/usr/bin/cc",
+        "-std=c11",
+        "-O2",
+        "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/fap_fft.c.test.c",
+        "-o",
+        "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/fap_fft.c.test"
+      ],
+      "harness_sha256": "6bd37156ecf135fdb7de166e95d9db150d3a045452da846e836a2a1bc8b34917",
+      "executable_sha256": "541e1edc32e1d1b6ba42dbd7cdef8dbda8eac2ca893a9dc7dbc6b89ba93700c3",
+      "cases": 8,
+      "mutations": [
+        {
+          "name": "factor20-to21",
+          "original_fragment": "20ULL*j",
+          "mutated_fragment": "21ULL*j",
+          "source_sha256": "6dd8c8374176acd2082248f2141ff9ff96c1ea9536864492901a91f541bd88a4",
+          "harness_sha256": "05bcad80137a9bcf37f8645e991be29742488fd759a84e45d737584a58c0e0af",
+          "command": [
+            "/usr/bin/cc",
+            "-std=c11",
+            "-O2",
+            "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/fap_fft.c.factor20-to21.test.c",
+            "-o",
+            "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/fap_fft.c.factor20-to21.test"
+          ],
+          "exitcode": 2,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "negative-branch-zero",
+          "original_fragment": "value=(10000000000000000ULL-e);",
+          "mutated_fragment": "value=0ULL;",
+          "source_sha256": "275e5da1c6c94f8d1c0f9654265f01eb12f7955e700fb20f7de5ec11aa16707e",
+          "harness_sha256": "7ef0ba9d7de49d7a3bd6e8fa1789ebd1f0526760d0480c5360f6ea18daae1492",
+          "command": [
+            "/usr/bin/cc",
+            "-std=c11",
+            "-O2",
+            "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/fap_fft.c.negative-branch-zero.test.c",
+            "-o",
+            "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/fap_fft.c.negative-branch-zero.test"
+          ],
+          "exitcode": 2,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "add-only-one-word",
+          "original_fragment": "add_magnitude(quad,temp,6ULL)",
+          "mutated_fragment": "add_magnitude(quad,temp,1ULL)",
+          "source_sha256": "eb5912d161ee3c2a66d68c21f28218cebb57a11cf4828ac1bc52cf378f0adbc9",
+          "harness_sha256": "356dcb28f62c7e19d2fe23a1f9094eefea2b19c9584f08b4c15c85bc9e02ac4b",
+          "command": [
+            "/usr/bin/cc",
+            "-std=c11",
+            "-O2",
+            "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/fap_fft.c.add-only-one-word.test.c",
+            "-o",
+            "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/fap_fft.c.add-only-one-word.test"
+          ],
+          "exitcode": 1,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "truncated-loop",
+          "original_fragment": "j<400ULL",
+          "mutated_fragment": "j<2ULL",
+          "source_sha256": "8c0e9fdfbc2091b45885124e6931568a84d50a81b70b8f777124ae47663e87e0",
+          "harness_sha256": "a874b50fb0bd6eff92a678fdfcc1faaee9dbe719c7968711b3d4cdbf1215558d",
+          "command": [
+            "/usr/bin/cc",
+            "-std=c11",
+            "-O2",
+            "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/fap_fft.c.truncated-loop.test.c",
+            "-o",
+            "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/fap_fft.c.truncated-loop.test"
+          ],
+          "exitcode": 1,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "Fap-scale100-to99",
+          "original_fragment": "multiply_small(quad,6ULL,100ULL)",
+          "mutated_fragment": "multiply_small(quad,6ULL,99ULL)",
+          "source_sha256": "38e70236a57babdea8a6d0d07943719b2b4aa761ad17e3c500a4b1bcdeb53f3c",
+          "harness_sha256": "530c28d8c84c4ef68042b6709bae2292f526f5d5a42852624bc4b33ce5c58459",
+          "command": [
+            "/usr/bin/cc",
+            "-std=c11",
+            "-O2",
+            "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/fap_fft.c.Fap-scale100-to99.test.c",
+            "-o",
+            "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/fap_fft.c.Fap-scale100-to99.test"
+          ],
+          "exitcode": 2,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "formal_source": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FFTRecursiveSource.lean",
+      "formal_sha256": "eb415925d98965a3cec2f6b45972cacb80b3ad7675b8e5d35f75d70796f48308",
+      "concrete_source": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/fft/w4_fft_recursive.c",
+      "source_sha256": "0c9e29db9bbfacd8ed049dc8e4b2a2f18d8ae146c1d0e4dd47a93cd89b80e22b",
+      "input": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/WindowData.lean",
+      "input_sha256": "07d286c20038c870009729ecb426b9bbb4ff929dd9de5d6c96078d1e5db49725",
+      "count": 2520,
+      "grid": 16777216,
+      "Fap_extra100": false,
+      "raw_quad": "1157537949152935144487960",
+      "scaled_quad": "1157537949152935144487960",
+      "extracted_segment_sha256": "7a55b36a5cf706ba905aec628fed165a09c7903b323fa140a874194bbc388f60",
+      "segment_byte_start": 154453,
+      "segment_byte_end": 154767,
+      "command": [
+        "/usr/bin/cc",
+        "-std=c11",
+        "-O2",
+        "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/w4_fft_recursive.c.test.c",
+        "-o",
+        "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/w4_fft_recursive.c.test"
+      ],
+      "harness_sha256": "c6be99c122cf4dc49f1fca73f57ca64f310289e5e30d714c88e7ac061a5b8487",
+      "executable_sha256": "0ef4e19a2ccd05d2c573b161b036bf8c9fde14c949b5f79caf88f031d90031fc",
+      "cases": 8,
+      "mutations": [
+        {
+          "name": "factor20-to21",
+          "original_fragment": "20ULL*j",
+          "mutated_fragment": "21ULL*j",
+          "source_sha256": "b75b664da911998d561b4714292e54db406223b3fff79866b222b62f597acca6",
+          "harness_sha256": "334317a96bce8e887f195017c403784a20b213887ac5a73576f4e99f2752c2ed",
+          "command": [
+            "/usr/bin/cc",
+            "-std=c11",
+            "-O2",
+            "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/w4_fft_recursive.c.factor20-to21.test.c",
+            "-o",
+            "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/w4_fft_recursive.c.factor20-to21.test"
+          ],
+          "exitcode": 2,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "negative-branch-zero",
+          "original_fragment": "value=(10000000000000000ULL-e);",
+          "mutated_fragment": "value=0ULL;",
+          "source_sha256": "87fd55aecaa64036efe88c762c1c670c7036e60b7e0a09899c1462ceceff363b",
+          "harness_sha256": "d666e7b14902897f40c487d7dba5cba3e193852425609df9bcbd39bf7a67a550",
+          "command": [
+            "/usr/bin/cc",
+            "-std=c11",
+            "-O2",
+            "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/w4_fft_recursive.c.negative-branch-zero.test.c",
+            "-o",
+            "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/w4_fft_recursive.c.negative-branch-zero.test"
+          ],
+          "exitcode": 2,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "add-only-one-word",
+          "original_fragment": "add_magnitude(quad,temp,6ULL)",
+          "mutated_fragment": "add_magnitude(quad,temp,1ULL)",
+          "source_sha256": "4c872cd5f675c5c79902270aca0a7e12c64c066828a18f08ee0d8b94929b056a",
+          "harness_sha256": "f1f8202f9c4f67777a0608671226649404237e16608b101c0cf5fae3ecb125c2",
+          "command": [
+            "/usr/bin/cc",
+            "-std=c11",
+            "-O2",
+            "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/w4_fft_recursive.c.add-only-one-word.test.c",
+            "-o",
+            "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/w4_fft_recursive.c.add-only-one-word.test"
+          ],
+          "exitcode": 1,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "truncated-loop",
+          "original_fragment": "j<2520ULL",
+          "mutated_fragment": "j<2ULL",
+          "source_sha256": "964aeb2e9a7f76a333a8dcf088cd89be14faf4b38beaf5f4f90ffdd6eb58c8b8",
+          "harness_sha256": "184dcd8407ec22beb1c6b862d5dee00a93dbfc8aa7ace7aa4747b71c79d01ad7",
+          "command": [
+            "/usr/bin/cc",
+            "-std=c11",
+            "-O2",
+            "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/w4_fft_recursive.c.truncated-loop.test.c",
+            "-o",
+            "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/w4_fft_recursive.c.truncated-loop.test"
+          ],
+          "exitcode": 1,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "formal_source": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FapFFTRecursiveSource.lean",
+      "formal_sha256": "14f6dee42ebb93656248642af8be87eb8902d5c1dfa7b950ed74fabed64e4170",
+      "concrete_source": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/fft/fap_fft_recursive.c",
+      "source_sha256": "c1b958953998c2b655a40b3e25689a33c28d36ab2d145fdb22547a47ff5aa558",
+      "input": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FapData.lean",
+      "input_sha256": "3a58f1facab921d36eaa156038ebc557fcf5d92e2bf5c441551d9cdb673c8c29",
+      "count": 400,
+      "grid": 131072,
+      "Fap_extra100": true,
+      "raw_quad": "12681061983660556400000",
+      "scaled_quad": "1268106198366055640000000",
+      "extracted_segment_sha256": "31d6f3792502605ca8a267fb9fc9f0e2785a2f1234b9a87801bccd55d8ca014f",
+      "segment_byte_start": 31105,
+      "segment_byte_end": 31470,
+      "command": [
+        "/usr/bin/cc",
+        "-std=c11",
+        "-O2",
+        "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/fap_fft_recursive.c.test.c",
+        "-o",
+        "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/fap_fft_recursive.c.test"
+      ],
+      "harness_sha256": "ae09d72e1136a0459b572ce2c7d9de11ec88ca8ca7f3eb3747fc1393419d9132",
+      "executable_sha256": "9827ca9c202cbb48d3a8f163b0365554018c7fc6eca99fb187853d6bc52a2cbd",
+      "cases": 8,
+      "mutations": [
+        {
+          "name": "factor20-to21",
+          "original_fragment": "20ULL*j",
+          "mutated_fragment": "21ULL*j",
+          "source_sha256": "41189821d03389c4f4ae8226915fd0963ecead0b446ab988b67c8430cc276366",
+          "harness_sha256": "09131eb6fffee3c6603da48ecd58c6f0be8a4b0abcd67a0271762f1025caa927",
+          "command": [
+            "/usr/bin/cc",
+            "-std=c11",
+            "-O2",
+            "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/fap_fft_recursive.c.factor20-to21.test.c",
+            "-o",
+            "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/fap_fft_recursive.c.factor20-to21.test"
+          ],
+          "exitcode": 2,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "negative-branch-zero",
+          "original_fragment": "value=(10000000000000000ULL-e);",
+          "mutated_fragment": "value=0ULL;",
+          "source_sha256": "771842751c64f17116baf66ef795981e3436fdbc71f8c1b49d39fb6792ec4367",
+          "harness_sha256": "4882e0ba4e6ab89a3269467143added0fe812bc9fdd027f0e0de3fbc83ffcebc",
+          "command": [
+            "/usr/bin/cc",
+            "-std=c11",
+            "-O2",
+            "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/fap_fft_recursive.c.negative-branch-zero.test.c",
+            "-o",
+            "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/fap_fft_recursive.c.negative-branch-zero.test"
+          ],
+          "exitcode": 2,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "add-only-one-word",
+          "original_fragment": "add_magnitude(quad,temp,6ULL)",
+          "mutated_fragment": "add_magnitude(quad,temp,1ULL)",
+          "source_sha256": "a5df7ba1d52ba38b7cad2a99170f423d6a8f232ca73e0aaa04a5b3caf2d80c37",
+          "harness_sha256": "d5a5249910560c36ab1c7855f55b42e7208978392f7f3294c3f79fe9925252a7",
+          "command": [
+            "/usr/bin/cc",
+            "-std=c11",
+            "-O2",
+            "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/fap_fft_recursive.c.add-only-one-word.test.c",
+            "-o",
+            "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/fap_fft_recursive.c.add-only-one-word.test"
+          ],
+          "exitcode": 1,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "truncated-loop",
+          "original_fragment": "j<400ULL",
+          "mutated_fragment": "j<2ULL",
+          "source_sha256": "293e333efb5d5b70c1ab800af177dcec8fe7383a9c5c71c34fc7ba15d3df4a81",
+          "harness_sha256": "fc1c0208a61105d457dfc5e73b2150040cb06ee8e49aa27c0c3f003f2f172576",
+          "command": [
+            "/usr/bin/cc",
+            "-std=c11",
+            "-O2",
+            "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/fap_fft_recursive.c.truncated-loop.test.c",
+            "-o",
+            "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/fap_fft_recursive.c.truncated-loop.test"
+          ],
+          "exitcode": 1,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "Fap-scale100-to99",
+          "original_fragment": "multiply_small(quad,6ULL,100ULL)",
+          "mutated_fragment": "multiply_small(quad,6ULL,99ULL)",
+          "source_sha256": "aa6572ecef9f157c4f932d4cc01c8894da379294f4176f2798b6c36e4ba32ffd",
+          "harness_sha256": "b22f5e21de8d0b840dbe1181746b3408b36603179a7fb3ecdce7bd75c76b0f12",
+          "command": [
+            "/usr/bin/cc",
+            "-std=c11",
+            "-O2",
+            "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/fap_fft_recursive.c.Fap-scale100-to99.test.c",
+            "-o",
+            "/data/ivy-rh080-next-20261125/explicit-lane/quad-native-v1-OO/fap_fft_recursive.c.Fap-scale100-to99.test"
+          ],
+          "exitcode": 2,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    }
+  ],
+  "script_sha256": "3e47a6596a2c5b306897435657d9aa4822f8087143c2ed2e910f53e54d3bc03a",
+  "python": "3.11.14 (main, Jan 14 2026, 19:35:32) [Clang 21.1.4 ]",
+  "python_optimization": 2,
+  "compiler": "/usr/bin/cc",
+  "compiler_sha256": "821af3c74506283c179ca413bb33e6b528805a4dd8a5c09df125e5ad560a9e89",
+  "compiler_version": "cc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0\nCopyright (C) 2021 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "seconds": 22.64627061225474
+}

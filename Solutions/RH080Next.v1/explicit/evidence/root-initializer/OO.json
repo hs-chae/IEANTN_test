@@ -1,0 +1,485 @@
+{
+  "status": "PASS_NATIVE_ROOT_CORROBORATION_AND_WRONG_SOURCE_CONTROLS_ONLY",
+  "source_first_PV_complete": false,
+  "proof": false,
+  "seed": 8433671,
+  "cases": [
+    {
+      "n": 131072,
+      "work": 0,
+      "root": 128,
+      "repeat": 0
+    },
+    {
+      "n": 131072,
+      "work": 0,
+      "root": 128,
+      "repeat": 1
+    },
+    {
+      "n": 131072,
+      "work": 64,
+      "root": 0,
+      "repeat": 0
+    },
+    {
+      "n": 131072,
+      "work": 64,
+      "root": 0,
+      "repeat": 1
+    },
+    {
+      "n": 131072,
+      "work": 400,
+      "root": 16,
+      "repeat": 0
+    },
+    {
+      "n": 131072,
+      "work": 400,
+      "root": 16,
+      "repeat": 1
+    },
+    {
+      "n": 131072,
+      "work": 1,
+      "root": 100,
+      "repeat": 0
+    },
+    {
+      "n": 131072,
+      "work": 1,
+      "root": 100,
+      "repeat": 1
+    },
+    {
+      "n": 16777216,
+      "work": 0,
+      "root": 128,
+      "repeat": 0
+    },
+    {
+      "n": 16777216,
+      "work": 0,
+      "root": 128,
+      "repeat": 1
+    },
+    {
+      "n": 16777216,
+      "work": 64,
+      "root": 0,
+      "repeat": 0
+    },
+    {
+      "n": 16777216,
+      "work": 64,
+      "root": 0,
+      "repeat": 1
+    },
+    {
+      "n": 16777216,
+      "work": 400,
+      "root": 16,
+      "repeat": 0
+    },
+    {
+      "n": 16777216,
+      "work": 400,
+      "root": 16,
+      "repeat": 1
+    },
+    {
+      "n": 16777216,
+      "work": 1,
+      "root": 100,
+      "repeat": 0
+    },
+    {
+      "n": 16777216,
+      "work": 1,
+      "root": 100,
+      "repeat": 1
+    }
+  ],
+  "rows": [
+    {
+      "formal_source": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FFTSource.lean",
+      "formal_sha256": "004dd5e296cdad3ef9d94446ea1edb2ec8880ac61613acbe9aaecaddb8db1cfb",
+      "concrete_source": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/fft/w4_fft.c",
+      "source_sha256": "c0f4210a608ef7902848e1a26700f2be49ff2cd93d7080c4058b1fd7679a5243",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/w4_fft.c",
+      "command": [
+        "/usr/bin/cc",
+        "-std=c11",
+        "-O2",
+        "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/w4_fft.c.test.c",
+        "-o",
+        "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/w4_fft.c.test"
+      ],
+      "harness_sha256": "5fa96142c04809ce0fd0f7427c47e772d976fa4adac7dd127360c0467153621e",
+      "executable_sha256": "20dbcd17c9475fc46ac7500f92edd5b7d3a83aab6b02ec14b9d9d5e902a91689",
+      "output_sha256": "96777926a478bc0ffaed237658f41f25a189a637d9b6ee16bc5ae40ff46d0b06",
+      "cases": 16,
+      "mutations": [
+        {
+          "name": "pi-high-limb",
+          "original_fragment": "work[4ULL]=3ULL;",
+          "mutated_fragment": "work[4ULL]=2ULL;",
+          "source_sha256": "28999b92e073dddfe6470e52c4fa63b58e723fc776029befc81ec2429ccf5b0a",
+          "harness_sha256": "79f05f9824c2e7315a0d4b39480ce1178ddf0bdadd1d07f5cd37533922758c67",
+          "command": [
+            "/usr/bin/cc",
+            "-std=c11",
+            "-O2",
+            "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/w4_fft.c.pi-high-limb.test.c",
+            "-o",
+            "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/w4_fft.c.pi-high-limb.test"
+          ],
+          "exitcode": 2,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "root-divisor",
+          "original_fragment": "divide_small(work,5ULL,n,0ULL);",
+          "mutated_fragment": "divide_small(work,5ULL,(n*2ULL),0ULL);",
+          "source_sha256": "285f50bb5995ddb5af820fa8d796ffee996b8ced3fec9a58959c354bc9ecbda8",
+          "harness_sha256": "7ceeccd993733d2cdef9fe7698b9586f3525fb5c0ae3a0de672359a064e96958",
+          "command": [
+            "/usr/bin/cc",
+            "-std=c11",
+            "-O2",
+            "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/w4_fft.c.root-divisor.test.c",
+            "-o",
+            "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/w4_fft.c.root-divisor.test"
+          ],
+          "exitcode": 2,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "imaginary-sign",
+          "original_fragment": "root[11ULL]=1ULL;canonical_sign",
+          "mutated_fragment": "root[11ULL]=0ULL;canonical_sign",
+          "source_sha256": "cd1932d993668da8ede0bb3eca34a915d1956581c728c30a347481f3a054624d",
+          "harness_sha256": "ddb4099ffcbb79fed7c46cc7ce30ad536bc4645a79fa38b67be8ec831bea53e5",
+          "command": [
+            "/usr/bin/cc",
+            "-std=c11",
+            "-O2",
+            "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/w4_fft.c.imaginary-sign.test.c",
+            "-o",
+            "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/w4_fft.c.imaginary-sign.test"
+          ],
+          "exitcode": 13,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "cosine-initialization",
+          "original_fragment": "work[16ULL]=1ULL;",
+          "mutated_fragment": "work[16ULL]=2ULL;",
+          "source_sha256": "86f0a2996c5c8e6f12bdd95d37353b3824919f51184463ecbecac1b51c2ff70d",
+          "harness_sha256": "ddb1d90cd33dd1e5e2d08da5c0d6faa52781803f48ba6c8b92d00611b981e4e9",
+          "command": [
+            "/usr/bin/cc",
+            "-std=c11",
+            "-O2",
+            "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/w4_fft.c.cosine-initialization.test.c",
+            "-o",
+            "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/w4_fft.c.cosine-initialization.test"
+          ],
+          "exitcode": 2,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "formal_source": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FapFFTSource.lean",
+      "formal_sha256": "e87e8de86df138023650b44ddce62322cd0d2d75614a8010f8d25e068e1069b1",
+      "concrete_source": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/fft/fap_fft.c",
+      "source_sha256": "acc73c04d46f3163da8183f89bef09c3c379e97a0b8708d6deb99df34bbe24b2",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/fap_fft.c",
+      "command": [
+        "/usr/bin/cc",
+        "-std=c11",
+        "-O2",
+        "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/fap_fft.c.test.c",
+        "-o",
+        "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/fap_fft.c.test"
+      ],
+      "harness_sha256": "cc86f3fa42650f96b7841a00c5b30e9355402aa8054a90f1683921988c727c37",
+      "executable_sha256": "bdb2d9ef7fcd8a38fa9458894ca25e961e1651558b24fb6f5bf807da52ba3d7c",
+      "output_sha256": "96777926a478bc0ffaed237658f41f25a189a637d9b6ee16bc5ae40ff46d0b06",
+      "cases": 16,
+      "mutations": [
+        {
+          "name": "pi-high-limb",
+          "original_fragment": "work[4ULL]=3ULL;",
+          "mutated_fragment": "work[4ULL]=2ULL;",
+          "source_sha256": "80beca10652eba10e348ce51c2b3c1270b505988279868197fb47ce377a22901",
+          "harness_sha256": "acf67d8e945a26ee26e3e4f01cb593a6527cb6b9d06a373e95cc8f6dc13272f7",
+          "command": [
+            "/usr/bin/cc",
+            "-std=c11",
+            "-O2",
+            "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/fap_fft.c.pi-high-limb.test.c",
+            "-o",
+            "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/fap_fft.c.pi-high-limb.test"
+          ],
+          "exitcode": 2,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "root-divisor",
+          "original_fragment": "divide_small(work,5ULL,n,0ULL);",
+          "mutated_fragment": "divide_small(work,5ULL,(n*2ULL),0ULL);",
+          "source_sha256": "5fc186ca9b94349d02fa99122bde5974a8609dd429426506996ed2992f727240",
+          "harness_sha256": "ca14322591b79e28211c0d35e5966d9e82e9826ab72b815c670a24e7513410f0",
+          "command": [
+            "/usr/bin/cc",
+            "-std=c11",
+            "-O2",
+            "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/fap_fft.c.root-divisor.test.c",
+            "-o",
+            "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/fap_fft.c.root-divisor.test"
+          ],
+          "exitcode": 2,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "imaginary-sign",
+          "original_fragment": "root[11ULL]=1ULL;canonical_sign",
+          "mutated_fragment": "root[11ULL]=0ULL;canonical_sign",
+          "source_sha256": "0335cf499e4e14a5b16c35d21999bec4caba48c101c8a02d2fd2bd64958b0964",
+          "harness_sha256": "52d1c4fd33d6ef02ad319a1a59bf4cd4252331a2d277fda35b3aab0205eb159a",
+          "command": [
+            "/usr/bin/cc",
+            "-std=c11",
+            "-O2",
+            "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/fap_fft.c.imaginary-sign.test.c",
+            "-o",
+            "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/fap_fft.c.imaginary-sign.test"
+          ],
+          "exitcode": 13,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "cosine-initialization",
+          "original_fragment": "work[16ULL]=1ULL;",
+          "mutated_fragment": "work[16ULL]=2ULL;",
+          "source_sha256": "21aab9fb12ec5052ead7c3658a3a3577676263fba4d098393b4c69c0c572f137",
+          "harness_sha256": "66cedfd7fa8accef025aaf2fc662531df1cbf88bed56fae89d7efa68f264f378",
+          "command": [
+            "/usr/bin/cc",
+            "-std=c11",
+            "-O2",
+            "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/fap_fft.c.cosine-initialization.test.c",
+            "-o",
+            "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/fap_fft.c.cosine-initialization.test"
+          ],
+          "exitcode": 2,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "formal_source": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FFTRecursiveSource.lean",
+      "formal_sha256": "eb415925d98965a3cec2f6b45972cacb80b3ad7675b8e5d35f75d70796f48308",
+      "concrete_source": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/fft/w4_fft_recursive.c",
+      "source_sha256": "0c9e29db9bbfacd8ed049dc8e4b2a2f18d8ae146c1d0e4dd47a93cd89b80e22b",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/w4_fft_recursive.c",
+      "command": [
+        "/usr/bin/cc",
+        "-std=c11",
+        "-O2",
+        "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/w4_fft_recursive.c.test.c",
+        "-o",
+        "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/w4_fft_recursive.c.test"
+      ],
+      "harness_sha256": "e81d4b7711e105cc4bb3f0eace059d80049634cdc6ecccebcea603afe7117996",
+      "executable_sha256": "63c24b4451fb6620b89c90e313d5c620b55d5a462a0d7965fb31e0746d173740",
+      "output_sha256": "96777926a478bc0ffaed237658f41f25a189a637d9b6ee16bc5ae40ff46d0b06",
+      "cases": 16,
+      "mutations": [
+        {
+          "name": "pi-high-limb",
+          "original_fragment": "work[4ULL]=3ULL;",
+          "mutated_fragment": "work[4ULL]=2ULL;",
+          "source_sha256": "3316b1a6677eee21d8428d4191192752f5e7d974e33b852be79a7115da23c579",
+          "harness_sha256": "ceadbe46c04686f48706f7ed09af1cc41493325b0c1684775d1d33ad05cb7563",
+          "command": [
+            "/usr/bin/cc",
+            "-std=c11",
+            "-O2",
+            "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/w4_fft_recursive.c.pi-high-limb.test.c",
+            "-o",
+            "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/w4_fft_recursive.c.pi-high-limb.test"
+          ],
+          "exitcode": 2,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "root-divisor",
+          "original_fragment": "divide_small(work,5ULL,n,0ULL);",
+          "mutated_fragment": "divide_small(work,5ULL,(n*2ULL),0ULL);",
+          "source_sha256": "a73ba54b61bb549e8595ffd9fd8bf7ae55f7e015a8cea78cea5d4a4a8d748666",
+          "harness_sha256": "73e54da5a56658e71c7d8bd87faa743084a1e89b5d323c0403c161915bb4c266",
+          "command": [
+            "/usr/bin/cc",
+            "-std=c11",
+            "-O2",
+            "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/w4_fft_recursive.c.root-divisor.test.c",
+            "-o",
+            "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/w4_fft_recursive.c.root-divisor.test"
+          ],
+          "exitcode": 2,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "imaginary-sign",
+          "original_fragment": "root[11ULL]=1ULL;canonical_sign",
+          "mutated_fragment": "root[11ULL]=0ULL;canonical_sign",
+          "source_sha256": "5272cab022805fc91b610c453647ff74090ba80f343ffe1a44735a3a35e601d5",
+          "harness_sha256": "d14efd6e65fe8e4182fa221f1fc0a951746511c29f098f8298f2d7a945b7ff06",
+          "command": [
+            "/usr/bin/cc",
+            "-std=c11",
+            "-O2",
+            "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/w4_fft_recursive.c.imaginary-sign.test.c",
+            "-o",
+            "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/w4_fft_recursive.c.imaginary-sign.test"
+          ],
+          "exitcode": 13,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "cosine-initialization",
+          "original_fragment": "work[16ULL]=1ULL;",
+          "mutated_fragment": "work[16ULL]=2ULL;",
+          "source_sha256": "19e0f3f8cd03187898eaef58788c938f2d7a73700179045259161642ccaeaaab",
+          "harness_sha256": "6d758449915a0685c022fbfd0dd32bff91762a0681b6ffc6761366d872714bf3",
+          "command": [
+            "/usr/bin/cc",
+            "-std=c11",
+            "-O2",
+            "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/w4_fft_recursive.c.cosine-initialization.test.c",
+            "-o",
+            "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/w4_fft_recursive.c.cosine-initialization.test"
+          ],
+          "exitcode": 2,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "formal_source": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/lean/FapFFTRecursiveSource.lean",
+      "formal_sha256": "14f6dee42ebb93656248642af8be87eb8902d5c1dfa7b950ed74fabed64e4170",
+      "concrete_source": "/data/ivy-rh080-next-20261125/network/Solutions/RH080Next.v1/pv/fft/fap_fft_recursive.c",
+      "source_sha256": "c1b958953998c2b655a40b3e25689a33c28d36ab2d145fdb22547a47ff5aa558",
+      "snapshot": "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/fap_fft_recursive.c",
+      "command": [
+        "/usr/bin/cc",
+        "-std=c11",
+        "-O2",
+        "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/fap_fft_recursive.c.test.c",
+        "-o",
+        "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/fap_fft_recursive.c.test"
+      ],
+      "harness_sha256": "5d73ef2cf968d18df39f6e9923fb239c12422da7baf2cdeb03170964a43be2a0",
+      "executable_sha256": "58b4d302a45fa6ca92e017f5363de33186a2b8d2a1c8435fdbc507f5d2867cbb",
+      "output_sha256": "96777926a478bc0ffaed237658f41f25a189a637d9b6ee16bc5ae40ff46d0b06",
+      "cases": 16,
+      "mutations": [
+        {
+          "name": "pi-high-limb",
+          "original_fragment": "work[4ULL]=3ULL;",
+          "mutated_fragment": "work[4ULL]=2ULL;",
+          "source_sha256": "e9969563735884f37d0e52bc04968c42e7517512b66b54bbe4c041065f9df973",
+          "harness_sha256": "4506152aa366e4e4aaded8c7554f93679c06234a67bed845deb9ba87b8a658a9",
+          "command": [
+            "/usr/bin/cc",
+            "-std=c11",
+            "-O2",
+            "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/fap_fft_recursive.c.pi-high-limb.test.c",
+            "-o",
+            "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/fap_fft_recursive.c.pi-high-limb.test"
+          ],
+          "exitcode": 2,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "root-divisor",
+          "original_fragment": "divide_small(work,5ULL,n,0ULL);",
+          "mutated_fragment": "divide_small(work,5ULL,(n*2ULL),0ULL);",
+          "source_sha256": "b27091c43e8d00b3300950c1247c84ea5bde0ce6e5d6ab56562a6ac053956ddc",
+          "harness_sha256": "638a4719a253f446eaaa4317f43d7b1bf548161e8ee024710754dc9bd37e5cc3",
+          "command": [
+            "/usr/bin/cc",
+            "-std=c11",
+            "-O2",
+            "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/fap_fft_recursive.c.root-divisor.test.c",
+            "-o",
+            "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/fap_fft_recursive.c.root-divisor.test"
+          ],
+          "exitcode": 2,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "imaginary-sign",
+          "original_fragment": "root[11ULL]=1ULL;canonical_sign",
+          "mutated_fragment": "root[11ULL]=0ULL;canonical_sign",
+          "source_sha256": "f8e7ee1f379f58da93bd82eff71976ea25e371411c53061ff555637cc1e5762f",
+          "harness_sha256": "08a49bb0b5bd3a925b5ffdddb081c0a554ddfc0797d80458e6d7f105fd541733",
+          "command": [
+            "/usr/bin/cc",
+            "-std=c11",
+            "-O2",
+            "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/fap_fft_recursive.c.imaginary-sign.test.c",
+            "-o",
+            "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/fap_fft_recursive.c.imaginary-sign.test"
+          ],
+          "exitcode": 13,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "cosine-initialization",
+          "original_fragment": "work[16ULL]=1ULL;",
+          "mutated_fragment": "work[16ULL]=2ULL;",
+          "source_sha256": "d03e3a81a98c5d9b1d4b7431a23862d3d736c1a7cd22a76f689b3358c5123aa1",
+          "harness_sha256": "a9839b475c9e88508571daf1eb2bbd95218c56681dcb1f97bc0aeb0238ad57b0",
+          "command": [
+            "/usr/bin/cc",
+            "-std=c11",
+            "-O2",
+            "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/fap_fft_recursive.c.cosine-initialization.test.c",
+            "-o",
+            "/data/ivy-rh080-next-20261125/explicit-lane/root-native-v2-OO/fap_fft_recursive.c.cosine-initialization.test"
+          ],
+          "exitcode": 2,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    }
+  ],
+  "script_sha256": "ea2731b85bc3936bc219f5b452717a9d6863e4cf9e11f63bd2f4cc84ee391da2",
+  "python": "3.11.14 (main, Jan 14 2026, 19:35:32) [Clang 21.1.4 ]",
+  "python_optimization": 2,
+  "compiler": "/usr/bin/cc",
+  "compiler_sha256": "821af3c74506283c179ca413bb33e6b528805a4dd8a5c09df125e5ad560a9e89",
+  "compiler_version": "cc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0\nCopyright (C) 2021 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "seconds": 31.247641494497657
+}
