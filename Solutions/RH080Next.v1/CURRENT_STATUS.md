@@ -1,5 +1,14 @@
 # Current campaign status
 
+## Process-only memory-policy continuation —27November2026
+
+The first unlimited-virtual-AS attempt was deliberately stopped during sustained memory-management stalls after71min42s (1567.32s user,2734.28s system CPU,179939860KiB max RSS). Actual owned OOM/kill counters were0; no Final object or proof acceptance was produced. Its controller receipt143 is authoritative even though GNU time printed an exit-status0 field after signal termination. All1031 successful modules and every numerical source/input/checker/statement are preserved.
+
+A fresh source-identical attempt is validating the same prefix, with transparent huge pages disabled only in its own processes, verified CPU placement96–99 and unchanged physical300GiB/noSwap, virtualAS∞ and host/scratch reserves. The independent reader and final consumer build are acceptance-gated. No global prime-interval theorem,29canonical update or final report/bundle is newly accepted at this checkpoint. See `reproduction/PROCESS_RESOURCE_PROFILE.md`.
+
+A separate private proof-only S13 aggregation variant passed all18typed claims and the standard axiom union, but showed no performance improvement. It remains a supplemental negative result, not a replacement for the locked numerical algorithm.
+
+
 ## Resumed27November2026 — resource-only continuation active
 
 Finite681source-cold lineage and independent gates remain complete. The unchanged N24 candidate retains1031successfulmodules. A new continuation is validating those receipts before attempting the two remaining modules. Its physical300GiB/noSwap cgroup, separate RAM/disk admission and host/scratch reserves are unchanged; virtual address space is explicitly unlimited to avoid the previous nonphysical limit. Bounded source/CLI/negative controls pass. This is not a new global theorem acceptance.
